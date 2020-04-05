@@ -1,0 +1,4 @@
+node_modules/
+public/*
+!public/favicon.ico
+lib/

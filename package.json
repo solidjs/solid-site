@@ -1,0 +1,33 @@
+{
+  "name": "solid-site",
+  "description": "Solid's Website",
+  "version": "0.0.1",
+  "author": "Ryan Carniato",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryansolid/solid-site"
+  },
+  "scripts": {
+    "start": "rollup -c -w & serve",
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "solid-js": "0.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@rollup/plugin-commonjs": "11.0.2",
+    "@rollup/plugin-node-resolve": "7.1.1",
+    "babel-preset-solid": "^0.17.0",
+    "node-sass": "^4.13.1",
+    "rollup": "2.1.0",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-delete": "^1.2.0",
+    "rollup-plugin-execute": "1.1.1",
+    "rollup-plugin-postcss": "2.5.0",
+    "rollup-plugin-terser": "5.3.0",
+    "serve": "11.3.0",
+    "solid-ssr": "0.17.2"
+  }
+}
