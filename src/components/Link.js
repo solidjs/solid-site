@@ -1,10 +1,11 @@
+
 import { useContext } from "solid-js";
 import { RouterContext } from "../router";
 
-import styles from "./Link.scss";
+import "./Link.scss";
 
 const Link = (props) => {
-  const [, { setLocation }] = useContext(RouterContext);
+  const [, {setLocation}] = useContext(RouterContext);
   const navigate = (e) => {
     if (e) e.preventDefault();
     window.history.pushState("", "", `/${props.path}.html`);

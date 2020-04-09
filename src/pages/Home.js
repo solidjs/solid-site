@@ -1,10 +1,33 @@
+
+import global from "../components/App.scss"
 import styles from "./Home.scss"
 
 const Home = () => (
-  <>
-    <h1>Welcome to this Simple Routing Example</h1>
-    <p class={styles.important}>Click the links in the Navigation above to load different routes.</p>
-  </>
+  <section class={styles.wrap}>
+    <div class={styles.center}>
+      <img class={styles.logo} src="/assets/img/logo/without-wordmark/logo.svg" />
+      <div class="content">
+        <img class={styles.wordmark} src="/assets/img/logo/wordmark/logo.svg" />
+        <h1>Reactive JavaScript Framework</h1>
+        <p>
+          Solid is a declarative Javascript library for creating user interfaces.
+          It does not use a Virtual DOM. Instead it opts to compile its templates
+          down to real DOM nodes and wrap updates in fine grained reactions.
+        </p>
+        <b>
+          We're busy preparing for a website launch. Hold tight!
+        </b>
+        <br/>
+        <br/>
+        <a href="https://github.com/ryansolid/solid" class={`${global.button} ${styles.github}`}>Github</a>
+        <a href="https://github.com/ryansolid/solid" class={`${global.button} ${styles.slack}`}>Slack</a>
+      </div>
+    </div>
+    <div class={`${styles.block} ${styles.bottomLeft} ${styles.shadow}`}></div>
+    <div class={`${styles.block} ${styles.topRight} ${styles.shadow}`}></div>
+    <div class={`${styles.block} ${styles.upper} ${styles.shadow}`}></div>
+    <div class={`${styles.block} ${styles.lower} ${styles.shadow}`}></div>
+  </section>
 );
 
 export default Home;
