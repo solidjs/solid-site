@@ -24,6 +24,13 @@ function render(body, title) {
     </head>
     <body><div id="app">${body}</div></body>
     <script type="module" src="/index.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163238140-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-163238140-1');
+    </script>
   </html>`;
 }
 
