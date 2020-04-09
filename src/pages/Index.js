@@ -1,6 +1,6 @@
 
 import global from "../components/App.scss"
-import styles from "./Home.scss"
+import styles from "./Index.scss"
 
 const Home = () => (
   <section class={styles.wrap}>

@@ -4,7 +4,7 @@ import { RouteHOC, RouterContext } from "../router";
 
 import "./App.scss";
 
-const Home = lazy(() => import("../pages/Home"));
+const Index = lazy(() => import("../pages/Index"));
 const Profile = lazy(() => import("../pages/Profile"));
 const Settings = lazy(() => import("../pages/Settings"));
 
@@ -14,8 +14,8 @@ const App = RouteHOC(() => {
     <>
       <Suspense fallback="Loading...">
         <Switch>
-          <Match when={matches("home")}>
-            <Home />
+          <Match when={matches("index")}>
+            <Index />
           </Match>
           <Match when={matches("profile")}>
             <Profile />
