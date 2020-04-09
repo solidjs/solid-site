@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import del from "rollup-plugin-delete";
 import execute from "rollup-plugin-execute";
 import autoprefixer from "autoprefixer";
+import outputManifest from 'rollup-plugin-output-manifest';
 import { terser } from "rollup-plugin-terser";
 import livereload from "rollup-plugin-livereload";
 import copy from "rollup-plugin-copy-assets";
@@ -80,6 +81,26 @@ export default [
         assets: [
           "src/assets"
         ],
+      }),
+      outputManifest({
+        serialize: (manifest) => {
+          return JSON.stringify(
+            Object.assign({}, {
+              "background_color": "#ffffff",
+              "theme_color": "#ffffff",
+              "name": "SolidJS",
+              "short_name": "SolidJS",
+              "display": "standalone",
+              "icons": [
+                {
+                  "src": "/assets/favicon/favicon.png",
+                  "sizes": "320x320",
+                  "type": "image/png"
+                }
+              ]
+            }, manifest)
+          );
+        }
       }),
       production && terser()
     ],
