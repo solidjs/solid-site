@@ -58,6 +58,14 @@
   background-size: 40px 30px;
   background-position: 10px 40%;
 }
+.reddit {
+  background-image: url('/assets/img/reddit.svg');
+  background-repeat: no-repeat;
+  padding-left: 3rem !important;
+  background-size: 25px 30px;
+  margin-right: 0.5rem;
+  background-position: 10px 50%;
+}
 .wrap {
   overflow: hidden;
   display: flex;
@@ -72,7 +80,7 @@
     max-width: 759px;
     .logo {
       width: 30%;
-      margin: -275px 0px 0px 0px;
+      margin: -325px 0px 0px 0px;
     }
     .wordmark {
       display: block;

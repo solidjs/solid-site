@@ -20,7 +20,8 @@ const Home = () => (
         <br/>
         <br/>
         <a href="https://github.com/ryansolid/solid" class={`${global.button} ${styles.github}`}>Github</a>
-        <a href="https://github.com/ryansolid/solid" class={`${global.button} ${styles.slack}`}>Slack</a>
+        <a href="https://www.reddit.com/r/solidjs" class={`${global.button} ${styles.reddit}`}>Reddit</a>
+        <a href="https://solidjs.slack.com" class={`${global.button} ${styles.slack}`}>Slack</a>
       </div>
     </div>
     <div class={`${styles.block} ${styles.bottomLeft} ${styles.shadow}`}></div>
