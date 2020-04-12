@@ -2,7 +2,7 @@
 import global from "../components/App.scss"
 import styles from "./Index.scss"
 
-const Home = () => (
+const Index = () => (
   <section class={styles.wrap}>
     <div class={styles.center}>
       <img class={styles.logo} src="/assets/img/logo/without-wordmark/logo.svg" />
@@ -31,4 +31,4 @@ const Home = () => (
   </section>
 );
 
-export default Home;
+export default Index;

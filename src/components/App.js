@@ -10,23 +10,21 @@ const Settings = lazy(() => import("../pages/Settings"));
 
 const App = RouteHOC(() => {
   const [, { matches }] = useContext(RouterContext);
-  return (
-    <>
-      <Suspense fallback="Loading...">
-        <Switch>
-          <Match when={matches("index")}>
-            <Index />
-          </Match>
-          <Match when={matches("profile")}>
-            <Profile />
-          </Match>
-          <Match when={matches("settings")}>
-            <Settings />
-          </Match>
-        </Switch>
-      </Suspense>
-    </>
-  );
+  return <>
+    <Suspense fallback="Loading...">
+      <Switch>
+        <Match when={matches("index")}>
+          <Index />
+        </Match>
+        <Match when={matches("profile")}>
+          <Profile />
+        </Match>
+        <Match when={matches("settings")}>
+          <Settings />
+        </Match>
+      </Switch>
+    </Suspense>
+  </>;
 });
 
 export default App;
