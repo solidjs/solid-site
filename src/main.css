@@ -1,14 +1,5 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* body {
-  font-family: 'Gordita Regular', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-@font-face {
+/* @font-face {
   font-family: 'Gordita Regular';
   src:
     url('fonts/Gordita Regular.eot?#iefix') format('embedded-opentype'),
@@ -48,3 +39,7 @@
   font-style: normal;
   font-display: fallback;
 } */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
