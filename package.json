@@ -1,40 +1,95 @@
 {
-  "name": "solid-site",
-  "description": "Solid's Website",
-  "version": "0.0.1",
-  "author": "Ryan Carniato",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ryansolid/solid-site"
-  },
   "scripts": {
-    "start": "rollup -c -w & serve",
-    "build": "rollup -c"
+    "build": "run-s type:check clean rollup",
+    "clean": "rimraf dist",
+    "coverage": "jest --coverage",
+    "nollup": "cross-env NODE_ENV=development nollup -c --hot --content-base public",
+    "rollup": "cross-env NODE_ENV=production rollup -c",
+    "serve": "sirv dist",
+    "start": "run-p nollup type:watch",
+    "test": "jest --verbose",
+    "type:check": "tsc --noEmit",
+    "type:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
-    "solid-js": "0.17.2"
+    "@tailwindcss/typography": "^0.3.1",
+    "solid-app-router": "^0.0.16",
+    "solid-js": "^0.22.0",
+    "solid-repl": "^0.0.8",
+    "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
-    "@rollup/plugin-commonjs": "11.0.2",
-    "@rollup/plugin-node-resolve": "7.1.1",
-    "autoprefixer": "^9.7.6",
-    "babel-preset-solid": "^0.17.0",
-    "node-sass": "^4.13.1",
-    "normalize.css": "^8.0.1",
-    "postcss": "^7.0.27",
-    "rollup": "2.1.0",
-    "rollup-plugin-babel": "4.4.0",
-    "rollup-plugin-copy-assets": "^2.0.1",
-    "rollup-plugin-delete": "^1.2.0",
-    "rollup-plugin-execute": "1.1.1",
-    "rollup-plugin-livereload": "^1.1.0",
-    "rollup-plugin-output-manifest": "^1.0.2",
-    "rollup-plugin-postcss": "2.5.0",
-    "rollup-plugin-scss": "^2.1.0",
-    "rollup-plugin-terser": "5.3.0",
-    "serve": "11.3.0",
-    "solid-ssr": "0.17.2"
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "@rollup/plugin-url": "^5.0.1",
+    "@testing-library/dom": "^7.22.0",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@types/jest": "^26.0.9",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-solid": "^0.22.1",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-jest-dom": "^3.1.7",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-local": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-testing-library": "^3.6.0",
+    "jest": "^26.2.2",
+    "node-sass": "^4.14.1",
+    "nollup": "^0.13.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.10",
+    "postcss-font-base64": "^1.0.5",
+    "postcss-import": "^13.0.0",
+    "postcss-nested": "^5.0.1",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.23.1",
+    "rollup-plugin-hot-css": "0.4.0",
+    "rollup-plugin-static-files": "0.1.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "sirv-cli": "^1.0.5",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "babelConfig": true
+      }
+    },
+    "roots": [
+      "src"
+    ],
+    "preset": "ts-jest",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "assets",
+      ".css.d.ts"
+    ],
+    "setupFilesAfterEnv": [
+      "./jest.setup.ts"
+    ]
   }
 }

@@ -1,0 +1,50 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  font-family: 'Gordita Regular', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'Gordita Regular';
+  src:
+    url('fonts/Gordita Regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Gordita Regular.woff') format('woff'),
+    url('fonts/Gordita Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Gordita Thin';
+  src:
+    url('fonts/Gordita Thin.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Gordita Thin.woff') format('woff'),
+    url('fonts/Gordita Thin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: Gordita Regular;
+  src:
+    url('fonts/Gordita Medium.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Gordita Medium.woff') format('woff'),
+    url('fonts/Gordita Medium.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+@font-face {
+  font-family: Gordita Regular;
+  src:
+    url('fonts/Gordita Bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Gordita Bold.woff') format('woff'),
+    url('fonts/Gordita Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+} */

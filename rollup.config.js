@@ -1,108 +1,65 @@
 
-import nodeResolve from "@rollup/plugin-node-resolve";
-import common from "@rollup/plugin-commonjs";
-import babel from "rollup-plugin-babel";
-import postcss from 'rollup-plugin-postcss';
-import del from "rollup-plugin-delete";
-import execute from "rollup-plugin-execute";
-import autoprefixer from "autoprefixer";
-import outputManifest from 'rollup-plugin-output-manifest';
-import { terser } from "rollup-plugin-terser";
-import livereload from "rollup-plugin-livereload";
-import copy from "rollup-plugin-copy-assets";
-import path from 'path';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
+import url from '@rollup/plugin-url';
+import hotcss from 'rollup-plugin-hot-css';
+import static_files from 'rollup-plugin-static-files';
+import { terser } from 'rollup-plugin-terser';
+import postcss from 'postcss';
 
-const production = process.env.ROLLUP_WATCH !== 'true';
+const extensions =  ['.ts', '.tsx'];
+let config = {
+  input: './src/main.tsx',
+  output: {
+    dir: 'dist',
+    format: 'esm',
+    entryFileNames: '[name].[hash].js',
+    assetFileNames: '[name].[hash][extname]',
+  },
+  plugins: [
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
+    hotcss({
+      hot: process.env.NODE_ENV === 'development',
+      filename: 'styles.css',
+      loaders: ['css', postCSSLoader]
+    }),
+    resolve({ extensions, browser: true }),
+    babel({ extensions, babelHelpers: 'bundled' }),
+    url(),
+  ],
+};
 
-export default [
-  {
-    input: "src/server.js",
-    output: [
-      {
-        dir: "lib",
-        format: "cjs",
+if (process.env.NODE_ENV === 'production') {
+  config.plugins = config.plugins.concat([
+    static_files({
+      include: ['./public'],
+    }),
+    terser({
+      compress: {
+        global_defs: {
+          module: false,
+        },
       },
-    ],
-    external: ["solid-js", "solid-js/dom", "solid-ssr"],
-    plugins: [
-      del({ targets: "lib/*" }),
-      nodeResolve({ preferBuiltins: true }),
-      babel({
-        presets: [["solid", { generate: "ssr" }]],
-      }),
-      common(),
-      postcss({
-        modules: true,
-        extensions: ['.css', '.sass', '.scss'],
-        output: false,
-        extract: true,
-        plugins: [ autoprefixer ],
-        use: [
-          [
-            'sass', {
-              includePaths: [path.join(__dirname, 'scss')]
-            }
-          ]
-        ]
-      }),
-      execute("node export.js")
-    ],
-  },
-  {
-    input: "src/index.js",
-    output: [
-      {
-        dir: "public",
-        format: "esm",
-      },
-    ],
-    plugins: [
-      livereload(),
-      del({ targets: ["public/*", "!public/*.html", "!public/favicon.ico"] }),
-      nodeResolve(),
-      babel({
-        presets: [["solid", { generate: "hydrate" }]],
-      }),
-      postcss({
-        modules: true,
-        extensions: ['.css', '.sass', '.scss'],
-        output: false,
-        extract: true,
-        plugins: [ autoprefixer ],
-        use: [
-          [
-            'sass', {
-              includePaths: [path.join(__dirname, 'scss')]
-            }
-          ]
-        ]
-      }),
-      copy({
-        assets: [
-          "src/assets"
-        ],
-      }),
-      outputManifest({
-        serialize: (manifest) => {
-          return JSON.stringify(
-            Object.assign({}, {
-              "background_color": "#ffffff",
-              "theme_color": "#ffffff",
-              "name": "SolidJS",
-              "short_name": "SolidJS",
-              "display": "standalone",
-              "icons": [
-                {
-                  "src": "/assets/favicon/favicon.png",
-                  "sizes": "320x320",
-                  "type": "image/png"
-                }
-              ]
-            }, manifest)
-          );
-        }
-      }),
-      production && terser()
-    ],
-  },
-];
+    }),
+  ]);
+}
+
+function postCSSLoader (input, id) {
+  return postcss(
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('postcss-nested'),
+    require('autoprefixer'),
+    require('postcss-font-base64')
+  ).process(input.code, { from: undefined } ).then(res => {
+    return {
+      code: res.css,
+      map: res.map && res.map.toJSON(),
+    };
+  });
+}
+
+export default config;
