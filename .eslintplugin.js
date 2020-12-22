@@ -15,9 +15,9 @@ module.exports.rules = {
       docs: {
         description: 'Prevent variables used in JSX to be marked as unused',
         category: 'Best Practices',
-        recommended: true
+        recommended: true,
       },
-      schema: []
+      schema: [],
     },
     create(context) {
       return {
@@ -40,8 +40,8 @@ module.exports.rules = {
             return;
           }
           context.markVariableAsUsed(name);
-        }
+        },
       };
-    }
-  } 
+    },
+  },
 };

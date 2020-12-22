@@ -1,35 +1,20 @@
+import './assets/main.css';
 
 import { render } from 'solid-js/dom';
-// import { Router } from 'solid-app-router';
-import App from './components/App';
-import './main.css';
+import { Router } from 'solid-app-router';
 
-// Route configurations
-const routes = [
-  {
-    path: '/',
-    component: "pages/Index.js"
-  }
-];
+import { routes } from './routes';
+import { App } from './App';
 
-// Mount and render the root
-const root = document.querySelector('#app');
-if (root) {
-  document.body.appendChild(root);
-  render(
-    () => (
-      // <Router routes={routes}>
-        <App />
-      // </Router>
-    ),
-    root
-  );
-}
+const root = document.getElementById('app');
 
-export const moduleHotAccept = (mod: NodeModule): void => {
-  if (mod && mod.hot) {
-    mod.hot.accept(() => window.location.reload());
-  }
-};
+render(
+  () => (
+    <Router routes={routes}>
+      <App />
+    </Router>
+  ),
+  root!,
+);
 
-moduleHotAccept(module);
+if (module) module.hot.accept(() => window.location.reload());

@@ -1,11 +1,10 @@
-
 import { Component } from 'solid-js';
-import { Repl, ReplTab } from "solid-repl";
+import { Repl, ReplTab } from 'solid-repl';
 
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 
-const Index: Component = () => (
+const Home: Component = () => (
   <div class="flex flex-col">
     <div class="container mx-auto">
       <div class="flex content-end flex-wrap h-96 px-5">
@@ -35,27 +34,30 @@ const Index: Component = () => (
         <div class="px-10 py-10">
           <h2 class="text-4xl font-bold">A purely reactive library.</h2>
           <h2 class="text-3xl font-bold text-gray-300 mt-2">
-            Solid was designed from the ground up with a reactive core. It's influenced by 
-            reactive principles developed by previous libraries.
+            Solid was designed from the ground up with a reactive core. It's influenced by reactive
+            principles developed by previous libraries.
           </h2>
           <a
             target="_blank"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">7.3kb</strong>
             <span class="block text-sm">Minified + Gzipped</span>
           </a>
           <a
             target="_blank"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5">
+            class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">4.5kb+</strong>
             <span class="block text-sm">Github Stars</span>
           </a>
           <a
             target="_blank"
             href="https://github.com/ryansolid/solid/stargazers"
-            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5">
+            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">4.5kb+</strong>
             <span class="block text-sm">Github Stars</span>
           </a>
@@ -70,21 +72,24 @@ const Index: Component = () => (
           <a
             target="_blank"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">7.3kb</strong>
             <span class="block text-sm">Minified + Gzipped</span>
           </a>
           <a
             target="_blank"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5">
+            class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">4.5kb+</strong>
             <span class="block text-sm">Github Stars</span>
           </a>
           <a
             target="_blank"
             href="https://github.com/ryansolid/solid/stargazers"
-            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5">
+            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
+          >
             <strong class="font-semibold">4.5kb+</strong>
             <span class="block text-sm">Github Stars</span>
           </a>
@@ -94,26 +99,20 @@ const Index: Component = () => (
     <div class="container mx-auto mt-10 py-10">
       <div class="px-8">
         <h4 class="text-2xl font-bold">Give it a shot</h4>
-        <Repl
-          baseUrl="https://playground.solidjs.com/"
-          height={500}
-          isInteractive
-        >
+        <Repl height={500} isInteractive class="rounded-lg overflow-hidden shadow-2xl">
           <ReplTab name="main">
             {`
               import { render } from 'solid-js/web';
               import { App } from './app.tsx';
 
-              render(() => <h1>Hello world!!!</h1>, document.body);
+              render(() => <App />, document.getElementById('app'));
             `}
           </ReplTab>
-          <ReplTab name="app">
-            {`export const App = () => <h1>Hello world</h1>`}
-          </ReplTab>
+          <ReplTab name="app">{`export const App = () => <h1>Hello world</h1>`}</ReplTab>
         </Repl>
       </div>
     </div>
   </div>
 );
 
-export default Index;
+export default Home;

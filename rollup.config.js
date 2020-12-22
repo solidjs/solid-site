@@ -1,15 +1,21 @@
-
-import resolve from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
-import replace from '@rollup/plugin-replace';
-import url from '@rollup/plugin-url';
-import hotcss from 'rollup-plugin-hot-css';
-import static_files from 'rollup-plugin-static-files';
-import { terser } from 'rollup-plugin-terser';
 import postcss from 'postcss';
 
-const extensions =  ['.ts', '.tsx'];
-let config = {
+import url from '@rollup/plugin-url';
+import babel from '@rollup/plugin-babel';
+import cjs from '@rollup/plugin-commonjs';
+import hotcss from 'rollup-plugin-hot-css';
+import replace from '@rollup/plugin-replace';
+import { terser } from 'rollup-plugin-terser';
+import resolve from '@rollup/plugin-node-resolve';
+import staticFiles from 'rollup-plugin-static-files';
+
+const isProd = process.env.NODE_ENV === 'production';
+const extensions = ['.ts', '.tsx', '.jsx', '.js', '.json', '.svg', '.css'];
+
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+const config = {
   input: './src/main.tsx',
   output: {
     dir: 'dist',
@@ -17,24 +23,30 @@ let config = {
     entryFileNames: '[name].[hash].js',
     assetFileNames: '[name].[hash][extname]',
   },
+  preserveEntrySignatures: false,
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     hotcss({
-      hot: process.env.NODE_ENV === 'development',
+      hot: !isProd,
       filename: 'styles.css',
-      loaders: ['css', postCSSLoader]
+      loaders: ['css', postCSSLoader],
     }),
+    babel({
+      extensions,
+      babelHelpers: 'bundled',
+      presets: ['babel-preset-solid', '@babel/preset-typescript'],
+    }),
+    cjs({ extensions }),
     resolve({ extensions, browser: true }),
-    babel({ extensions, babelHelpers: 'bundled' }),
     url(),
   ],
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (isProd) {
   config.plugins = config.plugins.concat([
-    static_files({
+    staticFiles({
       include: ['./public'],
     }),
     terser({
@@ -47,19 +59,15 @@ if (process.env.NODE_ENV === 'production') {
   ]);
 }
 
-function postCSSLoader (input, id) {
-  return postcss(
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('postcss-nested'),
-    require('autoprefixer'),
-    require('postcss-font-base64')
-  ).process(input.code, { from: undefined } ).then(res => {
-    return {
-      code: res.css,
-      map: res.map && res.map.toJSON(),
-    };
-  });
+function postCSSLoader(input) {
+  return postcss(require('tailwindcss'), require('autoprefixer'), require('postcss-font-base64'))
+    .process(input.code, { from: undefined })
+    .then((res) => {
+      return {
+        code: res.css,
+        map: res.map && res.map.toJSON(),
+      };
+    });
 }
 
 export default config;
