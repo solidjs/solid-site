@@ -39,8 +39,8 @@ const Home: Component = () => (
       </div>
       <div class="bg-gray-50 mt-10 px-10 py-10">
         <div class="px-10 py-10">
-          <h2 class="text-3xl font-bold">A purely reactive library.</h2>
-          <h2 class="text-2xl font-bold text-gray-300 mt-2">
+          <h2 class="text-3xl font-bold text-solid">A purely reactive library.</h2>
+          <h2 class="text-2xl font-bold text-gray-400 mt-2">
             Solid was designed from the ground up with a reactive core. It's influenced by reactive
             principles developed by previous libraries.
           </h2>
@@ -70,10 +70,43 @@ const Home: Component = () => (
           </a>
         </div>
       </div>
+      <div class="my-10 py-10 px-12">
+        <div class="grid grid-cols-12">
+          <Repl
+            height={500}
+            isInteractive
+            class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
+          >
+            <ReplTab name="main">
+              {`import { createState, onCleanup } from "solid-js";
+                import { render } from 'solid-js/web';
+                
+                const CountingComponent = () => {
+                  const [state, setState] = createState({ counter: 0 });
+                  const interval = setInterval(
+                    () => setState({ counter: state.counter + 1 }),
+                    1000
+                    );
+                    onCleanup(() => clearInterval(interval));
+                    return <div>Count value is { state.counter }</div>;
+                  };
+                  
+                  render(() => <CountingComponent />, document.getElementById('app'));
+                  `}
+            </ReplTab>
+          </Repl>
+          <div class="col-span-5 col-end-13 flex flex-col justify-center">
+            <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
+            <p class="mb-4">While a new UI library is supposed to jump out and break the mould. Solid doesn't stand out when it comes to API's or developer experience. If you've developed with React Hooks before Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.</p>
+            <p>Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It just has a completely different implementation that forgoes using a Virtual DOM.</p>
+            <a class="button inline-block mt-5 text-solid-dark" href="/docs">Read the docs &raquo;</a>
+          </div>
+        </div>
+      </div>
       <div class="bg-gray-50 mt-10 px-10 py-10">
         <div class="px-10 py-10">
-          <h2 class="text-3xl font-bold">Fastest and smallest.</h2>
-          <h2 class="text-2xl font-bold text-gray-300 mt-2">
+          <h2 class="text-3xl text-solid font-bold">Fastest and smallest.</h2>
+          <h2 class="text-2xl font-bold text-gray-500 mt-2">
             Solid performs consistently within the top three UI frameworks for the past few years.
           </h2>
           <a
@@ -105,7 +138,7 @@ const Home: Component = () => (
       <div class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
           <div class="col-span-5 flex flex-col justify-center">
-            <h4 class="text-3xl font-bold mb-9">It's familiar...</h4>
+            <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
             <p class="mb-4">While a new UI library is supposed to jump out and break the mould. Solid doesn't stand out when it comes to API's or developer experience. If you've developed with React Hooks before Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.</p>
             <p>Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It just has a completely different implementation that forgoes using a Virtual DOM.</p>
             <a class="button inline-block mt-5 text-solid-dark" href="/docs">Read the docs &raquo;</a>
@@ -137,8 +170,8 @@ const Home: Component = () => (
       </div>
       <div class="bg-gray-50 mt-10 px-10 py-10">
         <div class="px-10 py-10">
-          <h2 class="text-3xl font-bold">Fully loaded with all features.</h2>
-          <h2 class="text-2xl font-bold text-gray-300 mt-2">
+          <h2 class="text-3xl font-bold text-solid">Fully loaded with all features.</h2>
+          <h2 class="text-2xl font-bold text-gray-500 mt-2">
             Solid supports most React features like Fragments, Portals, Context, Suspense, Error
             Boundaries, Lazy Components, Async and Concurrent Rendering, Implicit Event Delegation,
             SSR and Hydration(although there is no Next.js equivalent yet).
