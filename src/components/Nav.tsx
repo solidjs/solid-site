@@ -9,9 +9,10 @@ import reddit from '../assets/reddit.svg';
 
 const links = [
   { title: 'Get Started', path:  '/' },
+  { title: 'Docs', path:  '/docs' },
   { title: 'Articles', path:  '/articles' },
   { title: 'Media', path:  '/media' },
-  { title: 'Docs', path:  '/docs' }
+  { title: 'Playground', path:  'https://playground.solidjs.com' }
 ];
 
 const Nav: Component = () => {

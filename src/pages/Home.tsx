@@ -171,34 +171,34 @@ const Home: Component = () => (
       <div class="bg-gray-50 mt-10 px-10 py-10">
         <div class="px-10 py-10">
           <h2 class="text-3xl font-bold text-solid">Fully loaded with all features.</h2>
-          <h2 class="text-2xl font-bold text-gray-500 mt-2">
+          <h2 class="text-2xl font-bold text-gray-500 mb-4">
             Solid supports most React features and expands on aspects to increase DX.
           </h2>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Fragments</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Portals</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Context</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Suspense</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Error Boundaries</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Lazy Components</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Async & Concurrent Rendering</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">Implicit Delegation</span>
           </div>
-          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-3 px-5 py-5">
             <span class="block text-sm">SSR & Hydration</span>
           </div>
         </div>
