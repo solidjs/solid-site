@@ -25,15 +25,15 @@ const Home: Component = () => (
     <div class="my-10 container mx-auto">
       <div class="grid px-10 py-10 grid-cols-3 gap-4">
         <div>
-          <b class="block font-semibold">Extreme Performance</b>
+          <b class="block text-xl mb-2 font-semibold">Extreme Performance</b>
           <span class="text-gray-500 text-base">Consitently tops recognized UI speed and memory utilization benchmarks.</span>
         </div>
         <div>
-          <b class="block font-semibold">Ergonomic Development</b>
+          <b class="block text-xl mb-2 font-semibold">Ergonomic Development</b>
           <span class="text-gray-500 text-base">Write simple and complex applications with TypeScript and JSX.</span>
         </div>
         <div>
-          <b class="block font-semibold">Isomorphic Applications</b>
+          <b class="block text-xl mb-2 font-semibold">Isomorphic Applications</b>
           <span class="text-gray-500 text-base">Render applications client and server-side with SSR and SSG.</span>
         </div>
       </div>
@@ -65,8 +65,8 @@ const Home: Component = () => (
             href="https://github.com/ryansolid/solid/stargazers"
             class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
           >
-            <strong class="font-semibold">4.5kb+</strong>
-            <span class="block text-sm">Github Stars</span>
+            <strong class="font-semibold">4+ years</strong>
+            <span class="block text-sm">In development</span>
           </a>
         </div>
       </div>
@@ -172,10 +172,35 @@ const Home: Component = () => (
         <div class="px-10 py-10">
           <h2 class="text-3xl font-bold text-solid">Fully loaded with all features.</h2>
           <h2 class="text-2xl font-bold text-gray-500 mt-2">
-            Solid supports most React features like Fragments, Portals, Context, Suspense, Error
-            Boundaries, Lazy Components, Async and Concurrent Rendering, Implicit Event Delegation,
-            SSR and Hydration(although there is no Next.js equivalent yet).
+            Solid supports most React features and expands on aspects to increase DX.
           </h2>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Fragments</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Portals</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Context</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Suspense</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Error Boundaries</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Lazy Components</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Async & Concurrent Rendering</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">Implicit Delegation</span>
+          </div>
+          <div class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5">
+            <span class="block text-sm">SSR & Hydration</span>
+          </div>
         </div>
       </div>
     </div>

@@ -49,13 +49,19 @@ const Nav: Component = () => {
         </ul>
         <ul class="flex items-center col-span-3 flex-row-reverse">
           <li class="ml-3">
-            <a href="https://github.com/ryansolid/solid" target="_blank"><img class="h-8 w-8 transition hover:opacity-50" src={github} /></a>
+            <a href="https://github.com/ryansolid/solid" target="_blank">
+              <img alt="Github logo" class="h-8 w-8 transition hover:opacity-50" src={github} />
+            </a>
           </li>
           <li class="ml-3">
-            <a href="https://www.reddit.com/r/solidjs/" target="_blank"><img class="h-8 w-8 transition hover:opacity-50" src={reddit} /></a>
+            <a href="https://www.reddit.com/r/solidjs/" target="_blank">
+              <img alt="Reddit logo" class="h-8 w-8 transition hover:opacity-50" src={reddit} />
+            </a>
           </li>
           <li>
-            <a href="https://discord.com/invite/solidjs" target="_blank"><img class="h-9 w-13 transition hover:opacity-50" src={discord} /></a>
+            <a href="https://discord.com/invite/solidjs" target="_blank">
+              <img alt="Discord logo" class="h-9 w-13 transition hover:opacity-50" src={discord} />
+            </a>
           </li>
         </ul>
       </div>
