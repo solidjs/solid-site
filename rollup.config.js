@@ -4,6 +4,7 @@ import url from '@rollup/plugin-url';
 import babel from '@rollup/plugin-babel';
 import cjs from '@rollup/plugin-commonjs';
 import hotcss from 'rollup-plugin-hot-css';
+import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
@@ -25,6 +26,7 @@ const config = {
   },
   preserveEntrySignatures: false,
   plugins: [
+    json(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
