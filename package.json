@@ -11,8 +11,9 @@
     "type:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "commonmark": "^0.29.3",
     "solid-app-router": "^0.0.18",
-    "solid-js": "^0.23.4",
+    "solid-js": "^0.23.5",
     "solid-repl": "^0.1.0"
   },
   "devDependencies": {
@@ -21,15 +22,17 @@
     "@babel/preset-typescript": "^7.12.7",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@rollup/plugin-replace": "^2.3.4",
     "@rollup/plugin-url": "^6.0.0",
     "@tailwindcss/typography": "^0.3.1",
+    "@types/commonmark": "^0.27.4",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
     "autoprefixer": "^10.1.0",
     "babel-eslint": "^10.1.0",
-    "babel-preset-solid": "^0.23.4",
+    "babel-preset-solid": "^0.23.5",
     "cross-env": "^7.0.3",
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",

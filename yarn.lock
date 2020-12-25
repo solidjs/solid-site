@@ -1282,6 +1282,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-json@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@rollup/plugin-json@npm:4.1.0"
+  dependencies:
+    "@rollup/pluginutils": ^3.0.8
+  peerDependencies:
+    rollup: ^1.20.0 || ^2.0.0
+  checksum: 07bc6bc83d07aefd35278e4e1a125e65210061b3dcab50c0f01273c54f43a60a3e01c1a0fed451e35d592ef1cbc8288ec8148a6229cf8cca9cdbf11a6d2d7d1c
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-node-resolve@npm:^11.0.1":
   version: 11.0.1
   resolution: "@rollup/plugin-node-resolve@npm:11.0.1"
@@ -1342,6 +1353,13 @@ __metadata:
   peerDependencies:
     tailwindcss: 2.0.0-alpha.24 || ^2.0.0
   checksum: 341c009ec5d6a923103f625e73f93ccd5f94c6e11938c04f28d64203cc2c044f129b7afd2ddcf156fb3c144d660cef648bdb957edc3ede0a679583fbd5311017
+  languageName: node
+  linkType: hard
+
+"@types/commonmark@npm:^0.27.4":
+  version: 0.27.4
+  resolution: "@types/commonmark@npm:0.27.4"
+  checksum: 09627b9800aba8e2644ab22848e549deea78cb825268a89ab04d99c7458d566b6a4c5b77d08c564ddc598e2dc29fea45fc058651cc5672b26b07a49ba9e7d10e
   languageName: node
   linkType: hard
 
@@ -1806,7 +1824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-jsx-dom-expressions@npm:~0.24.2":
+"babel-plugin-jsx-dom-expressions@npm:~0.24.3":
   version: 0.24.3
   resolution: "babel-plugin-jsx-dom-expressions@npm:0.24.3"
   dependencies:
@@ -1817,12 +1835,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-solid@npm:^0.23.4":
-  version: 0.23.4
-  resolution: "babel-preset-solid@npm:0.23.4"
+"babel-preset-solid@npm:^0.23.5":
+  version: 0.23.5
+  resolution: "babel-preset-solid@npm:0.23.5"
   dependencies:
-    babel-plugin-jsx-dom-expressions: ~0.24.2
-  checksum: 7ab95a3ec464d6720445aaa335b74d5a95e0c413115b0c00519740f7b9a2a0005c3a1f0a3aedcdcc38f29645f119f7d09361216c6a0851cb860e87296ec6a168
+    babel-plugin-jsx-dom-expressions: ~0.24.3
+  checksum: 6e527b18c48f15b9ae8bcb93dfd6d2d585353885721aa44c47b1564c44aa21cc6b8a7e80383195398c2e0a33c3e93e431c32e2cd19f5437747e420ff6413ac4d
   languageName: node
   linkType: hard
 
@@ -2137,6 +2155,20 @@ __metadata:
   version: 1.0.1
   resolution: "commondir@npm:1.0.1"
   checksum: 98f18ad14f0ea38e0866db365bc8496f2a74250cf47ec96b94913e1b0574c99b4ff837a9f05dbc68d82505fd06b52dfba4f6bbe6fbda43094296cfaf33b475a0
+  languageName: node
+  linkType: hard
+
+"commonmark@npm:^0.29.3":
+  version: 0.29.3
+  resolution: "commonmark@npm:0.29.3"
+  dependencies:
+    entities: ~2.0
+    mdurl: ~1.0.1
+    minimist: ">=1.2.2"
+    string.prototype.repeat: ^0.2.0
+  bin:
+    commonmark: bin/commonmark
+  checksum: 17a79433038a37f22809b9d497a8c8b7c5848a507bcce065689656a504e85a8a0a7ae586c3d95f59f822419ceb97a416010e39f33d3389d143d44521ea9af36a
   languageName: node
   linkType: hard
 
@@ -2561,6 +2593,13 @@ __metadata:
   version: 2.1.0
   resolution: "entities@npm:2.1.0"
   checksum: 91d5330633b97df881bcd02e233d32067876d45abdc7c75cf058ded524d8b22f8dc7a3965813d6982ceeba918abdbd9029a0459759ee5f6f98ec953a4786612f
+  languageName: node
+  linkType: hard
+
+"entities@npm:~2.0":
+  version: 2.0.3
+  resolution: "entities@npm:2.0.3"
+  checksum: 02dfe1fbf531dd667420ff4e963ddc049203471ba8ad2873655303aff4cf65f27823effb397521af4d58b5609d33fc0492b0cc073c8374f3bbe6d3b5bcec1a42
   languageName: node
   linkType: hard
 
@@ -3977,6 +4016,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdurl@npm:~1.0.1":
+  version: 1.0.1
+  resolution: "mdurl@npm:1.0.1"
+  checksum: ed5e81efed218ca1cb61bbb5c41857c98ce456382d630a2f45a1b050087a10119a24107ca1acd4ccef2f1a17b02b8d61fb3c630d3d7c0f22df906dbdd2e5f7b5
+  languageName: node
+  linkType: hard
+
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
@@ -4072,7 +4118,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:>=1.2.2, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
   checksum: b77b8590147a4e217ff34266236bc39de23b52e6e33054076991ff674c7397a1380a7bde11111916f16f003a94aaa7e4f3d92595a32189644ff607fabc65a5b6
@@ -5340,10 +5386,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"solid-js@npm:^0.23.4":
-  version: 0.23.4
-  resolution: "solid-js@npm:0.23.4"
-  checksum: fb227c6241b14111f4bcec3e11ab1c5c1cf6b729375963348ce85946000f49cff5d20aa60c16c7822c0424030dedb67e029ae445e15bbe3c9f782ea1a354ee07
+"solid-js@npm:^0.23.4, solid-js@npm:^0.23.5":
+  version: 0.23.5
+  resolution: "solid-js@npm:0.23.5"
+  checksum: e62316fac0ef10705004dc3674c1831403df7c87fd350c5967f96207f78a8fb6e2ee6ba260caae280e4e0817a54122579905ea0146fe04947c9a719a80bc4600
   languageName: node
   linkType: hard
 
@@ -5368,15 +5414,18 @@ fsevents@~2.1.2:
     "@babel/preset-typescript": ^7.12.7
     "@rollup/plugin-babel": ^5.2.2
     "@rollup/plugin-commonjs": ^17.0.0
+    "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^11.0.1
     "@rollup/plugin-replace": ^2.3.4
     "@rollup/plugin-url": ^6.0.0
     "@tailwindcss/typography": ^0.3.1
+    "@types/commonmark": ^0.27.4
     "@typescript-eslint/eslint-plugin": ^4.11.0
     "@typescript-eslint/parser": ^4.11.0
     autoprefixer: ^10.1.0
     babel-eslint: ^10.1.0
-    babel-preset-solid: ^0.23.4
+    babel-preset-solid: ^0.23.5
+    commonmark: ^0.29.3
     cross-env: ^7.0.3
     eslint: ^7.16.0
     eslint-config-prettier: ^7.1.0
@@ -5396,7 +5445,7 @@ fsevents@~2.1.2:
     rollup-plugin-terser: ^7.0.2
     sirv-cli: ^1.0.10
     solid-app-router: ^0.0.18
-    solid-js: ^0.23.4
+    solid-js: ^0.23.5
     solid-repl: ^0.1.0
     tailwindcss: ^2.0.2
     typescript: ^4.1.3
@@ -5550,6 +5599,13 @@ fsevents@~2.1.2:
     define-properties: ^1.1.3
     es-abstract: ^1.18.0-next.1
   checksum: dfd7eedf86d882cdc1afe5a9ba207620575df9e3797c9d58a827f56d097eaba072b9fbc3c53bf536bcb0f068061fd52a2e14f76b6585c13bf8c3d392caec0940
+  languageName: node
+  linkType: hard
+
+"string.prototype.repeat@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "string.prototype.repeat@npm:0.2.0"
+  checksum: 20f38ac3a0595fb96630ff65931bf28d582041790b6ba895eccb4f83a3d7121753381a2fc9288efb5a3dbe050705f45bb515751983eca3bab25bf2f0a9bc038e
   languageName: node
   linkType: hard
 
