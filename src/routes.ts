@@ -4,15 +4,15 @@ import { lazy } from 'solid-js';
 
 export const routes: RouteDefinition[] = [
   {
-    path: '/',
+    path: '/docs',
     component: lazy(() => import('./pages/Docs')),
   },
-  // {
-  //   path: '/',
-  //   component: lazy(() => import('./pages/Media')),
-  // },
-  // {
-  //   path: '/',
-  //   component: lazy(() => import('./pages/Home')),
-  // },
+  {
+    path: '/media',
+    component: lazy(() => import('./pages/Media')),
+  },
+  {
+    path: '/',
+    component: lazy(() => import('./pages/Home')),
+  },
 ];
