@@ -1,4 +1,3 @@
-
 import { Component } from 'solid-js';
 import { Repl, ReplTab } from 'solid-repl';
 import Nav from '../components/Nav';
@@ -26,15 +25,21 @@ const Home: Component = () => (
       <div class="grid px-10 py-10 grid-cols-3 gap-4">
         <div>
           <b class="block text-xl mb-2 font-semibold">Extreme Performance</b>
-          <span class="text-gray-500 text-base">Consitently tops recognized UI speed and memory utilization benchmarks.</span>
+          <span class="text-gray-500 text-base">
+            Consitently tops recognized UI speed and memory utilization benchmarks.
+          </span>
         </div>
         <div>
           <b class="block text-xl mb-2 font-semibold">Ergonomic Development</b>
-          <span class="text-gray-500 text-base">Write simple and complex applications with TypeScript and JSX.</span>
+          <span class="text-gray-500 text-base">
+            Write simple and complex applications with TypeScript and JSX.
+          </span>
         </div>
         <div>
           <b class="block text-xl mb-2 font-semibold">Isomorphic Applications</b>
-          <span class="text-gray-500 text-base">Render applications client and server-side with SSR and SSG.</span>
+          <span class="text-gray-500 text-base">
+            Render applications client and server-side with SSR and SSG.
+          </span>
         </div>
       </div>
       <div class="bg-gray-50 mt-10 px-10 py-10">
@@ -72,11 +77,7 @@ const Home: Component = () => (
       </div>
       <div class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
-          <Repl
-            height={500}
-            isInteractive
-            class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
-          >
+          <Repl height={500} isInteractive class="rounded-lg col-span-6 overflow-hidden shadow-2xl">
             <ReplTab name="main">
               {`import { createState, onCleanup } from "solid-js";
                 import { render } from 'solid-js/web';
@@ -97,9 +98,21 @@ const Home: Component = () => (
           </Repl>
           <div class="col-span-5 col-end-13 flex flex-col justify-center">
             <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
-            <p class="mb-4">While a new UI library is supposed to jump out and break the mould. Solid doesn't stand out when it comes to API's or developer experience. If you've developed with React Hooks before Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.</p>
-            <p>Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It just has a completely different implementation that forgoes using a Virtual DOM.</p>
-            <a class="button inline-block mt-5 text-solid-dark" href="/docs">Read the docs &raquo;</a>
+            <p class="mb-4">
+              While a new UI library is supposed to jump out and break the mould. Solid doesn't
+              stand out when it comes to API's or developer experience. If you've developed with
+              React Hooks before Solid should seem very natural. In fact, more natural as Solid's
+              model is much simpler with no Hook rules. Every Component executes once and it is the
+              Hooks and bindings that execute many times as their dependencies update.
+            </p>
+            <p>
+              Solid follows the same philosophy as React with unidirectional data flow, read/write
+              segregation, and immutable interfaces. It just has a completely different
+              implementation that forgoes using a Virtual DOM.
+            </p>
+            <a class="button inline-block mt-5 text-solid-dark" href="/docs">
+              Read the docs &raquo;
+            </a>
           </div>
         </div>
       </div>
@@ -139,9 +152,21 @@ const Home: Component = () => (
         <div class="grid grid-cols-12">
           <div class="col-span-5 flex flex-col justify-center">
             <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
-            <p class="mb-4">While a new UI library is supposed to jump out and break the mould. Solid doesn't stand out when it comes to API's or developer experience. If you've developed with React Hooks before Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.</p>
-            <p>Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It just has a completely different implementation that forgoes using a Virtual DOM.</p>
-            <a class="button inline-block mt-5 text-solid-dark" href="/docs">Read the docs &raquo;</a>
+            <p class="mb-4">
+              While a new UI library is supposed to jump out and break the mould. Solid doesn't
+              stand out when it comes to API's or developer experience. If you've developed with
+              React Hooks before Solid should seem very natural. In fact, more natural as Solid's
+              model is much simpler with no Hook rules. Every Component executes once and it is the
+              Hooks and bindings that execute many times as their dependencies update.
+            </p>
+            <p>
+              Solid follows the same philosophy as React with unidirectional data flow, read/write
+              segregation, and immutable interfaces. It just has a completely different
+              implementation that forgoes using a Virtual DOM.
+            </p>
+            <a class="button inline-block mt-5 text-solid-dark" href="/docs">
+              Read the docs &raquo;
+            </a>
           </div>
           <Repl
             height={500}

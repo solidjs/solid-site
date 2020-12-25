@@ -1,4 +1,3 @@
-
 import type { RouteDefinition } from 'solid-app-router';
 import { lazy } from 'solid-js';
 
