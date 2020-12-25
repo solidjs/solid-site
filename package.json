@@ -8,7 +8,8 @@
     "serve": "sirv dist",
     "start": "run-p nollup type:watch",
     "type:check": "tsc --noEmit",
-    "type:watch": "tsc --noEmit --watch"
+    "type:watch": "tsc --noEmit --watch",
+    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\""
   },
   "dependencies": {
     "@rollup/plugin-json": "^4.1.0",
