@@ -1,5 +1,6 @@
+// @ts-nocheck
+
 import type { Component } from 'solid-js';
-import { createComponent } from 'solid-js';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-jsx';
@@ -138,10 +139,10 @@ const parse = (md, prevLinks = undefined) => {
       chunk = document.createElement(t);
       switch (t) {
         case 'h1':
-          chunk.className = 'text-2xl border-b pb-3 my-5 text-solid';
+          chunk.className = 'pb-3 my-5 text-2xl border-b text-solid';
           break;
         case 'h2':
-          chunk.className = 'text-xl border-b pb-3 my-5 text-solid';
+          chunk.className = 'pb-3 my-5 text-xl border-b text-solid';
           break;
       }
       chunk.innerHTML = token[12] || token[15];
