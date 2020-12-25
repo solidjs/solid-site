@@ -1,14 +1,15 @@
-import type { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import { onMount, createSignal } from 'solid-js';
 
 import logo from '../assets/logo.svg';
 import github from '../assets/github.svg';
 import discord from '../assets/discord.svg';
 import reddit from '../assets/reddit.svg';
+import { Link } from 'solid-app-router';
 
 const links = [
   { title: 'Get Started', path: '/' },
-  { title: 'Docs', path: '/docs' },
+  { title: 'Docs', path: '/docs/0.17.0/components' },
   { title: 'Articles', path: '/articles' },
   { title: 'Media', path: '/media' },
   { title: 'Playground', path: 'https://playground.solidjs.com' },
@@ -55,16 +56,18 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
                 <img class="w-14" src={logo} alt="Solid logo" />
               </a>
             </li>
-            {links.map((item) => (
-              <li>
-                <a
-                  class="block transition px-5 py-7 hover:text-white hover:bg-solid-medium"
-                  href={item.path}
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
+            <For each={links}>
+              {(item) => (
+                <li>
+                  <Link
+                    class="block transition px-5 py-7 hover:text-white hover:bg-solid-medium"
+                    href={item.path}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              )}
+            </For>
           </ul>
           <ul class="flex items-center col-span-3 flex-row-reverse">
             <li class="ml-3">

@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
+import { Link } from 'solid-app-router';
 
 const Home: Component = () => (
   <div class="flex flex-col">
@@ -81,7 +82,7 @@ const Home: Component = () => (
             <ReplTab name="main">
               {`import { createState, onCleanup } from "solid-js";
                 import { render } from 'solid-js/web';
-                
+
                 const CountingComponent = () => {
                   const [state, setState] = createState({ counter: 0 });
                   const interval = setInterval(
@@ -91,7 +92,7 @@ const Home: Component = () => (
                     onCleanup(() => clearInterval(interval));
                     return <div>Count value is { state.counter }</div>;
                   };
-                  
+
                   render(() => <CountingComponent />, document.getElementById('app'));
                   `}
             </ReplTab>
@@ -110,9 +111,9 @@ const Home: Component = () => (
               segregation, and immutable interfaces. It just has a completely different
               implementation that forgoes using a Virtual DOM.
             </p>
-            <a class="button inline-block mt-5 text-solid-dark" href="/docs">
+            <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
               Read the docs &raquo;
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -164,9 +165,9 @@ const Home: Component = () => (
               segregation, and immutable interfaces. It just has a completely different
               implementation that forgoes using a Virtual DOM.
             </p>
-            <a class="button inline-block mt-5 text-solid-dark" href="/docs">
+            <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
               Read the docs &raquo;
-            </a>
+            </Link>
           </div>
           <Repl
             height={500}
@@ -176,7 +177,7 @@ const Home: Component = () => (
             <ReplTab name="main">
               {`import { createState, onCleanup } from "solid-js";
                 import { render } from 'solid-js/web';
-                
+
                 const CountingComponent = () => {
                   const [state, setState] = createState({ counter: 0 });
                   const interval = setInterval(
@@ -186,7 +187,7 @@ const Home: Component = () => (
                     onCleanup(() => clearInterval(interval));
                     return <div>Count value is { state.counter }</div>;
                   };
-                  
+
                   render(() => <CountingComponent />, document.getElementById('app'));
                   `}
             </ReplTab>
