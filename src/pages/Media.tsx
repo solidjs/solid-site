@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 
@@ -73,17 +73,12 @@ const assets = [
   },
 ];
 
-const AssetPanel = ({
-  title,
-  assets,
-  example,
-  background,
-}: {
+const AssetPanel: Component<{
   title: string;
   example: string;
-  assets: object;
+  assets: Record<string, string>;
   background: string;
-}) => (
+}> = ({ title, assets, example, background }) => (
   <div class="shadow-lg">
     <div class="p-5 border-b">{title}</div>
     <div class={`py-8 h-60 flex justify-center ${background}`}>
@@ -92,11 +87,11 @@ const AssetPanel = ({
     <div class="border-b border-t grid grid-cols-4 text-sm text-solid">
       {Object.entries(assets).map(([name, path]) => (
         <a
-          class="border-r flex p-3 justify-center border-r transition hover:opacity-50"
+          class="flex p-3 justify-center border-r transition hover:opacity-50"
           download={true}
           href={path}
         >
-          <img class="w-4 mr-3" src={downloadArrow} /> {name}
+          <img class="w-4 mr-3" alt="Download Arrow" src={downloadArrow} /> {name}
         </a>
       ))}
     </div>
@@ -133,9 +128,7 @@ const Media: Component = () => (
         </div>
       </div>
       <div class="grid grid-cols-3 gap-4">
-        {assets.map((props) => (
-          <AssetPanel {...props} />
-        ))}
+        <For each={assets}>{(props) => <AssetPanel {...props} />}</For>
       </div>
     </div>
   </div>

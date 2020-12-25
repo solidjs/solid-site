@@ -14,22 +14,25 @@ const links = [
   { title: 'Playground', path: 'https://playground.solidjs.com' },
 ];
 
-const Nav: Component = ({ showLogo = false }: { showLogo: boolean }) => {
+const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
   const [locked, setLocked] = createSignal(showLogo);
-  let intersectorRef;
+  let intersectorRef!: HTMLDivElement;
+
   onMount(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].intersectionRatio === 0) {
+      ([firstEntry]) => {
+        if (firstEntry.intersectionRatio === 0) {
           setLocked(true);
-        } else if (entries[0].intersectionRatio === 1) {
+        } else if (firstEntry.intersectionRatio === 1) {
           setLocked(false);
         }
       },
       { threshold: [0, 1] },
     );
+
     observer.observe(intersectorRef);
   });
+
   return (
     <>
       <div ref={intersectorRef} class="h-0" />

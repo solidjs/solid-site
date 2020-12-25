@@ -4,12 +4,13 @@ import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Markdown from '../components/Markdown';
 
-const fetchMarkdown = (version, id) => () =>
+const fetchMarkdown = (version: string, id: string) => () =>
   fetch(`docs/md/v${version}/${id}.md`).then((r) => r.text());
 
 const Docs: Component = () => {
-  let [markdown, loadMarkdown] = createResource();
-  loadMarkdown(fetchMarkdown('0.17.0', 'components'));
+  const [markdown, loadMarkdown] = createResource<string>();
+  void loadMarkdown(fetchMarkdown('0.17.0', 'components'));
+
   return (
     <div class="flex flex-col relative">
       <Nav showLogo={true} />
