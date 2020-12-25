@@ -11,6 +11,8 @@
     "type:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "commonmark": "^0.29.3",
+    "scroll-js": "^3.3.0",
     "solid-app-router": "^0.0.18",
     "solid-js": "^0.23.4",
     "solid-repl": "^0.1.0"

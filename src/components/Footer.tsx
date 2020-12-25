@@ -2,7 +2,7 @@ import type { Component } from 'solid-js';
 import wordmark from '../assets/wordmark.svg';
 
 const Footer: Component = () => (
-  <footer class="py-10 bg-gray-400">
+  <footer class="py-10 bg-solid-gray">
     <div class="container mx-auto grid grid-cols-12 gap-6 text-white">
       <img class="w-18 col-span-1" src={wordmark} alt="Solid logo" />
       <div class="col-span-9 text-sm pl-3">

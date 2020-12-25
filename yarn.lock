@@ -2140,6 +2140,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commonmark@npm:^0.29.3":
+  version: 0.29.3
+  resolution: "commonmark@npm:0.29.3"
+  dependencies:
+    entities: ~2.0
+    mdurl: ~1.0.1
+    minimist: ">=1.2.2"
+    string.prototype.repeat: ^0.2.0
+  bin:
+    commonmark: bin/commonmark
+  checksum: 17a79433038a37f22809b9d497a8c8b7c5848a507bcce065689656a504e85a8a0a7ae586c3d95f59f822419ceb97a416010e39f33d3389d143d44521ea9af36a
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -2561,6 +2575,13 @@ __metadata:
   version: 2.1.0
   resolution: "entities@npm:2.1.0"
   checksum: 91d5330633b97df881bcd02e233d32067876d45abdc7c75cf058ded524d8b22f8dc7a3965813d6982ceeba918abdbd9029a0459759ee5f6f98ec953a4786612f
+  languageName: node
+  linkType: hard
+
+"entities@npm:~2.0":
+  version: 2.0.3
+  resolution: "entities@npm:2.0.3"
+  checksum: 02dfe1fbf531dd667420ff4e963ddc049203471ba8ad2873655303aff4cf65f27823effb397521af4d58b5609d33fc0492b0cc073c8374f3bbe6d3b5bcec1a42
   languageName: node
   linkType: hard
 
@@ -3977,6 +3998,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdurl@npm:~1.0.1":
+  version: 1.0.1
+  resolution: "mdurl@npm:1.0.1"
+  checksum: ed5e81efed218ca1cb61bbb5c41857c98ce456382d630a2f45a1b050087a10119a24107ca1acd4ccef2f1a17b02b8d61fb3c630d3d7c0f22df906dbdd2e5f7b5
+  languageName: node
+  linkType: hard
+
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
@@ -4072,7 +4100,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:>=1.2.2, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
   checksum: b77b8590147a4e217ff34266236bc39de23b52e6e33054076991ff674c7397a1380a7bde11111916f16f003a94aaa7e4f3d92595a32189644ff607fabc65a5b6
@@ -5128,6 +5156,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"scroll-js@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "scroll-js@npm:3.3.0"
+  checksum: 8fa05c4e4255456f3c28f372e999605aed76895f069fa95045bab1eb8adc2bcd5709907d767aa9814c958e021e3b8b8ae5dd3fdf9c210cf98ba836cb9b29a395
+  languageName: node
+  linkType: hard
+
 "semiver@npm:^1.0.0":
   version: 1.1.0
   resolution: "semiver@npm:1.1.0"
@@ -5377,6 +5412,7 @@ fsevents@~2.1.2:
     autoprefixer: ^10.1.0
     babel-eslint: ^10.1.0
     babel-preset-solid: ^0.23.4
+    commonmark: ^0.29.3
     cross-env: ^7.0.3
     eslint: ^7.16.0
     eslint-config-prettier: ^7.1.0
@@ -5394,6 +5430,7 @@ fsevents@~2.1.2:
     rollup-plugin-hot-css: 0.4.0
     rollup-plugin-static-files: 0.1.0
     rollup-plugin-terser: ^7.0.2
+    scroll-js: ^3.3.0
     sirv-cli: ^1.0.10
     solid-app-router: ^0.0.18
     solid-js: ^0.23.4
@@ -5550,6 +5587,13 @@ fsevents@~2.1.2:
     define-properties: ^1.1.3
     es-abstract: ^1.18.0-next.1
   checksum: dfd7eedf86d882cdc1afe5a9ba207620575df9e3797c9d58a827f56d097eaba072b9fbc3c53bf536bcb0f068061fd52a2e14f76b6585c13bf8c3d392caec0940
+  languageName: node
+  linkType: hard
+
+"string.prototype.repeat@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "string.prototype.repeat@npm:0.2.0"
+  checksum: 20f38ac3a0595fb96630ff65931bf28d582041790b6ba895eccb4f83a3d7121753381a2fc9288efb5a3dbe050705f45bb515751983eca3bab25bf2f0a9bc038e
   languageName: node
   linkType: hard
 

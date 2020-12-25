@@ -1,6 +1,6 @@
 
 import type { Component } from 'solid-js';
-import { createEffect, createSignal } from 'solid-js';
+import { onMount, createSignal } from 'solid-js';
 
 import logo from '../assets/logo.svg';
 import github from '../assets/github.svg';
@@ -15,10 +15,10 @@ const links = [
   { title: 'Playground', path:  'https://playground.solidjs.com' }
 ];
 
-const Nav: Component = () => {
-  const [ locked, setLocked ] = createSignal(false);
+const Nav: Component = ({ showLogo = false }: { showLogo: boolean }) => {
+  const [ locked, setLocked ] = createSignal(showLogo);
   let intersectorRef;
-  createEffect(() => {
+  onMount(() => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].intersectionRatio === 0) {
         setLocked(true);
@@ -31,14 +31,14 @@ const Nav: Component = () => {
   return <>
     <div ref={intersectorRef} class="h-0" />
     <nav class={
-      `sticky top-0 w-screentransition-all duration-200 ` + (locked() === true ?
+      `sticky top-0 z-50 w-screentransition-all duration-200 ` + (locked() === true ?
         'shadow-lg bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white' :
         'bg-white shadow-sm')
     }>
       <div class="container grid grid-cols-10 mx-auto">
         <ul class="flex items-center col-span-7">
-          <li class={`py-3 transition-all overflow-hidden ${locked() === true ? 'w-10 mr-4' : 'w-0'}`}>
-            <img class="w-14" src={logo} alt="Solid logo" />
+          <li class={`py-3 transition-all overflow-hidden ${showLogo === true || locked() === true ? 'w-10 mr-4' : 'w-0'}`}>
+            <a href="/"><img class="w-14" src={logo} alt="Solid logo" /></a>
           </li>
           {links.map((item) => (
             <li>

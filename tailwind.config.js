@@ -15,6 +15,7 @@ module.exports = {
         solid: {
           DEFAULT: '#2c4f7c',
           dark: '#335d92',
+          gray: '#414042',
           medium: '#446b9e',
           light: '#4f88c6',
         },
