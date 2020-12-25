@@ -11,7 +11,9 @@
     "type:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "commonmark": "^0.29.3",
+    "prismjs": "^1.22.0",
     "scroll-js": "^3.3.0",
     "solid-app-router": "^0.0.18",
     "solid-js": "^0.23.4",

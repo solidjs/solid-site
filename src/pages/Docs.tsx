@@ -23,15 +23,13 @@ const Docs: Component = () => {
 						</div>
 					</div>
 				</div>
-				<div class="col-span-9 p-5" style={{ height: '150vh' }}>
-					<h2 class="text-2xl border-b pb-3 mb-8 text-solid">Components</h2>
+				<div class="col-span-9 p-5">
 					<Switch fallback={"Failed to load markdown..."}>
 						<Match when={markdown.loading}>Loading...</Match>
 						<Match when={markdown()}>
 							{(body) => <Markdown>{body}</Markdown>}
 						</Match>
 					</Switch>
-
 				</div>
 			</div>
 		</div>
