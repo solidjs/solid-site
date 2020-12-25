@@ -1391,6 +1391,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prismjs@npm:^1.16.2":
+  version: 1.16.2
+  resolution: "@types/prismjs@npm:1.16.2"
+  checksum: 7b443b7e6a0ace5cdf08f2179a3d2ebc047ce7aee3cfbfacc992b511b8df7148d7ad96e80852a73a6fe3c1ac9e88e04c02f29e65b9a0da36fd335298dbe7f385
+  languageName: node
+  linkType: hard
+
 "@types/resolve@npm:1.17.1":
   version: 1.17.1
   resolution: "@types/resolve@npm:1.17.1"
@@ -5465,6 +5472,7 @@ fsevents@~2.1.2:
     "@rollup/plugin-replace": ^2.3.4
     "@rollup/plugin-url": ^6.0.0
     "@tailwindcss/typography": ^0.3.1
+    "@types/prismjs": ^1.16.2
     "@typescript-eslint/eslint-plugin": ^4.11.0
     "@typescript-eslint/parser": ^4.11.0
     autoprefixer: ^10.1.0
