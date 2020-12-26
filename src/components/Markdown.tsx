@@ -98,7 +98,7 @@ const parse = (md, prevLinks = undefined) => {
       );
       chunk = (
         <pre
-          class={`code leading-5 shadow-lg p-8 my-7 bg-gray-50 ${
+          class={`code leading-5 shadow-lg p-8 my-9 bg-gray-50 ${
             token[4] ? 'poetry' : token[2].toLowerCase()
           }`}
         >
