@@ -3,7 +3,7 @@
   "scripts": {
     "build": "run-s type:check clean rollup",
     "clean": "rimraf dist",
-    "nollup": "cross-env NODE_ENV=development nollup -c --hot --content-base public",
+    "nollup": "cross-env NODE_ENV=development nollup -c --hot --content-base public --history-api-fallback",
     "rollup": "cross-env NODE_ENV=production rollup -c",
     "serve": "sirv dist",
     "start": "run-p nollup type:watch",
