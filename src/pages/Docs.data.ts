@@ -6,9 +6,16 @@ const fetchMarkdown = (version: string, id: string) => () =>
 
 export const DocsData: RouteDefinition['data'] = (props) => {
   const [markdown, loadMarkdown] = createResource<string>();
+  let previousVersion: string;
+  let previousPage: string;
 
   createComputed(() => {
+    if (previousPage === props.params.page && previousVersion === props.params.version) return;
+
     void loadMarkdown(fetchMarkdown(props.params.version as string, props.params.page as string));
+
+    previousPage = props.params.page as string;
+    previousVersion = props.params.version as string;
   });
 
   return {

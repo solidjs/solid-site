@@ -52,25 +52,29 @@ const Docs: Component<{
           <div class="py-5 sticky" style={{ top: '8rem' }}>
             <div class="border rounded-md text-md p-3 mb-4">Version {current_docs().version}</div>
             {current_docs().files.map((file) => (
-              <>
-                <a
-                  class="block uppercase text-solid-medium border-b px-2 transition pb-3 text-sm my-4 hover:text-gray-400"
-                  href={`/docs/${current_docs().version}/${file}`}
-                >
-                  {file}
-                </a>
-                <Show when={props.params.page === file}>
-                  <For each={sections()}>
-                    {(section) => (
-                      <Link
-                        class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 hover:text-gray-400"
-                        href={section.id}
-                        children={section.title}
-                      />
-                    )}
-                  </For>
-                </Show>
-              </>
+              <For each={current_docs().files}>
+                {(file) => (
+                  <>
+                    <Link
+                      class="block uppercase text-solid-medium border-b px-2 transition pb-3 text-sm my-4 hover:text-gray-400"
+                      href={`/docs/${current_docs().version}/${file}`}
+                      children={file}
+                    />
+
+                    <Show when={props.params.page === file}>
+                      <For each={sections()}>
+                        {(section) => (
+                          <a
+                            class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 hover:text-gray-400"
+                            href={`#${section.id}`}
+                            children={section.title}
+                          />
+                        )}
+                      </For>
+                    </Show>
+                  </>
+                )}
+              </For>
             ))}
           </div>
         </div>
