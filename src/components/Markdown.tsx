@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import type { Component } from 'solid-js';
 import { createMutable } from 'solid-js';
 import markdownTreeParser from 'markdown-tree-parser';
@@ -11,7 +9,9 @@ import 'prismjs/themes/prism.css';
 (function addJSXSupport() {
   let javascript = Prism.util.clone(Prism.languages.javascript);
   Prism.languages.jsx = Prism.languages.extend('markup', javascript);
+  // @ts-ignore
   Prism.languages.jsx.tag.pattern = /<\/?[\w.:-]+\s*(?:\s+[\w.:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+|(\{[\w\W]*?})))?\s*)*\/?>/i;
+  // @ts-ignore
   Prism.languages.jsx.tag.inside['attr-value'].pattern = /=[^{](?:('|")[\w\W]*?(\1)|[^\s>]+)/i;
   let jsxExpression = Prism.util.clone(Prism.languages.jsx);
   delete jsxExpression.punctuation;
@@ -36,6 +36,7 @@ import 'prismjs/themes/prism.css';
         alias: 'language-javascript',
       },
     },
+    // @ts-ignore
     Prism.languages.jsx.tag,
   );
 })();
@@ -83,7 +84,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
           case 'code':
             if (node.type === 'block') {
               let code = document.createElement('code');
-              code.classNames = 'language-jsx';
+              code.setAttribute('classNames', 'language-jsx');
               if (node.value) {
                 code.innerHTML = Prism.highlight(node.value, Prism.languages.typescript, 'jsx');
               }
@@ -110,7 +111,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
     const doc = astToSolid(markdownTreeParser(children).ast);
     onLoadSections(sections);
     return doc;
-  }, [children]);
+  });
   return <div class="leading-8">{doc}</div>;
 };
 
