@@ -214,7 +214,7 @@ const Resources: Component<{ markdown: string; loading: boolean; version: string
       <Header title="Resources" />
       <div class="container my-10">
         <h1 class="text-2xl border-b pb-3 mb-3 text-solid">Podcasts</h1>
-        <ul class="list-disc ml-5">
+        <ul class="list-disc ml-5 mb-10">
           <li class="py-4 border-b pl-4">
             <a
               class="text-solid"
@@ -224,11 +224,11 @@ const Resources: Component<{ markdown: string; loading: boolean; version: string
             >
               The Deep Dive Ep#4 Reactive Frontend
             </a>
-            <small>Reactive frontend frameworks</small>
+            <div class="text-md block">Reactive frontend frameworks</div>
           </li>
         </ul>
         <h1 class="text-2xl border-b pb-3 my-5 text-solid">Videos</h1>
-        <ul class="list-disc ml-5">
+        <ul class="list-disc ml-5 mb-10">
           <li class="py-4 border-b pl-4">
             <a
               class="text-solid"
@@ -238,7 +238,7 @@ const Resources: Component<{ markdown: string; loading: boolean; version: string
             >
               Solid Video Series
             </a>
-            <small class="text-md">Eric Schmucker walks you through Solid.</small>
+            <div class="text-md block">Eric Schmucker walks you through Solid.</div>
           </li>
         </ul>
         <h1 class="text-2xl border-b pb-3 my-5 text-solid">Latest Articles </h1>
