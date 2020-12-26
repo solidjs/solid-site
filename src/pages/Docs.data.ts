@@ -21,5 +21,8 @@ export const DocsData: RouteDefinition['data'] = (props) => {
     get version() {
       return props.params.version as string;
     },
+    get params() {
+      return props.params;
+    },
   };
 };

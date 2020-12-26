@@ -1,5 +1,6 @@
-import type { Component } from 'solid-js';
-import { Switch, Match, createSignal, createMemo } from 'solid-js';
+import { Link } from 'solid-app-router';
+import { Component, For, Show, Switch, Match, createSignal, createMemo } from 'solid-js';
+
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Markdown from '../components/Markdown';
@@ -26,19 +27,22 @@ const files = [
   },
 ];
 
-const Docs: Component<{ markdown: string; loading: boolean; version: string }> = (props) => {
-  const [sections, setSections] = createSignal<[title: string, id: string]>([]);
+const Docs: Component<{
+  markdown: string;
+  loading: boolean;
+  version: string;
+  params: Record<string, string>;
+}> = (props) => {
+  const [sections, setSections] = createSignal<{ id: string; title: string }[]>([]);
   const current_docs = createMemo(() => {
-    for (let i in files) {
-      if (
-        (props.version === 'latest' && files[i].latest === true) ||
-        files[i].version === props.version
-      ) {
-        return files[i];
+    for (const file of files) {
+      if ((props.version === 'latest' && file.latest === true) || file.version === props.version) {
+        return file;
       }
     }
     return null;
-  }, [props.version]);
+  });
+
   return (
     <div class="flex flex-col relative">
       <Nav showLogo={true} />
@@ -55,15 +59,17 @@ const Docs: Component<{ markdown: string; loading: boolean; version: string }> =
                 >
                   {file}
                 </a>
-                {props.params.page === file &&
-                  sections().map(({ id, title }) => (
-                    <a
-                      class="block px-5 border-b border-gray-100 pb-3 text-sm my-4  hover:text-gray-400"
-                      href={id}
-                    >
-                      {title}
-                    </a>
-                  ))}
+                <Show when={props.params.page === file}>
+                  <For each={sections()}>
+                    {(section) => (
+                      <Link
+                        class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 hover:text-gray-400"
+                        href={section.id}
+                        children={section.title}
+                      />
+                    )}
+                  </For>
+                </Show>
               </>
             ))}
           </div>

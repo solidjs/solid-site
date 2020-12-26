@@ -51,7 +51,7 @@ function slugify(text) {
     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
-const Markdown: Component = ({ children, onLoadSections }) => {
+const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSections }) => {
   const doc = createMutable(() => {
     let sections = [];
     const astToSolid = (nodes) => {
