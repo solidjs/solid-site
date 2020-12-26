@@ -6,7 +6,7 @@ import Markdown from '../components/Markdown';
 
 const files = [
   {
-    version: '0.23.0',
+    version: 'latest',
     latest: true,
     files: [
       'api',
