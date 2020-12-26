@@ -4036,6 +4036,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"markdown-tree-parser@npm:^0.12.4":
+  version: 0.12.4
+  resolution: "markdown-tree-parser@npm:0.12.4"
+  checksum: d2f28c2790fd7b29d63512dbc7162de6d4923901b16afadae457746f908d3382c83df673c2bcc658a5e64c554d3b0caf7343d54d3d0177f343940a8282385356
+  languageName: node
+  linkType: hard
+
 "mdn-data@npm:2.0.6":
   version: 2.0.6
   resolution: "mdn-data@npm:2.0.6"
@@ -5486,6 +5493,7 @@ fsevents@~2.1.2:
     eslint-plugin-jsx-a11y: ^6.4.1
     eslint-plugin-local: ^1.0.0
     eslint-plugin-prettier: ^3.3.0
+    markdown-tree-parser: ^0.12.4
     nollup: ^0.14.4
     npm-run-all: ^4.1.5
     postcss: ^8.2.1
