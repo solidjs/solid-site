@@ -2,7 +2,7 @@ import { RouteDefinition } from 'solid-app-router';
 import { createComputed, createResource } from 'solid-js';
 
 const fetchMarkdown = (version: string, id: string) => () =>
-  fetch(`/docs/md/v${version}/${id}.md`).then((r) => r.text());
+  fetch(`/docs/md/${version}/${id}.md`).then((r) => r.text());
 
 export const DocsData: RouteDefinition['data'] = (props) => {
   const [markdown, loadMarkdown] = createResource<string>();

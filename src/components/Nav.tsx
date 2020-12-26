@@ -9,8 +9,8 @@ import { Link } from 'solid-app-router';
 
 const links = [
   { title: 'Get Started', path: '/' },
-  { title: 'Docs', path: '/docs/0.17.0/components' },
-  { title: 'Articles', path: '/articles' },
+  { title: 'Docs', path: '/docs/latest/api' },
+  { title: 'Resources', path: '/resources' },
   { title: 'Media', path: '/media' },
   { title: 'Playground', path: 'https://playground.solidjs.com' },
 ];

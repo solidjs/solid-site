@@ -3,7 +3,7 @@
   "scripts": {
     "build": "run-s type:check clean rollup",
     "clean": "rimraf dist",
-    "nollup": "cross-env NODE_ENV=development nollup -c --hot --content-base public",
+    "nollup": "cross-env NODE_ENV=development nollup -c --hot --content-base public --history-api-fallback",
     "rollup": "cross-env NODE_ENV=production rollup -c",
     "serve": "sirv dist",
     "start": "run-p nollup type:watch",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "commonmark": "^0.29.3",
+    "markdown-tree-parser": "^0.12.4",
     "prismjs": "^1.22.0",
     "scroll-js": "^3.3.0",
     "solid-app-router": "^0.0.18",
