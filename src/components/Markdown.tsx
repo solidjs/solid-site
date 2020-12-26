@@ -15,7 +15,6 @@ import 'prismjs/themes/prism.css';
   Prism.languages.jsx.tag.inside['attr-value'].pattern = /=[^{](?:('|")[\w\W]*?(\1)|[^\s>]+)/i;
   let jsxExpression = Prism.util.clone(Prism.languages.jsx);
   delete jsxExpression.punctuation;
-
   jsxExpression = Prism.languages.insertBefore(
     'jsx',
     'operator',
@@ -24,7 +23,6 @@ import 'prismjs/themes/prism.css';
     },
     { jsx: jsxExpression },
   );
-
   Prism.languages.insertBefore(
     'inside',
     'attr-value',
@@ -102,6 +100,7 @@ const Markdown: Component = ({ children, onLoadSections }) => {
             } else {
               return <code>{node.value}</code>;
             }
+          // Catchall for clean-up/future additions
           default:
             console.log(node);
         }

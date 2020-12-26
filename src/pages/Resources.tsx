@@ -207,7 +207,7 @@ const articles = [
   },
 ];
 
-const Resources: Component<{ markdown: string; loading: boolean; version: string }> = (props) => {
+const Resources: Component = () => {
   return (
     <div class="flex flex-col relative">
       <Nav showLogo={true} />
