@@ -52,6 +52,7 @@ const Home: Component = () => (
           </h2>
           <a
             target="_blank"
+            rel="noopener"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
             class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5"
           >
@@ -60,6 +61,7 @@ const Home: Component = () => (
           </a>
           <a
             target="_blank"
+            rel="noopener"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
             class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5"
           >
@@ -68,6 +70,7 @@ const Home: Component = () => (
           </a>
           <a
             target="_blank"
+            rel="noopener"
             href="https://github.com/ryansolid/solid/stargazers"
             class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
           >
@@ -125,6 +128,7 @@ const Home: Component = () => (
           </h2>
           <a
             target="_blank"
+            rel="noopener"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
             class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5"
           >
@@ -133,6 +137,7 @@ const Home: Component = () => (
           </a>
           <a
             target="_blank"
+            rel="noopener"
             href="https://bundlephobia.com/result?p=solid-js@0.22.7"
             class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5"
           >
@@ -141,6 +146,7 @@ const Home: Component = () => (
           </a>
           <a
             target="_blank"
+            rel="noopener"
             href="https://github.com/ryansolid/solid/stargazers"
             class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
           >
