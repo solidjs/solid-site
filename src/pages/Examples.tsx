@@ -76,6 +76,7 @@ const Examples: Component<{
           <div class="col-span-10">
             <Show when={!props.loading && props.id} fallback={<p>Loading...</p>}>
               <Repl
+                title="Interactive Example"
                 height={window.innerHeight - 80}
                 isInteractive
                 class="rounded-lg col-span-6 overflow-hidden shadow-2xl"

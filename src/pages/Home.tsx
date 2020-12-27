@@ -81,7 +81,12 @@ const Home: Component = () => (
       </div>
       <div class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
-          <Repl height={500} isInteractive class="rounded-lg col-span-6 overflow-hidden shadow-2xl">
+          <Repl
+            title="Interactive Example"
+            height={500}
+            isInteractive
+            class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
+          >
             <ReplTab name="main">
               {`
                 import { createState, onCleanup } from "solid-js";
@@ -177,6 +182,7 @@ const Home: Component = () => (
             </Link>
           </div>
           <Repl
+            title="Interactive Example"
             height={500}
             isInteractive
             class="rounded-lg col-end-13 col-span-6 overflow-hidden shadow-2xl"
