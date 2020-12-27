@@ -9,16 +9,21 @@ const Footer: Component = () => (
       </div>
 
       <div class="col-span-9 text-sm pl-3">
-        Solid.js is an open-source project supported by a team of public contribitors. It's
-        distributed{' '}
-        <a class="text-gray-400" href="https://github.com/ryansolid/solid/blob/master/LICENSE">
-          under an MIT license
-        </a>
-        . This library and community are made possible by a{' '}
-        <a class="text-gray-400" href="/contributors">
-          core team and dedicated contributors
-        </a>
-        .
+        <p>
+          Solid.js is an open-source project supported by a team of public contribitors. It's
+          distributed&nbsp;
+          <a
+            class="text-gray-300 hover:underline"
+            href="https://github.com/ryansolid/solid/blob/master/LICENSE"
+          >
+            under an MIT license
+          </a>
+          . This library and community are made possible by a&nbsp;
+          <a class="text-gray-300 hover:underline" href="/contributors">
+            core team and dedicated contributors
+          </a>
+          .
+        </p>
       </div>
     </div>
   </footer>
