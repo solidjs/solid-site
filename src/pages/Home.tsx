@@ -9,7 +9,7 @@ import { Link } from 'solid-app-router';
 const Home: Component = () => (
   <div class="flex flex-col">
     <div class="bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white">
-      <div class="container mx-auto">
+      <div class="container">
         <div class="flex content-end flex-wrap h-96 px-5">
           <img class="w-48" src={logo} alt="Solid logo" />
           <img class="w-52 ml-4" src={wordmark} alt="Solid wordmark" />
@@ -22,7 +22,7 @@ const Home: Component = () => (
       </div>
     </div>
     <Nav />
-    <div class="my-10 container mx-auto">
+    <div class="my-10 container">
       <div class="grid px-10 py-10 grid-cols-3 gap-4">
         <div>
           <b class="block text-xl mb-2 font-semibold">Extreme Performance</b>
@@ -83,21 +83,22 @@ const Home: Component = () => (
         <div class="grid grid-cols-12">
           <Repl height={500} isInteractive class="rounded-lg col-span-6 overflow-hidden shadow-2xl">
             <ReplTab name="main">
-              {`import { createState, onCleanup } from "solid-js";
-                import { render } from 'solid-js/web';
+              {`
+                import { createState, onCleanup } from "solid-js";
+                import { render } from "solid-js/web";
 
                 const CountingComponent = () => {
                   const [state, setState] = createState({ counter: 0 });
                   const interval = setInterval(
                     () => setState({ counter: state.counter + 1 }),
                     1000
-                    );
-                    onCleanup(() => clearInterval(interval));
-                    return <div>Count value is { state.counter }</div>;
-                  };
+                  );
+                  onCleanup(() => clearInterval(interval));
+                  return <div>Count value is {state.counter}</div>;
+                };
 
-                  render(() => <CountingComponent />, document.getElementById('app'));
-                  `}
+                render(() => <CountingComponent />, document.getElementById("app"));
+              `}
             </ReplTab>
           </Repl>
           <div class="col-span-5 col-end-13 flex flex-col justify-center">
@@ -115,7 +116,7 @@ const Home: Component = () => (
               implementation that forgoes using a Virtual DOM.
             </p>
             <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
-              Read the docs &raquo;
+              Read the docs »
             </Link>
           </div>
         </div>
@@ -172,7 +173,7 @@ const Home: Component = () => (
               implementation that forgoes using a Virtual DOM.
             </p>
             <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
-              Read the docs &raquo;
+              Read the docs »
             </Link>
           </div>
           <Repl
@@ -181,21 +182,22 @@ const Home: Component = () => (
             class="rounded-lg col-end-13 col-span-6 overflow-hidden shadow-2xl"
           >
             <ReplTab name="main">
-              {`import { createState, onCleanup } from "solid-js";
-                import { render } from 'solid-js/web';
+              {`
+                import { createState, onCleanup } from "solid-js";
+                import { render } from "solid-js/web";
 
                 const CountingComponent = () => {
                   const [state, setState] = createState({ counter: 0 });
                   const interval = setInterval(
                     () => setState({ counter: state.counter + 1 }),
                     1000
-                    );
-                    onCleanup(() => clearInterval(interval));
-                    return <div>Count value is { state.counter }</div>;
-                  };
+                  );
+                  onCleanup(() => clearInterval(interval));
+                  return <div>Count value is {state.counter}</div>;
+                };
 
-                  render(() => <CountingComponent />, document.getElementById('app'));
-                  `}
+                render(() => <CountingComponent />, document.getElementById("app"));
+              `}
             </ReplTab>
           </Repl>
         </div>
