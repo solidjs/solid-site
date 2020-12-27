@@ -46,7 +46,7 @@ const Docs: Component<{
 
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo={true} />
+      <Nav showLogo />
       <Header title="Documentation" />
       <div class="container grid my-10 grid-cols-12 gap-4">
         <div class="col-span-3">

@@ -30,8 +30,9 @@ const list = {
 const Examples: Component = () => {
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo={true} />
+      <Nav showLogo />
       <Header title="Example Library" />
+
       <div style={{ width: '90vw' }} class="my-10 m-auto">
         <div class="grid grid-cols-12 gap-10">
           <div class="col-span-2">
@@ -58,26 +59,27 @@ const Examples: Component = () => {
           </div>
           <div class="col-span-10">
             <Repl
-              height={1000}
+              height={window.innerHeight - 80}
               isInteractive
               class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
             >
               <ReplTab name="main">
-                {`import { createState, onCleanup } from "solid-js";
-                import { render } from 'solid-js/web';
+                {`
+                  import { createState, onCleanup } from "solid-js";
+                  import { render } from "solid-js/web";
 
-                const CountingComponent = () => {
-                  const [state, setState] = createState({ counter: 0 });
-                  const interval = setInterval(
-                    () => setState({ counter: state.counter + 1 }),
-                    1000
+                  const CountingComponent = () => {
+                    const [state, setState] = createState({ counter: 0 });
+                    const interval = setInterval(
+                      () => setState({ counter: state.counter + 1 }),
+                      1000
                     );
                     onCleanup(() => clearInterval(interval));
-                    return <div>Count value is { state.counter }</div>;
+                    return <div>Count value is {state.counter}</div>;
                   };
 
-                  render(() => <CountingComponent />, document.getElementById('app'));
-                  `}
+                  render(() => <CountingComponent />, document.getElementById("app"));
+                `}
               </ReplTab>
             </Repl>
           </div>

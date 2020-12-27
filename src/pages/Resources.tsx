@@ -210,7 +210,7 @@ const articles = [
 const Resources: Component = () => {
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo={true} />
+      <Nav showLogo />
       <Header title="Resources" />
       <div class="container my-10">
         <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>

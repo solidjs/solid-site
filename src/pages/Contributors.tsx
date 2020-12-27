@@ -47,7 +47,7 @@ const contributors = [
 const Contributors: Component = () => {
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo={true} />
+      <Nav showLogo />
       <Header title="Team & Contributors" />
       <div class="container my-10">
         Solid.js is supportedand made possible by a community of dedicated contributors and
