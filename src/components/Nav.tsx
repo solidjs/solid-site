@@ -25,7 +25,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
     observer.observe(intersectorRef);
   });
 
-  onCleanup(() => observer.disconnect());
+  onCleanup(() => observer && observer.disconnect());
 
   return (
     <>

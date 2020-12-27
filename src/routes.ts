@@ -1,11 +1,13 @@
 import type { RouteDefinition } from 'solid-app-router';
 import { lazy } from 'solid-js';
 import { DocsData } from './pages/Docs.data';
+import { ExampleData } from './pages/Example.data';
 
 export const routes: RouteDefinition[] = [
   {
     path: '/examples/:id',
     component: lazy(() => import('./pages/Examples')),
+    data: ExampleData,
   },
   {
     path: '/examples',

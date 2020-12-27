@@ -1,6 +1,6 @@
-import { For, Component } from 'solid-js';
+import { For, Component, Show, createComputed } from 'solid-js';
 import { Repl, ReplTab } from 'solid-repl';
-import { Link } from 'solid-app-router';
+import { Link, useRouter } from 'solid-app-router';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -27,13 +27,26 @@ const list = {
   ],
 };
 
-const Examples: Component = () => {
+const Examples: Component<{
+  loading: boolean;
+  example: { name: string; files: { name: string; content: string | string[] }[] };
+  id: string;
+}> = (props) => {
+  const router = useRouter();
+
+  createComputed(() => {
+    /**
+     * We need to find a way to implement middleware at the router lever
+     */
+    if (!props.id) router.push('/examples/counter');
+  });
+
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Example Library" />
 
-      <div style={{ width: '90vw' }} class="my-10 m-auto">
+      <div style={{ width: '90vw' }} class="my-10 mx-auto">
         <div class="grid grid-cols-12 gap-10">
           <div class="col-span-2">
             <For each={Object.entries(list)}>
@@ -45,6 +58,9 @@ const Examples: Component = () => {
                       {(example) => (
                         <Link
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
+                          classList={{
+                            'text-solid': example.id === props.id,
+                          }}
                           href={`/examples/${example.id}`}
                         >
                           {example.name}
@@ -58,30 +74,21 @@ const Examples: Component = () => {
             </For>
           </div>
           <div class="col-span-10">
-            <Repl
-              height={window.innerHeight - 80}
-              isInteractive
-              class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
-            >
-              <ReplTab name="main">
-                {`
-                  import { createState, onCleanup } from "solid-js";
-                  import { render } from "solid-js/web";
+            <Show when={!props.loading && props.id} fallback={<p>Loading...</p>}>
+              <Repl
+                height={window.innerHeight - 80}
+                isInteractive
+                class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
+              >
+                {props.example.files.map((file) => {
+                  const content = Array.isArray(file.content)
+                    ? file.content.join('\n')
+                    : file.content;
 
-                  const CountingComponent = () => {
-                    const [state, setState] = createState({ counter: 0 });
-                    const interval = setInterval(
-                      () => setState({ counter: state.counter + 1 }),
-                      1000
-                    );
-                    onCleanup(() => clearInterval(interval));
-                    return <div>Count value is {state.counter}</div>;
-                  };
-
-                  render(() => <CountingComponent />, document.getElementById("app"));
-                `}
-              </ReplTab>
-            </Repl>
+                  return <ReplTab name={file.name}>{content}</ReplTab>;
+                })}
+              </Repl>
+            </Show>
           </div>
         </div>
       </div>
