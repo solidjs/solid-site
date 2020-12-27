@@ -38,23 +38,23 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
     <>
       <div ref={intersectorRef} class="h-0" />
       <nav
-        class={
-          `sticky top-0 z-50 w-screentransition-all duration-200 ` +
-          (locked() === true
-            ? 'shadow-lg bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white'
-            : 'bg-white shadow-sm')
-        }
+        class="sticky top-0 z-50 nav"
+        classList={{
+          'nav--locked text-white': locked(),
+          'nav--unlocked': !locked(),
+        }}
       >
-        <div class="container grid grid-cols-10 mx-auto">
+        <div class="container grid grid-cols-10 mx-auto relative z-20">
           <ul class="flex items-center col-span-7">
             <li
               class={`py-3 transition-all overflow-hidden ${
                 showLogo === true || locked() === true ? 'w-10 mr-4' : 'w-0'
               }`}
             >
-              <a href="/">
+              <Link href="/">
+                <span class="sr-only">Go back to the home page</span>
                 <img class="w-14" src={logo} alt="Solid logo" />
-              </a>
+              </Link>
             </li>
             <For each={links}>
               {(item) => (
@@ -71,17 +71,17 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
           </ul>
           <ul class="flex items-center col-span-3 flex-row-reverse">
             <li class="ml-3">
-              <a href="https://github.com/ryansolid/solid" target="_blank">
+              <a href="https://github.com/ryansolid/solid" rel="noopener" target="_blank">
                 <img alt="Github logo" class="h-8 w-8 transition hover:opacity-50" src={github} />
               </a>
             </li>
             <li class="ml-3">
-              <a href="https://www.reddit.com/r/solidjs/" target="_blank">
+              <a href="https://www.reddit.com/r/solidjs/" rel="noopener" target="_blank">
                 <img alt="Reddit logo" class="h-8 w-8 transition hover:opacity-50" src={reddit} />
               </a>
             </li>
             <li>
-              <a href="https://discord.com/invite/solidjs" target="_blank">
+              <a href="https://discord.com/invite/solidjs" rel="noopener" target="_blank">
                 <img
                   alt="Discord logo"
                   class="h-9 w-13 transition hover:opacity-50"
