@@ -5,7 +5,10 @@ import Footer from './components/Footer';
 
 export const App: Component = () => (
   <>
-    <Route />
+    <main class="min-h-screen">
+      <Route />
+    </main>
+
     <Footer />
   </>
 );
