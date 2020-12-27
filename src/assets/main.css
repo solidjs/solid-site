@@ -39,6 +39,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.defer {
+  content-visibility: 'auto';
+}
+
 .nav::before,
 .nav::after {
   content: '';

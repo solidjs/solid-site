@@ -8,8 +8,8 @@ import { Link } from 'solid-app-router';
 
 const Home: Component = () => (
   <div class="flex flex-col">
-    <div class="bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white">
-      <div class="container">
+    <header class="bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white">
+      <section class="container">
         <div class="flex content-end flex-wrap h-96 px-5">
           <img class="w-48" src={logo} alt="Solid logo" />
           <img class="w-52 ml-4" src={wordmark} alt="Solid wordmark" />
@@ -19,11 +19,13 @@ const Home: Component = () => (
             The next generation fine-grained <u>reactive</u> Javascript UI library.
           </h2>
         </div>
-      </div>
-    </div>
+      </section>
+    </header>
+
     <Nav />
+
     <div class="my-10 container">
-      <div class="grid px-10 py-10 grid-cols-3 gap-4">
+      <section class="grid px-10 py-10 grid-cols-3 gap-4">
         <div>
           <b class="block text-xl mb-2 font-semibold">Extreme Performance</b>
           <span class="text-gray-500 text-base">
@@ -42,8 +44,9 @@ const Home: Component = () => (
             Render applications client and server-side with SSR and SSG.
           </span>
         </div>
-      </div>
-      <div class="bg-gray-50 mt-10 px-10 py-10">
+      </section>
+
+      <section class="bg-gray-50 mt-10 px-10 py-10 defer">
         <div class="px-10 py-10">
           <h2 class="text-3xl font-bold text-solid">A purely reactive library.</h2>
           <h2 class="text-2xl font-bold text-gray-500 mt-2">
@@ -78,14 +81,16 @@ const Home: Component = () => (
             <span class="block text-sm">In development</span>
           </a>
         </div>
-      </div>
-      <div class="my-10 py-10 px-12">
+      </section>
+      <section class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
           <Repl
             title="Interactive Example"
             height={500}
             isInteractive
             class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
+            // @ts-ignore
+            loading="lazy"
           >
             <ReplTab name="main">
               {`
@@ -125,8 +130,8 @@ const Home: Component = () => (
             </Link>
           </div>
         </div>
-      </div>
-      <div class="bg-gray-50 mt-10 px-10 py-10">
+      </section>
+      <section class="bg-gray-50 mt-10 px-10 py-10 defer">
         <div class="px-10 py-10">
           <h2 class="text-3xl text-solid font-bold">Fastest and smallest.</h2>
           <h2 class="text-2xl font-bold text-gray-500 mt-2">
@@ -160,8 +165,8 @@ const Home: Component = () => (
             <span class="block text-sm">Github Stars</span>
           </a>
         </div>
-      </div>
-      <div class="my-10 py-10 px-12">
+      </section>
+      <section class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
           <div class="col-span-5 flex flex-col justify-center">
             <h3 class="text-3xl font-bold text-solid mb-9">It's familiar...</h3>
@@ -186,6 +191,8 @@ const Home: Component = () => (
             height={500}
             isInteractive
             class="rounded-lg col-end-13 col-span-6 overflow-hidden shadow-2xl"
+            // @ts-ignore
+            loading="lazy"
           >
             <ReplTab name="main">
               {`
@@ -207,8 +214,8 @@ const Home: Component = () => (
             </ReplTab>
           </Repl>
         </div>
-      </div>
-      <div class="bg-gray-50 mt-10 px-10 py-10">
+      </section>
+      <section class="bg-gray-50 mt-10 px-10 py-10 defer">
         <div class="px-10 py-10">
           <h2 class="text-3xl font-bold text-solid">Fully loaded with all features.</h2>
           <h2 class="text-2xl font-bold text-gray-500 mb-4">
@@ -242,7 +249,7 @@ const Home: Component = () => (
             <span class="block text-sm">SSR & Hydration</span>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 );
