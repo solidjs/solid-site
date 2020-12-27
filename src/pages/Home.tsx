@@ -102,7 +102,7 @@ const Home: Component = () => (
             </ReplTab>
           </Repl>
           <div class="col-span-5 col-end-13 flex flex-col justify-center">
-            <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
+            <h3 class="text-3xl font-bold text-solid mb-9">It's familiar...</h3>
             <p class="mb-4">
               While a new UI library is supposed to jump out and break the mould. Solid doesn't
               stand out when it comes to API's or developer experience. If you've developed with
@@ -159,7 +159,7 @@ const Home: Component = () => (
       <div class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
           <div class="col-span-5 flex flex-col justify-center">
-            <h4 class="text-3xl font-bold text-solid mb-9">It's familiar...</h4>
+            <h3 class="text-3xl font-bold text-solid mb-9">It's familiar...</h3>
             <p class="mb-4">
               While a new UI library is supposed to jump out and break the mould. Solid doesn't
               stand out when it comes to API's or developer experience. If you've developed with
