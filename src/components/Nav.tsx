@@ -47,7 +47,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
           <ul class="flex items-center col-span-7">
             <li
               class={`py-3 transition-all overflow-hidden ${
-                showLogo === true || unlocked() === true ? 'w-10 mr-4' : 'w-0'
+                showLogo === true || unlocked() === false ? 'w-10 mr-4' : 'w-0'
               }`}
             >
               <Link href="/">
