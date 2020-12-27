@@ -46,7 +46,7 @@ const Home: Component = () => (
       <div class="bg-gray-50 mt-10 px-10 py-10">
         <div class="px-10 py-10">
           <h2 class="text-3xl font-bold text-solid">A purely reactive library.</h2>
-          <h2 class="text-2xl font-bold text-gray-400 mt-2">
+          <h2 class="text-2xl font-bold text-gray-500 mt-2">
             Solid was designed from the ground up with a reactive core. It's influenced by reactive
             principles developed by previous libraries.
           </h2>
