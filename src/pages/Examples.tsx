@@ -32,7 +32,7 @@ const Examples: Component = () => {
     <div class="flex flex-col relative">
       <Nav showLogo={true} />
       <Header title="Example Library" />
-      <div style={{ width: '80vw' }} class="my-10 m-auto">
+      <div style={{ width: '90vw' }} class="my-10 m-auto">
         <div class="grid grid-cols-12 gap-10">
           <div class="col-span-2">
             <For each={Object.entries(list)}>

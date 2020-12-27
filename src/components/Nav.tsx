@@ -12,14 +12,13 @@ const links = [
   { title: 'Docs', path: '/docs/latest/api' },
   { title: 'Resources', path: '/resources' },
   { title: 'Examples', path: '/examples' },
-  { title: 'Media', path: '/media' },
   { title: 'Playground', path: 'https://playground.solidjs.com' },
+  { title: 'Media', path: '/media' },
 ];
 
 const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
   const [unlocked, setUnlocked] = createSignal(showLogo);
   let intersectorRef!: HTMLDivElement;
-
   onMount(() => {
     const observer = new IntersectionObserver(
       ([firstEntry]) => {
@@ -33,7 +32,6 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
     );
     observer.observe(intersectorRef);
   });
-
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
@@ -42,6 +40,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
         classList={{
           'nav--locked text-white': !unlocked(),
           'nav--unlocked': unlocked(),
+          'border-b': !showLogo,
         }}
       >
         <div class="container grid grid-cols-10 mx-auto relative z-20">
@@ -60,7 +59,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
               {(item) => (
                 <li>
                   <Link
-                    class="block transition px-5 py-7 hover:text-white hover:bg-solid-medium"
+                    class="block transition px-4 py-7 hover:text-white hover:bg-solid-medium"
                     href={item.path}
                   >
                     {item.title}
