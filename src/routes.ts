@@ -4,6 +4,14 @@ import { DocsData } from './pages/Docs.data';
 
 export const routes: RouteDefinition[] = [
   {
+    path: '/examples/:id',
+    component: lazy(() => import('./pages/Examples')),
+  },
+  {
+    path: '/examples',
+    component: lazy(() => import('./pages/Examples')),
+  },
+  {
     path: '/contributors',
     component: lazy(() => import('./pages/Contributors')),
   },

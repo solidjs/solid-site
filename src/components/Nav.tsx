@@ -1,16 +1,17 @@
 import { Component, For } from 'solid-js';
 import { onMount, createSignal } from 'solid-js';
+import { Link } from 'solid-app-router';
 
 import logo from '../assets/logo.svg';
 import github from '../assets/github.svg';
 import discord from '../assets/discord.svg';
 import reddit from '../assets/reddit.svg';
-import { Link } from 'solid-app-router';
 
 const links = [
   { title: 'Get Started', path: '/' },
   { title: 'Docs', path: '/docs/latest/api' },
   { title: 'Resources', path: '/resources' },
+  { title: 'Examples', path: '/examples' },
   { title: 'Media', path: '/media' },
   { title: 'Playground', path: 'https://playground.solidjs.com' },
 ];
