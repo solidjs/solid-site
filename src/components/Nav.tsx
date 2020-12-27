@@ -16,21 +16,20 @@ const links = [
 ];
 
 const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
-  const [locked, setLocked] = createSignal(showLogo);
+  const [unlocked, setUnlocked] = createSignal(showLogo);
   let intersectorRef!: HTMLDivElement;
 
   onMount(() => {
     const observer = new IntersectionObserver(
       ([firstEntry]) => {
         if (firstEntry.intersectionRatio === 0) {
-          setLocked(true);
+          setUnlocked(false);
         } else if (firstEntry.intersectionRatio === 1) {
-          setLocked(false);
+          setUnlocked(true);
         }
       },
       { threshold: [0, 1] },
     );
-
     observer.observe(intersectorRef);
   });
 
@@ -40,15 +39,15 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
       <nav
         class="sticky top-0 z-50 nav"
         classList={{
-          'nav--locked text-white': locked(),
-          'nav--unlocked': !locked(),
+          'nav--locked text-white': !unlocked(),
+          'nav--unlocked': unlocked(),
         }}
       >
         <div class="container grid grid-cols-10 mx-auto relative z-20">
           <ul class="flex items-center col-span-7">
             <li
               class={`py-3 transition-all overflow-hidden ${
-                showLogo === true || locked() === true ? 'w-10 mr-4' : 'w-0'
+                showLogo === true || unlocked() === true ? 'w-10 mr-4' : 'w-0'
               }`}
             >
               <Link href="/">

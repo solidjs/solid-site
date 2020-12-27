@@ -213,7 +213,7 @@ const Resources: Component = () => {
       <Nav showLogo={true} />
       <Header title="Resources" />
       <div class="container my-10">
-        <h1 class="text-2xl border-b pb-3 mb-3 text-solid">Podcasts</h1>
+        <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>
         <ul class="list-disc ml-5 mb-10">
           <li class="py-4 border-b pl-4">
             <a
@@ -227,7 +227,7 @@ const Resources: Component = () => {
             <div class="text-md block">Reactive frontend frameworks</div>
           </li>
         </ul>
-        <h1 class="text-2xl border-b pb-3 my-5 text-solid">Videos</h1>
+        <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Videos</h1>
         <ul class="list-disc ml-5 mb-10">
           <li class="py-4 border-b pl-4">
             <a
@@ -241,16 +241,18 @@ const Resources: Component = () => {
             <div class="text-md block">Eric Schmucker walks you through Solid.</div>
           </li>
         </ul>
-        <h1 class="text-2xl border-b pb-3 my-5 text-solid">Latest Articles </h1>
+        <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Latest Articles </h1>
         <ul class="list-disc ml-5">
-          {articles.map((article) => (
-            <li class="py-4 border-b pl-4">
-              <a class="text-lg text-solid" href={article.link} target="_blank" rel="nofollow">
-                {article.title}
-              </a>
-              {article.description && <div class="text-md block">{article.description}</div>}
-            </li>
-          ))}
+          <For each={articles}>
+            {(article) => (
+              <li class="py-4 border-b pl-4">
+                <a class="text-lg text-solid" href={article.link} target="_blank" rel="nofollow">
+                  {article.title}
+                </a>
+                {article.description && <div class="text-md block">{article.description}</div>}
+              </li>
+            )}
+          </For>
         </ul>
       </div>
     </div>
