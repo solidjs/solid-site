@@ -57,18 +57,36 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
       return nodes.map((node) => {
         switch (node.name) {
           case 'heading':
-            let el = document.createElement(`h${node.level}`);
-            el.className = `pb-3 ${sections.length === 0 ? 'mb-5' : 'my-5'} text-${
-              3 - node.level
-            }xl border-b text-solid`;
+            /**
+             * We create an empty anchor link here that will
+             * be inserted into each header as absolute and positionned
+             * 80px (size of the header) above the heading. This way
+             * we can smoothly scrool to that title without it being
+             * hidden under the sticky header atop.
+             */
+            const anchor = document.createElement('a');
+            anchor.classList.add('absolute');
+            anchor.style.bottom = 'calc(100% + 80px)';
+
+            const el = document.createElement(`h${node.level}`);
+            el.classList.add(
+              'pb-3',
+              !sections.length ? 'mb-5' : 'my-5',
+              `text-${3 - node.level}xl`,
+              'border-b',
+              'text-solid',
+              'relative',
+            );
             el.append(...astToSolid(node.values));
-            el.setAttribute('id', slugify(el.innerHTML));
+
+            anchor.setAttribute('id', slugify(el.innerHTML));
+            el.prepend(anchor);
+
             const title = document.createElement('textarea');
-            title.innerHTML = el.innerHTML;
-            sections.push({
-              id: el.id,
-              title: title.value,
-            });
+            title.innerHTML = el.textContent;
+
+            sections.push({ id: anchor.id, title: title.value });
+
             return el;
           case 'link':
             return (
