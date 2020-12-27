@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import github from '../assets/github.svg';
@@ -60,7 +60,11 @@ const Contributors: Component = () => {
               {(person) => (
                 <div class="grid grid-cols-3 gap-10 mb-7">
                   <div class="col-span-1">
-                    <img class="shadow-lg rounded-md" src={`/img/bios/${person.img}`}></img>
+                    <img
+                      class="shadow-lg rounded-md"
+                      alt="Profile headshot"
+                      src={`/img/bios/${person.img}`}
+                    />
                   </div>
                   <div class="col-span-2">
                     <span class="text-bold text-2xl border-b w-12/12 block pb-2 mb-3 text-solid">
@@ -69,7 +73,7 @@ const Contributors: Component = () => {
                     <small class="block mb-3">{person.role}</small>
                     <p class="block mb-3">{person.bio}</p>
                     <a target="_blank" href={`https://github.com/${person.github}`}>
-                      <img class="w-7" src={github} />
+                      <img class="w-7" alt="" src={github} />
                     </a>
                   </div>
                 </div>

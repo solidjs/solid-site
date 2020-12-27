@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import { For, Component } from 'solid-js';
 import { Repl, ReplTab } from 'solid-repl';
 import { Link } from 'solid-app-router';
 

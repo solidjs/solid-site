@@ -1,4 +1,4 @@
-import type { Component } from 'solid-js';
+import { Component, For } from 'solid-js';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 
