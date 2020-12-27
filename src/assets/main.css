@@ -3,7 +3,7 @@
   src: url('./fonts/Gordita/Gordita Regular.eot?#iefix') format('embedded-opentype'),
     url('./fonts/Gordita/Gordita-Regular.woff') format('woff'),
     url('./fonts/Gordita/Gordita Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
   font-display: fallback;
 }
@@ -12,7 +12,7 @@
   src: url('./fonts/Gordita/Gordita Thin.eot?#iefix') format('embedded-opentype'),
     url('./fonts/Gordita/Gordita Thin.woff') format('woff'),
     url('./fonts/Gordita/Gordita Thin.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 100;
   font-style: normal;
   font-display: fallback;
 }
