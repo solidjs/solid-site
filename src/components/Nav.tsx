@@ -1,11 +1,10 @@
-import { Component, For } from 'solid-js';
-import { onMount, createSignal } from 'solid-js';
+import { Component, For, onCleanup, onMount, createSignal } from 'solid-js';
 import { Link } from 'solid-app-router';
 
 import logo from '../assets/logo.svg';
-import github from '../assets/github.svg';
-import discord from '../assets/discord.svg';
-import reddit from '../assets/reddit.svg';
+import { DiscordIcon } from '../icons/DiscordIcon';
+import { RedditIcon } from '../icons/RedditIcon';
+import { GithubIcon } from '../icons/GithubIcon';
 
 const links = [
   { title: 'Get Started', path: '/' },
@@ -19,23 +18,20 @@ const links = [
 const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
   const [unlocked, setUnlocked] = createSignal(showLogo);
   let intersectorRef!: HTMLDivElement;
+  let observer: IntersectionObserver;
+
   onMount(() => {
-    const observer = new IntersectionObserver(
-      ([firstEntry]) => {
-        if (firstEntry.intersectionRatio === 0) {
-          setUnlocked(false);
-        } else if (firstEntry.intersectionRatio === 1) {
-          setUnlocked(true);
-        }
-      },
-      { threshold: [0, 1] },
-    );
+    observer = new IntersectionObserver(([{ isIntersecting }]) => setUnlocked(isIntersecting));
     observer.observe(intersectorRef);
   });
+
+  onCleanup(() => observer.disconnect());
+
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
-      <nav
+
+      <div
         class="sticky top-0 z-50 nav"
         classList={{
           'nav--locked text-white': !unlocked(),
@@ -43,15 +39,15 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
           'border-b': !showLogo,
         }}
       >
-        <div class="container grid grid-cols-10 mx-auto relative z-20">
+        <nav class="container grid grid-cols-10 relative z-20">
           <ul class="flex items-center col-span-7">
             <li
               class={`py-3 transition-all overflow-hidden ${
-                showLogo === true || unlocked() === false ? 'w-10 mr-4' : 'w-0'
+                showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
               }`}
             >
               <Link href="/">
-                <span class="sr-only">Go back to the home page</span>
+                <span class="sr-only">Navigate to the home page</span>
                 <img class="w-14" src={logo} alt="Solid logo" />
               </Link>
             </li>
@@ -71,26 +67,43 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
           <ul class="flex items-center col-span-3 flex-row-reverse">
             <li class="ml-3">
               <a href="https://github.com/ryansolid/solid" rel="noopener" target="_blank">
-                <img alt="Github logo" class="h-8 w-8 transition hover:opacity-50" src={github} />
+                <span class="sr-only">Navigate to github</span>
+                <GithubIcon
+                  class="h-8 transition hover:opacity-50"
+                  classList={{
+                    'opacity-60': unlocked(),
+                    'opacity-80': !unlocked(),
+                  }}
+                />
               </a>
             </li>
             <li class="ml-3">
               <a href="https://www.reddit.com/r/solidjs/" rel="noopener" target="_blank">
-                <img alt="Reddit logo" class="h-8 w-8 transition hover:opacity-50" src={reddit} />
+                <span class="sr-only">Navigate to reddit</span>
+                <RedditIcon
+                  class="h-8 transition hover:opacity-50"
+                  classList={{
+                    'opacity-60': unlocked(),
+                    'opacity-80': !unlocked(),
+                  }}
+                />
               </a>
             </li>
             <li>
               <a href="https://discord.com/invite/solidjs" rel="noopener" target="_blank">
-                <img
-                  alt="Discord logo"
-                  class="h-9 w-13 transition hover:opacity-50"
-                  src={discord}
+                <span class="sr-only">Navigate to discord</span>
+                <DiscordIcon
+                  class="h-8 transition hover:opacity-50"
+                  classList={{
+                    'opacity-60': unlocked(),
+                    'opacity-80': !unlocked(),
+                  }}
                 />
               </a>
             </li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </>
   );
 };
