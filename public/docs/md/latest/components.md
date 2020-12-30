@@ -61,23 +61,27 @@ const List = (props) => <ul>{ props.children.map(item => <li>{item}</li>) }</ul>
 </List>
 ```
 
-**Important:** Solid treats child tags as expensive expressions and wraps them the same way as dynamic reactive expressions. This means they evaluate lazily on `prop` access. Be careful accessing them multiple times or destructuring before the place you would use them in the view. This is because Solid doesn't have luxury of creating Virtual DOM nodes ahead of time then diffing them so resolution of these `props` must be lazy and deliberate.
+Important: Solid treats child tags as expensive expressions and wraps them the same way as dynamic reactive expressions. This means they evaluate lazily on `prop` access. Be careful accessing them multiple times or destructuring before the place you would use them in the view. This is because Solid doesn't have luxury of creating Virtual DOM nodes ahead of time then diffing them so resolution of these `props` must be lazy and deliberate.
 
 ## Props
 
 Solid's Components are the key part of its performance. Solid's approach is "Vanishing" Components made possible by lazy prop evaluation. Instead of evaluating prop expressions immediately and passing in values, execution is deferred until the prop is accessed in the child. In so we defer execution until the last moment typically right in the DOM bindings maximizing performance. This flattens the hierarchy and removes the need to maintain a tree of Components.
 
 ```jsx
-<Component prop1="static" prop2={state.dynamic} />
+<Component prop1="static" prop2={state.dynamic} />;
 
 // compiles roughly to:
 
 // we untrack the component body to isolate it and prevent costly updates
-untrack(() => Component({
-  prop1: "static",
-  // dynamic expression so we wrap in a getter
-  get prop2() { return state.dynamic }
-}))
+untrack(() =>
+  Component({
+    prop1: 'static',
+    // dynamic expression so we wrap in a getter
+    get prop2() {
+      return state.dynamic;
+    },
+  }),
+);
 ```
 
 To help maintain reactivity Solid has a couple prop helpers:
@@ -116,9 +120,7 @@ function Example() {
   return (
     <div>
       <p>You clicked {count()} times</p>
-      <button onClick={() => setCount(count() + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count() + 1)}>Click me</button>
     </div>
   );
 }
@@ -136,8 +138,8 @@ const Ticker = () => {
   // remove interval when Component destroyed:
   onCleanup(() => clearInterval(t));
 
-  return <div>{state.count}</div>
-}
+  return <div>{state.count}</div>;
+};
 ```
 
 ## Web Components

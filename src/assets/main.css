@@ -61,3 +61,7 @@
 .nav--unlocked::after {
   @apply opacity-100;
 }
+
+.code {
+  background-color: #f8fafc;
+}

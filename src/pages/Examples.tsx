@@ -80,13 +80,18 @@ const Examples: Component<{
       <Nav showLogo />
       <Header title="Example Library" />
 
-      <div style={{ width: '90vw' }} class="my-10 mx-auto">
-        <div class="flex grid grid-cols-12 gap-5">
-          <div class="col-span-2 overflow-auto" style={{ height: `${window.innerHeight - 80}px` }}>
+      <div style={{ width: '95vw' }} class="my-10 mx-auto">
+        <div class="flex grid grid-cols-12 gap-8">
+          <div
+            class="col-span-2 overflow-auto border p-5 rounded"
+            style={{
+              height: '82vh',
+            }}
+          >
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
-                  <h3 class="text-xl text-solid border-b border-solid pb-3">{name}</h3>
+                  <h3 class="text-xl text-solid border-b border-solid pb-2">{name}</h3>
                   <div class="mb-10">
                     <For each={examples}>
                       {(example) => (
@@ -111,8 +116,8 @@ const Examples: Component<{
             <Show when={props.example} fallback={<p>Loading...</p>}>
               <Repl
                 title="Interactive Example"
+                height="85vh"
                 data={props.example}
-                height="50vh"
                 isInteractive
                 class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
               />

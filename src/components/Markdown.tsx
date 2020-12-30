@@ -54,6 +54,9 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
   const doc = createMutable(() => {
     let sections = [];
     const astToSolid = (nodes) => {
+      if (!nodes || nodes.length === 0) {
+        return [];
+      }
       return nodes.map((node) => {
         switch (node.name) {
           case 'heading':
@@ -78,26 +81,49 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
               'relative',
             );
             el.append(...astToSolid(node.values));
-
             anchor.setAttribute('id', slugify(el.innerHTML));
             el.prepend(anchor);
-
             const title = document.createElement('textarea');
             title.innerHTML = el.textContent;
-
-            sections.push({ id: anchor.id, title: title.value });
-
+            if (node.level <= 2) {
+              sections.push({ id: anchor.id, title: title.value });
+            }
             return el;
+          case 'orderedlist':
+            return (
+              <ol class="list-decimal ml-9 my-4">
+                {node.values.map((item) => (
+                  <li>{astToSolid([item])}</li>
+                ))}
+              </ol>
+            );
+          case 'list':
+            return (
+              <ul class="list-disc ml-9 my-4">
+                {node.values.map((item) => (
+                  <li>{astToSolid([item])}</li>
+                ))}
+              </ul>
+            );
           case 'link':
             return (
               <a class="text-gray-500 hover:text-solid" href={node.href}>
                 {node.title}
               </a>
             );
+          case 'italic':
+            return <i>{node.value}</i>;
+          case 'blockquote':
+            return (
+              <blockquote class="p-4 my-5 bg-yellow-50 border border-dashed rounded-lg">
+                {astToSolid(node.values)}
+              </blockquote>
+            );
           case 'text':
           case 'paragraph':
             return node.value ? node.value : astToSolid(node.values);
           case 'code':
+          case 'inline-code':
             if (node.type === 'block') {
               let code = document.createElement('code');
               code.setAttribute('classNames', 'language-jsx');
@@ -110,14 +136,14 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
                   Prism.highlight(astToSolid(node.values)[0], Prism.languages.typescript, 'jsx');
               }
               return (
-                <div class="code leading-6 shadow-lg my-8 border rounded-md p-6 ">
+                <div class="code leading-6 text-sm shadow-md my-8 rounded-md py-5 px-6">
                   <pre style={{ background: 'none' }} class="poetry">
                     {code}
                   </pre>
                 </div>
               );
             } else {
-              return <code>{node.value}</code>;
+              return <code class="code p-2 rounded">{node.value}</code>;
             }
           // Catchall for clean-up/future additions
           default:
