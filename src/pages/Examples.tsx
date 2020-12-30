@@ -1,5 +1,5 @@
 import { For, Component, Show, createComputed } from 'solid-js';
-import { Repl, ReplTab } from 'solid-repl';
+import { Repl } from 'solid-repl';
 import { Link, useRouter } from 'solid-app-router';
 
 import Nav from '../components/Nav';
@@ -63,8 +63,7 @@ const list = {
 };
 
 const Examples: Component<{
-  loading: boolean;
-  example: { name: string; files: { name: string; content: string | string[] }[] };
+  example: string;
   id: string;
 }> = (props) => {
   const router = useRouter();
@@ -109,21 +108,14 @@ const Examples: Component<{
             </For>
           </div>
           <div class="col-span-10">
-            <Show when={!props.loading && props.id} fallback={<p>Loading...</p>}>
+            <Show when={props.example} fallback={<p>Loading...</p>}>
               <Repl
                 title="Interactive Example"
-                height={window.innerHeight - 80}
+                data={props.example}
+                height="50vh"
                 isInteractive
                 class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
-              >
-                {props.example.files.map((file) => {
-                  const content = Array.isArray(file.content)
-                    ? file.content.join('\n')
-                    : file.content;
-
-                  return <ReplTab name={file.name}>{content}</ReplTab>;
-                })}
-              </Repl>
+              />
             </Show>
           </div>
         </div>
