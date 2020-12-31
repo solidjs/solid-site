@@ -112,8 +112,8 @@ const Home: Component = () => (
             </ReplTab>
           </Repl>
           <div class="col-span-5 col-end-13 flex flex-col justify-center">
-            <h3 class="text-3xl font-bold text-solid mb-9">It's familiar...</h3>
-            <p class="mb-4">
+            <h3 class="text-3xl font-bold leading-10 text-solid mb-9">It's familiar...</h3>
+            <p class="mb-4 leading-7">
               While a new UI library is supposed to jump out and break the mould. Solid doesn't
               stand out when it comes to API's or developer experience. If you've developed with
               React Hooks before Solid should seem very natural. In fact, more natural as Solid's
@@ -169,18 +169,13 @@ const Home: Component = () => (
       <section class="my-10 py-10 px-12">
         <div class="grid grid-cols-12">
           <div class="col-span-5 flex flex-col justify-center">
-            <h3 class="text-3xl font-bold text-solid mb-9">It's familiar...</h3>
-            <p class="mb-4">
+            <h3 class="text-3xl font-bold text-solid mb-9">It's modern and dependable...</h3>
+            <p class="mb-4 leading-7">
               While a new UI library is supposed to jump out and break the mould. Solid doesn't
               stand out when it comes to API's or developer experience. If you've developed with
               React Hooks before Solid should seem very natural. In fact, more natural as Solid's
               model is much simpler with no Hook rules. Every Component executes once and it is the
               Hooks and bindings that execute many times as their dependencies update.
-            </p>
-            <p>
-              Solid follows the same philosophy as React with unidirectional data flow, read/write
-              segregation, and immutable interfaces. It just has a completely different
-              implementation that forgoes using a Virtual DOM.
             </p>
             <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
               Read the docs »

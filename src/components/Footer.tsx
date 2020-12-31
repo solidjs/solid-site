@@ -3,7 +3,7 @@ import wordmark from '../assets/wordmark.svg';
 
 const Footer: Component = () => (
   <footer class="py-10 bg-solid-gray">
-    <div class="container grid grid-cols-12 gap-6 text-white">
+    <div class="container py-7 grid grid-cols-12 gap-6 text-white">
       <div class="col-span-2 flex justify-center">
         <img class="w-8/12" src={wordmark} alt="Solid logo" />
       </div>

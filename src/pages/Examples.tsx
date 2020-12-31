@@ -67,27 +67,19 @@ const Examples: Component<{
   id: string;
 }> = (props) => {
   const router = useRouter();
-
+  /**
+   * @TODO: We need to find a way to implement middleware at the router lever
+   */
   createComputed(() => {
-    /**
-     * We need to find a way to implement middleware at the router lever
-     */
     if (!props.id) router.push('/examples/counter');
   });
-
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Example Library" />
-
       <div style={{ width: '95vw' }} class="my-10 mx-auto">
         <div class="flex grid grid-cols-12 gap-8">
-          <div
-            class="col-span-2 overflow-auto border p-5 rounded"
-            style={{
-              height: '82vh',
-            }}
-          >
+          <div class="col-span-2 overflow-auto border p-5 rounded" style={{ height: '82vh' }}>
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
@@ -98,7 +90,7 @@ const Examples: Component<{
                         <Link
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
                           classList={{
-                            'text-solid': example.id === props.id,
+                            'text-solid font-bold': example.id === props.id,
                           }}
                           href={`/examples/${example.id}`}
                         >

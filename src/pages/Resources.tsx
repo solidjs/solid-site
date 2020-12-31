@@ -212,48 +212,56 @@ const Resources: Component = () => {
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Resources" />
-      <div class="container my-10">
-        <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>
-        <ul class="list-disc ml-5 mb-10">
-          <li class="py-4 border-b pl-4">
-            <a
-              class="text-solid"
-              target="_blank"
-              href="https://thedeepdive.simplecast.com/episodes/reactive-frontend-frameworks"
-              rel="nofollow"
-            >
-              The Deep Dive Ep#4 Reactive Frontend
-            </a>
-            <div class="text-md block">Reactive frontend frameworks</div>
-          </li>
-        </ul>
-        <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Videos</h1>
-        <ul class="list-disc ml-5 mb-10">
-          <li class="py-4 border-b pl-4">
-            <a
-              class="text-solid"
-              target="_blank"
-              href="https://www.youtube.com/playlist?list=PLtLhzwNMDs1fMi43erQSzXD49Y4p0TniU"
-              rel="nofollow"
-            >
-              Solid Video Series
-            </a>
-            <div class="text-md block">Eric Schmucker walks you through Solid.</div>
-          </li>
-        </ul>
-        <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Latest Articles </h1>
-        <ul class="list-disc ml-5">
-          <For each={articles}>
-            {(article) => (
-              <li class="py-4 border-b pl-4">
-                <a class="text-lg text-solid" href={article.link} target="_blank" rel="nofollow">
-                  {article.title}
-                </a>
-                {article.description && <div class="text-md block">{article.description}</div>}
-              </li>
-            )}
-          </For>
-        </ul>
+      <div class="container my-10 grid grid-cols-12 gap-10">
+        <div class="col-span-7">
+          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">
+            Latest Articles{' '}
+          </h1>
+          <ul class="ml-3">
+            <For each={articles}>
+              {(article) => (
+                <li class="py-4 border-b pl-4">
+                  <a class="text-lg text-solid" href={article.link} target="_blank" rel="nofollow">
+                    {article.title}
+                    {article.description && (
+                      <div class="text-md text-black block">{article.description}</div>
+                    )}
+                  </a>
+                </li>
+              )}
+            </For>
+          </ul>
+        </div>
+        <div class="col-span-5">
+          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Videos</h1>
+          <ul class="ml-5 mb-10">
+            <li class="py-4 border-b pl-4">
+              <a
+                class="text-solid"
+                target="_blank"
+                href="https://www.youtube.com/playlist?list=PLtLhzwNMDs1fMi43erQSzXD49Y4p0TniU"
+                rel="nofollow"
+              >
+                Solid Video Series
+                <div class="text-md text-black block">Eric Schmucker walks you through Solid.</div>
+              </a>
+            </li>
+          </ul>
+          <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>
+          <ul class="ml-5 mb-10">
+            <li class="py-4 border-b pl-4">
+              <a
+                class="text-solid"
+                target="_blank"
+                href="https://thedeepdive.simplecast.com/episodes/reactive-frontend-frameworks"
+                rel="nofollow"
+              >
+                The Deep Dive Ep#4 Reactive Frontend
+                <div class="text-md text-black block">Reactive frontend frameworks</div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
