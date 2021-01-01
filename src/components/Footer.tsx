@@ -24,6 +24,7 @@ const Footer: Component = () => (
           </a>
           .
         </p>
+        <p class="text-sm text-gray-400 mt-3">Last updated January 1, 2020 on SolidJS v0.22.0.</p>
       </div>
     </div>
   </footer>
