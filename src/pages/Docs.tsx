@@ -97,7 +97,10 @@ const Docs: Component<{
             <div class="border rounded-md">
               <div
                 class="p-3 transition cursor-pointer hover:bg-gray-100"
-                onClick={() => setShowVersions(!showVersions())}
+                onClick={() => {
+                  setSections([]);
+                  setShowVersions(!showVersions());
+                }}
               >
                 {current_docs().latest === true
                   ? `Latest version (v${current_docs().version})`
@@ -135,7 +138,7 @@ const Docs: Component<{
                         src={downloadArrow}
                       />
                     </Link>
-                    <Show when={props.params.page === file}>
+                    <Show when={props.loading === false && props.params.page === file}>
                       <For each={sections()}>
                         {(section) => (
                           <a
@@ -171,7 +174,7 @@ const Docs: Component<{
             </div>
           </Show>
           <Switch fallback={'Failed to load markdown...'}>
-            <Match when={props.loading}>Loading...</Match>
+            <Match when={props.loading}>Loading documentation...</Match>
             <Match when={props.markdown}>
               {(body) => <Markdown onLoadSections={setSections}>{body}</Markdown>}
             </Match>
