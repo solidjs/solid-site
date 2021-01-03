@@ -70,7 +70,6 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
             const anchor = document.createElement('a');
             anchor.classList.add('absolute');
             anchor.style.bottom = 'calc(100% + 80px)';
-
             const el = document.createElement(`h${node.level}`);
             el.classList.add(
               'pb-3',

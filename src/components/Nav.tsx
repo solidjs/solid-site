@@ -7,7 +7,7 @@ import { RedditIcon } from '../icons/RedditIcon';
 import { GithubIcon } from '../icons/GithubIcon';
 
 const links = [
-  { title: 'Get Started', path: '/' },
+  { title: 'Get Started', path: '/docs/latest/getstarted' },
   { title: 'Docs', path: '/docs/latest/api' },
   { title: 'Resources', path: '/resources' },
   { title: 'Examples', path: '/examples' },

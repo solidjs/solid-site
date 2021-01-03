@@ -12,6 +12,7 @@ const version_list = [
     version: '0.23.0',
     latest: true,
     files: [
+      'getstarted',
       'api',
       'comparison',
       'components',
@@ -28,7 +29,7 @@ const version_list = [
   },
   {
     version: '0.22.0',
-    latest: true,
+    latest: false,
     files: [
       'api',
       'comparison',
