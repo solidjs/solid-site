@@ -46,13 +46,9 @@ function Button() {
 Solid supports both string styles and style objects (using style property form .. ie hyphenated not camel cased).
 
 ```jsx
-<div style={`color: green; background-color: ${state.color}; height: ${state.height}px`} />
+<div style={`color: green; background-color: ${state.color}`} />
 
-<div style={{
-  color: "green",
-  "background-color": state.color,
-  height: state.height + "px" }}
-/>
+<div style={{ color: "green", "background-color": state.color }} />
 ```
 
 This also means it can support stuff like CSS variables:
@@ -62,7 +58,7 @@ This also means it can support stuff like CSS variables:
 ```
 
 In addition to supporting CSS variables it puts things consistent with CSS string and SSR versions.
-[`setProperty`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty) is also more performant. This does mean that you must use units like "px" or "em" on properties expecting sizes.
+[`setProperty`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty) is also more performant.
 
 _Note: The compiler automatically optimizes object form when declared inline unrolling any iteration._
 

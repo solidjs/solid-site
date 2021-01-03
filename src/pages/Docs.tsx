@@ -9,6 +9,24 @@ import downloadArrow from '../assets/download-arrow.svg';
 
 const version_list = [
   {
+    version: '0.23.0',
+    latest: true,
+    files: [
+      'api',
+      'comparison',
+      'components',
+      'context',
+      'faq',
+      'reactivity',
+      'rendering',
+      'state',
+      'storybook',
+      'styling',
+      'suspense',
+      'troubleshooting',
+    ],
+  },
+  {
     version: '0.22.0',
     latest: true,
     files: [
