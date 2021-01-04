@@ -5453,6 +5453,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"solid-meta@npm:^0.23.8":
+  version: 0.23.8
+  resolution: "solid-meta@npm:0.23.8"
+  peerDependencies:
+    solid-js: ^0.23.0
+  checksum: cbb190a48f9fd52ef4f9e1dc8963927606c83a9812d9ee6165ea7dff8d228514bb35024864d9771fa5049a8d4530edf5f6738aab8bb6d1120ed88ce7c6f82c72
+  languageName: node
+  linkType: hard
+
 "solid-repl@npm:^0.1.1":
   version: 0.1.1
   resolution: "solid-repl@npm:0.1.1"
@@ -5509,6 +5518,7 @@ fsevents@~2.1.2:
     sirv-cli: ^1.0.10
     solid-app-router: ^0.0.18
     solid-js: ^0.23.5
+    solid-meta: ^0.23.8
     solid-repl: ^0.1.1
     tailwindcss: ^2.0.2
     typescript: ^4.1.3

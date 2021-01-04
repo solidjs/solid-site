@@ -19,6 +19,7 @@
     "scroll-js": "^3.3.0",
     "solid-app-router": "^0.0.18",
     "solid-js": "^0.23.5",
+    "solid-meta": "^0.23.8",
     "solid-repl": "^0.1.1"
   },
   "devDependencies": {
