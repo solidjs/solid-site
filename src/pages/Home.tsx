@@ -27,21 +27,21 @@ const Home: Component = () => (
     <div class="my-10 container">
       <section class="grid px-10 py-10 grid-cols-3 gap-4">
         <div>
-          <b class="block text-xl mb-2 font-semibold">Extreme Performance</b>
+          <b class="block text-xl mb-2 font-semibold">Performant</b>
           <span class="text-gray-500 text-base">
-            Consitently tops recognized UI speed and memory utilization benchmarks.
+            Consistently tops recognized UI speed and memory utilization benchmarks.
           </span>
         </div>
         <div>
-          <b class="block text-xl mb-2 font-semibold">Ergonomic Development</b>
+          <b class="block text-xl mb-2 font-semibold">Powerful</b>
           <span class="text-gray-500 text-base">
-            Write simple and complex applications with TypeScript and JSX.
+            Composable reactive primitives married with flexibility of JSX.
           </span>
         </div>
         <div>
-          <b class="block text-xl mb-2 font-semibold">Isomorphic Applications</b>
+          <b class="block text-xl mb-2 font-semibold">Pragmatic</b>
           <span class="text-gray-500 text-base">
-            Render applications client and server-side with SSR and SSG.
+            A sensible and tailored API makes developing with Solid fun and simple.
           </span>
         </div>
       </section>
@@ -75,10 +75,19 @@ const Home: Component = () => (
             target="_blank"
             rel="noopener"
             href="https://github.com/ryansolid/solid/stargazers"
-            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
+            class="detail inline-block rounded-sm border-gray-300 border mr-3 Hommt-5 px-5 py-5"
           >
             <strong class="font-semibold">4+ years</strong>
             <span class="block text-sm">In development</span>
+          </a>
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://github.com/ryansolid/solid/stargazers"
+            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
+          >
+            <strong class="font-semibold">TypeScript</strong>
+            <span class="block text-sm">Support</span>
           </a>
         </div>
       </section>
@@ -133,37 +142,23 @@ const Home: Component = () => (
       </section>
       <section class="bg-gray-50 mt-10 px-10 py-10 defer">
         <div class="px-10 py-10">
-          <h2 class="text-3xl text-solid font-bold">Fastest and smallest.</h2>
-          <h2 class="text-2xl font-bold text-gray-500 mt-2">
-            Solid performs consistently within the top three UI frameworks for the past few years.
+          <h2 class="text-3xl text-solid font-bold">Fine-grained updates give you more control.</h2>
+          <h2 class="text-2xl font-bold text-gray-500 mt-2 mb-4">
+            Every part of Solid is built on fine-grained reactivity from its simple primitives to
+            the JavaScript expressions in your JSX views.
           </h2>
-          <a
-            target="_blank"
-            rel="noopener"
-            href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-md border-gray-300 border mr-3 mt-5 px-5 py-5"
-          >
-            <strong class="font-semibold">7.3kb</strong>
-            <span class="block text-sm">Minified + Gzipped</span>
-          </a>
-          <a
-            target="_blank"
-            rel="noopener"
-            href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-            class="detail inline-block rounded-sm border-gray-300 border mr-3 mt-5 px-5 py-5"
-          >
-            <strong class="font-semibold">4.5kb+</strong>
-            <span class="block text-sm">Github Stars</span>
-          </a>
-          <a
-            target="_blank"
-            rel="noopener"
-            href="https://github.com/ryansolid/solid/stargazers"
-            class="detail inline-block rounded-sm border-gray-300 border mt-5 px-5 py-5"
-          >
-            <strong class="font-semibold">4.5kb+</strong>
-            <span class="block text-sm">Github Stars</span>
-          </a>
+          <p class="text-gray-500 mt-2">
+            This unlocks complete control over what gets updated and when, even at the DOM binding
+            level. With <b>no Virtual DOM</b> or extensive diffing, the framework never does more
+            work than you want it to.
+            <a
+              class="mt-3 block text-solid text-sm"
+              target="_blank"
+              href="https://playground.solidjs.com/?hash=271025478"
+            >
+              See it in action
+            </a>
+          </p>
         </div>
       </section>
       <section class="my-10 py-10 px-12">
