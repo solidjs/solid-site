@@ -25,7 +25,7 @@ const Home: Component = () => (
     <Nav />
 
     <div class="my-10 container">
-      <section class="grid px-10 py-10 grid-cols-3 gap-4">
+      <section class="grid px-10 py-10 grid-cols-4 gap-4">
         <div>
           <b class="block text-xl mb-2 font-semibold">Performant</b>
           <span class="text-gray-500 text-base">
@@ -35,13 +35,19 @@ const Home: Component = () => (
         <div>
           <b class="block text-xl mb-2 font-semibold">Powerful</b>
           <span class="text-gray-500 text-base">
-            Composable reactive primitives married with flexibility of JSX.
+            Composable reactive primitives married with the flexibility of JSX.
           </span>
         </div>
         <div>
           <b class="block text-xl mb-2 font-semibold">Pragmatic</b>
           <span class="text-gray-500 text-base">
-            A sensible and tailored API makes developing with Solid fun and simple.
+            A sensible and tailored API makes developing fun and simple.
+          </span>
+        </div>
+        <div>
+          <b class="block text-xl mb-2 font-semibold">Productive</b>
+          <span class="text-gray-500 text-base">
+            Ergonomics and familiarity make building simple or complex things a breeze.
           </span>
         </div>
       </section>
@@ -142,7 +148,7 @@ const Home: Component = () => (
       </section>
       <section class="bg-gray-50 mt-10 px-10 py-10 defer">
         <div class="px-10 py-10">
-          <h2 class="text-3xl text-solid font-bold">Fine-grained updates give you more control.</h2>
+          <h2 class="text-3xl text-solid font-bold">Fine-grained means you do more with less.</h2>
           <h2 class="text-2xl font-bold text-gray-500 mt-2 mb-4">
             Every part of Solid is built on fine-grained reactivity from its simple primitives to
             the JavaScript expressions in your JSX views.
