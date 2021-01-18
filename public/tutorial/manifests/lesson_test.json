@@ -1,0 +1,8 @@
+{
+    "name": "Name of tutorial lesson",
+    "description": "This is going to be awesome!",
+    "steps": [
+        { "name": "Name of Step 1", "md": "step1.md", "js": "example1.json" },
+        { "name": "Name of Step 2", "md": "step2.md", "js": "example2.json" }
+    ]
+}
