@@ -5,12 +5,6 @@ import { Link, Meta } from 'solid-meta';
 import Footer from './components/Footer';
 
 export const App: Component = () => {
-  const router = useRouter();
-
-  createEffect(() => {
-    console.log(router);
-  });
-
   return (
     <>
       <Link rel="canonical" href="https://www.solidjs.com/" />

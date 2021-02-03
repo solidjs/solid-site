@@ -24,8 +24,6 @@ const fetchMarkdown = (id: string, file: string) => () =>
   });
 
 export const TutorialData: RouteDefinition['data'] = (props) => {
-  console.log('are we here?');
-
   const [manifest, loadManifest] = createResource<Manifest>();
   const [markdown, loadMarkdown] = createResource<string>();
 
