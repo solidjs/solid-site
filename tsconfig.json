@@ -10,8 +10,10 @@
     "resolveJsonModule": true,
     "newLine": "lf",
     "sourceMap": true,
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "types": ["vite/client"],
+    "skipLibCheck": true
   },
-  "include": ["./src"],
+  "include": ["./src", "vite.config.js"],
   "exclude": ["node_modules/", "Markdown.tsx"]
 }

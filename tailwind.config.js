@@ -1,7 +1,5 @@
 const theme = require('tailwindcss/defaultTheme');
 
-const isProd = process.env.NODE_ENV === 'production';
-
 module.exports = {
   dark: false,
   theme: {
@@ -27,10 +25,5 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],
-  purge: {
-    enabled: isProd,
-    mode: 'layers',
-    layers: ['base', 'components', 'utilities'],
-    content: ['public/**/*.html', 'src/**/*.tsx'],
-  },
+  purge: ['public/**/*.html', 'src/**/*.tsx'],
 };

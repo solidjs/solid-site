@@ -12,7 +12,7 @@ const links = [
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial' },
   { title: 'Examples', path: '/examples' },
-  { title: 'Playground', path: 'https://playground.solidjs.com' },
+  { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
   { title: 'Media', path: '/media' },
 ];
 
@@ -43,8 +43,9 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
         <nav class="container grid grid-cols-10 relative z-20">
           <ul class="flex items-center col-span-7">
             <li
-              class={`py-3 transition-all overflow-hidden ${showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
-                }`}
+              class={`py-3 transition-all overflow-hidden ${
+                showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
+              }`}
             >
               <Link href="/">
                 <span class="sr-only">Navigate to the home page</span>
@@ -56,6 +57,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
                 <li>
                   <Link
                     class="block transition px-4 py-7 hover:text-white hover:bg-solid-medium"
+                    external={item.external}
                     href={item.path}
                   >
                     {item.title}

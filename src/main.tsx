@@ -1,20 +1,24 @@
 import './assets/main.css';
 
-import { render } from 'solid-js/dom';
+import { render } from 'solid-js/web';
 import { Router } from 'solid-app-router';
 
 import { routes } from './routes';
 import { App } from './App';
+import { MetaProvider } from 'solid-meta';
 
-const root = document.getElementById('app');
-
-render(
+const dispose = render(
   () => (
-    <Router routes={routes}>
-      <App />
-    </Router>
+    <MetaProvider>
+      <Router routes={routes}>
+        <App />
+      </Router>
+    </MetaProvider>
   ),
-  root!,
+  document.getElementById('app'),
 );
 
-if (module) module.hot.accept(() => window.location.reload());
+if (import.meta.hot) {
+  import.meta.hot.accept();
+  import.meta.hot.dispose(dispose);
+}

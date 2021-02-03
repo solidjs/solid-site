@@ -3,6 +3,7 @@ import { createComputed, createResource, createSignal } from 'solid-js';
 
 const fetchMarkdown = (version: string, id: string) => () =>
   fetch(`/docs/md/${version}/${id}.md`).then((r) => {
+    console.log('hi');
     // This is probably not the best place to do this
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return r.text();
@@ -19,6 +20,8 @@ export const DocsData: RouteDefinition['data'] = (props) => {
     if (previousPage === props.params.page && previousVersion === props.params.version) return;
 
     void loadMarkdown(fetchMarkdown(props.params.version as string, props.params.page as string));
+
+    console.log('hi');
 
     previousPage = props.params.page as string;
     previousVersion = props.params.version as string;
