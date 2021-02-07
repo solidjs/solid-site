@@ -1,5 +1,4 @@
-import type { Component } from 'solid-js';
-import { createMutable } from 'solid-js';
+import { Component, createMemo } from 'solid-js';
 import markdownTreeParser from 'markdown-tree-parser';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-typescript';
@@ -39,7 +38,7 @@ import 'prismjs/themes/prism.css';
   );
 })();
 
-function slugify(text) {
+function slugify(text: string) {
   return text
     .toString() // Cast to string
     .toLowerCase() // Convert the string to lowercase letters
@@ -50,13 +49,16 @@ function slugify(text) {
     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
-const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSections }) => {
-  const doc = createMutable(() => {
-    let sections = [];
-    const astToSolid = (nodes) => {
-      if (!nodes || nodes.length === 0) {
-        return [];
-      }
+const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
+  const doc = createMemo(() => {
+    const sections = [];
+
+    /**
+     * TODO: We need to extract that function out of the memo.
+     */
+    function astToHtml(nodes?: any[]) {
+      if (!nodes || !nodes.length) return [];
+
       return nodes.map((node) => {
         switch (node.name) {
           case 'heading':
@@ -79,7 +81,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
               'text-solid',
               'relative',
             );
-            el.append(...astToSolid(node.values));
+            el.append(...astToHtml(node.values));
             anchor.setAttribute('id', slugify(el.innerHTML));
             el.prepend(anchor);
             const title = document.createElement('textarea');
@@ -92,7 +94,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
             return (
               <ol class="list-decimal ml-9 my-4">
                 {node.values.map((item) => (
-                  <li>{astToSolid([item])}</li>
+                  <li>{astToHtml([item])}</li>
                 ))}
               </ol>
             );
@@ -100,7 +102,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
             return (
               <ul class="list-disc ml-9 my-4">
                 {node.values.map((item) => (
-                  <li>{astToSolid([item])}</li>
+                  <li>{astToHtml([item])}</li>
                 ))}
               </ul>
             );
@@ -111,16 +113,16 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
               </a>
             );
           case 'italic':
-            return <i>{node.value}</i>;
+            return <em>{node.value}</em>;
           case 'blockquote':
             return (
               <blockquote class="p-4 my-5 bg-yellow-50 border border-dashed rounded-lg">
-                {astToSolid(node.values)}
+                {astToHtml(node.values)}
               </blockquote>
             );
           case 'text':
           case 'paragraph':
-            return node.value ? node.value : astToSolid(node.values);
+            return node.value ? node.value : astToHtml(node.values);
           case 'code':
           case 'inline-code':
             if (node.type === 'block') {
@@ -132,7 +134,7 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
               if (node.values) {
                 code.innerHTML =
                   code.innerHTML +
-                  Prism.highlight(astToSolid(node.values)[0], Prism.languages.typescript, 'jsx');
+                  Prism.highlight(astToHtml(node.values)[0], Prism.languages.typescript, 'jsx');
               }
               return (
                 <div class="code leading-6 text-sm shadow-md my-8 rounded-md py-5 px-6">
@@ -149,12 +151,25 @@ const Markdown: Component<{ onLoadSections: Function }> = ({ children, onLoadSec
             console.log(node);
         }
       });
-    };
-    const doc = astToSolid(markdownTreeParser(children).ast);
-    onLoadSections(sections);
+    }
+
+    const doc = astToHtml(markdownTreeParser(props.children).ast);
+
+    /**
+     * TODO: This needs to be emitted only once the memo is created
+     * See the code commanted below
+     */
+    if (props.onLoadSections) props.onLoadSections(sections);
+
     return doc;
   });
-  return <div class="leading-8">{doc}</div>;
+
+  // createEffect(() => {
+  //   if (!props.onLoadSections) return
+  //   props.onLoadSections(sections());
+  // })
+
+  return <div class="leading-8">{doc()}</div>;
 };
 
 export default Markdown;

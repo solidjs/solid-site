@@ -1,9 +1,14 @@
-import { For, Component, Show, createComputed } from 'solid-js';
 import { Repl } from 'solid-repl';
-import { Link, useRouter } from 'solid-app-router';
+import { Link } from 'solid-app-router';
+import { For, Component, Show } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
+
+interface Props {
+  id: string;
+  example: string;
+}
 
 const list = {
   Basic: [
@@ -62,21 +67,12 @@ const list = {
   ],
 };
 
-const Examples: Component<{
-  example: string;
-  id: string;
-}> = (props) => {
-  const router = useRouter();
-  /**
-   * @TODO: We need to find a way to implement middleware at the router lever
-   */
-  createComputed(() => {
-    if (!props.id) router.push('/examples/counter');
-  });
+const Examples: Component<Props> = (props) => {
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Example Library" />
+
       <div style={{ width: '95vw' }} class="my-10 mx-auto">
         <div class="flex grid grid-cols-12 gap-8">
           <div class="col-span-2 overflow-auto border p-5 rounded" style={{ height: '82vh' }}>
@@ -88,13 +84,13 @@ const Examples: Component<{
                     <For each={examples}>
                       {(example) => (
                         <Link
+                          href={`/examples/${example.id}`}
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
                           classList={{
                             'text-solid font-bold': example.id === props.id,
                           }}
-                          href={`/examples/${example.id}`}
                         >
-                          {example.name}
+                          <span>{example.name}</span>
                           <span class="block text-gray-500 text-md">{example.description}</span>
                         </Link>
                       )}
@@ -104,6 +100,7 @@ const Examples: Component<{
               )}
             </For>
           </div>
+
           <div class="col-span-10">
             <Show when={props.example} fallback={<p>Loading...</p>}>
               <Repl

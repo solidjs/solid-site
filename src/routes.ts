@@ -1,8 +1,15 @@
-import type { RouteDefinition } from 'solid-app-router';
+import { RouteDefinition, useRouter } from 'solid-app-router';
 import { lazy } from 'solid-js';
 import { DocsData } from './pages/Docs.data';
 import { ExampleData } from './pages/Example.data';
 import { TutorialData } from './pages/Tutorial.data';
+
+function Redirect(to: string): any {
+  return () => {
+    const router = useRouter();
+    router.push(to);
+  };
+}
 
 export const routes: RouteDefinition[] = [
   {
@@ -12,7 +19,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/examples',
-    component: lazy(() => import('./pages/Examples')),
+    component: Redirect('/examples/counter'),
   },
   {
     path: '/tutorial/:id/:step',
@@ -21,11 +28,11 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/tutorial/:id',
-    component: lazy(() => import('./pages/Tutorial')),
+    component: (props) => Redirect(`/tutorial/${props.params.id}/0`),
   },
   {
     path: '/tutorial',
-    component: lazy(() => import('./pages/Tutorial')),
+    component: Redirect('/tutorial/lesson_test/0'),
   },
   {
     path: '/contributors',

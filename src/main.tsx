@@ -1,11 +1,11 @@
 import './assets/main.css';
 
 import { render } from 'solid-js/web';
+import { MetaProvider } from 'solid-meta';
 import { Router } from 'solid-app-router';
 
-import { routes } from './routes';
 import { App } from './App';
-import { MetaProvider } from 'solid-meta';
+import { routes } from './routes';
 
 const dispose = render(
   () => (
@@ -17,6 +17,7 @@ const dispose = render(
   ),
   document.getElementById('app'),
 );
+// const dispose = createApp(App).use(Router, { routes }).use(MetaProvider).mount('#app');
 
 if (import.meta.hot) {
   import.meta.hot.accept();

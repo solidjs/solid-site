@@ -7,8 +7,8 @@ import { RedditIcon } from '../icons/RedditIcon';
 import { GithubIcon } from '../icons/GithubIcon';
 
 const links = [
-  { title: 'Get Started', path: '/docs/latest/getstarted' },
-  { title: 'Docs', path: '/docs/latest/api' },
+  { title: 'Get Started', path: '/docs/latest/getstarted#get-started' },
+  { title: 'Docs', path: '/docs/latest/api#core-api' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial' },
   { title: 'Examples', path: '/examples' },
@@ -56,7 +56,7 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
               {(item) => (
                 <li>
                   <Link
-                    class="block transition px-4 py-7 hover:text-white hover:bg-solid-medium"
+                    class="block transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
                     external={item.external}
                     href={item.path}
                   >

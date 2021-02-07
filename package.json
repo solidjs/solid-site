@@ -14,10 +14,11 @@
     "markdown-tree-parser": "^0.12.4",
     "prismjs": "^1.23.0",
     "scroll-js": "^3.3.0",
-    "solid-app-router": "^0.0.20",
-    "solid-js": "^0.23.11",
-    "solid-meta": "^0.23.11",
-    "solid-repl": "^0.1.2"
+    "solid-app-router": "^0.0.23",
+    "solid-js": "^0.24.2",
+    "solid-meta": "^0.24.2",
+    "solid-repl": "^0.1.2",
+    "solid-utils": "^0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
@@ -29,7 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "autoprefixer": "^10.2.4",
-    "babel-preset-solid": "^0.23.8",
+    "babel-preset-solid": "^0.24.2",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
@@ -37,12 +38,12 @@
     "eslint-plugin-local": "^1.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.5",
     "postcss-font-base64": "^1.0.5",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.0.2",
-    "typescript": "beta",
-    "vite": "2.0.0-beta.62",
-    "vite-plugin-solid": "^0.7.1"
+    "tailwindcss": "^2.0.3",
+    "typescript": "^4.1.3",
+    "vite": "2.0.0-beta.65",
+    "vite-plugin-solid": "^0.8.0"
   }
 }

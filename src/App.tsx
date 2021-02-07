@@ -1,6 +1,6 @@
-import { Component, createEffect } from 'solid-js';
-import { Route, useRouter } from 'solid-app-router';
+import { Component } from 'solid-js';
 import { Link, Meta } from 'solid-meta';
+import { Route } from 'solid-app-router';
 
 import Footer from './components/Footer';
 
