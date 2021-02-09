@@ -22,4 +22,8 @@ export default defineConfig({
   optimizeDeps: {
     include: ['prismjs/components/prism-typescript', 'prismjs/components/prism-jsx'],
   },
+  build: {
+    polyfillDynamicImport: false,
+    target: 'esnext',
+  },
 });
