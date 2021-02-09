@@ -1,5 +1,6 @@
 import { RouteDefinition, useRouter } from 'solid-app-router';
 import { lazy } from 'solid-js';
+import { ContributorsData } from './pages/Contributors.data';
 import { DocsData } from './pages/Docs.data';
 import { ExampleData } from './pages/Example.data';
 import { TutorialData } from './pages/Tutorial.data';
@@ -37,6 +38,7 @@ export const routes: RouteDefinition[] = [
   {
     path: '/contributors',
     component: lazy(() => import('./pages/Contributors')),
+    data: ContributorsData,
   },
   {
     path: '/resources',

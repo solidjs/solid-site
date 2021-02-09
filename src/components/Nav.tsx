@@ -1,5 +1,5 @@
-import { Component, For, onCleanup, onMount, createSignal } from 'solid-js';
 import { Link } from 'solid-app-router';
+import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
 
 import logo from '../assets/logo.svg';
 import { DiscordIcon } from '../icons/DiscordIcon';
@@ -13,20 +13,21 @@ const links = [
   { title: 'Tutorial', path: '/tutorial' },
   { title: 'Examples', path: '/examples' },
   { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
+  // We might want to hide this and redirect to the /media page when someone tries to right
+  // click on the logo, like https://nuxtjs.org/. Additionnaly we could add it to the footer
   { title: 'Media', path: '/media' },
 ];
 
-const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
-  const [unlocked, setUnlocked] = createSignal(showLogo);
+const Nav: Component<{ showLogo?: boolean }> = (props) => {
+  const [unlocked, setUnlocked] = createSignal(props.showLogo);
   let intersectorRef!: HTMLDivElement;
-  let observer: IntersectionObserver;
 
   onMount(() => {
-    observer = new IntersectionObserver(([{ isIntersecting }]) => setUnlocked(isIntersecting));
+    const observer = new IntersectionObserver(([entry]) => setUnlocked(entry.isIntersecting));
     observer.observe(intersectorRef);
-  });
 
-  onCleanup(() => observer && observer.disconnect());
+    onCleanup(() => observer && observer.disconnect());
+  });
 
   return (
     <>
@@ -37,14 +38,14 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
         classList={{
           'nav--locked text-white': !unlocked(),
           'nav--unlocked': unlocked(),
-          'border-b': !showLogo,
+          'border-b': !props.showLogo,
         }}
       >
         <nav class="container grid grid-cols-10 relative z-20">
           <ul class="flex items-center col-span-7">
             <li
               class={`py-3 transition-all overflow-hidden ${
-                showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
+                props.showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
               }`}
             >
               <Link href="/">
@@ -56,11 +57,22 @@ const Nav: Component<{ showLogo?: boolean }> = ({ showLogo = false }) => {
               {(item) => (
                 <li>
                   <Link
-                    class="block transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
+                    class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
                     external={item.external}
                     href={item.path}
                   >
-                    {item.title}
+                    <span>{item.title}</span>
+
+                    <Show when={item.external}>
+                      <svg class="h-5 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </Show>
                   </Link>
                 </li>
               )}

@@ -30,7 +30,7 @@ const Tutorial: Component<Props> = (props) => {
 
       <Show when={!props.loading} fallback={<p>Loading...</p>}>
         <div style={{ width: '95vw' }} class="my-10 mx-auto">
-          <div class="flex grid grid-cols-12 gap-8">
+          <div class="grid grid-cols-12 gap-8">
             <div class="col-span-2 flex flex-col" style={{ height: '82vh' }}>
               <Show when={props.step > 0}>
                 <Link href={goToStep(props.step - 1)}>Previous</Link>

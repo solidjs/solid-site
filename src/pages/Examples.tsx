@@ -74,7 +74,7 @@ const Examples: Component<Props> = (props) => {
       <Header title="Example Library" />
 
       <div style={{ width: '95vw' }} class="my-10 mx-auto">
-        <div class="flex grid grid-cols-12 gap-8">
+        <div class="grid grid-cols-12 gap-8">
           <div class="col-span-2 overflow-auto border p-5 rounded" style={{ height: '82vh' }}>
             <For each={Object.entries(list)}>
               {([name, examples]) => (

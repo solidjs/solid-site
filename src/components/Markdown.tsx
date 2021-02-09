@@ -1,42 +1,29 @@
-import { Component, createMemo } from 'solid-js';
-import markdownTreeParser from 'markdown-tree-parser';
-import Prism from 'prismjs';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-jsx';
 import 'prismjs/themes/prism.css';
 
-(function addJSXSupport() {
-  let javascript = Prism.util.clone(Prism.languages.javascript);
-  Prism.languages.jsx = Prism.languages.extend('markup', javascript);
-  // @ts-ignore
-  Prism.languages.jsx.tag.pattern = /<\/?[\w.:-]+\s*(?:\s+[\w.:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+|(\{[\w\W]*?})))?\s*)*\/?>/i;
-  // @ts-ignore
-  Prism.languages.jsx.tag.inside['attr-value'].pattern = /=[^{](?:('|")[\w\W]*?(\1)|[^\s>]+)/i;
-  let jsxExpression = Prism.util.clone(Prism.languages.jsx);
-  delete jsxExpression.punctuation;
-  jsxExpression = Prism.languages.insertBefore(
-    'jsx',
-    'operator',
-    {
-      punctuation: /=(?={)|[{}[\];(),.:]/,
-    },
-    { jsx: jsxExpression },
-  );
-  Prism.languages.insertBefore(
-    'inside',
-    'attr-value',
-    {
-      script: {
-        // Allow for one level of nesting
-        pattern: /=(\{(?:\{[^}]*}|[^}])+})/i,
-        inside: jsxExpression,
-        alias: 'language-javascript',
-      },
-    },
-    // @ts-ignore
-    Prism.languages.jsx.tag,
-  );
-})();
+import Prism, { highlight, languages } from 'prismjs';
+import markdownTreeParser from 'markdown-tree-parser';
+import { Component, createEffect, createMemo } from 'solid-js';
+
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+
+addJSXSupport();
+
+const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
+  const doc = createMemo(() => {
+    const { ast } = markdownTreeParser(props.children);
+    return htmlFromAst(ast);
+  });
+
+  createEffect(() => {
+    if (!props.onLoadSections) return;
+    props.onLoadSections(doc().sections);
+  });
+
+  return <div class="leading-8">{doc().content}</div>;
+};
+
+export default Markdown;
 
 function slugify(text: string) {
   return text
@@ -49,127 +36,150 @@ function slugify(text: string) {
     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
-const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
-  const doc = createMemo(() => {
-    const sections = [];
+function htmlFromAst(nodes?: any[]): { sections: string[]; content: '' | any[] } {
+  const sections = [];
 
-    /**
-     * TODO: We need to extract that function out of the memo.
-     */
-    function astToHtml(nodes?: any[]) {
-      if (!nodes || !nodes.length) return [];
+  if (!nodes || !nodes.length) {
+    return { sections, content: '' };
+  }
 
-      return nodes.map((node) => {
-        switch (node.name) {
-          case 'heading':
-            /**
-             * We create an empty anchor link here that will
-             * be inserted into each header as absolute and positionned
-             * 80px (size of the header) above the heading. This way
-             * we can smoothly scrool to that title without it being
-             * hidden under the sticky header atop.
-             */
-            const anchor = document.createElement('a');
-            anchor.classList.add('absolute');
-            anchor.style.bottom = 'calc(100% + 80px)';
-            const el = document.createElement(`h${node.level}`);
-            el.classList.add(
-              'pb-3',
-              !sections.length ? 'mb-5' : 'my-5',
-              `text-${3 - node.level}xl`,
-              'border-b',
-              'text-solid',
-              'relative',
-            );
-            el.append(...astToHtml(node.values));
-            anchor.setAttribute('id', slugify(el.innerHTML));
-            el.prepend(anchor);
-            const title = document.createElement('textarea');
-            title.innerHTML = el.textContent;
-            if (node.level <= 2) {
-              sections.push({ id: anchor.id, title: title.value });
-            }
-            return el;
-          case 'orderedlist':
-            return (
-              <ol class="list-decimal ml-9 my-4">
-                {node.values.map((item) => (
-                  <li>{astToHtml([item])}</li>
-                ))}
-              </ol>
-            );
-          case 'list':
-            return (
-              <ul class="list-disc ml-9 my-4">
-                {node.values.map((item) => (
-                  <li>{astToHtml([item])}</li>
-                ))}
-              </ul>
-            );
-          case 'link':
-            return (
-              <a class="text-gray-500 hover:text-solid" href={node.href}>
-                {node.title}
-              </a>
-            );
-          case 'italic':
-            return <em>{node.value}</em>;
-          case 'blockquote':
-            return (
-              <blockquote class="p-4 my-5 bg-yellow-50 border border-dashed rounded-lg">
-                {astToHtml(node.values)}
-              </blockquote>
-            );
-          case 'text':
-          case 'paragraph':
-            return node.value ? node.value : astToHtml(node.values);
-          case 'code':
-          case 'inline-code':
-            if (node.type === 'block') {
-              let code = document.createElement('code');
-              code.setAttribute('classNames', 'language-jsx');
-              if (node.value) {
-                code.innerHTML = Prism.highlight(node.value, Prism.languages.typescript, 'jsx');
-              }
-              if (node.values) {
-                code.innerHTML =
-                  code.innerHTML +
-                  Prism.highlight(astToHtml(node.values)[0], Prism.languages.typescript, 'jsx');
-              }
-              return (
-                <div class="code leading-6 text-sm shadow-md my-8 rounded-md py-5 px-6">
-                  <pre style={{ background: 'none' }} class="poetry">
-                    {code}
-                  </pre>
-                </div>
-              );
-            } else {
-              return <code class="code p-2 rounded">{node.value}</code>;
-            }
-          // Catchall for clean-up/future additions
-          default:
-            console.log(node);
+  const content = nodes.map((node) => {
+    switch (node.name) {
+      case 'heading':
+        /**
+         * We create an empty anchor link here that will
+         * be inserted into each header as absolute and positionned
+         * 80px (size of the header) above the heading. This way
+         * we can smoothly scrool to that title without it being
+         * hidden under the sticky header atop.
+         */
+        const anchor = document.createElement('a');
+        anchor.classList.add('absolute');
+        anchor.style.bottom = 'calc(100% + 80px)';
+        const el = document.createElement(`h${node.level}`);
+        el.classList.add(
+          'pb-3',
+          !sections.length ? 'mb-5' : 'my-5',
+          `text-${3 - node.level}xl`,
+          'border-b',
+          'text-solid',
+          'relative',
+        );
+        el.append(...htmlFromAst(node.values).content);
+        anchor.setAttribute('id', slugify(el.innerHTML));
+        el.prepend(anchor);
+        const title = document.createElement('textarea');
+        title.innerHTML = el.textContent;
+        if (node.level <= 2) {
+          sections.push({ id: anchor.id, title: title.value });
         }
-      });
+        return el;
+      case 'orderedlist':
+        return (
+          <ol class="list-decimal ml-9 my-4">
+            {node.values.map((item) => (
+              <li>{htmlFromAst([item]).content}</li>
+            ))}
+          </ol>
+        );
+      case 'list':
+        return (
+          <ul class="list-disc ml-9 my-4">
+            {node.values.map((item) => (
+              <li>{htmlFromAst([item]).content}</li>
+            ))}
+          </ul>
+        );
+      case 'link':
+        return (
+          <a class="text-gray-500 hover:text-solid" href={node.href}>
+            {node.title}
+          </a>
+        );
+      case 'italic':
+        return <em>{node.value}</em>;
+      case 'blockquote':
+        const content = node.values.map(({ value }) => {
+          const { ast } = markdownTreeParser(value);
+          return htmlFromAst(ast).content;
+        });
+
+        return (
+          <blockquote class="p-4 my-5 bg-yellow-50 border border-dashed rounded-lg">
+            {content}
+          </blockquote>
+        );
+      case 'text':
+      case 'paragraph':
+        return node.value ? node.value : htmlFromAst(node.values).content;
+      case 'code':
+      case 'inline-code':
+        if (node.type !== 'block') {
+          return <code class="code p-2 rounded whitespace-pre-wrap">{node.value}</code>;
+        }
+
+        const code = document.createElement('code');
+        code.classList.add('language-jsx');
+
+        if (node.value) {
+          code.innerHTML = highlight(node.value, languages.typescript, 'jsx');
+        }
+
+        if (node.values) {
+          const [markup] = htmlFromAst(node.values).content;
+          code.innerHTML += highlight(markup, languages.typescript, 'jsx');
+        }
+
+        if (!code.innerHTML) return;
+
+        return (
+          <div class="code leading-6 text-sm shadow-md my-8 rounded-md py-5 px-6">
+            <pre style="background: none; white-space: pre-wrap" class="poetry">
+              {code}
+            </pre>
+          </div>
+        );
+
+      // Catchall for clean-up/future additions
+      default:
+        console.log({ node });
     }
-
-    const doc = astToHtml(markdownTreeParser(props.children).ast);
-
-    /**
-     * TODO: This needs to be emitted only once the memo is created
-     * See the code commanted below
-     */
-    if (props.onLoadSections) props.onLoadSections(sections);
-
-    return doc;
   });
 
-  // createEffect(() => {
-  //   if (!props.onLoadSections) return
-  //   props.onLoadSections(sections());
-  // })
+  return { sections, content };
+}
 
-  return <div class="leading-8">{doc()}</div>;
-};
+function addJSXSupport() {
+  const javascript = Prism.util.clone(languages.javascript);
+  languages.jsx = languages.extend('markup', javascript);
+  // @ts-ignore
+  languages.jsx.tag.pattern = /<\/?[\w.:-]+\s*(?:\s+[\w.:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+|(\{[\w\W]*?})))?\s*)*\/?>/i;
+  // @ts-ignore
+  languages.jsx.tag.inside['attr-value'].pattern = /=[^{](?:('|")[\w\W]*?(\1)|[^\s>]+)/i;
 
-export default Markdown;
+  const { punctuation: _, ...jsx } = Prism.util.clone(languages.jsx);
+
+  const inside = languages.insertBefore(
+    'jsx',
+    'operator',
+    {
+      punctuation: /=(?={)|[{}[\];(),.:]/,
+    },
+    { jsx },
+  );
+
+  languages.insertBefore(
+    'inside',
+    'attr-value',
+    {
+      script: {
+        // Allow for one level of nesting
+        pattern: /=(\{(?:\{[^}]*}|[^}])+})/i,
+        inside,
+        alias: 'language-javascript',
+      },
+    },
+    // @ts-ignore
+    languages.jsx.tag,
+  );
+}

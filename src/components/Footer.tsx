@@ -4,6 +4,7 @@ import wordmark from '../assets/wordmark.svg';
 const Footer: Component = () => (
   <footer class="py-10 bg-solid-gray">
     <div class="container py-7 grid grid-cols-12 gap-6 text-white">
+      {/* We could make this a link and redirect to the media page */}
       <div class="col-span-2 flex justify-center">
         <img class="w-8/12" src={wordmark} alt="Solid logo" />
       </div>
@@ -24,6 +25,8 @@ const Footer: Component = () => (
           </a>
           .
         </p>
+
+        {/* TODO: Make this dynamic */}
         <p class="text-sm text-gray-400 mt-3">Last updated January 1, 2020 on SolidJS v0.22.0.</p>
       </div>
     </div>
