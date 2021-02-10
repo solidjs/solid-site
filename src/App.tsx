@@ -8,7 +8,6 @@ export const App: Component = () => {
   return (
     <>
       <Link rel="canonical" href="https://www.solidjs.com/" />
-      <Meta name="keywords" content="javascript solid ui framework" />
       <Meta
         name="description"
         content="The next generation fine-grained reactive Javascript UI library."
