@@ -100,8 +100,6 @@ const Nav: Component<{ showLogo?: boolean }> = (props) => {
 
   const shouldShowLogo = () => props.showLogo || !unlocked();
 
-  createEffect(() => console.log(shouldShowLogo()));
-
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
