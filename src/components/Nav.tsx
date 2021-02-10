@@ -1,10 +1,7 @@
 import { Link } from 'solid-app-router';
-import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
+import { Component, For, onCleanup, onMount, createSignal, Show, createEffect } from 'solid-js';
 
 import logo from '../assets/logo.svg';
-import { DiscordIcon } from '../icons/DiscordIcon';
-import { RedditIcon } from '../icons/RedditIcon';
-import { GithubIcon } from '../icons/GithubIcon';
 
 const links = [
   { title: 'Get Started', path: '/docs/latest/getstarted#get-started' },
@@ -18,6 +15,78 @@ const links = [
   { title: 'Media', path: '/media' },
 ];
 
+const socials = [
+  {
+    href: 'https://github.com/ryansolid/solid',
+    alt: 'Navigate to github',
+    icon:
+      'M12 .3a12 12 0 00-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 011.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0012 .3',
+  },
+
+  {
+    href: 'https://www.reddit.com/r/solidjs/',
+    alt: 'Navigate to reddit',
+    icon:
+      'M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm5.01 4.74c.69 0 1.25.56 1.25 1.25a1.25 1.25 0 01-2.5.06l-2.6-.55-.8 3.75c1.83.07 3.48.63 4.68 1.49.3-.31.73-.5 1.2-.5.97 0 1.76.8 1.76 1.76 0 .72-.43 1.33-1.01 1.61a3.11 3.11 0 01.04.52c0 2.7-3.13 4.87-7 4.87-3.88 0-7-2.17-7-4.87 0-.18 0-.36.04-.53A1.75 1.75 0 014.03 12a1.75 1.75 0 012.96-1.26 8.52 8.52 0 014.74-1.5l.89-4.17a.34.34 0 01.14-.2.35.35 0 01.24-.04l2.9.62a1.21 1.21 0 011.11-.7zM9.25 12a1.25 1.25 0 101.25 1.25c0-.69-.56-1.25-1.25-1.25zm5.5 0a1.25 1.25 0 000 2.5 1.25 1.25 0 000-2.5zm-5.47 3.99a.33.33 0 00-.23.1.33.33 0 000 .46c.84.84 2.49.91 2.96.91.48 0 2.1-.06 2.96-.91a.36.36 0 00.03-.47.33.33 0 00-.46 0c-.55.54-1.68.73-2.51.73-.83 0-1.98-.2-2.51-.73a.33.33 0 00-.24-.1z',
+  },
+
+  {
+    href: 'https://discord.com/invite/solidjs',
+    alt: 'Navigate to discord',
+    icon:
+      'M20.22 0c1.4 0 2.54 1.14 2.6 2.48V24l-2.67-2.27-1.47-1.34-1.6-1.4.67 2.2H3.7a2.48 2.48 0 01-2.54-2.47V2.48A2.53 2.53 0 013.71 0h16.51zM14.1 5.68h-.03l-.2.2a8.06 8.06 0 013.08 1.54 10.88 10.88 0 00-6.22-1.14h-.2c-.47 0-1.47.2-2.81.74l-.74.33s1-1 3.21-1.53l-.13-.14s-1.67-.06-3.48 1.27c0 0-1.8 3.15-1.8 7.02 0 0 1 1.74 3.74 1.8 0 0 .4-.53.8-1-1.53-.46-2.13-1.4-2.13-1.4s.13.07.33.2h.06c.03 0 .04.02.06.03.02.02.03.04.06.04.33.13.66.27.93.4.47.2 1.06.4 1.8.53.93.14 2 .2 3.21 0 .6-.13 1.2-.26 1.8-.53.39-.2.87-.4 1.4-.74 0 0-.6.94-2.2 1.4.32.47.79 1 .79 1 2.74-.05 3.8-1.8 3.87-1.72 0-3.87-1.82-7.02-1.82-7.02a6.01 6.01 0 00-3.43-1.26l.05-.02zm.17 4.42c.7 0 1.27.6 1.27 1.33a1.3 1.3 0 01-1.27 1.34c-.7 0-1.27-.6-1.27-1.33 0-.74.58-1.34 1.27-1.34zm-4.54 0c.7 0 1.26.6 1.26 1.33a1.3 1.3 0 01-1.27 1.34c-.7 0-1.27-.6-1.27-1.33 0-.74.58-1.34 1.28-1.34z',
+  },
+];
+
+const Logo: Component<{ show: boolean }> = (props) => (
+  <li class={`py-3 transition-all overflow-hidden ${props.show ? 'w-10' : 'w-0'}`}>
+    <Link href="/">
+      <span class="sr-only">Navigate to the home page</span>
+      <img class="w-14" src={logo} alt="Solid logo" />
+    </Link>
+  </li>
+);
+
+const MenuLink: Component<{ path: string; external: boolean; title: string }> = (props) => (
+  <li>
+    <Link
+      href={props.path}
+      external={props.external}
+      class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
+    >
+      <span>{props.title}</span>
+
+      <Show when={props.external}>
+        <svg class="h-5 -mt-1 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
+      </Show>
+    </Link>
+  </li>
+);
+
+const SocialIcon: Component<{ href: string; alt: string; icon: string; fade: boolean }> = (
+  props,
+) => (
+  <li>
+    <a href={props.href} rel="noopener" target="_blank">
+      <span class="sr-only">{props.alt}</span>
+
+      <svg
+        viewBox="0 0 24 24"
+        class={`h-8 transition hover:opacity-50 ${props.fade ? 'opacity-60' : 'opacity-80'}`}
+      >
+        <path fill="currentColor" d={props.icon} />
+      </svg>
+    </a>
+  </li>
+);
+
 const Nav: Component<{ showLogo?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
   let intersectorRef!: HTMLDivElement;
@@ -28,6 +97,10 @@ const Nav: Component<{ showLogo?: boolean }> = (props) => {
 
     onCleanup(() => observer && observer.disconnect());
   });
+
+  const shouldShowLogo = () => props.showLogo || !unlocked();
+
+  createEffect(() => console.log(shouldShowLogo()));
 
   return (
     <>
@@ -41,80 +114,17 @@ const Nav: Component<{ showLogo?: boolean }> = (props) => {
           'border-b': !props.showLogo,
         }}
       >
-        <nav class="container grid grid-cols-10 relative z-20">
-          <ul class="flex items-center col-span-7">
-            <li
-              class={`py-3 transition-all overflow-hidden ${
-                props.showLogo || !unlocked() ? 'w-10 mr-4' : 'w-0'
-              }`}
-            >
-              <Link href="/">
-                <span class="sr-only">Navigate to the home page</span>
-                <img class="w-14" src={logo} alt="Solid logo" />
-              </Link>
-            </li>
-            <For each={links}>
-              {(item) => (
-                <li>
-                  <Link
-                    class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
-                    external={item.external}
-                    href={item.path}
-                  >
-                    <span>{item.title}</span>
-
-                    <Show when={item.external}>
-                      <svg class="h-5 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </Show>
-                  </Link>
-                </li>
-              )}
-            </For>
+        <nav class="container flex justify-between items-center relative z-20">
+          <ul class="flex items-center">
+            <Logo show={shouldShowLogo()} />
+            <For each={links} children={MenuLink} />
           </ul>
-          <ul class="flex items-center col-span-3 flex-row-reverse">
-            <li class="ml-3">
-              <a href="https://github.com/ryansolid/solid" rel="noopener" target="_blank">
-                <span class="sr-only">Navigate to github</span>
-                <GithubIcon
-                  class="h-8 transition hover:opacity-50"
-                  classList={{
-                    'opacity-60': unlocked(),
-                    'opacity-80': !unlocked(),
-                  }}
-                />
-              </a>
-            </li>
-            <li class="ml-3">
-              <a href="https://www.reddit.com/r/solidjs/" rel="noopener" target="_blank">
-                <span class="sr-only">Navigate to reddit</span>
-                <RedditIcon
-                  class="h-8 transition hover:opacity-50"
-                  classList={{
-                    'opacity-60': unlocked(),
-                    'opacity-80': !unlocked(),
-                  }}
-                />
-              </a>
-            </li>
-            <li>
-              <a href="https://discord.com/invite/solidjs" rel="noopener" target="_blank">
-                <span class="sr-only">Navigate to discord</span>
-                <DiscordIcon
-                  class="h-8 transition hover:opacity-50"
-                  classList={{
-                    'opacity-60': unlocked(),
-                    'opacity-80': !unlocked(),
-                  }}
-                />
-              </a>
-            </li>
+
+          <ul class="flex items-center space-x-3">
+            <For
+              each={socials}
+              children={(social) => <SocialIcon {...social} fade={unlocked()} />}
+            />
           </ul>
         </nav>
       </div>
