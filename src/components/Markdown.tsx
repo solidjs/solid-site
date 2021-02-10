@@ -2,14 +2,14 @@ import 'prismjs/themes/prism.css';
 
 import Prism, { highlight, languages } from 'prismjs';
 import markdownTreeParser from 'markdown-tree-parser';
-import { Component, createEffect, createMemo } from 'solid-js';
+import { Component, createEffect, createMemo, onCleanup } from 'solid-js';
 
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-typescript';
 
 addJSXSupport();
 
-const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
+const Markdown: Component<{ onLoadSections?: Function; onSectionChange?: Function }> = (props) => {
   const doc = createMemo(() => {
     const { ast } = markdownTreeParser(props.children);
     return htmlFromAst(ast);
@@ -17,7 +17,27 @@ const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
 
   createEffect(() => {
     if (!props.onLoadSections) return;
-    props.onLoadSections(doc().sections);
+    const { sections } = doc();
+    props.onLoadSections(sections);
+
+    // TODO: Make it work in both scroll direction
+    const observer = new IntersectionObserver(
+      ([anchor]) => {
+        if (anchor.boundingClientRect.top < 0) return;
+
+        const url = new URL(location.href);
+        url.hash = `#${anchor.target.id}`;
+
+        history.replaceState(null, anchor.target.id, url.href);
+
+        props.onSectionChange && props.onSectionChange(url.hash);
+      },
+      { root: null, threshold: 0 },
+    );
+
+    for (const section of sections) observer.observe(section.anchor);
+
+    onCleanup(() => observer && observer.disconnect());
   });
 
   return <div class="leading-8">{doc().content}</div>;
@@ -36,7 +56,13 @@ function slugify(text: string) {
     .replace(/\-\-+/g, '-'); // Replace multiple - with single -
 }
 
-function htmlFromAst(nodes?: any[]): { sections: string[]; content: '' | any[] } {
+export interface Section {
+  id: string;
+  title: string;
+  anchor: HTMLAnchorElement;
+}
+
+function htmlFromAst(nodes?: any[]): { sections: Section[]; content: '' | any[] } {
   const sections = [];
 
   if (!nodes || !nodes.length) {
@@ -71,7 +97,7 @@ function htmlFromAst(nodes?: any[]): { sections: string[]; content: '' | any[] }
         const title = document.createElement('textarea');
         title.innerHTML = el.textContent;
         if (node.level <= 2) {
-          sections.push({ id: anchor.id, title: title.value });
+          sections.push({ id: anchor.id, title: title.value, anchor });
         }
         return el;
       case 'orderedlist':

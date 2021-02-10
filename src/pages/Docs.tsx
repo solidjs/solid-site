@@ -3,11 +3,11 @@ import { Component, For, Show, Switch, Match, createSignal, createMemo } from 's
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
-import Markdown from '../components/Markdown';
+import Markdown, { Section } from '../components/Markdown';
 
 import downloadArrow from '../assets/download-arrow.svg';
 
-const version_list = [
+const versions = [
   {
     version: '0.23.0',
     latest: true,
@@ -90,23 +90,23 @@ const Docs: Component<{
   params: Record<string, string>;
   hash: string;
 }> = (props) => {
-  const [sections, setSections] = createSignal<{ id: string; title: string }[]>([]);
-  const [showVersions, setShowVersions] = createSignal<boolean>(false);
-  const current_docs = createMemo(() => {
-    for (const file of version_list) {
-      if (
-        (props.version === 'latest' && file.latest === true) ||
-        file.version === props.version.replace('v', '')
-      ) {
-        return file;
-      }
-    }
-    return null;
-  });
+  const [showVersions, setShowVersions] = createSignal(false);
+  const [hash, setHash] = createSignal(props.hash);
+  const [sections, setSections] = createSignal<Section[]>([]);
+
+  const currentDocs = createMemo(() =>
+    versions.find((file) =>
+      props.version === 'latest' ? file.latest : props.version.includes(file.version),
+    ),
+  );
+
+  const version = () => (currentDocs().latest ? 'latest' : `v${currentDocs().version}`);
+
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Documentation" />
+
       <div class="px-3 lg:px-12 container grid my-5 grid-cols-12 gap-4">
         <div class="col-span-3">
           <div
@@ -121,12 +121,13 @@ const Docs: Component<{
                   setShowVersions(!showVersions());
                 }}
               >
-                {current_docs().latest === true
-                  ? `Latest version (v${current_docs().version})`
-                  : `Version (${current_docs().version})`}
+                {currentDocs().latest
+                  ? `Latest version (v${currentDocs().version})`
+                  : `Version (${currentDocs().version})`}
               </div>
+
               <Show when={showVersions() === true}>
-                <For each={version_list}>
+                <For each={versions}>
                   {(item) => (
                     <a
                       class="block py-2 px-4 border-t hover:text-gray-500"
@@ -139,14 +140,12 @@ const Docs: Component<{
               </Show>
             </div>
             <ul class="overflow-auto flex-1 mt-3">
-              <For each={current_docs().files}>
+              <For each={currentDocs().files}>
                 {(file) => (
                   <li>
                     <Link
-                      class="block uppercase text-solid-medium border-b px-2 transition pb-3 text-sm my-4 hover:text-gray-400 grid grid-cols-6"
-                      href={`/docs/${
-                        current_docs().latest === true ? 'latest' : `v${current_docs().version}`
-                      }/${file}`}
+                      class="uppercase text-solid-medium border-b px-2 transition pb-3 text-sm my-4 hover:text-gray-400 grid grid-cols-6"
+                      href={`/docs/${version()}/${file}`}
                     >
                       <span class="col-span-5">{file}</span>
                       <img
@@ -157,20 +156,25 @@ const Docs: Component<{
                         src={downloadArrow}
                       />
                     </Link>
-                    <Show when={props.loading === false && props.params.page === file}>
-                      <For each={sections()}>
-                        {(section) => (
-                          <a
-                            class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
-                            classList={{
-                              'text-solid hover:text-solid-dark': `#${section.id}` === props.hash,
-                              'hover:text-gray-400': `#${section.id}` !== props.hash,
-                            }}
-                            href={`#${section.id}`}
-                            children={section.title}
-                          />
-                        )}
-                      </For>
+
+                    <Show when={!props.loading && props.params.page === file}>
+                      <ul>
+                        <For each={sections()}>
+                          {(section) => (
+                            <li>
+                              <a
+                                class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
+                                classList={{
+                                  'text-solid hover:text-solid-dark': `#${section.id}` === hash(),
+                                  'hover:text-gray-400': `#${section.id}` !== hash(),
+                                }}
+                                href={`#${section.id}`}
+                                children={section.title}
+                              />
+                            </li>
+                          )}
+                        </For>
+                      </ul>
                     </Show>
                   </li>
                 )}
@@ -178,24 +182,29 @@ const Docs: Component<{
             </ul>
           </div>
         </div>
+
         <div class="col-span-9 p-5">
-          <Show when={current_docs().latest !== true}>
-            <div
+          <Show when={!currentDocs().latest}>
+            <p
               class="sticky p-5 bg-solid-gray text-white z-50 rounded-sm mb-8"
               style={{ top: '5.5rem' }}
             >
-              <strong>Important:</strong> This documentation is for an older version{' '}
-              {current_docs().version} of Solid.js which may be different than the latest.&nbsp;{' '}
-              <a href="/docs/latest/api" class="text-gray-300">
+              <strong>Important:</strong> <span>This documentation is for an older version</span>{' '}
+              <span>({currentDocs().version})</span>{' '}
+              <span>of Solid.js which may be different than the latest.</span>{' '}
+              <Link href="/docs/latest/api" class="text-blue-200 hover:underline">
                 Click here
-              </a>{' '}
-              to view the latest version.
-            </div>
+              </Link>{' '}
+              <span>to view the latest version.</span>
+            </p>
           </Show>
+
           <Switch fallback={'Failed to load markdown...'}>
             <Match when={props.loading}>Loading documentation...</Match>
             <Match when={props.markdown}>
-              {(body) => <Markdown onLoadSections={setSections}>{body}</Markdown>}
+              {(body) => (
+                <Markdown onLoadSections={setSections} onSectionChange={setHash} children={body} />
+              )}
             </Match>
           </Switch>
         </div>
