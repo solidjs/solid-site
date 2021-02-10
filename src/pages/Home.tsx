@@ -104,8 +104,6 @@ const Home: Component = () => (
             height={500}
             isInteractive
             class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
-            // @ts-ignore
-            loading="lazy"
           >
             <ReplTab name="main">
               {`
@@ -140,7 +138,10 @@ const Home: Component = () => (
               segregation, and immutable interfaces. It just has a completely different
               implementation that forgoes using a Virtual DOM.
             </p>
-            <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
+            <Link
+              class="button inline-block mt-5 text-solid-dark hover:underline"
+              href="/docs/latest/components"
+            >
               Read the docs »
             </Link>
           </div>
@@ -158,7 +159,7 @@ const Home: Component = () => (
             level. With <b>no Virtual DOM</b> or extensive diffing, the framework never does more
             work than you want it to.
             <a
-              class="mt-3 block text-solid text-sm"
+              class="mt-3 block text-solid text-sm hover:underline"
               target="_blank"
               href="https://playground.solidjs.com/?hash=271025478"
             >
@@ -178,7 +179,10 @@ const Home: Component = () => (
               model is much simpler with no Hook rules. Every Component executes once and it is the
               Hooks and bindings that execute many times as their dependencies update.
             </p>
-            <Link class="button inline-block mt-5 text-solid-dark" href="/docs/0.17.0/components">
+            <Link
+              class="button inline-block mt-5 text-solid-dark hover:underline"
+              href="/docs/latest/components"
+            >
               Read the docs »
             </Link>
           </div>
@@ -187,8 +191,6 @@ const Home: Component = () => (
             height={500}
             isInteractive
             class="rounded-lg col-end-13 col-span-6 overflow-hidden shadow-2xl"
-            // @ts-ignore
-            loading="lazy"
           >
             <ReplTab name="main">
               {`
