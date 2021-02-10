@@ -25,5 +25,5 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],
-  purge: ['public/**/*.html', 'src/**/*.tsx'],
+  purge: ['index.html', 'src/**/*.tsx'],
 };
