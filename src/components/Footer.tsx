@@ -3,13 +3,11 @@ import wordmark from '../assets/wordmark.svg';
 
 const Footer: Component = () => (
   <footer class="py-10 bg-solid-gray">
-    <div class="container py-7 grid grid-cols-12 gap-6 text-white">
+    <div class="px-3 lg:px-12 container text-white flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
       {/* We could make this a link and redirect to the media page */}
-      <div class="col-span-2 flex justify-center">
-        <img class="w-8/12" src={wordmark} alt="Solid logo" />
-      </div>
+      <img class="w-32" src={wordmark} alt="Solid logo" />
 
-      <div class="col-span-9 text-sm pl-3">
+      <div class="text-sm max-w-5xl">
         <p>
           Solid.js is an open-source project supported by a team of public contribitors. It's
           distributed&nbsp;
@@ -27,7 +25,7 @@ const Footer: Component = () => (
         </p>
 
         {/* TODO: Make this dynamic */}
-        <p class="text-sm text-gray-400 mt-3">Last updated January 1, 2020 on SolidJS v0.22.0.</p>
+        <p class="text-sm text-gray-400 mt-3">Last updated February 10, 2021 on Solid v0.24.4.</p>
       </div>
     </div>
   </footer>

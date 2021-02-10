@@ -114,8 +114,8 @@ const Nav: Component<{ showLogo?: boolean }> = (props) => {
           'border-b': !props.showLogo,
         }}
       >
-        <nav class="container flex justify-between items-center relative z-20">
-          <ul class="flex items-center">
+        <nav class="px-3 lg:px-12 container flex justify-between items-center relative z-20 space-x-10">
+          <ul class="flex items-center overflow-auto">
             <Logo show={shouldShowLogo()} />
             <For each={links} children={MenuLink} />
           </ul>

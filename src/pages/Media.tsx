@@ -102,7 +102,7 @@ const Media: Component = () => (
   <div class="flex flex-col">
     <Nav showLogo />
     <Header title="Media Assets" />
-    <div class="my-10 pt-5 pb-10 container">
+    <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
       <div class="mb-10 grid grid-cols-6 gap-4">
         <div class="col-span-4">
           The following are assets that represent the Solid brand. All assets are considered

@@ -107,7 +107,7 @@ const Docs: Component<{
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Documentation" />
-      <div class="container grid my-5 grid-cols-12 gap-4">
+      <div class="px-3 lg:px-12 container grid my-5 grid-cols-12 gap-4">
         <div class="col-span-3">
           <div
             class="flex flex-col py-5 sticky"

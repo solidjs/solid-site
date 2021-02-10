@@ -212,7 +212,7 @@ const Resources: Component = () => {
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Resources" />
-      <div class="container my-10 grid grid-cols-12 gap-10">
+      <div class="px-3 lg:px-12 container my-10 grid grid-cols-12 gap-10">
         <div class="col-span-7">
           <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">
             Latest Articles{' '}

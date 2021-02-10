@@ -61,7 +61,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
       <Nav showLogo />
       <Header title="Team & Contributors" />
 
-      <div class="container my-10">
+      <div class="px-3 lg:px-12 container my-10">
         <p>
           Solid.js is supportedand made possible by a community of dedicated contributors and
           ethusiasts. This page draws attention to individual members and recgonizes their

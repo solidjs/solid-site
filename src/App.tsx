@@ -12,6 +12,7 @@ export const App: Component = () => {
         name="description"
         content="The next generation fine-grained reactive Javascript UI library."
       />
+
       <main class="min-h-screen">
         <Route />
       </main>
