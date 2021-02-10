@@ -15,8 +15,8 @@
     "prismjs": "^1.23.0",
     "scroll-js": "^3.3.0",
     "solid-app-router": "^0.0.23",
-    "solid-js": "^0.24.3",
-    "solid-meta": "^0.24.3",
+    "solid-js": "^0.24.4",
+    "solid-meta": "^0.24.4",
     "solid-repl": "^0.2.0",
     "solid-utils": "^0.4.1"
   },
