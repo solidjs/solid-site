@@ -45,9 +45,13 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Resources')),
   },
   {
-    path: '/docs/:version/:page',
+    path: '/docs/:version',
     component: lazy(() => import('./pages/Docs')),
     data: DocsData,
+  },
+  {
+    path: '/docs',
+    component: Redirect('/docs/0.24.0'),
   },
   {
     path: '/media',

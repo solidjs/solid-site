@@ -1,11 +1,11 @@
 import { Link } from 'solid-app-router';
-import { Component, For, onCleanup, onMount, createSignal, Show, createEffect } from 'solid-js';
+import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
 
 import logo from '../assets/logo.svg';
 
 const links = [
-  { title: 'Get Started', path: '/docs/latest/getstarted#get-started' },
-  { title: 'Docs', path: '/docs/latest/api#core-api' },
+  { title: 'Get Started', path: '/docs/0.24.0/#get-started' },
+  { title: 'Docs', path: '/docs/0.24.0/' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial' },
   { title: 'Examples', path: '/examples' },
@@ -39,10 +39,10 @@ const socials = [
 ];
 
 const Logo: Component<{ show: boolean }> = (props) => (
-  <li class={`py-3 transition-all overflow-hidden ${props.show ? 'w-10' : 'w-0'}`}>
-    <Link href="/">
+  <li class="mr-4">
+    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-10' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
-      <img class="w-14" src={logo} alt="Solid logo" />
+      <img class="w-full h-auto" src={logo} alt="Solid logo" />
     </Link>
   </li>
 );

@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+import 'windi.css';
 import './assets/main.css';
 
 import { createApp } from 'solid-utils';

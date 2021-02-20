@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2019",
     "module": "ESNext",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -12,8 +12,9 @@
     "sourceMap": true,
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["es2019", "dom", "esnext.array"]
   },
-  "include": ["./src", "vite.config.js"],
+  "include": ["./src", "vite.config.js", "./scripts"],
   "exclude": ["node_modules/", "Markdown.tsx"]
 }

@@ -1,4 +1,4 @@
-import { DataFn, RouteDefinition } from 'solid-app-router';
+import { DataFn } from 'solid-app-router';
 
 export const ExampleData: DataFn<{ id: string }> = (props) => {
   return {

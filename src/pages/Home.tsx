@@ -10,7 +10,7 @@ const Home: Component = () => (
   <div class="flex flex-col">
     <h1 class="sr-only">SolidJS homepage</h1>
 
-    <header class="bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white">
+    <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
       <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
         <div class="flex flex-col justify-center lg:justify-start lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4">
           <img class="w-28  lg:w-48" src={logo} alt="Solid logo" />
@@ -65,7 +65,7 @@ const Home: Component = () => (
         </p>
 
         <ul class="flex flex-wrap mt-5">
-          <li class="mt-3 mr-3 lg:m-0">
+          <li class="mt-3 mr-3">
             <a
               target="_blank"
               rel="noopener"
@@ -77,7 +77,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="mt-3 mr-3 lg:m-0">
+          <li class="mt-3 mr-3">
             <a
               target="_blank"
               rel="noopener"
@@ -89,7 +89,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="mt-3 mr-3 lg:m-0">
+          <li class="mt-3 mr-3">
             <a
               target="_blank"
               rel="noopener"
@@ -101,7 +101,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="mt-3 mr-3 lg:m-0">
+          <li class="mt-3 mr-3">
             <a
               target="_blank"
               rel="noopener"

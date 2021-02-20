@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         primary: '#4483c1',
         solid: {
-          DEFAULT: '#2c4f7c',
+          default: '#2c4f7c',
           dark: '#335d92',
           gray: '#414042',
           medium: '#446b9e',
@@ -23,7 +23,5 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [require('@tailwindcss/typography')],
-  purge: ['index.html', 'src/**/*.tsx'],
+  plugins: [require('windicss/plugin/typography')],
 };
