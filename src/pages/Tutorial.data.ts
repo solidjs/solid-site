@@ -13,34 +13,35 @@ interface Manifest {
   steps: Step[];
 }
 
-const manifestCache = new Map<string, Manifest>();
-const markdownCache = new Map<string, string>();
+const manifestCache = new Map<string, Promise<Manifest>>();
+const markdownCache = new Map<string, Promise<string>>();
 
-async function getManifest(id: string) {
+function getManifest(id: string) {
   if (manifestCache.has(id)) return manifestCache.get(id);
 
-  const manifest = await fetch(`/tutorial/manifests/${id}.json`).then((res) => res.json());
+  const manifest = fetch(`/tutorial/manifests/${id}.json`).then((res) => res.json());
   manifestCache.set(id, manifest);
 
   return manifest;
 }
 
-async function getMarkdown(id: string, file: string) {
+function getMarkdown(id: string, file: string) {
   const uid = id + file;
   if (markdownCache.has(uid)) return markdownCache.get(uid);
 
-  const markdown = await fetch(`/tutorial/lessons/${id}/${file}`).then((res) => res.text());
+  const markdown = fetch(`/tutorial/lessons/${id}/${file}`).then((res) => res.text());
   markdownCache.set(uid, markdown);
 
   return markdown;
 }
 
 async function fetchData({ id, step }: any) {
+  if (!id || !step) return {};
   const manifest: Manifest = await getManifest(id);
   const { md, js, name } = manifest.steps[Number.parseInt(step, 10)];
 
   const markdown: string = await getMarkdown(id, md);
-  const javascript = `${location.origin}/tutorial/lessons/${id}/${js}`;
+  const javascript = `/tutorial/lessons/${id}/${js}`;
 
   return { manifest, markdown, javascript, name };
 }

@@ -40,17 +40,17 @@
 @tailwind utilities;
 
 .defer {
-  content-visibility: 'auto';
+  content-visibility: auto;
 }
 
 .nav::before,
 .nav::after {
   content: '';
-  @apply absolute w-full h-full left-0 top-0 z-10 opacity-0 transition duration-200;
+  @apply absolute top-0 left-0 z-10 w-full h-full transition duration-200 opacity-0;
 }
 
 .nav::before {
-  @apply shadow-lg bg-gradient-to-r from-solid-light via-solid-medium to-solid;
+  @apply shadow-lg bg-gradient-to-r from-solid-light via-solid-medium to-solid-default;
 }
 
 .nav::after {
@@ -62,6 +62,14 @@
   @apply opacity-100;
 }
 
-.code {
-  background-color: #f8fafc;
+pre code {
+  @apply rounded bg-gray-50;
+}
+
+.prose pre,
+.prose code {
+  font-size: inherit;
+}
+.prose blockquote {
+  @apply mx-0;
 }

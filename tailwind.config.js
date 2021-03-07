@@ -1,17 +1,16 @@
 const theme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  dark: false,
+  purge: ['index.html', 'src/**/*.tsx'],
   theme: {
     extend: {
       container: {
-        padding: '3rem',
         center: true,
       },
       colors: {
         primary: '#4483c1',
         solid: {
-          DEFAULT: '#2c4f7c',
+          default: '#2c4f7c',
           dark: '#335d92',
           gray: '#414042',
           medium: '#446b9e',
@@ -23,7 +22,5 @@ module.exports = {
       },
     },
   },
-  variants: {},
   plugins: [require('@tailwindcss/typography')],
-  purge: ['index.html', 'src/**/*.tsx'],
 };

@@ -1,9 +1,9 @@
 import type { Component } from 'solid-js';
 
-const Header: Component<{ title: string }> = ({ title }) => (
-  <header class="bg-gradient-to-r from-solid-light via-solid-medium bg-hero-pattern to-solid text-white">
+const Header: Component<{ title: string }> = (props) => (
+  <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
     <div class="px-3 lg:px-12 container">
-      <h1 class="py-8 text-3xl">{title}</h1>
+      <h1 class="py-8 text-3xl">{props.title}</h1>
     </div>
   </header>
 );
