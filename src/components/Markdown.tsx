@@ -22,7 +22,6 @@ const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
       .use(anchor, {
         level: 1,
         callback: (token, { slug, title }) => {
-          console.log(token);
           sections.push({ slug, title, level: token.tag });
         },
       });

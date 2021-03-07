@@ -1,11 +1,10 @@
 const theme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  dark: false,
+  purge: ['index.html', 'src/**/*.tsx'],
   theme: {
     extend: {
       container: {
-        padding: '3rem',
         center: true,
       },
       colors: {
@@ -23,5 +22,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('windicss/plugin/typography')],
+  plugins: [require('@tailwindcss/typography')],
 };

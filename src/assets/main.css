@@ -35,8 +35,12 @@
   font-display: fallback;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .defer {
-  content-visibility: 'auto';
+  content-visibility: auto;
 }
 
 .nav::before,
@@ -59,5 +63,13 @@
 }
 
 pre code {
-  @apply bg-gray-50 rounded;
+  @apply rounded bg-gray-50;
+}
+
+.prose pre,
+.prose code {
+  font-size: inherit;
+}
+.prose blockquote {
+  @apply mx-0;
 }

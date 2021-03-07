@@ -5,9 +5,9 @@ type Params = { version: string };
 
 const cache = new Map<string, any>();
 
-async function mdFetcher({ version }: Params) {
+function mdFetcher({ version }: Params) {
   if (!cache.has(version)) {
-    const markdown = await fetch(`/api/${version}.json`).then((r) => r.json());
+    const markdown = fetch(`/api/${version}.json`).then((r) => r.json());
     cache.set(version, markdown);
   }
 

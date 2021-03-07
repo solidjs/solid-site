@@ -1,4 +1,14 @@
-import { Component, For, Show, Switch, Match, createSignal, createMemo, onMount } from 'solid-js';
+import {
+  Component,
+  For,
+  Show,
+  Switch,
+  Match,
+  createSignal,
+  createMemo,
+  onMount,
+  createState,
+} from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -11,7 +21,7 @@ const Docs: Component<{
   loading: boolean;
   version: string;
 }> = (props) => {
-  const [activeSection, setActiveSection] = createSignal('');
+  const [section, setSection] = createState<Record<string, boolean>>({});
 
   return (
     <div class="flex flex-col relative">
@@ -23,27 +33,40 @@ const Docs: Component<{
           <div class="col-span-3">
             <div
               class="flex flex-col py-5 sticky"
-              style={{ top: '6rem', height: 'calc(100vh - 80px - 2.5rem)' }}
+              style={{ height: 'calc(100vh - 80px - 2.5rem)', top: '6rem' }}
             >
-              <ul class="overflow-auto flex-1 mt-3">
+              <ul class="overflow-auto flex flex-col flex-1 mt-3">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) => (
                     <li>
-                      <a
-                        class="uppercase text-solid-medium border-b px-2 transition pb-3 text-sm my-4 hover:text-gray-400 grid grid-cols-6"
-                        href={`#${firstLevel.slug}`}
+                      <button
+                        type="button"
+                        class="text-left block w-full uppercase text-solid-medium border-b hover:text-gray-400 transition"
+                        onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                       >
-                        <span class="col-span-5">{firstLevel.title}</span>
-                        <img
-                          class="col-span-1 col-end-8 w-3 transform"
-                          classList={{
-                            'rotate-180': props.hash === firstLevel.slug,
-                          }}
-                          src={arrowDown}
-                        />
-                      </a>
+                        <a
+                          class="flex justify-between space-x-2 text-sm p-2 py-4"
+                          href={`#${firstLevel.slug}`}
+                        >
+                          <span class="flex-1">{firstLevel.title}</span>
 
-                      <ul>
+                          <img
+                            class="col-span-1 col-end-8 w-3 transform"
+                            classList={{
+                              'rotate-180': !!section[firstLevel.title],
+                              hidden: !firstLevel.children.length,
+                            }}
+                            src={arrowDown}
+                          />
+                        </a>
+                      </button>
+
+                      <ul
+                        class="overflow-hidden"
+                        classList={{
+                          'h-0': !section[firstLevel.title],
+                        }}
+                      >
                         <For each={firstLevel.children}>
                           {(secondLevel) => (
                             <li>
@@ -87,7 +110,7 @@ const Docs: Component<{
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={props.loading}>Loading documentation...</Match>
               <Match when={props.doc}>
-                <div class="prose" innerHTML={props.doc.content} />
+                <div class="prose font-sans" innerHTML={props.doc.content} />
               </Match>
             </Switch>
           </div>

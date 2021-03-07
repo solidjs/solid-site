@@ -91,6 +91,7 @@ const AssetPanel: Component<{
           download={true}
           href={path}
         >
+          <span class="sr-only">Download asset</span>
           <img class="w-4 mr-3" alt="Download Arrow" src={downloadArrow} /> {name}
         </a>
       ))}
@@ -115,7 +116,7 @@ const Media: Component = () => (
           </div>
           <div class="flex mb-2">
             <span class="w-5/12 inline-block font-bold">Primary Color</span>
-            <figure class="rounded bg-solid mr-2 h-5 w-5 inline-block" /> #2c4f7c
+            <figure class="rounded bg-solid-default mr-2 h-5 w-5 inline-block" /> #2c4f7c
           </div>
           <div class="flex mb-2">
             <span class="w-5/12 inline-block font-bold">Secondary Color</span>

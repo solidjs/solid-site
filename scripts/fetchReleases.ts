@@ -5,23 +5,15 @@ import { basename } from 'path';
 import markdown from 'markdown-it';
 import frontmatter from 'front-matter';
 import anchor from 'markdown-it-anchor';
-import * as Shiki from 'shiki';
-import { writeFileSync } from 'fs';
+import { getHighlighter, loadTheme } from 'shiki';
+import { existsSync } from 'fs';
+import { writeFile, mkdir, readFile } from 'fs/promises';
 import { resolve, dirname } from 'path';
+import globby from 'globby';
 
 import { Documentation, Release, Section } from './types';
 
 const API_URL = 'https://api.github.com/repos/ryansolid/solid';
-
-let globalHighlighter: Shiki.Highlighter;
-
-async function getHighlighter() {
-  if (!globalHighlighter) {
-    globalHighlighter = await Shiki.getHighlighter({ theme: 'nord', themes: ['nord'] });
-  }
-
-  return globalHighlighter;
-}
 
 const client = Got.extend({
   prefixUrl: API_URL,
@@ -35,7 +27,8 @@ const client = Got.extend({
 
 async function processMarkdown(mdToProcess: string) {
   const { attributes, body } = frontmatter(mdToProcess);
-  const highlighter = await getHighlighter();
+  const theme = await loadTheme(resolve(__dirname, 'blink-light.json'));
+  const highlighter = await getHighlighter({ theme });
 
   const md = markdown({
     html: true,
@@ -67,7 +60,7 @@ async function processMarkdown(mdToProcess: string) {
         second = section;
         first.children.push(second);
       } else {
-        if (!second) first.children.push(section);
+        if (!second) return;
         else second.children.push(section);
       }
     },
@@ -83,28 +76,51 @@ async function processRelease(release: Release, index: number) {
   const isLatest = index === 0;
   const version = release.tag_name;
 
-  const documentations = await client
-    .get('contents/documentation', {
-      searchParams: { ref: version },
-    })
-    .json<Documentation[]>()
-    .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
+  console.log('> Processing release ', version);
 
-  // Parse and iterate over the pages
-  const files = await Promise.all(
-    documentations.map(async (documentation) => {
-      const name = basename(documentation.download_url, '.md');
-      const title = name.charAt(0).toUpperCase() + name.slice(1);
+  const documentationPath = resolve(__dirname, 'documentation', version);
 
+  if (!existsSync(documentationPath)) {
+    await mkdir(documentationPath);
+
+    const documentations = await client
+      .get('contents/documentation', {
+        searchParams: { ref: version },
+      })
+      .json<Documentation[]>()
+      .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
+
+    for (const documentation of documentations) {
+      const name = basename(documentation.download_url);
       const content = await Got.get(documentation.download_url).text();
 
-      return { title, content };
-    }),
+      await writeFile(resolve(documentationPath, name), content, { encoding: 'utf-8' });
+    }
+  }
+
+  const { sections, content } = await globby([resolve(documentationPath, '**/*.md')]).then(
+    async (mdFiles) => {
+      let sections = [];
+      let content = '';
+
+      for (const mdFile of mdFiles) {
+        const name = basename(mdFile, '.md');
+        const title = name.charAt(0).toUpperCase() + name.slice(1);
+        console.log('  >> Processing file ', title);
+
+        const fileContent = await readFile(mdFile, { encoding: 'utf-8' });
+        const result = await processMarkdown(fileContent);
+
+        console.log('  >> Finished processing file ', title);
+        content += result.html;
+        sections.push(...result.sections);
+      }
+
+      console.log('> Finished processing release ', version);
+
+      return { sections, content };
+    },
   );
-
-  const mergedMarkdown = files.reduce((content, file) => content + file.content, '');
-
-  const { html, sections } = await processMarkdown(mergedMarkdown);
 
   return {
     version,
@@ -114,7 +130,7 @@ async function processRelease(release: Release, index: number) {
     tar: release.tarball_url,
     zip: release.zipball_url,
     sections,
-    content: html,
+    content,
     body: release.body,
   };
 }
@@ -124,20 +140,26 @@ function shouldProcess({ draft, prerelease }: Release) {
 }
 
 export async function fetchReleases() {
+  const documentation = resolve(__dirname, 'documentation');
+  if (!existsSync(documentation)) await mkdir(documentation);
+
   const repos = await client
     .get('releases')
     .json<Release[]>()
-    .then((repos) => Promise.all(repos.filter(shouldProcess).slice(0, 1).map(processRelease)));
+    .then((repos) => Promise.all(repos.filter(shouldProcess).map(processRelease)));
 
   return repos;
 }
 
 fetchReleases()
-  .then((releases) => {
-    const path = (name: string) => resolve(dirname(__dirname), 'public/api', `${name}.json`);
+  .then(async (releases) => {
+    const apiDir = resolve(dirname(__dirname), 'public/api');
+    if (!existsSync(apiDir)) await mkdir(apiDir);
+
+    const path = (name: string) => resolve(apiDir, `${name}.json`);
 
     for (const release of releases) {
-      writeFileSync(path(release.version.slice(1)), JSON.stringify(release, null, 2), {
+      await writeFile(path(release.version.slice(1)), JSON.stringify(release, null, 2), {
         encoding: 'utf-8',
       });
     }

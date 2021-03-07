@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, Suspense } from 'solid-js';
 import { Meta } from 'solid-meta';
 import { Route } from 'solid-app-router';
 
@@ -13,7 +13,9 @@ export const App: Component = () => {
       />
 
       <main class="min-h-screen">
-        <Route />
+        <Suspense fallback={<p>Loading ...</p>}>
+          <Route />
+        </Suspense>
       </main>
 
       <Footer />

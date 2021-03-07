@@ -1,16 +1,20 @@
 import { Repl } from 'solid-repl';
 import { Link } from 'solid-app-router';
-import { For, Component, Show } from 'solid-js';
+import { For, Component } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 
 interface Props {
+  params: any;
+}
+interface Example {
   id: string;
-  example: string;
+  name: string;
+  description: string;
 }
 
-const list = {
+const list: Record<string, Example[]> = {
   Basic: [
     {
       id: 'counter',
@@ -73,13 +77,14 @@ const Examples: Component<Props> = (props) => {
       <Nav showLogo />
       <Header title="Example Library" />
 
-      <div style={{ width: '95vw' }} class="my-10 mx-auto">
+      <div class="my-10 w-95vw mx-auto">
         <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-2 overflow-auto border p-5 rounded" style={{ height: '82vh' }}>
+          <div class="col-span-2 overflow-auto border p-5 rounded h-82vh">
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
                   <h3 class="text-xl text-solid border-b border-solid pb-2">{name}</h3>
+
                   <div class="mb-10">
                     <For each={examples}>
                       {(example) => (
@@ -87,7 +92,7 @@ const Examples: Component<Props> = (props) => {
                           href={`/examples/${example.id}`}
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
                           classList={{
-                            'text-solid font-bold': example.id === props.id,
+                            'text-solid font-bold': example.id === props.params.id,
                           }}
                         >
                           <span>{example.name}</span>
@@ -102,15 +107,12 @@ const Examples: Component<Props> = (props) => {
           </div>
 
           <div class="col-span-10">
-            <Show when={props.example} fallback={<p>Loading...</p>}>
-              <Repl
-                title="Interactive Example"
-                height="85vh"
-                data={props.example}
-                isInteractive
-                class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
-              />
-            </Show>
+            <Repl
+              title="Interactive Example"
+              data={`${location.origin}/examples/${props.params.id}.json`}
+              isInteractive
+              class="h-85vh rounded-lg col-span-6 overflow-hidden shadow-2xl"
+            />
           </div>
         </div>
       </div>
