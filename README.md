@@ -1,4 +1,6 @@
-<img src="./src/assets/logo.png" alt="Solid logo" style="width: 75px; display: block; margin: auto" />
+<p align="center">
+  <img width="75px" src="./src/assets/logo.png" alt="Solid logo">
+</p>
 
 # Solid Website
 
