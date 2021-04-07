@@ -246,6 +246,17 @@ const Resources: Component = () => {
                 <div class="text-md text-black block">Eric Schmucker walks you through Solid.</div>
               </a>
             </li>
+            <li class="py-4 border-b pl-4">
+              <a
+                class="text-solid"
+                target="_blank"
+                href="https://www.youtube.com/watch?v=P8iGK8zYzns"
+                rel="nofollow"
+              >
+                Solid.js - A fast, Declarative, Compiled Web UI Library
+                <div class="text-md text-black block">Zaieste Programming walks you through Solid's web UI solution.</div>
+              </a>
+            </li>
           </ul>
           <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>
           <ul class="ml-5 mb-10">
