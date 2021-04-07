@@ -1,3 +1,5 @@
+<img src="./src/assets/logo.png" alt="Solid logo" style="width: 75px; display: block; margin: auto" />
+
 # Solid Website
 
 This is the source code for the solid website: [https://solidjs.com/](https://solidjs.com/)
@@ -6,7 +8,7 @@ This is the source code for the solid website: [https://solidjs.com/](https://so
 
 The website is built with [Solid](https://github.com/ryansolid/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
 
-### Pre-requisit
+### Prerequisit
 
 - [yarn](https://yarnpkg.com/getting-started/install)
 
@@ -14,12 +16,15 @@ The website is built with [Solid](https://github.com/ryansolid/solid). In order 
 
 1. Clone the project locally: `git clone https://github.com/ryansolid/solid-site`
 2. Change diretory into your local copy: `cd solid-website`
+3. Install the dependencies: `yarn install`
 
-### Basic commands
+### Available commands
 
 - `yarn install`: Install the dependencies
 - `yarn dev`: Start the dev server
 - `yarn build`: Build the project
+- `yarn format`: Format the whole project with prettier
+- `yarn fetch:releases`: Fetch the latest releases as MD and transforms them to JSON (see below for more)
 
 ## Additionnal information
 
