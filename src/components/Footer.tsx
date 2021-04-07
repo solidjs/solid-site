@@ -25,7 +25,7 @@ const Footer: Component = () => (
         </p>
 
         {/* TODO: Make this dynamic */}
-        <p class="text-sm text-gray-400 mt-3">Last updated February 10, 2021 on Solid v0.24.4.</p>
+        <p class="text-sm text-gray-400 mt-3">Last updated April 7, 2021 on Solid v0.25.0.</p>
       </div>
     </div>
   </footer>

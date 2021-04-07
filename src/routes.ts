@@ -18,7 +18,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/docs',
-    component: Redirect('/docs/0.24.0'),
+    component: Redirect('/docs/0.25.0'),
   },
   {
     path: '/docs/:version',
