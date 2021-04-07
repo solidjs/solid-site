@@ -77,9 +77,9 @@ const Examples: Component<Props> = (props) => {
       <Nav showLogo />
       <Header title="Example Library" />
 
-      <div class="my-10 w-95vw mx-auto">
+      <div class="my-10 w-[95vw] mx-auto">
         <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-2 overflow-auto border p-5 rounded h-82vh">
+          <div class="col-span-4 overflow-auto border p-5 rounded h-[82vh]">
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
@@ -106,12 +106,12 @@ const Examples: Component<Props> = (props) => {
             </For>
           </div>
 
-          <div class="col-span-10">
+          <div class="col-span-8">
             <Repl
               title="Interactive Example"
               data={`${location.origin}/examples/${props.params.id}.json`}
               isInteractive
-              class="h-85vh rounded-lg col-span-6 overflow-hidden shadow-2xl"
+              class="h-[85vh] rounded-lg col-span-6 overflow-hidden shadow-2xl"
             />
           </div>
         </div>

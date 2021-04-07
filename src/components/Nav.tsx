@@ -1,4 +1,4 @@
-import { Link } from 'solid-app-router';
+import { Link, NavLink } from 'solid-app-router';
 import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
 
 import logo from '../assets/logo.svg';
@@ -49,10 +49,11 @@ const Logo: Component<{ show: boolean }> = (props) => (
 
 const MenuLink: Component<{ path: string; external: boolean; title: string }> = (props) => (
   <li>
-    <Link
+    <NavLink
       href={props.path}
       external={props.external}
       class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
 
@@ -66,7 +67,7 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
           />
         </svg>
       </Show>
-    </Link>
+    </NavLink>
   </li>
 );
 

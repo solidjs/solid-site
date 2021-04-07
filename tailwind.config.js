@@ -2,6 +2,7 @@ const theme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: ['index.html', 'src/**/*.tsx'],
+  mode: 'jit',
   theme: {
     extend: {
       container: {

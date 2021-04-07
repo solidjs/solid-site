@@ -13,9 +13,7 @@ export const App: Component = () => {
       />
 
       <main class="min-h-screen">
-        <Suspense fallback={<p>Loading ...</p>}>
-          <Route />
-        </Suspense>
+        <Route />
       </main>
 
       <Footer />
