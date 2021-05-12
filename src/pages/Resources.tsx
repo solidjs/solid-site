@@ -254,7 +254,9 @@ const Resources: Component = () => {
                 rel="nofollow"
               >
                 Solid.js - A fast, Declarative, Compiled Web UI Library
-                <div class="text-md text-black block">Zaieste Programming walks you through Solid's web UI solution.</div>
+                <div class="text-md text-black block">
+                  Zaieste Programming walks you through Solid's web UI solution.
+                </div>
               </a>
             </li>
           </ul>

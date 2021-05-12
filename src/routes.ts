@@ -35,14 +35,10 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/tutorial',
-    component: Redirect('/tutorial/lesson_test/0'),
+    component: Redirect('/tutorial/lesson_test'),
   },
   {
     path: '/tutorial/:id',
-    component: (props) => Redirect(`/tutorial/${props.params.id}/0`),
-  },
-  {
-    path: '/tutorial/:id/:step',
     component: lazy(() => import('./pages/Tutorial')),
     data: TutorialData,
   },
