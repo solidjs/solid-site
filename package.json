@@ -13,7 +13,7 @@
   "dependencies": {
     "markdown-it-prism": "^2.1.6",
     "prismjs": "^1.23.0",
-    "solid-app-router": "^0.0.37",
+    "solid-app-router": "^0.0.40",
     "solid-js": "^0.25.1",
     "solid-meta": "^0.25.1",
     "solid-repl": "^0.3.0",

@@ -34,8 +34,8 @@ const DirectoryMenu: Component<{ directory: TutorialDirectory; current: Tutorial
           onClick={(e) => { e.stopPropagation(); setShowDirectory(!showDirectory()) }}
         >
           <div class="flex-grow inline-flex flex-col items-baseline">
-            <h3 class="text-xl text-solid">{props.current.lessonName}</h3>
-            <p class="block text-gray-500 text-md">{props.current.description}</p>
+            <h3 class="text-xl text-solid">{props.current?.lessonName}</h3>
+            <p class="block text-gray-500 text-md">{props.current?.description}</p>
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -89,7 +89,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
                 <Repl
                   title="Interactive Example"
                   height="85vh"
-                  data={props.js}
+                  data={`${location.origin}${props.js}`}
                   isInteractive
                   class="rounded-lg col-span-6 overflow-hidden shadow-2xl"
                 />

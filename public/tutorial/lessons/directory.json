@@ -1,3 +1,10 @@
 [
-    {"lessonName": "Lesson Test", "internalName": "lesson_test", "description": "This is going to be awesome!"}
+  {
+    "lessonName": "Introduction/Basics",
+    "internalName": "introduction_basics"
+  },
+  {
+    "lessonName": "Introduction/Signals",
+    "internalName": "introduction_signals"
+  }
 ]

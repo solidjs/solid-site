@@ -7,8 +7,8 @@ const links = [
   { title: 'Get Started', path: '/docs/0.25.0/#get-started' },
   { title: 'Docs', path: '/docs/0.25.0' },
   { title: 'Resources', path: '/resources' },
-  { title: 'Tutorial', path: '/tutorial' },
-  { title: 'Examples', path: '/examples' },
+  { title: 'Tutorial', path: '/tutorial/introduction_basics' },
+  { title: 'Examples', path: '/examples/counter' },
   { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
   // We might want to hide this and redirect to the /media page when someone tries to right
   // click on the logo, like https://nuxtjs.org/. Additionnaly we could add it to the footer

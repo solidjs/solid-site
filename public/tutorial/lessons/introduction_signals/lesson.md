@@ -1,0 +1,18 @@
+# Signals
+
+Signals are the most core reactive primitive. They contain values that change over time.
+
+To create a Signal you can import `createSignal` from `solid-js` and call it from our Counter component like this:
+```jsx
+const [count, setCount] = createSignal(0);
+```
+The argument passed to the create call is the initial value and an array is returned with 2 functions, a getter and a setter. Using destructuring we can name these whatever we like. In this case we name the getter `count` and the setter `setCount`.
+
+In this lesson we will use `setInterval` to create an incrementing counter. We can update our `count` signal every second by adding this code to our Counter component.
+
+```jsx
+setInterval(() => setCount(count() + 1), 1000);
+```
+
+
+
