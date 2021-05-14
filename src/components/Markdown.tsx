@@ -1,4 +1,4 @@
-import { Component, createEffect, createMemo } from 'solid-js';
+import { Component, createEffect, createMemo, JSX, splitProps } from 'solid-js';
 
 import prism from 'markdown-it-prism';
 
@@ -12,7 +12,9 @@ import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-typescript';
 
-const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
+const Markdown: Component<Props> = (props) => {
+  const [internal, external] = splitProps(props, ['class', 'onLoadSections']);
+
   const doc = createMemo(() => {
     const sections: Section[] = [];
 
@@ -38,13 +40,17 @@ const Markdown: Component<{ onLoadSections?: Function }> = (props) => {
   });
 
   createEffect(() => {
-    if (props.onLoadSections) props.onLoadSections(doc().sections);
+    if (props.onLoadSections) internal.onLoadSections(doc().sections);
   });
 
-  return <div class="prose" innerHTML={doc().html} />;
+  return <div class={`prose ${internal.class || ''}`} innerHTML={doc().html} {...external} />;
 };
 
 export default Markdown;
+
+interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
+  onLoadSections?: Function;
+}
 
 export interface Section {
   slug: string;
