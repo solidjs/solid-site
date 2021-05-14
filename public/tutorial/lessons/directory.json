@@ -100,7 +100,7 @@
     "internalName": "lifecycles_onmount"
   },
   {
-    "lessonName": "Lifecycles/onCkeanup",
+    "lessonName": "Lifecycles/onCleanup",
     "internalName": "lifecycles_oncleanup"
   },
   {
