@@ -6,5 +6,157 @@
   {
     "lessonName": "Introduction/Signals",
     "internalName": "introduction_signals"
+  },
+  {
+    "lessonName": "Introduction/Derived Values",
+    "internalName": "introduction_derived"
+  },
+  {
+    "lessonName": "Introduction/Memos",
+    "internalName": "introduction_memos"
+  },
+  {
+    "lessonName": "Introduction/Effects",
+    "internalName": "introduction_effects"
+  },
+  {
+    "lessonName": "Control Flow/Show",
+    "internalName": "flow_show"
+  },
+  {
+    "lessonName": "Control Flow/For",
+    "internalName": "flow_for"
+  },
+  {
+    "lessonName": "Control Flow/Index",
+    "internalName": "flow_index"
+  },
+  {
+    "lessonName": "Control Flow/Switch",
+    "internalName": "flow_switch"
+  },
+  {
+    "lessonName": "Control Flow/Dynamic",
+    "internalName": "flow_dynamic"
+  },
+  {
+    "lessonName": "Control Flow/Portal",
+    "internalName": "flow_portal"
+  },
+  {
+    "lessonName": "Control Flow/Error Boundary",
+    "internalName": "flow_error_boundary"
+  },
+  {
+    "lessonName": "Bindings/Attributes",
+    "internalName": "bindings_attributes"
+  },
+  {
+    "lessonName": "Bindings/Events",
+    "internalName": "bindings_events"
+  },
+  {
+    "lessonName": "Bindings/Style",
+    "internalName": "bindings_style"
+  },
+  {
+    "lessonName": "Bindings/Class List",
+    "internalName": "bindings_class_list"
+  },
+  {
+    "lessonName": "Bindings/Refs",
+    "internalName": "bindings_refs"
+  },
+  {
+    "lessonName": "Bindings/Forwarding Refs",
+    "internalName": "bindings_forward_refs"
+  },
+  {
+    "lessonName": "Bindings/Spreads",
+    "internalName": "bindings_spreads"
+  },
+  {
+    "lessonName": "Bindings/Directives",
+    "internalName": "bindings_directives"
+  },
+  {
+    "lessonName": "Props/Default Props",
+    "internalName": "props_defaults"
+  },
+  {
+    "lessonName": "Props/Merging Props",
+    "internalName": "props_merge_props"
+  },
+  {
+    "lessonName": "Props/Splitting Props",
+    "internalName": "props_split_props"
+  },
+  {
+    "lessonName": "Props/Children",
+    "internalName": "props_children"
+  },
+  {
+    "lessonName": "Lifecycles/onMount",
+    "internalName": "lifecycles_onmount"
+  },
+  {
+    "lessonName": "Lifecycles/onCkeanup",
+    "internalName": "lifecycles_oncleanup"
+  },
+  {
+    "lessonName": "State/Nested Reactivity",
+    "internalName": "state_nested_reactivity"
+  },
+  {
+    "lessonName": "State/Creating State",
+    "internalName": "state_create_state"
+  },
+  {
+    "lessonName": "State/Defining Getters",
+    "internalName": "state_getters"
+  },
+  {
+    "lessonName": "State/Setting State",
+    "internalName": "state_set_state"
+  },
+  {
+    "lessonName": "State/Nested Updates",
+    "internalName": "state_nested_updates"
+  },
+  {
+    "lessonName": "Stores/Context",
+    "internalName": "stores_context"
+  },
+  {
+    "lessonName": "Scheduling/Batching Updates",
+    "internalName": "scheduling_batch"
+  },
+  {
+    "lessonName": "Scheduling/Untrack",
+    "internalName": "scheduling_untrack"
+  },
+  {
+    "lessonName": "Scheduling/On",
+    "internalName": "scheduling_on"
+  },
+  {
+    "lessonName": "Scheduling/Lazy Components",
+    "internalName": "scheduling_lazy"
+  },
+  {
+    "lessonName": "Scheduling/Resources",
+    "internalName": "scheduling_resources"
+  },
+  {
+    "lessonName": "Scheduling/Suspense",
+    "internalName": "scheduling_suspense"
+  },
+  {
+    "lessonName": "Scheduling/Suspense List",
+    "internalName": "scheduling_suspense_list"
+  },
+  {
+    "lessonName": "Scheduling/Transitions",
+    "internalName": "scheduling_transitions"
   }
 ]
