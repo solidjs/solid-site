@@ -3,7 +3,7 @@ import { Link, NavLink } from 'solid-app-router';
 import { For, Component, Show, createSignal, createEffect, onCleanup } from 'solid-js';
 
 import { Icon } from '@amoutonbrady/solid-heroicons';
-import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
+import { chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -14,15 +14,22 @@ const DirectoryMenu: Component<{ directory: TutorialDirectory; current: Tutorial
   props,
 ) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
-  const listener = (e: MouseEvent) => {
-    setShowDirectory(false);
+
+  const listener = (event: MouseEvent | KeyboardEvent) => {
+    if (event instanceof MouseEvent) {
+			return setShowDirectory(false);
+		}
+	
+		if (event.key === 'Escape') setShowDirectory(false);
   };
 
   createEffect(() => {
     if (showDirectory()) {
       window.addEventListener('click', listener);
+			window.addEventListener('keydown', listener);
     } else {
       window.removeEventListener('click', listener);
+			window.removeEventListener('keydown', listener);
     }
   });
 
@@ -84,7 +91,8 @@ const Tutorial: Component<TutorialProps> = (props) => {
       <Show when={!props.loading} fallback={<p>Loading...</p>}>
         <div class="my-10 container mx-auto">
           <div class="grid grid-cols-12 gap-12">
-            <div class="col-span-5 h-[75vh] relative overflow-hidden">
+            <div 
+							class="col-span-5 h-[75vh] relative overflow-hidden">
               <div>
                 <DirectoryMenu
                   current={props.tutorialDirectoryEntry}
