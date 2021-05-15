@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import Header from '../components/Header';
 
 import downloadArrow from '../assets/download-arrow.svg';
+import Footer from '../components/Footer';
 
 const assets = [
   {
@@ -132,6 +133,8 @@ const Media: Component = () => (
         <For each={assets}>{(props) => <AssetPanel {...props} />}</For>
       </div>
     </div>
+
+		<Footer />
   </div>
 );
 

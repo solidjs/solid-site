@@ -15,8 +15,6 @@ export const App: Component = () => {
       <main class="min-h-screen">
         <Route />
       </main>
-
-      <Footer />
     </>
   );
 };

@@ -5,6 +5,7 @@ import { Repl, ReplTab } from 'solid-repl';
 import Nav from '../components/Nav';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
+import Footer from '../components/Footer';
 
 const Home: Component = () => (
   <div class="flex flex-col">
@@ -282,6 +283,8 @@ const Home: Component = () => (
         </ul>
       </section>
     </div>
+
+		<Footer />
   </div>
 );
 

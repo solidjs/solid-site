@@ -85,7 +85,7 @@ const SocialIcon: Component<{ href: string; alt: string; icon: string; fade: boo
   </li>
 );
 
-const Nav: Component<{ showLogo?: boolean }> = (props) => {
+const Nav: Component<{ showLogo?: boolean, filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
   let intersectorRef!: HTMLDivElement;
 
@@ -107,6 +107,7 @@ const Nav: Component<{ showLogo?: boolean }> = (props) => {
         classList={{
           'nav--locked text-white': !unlocked(),
           'nav--unlocked': unlocked(),
+					'nav--filled': props.filled,
           'border-b': !props.showLogo,
         }}
       >

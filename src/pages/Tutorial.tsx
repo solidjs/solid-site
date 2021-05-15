@@ -1,12 +1,11 @@
 import { Repl } from 'solid-repl';
 import { Link, NavLink } from 'solid-app-router';
-import { For, Component, Show, createSignal, createEffect, onCleanup } from 'solid-js';
+import { For, Component, Show, createSignal, createEffect, onCleanup, Suspense } from 'solid-js';
 
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
 import Nav from '../components/Nav';
-import Header from '../components/Header';
 import Markdown from '../components/Markdown';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './Tutorial.data';
 
@@ -42,10 +41,10 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
   });
 
   return (
-    <div class="z-10 sticky top-[80px]">
-      <div class="box-border rounded-t border-b border-solid bg-white">
+    <div class="z-10 relative">
+      <div class="box-border rounded-t border-b-2 border-solid bg-white">
         <button
-          class="py-2 flex flex items-center focus:outline-none space-x-1 group"
+          class="py-2 px-8 flex flex items-center focus:outline-none space-x-1 group"
           onClick={(e) => {
             e.stopPropagation();
             setShowDirectory(!showDirectory());
@@ -65,13 +64,13 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
       </div>
 
       <Show when={showDirectory()}>
-        <ul class="block shadow absolute bg-white w-2/3 h-[40vh] overflow-auto shadow-lg divide-y box-border rounded-b">
+        <ul class="block shadow absolute bg-white max-w-[60%] h-[40vh] left-8 overflow-auto shadow-lg divide-y box-border rounded-b">
           <For each={props.directory}>
             {(entry) => (
               <li>
                 <NavLink
                   activeClass="bg-blue-50"
-                  class="hover:bg-blue-100 py-2 px-1 block"
+                  class="hover:bg-blue-100 p-2 block"
                   href={`/tutorial/${entry.internalName}`}
                 >
                   <p class="text-sm font-medium text-gray-900">{entry.lessonName}</p>
@@ -88,73 +87,61 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 
 const Tutorial: Component<TutorialProps> = (props) => {
   return (
-    <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title="SolidJS Tutorial" />
+    <>
+      <Nav showLogo filled />
 
-      <Show when={!props.loading} fallback={<p>Loading...</p>}>
-        <div class="my-10 container mx-auto relative">
-          <div class="grid grid-cols-12 gap-12">
-            <div class="col-span-5">
-              <DirectoryMenu
-                current={props.tutorialDirectoryEntry}
-                directory={props.tutorialDirectory}
-              />
+      <Suspense fallback={<p>Loading...</p>}>
+				<div class="grid grid-cols-2" style="height: calc(100vh - 80px)">
+					<div class="flex flex-col bg-gray-50 h-full overflow-hidden">
+						<DirectoryMenu current={props.tutorialDirectoryEntry} directory={props.tutorialDirectory} />
 
-              <Show when={props.markdown} fallback={<p>Loading...</p>}>
-                <Markdown class="py-8">{props.markdown}</Markdown>
+						<Markdown class="p-8 flex-1 overflow-auto">{props.markdown}</Markdown>
 
-								<div class="flex items-center justify-between">
-									<Show
-										when={props.solved}
-										fallback={
-											<Link
-												class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-mediumm text-white rounded"
-												href={`/tutorial/${props.id}?solved`}
-											>
-												Solve
-											</Link>
-										}
+						<div class="py-3 px-8 flex items-center justify-between border-t-2">
+							<Show
+								when={props.solved}
+								fallback={
+									<Link
+										class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-mediumm text-white rounded"
+										href={`/tutorial/${props.id}?solved`}
 									>
-										<Link
-											class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-											href={`/tutorial/${props.id}`}
-										>
-											Reset
-										</Link>
-									</Show>
+										Solve
+									</Link>
+								}
+							>
+								<Link
+									class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
+									href={`/tutorial/${props.id}`}
+								>
+									Reset
+								</Link>
+							</Show>
 
-									<div class="flex items-center space-x-4">
-										<Link href="">
-											<span class="sr-only">Previous step</span>
-											<Icon path={arrowLeft} class="h-6" />
-										</Link>
+							<div class="flex items-center space-x-4">
+								<Link href="">
+									<span class="sr-only">Previous step</span>
+									<Icon path={arrowLeft} class="h-6" />
+								</Link>
 
-										<Link href="">
-											<span class="sr-only">Next step</span>
-											<Icon path={arrowRight} class="h-6" />
-										</Link>
-									</div>
-								</div>
-              </Show>
-            </div>
+								<Link href="">
+									<span class="sr-only">Next step</span>
+									<Icon path={arrowRight} class="h-6" />
+								</Link>
+							</div>
+						</div>
+					</div>
 
-            <div class="col-span-7">
-              <Show when={props.js} fallback={<p>Loading...</p>}>
-                <Repl
-                  title="Interactive Example"
-                  height="75vh"
-                  data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
-                  isInteractive
-                  layout="vertical"
-                  class="rounded-lg col-span-6 overflow-hidden shadow-2xl sticky top-[100px]"
-                />
-              </Show>
-            </div>
-          </div>
-        </div>
-      </Show>
-    </div>
+					<Repl
+						title="Interactive Example"
+						height="100%"
+						data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
+						isInteractive
+						layout="vertical"
+						class=""
+					/>
+				</div>
+      </Suspense>
+    </>
   );
 };
 

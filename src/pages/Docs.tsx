@@ -14,6 +14,7 @@ import Nav from '../components/Nav';
 import Header from '../components/Header';
 import { Section } from '../../scripts/types';
 import arrowDown from '../assets/download-arrow.svg';
+import Footer from '../components/Footer';
 
 const Docs: Component<{
   doc: any;
@@ -116,6 +117,8 @@ const Docs: Component<{
           </div>
         </div>
       </Show>
+
+			<Footer />
     </div>
   );
 };

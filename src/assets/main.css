@@ -57,9 +57,18 @@
   @apply bg-white;
 }
 
+.nav--filled {
+	@apply text-white;
+}
+
 .nav--locked::before,
-.nav--unlocked::after {
+.nav--unlocked::after,
+.nav--filled::before {
   @apply opacity-100;
+}
+
+.nav--filled::after {
+	@apply opacity-0;
 }
 
 pre code {

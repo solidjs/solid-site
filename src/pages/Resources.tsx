@@ -1,6 +1,7 @@
 import { Component, For } from 'solid-js';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const articles = [
   {
@@ -253,6 +254,8 @@ const Resources: Component = () => {
           </ul>
         </div>
       </div>
+
+			<Footer />
     </div>
   );
 };

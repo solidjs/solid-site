@@ -3,6 +3,7 @@ import Nav from '../components/Nav';
 import Header from '../components/Header';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
+import Footer from '../components/Footer';
 
 const CoreMember: Component<{
   img: string;
@@ -92,6 +93,8 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
           </div>
         </div>
       </div>
+	
+			<Footer />
     </div>
   );
 };
