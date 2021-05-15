@@ -4,8 +4,7 @@ import Header from '../components/Header';
 
 const articles = [
   {
-    link:
-      'https://medium.com/@ryansolid/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e',
+    link: 'https://medium.com/@ryansolid/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e',
     title: 'SolidJS: The Tesla of JavaScript Frameworks?',
     description: 'Tech built for Economy can be used for Performance.',
   },
@@ -20,8 +19,7 @@ const articles = [
     description: "Exploring the advantages of Solid's templates.",
   },
   {
-    link:
-      'https://levelup.gitconnected.com/how-we-wrote-the-fastest-javascript-ui-framework-again-db097ddd99b6',
+    link: 'https://levelup.gitconnected.com/how-we-wrote-the-fastest-javascript-ui-framework-again-db097ddd99b6',
     title: 'How we wrote the Fastest JavaScript Framework, Again!',
     description: 'This time we conquered the server.',
   },
@@ -31,15 +29,13 @@ const articles = [
     description: 'Highlights the qualities that make Solid a powerufl solution.',
   },
   {
-    link:
-      'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
+    link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
     title: "Building Solid's reactive renderer from the ground up",
     description:
       "An in depth look at building Solid's reactive renderer, piece by piece, from the ground up.",
   },
   {
-    link:
-      'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
+    link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
     title: 'Comparing reactivity models - React vs Vue vs Svelte vs MobX vs Solid vs Redux',
     description: 'Compares popular and well known frames.',
   },
@@ -74,27 +70,23 @@ const articles = [
     description: 'How does Solid perform in a larger application?',
   },
   {
-    link:
-      'https://levelup.gitconnected.com/designing-solidjs-abstraction-66d8c63fa7d1?source=friends_link&amp;sk=9cc520bbba3d97872a78081a8ab7b259',
+    link: 'https://levelup.gitconnected.com/designing-solidjs-abstraction-66d8c63fa7d1?source=friends_link&amp;sk=9cc520bbba3d97872a78081a8ab7b259',
     title: 'Designing SolidJS: Abstraction',
     description: 'Understanding both the power and cost of abstraction.',
   },
   {
-    link:
-      'https://itnext.io/designing-solidjs-suspense-f4e92c625cb5?source=friends_link&amp;sk=f06f93d28632daba59048ed3d6d6b0a5',
+    link: 'https://itnext.io/designing-solidjs-suspense-f4e92c625cb5?source=friends_link&amp;sk=f06f93d28632daba59048ed3d6d6b0a5',
     title: 'Designing SolidJS: Suspense',
     description: "React isn't the only library that stops time.",
   },
   {
-    link:
-      'https://medium.com/@ryansolid/designing-solidjs-jsx-50ee2b791d4c?source=friends_link&amp;sk=ef3d7ada15b50a6b5b7f5aee2cb8f952',
+    link: 'https://medium.com/@ryansolid/designing-solidjs-jsx-50ee2b791d4c?source=friends_link&amp;sk=ef3d7ada15b50a6b5b7f5aee2cb8f952',
     title: 'Designing SolidJS: JSX',
     description:
       'How is it that the syntax born of the Virtual DOM is also secretly the best syntax for Reactive UI libraries?',
   },
   {
-    link:
-      'https://medium.com/javascript-in-plain-english/designing-solidjs-immutability-f1e46fe9f321?source=friends_link&amp;sk=912e32c63353ff0e084630bf3b63a8b1',
+    link: 'https://medium.com/javascript-in-plain-english/designing-solidjs-immutability-f1e46fe9f321?source=friends_link&amp;sk=912e32c63353ff0e084630bf3b63a8b1',
     title: 'Designing SolidJS: Immutability',
     description: 'Can Reactive State Management be both Immutable and also the most performant?',
   },
@@ -107,79 +99,66 @@ const articles = [
     title: 'Understanding Solid: Reactivity Basics',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/designing-solidjs-components-8f1ebb88d78b?source=friends_link&amp;sk=cac89d1679d8be2c7bf2b303fabd153c',
+    link: 'https://medium.com/@ryansolid/designing-solidjs-components-8f1ebb88d78b?source=friends_link&amp;sk=cac89d1679d8be2c7bf2b303fabd153c',
     title: 'Designing SolidJS: Components',
     description: 'Exploring Solid\'s "Vanishing" Components',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/designing-solidjs-reactivity-75180a4c74b4?source=friends_link&amp;sk=dbb9dd46a2e902c199ad3d5c7aeb1566',
+    link: 'https://medium.com/@ryansolid/designing-solidjs-reactivity-75180a4c74b4?source=friends_link&amp;sk=dbb9dd46a2e902c199ad3d5c7aeb1566',
     title: 'Designing SolidJS: Reactivity',
     description: 'Finding the right reactivity model for Solid.',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/designing-solidjs-dualities-69ee4c08aa03?source=friends_link&amp;sk=161ddd70db4fca50d6f33b6d53056d36',
+    link: 'https://medium.com/@ryansolid/designing-solidjs-dualities-69ee4c08aa03?source=friends_link&amp;sk=161ddd70db4fca50d6f33b6d53056d36',
     title: 'Designing SolidJS: Dualities',
     description: 'How exploring opposites can help us redefine the whole problem space.',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/how-we-wrote-the-fastest-javascript-ui-frameworks-a96f2636431e',
+    link: 'https://medium.com/@ryansolid/how-we-wrote-the-fastest-javascript-ui-frameworks-a96f2636431e',
     title: 'How we wrote the Fastest JavaScript UI Frameworks',
     description: 'How Solid topped the JS Framework Benchmark.',
   },
   {
-    link:
-      'https://levelup.gitconnected.com/finding-fine-grained-reactive-programming-89741994ddee?source=friends_link&amp;sk=31c66a70c1dce7dd5f3f4229423ad127',
+    link: 'https://levelup.gitconnected.com/finding-fine-grained-reactive-programming-89741994ddee?source=friends_link&amp;sk=31c66a70c1dce7dd5f3f4229423ad127',
     title: 'Finding Fine Grained Reactive Programming',
     description: "Introduction to the inner workings of Solid's Reactive system.",
   },
   {
-    link:
-      'https://medium.com/better-programming/the-real-cost-of-ui-components-6d2da4aba205?source=friends_link&amp;sk=a412aa18825c8424870d72a556db2169',
+    link: 'https://medium.com/better-programming/the-real-cost-of-ui-components-6d2da4aba205?source=friends_link&amp;sk=a412aa18825c8424870d72a556db2169',
     title: 'The Real Cost of UI Components',
     description: 'Comparison of the cost of Components in different UI Libraries.',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/the-fastest-way-to-render-the-dom-e3b226b15ca3?source=friends_link&amp;sk=5ae1688dde789e46cecf5c976e708da5',
+    link: 'https://medium.com/@ryansolid/the-fastest-way-to-render-the-dom-e3b226b15ca3?source=friends_link&amp;sk=5ae1688dde789e46cecf5c976e708da5',
     title: 'The Fastest Way to Render the DOM',
     description: 'Comparison of all Solid Renderers against the Fastest Libraries in the World.',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/javascript-ui-compilers-comparing-svelte-and-solid-cbcba2120cea',
+    link: 'https://medium.com/@ryansolid/javascript-ui-compilers-comparing-svelte-and-solid-cbcba2120cea',
     title: 'JavaScript UI Compilers: Comparing Svelte and Solid',
     description: 'A closer look at precompiled UI libraries',
   },
   {
-    link:
-      'https://levelup.gitconnected.com/building-a-simple-javascript-app-with-solid-ff17c8836409',
+    link: 'https://levelup.gitconnected.com/building-a-simple-javascript-app-with-solid-ff17c8836409',
     title: 'Building a Simple JavaScript App with Solid',
     description: 'Dissecting building TodoMVC with Solid.',
   },
   {
-    link:
-      'https://levelup.gitconnected.com/solid-the-best-javascript-ui-library-youve-never-heard-of-297b22848ac1?source=friends_link&amp;sk=d61fc9352b4a98c6c9f5f6bd2077a722',
+    link: 'https://levelup.gitconnected.com/solid-the-best-javascript-ui-library-youve-never-heard-of-297b22848ac1?source=friends_link&amp;sk=d61fc9352b4a98c6c9f5f6bd2077a722',
     title: 'Solid — The Best JavaScript UI Library You’ve Never Heard Of',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/what-every-javascript-framework-could-learn-from-react-1e2bbd9feb09?source=friends_link&amp;sk=75b3f6f90eecc7d210814baa2d5ab52c',
+    link: 'https://medium.com/@ryansolid/what-every-javascript-framework-could-learn-from-react-1e2bbd9feb09?source=friends_link&amp;sk=75b3f6f90eecc7d210814baa2d5ab52c',
     title: 'What Every JavaScript Framework Could Learn from React',
     description: 'The lessons Solid learned from React.',
   },
   {
-    link:
-      'https://medium.com/js-dojo/react-hooks-has-react-jumped-the-shark-c8cf04e246cf?source=friends_link&amp;sk=a5017cca813ea970b480cc44afb32034',
+    link: 'https://medium.com/js-dojo/react-hooks-has-react-jumped-the-shark-c8cf04e246cf?source=friends_link&amp;sk=a5017cca813ea970b480cc44afb32034',
     title: 'React Hooks: Has React Jumped the Shark?',
     description: 'Comparison of React Hooks to Solid.',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/how-i-wrote-the-fastest-javascript-ui-framework-37525b42d6c9?source=friends_link&amp;sk=8eb9387a535a306d1eb96f7ce88c4db5',
+    link: 'https://medium.com/@ryansolid/how-i-wrote-the-fastest-javascript-ui-framework-37525b42d6c9?source=friends_link&amp;sk=8eb9387a535a306d1eb96f7ce88c4db5',
     title: 'How I wrote the Fastest JavaScript UI Framework',
     description: "The key to Solid's performance.",
   },
@@ -192,8 +171,7 @@ const articles = [
     title: 'Part 4: Rendering the DOM',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/b-y-o-f-part-3-change-management-in-javascript-frameworks-6af6e436f63c',
+    link: 'https://medium.com/@ryansolid/b-y-o-f-part-3-change-management-in-javascript-frameworks-6af6e436f63c',
     title: 'Part 3: Change Management in JavaScript Frameworks',
   },
   {
@@ -201,8 +179,7 @@ const articles = [
     title: 'Part 2: Web Components as Containers',
   },
   {
-    link:
-      'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
+    link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
     title: 'Part 1: Writing a JS Framework in 2018',
   },
 ];
