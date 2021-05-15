@@ -13,6 +13,7 @@
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.7.0",
     "markdown-it-prism": "^2.1.6",
+    "prism-themes": "^1.7.0",
     "prismjs": "^1.23.0",
     "solid-app-router": "^0.0.40",
     "solid-js": "^0.26.5",

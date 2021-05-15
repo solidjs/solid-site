@@ -5,7 +5,7 @@ import prism from 'markdown-it-prism';
 import markdown from 'markdown-it';
 import anchor from 'markdown-it-anchor';
 
-import 'prismjs/themes/prism-coy.css';
+import 'prism-themes/themes/prism-ghcolors.css';
 
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-jsx';
