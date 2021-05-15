@@ -134,7 +134,7 @@ const Media: Component = () => (
       </div>
     </div>
 
-		<Footer />
+    <Footer />
   </div>
 );
 

@@ -91,55 +91,58 @@ const Tutorial: Component<TutorialProps> = (props) => {
       <Nav showLogo filled />
 
       <Suspense fallback={<p>Loading...</p>}>
-				<div class="grid grid-cols-2" style="height: calc(100vh - 80px)">
-					<div class="flex flex-col bg-gray-50 h-full overflow-hidden">
-						<DirectoryMenu current={props.tutorialDirectoryEntry} directory={props.tutorialDirectory} />
+        <div class="grid" style="height: calc(100vh - 80px); grid-template-columns: minmax(40%, 600px) auto">
+          <div class="flex flex-col bg-gray-50 h-full overflow-hidden">
+            <DirectoryMenu
+              current={props.tutorialDirectoryEntry}
+              directory={props.tutorialDirectory}
+            />
 
-						<Markdown class="p-8 flex-1 overflow-auto">{props.markdown}</Markdown>
+            <Markdown class="p-8 flex-1 max-w-full overflow-auto">{props.markdown}</Markdown>
 
-						<div class="py-3 px-8 flex items-center justify-between border-t-2">
-							<Show
-								when={props.solved}
-								fallback={
-									<Link
-										class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-mediumm text-white rounded"
-										href={`/tutorial/${props.id}?solved`}
-									>
-										Solve
-									</Link>
-								}
-							>
-								<Link
-									class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-									href={`/tutorial/${props.id}`}
-								>
-									Reset
-								</Link>
-							</Show>
+            <div class="py-3 px-8 flex items-center justify-between border-t-2">
+              <Show
+                when={props.solved}
+                fallback={
+                  <Link
+                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-mediumm text-white rounded"
+                    href={`/tutorial/${props.id}?solved`}
+                  >
+                    Solve
+                  </Link>
+                }
+              >
+                <Link
+                  class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
+                  href={`/tutorial/${props.id}`}
+                >
+                  Reset
+                </Link>
+              </Show>
 
-							<div class="flex items-center space-x-4">
-								<Link href="">
-									<span class="sr-only">Previous step</span>
-									<Icon path={arrowLeft} class="h-6" />
-								</Link>
+              <div class="flex items-center space-x-4">
+                <Link href="">
+                  <span class="sr-only">Previous step</span>
+                  <Icon path={arrowLeft} class="h-6" />
+                </Link>
 
-								<Link href="">
-									<span class="sr-only">Next step</span>
-									<Icon path={arrowRight} class="h-6" />
-								</Link>
-							</div>
-						</div>
-					</div>
+                <Link href="">
+                  <span class="sr-only">Next step</span>
+                  <Icon path={arrowRight} class="h-6" />
+                </Link>
+              </div>
+            </div>
+          </div>
 
-					<Repl
-						title="Interactive Example"
-						height="100%"
-						data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
-						isInteractive
-						layout="vertical"
-						class=""
-					/>
-				</div>
+          <Repl
+            title="Interactive Example"
+            height="100%"
+            data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
+            isInteractive
+            layout="vertical"
+            class=""
+          />
+        </div>
       </Suspense>
     </>
   );

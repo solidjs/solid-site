@@ -93,8 +93,8 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
           </div>
         </div>
       </div>
-	
-			<Footer />
+
+      <Footer />
     </div>
   );
 };

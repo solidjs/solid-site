@@ -58,7 +58,7 @@
 }
 
 .nav--filled {
-	@apply text-white;
+  @apply text-white;
 }
 
 .nav--locked::before,
@@ -68,7 +68,7 @@
 }
 
 .nav--filled::after {
-	@apply opacity-0;
+  @apply opacity-0;
 }
 
 pre code {

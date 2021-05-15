@@ -284,7 +284,7 @@ const Home: Component = () => (
       </section>
     </div>
 
-		<Footer />
+    <Footer />
   </div>
 );
 

@@ -255,7 +255,7 @@ const Resources: Component = () => {
         </div>
       </div>
 
-			<Footer />
+      <Footer />
     </div>
   );
 };

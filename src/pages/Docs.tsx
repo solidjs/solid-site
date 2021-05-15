@@ -118,7 +118,7 @@ const Docs: Component<{
         </div>
       </Show>
 
-			<Footer />
+      <Footer />
     </div>
   );
 };
