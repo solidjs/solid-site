@@ -121,14 +121,22 @@ const Tutorial: Component<TutorialProps> = (props) => {
               </Show>
 
               <div class="flex items-center space-x-4">
-                <Link href="">
+                <Link href={props.previousUrl ?? ''} external={!props.previousUrl}>
                   <span class="sr-only">Previous step</span>
-                  <Icon path={arrowLeft} class="h-6" />
+                  <Icon
+                    path={arrowLeft}
+                    class="h-6"
+                    classList={{ 'opacity-25': !props.previousUrl }}
+                  />
                 </Link>
 
-                <Link href="">
+                <Link href={props.nextUrl ?? ''} external={!props.nextUrl}>
                   <span class="sr-only">Next step</span>
-                  <Icon path={arrowRight} class="h-6" />
+                  <Icon
+                    path={arrowRight}
+                    class="h-6"
+                    classList={{ 'opacity-25': !props.nextUrl }}
+                  />
                 </Link>
               </div>
             </div>

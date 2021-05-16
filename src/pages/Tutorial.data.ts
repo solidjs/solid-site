@@ -43,6 +43,15 @@ async function fetchTutorialDirectory() {
   return directoryCache;
 }
 
+const propogateUndefined = (strings: TemplateStringsArray, ...substitutions: string[]) => {
+  let out = '';
+  for (let i = 0; i < substitutions.length; i++) {
+    if (substitutions[i] === undefined) return undefined;
+    out += strings[i] + substitutions[i];
+  }
+  return out + strings[strings.length - 1];
+};
+
 export interface TutorialProps {
   loading: boolean;
   markdown: string;
@@ -50,6 +59,8 @@ export interface TutorialProps {
   solvedJs: string;
   tutorialDirectory: TutorialDirectory;
   tutorialDirectoryEntry: TutorialDirectoryItem;
+  nextUrl: string | undefined;
+  previousUrl: string | undefined;
   id: string;
   solved: boolean;
 }
@@ -77,6 +88,18 @@ export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
     get tutorialDirectoryEntry() {
       const data = directory();
       return data && data.find((el) => el.internalName === props.params.id);
+    },
+    get nextUrl() {
+      const data = directory();
+      return propogateUndefined`/tutorial/${
+        data && data[data.findIndex((el) => el.internalName === props.params.id) + 1]?.internalName
+      }`;
+    },
+    get previousUrl() {
+      const data = directory();
+      return propogateUndefined`/tutorial/${
+        data && data[data.findIndex((el) => el.internalName === props.params.id) - 1]?.internalName
+      }`;
     },
     get id() {
       return props.params.id;
