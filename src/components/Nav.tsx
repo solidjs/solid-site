@@ -4,8 +4,8 @@ import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js
 import logo from '../assets/logo.svg';
 
 const links = [
-  { title: 'Get Started', path: '/docs/0.25.0/#get-started' },
-  { title: 'Docs', path: '/docs/0.25.0' },
+  { title: 'Get Started', path: '/docs/0.26.0/#get-started' },
+  { title: 'Docs', path: '/docs/0.26.0' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial/introduction_basics' },
   { title: 'Examples', path: '/examples/counter' },

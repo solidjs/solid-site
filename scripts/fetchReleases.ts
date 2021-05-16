@@ -13,7 +13,8 @@ import globby from 'globby';
 
 import { Documentation, Release, Section } from './types';
 
-const API_URL = 'https://api.github.com/repos/ryansolid/solid';
+const API_URL = 'https://api.github.com/repos/solidjs/solid';
+const NEXT = process.env.NEXT ? true : false;
 
 const client = Got.extend({
   prefixUrl: API_URL,
@@ -27,7 +28,7 @@ const client = Got.extend({
 
 async function processMarkdown(mdToProcess: string) {
   const { attributes, body } = frontmatter(mdToProcess);
-  const theme = await loadTheme(resolve(__dirname, 'blink-light.json'));
+  const theme = await loadTheme(resolve(__dirname, 'github-light.json'));
   const highlighter = await getHighlighter({ theme });
 
   const md = markdown({
@@ -77,15 +78,18 @@ async function processRelease(release: Release, index: number) {
   const version = release.tag_name;
 
   console.log('> Processing release ', version);
-
   const documentationPath = resolve(__dirname, 'documentation', version);
 
   if (!existsSync(documentationPath)) {
     await mkdir(documentationPath);
 
+    if (NEXT == true) {
+      console.log('! Next flag enabled, grabbing next branch docs...')
+    }
+
     const documentations = await client
       .get('contents/documentation', {
-        searchParams: { ref: version },
+        searchParams: { ref: NEXT == true && isLatest ? 'next' : version },
       })
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
@@ -142,7 +146,6 @@ function shouldProcess({ draft, prerelease }: Release) {
 export async function fetchReleases() {
   const documentation = resolve(__dirname, 'documentation');
   if (!existsSync(documentation)) await mkdir(documentation);
-
   const repos = await client
     .get('releases')
     .json<Release[]>()

@@ -42,14 +42,14 @@ const Docs: Component<{
                     <li>
                       <button
                         type="button"
-                        class="text-left block w-full uppercase text-solid-medium border-b hover:text-gray-400 transition"
+                        class="text-left block w-full text-solid-medium border-b hover:text-gray-400 transition"
                         onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                       >
                         <a
                           class="flex justify-between space-x-2 text-sm p-2 py-4"
                           href={`#${firstLevel.slug}`}
                         >
-                          <span class="flex-1">{firstLevel.title}</span>
+                          <span class="flex-1 font-semibold">{firstLevel.title}</span>
 
                           <img
                             class="col-span-1 col-end-8 w-3 transform"
@@ -92,7 +92,7 @@ const Docs: Component<{
             </div>
           </div>
 
-          <div class="col-span-9 p-5">
+          <div class="col-span-9 px-10 mx-5">
             {/* <Show when={!currentDocs().latest}>
             <p
               class="sticky p-5 bg-solid-gray text-white z-50 rounded-sm mb-8"
@@ -111,7 +111,7 @@ const Docs: Component<{
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={props.loading}>Loading documentation...</Match>
               <Match when={props.doc}>
-                <div class="prose font-sans" innerHTML={props.doc.content} />
+                <div class="prose prose-solid max-w-full font-sans" innerHTML={props.doc.content} />
               </Match>
             </Switch>
           </div>

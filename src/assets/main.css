@@ -70,14 +70,15 @@
 .nav--filled::after {
   @apply opacity-0;
 }
-
-pre code {
-  @apply rounded bg-gray-50;
+.prose pre {
+  font-size: inherit;
 }
 
-.prose pre,
-.prose code {
-  font-size: inherit;
+.shiki {
+  border: 1px solid #dddddd;
+  padding: 1.25rem !important;
+  border-radius: 7.5px;
+  box-shadow: 0px 5px 7.5px -3px rgba(0,0,0,0.125);
 }
 .prose blockquote {
   @apply mx-0;
