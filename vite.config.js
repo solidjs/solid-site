@@ -1,9 +1,10 @@
 // @ts-check
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
+import pluginRewriteAll from 'vite-plugin-rewrite-all';
 
 export default defineConfig({
-  plugins: [solid()],
+  plugins: [solid(), pluginRewriteAll()],
   optimizeDeps: {
     include: [
       'prismjs/components/prism-typescript',
