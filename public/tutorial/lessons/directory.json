@@ -4,6 +4,10 @@
     "internalName": "introduction_basics"
   },
   {
+    "lessonName": "Introduction/JSX",
+    "internalName": "introduction_jsx"
+  },
+  {
     "lessonName": "Introduction/Signals",
     "internalName": "introduction_signals"
   },

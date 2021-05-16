@@ -15,3 +15,8 @@ A Solid app starts with a `render` function. This will be our entry point. It ta
 ```jsx
 render(() => <HelloWorld />, document.getElementById('app'))
 ```
+# Leveraging this Tutorial
+
+Each tutorial will include a simple scenario with instructions on how to complete using the feature highlighted. At any point you can click the solve button to see the solution or click reset to start over. The code editor itself has a console and an output tab where you can see the compiled output generated from your code. Look at it if you are curious to see how Solid generates code.
+
+Have Fun and Good Luck!
