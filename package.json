@@ -8,11 +8,13 @@
     "build:vite": "vite build",
     "type:check": "tsc --noEmit",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\"",
-    "fetch:releases": "jiti scripts/fetchReleases"
+    "fetch:releases": "jiti scripts/fetchReleases",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.7.0",
     "markdown-it-prism": "^2.1.6",
+    "monaco-editor": "^0.24.0",
     "prism-themes": "^1.7.0",
     "prismjs": "^1.23.0",
     "solid-app-router": "^0.0.40",
@@ -33,6 +35,7 @@
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^7.1.0",
     "npm-run-all": "^4.1.5",
+    "patch-package": "^6.4.7",
     "postcss": "^8.2.9",
     "prettier": "^2.2.1",
     "shiki": "^0.9.3",

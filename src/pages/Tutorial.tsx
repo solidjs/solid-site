@@ -1,4 +1,9 @@
-import { Repl } from 'solid-repl';
+import { Repl, createTabList } from 'solid-playground';
+import CompilerWorker from 'solid-playground/lib/compiler.js?worker';
+import FormatterWorker from 'solid-playground/lib/formatter.js?worker';
+import 'solid-playground/lib/style.css';
+import 'monaco-editor/min/vs/editor/editor.main.css';
+
 import { Link, NavLink } from 'solid-app-router';
 import {
   For,
@@ -10,6 +15,7 @@ import {
   Suspense,
   createMemo,
   on,
+  batch,
 } from 'solid-js';
 
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -25,6 +31,24 @@ interface DirectoryProps {
   directory: Record<string, TutorialDirectory>;
   current: TutorialDirectoryItem;
 }
+
+import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
+import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
+
+(window as any).MonacoEnvironment = {
+  getWorker: function (_moduleId, label: string) {
+    switch (label) {
+      case 'css':
+        return new cssWorker();
+      case 'typescript':
+      case 'javascript':
+        return new tsWorker();
+      default:
+        return new editorWorker();
+    }
+  },
+};
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
@@ -167,6 +191,31 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 };
 
 const Tutorial: Component<TutorialProps> = (props) => {
+  const compiler = new CompilerWorker();
+  const formatter = new FormatterWorker();
+
+  const [tabs, setTabs] = createTabList([
+    {
+      name: 'main',
+      type: 'tsx',
+      source: '',
+    },
+  ]);
+  const [current, setCurrent] = createSignal('main.tsx');
+  createEffect(async () => {
+    const data = await fetch(props.solved ? props.solvedJs : props.js).then((r) => r.json());
+    batch(() => {
+      const newTabs = data.files.map((file) => {
+        return {
+          name: file.name,
+          type: 'tsx',
+          source: file.content,
+        };
+      });
+      setTabs(newTabs);
+      setCurrent('main.tsx');
+    });
+  });
   return (
     <>
       <Nav showLogo filled />
@@ -227,12 +276,17 @@ const Tutorial: Component<TutorialProps> = (props) => {
           </div>
 
           <Repl
-            title="Interactive Example"
-            height="100%"
-            data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
-            isInteractive
-            layout="vertical"
-            class=""
+            compiler={compiler}
+            formatter={formatter}
+            isHorizontal={true}
+            interactive={true}
+            actionBar={true}
+            editableTabs={true}
+            dark={false}
+            tabs={tabs()}
+            setTabs={setTabs}
+            current={current()}
+            setCurrent={setCurrent}
           />
         </div>
       </Suspense>
