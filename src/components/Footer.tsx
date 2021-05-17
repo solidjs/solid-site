@@ -4,13 +4,14 @@ import wordmark from '../assets/wordmark-dark.svg';
 
 const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')}>
-    <div class="py-10 bg-gray-100 rounded-tr-3xl rounded-tl-3xl mx-5">
+    <div class="py-10 mt-5 bg-gray-100 rounded-tr-3xl rounded-tl-3xl mx-3">
       <div class="px-3 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
-        <a href="/media"></a><img class="w-48" src={wordmark} alt="Solid logo" />
+        <a href="/media"></a>
+        <img class="w-40" src={wordmark} alt="Solid logo" />
 
         <div class="text-sm max-w-5xl">
           <p>
-            Solid.js is an open-source project supported by a team of public contribitors. It's
+            Solidjs is an open-source project supported by a team of public contribitors. It's
             distributed&nbsp;
             <a
               class="underline hover:text-gray-500"
