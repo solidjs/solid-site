@@ -12,16 +12,16 @@
     "internalName": "introduction_signals"
   },
   {
-    "lessonName": "Introduction/Derived Values",
+    "lessonName": "Introduction/Effects",
+    "internalName": "introduction_effects"
+  },
+  {
+    "lessonName": "Introduction/Derived Signals",
     "internalName": "introduction_derived"
   },
   {
     "lessonName": "Introduction/Memos",
     "internalName": "introduction_memos"
-  },
-  {
-    "lessonName": "Introduction/Effects",
-    "internalName": "introduction_effects"
   },
   {
     "lessonName": "Control Flow/Show",

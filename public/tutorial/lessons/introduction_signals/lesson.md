@@ -24,6 +24,3 @@ Finally we need to read our signal in our JSX code.
 ```jsx
 return <div>Count: {count()}</div>;
 ```
-
-
-
