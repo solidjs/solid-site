@@ -1,9 +1,4 @@
-import { Repl, createTabList } from 'solid-playground';
-import CompilerWorker from 'solid-playground/lib/compiler.js?worker';
-import FormatterWorker from 'solid-playground/lib/formatter.js?worker';
-import 'solid-playground/lib/style.css';
-import 'monaco-editor/min/vs/editor/editor.main.css';
-
+import { Repl, createTabList } from 'solid-repl';
 import { Link, NavLink } from 'solid-app-router';
 import {
   For,
@@ -17,12 +12,12 @@ import {
   on,
   batch,
 } from 'solid-js';
-
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
 import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
+import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './Tutorial.data';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -31,24 +26,6 @@ interface DirectoryProps {
   directory: Record<string, TutorialDirectory>;
   current: TutorialDirectoryItem;
 }
-
-import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
-import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
-
-(window as any).MonacoEnvironment = {
-  getWorker: function (_moduleId, label: string) {
-    switch (label) {
-      case 'css':
-        return new cssWorker();
-      case 'typescript':
-      case 'javascript':
-        return new tsWorker();
-      default:
-        return new editorWorker();
-    }
-  },
-};
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
@@ -191,9 +168,6 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 };
 
 const Tutorial: Component<TutorialProps> = (props) => {
-  const compiler = new CompilerWorker();
-  const formatter = new FormatterWorker();
-
   const [tabs, setTabs] = createTabList([
     {
       name: 'main',
