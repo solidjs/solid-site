@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to the Solid tutorial! This is will teach you everything you need to know to create small and performant web applications. You can also reference the API and guides to learn more about how Solid works.
+Welcome to the Solid tutorial! This tutorial will teach you everything you need to know to create small and performant web applications. You can also reference the API and guides to learn more about how Solid works.
 
 # What is Solid?
 
