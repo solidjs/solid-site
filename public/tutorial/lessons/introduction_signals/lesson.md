@@ -1,6 +1,6 @@
 # Signals
 
-Signals are the most core reactive primitive. They contain values that change over time.
+Signals are the most core reactive primitives. They contain values that change over time.
 
 To create a Signal you can import `createSignal` from `solid-js` and call it from our Counter component like this:
 ```jsx
