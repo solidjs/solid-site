@@ -2,15 +2,15 @@
   "files": [
     {
       "name": "main",
-      "content": "import { createState, lazy, onCleanup } from \"solid-js\";\nimport { render } from \"solid-js/web\";\nimport AsyncChild from \"AsyncChild.tsx\";\n\nconst LazyChild = lazy(() => import(\"tab1\"));\nconst LazyAsyncChild = lazy(() => import(\"SimpleChild.tsx\"));\n\nconst Loader = () => {\n  const [state, setState] = createState({ count: 0 }),\n    interval = setInterval(() => setState(\"count\", (c) => c + 1), 1000);\n  onCleanup(() => clearInterval(interval));\n\n  return <div>Loading... {state.count}</div>;\n};\n\nconst App = () => {\n  const startTime = Date.now();\n\n  return (\n    <Suspense fallback={<Loader />}>\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <LazyChild start={startTime} />\n      <LazyAsyncChild start={startTime} />\n    </Suspense>\n  );\n};\n\nrender(App, document.getElementById(\"app\"));"
+      "content": "import { createState, lazy, onCleanup, Suspense } from \"solid-js\";\nimport { render } from \"solid-js/web\";\nimport AsyncChild from \"./AsyncChild\";\n\nconst LazyChild = lazy(() => import(\"./SimpleChild\"));\nconst LazyAsyncChild = lazy(() => import(\"./AsyncChild\"));\n\nconst Loader = () => {\n  const [state, setState] = createState({ count: 0 }),\n    interval = setInterval(() => setState(\"count\", (c) => c + 1), 1000);\n  onCleanup(() => clearInterval(interval));\n\n  return <div>Loading... {state.count}</div>;\n};\n\nconst App = () => {\n  const startTime = Date.now();\n\n  return (\n    <Suspense fallback={<Loader />}>\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <AsyncChild start={startTime} />\n      <LazyChild start={startTime} />\n      <LazyAsyncChild start={startTime} />\n    </Suspense>\n  );\n};\n\nrender(App, document.getElementById(\"app\"));"
     },
     {
       "name": "AsyncChild",
-      "content": "export default ({ start }) => (\n  <div>Simple loaded after {Date.now() - start}ms</div>\n);"
+      "content": "import { createResource } from \"solid-js\";\n\nfunction createDelay(): Promise<number> {\n  return new Promise((resolve) =>\n    setTimeout(() => resolve(Date.now()), Math.random() * 8000)\n  );\n}\n\nconst AsyncChild = ({ start }) => {\n  const [state] = createResource(createDelay);\n  return <div>Async loaded after {state() - start}ms</div>;\n};\n\nexport default AsyncChild;"
     },
     {
       "name": "SimpleChild",
-      "content": "import { createResourceState } from \"solid-js\";\n\nfunction createDelay() {\n  return new Promise((resolve) =>\n    setTimeout(() => resolve(Date.now()), Math.random() * 8000)\n  );\n}\n\nconst AsyncChild = ({ start }) => {\n  const [state, load] = createResourceState();\n  load({ time: createDelay });\n  return <div>Async loaded after {state.time - start}ms</div>;\n};\n\nexport default AsyncChild;"
+      "content": "export default ({ start }) => (\n  <div>Simple loaded after {Date.now() - start}ms</div>\n);"
     }
   ]
 }
