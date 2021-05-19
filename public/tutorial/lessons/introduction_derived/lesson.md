@@ -1,5 +1,3 @@
-# Derived Signals
-
 Signals are simple getter functions that wrap a trackable value. There is nothing particularly special about them. This means that any function that wraps accessing a Signal is effectively a Signal and is also trackable. The same is true of any JavaScript expression you put in JSX. As long as it accesses a Signal it will update.
 
 It is important to understand that Components in Solid are just functions that execute once. The only way to ensure that anything updates is to be wrapped in a computation or JSX. However you can always hoist an expression out by wrapping it in a function. This way it can be re-used.

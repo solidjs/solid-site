@@ -1,5 +1,3 @@
-# Effects
-
 Signals are trackable values, but they are only one half of the equation. The other half are the observers, also known as computations. The most fundamental computations are called Effects which create side effects – the output of our system.
 
 An Effect can be created by importing `createEffect` from `solid-js`. It takes a function whose execution it watches. It automatically subscribes to any Signal that is read during its execution and re-runs any time one of those Signals value changes.
