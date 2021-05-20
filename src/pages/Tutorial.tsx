@@ -42,9 +42,9 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 
   return (
     <div class="z-10 relative">
-      <div class="box-border rounded-t border-b-2 border-solid bg-white">
+      <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white">
         <button
-          class="py-2 px-8 flex flex items-center focus:outline-none space-x-1 group"
+          class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
           onClick={(e) => {
             e.stopPropagation();
             setShowDirectory(!showDirectory());
@@ -64,13 +64,13 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
       </div>
 
       <Show when={showDirectory()}>
-        <ul class="block shadow absolute bg-white max-w-[60%] h-[40vh] left-8 overflow-auto shadow-lg divide-y box-border rounded-b">
+        <ul class="block shadow absolute bg-white max-w-[80%] h-[50vh] left-8 overflow-auto shadow-lg divide-y box-border rounded-b">
           <For each={props.directory}>
             {(entry) => (
               <li>
                 <NavLink
-                  activeClass="bg-blue-50"
-                  class="hover:bg-blue-100 p-2 block"
+                  activeClass="bg-blue-50 p-5"
+                  class="hover:bg-blue-100 p-3 block"
                   href={`/tutorial/${entry.internalName}`}
                 >
                   <p class="text-sm font-medium text-gray-900">{entry.lessonName}</p>
@@ -91,21 +91,24 @@ const Tutorial: Component<TutorialProps> = (props) => {
       <Nav showLogo filled />
 
       <Suspense fallback={<p>Loading...</p>}>
-        <div class="grid" style="height: calc(100vh - 80px); grid-template-columns: minmax(40%, 600px) auto">
-          <div class="flex flex-col bg-gray-50 h-full overflow-hidden">
+        <div
+          class="grid"
+          style="height: calc(100vh - 80px); grid-template-columns: minmax(40%, 600px) auto"
+        >
+          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey">
             <DirectoryMenu
               current={props.tutorialDirectoryEntry}
               directory={props.tutorialDirectory}
             />
 
-            <Markdown class="p-8 flex-1 max-w-full overflow-auto">{props.markdown}</Markdown>
+            <Markdown class="p-10 flex-1 max-w-full overflow-auto">{props.markdown}</Markdown>
 
             <div class="py-3 px-8 flex items-center justify-between border-t-2">
               <Show
                 when={props.solved}
                 fallback={
                   <Link
-                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-mediumm text-white rounded"
+                    class="inline-flex py-3 pt-4 leading-none px-4 bg-solid-default hover:bg-solid-mediumm text-white rounded"
                     href={`/tutorial/${props.id}?solved`}
                   >
                     Solve

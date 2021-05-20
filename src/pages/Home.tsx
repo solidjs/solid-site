@@ -35,13 +35,11 @@ const Home: Component = () => (
 
     <Nav />
 
-
     <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
-
       <div class="my-10 p-10 max-w-4xl m-auto text-center text-2xl">
-          <b class="inline font-semibold text-solid">Solid is a purely reactive library. </b>
-          It was designed from the ground up with a reactive core. It's influenced by
-          reactive principles developed by previous libraries.
+        <b class="inline font-semibold text-solid">Solid is a purely reactive library. </b>
+        It was designed from the ground up with a reactive core. It's influenced by reactive
+        principles developed by previous libraries.
       </div>
 
       <section class="flex flex-col= lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 border border-4 rounded-lg">
@@ -64,9 +62,7 @@ const Home: Component = () => (
         <div class="px-8 py-10 border-r">
           <img class="w-12 mb-5" src={pragmatic} />
           <h3 class="text-xl mb-2 font-semibold">Pragmatic</h3>
-          <p class="text-base">
-            A sensible and tailored API makes developing fun and simple.
-          </p>
+          <p class="text-base">A sensible and tailored API makes developing fun and simple.</p>
         </div>
 
         <div class="px-8 py-10">
@@ -172,7 +168,6 @@ const Home: Component = () => (
         </Repl>
 
         <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
-          
           <img class="w-20" src={iconBlocks1} />
           <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">It's familiar...</h3>
 
@@ -202,16 +197,18 @@ const Home: Component = () => (
       <section class="bg-gray-50 py-20 grid grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl bg-blocks-three bg-no-repeat bg-contain bg-right">
         <div>
           <img class="w-12" src={sandbox} />
-          <h2 class="text-3xl mt-8 text-solid font-semibold">Fine-grained means you do more with less.</h2>
-          
+          <h2 class="text-3xl mt-8 text-solid font-semibold">
+            Fine-grained means you do more with less.
+          </h2>
+
           <p class="text-2xl mt-2">
-            Every part of Solid is built on fine-grained reactivity from its simple primitives to the
-            JavaScript expressions in your JSX views.
+            Every part of Solid is built on fine-grained reactivity from its simple primitives to
+            the JavaScript expressions in your JSX views.
           </p>
           <p class="mt-6 leading-7">
             This unlocks complete control over what gets updated and when, even at the DOM binding
-            level. With <strong>no Virtual DOM</strong> or extensive diffing, the framework never does
-            more work than you want it to.
+            level. With <strong>no Virtual DOM</strong> or extensive diffing, the framework never
+            does more work than you want it to.
           </p>
           <Link
             class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
@@ -224,7 +221,6 @@ const Home: Component = () => (
 
       <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
         <div class="flex flex-col justify-center flex-1">
-  
           <img class="w-20" src={iconBlocks2} />
           <h2 class="mt-6 text-3xl font-semibold text-solid">It's modern and dependable...</h2>
 
