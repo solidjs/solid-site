@@ -64,8 +64,8 @@
     "internalName": "bindings_style"
   },
   {
-    "lessonName": "Bindings/Class List",
-    "internalName": "bindings_class_list"
+    "lessonName": "Bindings/ClassList",
+    "internalName": "bindings_classlist"
   },
   {
     "lessonName": "Bindings/Refs",
@@ -89,11 +89,11 @@
   },
   {
     "lessonName": "Props/Merging Props",
-    "internalName": "props_merge_props"
+    "internalName": "props_merge"
   },
   {
     "lessonName": "Props/Splitting Props",
-    "internalName": "props_split_props"
+    "internalName": "props_split"
   },
   {
     "lessonName": "Props/Children",
@@ -113,15 +113,7 @@
   },
   {
     "lessonName": "State/Creating State",
-    "internalName": "state_create_state"
-  },
-  {
-    "lessonName": "State/Defining Getters",
-    "internalName": "state_getters"
-  },
-  {
-    "lessonName": "State/Setting State",
-    "internalName": "state_set_state"
+    "internalName": "state_createstate"
   },
   {
     "lessonName": "State/Nested Updates",
@@ -132,35 +124,35 @@
     "internalName": "stores_context"
   },
   {
-    "lessonName": "Scheduling/Batching Updates",
-    "internalName": "scheduling_batch"
+    "lessonName": "Reactivity/Batching Updates",
+    "internalName": "reactivity_batch"
   },
   {
-    "lessonName": "Scheduling/Untrack",
-    "internalName": "scheduling_untrack"
+    "lessonName": "Reactivity/Untrack",
+    "internalName": "reactivity_untrack"
   },
   {
-    "lessonName": "Scheduling/On",
-    "internalName": "scheduling_on"
+    "lessonName": "Reactivity/On",
+    "internalName": "reactivity_on"
   },
   {
-    "lessonName": "Scheduling/Lazy Components",
-    "internalName": "scheduling_lazy"
+    "lessonName": "Async/Lazy Components",
+    "internalName": "async_lazy"
   },
   {
-    "lessonName": "Scheduling/Resources",
-    "internalName": "scheduling_resources"
+    "lessonName": "Async/Resources",
+    "internalName": "async_resources"
   },
   {
-    "lessonName": "Scheduling/Suspense",
-    "internalName": "scheduling_suspense"
+    "lessonName": "Async/Suspense",
+    "internalName": "async_suspense"
   },
   {
-    "lessonName": "Scheduling/Suspense List",
-    "internalName": "scheduling_suspense_list"
+    "lessonName": "Async/Suspense List",
+    "internalName": "async_suspense_list"
   },
   {
-    "lessonName": "Scheduling/Transitions",
-    "internalName": "scheduling_transitions"
+    "lessonName": "Async/Transitions",
+    "internalName": "async_transitions"
   }
 ]
