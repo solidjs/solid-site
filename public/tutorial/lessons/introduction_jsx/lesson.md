@@ -2,7 +2,10 @@ JSX is an HTML like syntax you will see inside these examples and is core to mak
 
 Unlike some other frameworks that use JSX, Solid attempts to stay as close to HTML standards as possible allowing simple copy and paste from answers on Stack Overflow or from template builders from your designers.
 
-There are 3 main differences between JSX and HTML that prevent JSX from being seen as a superset of HTML. JSX does not have void elements. This means that all elements must have a closing tag or self close. Keep this in mind when copying over things like `<input>` or `<br>`. JSX must return a single Element. To represent multiple top level elements use an Fragment element.
+There are 3 main differences between JSX and HTML that prevent JSX from being seen as a superset of HTML.
+1. JSX does not have void elements. This means that all elements must have a closing tag or self close. Keep this in mind when copying over things like `<input>` or `<br>`.
+2. JSX must return a single Element.
+3. To represent multiple top level elements use an Fragment element.
 
 ```jsx
 <>
