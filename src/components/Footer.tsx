@@ -1,6 +1,9 @@
 import type { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import wordmark from '../assets/wordmark-dark.svg';
+import builder from '../assets/supporters/builder.png';
+import sauce from '../assets/supporters/saucelabs.png';
+import cloudflare from '../assets/supporters/cloudflare.png';
 
 const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')}>
@@ -26,9 +29,18 @@ const Footer: Component = () => (
             .
           </p>
 
+          <div class="mb-5 mt-7 p-2 rounded-full bg-gray-50 flex items-center">
+            <div class="text-gray-400 my-4 ml-5 mr-2">Sponsored by</div>
+            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.cloudflare.com/"><img class="w-32" src={cloudflare} /></a>
+            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.builder.io/"><img class="w-24" src={builder} /></a>
+            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.saucelabs.com/"><img class="w-32" src={sauce} /></a>
+          </div>
+
           {/* TODO: Make this dynamic */}
-          <p class="text-sm text-gray-400 mt-3">Last updated April 7, 2021 on Solid v0.26.0.</p>
+          <p class="text-sm text-right text-gray-400 mt-3">Last updated April 7, 2021 on Solid v0.26.0.</p>
+
         </div>
+        
       </div>
     </div>
   </Portal>

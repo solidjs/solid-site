@@ -37,9 +37,43 @@ const contributors = [
   },
 ] as const;
 
+const ecosystem = [
+  {
+    name: 'Mike Pea',
+    company: 'NASA',
+    link: 'https://github.com/trusktr',
+    detail: "Founder of Lume and a powerhouse in UI.",
+  },
+  {
+    name: 'Moshe Uminer',
+    company: '',
+    link: 'https://www.pilotinteractive.io',
+    detail: 'Full-stack support and TypeScript guidance.',
+  },
+  {
+    name: 'Steve Sewell',
+    company: 'Builder.io',
+    link: 'https://www.builder.io',
+    detail: 'Founder of Builder.io CMS and creator of JSX-Lite.',
+  },
+  {
+    name: 'Milo M.',
+    company: '',
+    link: 'https://moddermeht.ml/',
+    detail: 'Mysterious full-stack programmer.',
+  },
+  {
+    name: 'Vish Vadlamani',
+    company: '',
+    link: '',
+    detail: 'Provides support and insight on Solid.',
+  },
+] as const;
+
 export const ContributorsData = () => ({
   core,
   contributors,
+  ecosystem,
 });
 
 export type ContributorsDataProps = ReturnType<typeof ContributorsData>;
