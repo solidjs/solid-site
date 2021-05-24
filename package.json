@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.7.0",
+    "lume": "0.3.0-alpha.0",
     "markdown-it-prism": "^2.1.6",
     "prism-themes": "^1.7.0",
     "prismjs": "^1.23.0",
