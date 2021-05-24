@@ -88,10 +88,6 @@
     "internalName": "props_defaults"
   },
   {
-    "lessonName": "Props/Merging Props",
-    "internalName": "props_merge"
-  },
-  {
     "lessonName": "Props/Splitting Props",
     "internalName": "props_split"
   },
@@ -120,8 +116,16 @@
     "internalName": "state_nested_updates"
   },
   {
+    "lessonName": "State/Mutation",
+    "internalName": "state_mutation"
+  },
+  {
     "lessonName": "Stores/Context",
     "internalName": "stores_context"
+  },
+  {
+    "lessonName": "Stores/Immutable Stores",
+    "internalName": "stores_immutable"
   },
   {
     "lessonName": "Reactivity/Batching Updates",
