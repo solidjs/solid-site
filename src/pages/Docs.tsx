@@ -4,9 +4,6 @@ import {
   Show,
   Switch,
   Match,
-  createSignal,
-  createMemo,
-  onMount,
   createState,
 } from 'solid-js';
 
@@ -17,7 +14,7 @@ import arrowDown from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 
 const Docs: Component<{
-  doc: any;
+  doc: { content: string, sections: Section[] };
   hash: string;
   loading: boolean;
   version: string;
