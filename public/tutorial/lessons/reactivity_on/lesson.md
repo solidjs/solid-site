@@ -1,1 +1,3 @@
+For convenience Solid has an `on` helper that enables setting explicit depenencies for our computations. This is mostly used a terse way to be even more explicit than a which Signals are tracked. However, it also allows the computation not to execute immediately and only run on first change. The `defer` option enables this.
+
 > Todo Example
