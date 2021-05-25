@@ -4,4 +4,4 @@ Solid provides a diffing method `reconcile` that enhances the `setState` call an
 
 > Todo Example
 
-The behavior of reconcile is coonfigurable. A custom `key` can be set and there is a `merge` option which ignores structural cloning and only diff the leaves.
+The behavior of reconcile is configurable. A custom `key` can be set and there is a `merge` option which ignores structural cloning and only diffs the leaves.
