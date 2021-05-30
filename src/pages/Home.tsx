@@ -1,7 +1,6 @@
 import { Component } from 'solid-js';
 import { Link } from 'solid-app-router';
 import { OldRepl } from '../components/ReplTab';
-
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
