@@ -1,16 +1,16 @@
 # Introduction
 
-Welcome to the Solid tutorial! This tutorial will teach you everything you need to know to create small and performant web applications. You can also reference the API and guides to learn more about how Solid works.
+Welcome to the Solid tutorial! This tutorial will teach you everything you need to know to create performant web applications. You can also refer to the API and guides to learn more about how Solid works.
 
 # What is Solid?
 
-Solid is a JavaScript framework for making interactive applications. It leverages a custom compiler to transform JSX, an HTML inspired JavaScript XML dialect into optimal DOM operations. Updates are powered by a fine-grained reactivity system that reduces the overhead of diffing with lazer point efficiency.
+Solid is a JavaScript framework for making interactive web applications. It leverages a custom compiler to transform JSX, an HTML inspired JavaScript XML dialect, into optimal DOM operations. Updates are powered by a fine-grained reactivity system that reduces the overhead of diffing which results in best in class performance.
 
 # Autonomy of a Solid App
 
 A Solid App is composed of functions that we call Components. Component names in Solid follow the Pascal naming convention in which the first letter of each word in a component name is capitalized. This name can then be used as tags within our JSX like `<HelloWorld />`.
 
-A Solid app starts with a `render` function. This is our entry point. It takes 2 arguments, a function wrapping our application code, and an element to mount to:
+A Solid app starts with a `render` function. This is our entry point. It takes 2 arguments, a function wrapping our application code and an element to mount to:
 
 ```jsx
 render(() => <HelloWorld />, document.getElementById('app'))
