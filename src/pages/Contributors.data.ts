@@ -63,6 +63,12 @@ const ecosystem = [
     detail: 'Mysterious full-stack programmer.',
   },
   {
+    name: 'Ryan Turnquist',
+    company: '',
+    link: 'https://github.com/rturnq',
+    detail: 'Full-stack developer, web UX enthusiast, passionate problem solver.',
+  },
+  {
     name: 'Vish Vadlamani',
     company: '',
     link: '',
