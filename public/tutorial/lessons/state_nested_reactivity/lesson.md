@@ -1,6 +1,6 @@
 One of the reasons for fine-grained reactivity in Solid is that it can handle nested updates independently. You can have a list of users and when we update one name we only update a single location in the DOM without diffing the list itself. Very few (even reactive) UI frameworks can do this.
 
-But how do we accomplish this? In the example we have a list of todos in a signal. In order to mark todo as complete we would need to replace the todo with a clone. This is how most frameworks work, but it's wasteful as we rerun the the list diffing and we recreate the DOM elements as illustrated in the `console.log`.
+But how do we accomplish this? In the example we have a list of todos in a signal. In order to mark todo as complete we would need to replace the todo with a clone. This is how most frameworks work, but it's wasteful as we rerun the list diffing and we recreate the DOM elements as illustrated in the `console.log`.
 
 ```js
 const toggleTodo = (id) => {
@@ -30,4 +30,4 @@ const toggleTodo = (id) => {
 ```
 If you change the remaining references of `todo.completed` to `todo.completed()`, the example should now only run the `console.log` on creation and not when you toggle a todo.
 
-This of course requires some manual mapping and it was the only choice available to us in the past. But now thanks to proxies we can do most of this work in the background without manual intervention. Continue to the next tutorials to see how.
+This of course requires some manual mapping and it was the only choice available to us in the past. But now, thanks to proxies, we can do most of this work in the background without manual intervention. Continue to the next tutorials to see how.
