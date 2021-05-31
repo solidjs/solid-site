@@ -1,11 +1,4 @@
-import {
-  Component,
-  For,
-  Show,
-  Switch,
-  Match,
-  createState,
-} from 'solid-js';
+import { Component, For, Show, Switch, Match, createState } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -14,7 +7,7 @@ import arrowDown from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 
 const Docs: Component<{
-  doc: { content: string, sections: Section[] };
+  doc: { content: string; sections: Section[] };
   hash: string;
   loading: boolean;
   version: string;

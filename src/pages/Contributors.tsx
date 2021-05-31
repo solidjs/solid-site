@@ -63,7 +63,6 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
       <Header title="Team & Contributors" />
 
       <div class="px-3 lg:px-12 container my-10">
-
         <div class="grid my-8 grid-cols-12 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">
             <h2 class="text-3xl font-semibold text-solid-default">Core Team</h2>
@@ -95,7 +94,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
             <div class="flex mb-5 flex-col space-y-3">
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">Contributors</h2>
               <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors">
-              <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
+                <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
               </a>
             </div>
 
@@ -103,7 +102,10 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">Open Collective</h2>
 
               <p class="block">
-                Support us with a donation and help us continue our activities. <a target="_blank" href="https://opencollective.com/solid">Contribute</a>
+                Support us with a donation and help us continue our activities.{' '}
+                <a target="_blank" href="https://opencollective.com/solid">
+                  Contribute
+                </a>
               </p>
 
               <div class="flex">
@@ -119,10 +121,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
                 <a href="https://opencollective.com/solid/backer/9/website" target="_blank"><img src="https://opencollective.com/solid/backer/9/avatar.svg" /></a>
                 <a href="https://opencollective.com/solid/backer/10/website" target="_blank"><img src="https://opencollective.com/solid/backer/10/avatar.svg" /></a>
               </div>
-
             </div>
-
-
           </div>
         </div>
       </div>
