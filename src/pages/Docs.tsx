@@ -101,7 +101,7 @@ const Docs: Component<{
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={props.loading}>Loading documentation...</Match>
               <Match when={props.doc}>
-                <div class="prose prose-solid max-w-full font-sans" innerHTML={props.doc.content} />
+                <div class="prose prose-solid max-w-full" innerHTML={props.doc.content} />
               </Match>
             </Switch>
           </div>
