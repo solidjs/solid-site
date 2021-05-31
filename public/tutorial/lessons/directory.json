@@ -116,10 +116,6 @@
     "internalName": "state_createstate"
   },
   {
-    "lessonName": "State/Nested Updates",
-    "internalName": "state_nested_updates"
-  },
-  {
     "lessonName": "State/Mutation",
     "internalName": "state_mutation"
   },
