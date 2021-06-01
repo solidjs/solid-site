@@ -46,12 +46,13 @@
 .prose pre {
   font-size: inherit;
 }
-
 .shiki {
   border: 1px solid #dddddd;
-  padding: 1.25rem !important;
+  padding: 1.15rem !important;
   border-radius: 7.5px;
-  box-shadow: 0px 5px 7.5px -3px rgba(0, 0, 0, 0.125);
+}
+.prose h2 code {
+  color: #777 !important;
 }
 .prose blockquote {
   @apply mx-0;

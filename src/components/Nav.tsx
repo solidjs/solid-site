@@ -9,8 +9,6 @@ const links = [
   { title: 'Tutorial', path: '/tutorial/introduction_basics' },
   { title: 'Examples', path: '/examples/counter' },
   { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
-  // We might want to hide this and redirect to the /media page when someone tries to right
-  // click on the logo, like https://nuxtjs.org/. Additionnaly we could add it to the footer
   { title: 'Media', path: '/media' },
 ];
 
@@ -42,7 +40,7 @@ const socials = [
 
 const Logo: Component<{ show: boolean }> = (props) => (
   <li class="mr-4">
-    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-10' : 'w-0'}`}>
+    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-11' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
       <img class="w-full h-auto" src={logo} alt="Solid logo" />
     </Link>
@@ -54,11 +52,10 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
     <NavLink
       href={props.path}
       external={props.external}
-      class="inline-flex items-center space-x-2 transition m-2 px-4 py-2 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      class="inline-flex items-center space-x-2 transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
       activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
-
       <Show when={props.external}>
         <svg class="h-5 -mt-1 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
@@ -79,7 +76,6 @@ const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (
   <li>
     <a href={props.href} rel="noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
-
       <svg
         viewBox="0 0 24 24"
         class="h-8 transition hover:opacity-50 opacity-60"
@@ -97,18 +93,17 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   onMount(() => {
     const observer = new IntersectionObserver(([entry]) => setUnlocked(entry.isIntersecting));
     observer.observe(intersectorRef);
-
     onCleanup(() => observer && observer.disconnect());
   });
 
   const shouldShowLogo = () => props.showLogo || !unlocked();
 
+
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
-
       <div
-        class="sticky top-0 z-50 bg-white"
+        class="sticky top-0 z-50 bg-white py-1"
         classList={{
           'border-b': props.showLogo,
         }}
@@ -118,7 +113,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <Logo show={shouldShowLogo()} />
             <For each={links} children={MenuLink} />
           </ul>
-
           <ul class="flex items-center space-x-3">
             <For
               each={socials}

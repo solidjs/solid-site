@@ -113,18 +113,18 @@ const Media: Component = () => (
         </div>
         <div class="col-span-2 col-end-7">
           <div class="flex mb-2">
-            <span class="w-5/12 inline-block font-bold">Brand Font</span> Gordita
+            <span class="w-5/12 inline-block font-semibold">Brand Font</span> Gordita
           </div>
           <div class="flex mb-2">
-            <span class="w-5/12 inline-block font-bold">Primary Color</span>
+            <span class="w-5/12 inline-block font-semibold">Primary Color</span>
             <figure class="rounded bg-solid-default mr-2 h-5 w-5 inline-block" /> #2c4f7c
           </div>
           <div class="flex mb-2">
-            <span class="w-5/12 inline-block font-bold">Secondary Color</span>
+            <span class="w-5/12 inline-block font-semibold">Secondary Color</span>
             <figure class="rounded bg-solid-medium mr-2 h-5 w-5 inline-block" /> #335d92
           </div>
           <div class="flex">
-            <span class="w-5/12 inline-block font-bold">Light Color</span>
+            <span class="w-5/12 inline-block font-semibold">Light Color</span>
             <figure class="rounded bg-solid-light mr-2 h-5 w-5 inline-block" /> #446b9e
           </div>
         </div>

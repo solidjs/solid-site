@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js';
+import { Component, For, Show } from 'solid-js';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -39,11 +39,6 @@ const articles = [
     link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
     title: 'Comparing reactivity models - React vs Vue vs Svelte vs MobX vs Solid vs Redux',
     description: 'Compares popular and well known frames.',
-  },
-  {
-    link: 'https://areknawo.com/best-react-like-jsx-ui-libraries-in-2020/',
-    title: 'Best React-like JSX UI Libraries in 2020',
-    description: 'Presents 4 viable React alternatives.',
   },
   {
     link: 'https://areknawo.com/best-react-like-jsx-ui-libraries-in-2020/',
@@ -183,7 +178,110 @@ const articles = [
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
     title: 'Part 1: Writing a JS Framework in 2018',
   },
+  {
+    link: 'https://dev.to/ryansolid/jsx-is-not-hyperscript-61i',
+    title: 'JSX is not HyperScript',
+    description: 'Setting the story straight between JSX and HS.'
+  },
+  {
+    link: 'https://dev.to/this-is-learning/learning-to-appreciate-react-server-components-49ka',
+    title: 'Learning to Appreciate React Server Components',
+    description: 'A deep dive into the evolution and future of React Server Components.',
+  },
+  {
+    link: 'https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p',
+    title: 'Building a Reactive Library from Scratch',
+  },
+  {
+    link: 'https://dev.to/this-is-learning/is-0kb-of-javascript-in-your-future-48og',
+    title: 'Is 0kb of JavaScript in your Future?',
+    description: 'Thoughts on a 0kb JS world and various approaches.',
+  },
+  {
+    link: 'https://dev.to/ryansolid/server-rendering-in-javascript-optimizing-performance-1jnk',
+    title: 'Server Rendering in JavaScript: Optimizing Performance',
+    description: 'Ryan discusses his learning process in topics of perf and optimization.',
+  },
+  {
+    link: 'https://dev.to/this-is-learning/components-are-pure-overhead-hpm',
+    title: 'Components are Pure Overhead',
+    description: 'An analysis of components and the future of Component-Less.',
+  },
+  {
+    link: 'https://dev.to/this-is-learning/two-years-of-writing-about-designing-javascript-frameworks-2018-2020-3ha5',
+    title: 'Two Years of Writing about Designing JavaScript Frameworks (2018-2020)',
+    description: 'Reflections on building Solid.',
+  },
+  {
+    link: 'https://dev.to/this-is-learning/what-the-hell-is-reactive-programming-anyway-31p5',
+    title: 'What the hell is Reactive Programming anyway?',
+    description: 'A helpful walkthrough of reactivity.',
+  },
+  {
+    link: 'https://dev.to/this-is-learning/5-places-solidjs-is-not-the-best-5019',
+    title: '5 Places SolidJS is not the Best',
+    description: 'A candid review of limitations and benefits of Solid.',
+  },
+  {
+    link: 'https://dev.to/ryansolid/solid-update-march-2021-1jj6',
+    title: 'Solid Update: March 2021',
+    description: 'A Pre-1.0 release summary and description of the work completed to date.',
+  },
 ];
+
+const videos = [
+  {
+    link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
+    title: 'Solid Video Series',
+    description: 'Eric Schmucker walks you through Solid.'
+  },
+  {
+    link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
+    title: 'Solid.js - A fast, Declarative, Compiled Web UI Library',
+    description: 'Zaieste Programming walks you through Solid\'s web UI solution.'
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=wu6HvLoi9VQ',
+    title: 'How To Convert React Application To SolidJS',
+    description: 'Maksim Ivanov walks us through Solid.js and how to use it.'
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Dq5EAcup044',
+    title: 'UI Libraries, Improving React.js & Music, with Ryan Carniato, Solid.js Creator',
+    description: ''
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=P8iGK8zYzns',
+    title: 'Solid.js - A Fast, Declarative, Compiled Web UI Library - Better than React.js?',
+    description: 'Zaiste Programming discusses three things that makes Solid.js and Snowpack great.'
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=p8e9ta269x8',
+    title: 'React to Solid - Stream With Ryan Carniato',
+    description: 'Maksim Ivanov and Ryan Carniato take an existing React application and try to rewrite it using the Solid framework.'
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=-CymMzGwzP8',
+    title: 'Looking at solid.js',
+    description: 'Looking at solid.js, a new library for reactive web UI\'s.'
+  },
+];
+
+const ContentRow = (props) => (
+  <li class="p-5 border-b hover:bg-gray-50">
+    <a
+      class="text-solid"
+      target="_blank"
+      href={props.link}
+      rel="nofollow"
+    >
+      <div class="text-lg">{props.title}</div>
+      <Show when={props.description != ""}>
+        <div class="text-sm mt-2 text-black block">{props.description}</div>
+      </Show>
+    </a>
+  </li>
+);
 
 const Resources: Component = () => {
   return (
@@ -192,65 +290,21 @@ const Resources: Component = () => {
       <Header title="Resources" />
       <div class="px-3 lg:px-12 container my-10 grid grid-cols-12 gap-10">
         <div class="col-span-7">
-          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">
-            Latest Articles{' '}
+          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid-default">
+            Latest Articles
           </h1>
           <ul class="ml-3">
-            <For each={articles}>
-              {(article) => (
-                <li class="py-4 border-b pl-4">
-                  <a class="text-lg text-solid" href={article.link} target="_blank" rel="nofollow">
-                    {article.title}
-                    {article.description && (
-                      <div class="text-md text-black block">{article.description}</div>
-                    )}
-                  </a>
-                </li>
-              )}
+            <For each={articles.reverse()}>
+              {(article) => <ContentRow {...article} />}
             </For>
           </ul>
         </div>
         <div class="col-span-5">
-          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid">Videos</h1>
-          <ul class="ml-5 mb-10">
-            <li class="py-4 border-b pl-4">
-              <a
-                class="text-solid"
-                target="_blank"
-                href="https://www.youtube.com/playlist?list=PLtLhzwNMDs1fMi43erQSzXD49Y4p0TniU"
-                rel="nofollow"
-              >
-                Solid Video Series
-                <div class="text-md text-black block">Eric Schmucker walks you through Solid.</div>
-              </a>
-            </li>
-            <li class="py-4 border-b pl-4">
-              <a
-                class="text-solid"
-                target="_blank"
-                href="https://www.youtube.com/watch?v=P8iGK8zYzns"
-                rel="nofollow"
-              >
-                Solid.js - A fast, Declarative, Compiled Web UI Library
-                <div class="text-md text-black block">
-                  Zaieste Programming walks you through Solid's web UI solution.
-                </div>
-              </a>
-            </li>
-          </ul>
-          <h1 class="text-2xl border-b border-solid-medium pb-3 mb-3 text-solid">Podcasts</h1>
-          <ul class="ml-5 mb-10">
-            <li class="py-4 border-b pl-4">
-              <a
-                class="text-solid"
-                target="_blank"
-                href="https://thedeepdive.simplecast.com/episodes/reactive-frontend-frameworks"
-                rel="nofollow"
-              >
-                The Deep Dive Ep#4 Reactive Frontend
-                <div class="text-md text-black block">Reactive frontend frameworks</div>
-              </a>
-            </li>
+          <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid-default">Videos</h1>
+          <ul class="ml-3 mb-10">
+            <For each={videos}>
+              {(video) => <ContentRow {...video} />}
+            </For>
           </ul>
         </div>
       </div>
