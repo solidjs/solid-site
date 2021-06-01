@@ -2,4 +2,9 @@ Some frameworks pair their cleanup methods as return values of their side effect
 
 Use it in your components or in your Effects. Use it in your custom directives. Use it pretty much anywhere that is part of the synchronous execution of the reactive system.
 
-> Todo Example
+The Signal example from the introduction never cleaned up after itself. Let's fix that by replacing the `setInterval` call with this:
+
+```js
+const timer = setInterval(() => setCount(count() + 1), 1000);
+onCleanup(() => clearInterval(timer));
+```
