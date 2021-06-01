@@ -4,7 +4,6 @@ import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js
 import logo from '../assets/logo.svg';
 
 const links = [
-  { title: 'Get Started', path: '/docs/0.26.0/#get-started' },
   { title: 'Docs', path: '/docs/0.26.0' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial/introduction_basics' },
@@ -55,7 +54,7 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
     <NavLink
       href={props.path}
       external={props.external}
-      class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      class="inline-flex items-center space-x-2 transition m-2 px-4 py-2 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
       activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
@@ -74,7 +73,7 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
   </li>
 );
 
-const SocialIcon: Component<{ href: string; alt: string; icon: string; fade: boolean }> = (
+const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (
   props,
 ) => (
   <li>
@@ -83,7 +82,7 @@ const SocialIcon: Component<{ href: string; alt: string; icon: string; fade: boo
 
       <svg
         viewBox="0 0 24 24"
-        class={`h-8 transition hover:opacity-50 ${props.fade ? 'opacity-60' : 'opacity-80'}`}
+        class="h-8 transition hover:opacity-50 opacity-60"
       >
         <path fill="currentColor" d={props.icon} />
       </svg>
@@ -109,12 +108,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       <div ref={intersectorRef} class="h-0" />
 
       <div
-        class="sticky top-0 z-50 nav"
+        class="sticky top-0 z-50 bg-white"
         classList={{
-          'nav--locked text-white': !unlocked(),
-          'nav--unlocked': unlocked(),
-          'nav--filled': props.filled,
-          'border-b': !props.showLogo,
+          'border-b': props.showLogo,
         }}
       >
         <nav class="px-3 lg:px-12 container flex justify-between items-center relative z-20 space-x-10">
@@ -126,7 +122,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <ul class="flex items-center space-x-3">
             <For
               each={socials}
-              children={(social) => <SocialIcon {...social} fade={unlocked()} />}
+              children={(social) => <SocialIcon {...social} />}
             />
           </ul>
         </nav>

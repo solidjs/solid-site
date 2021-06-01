@@ -1,11 +1,4 @@
-import {
-  Component,
-  For,
-  Show,
-  Switch,
-  Match,
-  createState,
-} from 'solid-js';
+import { Component, For, Show, Switch, Match, createState } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -14,7 +7,7 @@ import arrowDown from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 
 const Docs: Component<{
-  doc: { content: string, sections: Section[] };
+  doc: { content: string; sections: Section[] };
   hash: string;
   loading: boolean;
   version: string;
@@ -108,7 +101,7 @@ const Docs: Component<{
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={props.loading}>Loading documentation...</Match>
               <Match when={props.doc}>
-                <div class="prose prose-solid max-w-full font-sans" innerHTML={props.doc.content} />
+                <div class="prose prose-solid max-w-full" innerHTML={props.doc.content} />
               </Match>
             </Switch>
           </div>

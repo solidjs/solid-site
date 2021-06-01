@@ -42,7 +42,7 @@ const ecosystem = [
     name: 'Mike Pea',
     company: 'NASA',
     link: 'https://github.com/trusktr',
-    detail: "Founder of Lume and a powerhouse in UI.",
+    detail: 'Founder of Lume and a powerhouse in UI.',
   },
   {
     name: 'Moshe Uminer',
