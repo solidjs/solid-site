@@ -1,4 +1,4 @@
-You can always get a reference to an element in Solid through assignment since JSX is creates DOM elements like this:
+You can always get a reference to an element in Solid through assignment since JSX creates DOM elements like this:
 
 ```jsx
 const myDiv = <div>My Element</div>
