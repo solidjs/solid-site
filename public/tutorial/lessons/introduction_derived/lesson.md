@@ -5,7 +5,7 @@ It is important to understand that Components in Solid are just functions that e
 Let's update our Counter to count by 2 by introducing a `doubleCount` function.
 
 ```jsx
-const doubleCount = () => count() * 2
+const doubleCount = () => count() * 2;
 ```
 
 We then replace where it is being read.
