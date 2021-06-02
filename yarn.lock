@@ -230,7 +230,7 @@
     "@babel/helper-validator-option" "^7.12.17"
     "@babel/plugin-transform-typescript" "^7.13.0"
 
-"@babel/standalone@^7.14.3":
+"@babel/standalone@^7.14.4":
   version "7.14.4"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.14.4.tgz#b50522a9119bea33f0d8e13e7f7d51274fad0530"
   integrity sha512-oBvBtSdACtNeH2YAg2kyZhfbqfKQK7lgudfHo8IC03JiBrfuvvMlfkBaSrqxrpf9DmUCZJnDZH3uLNVN5QoXog==
@@ -307,9 +307,9 @@
     defer-to-connect "^2.0.0"
 
 "@tailwindcss/forms@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.3.2.tgz#e28c4514a53e69f725416a5a2a6d0f221683f069"
-  integrity sha512-aj2/rJsGb2whAZ/BQWHWWQRSbhH0r/l1ozOByiv+ZNjBD84GMvb5dhAyfpeasFky+EJrAwX5eaqft8NQMZFWvA==
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.3.3.tgz#a29d22668804f3dae293dcadbef1aa6315c45b64"
+  integrity sha512-U8Fi/gq4mSuaLyLtFISwuDYzPB73YzgozjxOIHsK6NXgg/IWD1FLaHbFlWmurAMyy98O+ao74ksdQefsquBV1Q==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
@@ -370,9 +370,9 @@
   integrity sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==
 
 "@types/node@*":
-  version "15.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
-  integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
+  version "15.12.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.0.tgz#6a459d261450a300e6865faeddb5af01c3389bb3"
+  integrity sha512-+aHJvoCsVhO2ZCuT4o5JtcPrCPyDE3+1nvbDprYes+pPkEsbjH7AGUCNtjMOXS0fqH14t+B7yLzaqSz92FPWyw==
 
 "@types/responselike@*", "@types/responselike@^1.0.0":
   version "1.0.0"
@@ -461,7 +461,7 @@ autoprefixer@^10.2.6:
     normalize-range "^0.1.2"
     postcss-value-parser "^4.1.0"
 
-babel-plugin-jsx-dom-expressions@^0.27.4:
+babel-plugin-jsx-dom-expressions@^0.27.7:
   version "0.27.7"
   resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.27.7.tgz#e3e6b555e51c29fc8baf6969a0590fea55d86a78"
   integrity sha512-YNa62veWtrZ1fEBsohDol2Vw37z07AEM8mTNY1OPpnXl9P30iIaOQ3DdHAuIv0YIBDp9IygWpQB9ZJeLbS6Rjw==
@@ -479,7 +479,14 @@ babel-plugin-jsx-dom-expressions@~0.26.3:
     "@babel/plugin-syntax-jsx" "^7.10.4"
     "@babel/types" "^7.11.5"
 
-babel-preset-solid@0.26.5, babel-preset-solid@^0.26.5:
+babel-preset-solid@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.0.0-rc.2.tgz#ce49c89e209b06b6404ab0b3cf3a080b1b960287"
+  integrity sha512-//m5LWw/aBys0Iv5i6cUCigp625tb/4hyV7SrOkd7jT3ZJFLIOCgCjkhlFOuxI7W91KIaH2h1J5vA6FOQcT9HQ==
+  dependencies:
+    babel-plugin-jsx-dom-expressions "^0.27.7"
+
+babel-preset-solid@^0.26.5:
   version "0.26.5"
   resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-0.26.5.tgz#c5414af14a7ab84eb6c7a0aefbd3d8def9aff843"
   integrity sha512-SXMSmp3iL3FTbcy2QB4poHSbsPMrNSHOk8vIgQSMI/8UwxbxjjAG1iDDcqjsgWw6DqndxM6Z6nID9+94aT8NCQ==
@@ -559,9 +566,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001230:
-  version "1.0.30001232"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001232.tgz#2ebc8b6a77656fd772ab44a82a332a26a17e9527"
-  integrity sha512-e4Gyp7P8vqC2qV2iHA+cJNf/yqUKOShXQOJHQt81OHxlIZl/j/j3soEA0adAQi8CPUQgvOdDENyQ5kd6a6mNSg==
+  version "1.0.30001233"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001233.tgz#b7cb4a377a4b12ed240d2fa5c792951a06e5f2c4"
+  integrity sha512-BmkbxLfStqiPA7IEzQpIk0UFZFf3A4E6fzjPJ6OR+bFC2L8ES9J8zGA/asoi47p8XDVkev+WJo2I2Nc8c/34Yg==
 
 chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -772,9 +779,9 @@ dotenv@^10.0.0:
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
 electron-to-chromium@^1.3.723:
-  version "1.3.743"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.743.tgz#fcec24d6d647cb84fd796b42caa1b4039a180894"
-  integrity sha512-K2wXfo9iZQzNJNx67+Pld0DRF+9bYinj62gXCdgPhcu1vidwVuLPHQPPFnCdO55njWigXXpfBiT90jGUPbw8Zg==
+  version "1.3.747"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.747.tgz#c8d6bc625fe783f506aee7710772adab47b0bf29"
+  integrity sha512-+K1vnBc08GNYxCWwdRe9o3Ml30DhsNyK/qIl/NE1Dic+qCy9ZREcqGNiV4jiLiAdALK1DUG3pakJHGkJUd9QQw==
 
 end-of-stream@^1.1.0:
   version "1.4.4"
@@ -1860,10 +1867,10 @@ rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rollup@^2.38.5, rollup@^2.50.1:
-  version "2.50.5"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.50.5.tgz#bbee9d6411af3f5fa5c6e7e2c69f7a65b753e568"
-  integrity sha512-Ztz4NurU2LbS3Jn5rlhnYv35z6pkjBUmYKr94fOBIKINKRO6kug9NTFHArT7jqwMP2kqEZ39jJuEtkk91NBltQ==
+rollup@^2.38.5, rollup@^2.50.5:
+  version "2.50.6"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.50.6.tgz#24e2211caf9031081656e98a5e5e94d3b5e786e2"
+  integrity sha512-6c5CJPLVgo0iNaZWWliNu1Kl43tjP9LZcp6D/tkf2eLH2a9/WeHxg9vfTFl8QV/2SOyaJX37CEm9XuGM0rviUg==
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -1946,6 +1953,11 @@ solid-js@0.26.5, solid-js@^0.26.5:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-0.26.5.tgz#be171d2298b4dc506c84fd11fe750a1743c7080b"
   integrity sha512-cMjxcVoyRBgnfSpwYxXPM5WF800guR+x/01RDBFQjAAkqU7X28GbRkTNKcyQ1KHcFOnzEsG18J+JJ9/PvqyNmw==
 
+solid-js@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.0-rc.2.tgz#2ab4b6fba74909daa7543f2b966ce0441405170a"
+  integrity sha512-RsZnESPbvEPC8txya63kKrxnbR+sfj2P0+sKdA8llq5GCyIzc5jASWyGDeXe8j45UQaKjd9Trx/AmSS/uT+ujw==
+
 solid-meta@^0.26.5:
   version "0.26.5"
   resolved "https://registry.yarnpkg.com/solid-meta/-/solid-meta-0.26.5.tgz#475c31f092af985b9257b80bd983a8d492a742a8"
@@ -1956,18 +1968,17 @@ solid-refresh@^0.1.2:
   resolved "https://registry.yarnpkg.com/solid-refresh/-/solid-refresh-0.1.2.tgz#9298c4021d6c8d57a48c15f5839e5aaf2a2e8177"
   integrity sha512-irpGTZcn9xtzTQZhHslIEB4D1zYpWizT6GZ15GXyQE/gFBn6bKo53umQGmhq3NqRFqPXXavFDhiEQnyC08gzNg==
 
-solid-repl@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.7.1.tgz#b870c629440356ecf4e39c1643d20ccf12739f8d"
-  integrity sha512-F+51VPbUbyFscJWEcLLoYubE6oOtURTo1U4LbCL59NkHgduUkt3d30uRz6nNuIIFT6rfeUW0+InztOcUV4yllA==
+solid-repl@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.10.0.tgz#580484b33101a01ab6cfa13f66ce5324756daf6c"
+  integrity sha512-nFc7ulE5S+gFiSG6QBtz7fY0NOzPktFCvaPrTD/bfx2klreIVCOcrml0DzU/6Md4rRnhITg2EA3M1rIid2icAA==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@amoutonbrady/solid-heroicons" "^0.8.0"
     "@babel/preset-typescript" "^7.13.0"
-    "@babel/standalone" "^7.14.3"
+    "@babel/standalone" "^7.14.4"
     "@tailwindcss/forms" "^0.3.2"
-    babel-plugin-jsx-dom-expressions "^0.27.4"
-    babel-preset-solid "0.26.5"
+    babel-preset-solid "1.0.0-rc.2"
     mitt "^2.1.0"
     monaco-editor "^0.24.0"
     monaco-editor-textmate "^2.2.2"
@@ -1975,8 +1986,8 @@ solid-repl@^0.7.1:
     onigasm "^2.2.5"
     prettier "^2.3.0"
     register-service-worker "^1.7.2"
-    rollup "^2.50.1"
-    solid-js "0.26.5"
+    rollup "^2.50.5"
+    solid-js "1.0.0-rc.2"
     solid-utils "^0.7.0"
 
 solid-utils@^0.7.0:
@@ -2074,10 +2085,10 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-tailwindcss@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.1.3.tgz#4ae211bd16880df2406afafde457851c299ea783"
-  integrity sha512-434rlH/gVSm0Qhc2pQjvsQeasrcmPWEWSxyDcF66Y+CavOURsdqx3hymqqXlozs+CVWN3z+VpFV/PE9b2wx/GA==
+tailwindcss@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.1.4.tgz#ee8a1b8ccc140db61960b6738f968a8a1c4cd1f8"
+  integrity sha512-fh1KImDLg6se/Suaelju/5oFbqq1b0ntagmGLu0aG9LlnNPGHgO1n/4E57CbKcCtyz/VYnvVXUiWmfyfBBZQ6g==
   dependencies:
     "@fullhuman/postcss-purgecss" "^3.1.3"
     bytes "^3.0.0"
@@ -2199,10 +2210,10 @@ vite-plugin-solid@^1.8.0:
     solid-refresh "^0.1.2"
     vite "^2.3.2"
 
-vite@^2.3.2, vite@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.5.tgz#0f5e750317e6f00e5343dd8272f64c2261f026b3"
-  integrity sha512-Jh3uySLlofx+t+uqznnzJFTNgeqYQLhR6xMx61VYN5KTlVirJXBPkFW2+aigHN6d1mOo6rM7DWnU6gjnudVozw==
+vite@^2.3.2, vite@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.6.tgz#1f7cfde88a51a802d69000c7bac85d481c2e871c"
+  integrity sha512-fsEpNKDHgh3Sn66JH06ZnUBnIgUVUtw6ucDhlOj1CEqxIkymU25yv1/kWDPlIjyYHnalr0cN6V+zzUJ+fmWHYw==
   dependencies:
     esbuild "^0.12.5"
     postcss "^8.2.10"

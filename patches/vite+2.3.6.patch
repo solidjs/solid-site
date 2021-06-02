@@ -1,7 +1,7 @@
-diff --git a/node_modules/vite/dist/node/chunks/dep-01eec7aa.js b/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
-index 76e9895..cab4ccb 100644
---- a/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
-+++ b/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
+diff --git a/node_modules/vite/dist/node/chunks/dep-cb562f8f.js b/node_modules/vite/dist/node/chunks/dep-cb562f8f.js
+index 877f037..3c543cd 100644
+--- a/node_modules/vite/dist/node/chunks/dep-cb562f8f.js
++++ b/node_modules/vite/dist/node/chunks/dep-cb562f8f.js
 @@ -5864,8 +5864,8 @@ function assetPlugin(config) {
      return {
          name: 'vite:asset',
@@ -46,10 +46,10 @@ index 76e9895..cab4ccb 100644
 +                }
 +                finally {
 +                    await bundle.close();
-+				}
++                }
 +                const content = Buffer.from(code);
 +                if (query.inline != null) {
-+                    // inline as blob data url                    
++                    // inline as blob data url
 +                    return `const blob = new Blob([atob("${content.toString('base64')}")], { type: 'text/javascript;charset=utf-8' });
              export default function WorkerWrapper() {
                const objURL = (window.URL || window.webkitURL).createObjectURL(blob);

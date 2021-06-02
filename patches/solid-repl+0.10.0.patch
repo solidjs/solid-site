@@ -1,0 +1,26 @@
+diff --git a/node_modules/solid-repl/lib/compiler.js b/node_modules/solid-repl/lib/compiler.js
+index e41d7f6..12d96ea 100644
+--- a/node_modules/solid-repl/lib/compiler.js
++++ b/node_modules/solid-repl/lib/compiler.js
+@@ -132247,7 +132247,7 @@ async function loadBabel(solidVersion) {
+   }
+   let solid;
+   try {
+-    const preset = solidVersion === SOLID_VERSION ? await Promise.resolve({default: babelPresetSolid}) : await __vitePreload(() => import(`https://esm.sh/babel-preset-solid@${solidVersion}`), true ? void 0 : void 0);
++    const preset = solidVersion === SOLID_VERSION ? await Promise.resolve({default: babelPresetSolid}) : await __vitePreload(() => import(/* @vite-ignore */ `https://esm.sh/babel-preset-solid@${solidVersion}`), true ? void 0 : void 0);
+     solid = preset.default;
+   } catch {
+     solid = babelPresetSolid;
+diff --git a/node_modules/solid-repl/lib/index2.js b/node_modules/solid-repl/lib/index2.js
+index 0f77cfe..bf11d84 100644
+--- a/node_modules/solid-repl/lib/index2.js
++++ b/node_modules/solid-repl/lib/index2.js
+@@ -321,7 +321,7 @@ function formatMs(ms) {
+ }
+ const _tmpl$ = template(`<li class="inline-flex items-center m-0 border-b-2 border-transparent"><button type="button" class="focus:outline-none" title="Add a new tab"><span class="sr-only">Add a new tab</span><svg viewBox="0 0 24 24" style="stroke: currentColor; fill: none;" class="h-5 text-brand-default dark:text-blueGray-50"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg></button></li>`, 10), _tmpl$2 = template(`<button type="button" class="w-full focus:outline-none -mb-0.5">Result</button>`, 2), _tmpl$3 = template(`<button type="button" class="w-full focus:outline-none -mb-0.5">Output</button>`, 2), _tmpl$4 = template(`<div class="column-resizer h-full w-full row-start-1 row-end-3 col-start-2 hidden" style="cursor: col-resize"><div class="h-full border-blueGray-200 dark:border-blueGray-700 border-l border-r rounded-lg mx-auto w-0"></div></div>`, 4), _tmpl$5 = template(`<section class="h-full max-h-screen bg-white dark:bg-blueGray-800 grid focus:outline-none row-start-4 relative divide-y-2 divide-blueGray-200 dark:divide-blueGray-500" style="grid-template-rows: minmax(0, 1fr) auto"><div class="bg-white dark:bg-blueGray-800 p-5 hidden md:block"><label class="font-semibold text-sm uppercase">Compile mode</label><div class="mt-1 space-y-1 text-sm"><label class="block mr-auto cursor-pointer space-x-2"><input value="DOM" class="text-brand-default" type="radio" name="dom" id="dom"><span>Client side rendering</span></label><label class="block mr-auto cursor-pointer space-x-2"><input value="SSR" class="text-brand-default" type="radio" name="dom" id="dom"><span>Server side rendering</span></label><label class="block mr-auto cursor-pointer space-x-2"><input value="HYDRATABLE" class="text-brand-default" type="radio" name="dom" id="dom"><span>Client side rendering with hydration</span></label></div></div></section>`, 23), _tmpl$6 = template(`<div class="relative grid bg-blueGray-50 h-full overflow-hidden text-blueGray-900 dark:text-blueGray-50 font-display"></div>`, 2), _tmpl$7 = template(`<select class="bg-none p-0"><option value="tsx">.tsx</option><option value="css">.css</option></select>`, 6), _tmpl$8 = template(`<button type="button" class="cursor-pointer focus:outline-none -mb-0.5"><span class="outline-none"></span></button>`, 4), _tmpl$9 = template(`<button type="button" class="border-0 bg-transparent cursor-pointer focus:outline-none -mb-0.5"><span class="sr-only">Delete this tab</span><svg style="stroke: currentColor; fill: none;" class="h-4 opacity-60" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>`, 8), _tmpl$10 = template(`<span>.</span>`, 2), _tmpl$11 = template(`<div class="row-start-2 col-span-3 flex items-center justify-center h-full"><p class="animate-pulse text-xl font-display">Loading the playground...</p></div>`, 4);
+ const MonacoTabs = lazy(() => __vitePreload(() => import("./monacoTabs.js"), true ? void 0 : void 0));
+-const Editor = lazy(() => MonacoTabs.preload().then(() => __vitePreload(() => import("./index3.js"), true ? ["/index3.js","/_commonjsHelpers.js","/preload-helper.js"] : void 0)));
++const Editor = lazy(() => MonacoTabs.preload().then(() => __vitePreload(() => import("./index3.js"), false ? ["/index3.js","/_commonjsHelpers.js","/preload-helper.js"] : void 0)));
+ const compileMode = {
+   SSR: {
+     generate: "ssr",
