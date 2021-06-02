@@ -1,4 +1,4 @@
-JSX is an HTML like syntax you will see inside these examples and is core to making declarative views in Solid. These blocks in the end just compile down to a combination of JavaScript code and HTMLTemplateElements which are cloned as your code executes. This allows for the most optimal creation code in terms of size and performance.
+JSX is an HTML like syntax you will see inside these examples and is core to making declarative views in Solid. JSX adds dynamic expressions for attributes and insertions in the form of `{ }`. These JSX blocks in the end just compile down to a combination of JavaScript code and HTMLTemplateElements which are cloned as your code executes. This allows for the most optimal creation code in terms of size and performance.
 
 Unlike some other frameworks that use JSX, Solid attempts to stay as close to HTML standards as possible allowing simple copy and paste from answers on Stack Overflow or from template builders from your designers.
 

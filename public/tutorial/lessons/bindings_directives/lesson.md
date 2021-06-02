@@ -4,4 +4,23 @@ Custom directives are simply functions in the form `(element, valueAccesor)` whe
 
 > Important: `use:` is detected by the compiler to be transformed, and the function is required to be in scope, so it cannot be part of spreads or applied to a component.
 
-> Todo Example
+In this example we are going to make a simple wrapper for click outside behavior to close a popup or modal. First we need to import and use our `clickOutside` directive on our element.
+
+```jsx
+<div class="modal" use:clickOutside={() => setShow(false)}>
+  Some Modal
+</div>
+```
+
+Open `click-outside.tsx` we will be defining our custom directive here. This directive defines a click handler than we bind to the body and cleanup when it is time.
+
+```jsx
+export default function clickOutside(el, accessor) {
+  const onClick = (e) => !el.contains(e.target) && accessor()?.();
+  document.body.addEventListener("click", onClick);
+
+  onCleanup(() => document.body.removeEventListener("click", onClick));
+}
+```
+
+Now you should be able to go back and forth between opening and closing the modal.

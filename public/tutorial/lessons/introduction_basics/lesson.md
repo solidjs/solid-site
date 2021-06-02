@@ -6,7 +6,7 @@ Welcome to the Solid tutorial! This tutorial will teach you everything you need 
 
 Solid is a JavaScript framework for making interactive web applications. It leverages a custom compiler to transform JSX, an HTML inspired JavaScript XML dialect, into optimal DOM operations. Updates are powered by a fine-grained reactivity system that reduces the overhead of diffing which results in best in class performance.
 
-# Autonomy of a Solid App
+# Anatomy of a Solid App
 
 A Solid App is composed of functions that we call Components. Component names in Solid follow the Pascal naming convention in which the first letter of each word in a component name is capitalized. This name can then be used as tags within our JSX like `<HelloWorld />`.
 

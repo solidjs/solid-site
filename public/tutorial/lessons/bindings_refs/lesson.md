@@ -14,9 +14,11 @@ let myDiv;
 <div ref={myDiv}>My Element</div>
 ```
 
-Often we do want to interact with refs after they have been attached to the DOM.
+So let's get a reference to our canvas element and animate it:
 
-> Todo Example
+```jsx
+<canvas ref={canvas} width="256" height="256" />
+```
 
 Refs can also take the form of a callback function. This can be convenient for encapsulate logic especially when you don't need to wait until the elements are attached.
 
