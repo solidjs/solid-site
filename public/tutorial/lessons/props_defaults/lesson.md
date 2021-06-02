@@ -4,4 +4,10 @@ For this reason it is also very important to not just destructure them as that w
 
 For this reason Solid has a few utilities to help us when working with props. The first `mergeProps` is much like what it sounds. It merges potentially reactive objects together without losing reactivity. The most common case is when setting default props for our components.
 
-> Todo Example
+In the example, in `greetings.tsx`, we inlined the defaults in the template but we can also use `mergeProps` to keep reactive updates even when setting defaults.
+
+```jsx
+const merged = mergeProps({ greeting: "Hi", name: "John" }, props);
+
+return <h3>{merged.greeting} {merged.name}</h3>
+```

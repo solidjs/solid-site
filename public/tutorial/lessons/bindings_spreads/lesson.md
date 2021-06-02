@@ -2,4 +2,8 @@ Sometimes your components and elements accept a variable number of attributes an
 
 For this we use the spread operator `...`.
 
-> Todo Example
+We can pass an object with variable number of properties:
+
+```jsx
+<Info {...pkg} />
+```

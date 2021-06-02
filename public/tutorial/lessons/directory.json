@@ -56,8 +56,12 @@
     "internalName": "flow_error_boundary"
   },
   {
-    "lessonName": "Bindings/Attributes",
-    "internalName": "bindings_attributes"
+    "lessonName": "Lifecycles/onMount",
+    "internalName": "lifecycles_onmount"
+  },
+  {
+    "lessonName": "Lifecycles/onCleanup",
+    "internalName": "lifecycles_oncleanup"
   },
   {
     "lessonName": "Bindings/Events",
@@ -98,14 +102,6 @@
   {
     "lessonName": "Props/Children",
     "internalName": "props_children"
-  },
-  {
-    "lessonName": "Lifecycles/onMount",
-    "internalName": "lifecycles_onmount"
-  },
-  {
-    "lessonName": "Lifecycles/onCleanup",
-    "internalName": "lifecycles_oncleanup"
   },
   {
     "lessonName": "State/Nested Reactivity",

@@ -8,7 +8,12 @@ const handler = (data, event) => /*...*/
 <button onClick={[handler, data]}>Click Me</button>
 ```
 
-> Todo Example
+In this example lets attach the handler to the `mousemove` event/
+```jsx
+<div onMouseMove={handleMouseMove}>
+  The mouse position is {pos().x} x {pos().y}
+</div>
+```
 
 All `on` bindings are case insensitive which means that event names need to be in lowercase. If you need to support other casings or not use event delegation, you can use `on:` namespace to match event handlers that follows the colon.
 
