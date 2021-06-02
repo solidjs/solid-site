@@ -1,7 +1,18 @@
 diff --git a/node_modules/vite/dist/node/chunks/dep-01eec7aa.js b/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
-index 76e9895..b26fc02 100644
+index 76e9895..cab4ccb 100644
 --- a/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
 +++ b/node_modules/vite/dist/node/chunks/dep-01eec7aa.js
+@@ -5864,8 +5864,8 @@ function assetPlugin(config) {
+     return {
+         name: 'vite:asset',
+         buildStart() {
+-            assetCache.set(config, new Map());
+-            assetHashToFilenameMap.set(config, new Map());
++            if (!assetCache.has(config)) assetCache.set(config, new Map());
++            if (!assetHashToFilenameMap.has(config)) assetHashToFilenameMap.set(config, new Map());
+         },
+         resolveId(id) {
+             if (!config.assetsInclude(cleanUrl(id))) {
 @@ -70019,20 +70019,27 @@ function webWorkerPlugin(config) {
              }
              let url;
@@ -22,7 +33,7 @@ index 76e9895..b26fc02 100644
 +                let code;
 +                try {
 +                    const { output } = await bundle.generate({
-+                        format: 'es',
++                        format: 'iife',
 +                        sourcemap: config.build.sourcemap
                      });
 -                    try {

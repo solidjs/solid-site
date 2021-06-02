@@ -1,5 +1,5 @@
-import CompilerWorker from 'solid-repl/lib/compiler.js?worker';
-import FormatterWorker from 'solid-repl/lib/formatter.js?worker';
+import CompilerWorker from 'solid-repl/lib/compiler?worker';
+import FormatterWorker from 'solid-repl/lib/formatter?worker';
 
 import 'monaco-editor/min/vs/editor/editor.main.css';
 
