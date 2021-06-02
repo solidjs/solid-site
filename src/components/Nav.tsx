@@ -70,16 +70,11 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
   </li>
 );
 
-const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (
-  props,
-) => (
+const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (props) => (
   <li>
     <a href={props.href} rel="noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
-      <svg
-        viewBox="0 0 24 24"
-        class="h-8 transition hover:opacity-50 opacity-60"
-      >
+      <svg viewBox="0 0 24 24" class="h-8 transition hover:opacity-50 opacity-60">
         <path fill="currentColor" d={props.icon} />
       </svg>
     </a>
@@ -98,7 +93,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
 
   const shouldShowLogo = () => props.showLogo || !unlocked();
 
-
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
@@ -114,10 +108,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <For each={links} children={MenuLink} />
           </ul>
           <ul class="flex items-center space-x-3">
-            <For
-              each={socials}
-              children={(social) => <SocialIcon {...social} />}
-            />
+            <For each={socials} children={(social) => <SocialIcon {...social} />} />
           </ul>
         </nav>
       </div>

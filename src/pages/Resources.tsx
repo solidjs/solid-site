@@ -181,7 +181,7 @@ const articles = [
   {
     link: 'https://dev.to/ryansolid/jsx-is-not-hyperscript-61i',
     title: 'JSX is not HyperScript',
-    description: 'Setting the story straight between JSX and HS.'
+    description: 'Setting the story straight between JSX and HS.',
   },
   {
     link: 'https://dev.to/this-is-learning/learning-to-appreciate-react-server-components-49ka',
@@ -233,50 +233,47 @@ const videos = [
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
     title: 'Solid Video Series',
-    description: 'Eric Schmucker walks you through Solid.'
+    description: 'Eric Schmucker walks you through Solid.',
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
     title: 'Solid.js - A fast, Declarative, Compiled Web UI Library',
-    description: 'Zaieste Programming walks you through Solid\'s web UI solution.'
+    description: "Zaieste Programming walks you through Solid's web UI solution.",
   },
   {
     link: 'https://www.youtube.com/watch?v=wu6HvLoi9VQ',
     title: 'How To Convert React Application To SolidJS',
-    description: 'Maksim Ivanov walks us through Solid.js and how to use it.'
+    description: 'Maksim Ivanov walks us through Solid.js and how to use it.',
   },
   {
     link: 'https://www.youtube.com/watch?v=Dq5EAcup044',
     title: 'UI Libraries, Improving React.js & Music, with Ryan Carniato, Solid.js Creator',
-    description: ''
+    description: '',
   },
   {
     link: 'https://www.youtube.com/watch?v=P8iGK8zYzns',
     title: 'Solid.js - A Fast, Declarative, Compiled Web UI Library - Better than React.js?',
-    description: 'Zaiste Programming discusses three things that makes Solid.js and Snowpack great.'
+    description:
+      'Zaiste Programming discusses three things that makes Solid.js and Snowpack great.',
   },
   {
     link: 'https://www.youtube.com/watch?v=p8e9ta269x8',
     title: 'React to Solid - Stream With Ryan Carniato',
-    description: 'Maksim Ivanov and Ryan Carniato take an existing React application and try to rewrite it using the Solid framework.'
+    description:
+      'Maksim Ivanov and Ryan Carniato take an existing React application and try to rewrite it using the Solid framework.',
   },
   {
     link: 'https://www.youtube.com/watch?v=-CymMzGwzP8',
     title: 'Looking at solid.js',
-    description: 'Looking at solid.js, a new library for reactive web UI\'s.'
+    description: "Looking at solid.js, a new library for reactive web UI's.",
   },
 ];
 
 const ContentRow = (props) => (
   <li class="p-5 border-b hover:bg-gray-50">
-    <a
-      class="text-solid"
-      target="_blank"
-      href={props.link}
-      rel="nofollow"
-    >
+    <a class="text-solid" target="_blank" href={props.link} rel="nofollow">
       <div class="text-lg">{props.title}</div>
-      <Show when={props.description != ""}>
+      <Show when={props.description != ''}>
         <div class="text-sm mt-2 text-black block">{props.description}</div>
       </Show>
     </a>
@@ -294,17 +291,13 @@ const Resources: Component = () => {
             Latest Articles
           </h1>
           <ul class="ml-3">
-            <For each={articles.reverse()}>
-              {(article) => <ContentRow {...article} />}
-            </For>
+            <For each={articles.reverse()}>{(article) => <ContentRow {...article} />}</For>
           </ul>
         </div>
         <div class="col-span-5">
           <h1 class="text-2xl border-b border-solid-medium pb-3 my-5 text-solid-default">Videos</h1>
           <ul class="ml-3 mb-10">
-            <For each={videos}>
-              {(video) => <ContentRow {...video} />}
-            </For>
+            <For each={videos}>{(video) => <ContentRow {...video} />}</For>
           </ul>
         </div>
       </div>

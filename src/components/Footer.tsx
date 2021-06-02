@@ -31,9 +31,27 @@ const Footer: Component = () => (
 
           <div class="mb-5 mt-7 p-2 rounded-full bg-white flex items-center">
             <div class="text-gray-400 my-4 ml-5 mr-2">Sponsored by</div>
-            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.cloudflare.com/"><img class="w-32" src={cloudflare} /></a>
-            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.builder.io/"><img class="w-24" src={builder} /></a>
-            <a class="mx-4 hover:opacity-50 transition" target="_blank" href="https://www.saucelabs.com/"><img class="w-32" src={sauce} /></a>
+            <a
+              class="mx-4 hover:opacity-50 transition"
+              target="_blank"
+              href="https://www.cloudflare.com/"
+            >
+              <img class="w-32" src={cloudflare} />
+            </a>
+            <a
+              class="mx-4 hover:opacity-50 transition"
+              target="_blank"
+              href="https://www.builder.io/"
+            >
+              <img class="w-24" src={builder} />
+            </a>
+            <a
+              class="mx-4 hover:opacity-50 transition"
+              target="_blank"
+              href="https://www.saucelabs.com/"
+            >
+              <img class="w-32" src={sauce} />
+            </a>
           </div>
 
           {/* TODO: Make this dynamic */}

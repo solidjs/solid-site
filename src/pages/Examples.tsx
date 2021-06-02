@@ -83,7 +83,9 @@ const Examples: Component<Props> = (props) => {
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
-                  <h3 class="text-xl text-solid-default border-b font-semibold border-solid pb-2">{name}</h3>
+                  <h3 class="text-xl text-solid-default border-b font-semibold border-solid pb-2">
+                    {name}
+                  </h3>
                   <div class="mb-10">
                     <For each={examples}>
                       {(example) => (
