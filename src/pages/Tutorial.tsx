@@ -16,6 +16,7 @@ interface DirectoryProps {
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
+  let listContainer!: HTMLUListElement;
 
   const listener = (event: MouseEvent | KeyboardEvent) => {
     if (event instanceof MouseEvent) {
@@ -29,6 +30,8 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
     if (showDirectory()) {
       window.addEventListener('click', listener);
       window.addEventListener('keydown', listener);
+
+      listContainer.querySelector('.js-active')?.scrollIntoView();
     } else {
       window.removeEventListener('click', listener);
       window.removeEventListener('keydown', listener);
@@ -63,24 +66,26 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
         </button>
       </div>
 
-      <Show when={showDirectory()}>
-        <ul class="block shadow absolute bg-white max-w-[80%] h-[50vh] left-8 overflow-auto shadow-lg divide-y box-border rounded-b">
-          <For each={props.directory}>
-            {(entry) => (
-              <li>
-                <NavLink
-                  activeClass="bg-blue-50 p-5"
-                  class="hover:bg-blue-100 p-3 block"
-                  href={`/tutorial/${entry.internalName}`}
-                >
-                  <p class="text-sm font-medium text-gray-900">{entry.lessonName}</p>
-                  <p class="text-sm text-gray-500">{entry.description}</p>
-                </NavLink>
-              </li>
-            )}
-          </For>
-        </ul>
-      </Show>
+      <ul
+        ref={listContainer}
+        class="shadow absolute bg-white max-w-[80%] h-[50vh] left-8 overflow-auto divide-y box-border rounded-b"
+        classList={{ hidden: !showDirectory() }}
+      >
+        <For each={props.directory}>
+          {(entry) => (
+            <li>
+              <NavLink
+                activeClass="js-active bg-blue-50 p-5"
+                class="hover:bg-blue-100 p-3 block"
+                href={`/tutorial/${entry.internalName}`}
+              >
+                <p class="text-sm font-medium text-gray-900">{entry.lessonName}</p>
+                <p class="text-sm text-gray-500">{entry.description}</p>
+              </NavLink>
+            </li>
+          )}
+        </For>
+      </ul>
     </div>
   );
 };
