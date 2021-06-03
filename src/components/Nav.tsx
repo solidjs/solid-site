@@ -4,14 +4,11 @@ import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js
 import logo from '../assets/logo.svg';
 
 const links = [
-  { title: 'Get Started', path: '/docs/0.26.0/#get-started' },
   { title: 'Docs', path: '/docs/0.26.0' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial/introduction_basics' },
   { title: 'Examples', path: '/examples/counter' },
   { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
-  // We might want to hide this and redirect to the /media page when someone tries to right
-  // click on the logo, like https://nuxtjs.org/. Additionnaly we could add it to the footer
   { title: 'Media', path: '/media' },
 ];
 
@@ -43,7 +40,7 @@ const socials = [
 
 const Logo: Component<{ show: boolean }> = (props) => (
   <li class="mr-4">
-    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-10' : 'w-0'}`}>
+    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-11' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
       <img class="w-full h-auto" src={logo} alt="Solid logo" />
     </Link>
@@ -55,11 +52,10 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
     <NavLink
       href={props.path}
       external={props.external}
-      class="inline-flex items-center space-x-2 transition px-4 py-7 hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      class="inline-flex items-center space-x-2 transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
       activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
-
       <Show when={props.external}>
         <svg class="h-5 -mt-1 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
@@ -74,17 +70,11 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
   </li>
 );
 
-const SocialIcon: Component<{ href: string; alt: string; icon: string; fade: boolean }> = (
-  props,
-) => (
+const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (props) => (
   <li>
     <a href={props.href} rel="noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
-
-      <svg
-        viewBox="0 0 24 24"
-        class={`h-8 transition hover:opacity-50 ${props.fade ? 'opacity-60' : 'opacity-80'}`}
-      >
+      <svg viewBox="0 0 24 24" class="h-8 transition hover:opacity-50 opacity-60">
         <path fill="currentColor" d={props.icon} />
       </svg>
     </a>
@@ -98,7 +88,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   onMount(() => {
     const observer = new IntersectionObserver(([entry]) => setUnlocked(entry.isIntersecting));
     observer.observe(intersectorRef);
-
     onCleanup(() => observer && observer.disconnect());
   });
 
@@ -107,14 +96,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
-
       <div
-        class="sticky top-0 z-50 nav"
+        class="sticky top-0 z-50 bg-white py-1"
         classList={{
-          'nav--locked text-white': !unlocked(),
-          'nav--unlocked': unlocked(),
-          'nav--filled': props.filled,
-          'border-b': !props.showLogo,
+          'border-b': props.showLogo,
         }}
       >
         <nav class="px-3 lg:px-12 container flex justify-between items-center relative z-20 space-x-10">
@@ -122,12 +107,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <Logo show={shouldShowLogo()} />
             <For each={links} children={MenuLink} />
           </ul>
-
           <ul class="flex items-center space-x-3">
-            <For
-              each={socials}
-              children={(social) => <SocialIcon {...social} fade={unlocked()} />}
-            />
+            <For each={socials} children={(social) => <SocialIcon {...social} />} />
           </ul>
         </nav>
       </div>

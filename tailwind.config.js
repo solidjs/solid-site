@@ -9,7 +9,7 @@ module.exports = {
         DEFAULT: {
           css: {
             color: '#333',
-            fontFamily: 'Gordita !important' ,
+            fontFamily: 'Gordita' ,
             h1: {
               fontWeight: '600',
               fontSize: '1.75rem',
@@ -24,9 +24,6 @@ module.exports = {
               paddingBottom: '1rem',
               marginTop: '2rem',
               color: '#2c4f7c'
-            },
-            code: {
-              fontFamily: 'Gordita !important' ,
             },
             a: {
               color: '#999',
@@ -56,6 +53,7 @@ module.exports = {
           default: '#2c4f7c',
           dark: '#335d92',
           gray: '#414042',
+          lightgray: "#f9fafb",
           medium: '#446b9e',
           light: '#4f88c6',
         },

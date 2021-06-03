@@ -42,7 +42,7 @@ const ecosystem = [
     name: 'Mike Pea',
     company: 'NASA',
     link: 'https://github.com/trusktr',
-    detail: "Founder of Lume and a powerhouse in UI.",
+    detail: 'Founder of Lume and a powerhouse in UI.',
   },
   {
     name: 'Moshe Uminer',
@@ -61,6 +61,12 @@ const ecosystem = [
     company: '',
     link: 'https://moddermeht.ml/',
     detail: 'Mysterious full-stack programmer.',
+  },
+  {
+    name: 'Ryan Turnquist',
+    company: '',
+    link: 'https://github.com/rturnq',
+    detail: 'Full-stack developer, web UX enthusiast, passionate problem solver.',
   },
   {
     name: 'Vish Vadlamani',

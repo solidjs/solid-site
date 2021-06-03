@@ -8,6 +8,10 @@
     "internalName": "introduction_jsx"
   },
   {
+    "lessonName": "Introduction/Components",
+    "internalName": "introduction_components"
+  },
+  {
     "lessonName": "Introduction/Signals",
     "internalName": "introduction_signals"
   },
@@ -52,8 +56,12 @@
     "internalName": "flow_error_boundary"
   },
   {
-    "lessonName": "Bindings/Attributes",
-    "internalName": "bindings_attributes"
+    "lessonName": "Lifecycles/onMount",
+    "internalName": "lifecycles_onmount"
+  },
+  {
+    "lessonName": "Lifecycles/onCleanup",
+    "internalName": "lifecycles_oncleanup"
   },
   {
     "lessonName": "Bindings/Events",
@@ -88,24 +96,12 @@
     "internalName": "props_defaults"
   },
   {
-    "lessonName": "Props/Merging Props",
-    "internalName": "props_merge"
-  },
-  {
     "lessonName": "Props/Splitting Props",
     "internalName": "props_split"
   },
   {
     "lessonName": "Props/Children",
     "internalName": "props_children"
-  },
-  {
-    "lessonName": "Lifecycles/onMount",
-    "internalName": "lifecycles_onmount"
-  },
-  {
-    "lessonName": "Lifecycles/onCleanup",
-    "internalName": "lifecycles_oncleanup"
   },
   {
     "lessonName": "State/Nested Reactivity",
@@ -116,12 +112,20 @@
     "internalName": "state_createstate"
   },
   {
-    "lessonName": "State/Nested Updates",
-    "internalName": "state_nested_updates"
+    "lessonName": "State/Mutation",
+    "internalName": "state_mutation"
   },
   {
     "lessonName": "Stores/Context",
     "internalName": "stores_context"
+  },
+  {
+    "lessonName": "Stores/Immutable Stores",
+    "internalName": "stores_immutable"
+  },
+  {
+    "lessonName": "Stores/Without Context",
+    "internalName": "stores_nocontext"
   },
   {
     "lessonName": "Reactivity/Batching Updates",

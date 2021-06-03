@@ -62,9 +62,9 @@ const Home: Component = () => (
     </div>
 
     <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-      <section class="bg-solid-gray text-white flex rounded-lg defer">
+      <section class="bg-solid-lightgray border border-gray-200 text-black flex rounded-lg defer">
         <ul class="flex justify-center w-full">
-          <li class="hover:bg-solid-dark transition">
+          <li class="hover:bg-solid-dark hover:text-white transition">
             <a
               target="_blank"
               rel="noopener"
@@ -76,7 +76,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="hover:bg-solid-dark transition">
+          <li class="hover:bg-solid-dark hover:text-white transition">
             <a
               target="_blank"
               rel="noopener"
@@ -88,7 +88,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="hover:bg-solid-dark transition">
+          <li class="hover:bg-solid-dark hover:text-white transition">
             <a
               target="_blank"
               rel="noopener"
@@ -100,7 +100,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="hover:bg-solid-dark transition">
+          <li class="hover:bg-solid-dark hover:text-white transition">
             <a
               target="_blank"
               rel="noopener"
@@ -112,7 +112,7 @@ const Home: Component = () => (
             </a>
           </li>
 
-          <li class="hover:bg-solid-dark transition">
+          <li class="hover:bg-solid-dark hover:text-white transition">
             <a
               target="_blank"
               rel="noopener"
@@ -252,7 +252,7 @@ const Home: Component = () => (
         </Repl>
       </section>
 
-      <section class="bg-solid-gray text-white rounded-br-6xl grid grid-cols-2 flex py-20 px-8 lg:px-20  space-x-44">
+      <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 flex py-20 px-8 lg:px-20  space-x-44">
         <div class="flex flex-wrap content-center">
           <h2 class="text-2xl font-semibold">
             <img class="w-10 mb-5 block" src={flag} />
