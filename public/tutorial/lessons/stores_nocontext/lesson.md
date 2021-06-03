@@ -14,7 +14,7 @@ const [count, setCount] = counter;
 
 Solid's reactivity is a universal concept. It doesn't matter if it is inside or outside components. There is no separate concept for global vs local state. It is all the same thing.
 
-The only restriction is that all computations(Effects/Memos) need to be created under a reactive root(`createRoot`). Solid's `render` does this automatically.
+The only restriction is that all computations (Effects/Memos) need to be created under a reactive root (`createRoot`). Solid's `render` does this automatically.
 
 In this tutorial `counter.tsx` is such a global store. We can use it by modifying our component in `main.tsx` to:
 
