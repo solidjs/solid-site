@@ -57,7 +57,7 @@ export interface TutorialProps {
   markdown: string;
   js: string;
   solvedJs: string;
-  tutorialDirectory: TutorialDirectory;
+  tutorialDirectory: Record<string, TutorialDirectory>;
   tutorialDirectoryEntry: TutorialDirectoryItem;
   nextUrl: string | undefined;
   previousUrl: string | undefined;
@@ -83,7 +83,21 @@ export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
       return data().solved;
     },
     get tutorialDirectory() {
-      return directory();
+      if (directory.loading || !directory()) return directory();
+
+      return directory().reduce<Record<string, TutorialDirectory>>((sections, item) => {
+        // Turns `Basics/Signal` into ['Basics', 'Signal']
+        const [section, lessonName] = item.lessonName.split('/');
+
+        // Create the section if it doesn't already exists
+        if (!sections[section]) {
+          sections[section] = [];
+        }
+
+        sections[section].push({ ...item, lessonName });
+
+        return sections;
+      }, {});
     },
     get tutorialDirectoryEntry() {
       const data = directory();
