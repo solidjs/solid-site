@@ -65,9 +65,14 @@ const HomeHeader: Component = () => {
       {/* Place the main header content on top of the LUME scene. */}
       <div style="position: absolute; width: 100%; height: 100%; z-index: 2">
         <MainHeaderContent
+          // To move the header...
           // TODO consolidate with duplicate math in LumeHeaderBackground
           offsetX={(mouseX() - headerSize().x / 2) / 20}
           offsetY={(mouseY() - headerSize().y / 2) / 20}
+
+          // ... or not to move the header?
+          // offsetX={0}
+          // offsetY={0}
         />
       </div>
 
