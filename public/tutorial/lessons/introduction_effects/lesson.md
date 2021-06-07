@@ -16,6 +16,6 @@ To update our `count` Signal we are going to attach a click handler on our butto
 <button onClick={() => setCount(count() + 1)}>Click Me</button>
 ```
 
-Now clicking the button should write to the console. This is a relatively simple example but to understand how Solid works you should imagine that every expression in the JSX is potentially a separately wrapped Effect that re-executes whenever its dependendent Signals change. That is how all rendering works in Solid. From Solid's perspective `all rendering is just a side effect of the reactive system`.
+Now clicking the button should write to the console. This is a relatively simple example but to understand how Solid works you should imagine that every expression in the JSX is potentially a separately wrapped Effect that re-executes whenever its dependent Signals change. This is how all rendering works in Solid. From Solid's perspective `all rendering is just a side effect of the reactive system`.
 
 Effects that developers create with `createEffect` run after rendering has completed and are mostly used for scheduling post render updates that interact with the DOM.
