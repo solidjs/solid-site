@@ -9,6 +9,7 @@ import {
   onCleanup,
   Suspense,
   createMemo,
+  on,
 } from 'solid-js';
 
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -27,8 +28,40 @@ interface DirectoryProps {
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
-  const directory = createMemo(() => Object.entries(props.directory));
+  const [searchQuery, setSearchQuery] = createSignal('');
   let listContainer!: HTMLOListElement;
+  let search!: HTMLInputElement;
+
+  const directory = createMemo(() => Object.entries(props.directory));
+
+  const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
+    return (
+      directory()
+        .map<[string, TutorialDirectory]>(([section, entries]) => [
+          section,
+          // TODO: Refactor this to be more easily digesteable (it's not that bad)
+          entries.filter((entry) =>
+            Object.values(entry).some((value: string) =>
+              value.toLowerCase().includes(searchQuery().toLowerCase()),
+            ),
+          ),
+        ])
+        // Filter out sections that have no entries
+        .filter(([_, entries]) => entries.length > 0)
+    );
+  });
+
+  // Close the dropdown menu every time the `current` page changes
+  // and reset the querySearch
+  createEffect(
+    on(
+      () => props.current,
+      () => {
+        setShowDirectory(false);
+        setSearchQuery('');
+      },
+    ),
+  );
 
   const listener = (event: MouseEvent | KeyboardEvent) => {
     if (event instanceof MouseEvent) {
@@ -42,6 +75,9 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
     if (showDirectory()) {
       window.addEventListener('click', listener);
       window.addEventListener('keydown', listener);
+
+      // Focus the search input
+      search.focus();
 
       // Find the closest section and scroll it into the view
       listContainer.querySelector('.js-active')?.closest('.js-section-title')?.scrollIntoView();
@@ -81,13 +117,26 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 
       <ol
         ref={listContainer}
-        class="shadow absolute bg-white w-64 h-[50vh] left-8 overflow-auto rounded-b space-y-3 py-2"
+        class="shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
         classList={{ hidden: !showDirectory() }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <For each={directory()}>
+        <li class="sticky top-0">
+          <input
+            ref={search}
+            value={searchQuery()}
+            onInput={(e) => setSearchQuery(e.currentTarget.value)}
+            id="search"
+            name="search"
+            type="search"
+            placeholder="Search..."
+            class="py-2 px-3 block w-full"
+          />
+        </li>
+        <For each={filteredDirectory()}>
           {([section, entries], sectionIndex) => (
-            <li>
-              <p class="js-section-title inline-block px-3 py-1 font-semibold">
+            <li class="js-section-title">
+              <p class="inline-block px-3 py-1 font-semibold">
                 {sectionIndex() + 1}. {section}
               </p>
 
