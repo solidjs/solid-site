@@ -1,6 +1,15 @@
 import { Repl } from 'solid-repl';
 import { Link, NavLink } from 'solid-app-router';
-import { For, Component, Show, createSignal, createEffect, onCleanup, Suspense } from 'solid-js';
+import {
+  For,
+  Component,
+  Show,
+  createSignal,
+  createEffect,
+  onCleanup,
+  Suspense,
+  createMemo,
+} from 'solid-js';
 
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
@@ -9,13 +18,17 @@ import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './Tutorial.data';
 
+const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
 interface DirectoryProps {
-  directory: TutorialDirectory;
+  directory: Record<string, TutorialDirectory>;
   current: TutorialDirectoryItem;
 }
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
+  const directory = createMemo(() => Object.entries(props.directory));
+  let listContainer!: HTMLOListElement;
 
   const listener = (event: MouseEvent | KeyboardEvent) => {
     if (event instanceof MouseEvent) {
@@ -29,6 +42,9 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
     if (showDirectory()) {
       window.addEventListener('click', listener);
       window.addEventListener('keydown', listener);
+
+      // Find the closest section and scroll it into the view
+      listContainer.querySelector('.js-active')?.closest('.js-section-title')?.scrollIntoView();
     } else {
       window.removeEventListener('click', listener);
       window.removeEventListener('keydown', listener);
@@ -63,24 +79,40 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
         </button>
       </div>
 
-      <Show when={showDirectory()}>
-        <ul class="block shadow absolute bg-white max-w-[80%] h-[50vh] left-8 overflow-auto shadow-lg divide-y box-border rounded-b">
-          <For each={props.directory}>
-            {(entry) => (
-              <li>
-                <NavLink
-                  activeClass="bg-blue-50 p-5"
-                  class="hover:bg-blue-100 p-3 block"
-                  href={`/tutorial/${entry.internalName}`}
-                >
-                  <p class="text-sm font-medium text-gray-900">{entry.lessonName}</p>
-                  <p class="text-sm text-gray-500">{entry.description}</p>
-                </NavLink>
-              </li>
-            )}
-          </For>
-        </ul>
-      </Show>
+      <ol
+        ref={listContainer}
+        class="shadow absolute bg-white w-64 h-[50vh] left-8 overflow-auto rounded-b space-y-3 py-2"
+        classList={{ hidden: !showDirectory() }}
+      >
+        <For each={directory()}>
+          {([section, entries], sectionIndex) => (
+            <li>
+              <p class="js-section-title inline-block px-3 py-1 font-semibold">
+                {sectionIndex() + 1}. {section}
+              </p>
+
+              <ul class="divide-y box-border">
+                <For each={entries}>
+                  {(entry, entryIndex) => (
+                    <li>
+                      <NavLink
+                        activeClass="js-active bg-blue-50"
+                        class="hover:bg-blue-100 py-3 px-4 block"
+                        href={`/tutorial/${entry.internalName}`}
+                      >
+                        <p class="text-sm font-medium text-gray-900">
+                          {alphabet[entryIndex()]}. {entry.lessonName}
+                        </p>
+                        <p class="text-sm text-gray-500">{entry.description}</p>
+                      </NavLink>
+                    </li>
+                  )}
+                </For>
+              </ul>
+            </li>
+          )}
+        </For>
+      </ol>
     </div>
   );
 };

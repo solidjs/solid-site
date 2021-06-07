@@ -18,7 +18,7 @@ The vast majority of the time you will just be inserting these into the JSX so t
 
 For that reason Solid has the `children` helper. This method both creates a memo around the children access but also resolves any nested child reactive references so that you can interact with the children directly.
 
-In the example have a dynamic list that we want to set their `color` style property. If we interacted with `props.children` directly not nly would we create the nodes multiple times but we'd find children itself a function, the Memo returned from `<For>`.
+In the example we have a dynamic list that we want to set their `color` style property. If we interacted with `props.children` directly not only would we create the nodes multiple times but we'd find children itself a function, the Memo returned from `<For>`.
 
 Instead let's use the `children` helper inside `colored-list.tsx`:
 ```jsx

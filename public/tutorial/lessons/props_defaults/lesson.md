@@ -2,9 +2,9 @@ Props are what we call the object that is passed to our component function on ex
 
 For this reason it is also very important to not just destructure them as that would lose reactivity if not done within a tracking scope. In general accessing properties on the props object outside of Solid's primitives or JSX can lose reactivity. This applies not just to destructuring, but spreads and functions like `Object.assign`.
 
-For this reason Solid has a few utilities to help us when working with props. The first `mergeProps` is much like what it sounds. It merges potentially reactive objects together without losing reactivity. The most common case is when setting default props for our components.
+Solid has a few utilities to help us when working with props. The first `mergeProps` is much like what it sounds. It merges potentially reactive objects together without losing reactivity. The most common case is when setting default props for our components.
 
-In the example, in `greetings.tsx`, we inlined the defaults in the template but we can also use `mergeProps` to keep reactive updates even when setting defaults.
+In the example, in `greetings.tsx`, we inlined the defaults in the template but we could also use `mergeProps` to keep reactive updates even when setting defaults.
 
 ```jsx
 const merged = mergeProps({ greeting: "Hi", name: "John" }, props);
