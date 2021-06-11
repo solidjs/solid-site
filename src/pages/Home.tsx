@@ -2,7 +2,6 @@ import { Component } from 'solid-js';
 import { Link } from 'solid-app-router';
 import { Repl, ReplTab } from 'solid-repl';
 
-import Nav from '../components/Nav';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -13,7 +12,10 @@ import powerful from '../assets/icons/powerful.svg';
 import pragmatic from '../assets/icons/pragmatic.svg';
 import productive from '../assets/icons/productive.svg';
 import wordmark from '../assets/wordmark.svg';
+
+import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import Graph from '../components/Graph';
 
 const Home: Component = () => (
   <div class="flex flex-col">
@@ -97,18 +99,6 @@ const Home: Component = () => (
               href="https://bundlephobia.com/result?p=solid-js@0.22.7"
               class="inline-block px-5 py-5"
             >
-              <strong class="font-semibold">7.3kb</strong>
-              <span class="block text-sm">Minified + Gzipped</span>
-            </a>
-          </li>
-
-          <li class="hover:bg-solid-dark hover:text-white transition">
-            <a
-              target="_blank"
-              rel="noopener"
-              href="https://bundlephobia.com/result?p=solid-js@0.22.7"
-              class="inline-block px-5 py-5"
-            >
               <strong class="font-semibold">6k+</strong>
               <span class="block text-sm">Github Stars</span>
             </a>
@@ -137,6 +127,19 @@ const Home: Component = () => (
               <span class="block text-sm">Support</span>
             </a>
           </li>
+
+          <li class="hover:bg-solid-dark hover:text-white transition">
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://krausest.github.io/js-framework-benchmark/2021/table_chrome_91.0.4472.77.html"
+              class="inline-block px-5 py-5"
+            >
+              <strong class="font-semibold">Top Rated</strong>
+              <span class="block text-sm">In Performance</span>
+            </a>
+          </li>
+
         </ul>
       </section>
 
@@ -169,7 +172,7 @@ const Home: Component = () => (
 
         <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
           <img class="w-20" src={iconBlocks1} />
-          <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">It's familiar...</h3>
+          <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">It's familiar and modern</h3>
 
           <p class="mt-9 leading-7">
             While a new UI library is supposed to jump out and break the mold, Solid doesn't stand
@@ -220,60 +223,41 @@ const Home: Component = () => (
       </section>
 
       <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
+        
+        <div class="overflow-hidden mt-10 lg:mt-0 flex-1 bg-blocks-two bg-no-repeat bg-left">
+          <Graph />
+        </div>
+
         <div class="flex flex-col justify-center flex-1">
           <img class="w-20" src={iconBlocks2} />
-          <h2 class="mt-6 text-3xl font-semibold text-solid">It's modern and dependable...</h2>
+          <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
 
           <p class="leading-7 mt-9">
-            While a new UI library is supposed to jump out and break the mold, Solid doesn't stand
-            out when it comes to APIs or developer experience. If you've developed with React Hooks
-            before Solid should seem very natural. In fact, more natural as Solid's model is much
-            simpler with no Hook rules. Every Component executes once and it is the Hooks and
-            bindings that execute many times as their dependencies update.
+            It's no secret that Solid consistently performs as the top rated JS framework in
+            the world on the client side and especially server-side. The strength of
+            fine-grained reactivity as an approach shines on all notable benchmarks. While
+            performance may not be your focus, the end-user's experience is always a focus.
+            Solid's performance edge means that you can scale without concern.
           </p>
           <Link
             class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
-            href="/docs/latest/components"
+            href="https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
           >
-            View Docs
+            Read more
           </Link>
         </div>
 
-        <Repl
-          title="Interactive Example"
-          height={500}
-          isInteractive
-          class="rounded-lg overflow-hidden shadow-2xl mt-10 lg:mt-0 flex-1"
-        >
-          <ReplTab name="main">
-            {`
-              import { createState, onCleanup } from "solid-js";
-              import { render } from "solid-js/web";
-
-              const CountingComponent = () => {
-                const [state, setState] = createState({ counter: 0 });
-                const interval = setInterval(
-                  () => setState({ counter: state.counter + 1 }),
-                  1000
-                );
-                onCleanup(() => clearInterval(interval));
-                return <div>Count value is {state.counter}</div>;
-              };
-
-              render(() => <CountingComponent />, document.getElementById("app"));
-            `}
-          </ReplTab>
-        </Repl>
       </section>
 
-      <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 flex py-20 px-8 lg:px-20  space-x-44">
+      <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 flex py-20 px-8 lg:px-20 space-x-39">
         <div class="flex flex-wrap content-center">
           <h2 class="text-2xl font-semibold">
             <img class="w-10 mb-5 block" src={flag} />
             Fully loaded with all features.
           </h2>
           <p class="text-xl mt-4">
-            Solid supports most React features and expands on aspects to increase DX.
+            Solid supports all common and expected library features and expands
+            on aspects to increase DX.
           </p>
         </div>
         <ul class="flex flex-wrap">
