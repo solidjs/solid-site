@@ -11,25 +11,25 @@ const graphData = [
       {
         label: 'Solid 1.0.0',
         active: true,
-        score: 17078
+        score: 17078,
       },
       {
         label: 'Marko.js 4.18.16',
-        score: 6008
+        score: 6008,
       },
       {
         label: 'Preact 10.0.1',
-        score: 6435
+        score: 6435,
       },
       {
         label: 'React 16.10.2',
-        score: 7358
+        score: 7358,
       },
       {
         label: 'Vue 2.6.10',
-        score: 4291
-      }
-    ]
+        score: 4291,
+      },
+    ],
   },
   {
     id: 'test2',
@@ -40,38 +40,40 @@ const graphData = [
       {
         label: 'Solid 1.0.0',
         active: true,
-        score: 6000
+        score: 6000,
       },
       {
         label: 'Marko.js 4.18.16',
-        score: 5000
+        score: 5000,
       },
       {
         label: 'Preact 10.0.1',
-        score: 4000
+        score: 4000,
       },
       {
         label: 'React 16.10.2',
-        score: 3000
+        score: 3000,
       },
       {
         label: 'Vue 2.6.10',
-        score: 2000
+        score: 2000,
       },
       {
         label: 'Lit',
-        score: 1000
-      }
-    ]
+        score: 1000,
+      },
+    ],
   },
 ];
 
 const Chart: Component<{ data: any }> = (props) => {
-  const maxValue = createMemo(() => Math.max(...props.data.map(row => row.score)));
-  const options = createMemo(() => props.data.map((row) => ({
-    ...row,
-    width: `${(row.score / maxValue()) * 100}%`
-  })));
+  const maxValue = createMemo(() => Math.max(...props.data.map((row) => row.score)));
+  const options = createMemo(() =>
+    props.data.map((row) => ({
+      ...row,
+      width: `${(row.score / maxValue()) * 100}%`,
+    })),
+  );
   return (
     <table class="w-full table-fixed">
       <tbody>
@@ -85,11 +87,12 @@ const Chart: Component<{ data: any }> = (props) => {
                   classList={{
                     'bg-solid-medium': row.active,
                     'text-white': row.active,
-                    'bg-gray-100': !row.active
+                    'bg-gray-100': !row.active,
                   }}
-                  style={({
-                  width: row.width,
-                })}>
+                  style={{
+                    width: row.width,
+                  }}
+                >
                   {row.score ? <figure>{row.score}</figure> : ''}
                 </div>
               </td>
@@ -109,24 +112,21 @@ const Chart: Component<{ data: any }> = (props) => {
       </tbody>
     </table>
   );
-}
+};
 
 const Benchmarks: Component<{}> = (props) => {
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
   return (
     <>
-      <Chart data={graphData[current()].data}/>
+      <Chart data={graphData[current()].data} />
       <Show
         when={expanded()}
-        fallback={(
-          <button
-            class="py-3 block text-sm"
-            onClick={() => setExpanded(true)}
-          >
+        fallback={
+          <button class="py-3 block text-sm" onClick={() => setExpanded(true)}>
             Show more benchmarks
           </button>
-        )}
+        }
       >
         <div class="space-x-2 space-y-10">
           {graphData.map((item, index) => {
@@ -136,7 +136,7 @@ const Benchmarks: Component<{}> = (props) => {
                 class="text-sm px-6 py-3 rounded transition-all"
                 classList={{
                   'active text-white bg-gray-500': current() === index,
-                  'bg-gray-100': current() !== index
+                  'bg-gray-100': current() !== index,
                 }}
               >
                 {item.name}
@@ -145,9 +145,13 @@ const Benchmarks: Component<{}> = (props) => {
           })}
         </div>
         <p class="py-5">{graphData[current()].description}</p>
-        {graphData[current()].link ? <a target="_blank"
-          rel="noopener noreferrer"
-          href={graphData[current()].link}>View the benchmark</a> : ''}
+        {graphData[current()].link ? (
+          <a target="_blank" rel="noopener noreferrer" href={graphData[current()].link}>
+            View the benchmark
+          </a>
+        ) : (
+          ''
+        )}
       </Show>
     </>
   );

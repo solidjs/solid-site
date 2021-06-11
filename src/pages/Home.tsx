@@ -139,7 +139,6 @@ const Home: Component = () => (
               <span class="block text-sm">In Performance</span>
             </a>
           </li>
-
         </ul>
       </section>
 
@@ -172,7 +171,9 @@ const Home: Component = () => (
 
         <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
           <img class="w-20" src={iconBlocks1} />
-          <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">It's familiar and modern</h3>
+          <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">
+            It's familiar and modern
+          </h3>
 
           <p class="mt-9 leading-7">
             While a new UI library is supposed to jump out and break the mold, Solid doesn't stand
@@ -223,8 +224,7 @@ const Home: Component = () => (
       </section>
 
       <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
-        
-        <div class="overflow-hidden mt-10 lg:mt-0 flex-1">
+        <div class="flex flex-wrap items-center flex-1">
           <Benchmarks />
         </div>
 
@@ -232,11 +232,11 @@ const Home: Component = () => (
           <img class="w-20" src={iconBlocks2} />
           <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
           <p class="leading-7 mt-9">
-            It's no secret that Solid consistently performs as the top rated JS framework in
-            the world on the client side and especially server-side. The strength of
-            fine-grained reactivity as an approach shines on all notable benchmarks. While
-            performance may not be your focus, the end-user's experience is always a focus.
-            Solid's performance edge means that you can scale without concern.
+            It's no secret that Solid consistently performs as the top rated JS framework in the
+            world on the client side and especially server-side. The strength of fine-grained
+            reactivity as an approach shines on all notable benchmarks. While performance may not be
+            your focus, the end-user's experience is always a focus. Solid's performance edge means
+            that you can scale without concern.
           </p>
           <Link
             class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
@@ -245,7 +245,6 @@ const Home: Component = () => (
             Read more
           </Link>
         </div>
-
       </section>
 
       <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 flex py-20 px-8 lg:px-20 space-x-39">
@@ -255,8 +254,8 @@ const Home: Component = () => (
             Fully loaded with all features.
           </h2>
           <p class="text-xl mt-4">
-            Solid supports all common and expected library features and expands
-            on aspects to increase DX.
+            Solid supports all common and expected library features and expands on aspects to
+            increase DX.
           </p>
         </div>
         <ul class="flex flex-wrap">
