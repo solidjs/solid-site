@@ -15,7 +15,7 @@ import wordmark from '../assets/wordmark.svg';
 
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import Graph from '../components/Graph';
+import Benchmarks from '../components/Benchmarks';
 
 const Home: Component = () => (
   <div class="flex flex-col">
@@ -224,14 +224,13 @@ const Home: Component = () => (
 
       <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
         
-        <div class="overflow-hidden mt-10 lg:mt-0 flex-1 bg-blocks-two bg-no-repeat bg-left">
-          <Graph />
+        <div class="overflow-hidden mt-10 lg:mt-0 flex-1">
+          <Benchmarks />
         </div>
 
-        <div class="flex flex-col justify-center flex-1">
+        <div class="flex flex-col justify-center flex-1 bg-no-repeat bg-right bg-blocks-two">
           <img class="w-20" src={iconBlocks2} />
           <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
-
           <p class="leading-7 mt-9">
             It's no secret that Solid consistently performs as the top rated JS framework in
             the world on the client side and especially server-side. The strength of
