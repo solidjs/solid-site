@@ -228,7 +228,7 @@ const Home: Component = () => (
           <Benchmarks />
         </div>
 
-        <div class="flex flex-col justify-center flex-1 bg-no-repeat bg-right bg-blocks-two">
+        <div class="flex flex-col justify-center flex-1 bg-no-repeat">
           <img class="w-20" src={iconBlocks2} />
           <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
           <p class="leading-7 mt-9">
