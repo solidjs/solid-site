@@ -4,63 +4,83 @@ import { createSignal, createMemo, Show } from 'solid-js';
 const graphData = [
   {
     id: 'test1',
-    name: 'JS Benchmark',
-    description: 'JS benchmark with a description describing why it is useful.',
-    link: 'https://github.com/marko-js/isomorphic-ui-benchmarks',
+    name: 'JS Framework Benchmark',
+    description: 'The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.',
+    link: 'https://github.com/krausest/js-framework-benchmark',
     data: [
       {
-        label: 'Solid 1.0.0',
+        label: 'Vanilla',
+        score: 1,
+      },
+      {
+        label: 'Solid 0.20.0',
         active: true,
-        score: 17078,
+        score: 1.07,
       },
       {
-        label: 'Marko.js 4.18.16',
-        score: 6008,
+        label: 'Inferno 7.4.8',
+        score: 1.21,
       },
       {
-        label: 'Preact 10.0.1',
-        score: 6435,
+        label: 'Svelte 3.37.9',
+        score: 1.26,
       },
       {
-        label: 'React 16.10.2',
-        score: 7358,
+        label: 'Preact 10.5.12',
+        score: 1.44,
       },
       {
-        label: 'Vue 2.6.10',
-        score: 4291,
+        label: 'Vue 3.0.6',
+        score: 1.56,
+      },
+      {
+        label: 'React 17.0.1',
+        score: 1.96,
+      },
+      {
+        label: 'Angular 12.0.1',
+        score: 1.97,
+      },
+      {
+        label: 'Ember 3.22.0',
+        score: 2.21,
       },
     ],
   },
   {
     id: 'test2',
-    name: 'Other Test',
-    description: 'This is a different kind oof benchmark and this describes why.',
+    name: 'Isomorphic UI Benchmarks (Search Results)',
+    description: 'This benchmark tests raw Server Rendering speeds. Higher is better.',
     link: 'https://github.com/marko-js/isomorphic-ui-benchmarks',
     data: [
       {
         label: 'Solid 1.0.0',
         active: true,
-        score: 6000,
+        score: 17110,
       },
       {
-        label: 'Marko.js 4.18.16',
-        score: 5000,
+        label: 'Inferno 7.4.8',
+        score: 3135,
       },
       {
-        label: 'Preact 10.0.1',
-        score: 4000,
+        label: 'Svelte 3.37.8',
+        score: 4360,
       },
       {
-        label: 'React 16.10.2',
-        score: 3000,
+        label: 'Preact 10.4.8',
+        score: 1483,
       },
       {
-        label: 'Vue 2.6.10',
-        score: 2000,
+        label: 'Vue 2.6.12',
+        score: 3626,
       },
       {
-        label: 'Lit',
-        score: 1000,
+        label: 'React 16.13.1',
+        score: 1038,
+      },
+      {
+        label: 'Marko 5.8.4',
+        score: 8421,
       },
     ],
   },
