@@ -1,8 +1,6 @@
 import CompilerWorker from 'solid-repl/lib/compiler?worker';
 import FormatterWorker from 'solid-repl/lib/formatter?worker';
 
-import 'monaco-editor/min/vs/editor/editor.main.css';
-
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';

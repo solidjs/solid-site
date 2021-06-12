@@ -355,10 +355,10 @@
   resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-3.0.1.tgz#4d26a9efe3aa2caf829234ec5a39580fc88b6001"
   integrity sha512-pQv3Sygwxxh6jYQzXaiyWDAHevJqWtqDUv6t11Sa9CPGiXny66II7Pl6PR8QO5OVysD6HYOkHMeBgIjLnk9SkQ==
 
-"@types/markdown-it@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-12.0.1.tgz#8391e19fea4796ff863edda55800c7e669beb358"
-  integrity sha512-mHfT8j/XkPb1uLEfs0/C3se6nd+webC2kcqcy8tgcVr0GDEONv/xaQzAN+aQvkxQXk/jC0Q6mPS+0xhFwRF35g==
+"@types/markdown-it@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-12.0.2.tgz#153e5477970ed2a47b2f619ed4ab66f870de8a04"
+  integrity sha512-p4DIfLMmGN0iLSbMxknDXeSm8W2ZRqQeN/1EAwVxVqJietzgp3WeP1UQjCKWDXWBcEbUa1ECx8YAfdpQdDQmZQ==
   dependencies:
     "@types/highlight.js" "^9.7.0"
     "@types/linkify-it" "*"
@@ -1756,10 +1756,24 @@ postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.10, postcss@^8.3.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
+postcss@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.2.tgz#ed3ec489f5428af5740cd6effcc216b4d455ee64"
+  integrity sha512-y1FK/AWdZlBF5lusS5j5l4/vF67+vQZt1SXPVJ32y1kRGDQyrs1zk32hG1cInRTu14P0V+orPz+ifwW/7rR4bg==
+  dependencies:
+    colorette "^1.2.2"
+    nanoid "^3.1.23"
+    source-map-js "^0.6.2"
+
 prettier@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
   integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
+
+prettier@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
+  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
 
 pretty-hrtime@^1.0.3:
   version "1.0.3"
@@ -2197,10 +2211,10 @@ vite-plugin-rewrite-all@^0.1.2:
   dependencies:
     connect-history-api-fallback "^1.6.0"
 
-vite-plugin-solid@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-solid/-/vite-plugin-solid-1.8.0.tgz#6a01aa2ea301942e9495e3ca006375c7084532cc"
-  integrity sha512-LdgrWCBdclR1Mim3pdZNf57IcmUh8KU/kdWgj3uDQKPMywmvS3V5DjhZHxeIpTV1ePLwkyZSmBzQkqTP1EoO8g==
+vite-plugin-solid@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-solid/-/vite-plugin-solid-1.9.0.tgz#4bf864c62d7ae6d5b877588f78ffdacaa898a281"
+  integrity sha512-GN6lm/FkMBuZZyVEXSLf2lJzw+uhyFpBUPZ1d7p9PbgH6ScpTny5waa8smur4dx/JRuXDpHq+kWoRV3kCP4YjQ==
   dependencies:
     "@babel/core" "^7.14.2"
     "@babel/preset-typescript" "^7.13.0"
@@ -2210,13 +2224,25 @@ vite-plugin-solid@^1.8.0:
     solid-refresh "^0.1.2"
     vite "^2.3.2"
 
-vite@^2.3.2, vite@^2.3.6:
+vite@^2.3.2:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.6.tgz#1f7cfde88a51a802d69000c7bac85d481c2e871c"
   integrity sha512-fsEpNKDHgh3Sn66JH06ZnUBnIgUVUtw6ucDhlOj1CEqxIkymU25yv1/kWDPlIjyYHnalr0cN6V+zzUJ+fmWHYw==
   dependencies:
     esbuild "^0.12.5"
     postcss "^8.2.10"
+    resolve "^1.19.0"
+    rollup "^2.38.5"
+  optionalDependencies:
+    fsevents "~2.3.1"
+
+vite@^2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.7.tgz#3023892419367465e1af1739578f8663d04243b2"
+  integrity sha512-Y0xRz11MPYu/EAvzN94+FsOZHbSvO6FUvHv127CyG7mV6oDoay2bw+g5y9wW3Blf8OY3chaz3nc/DcRe1IQ3Nw==
+  dependencies:
+    esbuild "^0.12.5"
+    postcss "^8.3.0"
     resolve "^1.19.0"
     rollup "^2.38.5"
   optionalDependencies:
