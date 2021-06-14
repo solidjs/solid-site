@@ -3,7 +3,8 @@ import type { GraphData } from '../components/Benchmarks';
 const js_framework = {
   id: 'js-framework-benchmark',
   name: 'JS Framework Benchmark',
-  description: 'The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.',
+  description:
+    'The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.',
   link: 'https://github.com/krausest/js-framework-benchmark',
   data: [
     {
@@ -84,7 +85,4 @@ const isomorphic = {
   ],
 } as GraphData;
 
-export const BenchmarkData = () => [
-  js_framework,
-  isomorphic
-];
+export const BenchmarkData = () => [js_framework, isomorphic];

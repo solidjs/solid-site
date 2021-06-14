@@ -6,7 +6,7 @@ export interface GraphData {
   name: string;
   description: string;
   link: string;
-  data: Array<RowData>
+  data: Array<RowData>;
 }
 interface RowData {
   label: string;

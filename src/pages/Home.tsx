@@ -18,7 +18,7 @@ import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
 
 interface HomepageProps {
-  benchmarks: Array<GraphData>
+  benchmarks: Array<GraphData>;
 }
 
 const Home: Component<HomepageProps> = (props) => (
@@ -180,11 +180,10 @@ const Home: Component<HomepageProps> = (props) => (
           </h3>
 
           <p class="mt-9 leading-7">
-            Solid stands on the shoulders of giants, particularly React and Knockouts. 
-            If you've developed with React Hooks before Solid should seem very natural.
-            In fact, more natural as Solid's model is much simpler with no Hook rules.
-            Every Component executes once and it is the Hooks and bindings that execute
-            many times as their dependencies update.
+            Solid stands on the shoulders of giants, particularly React and Knockouts. If you've
+            developed with React Hooks before Solid should seem very natural. In fact, more natural
+            as Solid's model is much simpler with no Hook rules. Every Component executes once and
+            it is the Hooks and bindings that execute many times as their dependencies update.
           </p>
 
           <p class="mt-4 leading-7">
