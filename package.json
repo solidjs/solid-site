@@ -14,7 +14,7 @@
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.8.0",
     "markdown-it-prism": "^2.1.6",
-    "monaco-editor": "^0.24.0",
+    "monaco-editor": "^0.25.0",
     "prism-themes": "^1.7.0",
     "prismjs": "^1.23.0",
     "solid-app-router": "^0.0.45",
@@ -36,7 +36,7 @@
     "markdown-it-anchor": "^7.1.0",
     "npm-run-all": "^4.1.5",
     "patch-package": "^6.4.7",
-    "postcss": "^8.3.2",
+    "postcss": "^8.3.4",
     "prettier": "^2.3.1",
     "shiki": "^0.9.3",
     "tailwindcss": "^2.1.4",
