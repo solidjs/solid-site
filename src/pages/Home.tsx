@@ -15,9 +15,13 @@ import wordmark from '../assets/wordmark.svg';
 
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import Benchmarks from '../components/Benchmarks';
+import Benchmarks, { GraphData } from '../components/Benchmarks';
 
-const Home: Component = () => (
+interface HomepageProps {
+  benchmarks: Array<GraphData>
+}
+
+const Home: Component<HomepageProps> = (props) => (
   <div class="flex flex-col">
     <h1 class="sr-only">SolidJS homepage</h1>
 
@@ -225,7 +229,7 @@ const Home: Component = () => (
 
       <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
         <div class="flex flex-wrap items-center flex-1">
-          <Benchmarks />
+          <Benchmarks list={props.benchmarks} />
         </div>
 
         <div class="flex flex-col justify-center flex-1 bg-no-repeat">

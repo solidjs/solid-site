@@ -35,6 +35,12 @@ const contributors = [
     link: 'https://www.pilotinteractive.io',
     detail: 'Sarah has graciously provided her expertise in usability and design.',
   },
+  {
+    name: 'Les Pruszynski',
+    company: '',
+    link: 'https://github.com/seneca',
+    detail: 'Les provides support for copywriting on the website and our tutorials.',
+  },
 ] as const;
 
 const ecosystem = [
