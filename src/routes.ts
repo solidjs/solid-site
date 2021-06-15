@@ -4,12 +4,15 @@ import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
+import { ResourceData } from './pages/Resources.data';
 
 export const routes: RouteDefinition[] = [
   {
     path: '/',
     component: lazy(() => import('./pages/Home')),
-    data: () => ({ benchmarks: BenchmarkData() }),
+    data: () => ({
+      benchmarks: BenchmarkData(),
+    }),
   },
   {
     path: '/docs/:version',
@@ -33,6 +36,7 @@ export const routes: RouteDefinition[] = [
   {
     path: '/resources',
     component: lazy(() => import('./pages/Resources')),
+    data: ResourceData,
   },
   {
     path: '/media',
