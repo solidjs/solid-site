@@ -182,7 +182,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
       const newTabs = data.files.map((file) => {
         return {
           name: file.name,
-          type: 'tsx',
+          type: file.type || 'tsx',
           source: file.content,
         };
       });

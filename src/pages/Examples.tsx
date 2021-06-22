@@ -89,7 +89,6 @@ const Examples: Component<Props> = (props) => {
             source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
           };
         });
-        console.log(newTabs);
         setTabs(newTabs);
         setCurrent(`${newTabs[0].name}.tsx`);
       });
