@@ -83,21 +83,23 @@ export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
       return data().solved;
     },
     get tutorialDirectory() {
-      if (directory.loading || !directory()) return directory();
+      const data = directory();
+      return (
+        data &&
+        data.reduce<Record<string, TutorialDirectory>>((sections, item) => {
+          // Turns `Basics/Signal` into ['Basics', 'Signal']
+          const [section, lessonName] = item.lessonName.split('/');
 
-      return directory().reduce<Record<string, TutorialDirectory>>((sections, item) => {
-        // Turns `Basics/Signal` into ['Basics', 'Signal']
-        const [section, lessonName] = item.lessonName.split('/');
+          // Create the section if it doesn't already exists
+          if (!sections[section]) {
+            sections[section] = [];
+          }
 
-        // Create the section if it doesn't already exists
-        if (!sections[section]) {
-          sections[section] = [];
-        }
+          sections[section].push({ ...item, lessonName });
 
-        sections[section].push({ ...item, lessonName });
-
-        return sections;
-      }, {});
+          return sections;
+        }, {})
+      );
     },
     get tutorialDirectoryEntry() {
       const data = directory();

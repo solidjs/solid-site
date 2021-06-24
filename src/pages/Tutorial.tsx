@@ -32,7 +32,7 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
   let listContainer!: HTMLOListElement;
   let search!: HTMLInputElement;
 
-  const directory = createMemo(() => Object.entries(props.directory));
+  const directory = createMemo(() => Object.entries(props.directory || {}));
 
   const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
     return (
