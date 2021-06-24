@@ -2,7 +2,7 @@
   "files": [
       {
           "name": "main",
-          "content": "// @ts-nocheck\nimport { render } from \"solid-js/web\";\nimport { createSignal, Show } from \"solid-js\";\nimport clickOutside from \"./click-outside\";\nimport \"./style.css\";\n\nfunction App() {\n  const [show, setShow] = createSignal(false);\n\n  return (\n    <Show\n      when={show()}\n      fallback={<button onClick={(e) => setShow(true)}>Open Modal</button>}\n    >\n      <div class=\"modal\">\n        Some Modal\n      </div>\n    </Show>\n  );\n}\n\nrender(() => <App />, document.getElementById(\"app\"));\n\n// prevent dead code elimination\nwindow.c = clickOutside;\n"
+          "content": "// @ts-nocheck\nimport { render } from \"solid-js/web\";\nimport { createSignal, Show } from \"solid-js\";\nimport clickOutside from \"./click-outside\";\nimport \"./style.css\";\n\nfunction App() {\n  const [show, setShow] = createSignal(false);\n\n  return (\n    <Show\n      when={show()}\n      fallback={<button onClick={(e) => setShow(true)}>Open Modal</button>}\n    >\n      <div class=\"modal\">\n        Some Modal\n      </div>\n    </Show>\n  );\n}\n\nrender(() => <App />, document.getElementById(\"app\"));\n"
       },
       {
           "name": "click-outside",

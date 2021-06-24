@@ -1,11 +1,11 @@
-Stores are most often created in Solid using Solid's State proxies. Sometimes we wish to interface with immutable libraries like Redux, Apollo, or XState and need to perform granular updates against these.
+Stores are most often created in Solid using Solid's Store proxies. Sometimes we wish to interface with immutable libraries like Redux, Apollo, or XState and need to perform granular updates against these.
 
 In the example, we have a simple wrapper around Redux. You can see the implementation in `useRedux.tsx`. The definition of the store and the actions are in the remaining files.
 
-The core behavior is that we created a State object and subscribe to the Redux store to update state on update.
+The core behavior is that we created a Store object and subscribe to the Redux store to update state on update.
 
 ```js
-const [state, setState] = createState(store.getState());
+const [state, setState] = createStore(store.getState());
 const unsubscribe = store.subscribe(
   () => setState(store.getState())
 );
@@ -14,11 +14,11 @@ If you click around the demo adding items and checking them off it seems to work
 
 The reason is Solid doesn't diff by default. It assumes the new item is new and replaces it. If your data changes granularly you don't need to diff. But what if you do?
 
-Solid provides a diffing method `reconcile` that enhances the `setState` call and lets us diff the data from these immutable sources only notifying the granular updates.
+Solid provides a diffing method `reconcile` that enhances the `setStore` call and lets us diff the data from these immutable sources only notifying the granular updates.
 
 Let's update that code to:
 ```js
-const [state, setState] = createState(store.getState());
+const [state, setState] = createStore(store.getState());
 const unsubscribe = store.subscribe(
   () => setState(reconcile(store.getState()))
 );
@@ -31,7 +31,7 @@ Of course, no problem using `reconcile` when you need it. Some times a simple re
 
 ```js
 const useReducer = (reducer, state) => {
-  const [store, setStore] = createState(state);
+  const [store, setStore] = createStore(state);
   const dispatch = (action) => {
     state = reducer(state, action);
     setStore(reconcile(state));

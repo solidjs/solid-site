@@ -104,16 +104,16 @@
     "internalName": "props_children"
   },
   {
-    "lessonName": "State/Nested Reactivity",
-    "internalName": "state_nested_reactivity"
+    "lessonName": "Stores/Nested Reactivity",
+    "internalName": "stores_nested_reactivity"
   },
   {
-    "lessonName": "State/Creating State",
-    "internalName": "state_createstate"
+    "lessonName": "Stores/Create Store",
+    "internalName": "stores_createstore"
   },
   {
-    "lessonName": "State/Mutation",
-    "internalName": "state_mutation"
+    "lessonName": "Stores/Mutation",
+    "internalName": "stores_mutation"
   },
   {
     "lessonName": "Stores/Context",

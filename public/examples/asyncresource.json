@@ -1,8 +1,8 @@
 {
-    "files": [
-        {
-            "name": "main",
-            "content": "import { createResourceState, createComputed } from \"solid-js\";\nimport { render } from \"solid-js/web\";\n\nconst fetchUser = (id) => () =>\n  id\n    ? fetch(`https://swapi.dev/api/people/${id}/`).then((r) => r.json())\n    : undefined;\n\nconst App = () => {\n  const [state, load, setState] = createResourceState();\n  createComputed(() =>\n    load({\n      user: fetchUser(state.userId)\n    })\n  );\n\n  return (\n    <>\n      <input\n        type=\"number\"\n        min=\"1\"\n        placeholder=\"Enter Numeric Id\"\n        onInput={(e) => setState({ userId: e.target.value })}\n      />\n      <span>{state.loading.user && \"Loading...\"}</span>\n      <div>\n        <code>{JSON.stringify(state.user)}</code>\n      </div>\n    </>\n  );\n};\n\nrender(App, document.getElementById(\"app\"));"
-        }
-    ]
+  "files": [
+    {
+      "name": "main",
+      "content": "import { createSignal, createResource } from \"solid-js\";\nimport { render } from \"solid-js/web\";\n\nconst fetchUser = async (id) =>\n  (await fetch(`https://swapi.dev/api/people/${id}/`)).json();\n\nconst App = () => {\n  const [userId, setUserId] = createSignal();\n  const [user] = createResource(userId, fetchUser);\n\n  return (\n    <>\n      <input\n        type=\"number\"\n        min=\"1\"\n        placeholder=\"Enter Numeric Id\"\n        onInput={(e) => setUserId(e.currentTarget.value)}\n      />\n      <span>{user.loading && \"Loading...\"}</span>\n      <div>\n        <pre>{JSON.stringify(user(), null, 2)}</pre>\n      </div>\n    </>\n  );\n};\n\nrender(App, document.getElementById(\"app\"));"
+    }
+  ]
 }

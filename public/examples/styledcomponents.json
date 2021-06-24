@@ -1,8 +1,0 @@
-{
-    "files": [
-        {
-            "name": "main",
-            "content": "import { createState } from \"solid-js\";\nimport { render } from \"solid-js/web\";\nimport { styled } from \"solid-styled-components\";\n\nconst Div = styled(\"div\")`\n  color: red;\n  font-size: 32px;\n  padding: 5px;\n  border: 2px solid black;\n  background-color: purple;\n`;\n\nconst StyledDiv = styled(Div)`\n  background-color: lightblue;\n  font-weight: ${(props) => (props.bold ? \"bold\" : 100)};\n`;\n\nconst App = () => {\n  const [state, setState] = createState({ name: \"Solid\", bold: true });\n\n  return (\n    <StyledDiv onClick={() => setState(\"bold\", (b) => !b)} bold={state.bold}>\n      Hello {state.name}\n    </StyledDiv>\n  );\n};\n\nrender(App, document.getElementById(\"app\"));"
-        }
-    ]
-}

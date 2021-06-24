@@ -49,13 +49,8 @@ const list: Record<string, Example[]> = {
       description: 'Ajax requests to SWAPI with Promise cancellation',
     },
     {
-      id: 'suspenselist',
-      name: 'Suspense',
-      description: "Various Async loading with Solid's Suspend control flow",
-    },
-    {
       id: 'suspensetabs',
-      name: 'Suspense Tabs',
+      name: 'Suspense Transitions',
       description: 'Defered loading spinners for smooth UX',
     },
     {

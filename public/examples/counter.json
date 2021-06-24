@@ -3,19 +3,19 @@
   "description": "A simple standard counter example",
   "files": [
     {
-      "name": "counter",
+      "name": "main",
       "content": [
-        "import { createState, onCleanup } from \"solid-js\";",
+        "import { createSignal, onCleanup } from \"solid-js\";",
         "import { render } from \"solid-js/web\";",
         "",
         "const CountingComponent = () => {",
-        "\tconst [state, setState] = createState({ counter: 0 });",
+        "\tconst [count, setCount] = createSignal(0);",
         "\tconst interval = setInterval(",
-        "\t\t() => setState({ counter: state.counter + 1 }),",
+        "\t\t() => setCount(c => c + 1),",
         "\t\t1000",
         "\t);",
         "\tonCleanup(() => clearInterval(interval));",
-        "\treturn <div>Count value is {state.counter}</div>;",
+        "\treturn <div>Count value is {count()}</div>;",
         "};",
         "",
         "render(() => <CountingComponent />, document.getElementById(\"app\"));"

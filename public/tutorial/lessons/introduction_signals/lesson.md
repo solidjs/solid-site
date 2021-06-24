@@ -17,6 +17,11 @@ setInterval(() => setCount(count() + 1), 1000);
 
 We read the previous count, add 1, and set the new value.
 
+> Solid's Signals also accept a function form where you can use the previous value to set the next value.
+> ```jsx
+> setCount(c => c + 1)
+> ```
+
 Finally we need to read our signal in our JSX code.
 
 ```jsx
