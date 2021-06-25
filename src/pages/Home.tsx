@@ -156,10 +156,11 @@ const Home: Component<HomepageProps> = (props) => (
                 name: 'main1',
                 type: 'tsx',
                 source: `import { render } from "solid-js/web";
-import { createState, onCleanup } from "solid-js";
+import { onCleanup } from "solid-js";
+import { createStore } from "solid-js/store";
 
 const CountingComponent = () => {
-  const [state, setState] = createState({ counter: 0 });
+  const [state, setState] = createStore({ counter: 0 });
   const interval = setInterval(
     () => setState({ counter: state.counter + 1 }),
     1000

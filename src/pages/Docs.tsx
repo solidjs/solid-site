@@ -1,4 +1,5 @@
-import { Component, For, Show, Switch, Match, createState } from 'solid-js';
+import { Component, For, Show, Switch, Match } from 'solid-js';
+import { createStore } from 'solid-js/store';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -12,7 +13,7 @@ const Docs: Component<{
   loading: boolean;
   version: string;
 }> = (props) => {
-  const [section, setSection] = createState<Record<string, boolean>>({});
+  const [section, setSection] = createStore<Record<string, boolean>>({});
 
   return (
     <div class="flex flex-col relative">
