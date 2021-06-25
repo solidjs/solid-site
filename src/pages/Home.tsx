@@ -1,6 +1,5 @@
-import { Component } from 'solid-js';
+import { Component, lazy, Suspense } from 'solid-js';
 import { Link } from 'solid-app-router';
-import { OldRepl } from '../components/ReplTab';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -15,6 +14,8 @@ import wordmark from '../assets/wordmark.svg';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
+
+const OldRepl = lazy(() => import('../components/ReplTab'));
 
 interface HomepageProps {
   benchmarks: Array<GraphData>;
@@ -150,12 +151,13 @@ const Home: Component<HomepageProps> = (props) => (
           style="height:600px; width:100%;"
           class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 mt-10 lg:mt-0"
         >
-          <OldRepl
-            tabs={[
-              {
-                name: 'main1',
-                type: 'tsx',
-                source: `import { render } from "solid-js/web";
+          <Suspense fallback={'Loading...'}>
+            <OldRepl
+              tabs={[
+                {
+                  name: 'main1',
+                  type: 'tsx',
+                  source: `import { render } from "solid-js/web";
 import { onCleanup } from "solid-js";
 import { createStore } from "solid-js/store";
 
@@ -170,9 +172,10 @@ const CountingComponent = () => {
 };
 
 render(() => <CountingComponent />, document.getElementById("app"));`,
-              },
-            ]}
-          />
+                },
+              ]}
+            />
+          </Suspense>
         </div>
 
         <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">

@@ -2,7 +2,7 @@ import { Component, createSignal } from 'solid-js';
 import { createTabList, Repl, Tab } from 'solid-repl';
 import { compiler, formatter } from './setupRepl';
 
-export const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
+const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   const initialTabs = props.tabs || [
     {
       name: 'main',
@@ -28,3 +28,4 @@ export const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
     />
   );
 };
+export default OldRepl;
