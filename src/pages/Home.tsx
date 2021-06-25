@@ -1,7 +1,5 @@
-import { Component } from 'solid-js';
+import { Component, lazy, Suspense } from 'solid-js';
 import { Link } from 'solid-app-router';
-import { Repl, ReplTab } from 'solid-repl';
-
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -16,6 +14,8 @@ import wordmark from '../assets/wordmark.svg';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
+
+const OldRepl = lazy(() => import('../components/ReplTab'));
 
 interface HomepageProps {
   benchmarks: Array<GraphData>;
@@ -147,31 +147,36 @@ const Home: Component<HomepageProps> = (props) => (
       </section>
 
       <section class="py-20 px-8 lg:px-15 flex flex-col lg:flex-row lg:space-x-32">
-        <Repl
-          title="Interactive Example"
-          height={600}
-          isInteractive
+        <div
+          style="height:600px; width:100%;"
           class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 mt-10 lg:mt-0"
         >
-          <ReplTab name="main">
-            {`
-              import { render } from "solid-js/web";
-              import { createState, onCleanup } from "solid-js";
+          <Suspense fallback={'Loading...'}>
+            <OldRepl
+              tabs={[
+                {
+                  name: 'main1',
+                  type: 'tsx',
+                  source: `import { render } from "solid-js/web";
+import { onCleanup } from "solid-js";
+import { createStore } from "solid-js/store";
 
-              const CountingComponent = () => {
-                const [state, setState] = createState({ counter: 0 });
-                const interval = setInterval(
-                  () => setState({ counter: state.counter + 1 }),
-                  1000
-                );
-                onCleanup(() => clearInterval(interval));
-                return <div>Count value is {state.counter}</div>;
-              };
+const CountingComponent = () => {
+  const [state, setState] = createStore({ counter: 0 });
+  const interval = setInterval(
+    () => setState({ counter: state.counter + 1 }),
+    1000
+  );
+  onCleanup(() => clearInterval(interval));
+  return <div>Count value is {state.counter}</div>;
+};
 
-              render(() => <CountingComponent />, document.getElementById("app"));
-            `}
-          </ReplTab>
-        </Repl>
+render(() => <CountingComponent />, document.getElementById("app"));`,
+                },
+              ]}
+            />
+          </Suspense>
+        </div>
 
         <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
           <img class="w-20" src={iconBlocks1} />

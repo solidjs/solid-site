@@ -1,4 +1,4 @@
-import { Repl } from 'solid-repl';
+import { Repl, createTabList } from 'solid-repl';
 import { Link, NavLink } from 'solid-app-router';
 import {
   For,
@@ -10,13 +10,14 @@ import {
   Suspense,
   createMemo,
   on,
+  batch,
 } from 'solid-js';
-
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
 import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
+import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './Tutorial.data';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -167,6 +168,28 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 };
 
 const Tutorial: Component<TutorialProps> = (props) => {
+  const [tabs, setTabs] = createTabList([
+    {
+      name: 'main',
+      type: 'tsx',
+      source: '',
+    },
+  ]);
+  const [current, setCurrent] = createSignal('main.tsx');
+  createEffect(async () => {
+    const data = await fetch(props.solved ? props.solvedJs : props.js).then((r) => r.json());
+    batch(() => {
+      const newTabs = data.files.map((file) => {
+        return {
+          name: file.name,
+          type: file.type || 'tsx',
+          source: file.content,
+        };
+      });
+      setTabs(newTabs);
+      setCurrent('main.tsx');
+    });
+  });
   return (
     <>
       <Nav showLogo filled />
@@ -227,12 +250,17 @@ const Tutorial: Component<TutorialProps> = (props) => {
           </div>
 
           <Repl
-            title="Interactive Example"
-            height="100%"
-            data={`${location.origin}${props.solved ? props.solvedJs : props.js}`}
-            isInteractive
-            layout="vertical"
-            class=""
+            compiler={compiler}
+            formatter={formatter}
+            isHorizontal={true}
+            interactive={true}
+            actionBar={true}
+            editableTabs={true}
+            dark={false}
+            tabs={tabs()}
+            setTabs={setTabs}
+            current={current()}
+            setCurrent={setCurrent}
           />
         </div>
       </Suspense>

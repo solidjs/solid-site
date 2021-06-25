@@ -1,9 +1,10 @@
-import { Repl } from 'solid-repl';
+import { createTabList, Repl } from 'solid-repl';
 import { Link } from 'solid-app-router';
-import { For, Component } from 'solid-js';
+import { For, Component, createSignal, createEffect, batch } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
+import { compiler, formatter } from '../components/setupRepl';
 
 interface Props {
   params: any;
@@ -67,6 +68,32 @@ const list: Record<string, Example[]> = {
 };
 
 const Examples: Component<Props> = (props) => {
+  const [tabs, setTabs] = createTabList([
+    {
+      name: 'main',
+      type: 'tsx',
+      source: '',
+    },
+  ]);
+  const [current, setCurrent] = createSignal(`main.tsx`);
+  createEffect(async () => {
+    createEffect(async () => {
+      const data = await fetch(`${location.origin}/examples/${props.params.id}.json`).then((r) =>
+        r.json(),
+      );
+      batch(() => {
+        const newTabs = data.files.map((file) => {
+          return {
+            name: file.name,
+            type: file.type || 'tsx',
+            source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
+          };
+        });
+        setTabs(newTabs);
+        setCurrent(`${newTabs[0].name}.tsx`);
+      });
+    });
+  });
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
@@ -102,12 +129,19 @@ const Examples: Component<Props> = (props) => {
             </For>
           </div>
 
-          <div class="col-span-9">
+          <div class="col-span-9 h-[85vh] rounded-lg col-span-6 overflow-hidden shadow-2xl">
             <Repl
-              title="Interactive Example"
-              data={`${location.origin}/examples/${props.params.id}.json`}
-              isInteractive
-              class="h-[85vh] rounded-lg col-span-6 overflow-hidden shadow-2xl"
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={false}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
             />
           </div>
         </div>

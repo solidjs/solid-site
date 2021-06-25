@@ -26,7 +26,7 @@ function getMarkdown(id: string) {
   return markdown;
 }
 
-async function fetchData({ id }: { id: string }) {
+async function fetchData(id: string) {
   if (!id) return {};
 
   const markdown: string = await getMarkdown(id);
@@ -67,7 +67,7 @@ export interface TutorialProps {
 
 export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
   const [directory] = createResource<TutorialDirectory>(fetchTutorialDirectory);
-  const [data] = createResource(() => props.params, fetchData);
+  const [data] = createResource(() => props.params.id, fetchData);
 
   return {
     get loading() {

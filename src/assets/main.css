@@ -1,3 +1,5 @@
+@import url('solid-repl/lib/style.css');
+
 @font-face {
   font-family: 'Gordita';
   src: url('./fonts/Gordita/Gordita Regular.eot?#iefix') format('embedded-opentype'),
