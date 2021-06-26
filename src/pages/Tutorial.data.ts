@@ -74,13 +74,13 @@ export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
       return data.loading;
     },
     get markdown() {
-      return data().markdown;
+      return data()?.markdown;
     },
     get js() {
-      return data().javascript;
+      return data()?.javascript;
     },
     get solvedJs() {
-      return data().solved;
+      return data()?.solved;
     },
     get tutorialDirectory() {
       const data = directory();

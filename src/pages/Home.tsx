@@ -91,7 +91,7 @@ const Home: Component<HomepageProps> = (props) => (
               href="https://bundlephobia.com/result?p=solid-js@0.22.7"
               class="inline-block px-5 py-5"
             >
-              <strong class="font-semibold">7.3kb</strong>
+              <strong class="font-semibold">6kb</strong>
               <span class="block text-sm">Minified + Gzipped</span>
             </a>
           </li>
@@ -115,7 +115,7 @@ const Home: Component<HomepageProps> = (props) => (
               href="https://github.com/ryansolid/solid/stargazers"
               class="inline-block px-5 py-5"
             >
-              <strong class="font-semibold">4+ years</strong>
+              <strong class="font-semibold">5+ years</strong>
               <span class="block text-sm">In development</span>
             </a>
           </li>
@@ -158,17 +158,16 @@ const Home: Component<HomepageProps> = (props) => (
                   name: 'main1',
                   type: 'tsx',
                   source: `import { render } from "solid-js/web";
-import { onCleanup } from "solid-js";
-import { createStore } from "solid-js/store";
+import { onCleanup, createSignal } from "solid-js";
 
 const CountingComponent = () => {
-  const [state, setState] = createStore({ counter: 0 });
+  const [count, setCount] = createSignal(0);
   const interval = setInterval(
-    () => setState({ counter: state.counter + 1 }),
+    () => setCount(count => count + 1),
     1000
   );
   onCleanup(() => clearInterval(interval));
-  return <div>Count value is {state.counter}</div>;
+  return <div>Count value is {count()}</div>;
 };
 
 render(() => <CountingComponent />, document.getElementById("app"));`,

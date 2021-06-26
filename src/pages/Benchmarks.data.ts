@@ -12,33 +12,33 @@ const js_framework = {
       score: 1,
     },
     {
-      label: 'Solid 0.20.0',
+      label: 'Solid 1.0.0',
       active: true,
-      score: 1.07,
+      score: 1.05,
     },
     {
       label: 'Inferno 7.4.8',
-      score: 1.21,
+      score: 1.20,
     },
     {
       label: 'Svelte 3.37.9',
-      score: 1.26,
+      score: 1.27,
     },
     {
       label: 'Preact 10.5.12',
-      score: 1.44,
+      score: 1.42,
     },
     {
       label: 'Vue 3.0.6',
-      score: 1.56,
+      score: 1.54,
     },
     {
       label: 'React 17.0.1',
-      score: 1.96,
+      score: 1.93,
     },
     {
       label: 'Angular 12.0.1',
-      score: 1.97,
+      score: 1.93,
     },
     {
       label: 'Ember 3.22.0',
