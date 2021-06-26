@@ -19,9 +19,18 @@ getValue();
 
 // set value
 setValue(nextValue);
+
+// set value with a function setter
+setValue(prev => prev + next);
 ```
 
-Remember to access signals under a tracking scope if you wish them to react to updates.
+Remember to access signals under a tracking scope if you wish them to react to updates. Tracking scopes are functions that are passed to computations like `createEffect` or JSX expressions.
+
+> If you wish to store a function in a Signal you must use the function form:
+>
+> ```js
+> setValue(() => myFunction);
+> ```
 
 ## `createEffect`
 
@@ -123,149 +132,6 @@ refetch();
 
 `loading` and `error` are reactive getters and can be tracked.
 
-## `createState`
-
-```ts
-export function createState<T extends StateNode>(
-  state: T | State<T>,
-  options?: { name?: string }
-): [get: State<T>, set: SetStateFunction<T>];
-```
-
-This creates a tree of signals as proxy that allows individual values in nested data structures to be independently tracked. The create function returns a readonly proxy object, and a state setter function.
-
-```js
-const [state, setState] = createState(initialValue);
-
-// read value
-state.someValue;
-
-// set value
-setState({ merge: "thisValue" });
-
-setState("path", "to", "value", newValue);
-```
-
-### Getters
-
-State objects support the use of getters to store calculated values.
-
-```js
-const [state, setState] = createState({
-  user: {
-    firstName: "John",
-    lastName: "Smith",
-    get fullName() {
-      return `${this.firstName} ${this.lastName}`;
-    }
-  }
-});
-```
-
-These are simple getters, so you still need to use a Memo if you want to cache a value;
-
-```js
-let fullName;
-const [state, setState] = createState({
-  user: {
-    firstName: "John",
-    lastName: "Smith",
-    get fullName() {
-      return fullName();
-    }
-  }
-});
-fullName = createMemo(() => `${state.firstName} ${state.lastName}`);
-```
-
-### Setting State
-
-Changes can take the form of function that passes previous state and returns new state or a value. Objects are always merged. Set values to `undefined` to delete them from state.
-
-```js
-const [state, setState] = createState({ firstName: "John", lastName: "Miller" });
-
-setState({ firstName: "Johnny", middleName: "Lee" });
-// ({ firstName: 'Johnny', middleName: 'Lee', lastName: 'Miller' })
-
-setState(state => ({ preferredName: state.firstName, lastName: "Milner" }));
-// ({ firstName: 'Johnny', preferredName: 'Johnny', middleName: 'Lee', lastName: 'Milner' })
-```
-
-It supports paths including key arrays, object ranges, and filter functions.
-
-setState also supports nested setting where you can indicate the path to the change. When nested the state you are updating may be other non Object values. Objects are still merged but other values (including Arrays) are replaced.
-
-```js
-const [state, setState] = createState({
-  counter: 2,
-  list: [
-    { id: 23, title: 'Birds' }
-    { id: 27, title: 'Fish' }
-  ]
-});
-
-setState('counter', c => c + 1);
-setState('list', l => [...l, {id: 43, title: 'Marsupials'}]);
-setState('list', 2, 'read', true);
-// {
-//   counter: 3,
-//   list: [
-//     { id: 23, title: 'Birds' }
-//     { id: 27, title: 'Fish' }
-//     { id: 43, title: 'Marsupials', read: true }
-//   ]
-// }
-```
-
-Path can be string keys, array of keys, iterating objects ({from, to, by}), or filter functions. This gives incredible expressive power to describe state changes.
-
-```js
-const [state, setState] = createState({
-  todos: [
-    { task: 'Finish work', completed: false }
-    { task: 'Go grocery shopping', completed: false }
-    { task: 'Make dinner', completed: false }
-  ]
-});
-
-setState('todos', [0, 2], 'completed', true);
-// {
-//   todos: [
-//     { task: 'Finish work', completed: true }
-//     { task: 'Go grocery shopping', completed: false }
-//     { task: 'Make dinner', completed: true }
-//   ]
-// }
-
-setState('todos', { from: 0, to: 1 }, 'completed', c => !c);
-// {
-//   todos: [
-//     { task: 'Finish work', completed: false }
-//     { task: 'Go grocery shopping', completed: true }
-//     { task: 'Make dinner', completed: true }
-//   ]
-// }
-
-setState('todos', todo => todo.completed, 'task', t => t + '!')
-// {
-//   todos: [
-//     { task: 'Finish work', completed: false }
-//     { task: 'Go grocery shopping!', completed: true }
-//     { task: 'Make dinner!', completed: true }
-//   ]
-// }
-
-setState('todos', {}, todo => ({ marked: true, completed: !todo.completed }))
-// {
-//   todos: [
-//     { task: 'Finish work', completed: true, marked: true }
-//     { task: 'Go grocery shopping!', completed: false, marked: true }
-//     { task: 'Make dinner!', completed: false, marked: true }
-//   ]
-// }
-```
-
 # Lifecycles
 
 ## `onMount`
@@ -310,19 +176,19 @@ Ignores tracking any of the dependencies in the executing code block and returns
 export function batch<T>(fn: () => T): T;
 ```
 
-Holds committing updates within the block until the end to prevent unnecessary recalculation. This means that reading values on the next line will not have updated yet. Solid State's `setState` method and Effects automatically wrap their code in a batch.
+Holds committing updates within the block until the end to prevent unnecessary recalculation. This means that reading values on the next line will not have updated yet. Solid Store's set method and Effects automatically wrap their code in a batch.
 
 ## `on`
 
 ```ts
 export function on<T extends Array<() => any> | (() => any), U>(
   deps: T,
-  fn: (value: T, prev: T, prevResults?: U) => U,
+  fn: (input: T, prevInput: T, prevValue?: U) => U,
   options: { defer?: boolean } = {}
-): (prev?: U) => U | undefined;
+): (prevValue?: U) => U | undefined;
 ```
 
-`on` is designed to be passed into a computation to make its dependencies explicit. If an array of dependencies is passed, value and prevValue are arrays.
+`on` is designed to be passed into a computation to make its dependencies explicit. If an array of dependencies is passed, `input` and `prevInput` are arrays.
 
 ```js
 createEffect(on(a, v => console.log(v, b())));
@@ -334,7 +200,7 @@ createEffect(() => {
 });
 ```
 
-You can also not run the compoutation immediately and instead opt in for it to only run on change by setting the defer option to true.
+You can also not run the computation immediately and instead opt in for it to only run on change by setting the defer option to true.
 
 ```js
 // doesn't run immediately
@@ -400,7 +266,7 @@ export function useTransition(): [() => boolean, (fn: () => void, cb?: () => voi
 Used to batch async updates in a transaction deferring commit until all async processes are complete. This is tied into Suspense and only tracks resources read under Suspense boundaries.
 
 ```js
-const [isPending, start] = createTransition();
+const [isPending, start] = useTransition();
 
 // check if transitioning
 isPending();
@@ -488,19 +354,172 @@ const mapped = indexArray(source, (model) => {
 });
 ```
 
-# State Modifiers
+# Stores
 
-Used to add additional behavior to `setState` function created with `createState`.
+These APIs are available at `solid-js/store`.
+
+## `createStore`
+
+```ts
+export function createStore<T extends StoreNode>(
+  state: T | Store<T>,
+  options?: { name?: string }
+): [get: Store<T>, set: SetStoreFunction<T>];
+```
+
+This creates a tree of Signals as proxy that allows individual values in nested data structures to be independently tracked. The create function returns a readonly proxy object, and a setter function.
+
+```js
+const [state, setState] = createStore(initialValue);
+
+// read value
+state.someValue;
+
+// set value
+setState({ merge: "thisValue" });
+
+setState("path", "to", "value", newValue);
+```
+
+Store objects being proxies only track on property access. And on access Stores recursively produces nested Store objects on nested data. However it only wraps arrays and plain objects. Classes are not wrapped. So things like `Date`, `HTMLElement`, `Regexp`, `Map`, `Set` are not granularly reactive. Additionally, the top level state object cannot be tracked without accessing a property on it. So it is not suitable to use for things you iterate over as adding new keys or indexes cannot trigger updates. So put any lists on a key of state rather than trying to use the state object itself.
+
+```js
+// put the list as a key on the state object
+const [state, setState] = createStore({ list: [] });
+
+// access the `list` property on the state object
+<For each={state.list}>{item => /*...*/}</For>
+```
+
+### Getters
+
+Store objects support the use of getters to store calculated values.
+
+```js
+const [state, setState] = createStore({
+  user: {
+    firstName: "John",
+    lastName: "Smith",
+    get fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    }
+  }
+});
+```
+
+These are simple getters, so you still need to use a Memo if you want to cache a value;
+
+```js
+let fullName;
+const [state, setState] = createStore({
+  user: {
+    firstName: "John",
+    lastName: "Smith",
+    get fullName() {
+      return fullName();
+    }
+  }
+});
+fullName = createMemo(() => `${state.firstName} ${state.lastName}`);
+```
+
+### Updating Stores
+
+Changes can take the form of function that passes previous state and returns new state or a value. Objects are always shallowly merged. Set values to `undefined` to delete them from the Store.
+
+```js
+const [state, setState] = createStore({ firstName: "John", lastName: "Miller" });
+
+setState({ firstName: "Johnny", middleName: "Lee" });
+// ({ firstName: 'Johnny', middleName: 'Lee', lastName: 'Miller' })
+
+setState(state => ({ preferredName: state.firstName, lastName: "Milner" }));
+// ({ firstName: 'Johnny', preferredName: 'Johnny', middleName: 'Lee', lastName: 'Milner' })
+```
+
+It supports paths including key arrays, object ranges, and filter functions.
+
+setState also supports nested setting where you can indicate the path to the change. When nested the state you are updating may be other non Object values. Objects are still merged but other values (including Arrays) are replaced.
+
+```js
+const [state, setState] = createStore({
+  counter: 2,
+  list: [
+    { id: 23, title: 'Birds' }
+    { id: 27, title: 'Fish' }
+  ]
+});
+
+setState('counter', c => c + 1);
+setState('list', l => [...l, {id: 43, title: 'Marsupials'}]);
+setState('list', 2, 'read', true);
+// {
+//   counter: 3,
+//   list: [
+//     { id: 23, title: 'Birds' }
+//     { id: 27, title: 'Fish' }
+//     { id: 43, title: 'Marsupials', read: true }
+//   ]
+// }
+```
+
+Path can be string keys, array of keys, iterating objects ({from, to, by}), or filter functions. This gives incredible expressive power to describe state changes.
+
+```js
+const [state, setState] = createStore({
+  todos: [
+    { task: 'Finish work', completed: false }
+    { task: 'Go grocery shopping', completed: false }
+    { task: 'Make dinner', completed: false }
+  ]
+});
+
+setState('todos', [0, 2], 'completed', true);
+// {
+//   todos: [
+//     { task: 'Finish work', completed: true }
+//     { task: 'Go grocery shopping', completed: false }
+//     { task: 'Make dinner', completed: true }
+//   ]
+// }
+
+setState('todos', { from: 0, to: 1 }, 'completed', c => !c);
+// {
+//   todos: [
+//     { task: 'Finish work', completed: false }
+//     { task: 'Go grocery shopping', completed: true }
+//     { task: 'Make dinner', completed: true }
+//   ]
+// }
+
+setState('todos', todo => todo.completed, 'task', t => t + '!')
+// {
+//   todos: [
+//     { task: 'Finish work', completed: false }
+//     { task: 'Go grocery shopping!', completed: true }
+//     { task: 'Make dinner!', completed: true }
+//   ]
+// }
+
+setState('todos', {}, todo => ({ marked: true, completed: !todo.completed }))
+// {
+//   todos: [
+//     { task: 'Finish work', completed: true, marked: true }
+//     { task: 'Go grocery shopping!', completed: false, marked: true }
+//     { task: 'Make dinner!', completed: false, marked: true }
+//   ]
+// }
+```
 
 ## `produce`
 
 ```ts
 export function produce<T>(
   fn: (state: T) => void
-): (state: T extends NotWrappable ? T : State<T>) => T extends NotWrappable ? T : State<T>;
+): (state: T extends NotWrappable ? T : Store<T>) => T extends NotWrappable ? T : Store<T>;
 ```
 
-Immer inspired API for Solid's state objects that allows for localized mutation.
+Immer inspired API for Solid's Store objects that allows for localized mutation.
 
 ```js
 setState(
@@ -515,12 +534,12 @@ setState(
 
 ```ts
 export function reconcile<T>(
-  value: T | State<T>,
+  value: T | Store<T>,
   options?: {
     key?: string | null;
     merge?: boolean;
   } = { key: "id" }
-): (state: T extends NotWrappable ? T : State<T>) => T extends NotWrappable ? T : State<T>;
+): (state: T extends NotWrappable ? T : Store<T>) => T extends NotWrappable ? T : Store<T>;
 ```
 
 Diffs data changes when we can't apply granular updates. Useful for when dealing with immutable data from stores or large API responses.
@@ -533,6 +552,48 @@ const unsubscribe = store.subscribe(({ todos }) => (
   setState('todos', reconcile(todos)));
 );
 onCleanup(() => unsubscribe());
+```
+
+## `createMutable`
+
+```ts
+export function createMutable<T extends StoreNode>(
+  state: T | Store<T>,
+  options?: { name?: string }
+): Store<T> {
+```
+
+Creates a new mutable Store proxy object. Stores only trigger updates on values changing. Tracking is done by intercepting property access and automatically tracks deep nesting via proxy.
+
+Useful for integrating external systems or as a compatibility layer with MobX/Vue.
+
+> **Note:** As mutable state can be passed around and mutated anywhere, which can make it harder to follow and easier to break unidirectional flow, it generally recommended to use `createStore` instead. The `produce` modifier can give many of the same benefits without any of the downsides.
+
+```js
+const state = createMutable(initialValue);
+
+// read value
+state.someValue;
+
+// set value
+state.someValue = 5;
+
+state.list.push(anotherValue);
+```
+
+Mutables support setters along with getters.
+
+```js
+const user = createMutable({
+  firstName: "John",
+  lastName: "Smith",
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  set fullName(value) {
+    [this.firstName, this.lastName] = value.split(" ");
+  }
+});
 ```
 
 # Component APIs
@@ -556,7 +617,7 @@ This function creates a new context object that can be used with `useContext` an
 export const CounterContext = createContext([{ count: 0 }, {}]);
 
 export function CounterProvider(props) {
-  const [state, setState] = createState({ count: props.count || 0 });
+  const [state, setState] = createStore({ count: props.count || 0 });
   const store = [
     state,
     {
@@ -572,6 +633,8 @@ export function CounterProvider(props) {
   return <CounterContext.Provider value={store}>{props.children}</CounterContext.Provider>;
 }
 ```
+
+The value passed to provider is passed to `useContext` as is. That means wrapping as a reactive expression will not work. You should pass in Signals and Stores directly instead of accessing them in the JSX.
 
 ## `useContext`
 
@@ -621,48 +684,6 @@ const ComponentA = lazy(() => import("./ComponentA"));
 # Secondary Primitives
 
 You probably won't need them for your first app, but these useful tools to have.
-
-## `createMutable`
-
-```ts
-export function createMutable<T extends StateNode>(
-  state: T | State<T>,
-  options?: { name?: string }
-): State<T> {
-```
-
-Creates a new mutable State proxy object. State only triggers update on values changing. Tracking is done by intercepting property access and automatically tracks deep nesting via proxy.
-
-Useful for integrating external systems or as a compatibility layer with MobX/Vue.
-
-> **Note:** As mutable state can be passed around and mutated anywhere, which can make it harder to follow and easier to break unidirectional flow, it generally recommended to use `createState` instead. The `produce` state modifier can give many of the same benefits without any of the downsides.
-
-```js
-const state = createMutable(initialValue);
-
-// read value
-state.someValue;
-
-// set value
-state.someValue = 5;
-
-state.list.push(anotherValue);
-```
-
-Mutables support setters along with getters.
-
-```js
-const user = createMutable({
-  firstName: "John",
-  lastName: "Smith",
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-  set fullName(value) {
-    [this.firstName, this.lastName] = value.split(" ");
-  }
-});
-```
 
 ## `createDeferred`
 
@@ -750,13 +771,13 @@ export function renderToString<T>(
     eventNames?: string[];
     nonce?: string;
   }
-): { html: string; script: string };
+): string;
 ```
 
 Renders to a string synchronously. The function also generates a script tag for progressive hydration. Options include eventNames to listen to before the page loads and play back on hydration, and nonce to put on the script tag.
 
 ```js
-const { html, script } = renderToString(App);
+const html = renderToString(App);
 ```
 
 ## `renderToStringAsync`
@@ -769,68 +790,73 @@ export function renderToStringAsync<T>(
     timeoutMs?: number;
     nonce?: string;
   }
-): Promise<{ html: string; script: string }>;
+): Promise<string>;
 ```
 
 Same as `renderToString` except it wait for all `<Suspense>` boundaries to resolve before returning the results. Resource data is automatically serialized into the script tag and will be hydrated on client load.
 
 ```js
-const { html, script } = await renderToStringAsync(App);
+const html = await renderToStringAsync(App);
 ```
 
-## `renderToNodeStream`
+## `pipeToNodeWritable`
 
 ```ts
-export function renderToNodeStream<T>(
+export type PipeToWritableResults = {
+  startWriting: () => void;
+  write: (v: string) => void;
+  abort: () => void;
+};
+export function pipeToNodeWritable<T>(
   fn: () => T,
+  writable: { write: (v: string) => void },
   options?: {
     eventNames?: string[];
     nonce?: string;
+    noScript?: boolean;
+    onReady?: (r: PipeToWritableResults) => void;
+    onComplete?: (r: PipeToWritableResults) => void | Promise<void>;
   }
-): {
-  stream: NodeJS.ReadableStream;
-  script: string;
-};
+): void;
 ```
 
 This method renders to a Node stream. It renders the content synchronously including any Suspense fallback placeholders, and then continues to stream the data from any async resource as it completes.
 
 ```js
-const { stream, script } = renderToNodeStream(App);
+pipeToNodeWritable(App, res);
 ```
 
-## `renderToWebStream`
+The `onReady` option is useful for writing into the stream around the the core app rendering. Remember if you use `onReady` to manually call `startWriting`
+
+## `pipeToWritable`
 
 ```ts
-export function renderToWebStream<T>(
+export type PipeToWritableResults = {
+  write: (v: string) => void;
+  abort: () => void;
+  script: string;
+};
+export function pipeToWritable<T>(
   fn: () => T,
+  writable: WritableStream,
   options?: {
     eventNames?: string[];
     nonce?: string;
+    noScript?: boolean;
+    onReady?: (writable: { write: (v: string) => void }, r: PipeToWritableResults) => void;
+    onComplete?: (writable: { write: (v: string) => void }, r: PipeToWritableResults) => void;
   }
-): {
-  writeTo: (writer: WritableStreamDefaultWriter) => Promise<void>;
-  script: string;
-};
+): void;
 ```
 
-This method renders to a web stream. It renders the content synchronously including any Suspense fallback placeholders, and then continues to stream the data from any async resource as it completes. The `writeTo` method takes a WritableStream writer.
+This method renders to a web stream. It renders the content synchronously including any Suspense fallback placeholders, and then continues to stream the data from any async resource as it completes.
 
 ```js
 const { readable, writable } = new TransformStream();
-const writer = writable.getWriter();
-const encoder = new TextEncoder();
-
-const { writeTo, script } = renderToWebStream(App);
-
-// Write the head of your document
-writer.write(encoder.encode(htmlStart));
-writeTo(writer).then(() => {
-  // Write the end of your document
-  writer.write(encoder.encode(htmlEnd));
-  writer.close();
-});
+pipeToWritable(App, writable);
 ```
+
+The `onReady` option is useful for writing into the stream around the the core app rendering. Remember if you use `onReady` to manually call `startWriting`
 
 ## `isServer`
 
@@ -1035,6 +1061,8 @@ function SuspenseList(props: {
   </Suspense>
 </SuspenseList>
 ```
+
+SuspenseList is still experimental and does not have full SSR support.
 
 ## `<Dynamic>`
 
@@ -1250,4 +1278,20 @@ Forces the prop to be treated as a attribute instead of an property. Useful for 
 
 ```jsx
 <my-element attr:status={props.status} />
+```
+
+## `/* @once */`
+
+Solid's compiler uses a simple heuristic for reactive wrapping and lazy evaluation of JSX expressions. Does it contain a function call, a property access, or JSX? If yes we wrap it in a getter when passed to components or in an effect if passed to native elements.
+
+Knowing this we can reduce overhead of things we know will never change simply by accessing them outside of the JSX. A simple variable will never be wrapped. We can also tell the compiler not to wrap them by starting the expression with a comment decorator `/_ @once _/.
+
+```jsx
+<MyComponent static={/*@once*/ state.wontUpdate} />
+```
+
+This also works on children.
+
+```jsx
+<MyComponent>{/*@once*/ state.wontUpdate}</MyComponent>
 ```

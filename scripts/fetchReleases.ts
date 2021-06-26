@@ -89,7 +89,7 @@ async function processRelease(release: Release, index: number) {
 
     const documentations = await client
       .get('contents/documentation', {
-        searchParams: { ref: NEXT == true && isLatest ? 'next' : version },
+        searchParams: { ref: NEXT == true && isLatest ? 'main' : version },
       })
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
