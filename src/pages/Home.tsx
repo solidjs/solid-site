@@ -216,7 +216,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </p>
 
             <Link
-              class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+              class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
               href="/docs/latest/components"
             >
               View Docs
@@ -241,7 +241,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               does more work than you want it to.
             </p>
             <Link
-              class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+              class="button inline-block mt-8 text-solid-default chevron chevron-right  font-semibold hover:text-gray-500"
               href="https://playground.solidjs.com/?hash=271025478"
             >
               See it in action
@@ -265,7 +265,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               means that you can scale without concern.
             </p>
             <Link
-              class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+              class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
               href="https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
             >
               Read more
