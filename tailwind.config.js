@@ -5,6 +5,9 @@ module.exports = {
   mode: 'jit',
   theme: {
     extend: {
+      fontSize: {
+        'xxs': '.55rem',
+      },
       typography: {
         DEFAULT: {
           css: {

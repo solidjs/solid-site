@@ -273,8 +273,8 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
         </section>
 
-        <section class="bg-solid-lightgray text-black rounded-br-6xl grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
-          <div class="flex flex-wrap content-center">
+        <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
+          <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} />
               Fully loaded with all features.

@@ -6,6 +6,7 @@ const js_framework = {
   description:
     'The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.',
   link: 'https://github.com/krausest/js-framework-benchmark',
+  scale: 'Time',
   data: [
     {
       label: 'Vanilla',
@@ -52,6 +53,7 @@ const isomorphic = {
   name: 'Isomorphic UI Benchmarks (Search Results)',
   description: 'This benchmark tests raw Server Rendering speeds. Higher is better.',
   link: 'https://github.com/marko-js/isomorphic-ui-benchmarks',
+  scale: 'Ops',
   data: [
     {
       label: 'Solid 1.0.0',

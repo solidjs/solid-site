@@ -53,7 +53,7 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
       href={props.path}
       external={props.external}
       class="inline-flex items-center space-x-2 transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
-      activeClass="bg-solid-accent text-white"
+      activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
       <Show when={props.external}>

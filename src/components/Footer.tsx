@@ -56,7 +56,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-right text-gray-400 mt-3">
-            Last updated April 7, 2021 on Solid v0.26.0.
+            Last updated June 26, 2021 on Solid v1.0.0.
           </p>
         </div>
       </div>
