@@ -33,7 +33,7 @@ const Home: Component<HomepageProps> = (props) => (
             <img class="w-32  lg:w-52" src={wordmark} alt="Solid wordmark" />
           </div>
           <h2 class="font-semibold text-3xl text-center lg:text-left lg:text-4xl leading-loose">
-            A declarative, efficient, and flexible JavaScript library for building user interfaces.
+            A declarative, efficient and flexible JavaScript library for building user interfaces.
           </h2>
         </section>
       </div>
@@ -91,8 +91,20 @@ const Home: Component<HomepageProps> = (props) => (
               href="https://bundlephobia.com/result?p=solid-js@0.22.7"
               class="inline-block px-5 py-5"
             >
-              <strong class="font-semibold">7.3kb</strong>
+              <strong class="font-semibold">6kb</strong>
               <span class="block text-sm">Minified + Gzipped</span>
+            </a>
+          </li>
+
+          <li class="hover:bg-solid-dark hover:text-white transition">
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://github.com/ryansolid/solid/stargazers"
+              class="inline-block px-5 py-5"
+            >
+              <strong class="font-semibold">5+ years</strong>
+              <span class="block text-sm">In development</span>
             </a>
           </li>
 
@@ -105,18 +117,6 @@ const Home: Component<HomepageProps> = (props) => (
             >
               <strong class="font-semibold">6k+</strong>
               <span class="block text-sm">Github Stars</span>
-            </a>
-          </li>
-
-          <li class="hover:bg-solid-dark hover:text-white transition">
-            <a
-              target="_blank"
-              rel="noopener"
-              href="https://github.com/ryansolid/solid/stargazers"
-              class="inline-block px-5 py-5"
-            >
-              <strong class="font-semibold">4+ years</strong>
-              <span class="block text-sm">In development</span>
             </a>
           </li>
 
@@ -193,12 +193,12 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
           <p class="mt-4 leading-7">
             Solid follows the same philosophy as React with unidirectional data flow, read/write
-            segregation, and immutable interfaces. It just has a completely different implementation
+            segregation and immutable interfaces. It just has a completely different implementation
             that forgoes using a Virtual DOM.
           </p>
 
           <Link
-            class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+            class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
             href="/docs/latest/components"
           >
             View Docs
@@ -208,7 +208,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
       <section class="bg-gray-50 py-20 grid grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl bg-blocks-three bg-no-repeat bg-contain bg-right">
         <div>
-          <img class="w-12" src={sandbox} />
+          <img class="w-14" src={sandbox} />
           <h2 class="text-3xl mt-8 text-solid font-semibold">
             Fine-grained means you do more with less.
           </h2>
@@ -223,7 +223,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             does more work than you want it to.
           </p>
           <Link
-            class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+            class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
             href="https://playground.solidjs.com/?hash=271025478"
           >
             See it in action
@@ -247,7 +247,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             that you can scale without concern.
           </p>
           <Link
-            class="button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500"
+            class="button inline-block mt-8 text-solid-default font-semibold chevron chevron-right hover:text-gray-500"
             href="https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
           >
             Read more

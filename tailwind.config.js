@@ -56,6 +56,7 @@ module.exports = {
           lightgray: "#f9fafb",
           medium: '#446b9e',
           light: '#4f88c6',
+          accent: '#66e6ac',
         },
       },
       fontFamily: {

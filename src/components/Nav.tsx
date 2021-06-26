@@ -40,7 +40,7 @@ const socials = [
 
 const Logo: Component<{ show: boolean }> = (props) => (
   <li class="mr-4">
-    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-11' : 'w-0'}`}>
+    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-9' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
       <img class="w-full h-auto" src={logo} alt="Solid logo" />
     </Link>
@@ -53,7 +53,7 @@ const MenuLink: Component<{ path: string; external: boolean; title: string }> = 
       href={props.path}
       external={props.external}
       class="inline-flex items-center space-x-2 transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
-      activeClass="bg-solid-medium text-white"
+      activeClass="bg-solid-accent text-white"
     >
       <span>{props.title}</span>
       <Show when={props.external}>
@@ -97,7 +97,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     <>
       <div ref={intersectorRef} class="h-0" />
       <div
-        class="sticky top-0 z-50 bg-white py-1"
+        class="sticky top-0 z-50 bg-white"
         classList={{
           'border-b': props.showLogo,
         }}

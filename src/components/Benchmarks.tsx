@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { createSignal, createMemo, Show } from 'solid-js';
+import { createSignal, createMemo, For,Show } from 'solid-js';
 
 export interface GraphData {
   id: string;
@@ -17,36 +17,38 @@ interface RowData {
 const Chart: Component<{ rows: Array<RowData> }> = (props) => {
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
-    props.rows.map((row) => ({
-      ...row,
-      width: `${(row.score / maxValue()) * 100}%`,
-    })),
+    props.rows
+      .sort((a, b) => a.score - b.score)
+      .map((row) => ({
+        ...row,
+        width: `${(row.score / maxValue() * 100) }%`,
+      }))
   );
   return (
     <table class="w-full table-fixed">
       <tbody>
-        {options().map((row) => {
-          return (
-            <tr>
-              <td class="w-1/3">{row.label}</td>
-              <td class="w-2/3">
-                <div
-                  class="transition-all duration-75 p-3 rounded-3xl text-right text-sm"
-                  classList={{
-                    'bg-solid-medium': row.active,
-                    'text-white': row.active,
-                    'bg-gray-100': !row.active,
-                  }}
-                  style={{
-                    width: row.width,
-                  }}
-                >
-                  {row.score ? <figure>{row.score}</figure> : ''}
-                </div>
-              </td>
-            </tr>
-          );
-        })}
+        <For each={options()}>
+          {(row) => {
+            return (
+              <tr>
+                <td class="w-1/6 text-sm">{row.label}</td>
+                <td class="w-2/6">
+                  <div
+                    class="transition-all duration-75 p-3 rounded-3xl text-right text-xs"
+                    classList={{
+                      'text-white': row.active,
+                      'bg-solid-accent': row.active,
+                      'bg-gray-100': !row.active,
+                    }}
+                    style={{ width: row.width }}
+                  >
+                    {row.score ? <figure>{row.score}</figure> : ''}
+                  </div>
+                </td>
+              </tr>
+            );
+          }}
+        </For>
         {!options().length ? (
           <tr>
             <td>&nbsp;</td>
@@ -55,7 +57,7 @@ const Chart: Component<{ rows: Array<RowData> }> = (props) => {
         ) : null}
         <tr>
           <td>&nbsp;</td>
-          <td class="p-3">Time</td>
+          <td class="p-3 text-sm">Time</td>
         </tr>
       </tbody>
     </table>
@@ -71,7 +73,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
       <Show
         when={expanded()}
         fallback={
-          <button class="py-3 block text-sm" onClick={() => setExpanded(true)}>
+          <button class="py-3 text-sm chevron chevron-right button mt-8 text-solid-default font-semibold hover:text-gray-500" onClick={() => setExpanded(true)}>
             Show more benchmarks
           </button>
         }

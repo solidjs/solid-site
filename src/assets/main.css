@@ -69,3 +69,23 @@
   );
   border-radius: 3px;
 }
+.chevron::after {
+  border-style: solid;
+  transition: all 250ms;
+  border-width: 0.15em 0.15em 0 0;
+  content: '';
+  display: inline-block;
+  height: 0.5em;
+  width: 0.5em;
+  position: relative;
+  top: 0.45em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+}
+.chevron.chevron-right:after {
+  left: 0.25em;
+  transform: rotate(45deg);
+}
+.chevron.chevron-right:hover::after {
+  left: 0.45em;
+}

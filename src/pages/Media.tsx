@@ -105,11 +105,12 @@ const Media: Component = () => (
     <Nav showLogo />
     <Header title="Media Assets" />
     <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
-      <div class="mb-10 grid grid-cols-6 gap-4">
+      <div class="mb-10 grid grid-cols-6 gap-10">
         <div class="col-span-4">
           The following are assets that represent the Solid brand. All assets are considered
           open-source contributions and should be used according to open standards and licensing
-          rules.
+          rules. For additional assets or questions pertaining to brand alignment, feel free to
+          join our Discord for support and guidance.
         </div>
         <div class="col-span-2 col-end-7">
           <div class="flex mb-2">
@@ -123,9 +124,13 @@ const Media: Component = () => (
             <span class="w-5/12 inline-block font-semibold">Secondary Color</span>
             <figure class="rounded bg-solid-medium mr-2 h-5 w-5 inline-block" /> #335d92
           </div>
-          <div class="flex">
+          <div class="flex mb-2">
             <span class="w-5/12 inline-block font-semibold">Light Color</span>
             <figure class="rounded bg-solid-light mr-2 h-5 w-5 inline-block" /> #446b9e
+          </div>
+          <div class="flex">
+            <span class="w-5/12 inline-block font-semibold">Accent Color</span>
+            <figure class="rounded bg-solid-accent mr-2 h-5 w-5 inline-block" /> #66e6ac
           </div>
         </div>
       </div>
