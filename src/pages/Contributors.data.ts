@@ -11,7 +11,7 @@ const core = [
     github: 'davedbase',
     name: 'David Di Biase',
     role: 'Contributor, Website and Community Manager',
-    bio: 'David is a full-stack developer with 15+ years of experience. He owns and operates Pilot, a Toronto-based brand technology company.',
+    bio: 'David is a full-stack developer. He owns and operates Pilot, a Toronto-based brand technology company.',
   },
   {
     img: 'alexandre-mouton-brady.jpeg',
@@ -19,6 +19,13 @@ const core = [
     name: 'Alexandre Mouton Brady',
     role: 'Library Maintainer',
     bio: 'A multi-talented web developer with a preference for the front. He takes great pleasure in making the web more alive.',
+  },
+  {
+    img: 'milo-m.svg',
+    github: 'modderme123',
+    name: 'Milo M.',
+    role: 'Library Maintainer',
+    bio: ' A web developer with an interest in reactive programming and making the web a better place.',
   },
 ] as const;
 
@@ -61,12 +68,6 @@ const ecosystem = [
     company: 'Builder.io',
     link: 'https://www.builder.io',
     detail: 'Founder of Builder.io CMS and creator of JSX-Lite.',
-  },
-  {
-    name: 'Milo M.',
-    company: '',
-    link: 'https://moddermeht.ml/',
-    detail: 'Mysterious full-stack programmer.',
   },
   {
     name: 'Ryan Turnquist',

@@ -16,7 +16,7 @@ const CoreMember: Component<{
     <li class="grid grid-cols-3 gap-x-10">
       <div>
         <span class="sr-only">Profile picture of {props.name}</span>
-        <img class="shadow-lg rounded-md" alt="Profile headshot" src={`/img/bios/${props.img}`} />
+        <img class="shadow-lg rounded-md w-full" alt="Profile headshot" src={`/img/bios/${props.img}`} />
       </div>
 
       <div class="space-y-4 col-span-2 flex flex-col">
