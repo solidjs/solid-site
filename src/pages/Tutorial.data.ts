@@ -29,7 +29,7 @@ function getMarkdown(id: string) {
 async function fetchData(id: string) {
   if (!id) return {};
 
-  const markdown: string = await getMarkdown(id);
+  const markdown = await getMarkdown(id);
   const javascript = `/tutorial/lessons/${id}/lesson.json`;
   const solved = `/tutorial/lessons/${id}/solved.json`;
 
@@ -43,7 +43,10 @@ async function fetchTutorialDirectory() {
   return directoryCache;
 }
 
-const propogateUndefined = (strings: TemplateStringsArray, ...substitutions: string[]) => {
+const propogateUndefined = (
+  strings: TemplateStringsArray,
+  ...substitutions: (string | undefined)[]
+) => {
   let out = '';
   for (let i = 0; i < substitutions.length; i++) {
     if (substitutions[i] === undefined) return undefined;
@@ -54,20 +57,20 @@ const propogateUndefined = (strings: TemplateStringsArray, ...substitutions: str
 
 export interface TutorialProps {
   loading: boolean;
-  markdown: string;
-  js: string;
-  solvedJs: string;
-  tutorialDirectory: Record<string, TutorialDirectory>;
-  tutorialDirectoryEntry: TutorialDirectoryItem;
-  nextUrl: string | undefined;
-  previousUrl: string | undefined;
-  id: string;
-  solved: boolean;
+  markdown?: string;
+  js?: string;
+  solvedJs?: string;
+  tutorialDirectory?: Record<string, TutorialDirectory>;
+  tutorialDirectoryEntry?: TutorialDirectoryItem;
+  nextUrl?: string;
+  previousUrl?: string;
+  id?: string;
+  solved?: boolean;
 }
 
-export const TutorialData: DataFn<{ id: string; step: string }> = (props) => {
+export const TutorialData: DataFn<{ id: string }> = (props) => {
   const [directory] = createResource<TutorialDirectory>(fetchTutorialDirectory);
-  const [data] = createResource(() => props.params.id, fetchData);
+  const [data] = createResource(() => props.params.id!, fetchData);
 
   return {
     get loading() {

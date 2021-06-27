@@ -13,6 +13,8 @@
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],
     "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
     "lib": ["es2019", "dom", "esnext.array"]
   },
   "include": ["./src", "vite.config.js", "./scripts"],

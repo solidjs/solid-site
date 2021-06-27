@@ -5,7 +5,7 @@ export type DataParams = { version: string };
 
 const cache = new Map<string, Promise<string>>();
 
-function mdFetcher({ version }: DataParams) {
+function mdFetcher(version: string) {
   if (!cache.has(version)) {
     const markdown = fetch(`/api/${version}.json`).then((r) => r.json());
     cache.set(version, markdown);
@@ -15,7 +15,7 @@ function mdFetcher({ version }: DataParams) {
 }
 
 export const DocsData: DataFn<DataParams> = (props) => {
-  const [doc] = createResource(() => props.params, mdFetcher);
+  const [doc] = createResource(() => props.params.version!, mdFetcher);
 
   return {
     get doc() {

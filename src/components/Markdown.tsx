@@ -40,7 +40,7 @@ const Markdown: Component<Props> = (props) => {
   });
 
   createEffect(() => {
-    if (props.onLoadSections) internal.onLoadSections(doc().sections);
+    if (internal.onLoadSections) internal.onLoadSections(doc().sections);
   });
 
   return <div class={`prose ${internal.class || ''}`} innerHTML={doc().html} {...external} />;

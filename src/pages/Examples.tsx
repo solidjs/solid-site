@@ -82,13 +82,15 @@ const Examples: Component<Props> = (props) => {
         r.json(),
       );
       batch(() => {
-        const newTabs = data.files.map((file) => {
-          return {
-            name: file.name,
-            type: file.type || 'tsx',
-            source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
-          };
-        });
+        const newTabs = data.files.map(
+          (file: { name: string; type?: string; content: string | string[] }) => {
+            return {
+              name: file.name,
+              type: file.type || 'tsx',
+              source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
+            };
+          },
+        );
         setTabs(newTabs);
         setCurrent(`${newTabs[0].name}.tsx`);
       });

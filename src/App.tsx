@@ -1,10 +1,8 @@
-import { Component, Suspense } from 'solid-js';
+import { JSX } from 'solid-js';
 import { Meta } from 'solid-meta';
 import { Route } from 'solid-app-router';
 
-import Footer from './components/Footer';
-
-export const App: Component = () => {
+export const App = (): JSX.Element => {
   return (
     <>
       <Meta

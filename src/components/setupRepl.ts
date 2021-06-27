@@ -6,7 +6,7 @@ import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker'
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
 
 (window as any).MonacoEnvironment = {
-  getWorker: function (_moduleId, label: string) {
+  getWorker: function (_moduleId: unknown, label: string) {
     switch (label) {
       case 'css':
         return new cssWorker();

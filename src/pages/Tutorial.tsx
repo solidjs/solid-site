@@ -23,8 +23,8 @@ import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 interface DirectoryProps {
-  directory: Record<string, TutorialDirectory>;
-  current: TutorialDirectoryItem;
+  directory?: Record<string, TutorialDirectory>;
+  current?: TutorialDirectoryItem;
 }
 
 const DirectoryMenu: Component<DirectoryProps> = (props) => {
@@ -177,9 +177,11 @@ const Tutorial: Component<TutorialProps> = (props) => {
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
   createEffect(async () => {
-    const data = await fetch(props.solved ? props.solvedJs : props.js).then((r) => r.json());
+    const url = props.solved ? props.solvedJs : props.js;
+    if (!url) return;
+    const data = await fetch(url).then((r) => r.json());
     batch(() => {
-      const newTabs = data.files.map((file) => {
+      const newTabs = data.files.map((file: { name: string; type?: string; content: string }) => {
         return {
           name: file.name,
           type: file.type || 'tsx',
@@ -205,7 +207,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
               directory={props.tutorialDirectory}
             />
 
-            <Markdown class="p-10 flex-1 max-w-full overflow-auto">{props.markdown}</Markdown>
+            <Markdown class="p-10 flex-1 max-w-full overflow-auto">{props.markdown || ''}</Markdown>
 
             <div class="py-3 px-8 flex items-center justify-between border-t-2">
               <Show
