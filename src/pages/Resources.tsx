@@ -4,8 +4,6 @@ import {
   Show,
   createSignal,
   createMemo,
-  createDeferred,
-  createComputed,
 } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import Nav from '../components/Nav';
@@ -32,9 +30,10 @@ export enum ResourceType {
 export enum ResourceCategory {
   Primitives = 'primitive',
   Routers = 'router',
-  Libraries = 'library',
   Plugins = 'plugin',
   BuildUtilities = 'build_utility',
+  AddOn = 'add_on',
+  Testing = 'testing',
   Educational = 'educational',
 }
 export interface Resource {
@@ -201,8 +200,18 @@ const Resources: Component<ResourcesDataProps> = (props) => {
               const exists = filtered.categories.indexOf(id) !== -1;
               return (
                 <button
-                  disabled={!filtered.counts[id]}
-                  onClick={() => setFiltered('enabledCategories', (arr) => [...arr, id])}
+                  onClick={() => 
+                    setFiltered('enabledCategories', (arr) => {
+                      const pos = arr.indexOf(id);
+                      if (pos === -1) {
+                        return [...arr, id];
+                      } else {
+                        let newArray = arr.slice();
+                        newArray.splice(pos, 1);
+                        return newArray;
+                      }
+                    })
+                  }
                   classList={{
                     'opacity-20 cursor-default': !exists,
                     'hover:opacity-60': exists,
