@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { createSignal, createMemo, For,Show } from 'solid-js';
+import { createSignal, createMemo, For, Show } from 'solid-js';
 
 export interface GraphData {
   id: string;
@@ -15,15 +15,15 @@ interface RowData {
   score: number;
 }
 
-const Chart: Component<{ rows: Array<RowData>, scale: string }> = (props) => {
+const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
     props.rows
       .sort((a, b) => a.score - b.score)
       .map((row) => ({
         ...row,
-        width: `${(row.score / maxValue() * 100) }%`,
-      }))
+        width: `${(row.score / maxValue()) * 100}%`,
+      })),
   );
   return (
     <table class="w-full table-fixed">
@@ -43,7 +43,15 @@ const Chart: Component<{ rows: Array<RowData>, scale: string }> = (props) => {
                     }}
                     style={{ width: row.width }}
                   >
-                    {row.score ? <figure><span class="inline-block p-1 border-l border-white px-2 rounded-full">{row.score}</span></figure> : ''}
+                    {row.score ? (
+                      <figure>
+                        <span class="inline-block p-1 border-l border-white px-2 rounded-full">
+                          {row.score}
+                        </span>
+                      </figure>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </td>
               </tr>
@@ -74,7 +82,10 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
       <Show
         when={expanded()}
         fallback={
-          <button class="py-3 text-sm chevron chevron-right button text-solid-default font-semibold hover:text-gray-500" onClick={() => setExpanded(true)}>
+          <button
+            class="py-3 text-sm chevron chevron-right button text-solid-default font-semibold hover:text-gray-500"
+            onClick={() => setExpanded(true)}
+          >
             Show more benchmarks
           </button>
         }
@@ -98,7 +109,12 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         <div>
           <div class="pt-5 text-xs block">{props.list[current()].description}</div>
           <Show when={props.list[current()].link}>
-            <a target="_blank" class="button text-xs block mt-3 text-solid-default chevron chevron-right font-semibold hover:text-gray-500" rel="noopener noreferrer" href={props.list[current()].link}>
+            <a
+              target="_blank"
+              class="button text-xs block mt-3 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
+              rel="noopener noreferrer"
+              href={props.list[current()].link}
+            >
               View the benchmark
             </a>
           </Show>

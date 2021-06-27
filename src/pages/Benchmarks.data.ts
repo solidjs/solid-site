@@ -19,7 +19,7 @@ const js_framework = {
     },
     {
       label: 'Inferno 7.4.8',
-      score: 1.20,
+      score: 1.2,
     },
     {
       label: 'Svelte 3.37.9',

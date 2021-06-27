@@ -109,8 +109,8 @@ const Media: Component = () => (
         <div class="col-span-4">
           The following are assets that represent the Solid brand. All assets are considered
           open-source contributions and should be used according to open standards and licensing
-          rules. For additional assets or questions pertaining to brand alignment, feel free to
-          join our Discord for support and guidance.
+          rules. For additional assets or questions pertaining to brand alignment, feel free to join
+          our Discord for support and guidance.
         </div>
         <div class="col-span-2 col-end-7">
           <div class="flex mb-2">

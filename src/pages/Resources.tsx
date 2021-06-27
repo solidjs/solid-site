@@ -1,12 +1,27 @@
-import { Component, For, Show, createSignal, createMemo, createDeferred, createComputed } from 'solid-js';
+import {
+  Component,
+  For,
+  Show,
+  createSignal,
+  createMemo,
+  createDeferred,
+  createComputed,
+} from 'solid-js';
 import { createStore } from 'solid-js/store';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ResourcesDataProps } from './Resources.data';
-import { Icon } from "@amoutonbrady/solid-heroicons";
+import { Icon } from '@amoutonbrady/solid-heroicons';
 import Fuse from 'fuse.js';
-import { code, videoCamera, bookOpen, terminal, chevronRight, shieldCheck } from '@amoutonbrady/solid-heroicons/outline';
+import {
+  code,
+  videoCamera,
+  bookOpen,
+  terminal,
+  chevronRight,
+  shieldCheck,
+} from '@amoutonbrady/solid-heroicons/outline';
 
 export enum ResourceType {
   Article = 'article',
@@ -37,12 +52,17 @@ const ResourceTypeIcons = {
   article: bookOpen,
   video: videoCamera,
   library: code,
-  package: terminal
-}
+  package: terminal,
+};
 
 const ContentRow: Component<Resource> = (props) => (
   <li class="py-6 border-b hover:bg-gray-50 duration-100">
-    <a class="grid grid-cols-12 grid-flow-col text-solid" target="_blank" href={props.link} rel="nofollow">
+    <a
+      class="grid grid-cols-12 grid-flow-col text-solid"
+      target="_blank"
+      href={props.link}
+      rel="nofollow"
+    >
       <div class="col-span-1 flex items-center justify-center">
         <figure class="w-12 h-12 p-2 bg-solid-medium rounded-full text-white">
           <Icon class="w-full" path={ResourceTypeIcons[props.type]} />
@@ -57,7 +77,9 @@ const ContentRow: Component<Resource> = (props) => (
           <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
         </Show>
         <Show when={props.author && props.author_url}>
-          <a href={props.author_url} class="text-xs text-gray-500 inline hover:text-solid-medium">By {props.author}</a>
+          <a href={props.author_url} class="text-xs text-gray-500 inline hover:text-solid-medium">
+            By {props.author}
+          </a>
         </Show>
       </div>
       <div class="col-span-1 flex items-center text-solid-light">
@@ -78,13 +100,14 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [ keyword, setKeyword ] = createSignal('');
-  const [ filtered, setFiltered ] = createStore({
+  const [keyword, setKeyword] = createSignal('');
+  const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
       if (keyword() == '') {
         return props.list;
-      } else {}
+      } else {
+      }
       return fs.search(keyword()).map((result) => result.item);
     }),
     // Currently user enabled filters
@@ -110,14 +133,11 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     },
     // Retrieve a list of type counts
     get counts() {
-      return this.resources().reduce(
-        (memo, resource) => {
-          memo[resource.type] = memo[resource.type] ? memo[resource.type] + 1 : 1;
-          return memo;
-        },
-        {}
-      );
-    }
+      return this.resources().reduce((memo, resource) => {
+        memo[resource.type] = memo[resource.type] ? memo[resource.type] + 1 : 1;
+        return memo;
+      }, {});
+    },
   });
   return (
     <div class="flex flex-col relative">
@@ -129,27 +149,32 @@ const Resources: Component<ResourcesDataProps> = (props) => {
             class="mb-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
             onInput={(evt: InputEvent) => setKeyword(evt.target.value)}
-            type="text" />
-          <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">Types</h3>
+            type="text"
+          />
+          <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">
+            Types
+          </h3>
           <div class="flex flex-col space-y-2">
             <For each={Object.entries(ResourceType)}>
               {([name, type]) => (
                 <button
                   disabled={!filtered.counts[type]}
-                  onClick={() => setFiltered('enabledTypes', (arr) => {
-                    const pos = arr.indexOf(type);
-                    if (pos === -1) {
-                      return [...arr, type];
-                    } else {
-                      let newArray = arr.slice()
-                      newArray.splice(pos, 1);
-                      return newArray;
-                    }
-                  })}
+                  onClick={() =>
+                    setFiltered('enabledTypes', (arr) => {
+                      const pos = arr.indexOf(type);
+                      if (pos === -1) {
+                        return [...arr, type];
+                      } else {
+                        let newArray = arr.slice();
+                        newArray.splice(pos, 1);
+                        return newArray;
+                      }
+                    })
+                  }
                   classList={{
                     'opacity-30 cursor-default': !filtered.counts[type],
                     'hover:opacity-60': filtered.counts[type],
-                    'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1
+                    'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1,
                   }}
                   class="grid grid-cols-5 items-center w-full text-sm py-3 text-left border rounded-md"
                 >
@@ -160,7 +185,9 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                   </div>
                   <div class="col-span-3">{name}</div>
                   <div class="col-span-1 text-center flex-end text-gray-300 text-xs">
-                    <Show when={filtered.counts[type]} fallback={0}>{filtered.counts[type]}</Show>
+                    <Show when={filtered.counts[type]} fallback={0}>
+                      {filtered.counts[type]}
+                    </Show>
                   </div>
                 </button>
               )}
@@ -172,26 +199,30 @@ const Resources: Component<ResourcesDataProps> = (props) => {
           <For each={Object.entries(ResourceCategory)}>
             {([name, id]) => {
               const exists = filtered.categories.indexOf(id) !== -1;
-              return <button
-                disabled={!filtered.counts[id]}
-                onClick={() => setFiltered('enabledCategories', (arr) => [...arr, id])}
-                classList={{
-                  'opacity-20 cursor-default': !exists,
-                  'hover:opacity-60': exists,
-                  'border-2': filtered.enabledCategories.indexOf(id) !== -1
-                }}
-                class="block w-full text-sm py-4 pl-2 text-left border-b">
-                <span>{name}</span>
-              </button>;
-              }}
+              return (
+                <button
+                  disabled={!filtered.counts[id]}
+                  onClick={() => setFiltered('enabledCategories', (arr) => [...arr, id])}
+                  classList={{
+                    'opacity-20 cursor-default': !exists,
+                    'hover:opacity-60': exists,
+                    'border-2': filtered.enabledCategories.indexOf(id) !== -1,
+                  }}
+                  class="block w-full text-sm py-4 pl-2 text-left border-b"
+                >
+                  <span>{name}</span>
+                </button>
+              );
+            }}
           </For>
         </div>
         <div class="col-span-9">
-          <Show when={filtered.list.length !== 0} fallback={<div class="p-10 text-center">No resources found.</div>}>
+          <Show
+            when={filtered.list.length !== 0}
+            fallback={<div class="p-10 text-center">No resources found.</div>}
+          >
             <ul>
-              <For each={filtered.list}>
-                {(resource) => <ContentRow {...resource} />}
-              </For>
+              <For each={filtered.list}>{(resource) => <ContentRow {...resource} />}</For>
             </ul>
           </Show>
         </div>
