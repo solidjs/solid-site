@@ -20,7 +20,7 @@
     "prismjs": "^1.23.0",
     "solid-app-router": "^0.0.50-rc.0",
     "solid-js": "^1.0.0-rc.9",
-    "solid-meta": "^0.27.0-rc.0",
+    "solid-meta": "^0.27.0-rc.1",
     "solid-repl": "^0.11.0",
     "solid-utils": "^0.8.0-rc.0"
   },
