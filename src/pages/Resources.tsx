@@ -126,11 +126,14 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     },
     // Retrieve a list categories that have resources
     get categories() {
-      return this.resources().reduce((memo, resource) => [...memo, ...resource.categories], []);
+      return (this.resources() as Resource[]).reduce<string[]>(
+        (memo, resource) => [...memo, ...resource.categories],
+        [],
+      );
     },
     // Retrieve a list of type counts
     get counts() {
-      return this.resources().reduce(
+      return (this.resources() as Resource[]).reduce<{ [key: string]: number }>(
         (memo, resource) => ({
           ...memo,
           [resource.type]: memo[resource.type] ? memo[resource.type] + 1 : 1,
@@ -148,7 +151,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
           <input
             class="mb-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
-            onInput={(evt: InputEvent) => setKeyword(evt.target.value)}
+            onInput={(evt) => setKeyword(evt.currentTarget!.value)}
             type="text"
           />
           <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">
@@ -173,7 +176,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                   }
                   classList={{
                     'opacity-30 cursor-default': !filtered.counts[type],
-                    'hover:opacity-60': filtered.counts[type],
+                    'hover:opacity-60': !!filtered.counts[type],
                     'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1,
                   }}
                   class="grid grid-cols-5 items-center w-full text-sm py-3 text-left border rounded-md"
