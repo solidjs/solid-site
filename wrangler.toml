@@ -1,0 +1,16 @@
+type = "webpack"
+account_id = ""
+zone_id = ""
+workers_dev = true
+route = "www.solidjs.com/*"
+
+[env.dev]
+name = "solidjs-dev"
+route = "dev.solidjs.com/*"
+
+[env.prod]
+name = "solidjs"
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"

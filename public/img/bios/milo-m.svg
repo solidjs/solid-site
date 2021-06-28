@@ -1,0 +1,42 @@
+<svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="66" height="66">
+<rect width="66" height="66" rx="10" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0)">
+<rect width="66" height="66" fill="#263238"/>
+<rect width="66" height="66" fill="#263238"/>
+<path opacity="0.7" d="M3 5H13V9H3V5Z" fill="#C792EA"/>
+<path opacity="0.7" d="M15 5H47V9H15V5Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M49 5H51V9H49V5Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M53 5H61V9H53V5Z" fill="#82AAFF"/>
+<path opacity="0.7" d="M61 5H63V9H61V5Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M11 11H19V15H11V11Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M19 11H21V15H19V11Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M23 11H37V15H23V11Z" fill="#82AAFF"/>
+<path opacity="0.7" d="M37 11H41V15H37V11Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M41 11H63V15H41V11Z" fill="#C3E88D"/>
+<path opacity="0.7" d="M11 17H33V21H11V17Z" fill="#82AAFF"/>
+<path opacity="0.7" d="M33 17H35V21H33V17Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M37 17H41V21H37V17Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M43 17H47V21H43V17Z" fill="#C792EA"/>
+<path opacity="0.7" d="M49 17H63V21H49V17Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M11 23H27V27H11V23Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M27 23H29V27H27V23Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M31 23H33V27H31V23Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M19 29H35V33H19V29Z" fill="#82AAFF"/>
+<path opacity="0.7" d="M35 29H37V33H35V29Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M39 29H43V33H39V29Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M45 29H49V33H45V29Z" fill="#C792EA"/>
+<path opacity="0.7" d="M51 29H63V33H51V29Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M19 35H35V39H19V35Z" fill="#82AAFF"/>
+<path opacity="0.7" d="M35 35H37V39H35V35Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M39 35H43V39H39V35Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M45 35H49V39H45V35Z" fill="#C792EA"/>
+<path opacity="0.7" d="M51 35H63V39H51V35Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M19 41H37V45H19V41Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M37 41H39V45H37V41Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M11 47H15V51H11V47Z" fill="#89DDF3"/>
+<path opacity="0.7" d="M11 53H27V57H11V53Z" fill="#EEFFFF"/>
+<path opacity="0.7" d="M3 59H9V63H3V59Z" fill="#89DDF3"/>
+</g>
+</svg>
