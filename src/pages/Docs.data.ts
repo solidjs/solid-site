@@ -15,8 +15,9 @@ function mdFetcher(version: string) {
 }
 
 export const DocsData: DataFn<DataParams> = (props) => {
-  const [doc] = createResource(() => props.params.version!, mdFetcher);
-
+  const version =
+    props.params.version && props.params.version !== 'latest' ? props.params.version! : '1.0.0';
+  const [doc] = createResource(() => version, mdFetcher);
   return {
     get doc() {
       return doc();

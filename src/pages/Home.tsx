@@ -216,7 +216,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
             <Link
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
-              href="/docs/latest/components"
+              href="/docs/latest#component-apis"
             >
               View Docs
             </Link>
