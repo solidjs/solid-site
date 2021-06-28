@@ -13,7 +13,9 @@
     "jsxImportSource": "solid-js",
     "types": ["vite/client"],
     "skipLibCheck": true,
-    "lib": ["es2019", "dom", "esnext.array"]
+    "strict": true,
+    "noEmit": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   },
   "include": ["./src", "vite.config.js", "./scripts"],
   "exclude": ["node_modules/", "Markdown.tsx"]

@@ -5,6 +5,7 @@ import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
+import { Redirect } from './components/Redirect';
 
 export const routes: RouteDefinition[] = [
   {
@@ -24,9 +25,17 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Examples')),
   },
   {
+    path: '/examples',
+    component: Redirect('/examples/counter'),
+  },
+  {
     path: '/tutorial/:id',
     component: lazy(() => import('./pages/Tutorial')),
     data: TutorialData,
+  },
+  {
+    path: '/tutorial',
+    component: Redirect('/tutorial/introduction_basics'),
   },
   {
     path: '/contributors',

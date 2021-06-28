@@ -3,11 +3,11 @@ import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js
 
 import logo from '../assets/logo.svg';
 
-const links = [
+const links: MenuLinkProps[] = [
   { title: 'Docs', path: '/docs/0.26.0' },
   { title: 'Resources', path: '/resources' },
-  { title: 'Tutorial', path: '/tutorial/introduction_basics' },
-  { title: 'Examples', path: '/examples/counter' },
+  { title: 'Tutorial', path: '/tutorial' },
+  { title: 'Examples', path: '/examples' },
   { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
   { title: 'Media', path: '/media' },
 ];
@@ -47,7 +47,8 @@ const Logo: Component<{ show: boolean }> = (props) => (
   </li>
 );
 
-const MenuLink: Component<{ path: string; external: boolean; title: string }> = (props) => (
+type MenuLinkProps = { path: string; external?: boolean; title: string };
+const MenuLink: Component<MenuLinkProps> = (props) => (
   <li>
     <NavLink
       href={props.path}
