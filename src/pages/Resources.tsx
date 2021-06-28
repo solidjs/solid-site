@@ -1,10 +1,4 @@
-import {
-  Component,
-  For,
-  Show,
-  createSignal,
-  createMemo,
-} from 'solid-js';
+import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -146,8 +140,12 @@ const Resources: Component<ResourcesDataProps> = (props) => {
       <Header title="Resources" />
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
+          <div class="text-xs bg-gray-50 p-4 border rounded">
+            To have your SolidJS related project listed here reach out to us on 
+            <a class="text-solid-medium" href="https://discord.com/invite/solidjs">Discord</a>.
+          </div>
           <input
-            class="mb-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
+            class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
             onInput={(evt: InputEvent) => setKeyword(evt.target.value)}
             type="text"
@@ -197,12 +195,12 @@ const Resources: Component<ResourcesDataProps> = (props) => {
           <h3 class="text-xl mt-8 text-solid-default border-b font-semibold border-solid pb-2">
             Categories
           </h3>
-          <For each={Object.entries(ResourceCategory)}>
+          <For each={Object.entries(ResourceCategory).sort()}>
             {([name, id]) => {
               const exists = filtered.categories.indexOf(id) !== -1;
               return (
                 <button
-                  onClick={() => 
+                  onClick={() =>
                     setFiltered('enabledCategories', (arr) => {
                       const pos = arr.indexOf(id);
                       if (pos === -1) {
@@ -219,9 +217,9 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                     'hover:opacity-60': exists,
                     'bg-gray-50': filtered.enabledCategories.indexOf(id) !== -1,
                   }}
-                  class="block w-full text-sm py-4 pl-2 text-left border-b"
+                  class="block w-full text-sm py-4 pl-4 text-left border-b"
                 >
-                  <span>{name}</span>
+                  <span>{name.replace(/([a-z0-9])([A-Z])/g, '$1 $2')}</span>
                 </button>
               );
             }}

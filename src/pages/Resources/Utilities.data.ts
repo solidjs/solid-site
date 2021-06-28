@@ -4,7 +4,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-app-router',
     title: 'solid-app-router',
-    description: 'A small config-driven router inspired by Ember Router. While less dynamic than the common React it\'s used for things like you\'d find in isomorphic metaframeworks.',
+    description:
+      "A small config-driven router inspired by Ember Router. While less dynamic than the common React it's used for things like you'd find in isomorphic metaframeworks.",
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryancarniato',
     keywords: ['router'],
@@ -26,7 +27,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/mikeplus64/solid-typefu-router5',
     title: 'solid-typefu-router5',
-    description: 'This package provides a router with integration with router5 and solid-js, and features type safe router and link creation.',
+    description:
+      'This package provides a router with integration with router5 and solid-js, and features type safe router and link creation.',
     author: 'Mike Ledger',
     author_url: 'https://github.com/mikeplus64',
     keywords: ['router'],
@@ -59,7 +61,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-jest',
     title: 'solid-jest',
-    description: 'This library contains presets for SolidJS to easily get started testing with Jest for both browser and server rendering with Node.',
+    description:
+      'This library contains presets for SolidJS to easily get started testing with Jest for both browser and server rendering with Node.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryancarniato',
     keywords: ['testing', 'jest'],
@@ -70,7 +73,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-testing-library',
     title: 'solid-testing-library',
-    description: 'Simple and complete Solid DOM testing utilities that encourage good testing practices.',
+    description:
+      'Simple and complete Solid DOM testing utilities that encourage good testing practices.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryancarniato',
     keywords: ['testing'],
@@ -95,7 +99,7 @@ const utilities: Array<Resource> = [
     description: 'Plugin to compile solid-js jsx components with esbuild.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
-    keywords: ['esbuild','tooling'],
+    keywords: ['esbuild', 'tooling'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Starters],
@@ -103,10 +107,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/amoutonbrady/snowpack-solid',
     title: 'snowpack-solid',
-    description: 'Solid + snowpack + tailwindcss template You get HMR out of the box and full PWA compatible.',
+    description:
+      'Solid + snowpack + tailwindcss template You get HMR out of the box and full PWA compatible.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
-    keywords: ['snowpack','tooling'],
+    keywords: ['snowpack', 'tooling'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Starters],
@@ -114,10 +119,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/amoutonbrady/parcel2-solid-ts-starter',
     title: 'parcel2-solid-ts-starter',
-    description: 'This template is based on yarn 2 pnp resolution (zero-install). It also uses parcel 2 for bundling.',
+    description:
+      'This template is based on yarn 2 pnp resolution (zero-install). It also uses parcel 2 for bundling.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
-    keywords: ['parcel2','tooling','boilerplate'],
+    keywords: ['parcel2', 'tooling', 'boilerplate'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Starters],
@@ -128,7 +134,7 @@ const utilities: Array<Resource> = [
     description: 'Simple starter for Rollup + Solid.',
     author: 'Dmitriy Nikiforov',
     author_url: 'https://github.com/MrFoxPro',
-    keywords: ['boilerplate','rollup'],
+    keywords: ['boilerplate', 'rollup'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Starters],
@@ -136,7 +142,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-transition-group',
     title: 'solid-transition-group',
-    description: 'Animation library influenced by React Transition Group and Vue Transitions for the SolidJS library.',
+    description:
+      'Animation library influenced by React Transition Group and Vue Transitions for the SolidJS library.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['transitions', 'animations'],
@@ -147,7 +154,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-start',
     title: 'solid-start',
-    description: 'This is the home of the new official starter for Solid. This is still a work in progress.',
+    description:
+      'This is the home of the new official starter for Solid. This is still a work in progress.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['starter'],
@@ -202,7 +210,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/storeon/solidjs',
     title: 'solid-storeon',
-    description: 'A package that helps to connect store with Solid.js to provide a better performance and developer experience while remaining so tiny.',
+    description:
+      'A package that helps to connect store with Solid.js to provide a better performance and developer experience while remaining so tiny.',
     author: 'Storeon',
     keywords: ['storeon', 'store'],
     official: false,
@@ -212,7 +221,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-styled-components',
     title: 'solid-styled-components',
-    description: 'This library provides Styled Components and css helper found in popular JS in CSS libraries.',
+    description:
+      'This library provides Styled Components and css helper found in popular JS in CSS libraries.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['styled', 'components', 'goober'],
@@ -223,7 +233,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/andgate/solid-orbit',
     title: 'solid-orbit',
-    description: 'This package provides Solid a provider and hooks for Orbit. Most notably, this provides a useQuery hook which is a query transform listener, updating component props with records as they are changed.',
+    description:
+      'This package provides Solid a provider and hooks for Orbit. Most notably, this provides a useQuery hook which is a query transform listener, updating component props with records as they are changed.',
     author: 'Gabriel Anderson',
     author_url: 'https://github.com/andgate',
     keywords: ['orbit', 'store', 'data'],
@@ -234,7 +245,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/lume/lume',
     title: 'Lume',
-    description: 'A toolkit that simplifies the creation of rich and interactive 2D or 3D experiences for any device from mobile to desktop to AR/VR.',
+    description:
+      'A toolkit that simplifies the creation of rich and interactive 2D or 3D experiences for any device from mobile to desktop to AR/VR.',
     author: 'Joe Pea',
     author_url: 'https://github.com/trusktr',
     keywords: ['graphics', '3d', 'ui'],

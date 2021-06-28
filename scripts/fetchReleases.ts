@@ -87,13 +87,13 @@ async function processRelease(release: Release, index: number) {
       console.log('! Next flag enabled, grabbing next branch docs...')
     }
 
+    // Grab individual folders
     const documentations = await client
       .get('contents/documentation', {
         searchParams: { ref: NEXT == true && isLatest ? 'main' : version },
       })
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
-
     const guides = await client
       .get('contents/documentation/guides', {
         searchParams: { ref: NEXT == true && isLatest ? 'main' : version },
@@ -101,7 +101,7 @@ async function processRelease(release: Release, index: number) {
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
 
-    const list = [...documentations, ...guides];
+    const list = [...guides, ...documentations];
 
     for (const item of list) {
       const name = basename(item.download_url);

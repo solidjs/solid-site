@@ -8,6 +8,18 @@ module.exports = {
       fontSize: {
         'xxs': '.55rem',
       },
+      colors: {
+        primary: '#4483c1',
+        solid: {
+          default: '#2c4f7c',
+          dark: '#335d92',
+          gray: '#414042',
+          lightgray: "#f9fafb",
+          medium: '#446b9e',
+          light: '#4f88c6',
+          accent: '#66e6ac',
+        },
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -49,18 +61,6 @@ module.exports = {
       },
       borderRadius: {
         '6xl': '3.5rem'
-      },
-      colors: {
-        primary: '#4483c1',
-        solid: {
-          default: '#2c4f7c',
-          dark: '#335d92',
-          gray: '#414042',
-          lightgray: "#f9fafb",
-          medium: '#446b9e',
-          light: '#4f88c6',
-          accent: '#66e6ac',
-        },
       },
       fontFamily: {
         display: ['Gordita', ...theme.fontFamily.sans],

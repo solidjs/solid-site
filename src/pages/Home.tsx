@@ -38,13 +38,13 @@ const Home: Component<HomepageProps> = (props) => {
       <h1 class="sr-only">SolidJS homepage</h1>
 
       <header class="mx-3 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
-        <div class="bg-hero bg-no-repeat bg-right px-10">
+        <div class="md:bg-hero bg-no-repeat bg-right px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
-            <div class="flex flex-col justify-center lg:justify-start lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-4">
+            <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
               <img class="w-28  lg:w-48" src={logo} alt="Solid logo" />
               <img class="w-32  lg:w-52" src={wordmark} alt="Solid wordmark" />
             </div>
-            <h2 class="font-semibold text-3xl text-center lg:text-left lg:text-4xl leading-loose">
+            <h2 class="font-semibold text-3xl text-left lg:text-4xl leading-loose">
               A declarative, efficient, and flexible JavaScript library for building user
               interfaces.
             </h2>
@@ -61,8 +61,8 @@ const Home: Component<HomepageProps> = (props) => {
           principles developed by previous libraries.
         </div>
 
-        <section class="flex flex-col= lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 border border-4 rounded-lg">
-          <div class="px-8 py-10 border-r">
+        <section class="flex flex-col m-5 lg:m-0 lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
+          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
             <img class="w-12 mb-5" src={performant} />
             <h3 class="text-xl mb-2 font-semibold">Performant</h3>
             <p class="text-base">
@@ -70,7 +70,7 @@ const Home: Component<HomepageProps> = (props) => {
             </p>
           </div>
 
-          <div class="px-8 py-10 border-r">
+          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
             <img class="w-12 mb-5" src={powerful} />
             <h3 class="text-xl mb-2 font-semibold">Powerful</h3>
             <p class="text-base">
@@ -78,13 +78,13 @@ const Home: Component<HomepageProps> = (props) => {
             </p>
           </div>
 
-          <div class="px-8 py-10 border-r">
+          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
             <img class="w-12 mb-5" src={pragmatic} />
             <h3 class="text-xl mb-2 font-semibold">Pragmatic</h3>
             <p class="text-base">A sensible and tailored API makes developing fun and simple.</p>
           </div>
 
-          <div class="px-8 py-10">
+          <div class="px-8 py-4 md:py-10">
             <img class="w-12 mb-5" src={productive} />
             <h3 class="text-xl mb-2 font-semibold">Productive</h3>
             <p class="text-base">
@@ -95,8 +95,8 @@ const Home: Component<HomepageProps> = (props) => {
       </div>
 
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="bg-solid-lightgray border border-gray-200 text-black flex rounded-lg defer">
-          <ul class="flex justify-center w-full">
+        <section class="bg-solid-lightgray m-5 md:m-0 border border-gray-200 text-black flex rounded-lg defer">
+          <ul class="flex flex-col md:flex-row justify-center w-full">
             <li class="hover:bg-solid-dark hover:text-white transition">
               <a
                 target="_blank"
@@ -224,7 +224,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
         </section>
 
-        <section class="bg-gray-50 py-20 grid grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl bg-blocks-three bg-no-repeat bg-contain bg-right">
+        <section class="bg-gray-50 py-20 grid md:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl md:bg-blocks-three bg-no-repeat bg-contain bg-right">
           <div>
             <img class="w-12" src={sandbox} />
             <h2 class="text-3xl mt-8 text-solid font-semibold">
@@ -273,7 +273,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
         </section>
 
-        <section class="bg-solid-lightgray text-black rounded-br-6xl grid grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
+        <section class="bg-solid-lightgray text-black rounded-br-6xl grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} />
