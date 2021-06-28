@@ -7,7 +7,7 @@ import cloudflare from '../assets/supporters/cloudflare.png';
 
 const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')!}>
-    <div class="py-10 mt-5 bg-gray-100 rounded-tr-3xl rounded-tl-3xl mx-3">
+    <div class="py-10 mt-5 bg-solid-lightgray rounded-tr-3xl rounded-tl-3xl mx-3">
       <div class="px-3 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
         <a href="/media"></a>
         <img class="w-40" src={wordmark} alt="Solid logo" />
@@ -56,7 +56,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-right text-gray-400 mt-3">
-            Last updated June 26, 2021 on Solid v1.0.0.
+            Last updated June 28, 2021 on Solid v1.0.0.
           </p>
         </div>
       </div>

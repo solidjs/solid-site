@@ -45,8 +45,7 @@ const Home: Component<HomepageProps> = (props) => {
               <img class="w-32  lg:w-52" src={wordmark} alt="Solid wordmark" />
             </div>
             <h2 class="font-semibold text-3xl text-left lg:text-4xl leading-loose">
-              A declarative, efficient, and flexible JavaScript library for building user
-              interfaces.
+              A declarative, efficient and flexible JavaScript library for building user interfaces.
             </h2>
           </section>
         </div>
@@ -319,6 +318,10 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
             <li class="feature-block border-gray-300 mr-3 mt-3 px-5 py-3">
               <span class="block text-sm">SSR & Hydration</span>
+            </li>
+
+            <li class="feature-block border-gray-300 mr-3 mt-3 px-5 py-3">
+              <span class="block text-sm">Directives</span>
             </li>
           </ul>
         </section>

@@ -49,7 +49,8 @@ const Docs: Component<{
                               'rotate-180 opacity-100': !!section[firstLevel.title],
                               hidden: !firstLevel.children!.length,
                             }}
-                            path={chevronDown} />
+                            path={chevronDown}
+                          />
                         </a>
                       </button>
 
