@@ -38,13 +38,13 @@ const Docs: Component<{
                         onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                       >
                         <a
-                          class="flex justify-between space-x-2 text-sm p-2 py-4"
+                          class="flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           href={`#${firstLevel.slug}`}
                         >
                           <span class="flex-1 font-semibold">{firstLevel.title}</span>
 
                           <Icon
-                            class="opacity-50 8 w-7 transform transition origin-center"
+                            class="opacity-50 h-5 w-7 transform transition origin-center"
                             classList={{
                               'rotate-180 opacity-100': !!section[firstLevel.title],
                               hidden: !firstLevel.children!.length,

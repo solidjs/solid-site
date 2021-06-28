@@ -4,7 +4,7 @@ import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js
 import logo from '../assets/logo.svg';
 
 const links: MenuLinkProps[] = [
-  { title: 'Docs', path: '/docs/0.26.0' },
+  { title: 'Docs', path: '/docs/1.0.0' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial' },
   { title: 'Examples', path: '/examples' },

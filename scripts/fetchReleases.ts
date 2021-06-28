@@ -119,7 +119,7 @@ async function processRelease(release: Release, index: number) {
 
       for (const mdFile of mdFiles) {
         const name = basename(mdFile, '.md');
-        const title = name.charAt(0).toUpperCase() + name.slice(1);
+        const title = name.charAt(0) === "v" ? name.charAt(0).toUpperCase() + name.slice(1) : "next";
         console.log('  >> Processing file ', title);
 
         const fileContent = await readFile(mdFile, { encoding: 'utf-8' });
