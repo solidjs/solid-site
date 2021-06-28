@@ -177,8 +177,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/thisbeyond/solid-dnd',
     title: 'solid-dnd',
-    description: 'A lightweight drag and drop toolkit for Solid.',
-    author: 'ThisBeyond',
+    description: 'A lightweight and extremely performant drag and drop toolkit for Solid.',
+    author: 'Martin Pengelly-Phillips',
     author_url: 'https://www.4degrees.pro',
     keywords: ['drag', 'drop', 'dnd'],
     official: false,
