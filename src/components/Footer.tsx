@@ -14,7 +14,7 @@ const Footer: Component = () => (
 
         <div class="text-sm max-w-5xl">
           <p>
-            Solid is an open-source project supported by a team of public contribitors. It's
+            Solid is an open-source project supported by a team of public contributors. It's
             distributed&nbsp;
             <a
               class="underline hover:text-gray-500"
