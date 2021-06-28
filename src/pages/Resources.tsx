@@ -112,8 +112,8 @@ const Resources: Component<ResourcesDataProps> = (props) => {
       return fs.search(keyword()).map((result) => result.item);
     }),
     // Currently user enabled filters
-    enabledTypes: [] as string[],
-    enabledCategories: [] as string[],
+    enabledTypes: [] as ResourceType[],
+    enabledCategories: [] as ResourceCategory[],
     // Final list produces that applies enabled types and categories
     get list(): Array<Resource> {
       return this.resources().filter((item) => {
@@ -127,7 +127,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     },
     // Retrieve a list categories that have resources
     get categories() {
-      return (this.resources() as Resource[]).reduce<string[]>(
+      return (this.resources() as Resource[]).reduce<ResourceCategory[]>(
         (memo, resource) => [...memo, ...resource.categories],
         [],
       );
