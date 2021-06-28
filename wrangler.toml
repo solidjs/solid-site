@@ -1,6 +1,7 @@
+type = "webpack"
+
 [env.dev]
 name = "solidjs-dev"
-type = "webpack"
 account_id = ""
 workers_dev = true
 route = "dev.solidjs.com/*"
@@ -8,7 +9,6 @@ zone_id = ""
 
 [env.prod]
 name = "solidjs"
-type = "webpack"
 account_id = ""
 workers_dev = false
 route = "www.solidjs.com/*"
