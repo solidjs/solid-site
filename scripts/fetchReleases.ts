@@ -94,9 +94,18 @@ async function processRelease(release: Release, index: number) {
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
 
-    for (const documentation of documentations) {
-      const name = basename(documentation.download_url);
-      const content = await Got.get(documentation.download_url).text();
+    const guides = await client
+      .get('contents/documentation/guides', {
+        searchParams: { ref: NEXT == true && isLatest ? 'main' : version },
+      })
+      .json<Documentation[]>()
+      .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
+
+    const list = [...documentations, ...guides];
+
+    for (const item of list) {
+      const name = basename(item.download_url);
+      const content = await Got.get(item.download_url).text();
 
       await writeFile(resolve(documentationPath, name), content, { encoding: 'utf-8' });
     }

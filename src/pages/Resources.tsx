@@ -30,7 +30,10 @@ export enum ResourceType {
 export enum ResourceCategory {
   Primitives = 'primitive',
   Routers = 'router',
+  Data = 'Data',
+  UI = 'ui',
   Plugins = 'plugin',
+  Starters = 'starters',
   BuildUtilities = 'build_utility',
   AddOn = 'add_on',
   Testing = 'testing',
@@ -57,17 +60,17 @@ const ResourceTypeIcons = {
 const ContentRow: Component<Resource> = (props) => (
   <li class="py-6 border-b hover:bg-gray-50 duration-100">
     <a
-      class="grid grid-cols-12 grid-flow-col text-solid"
+      class="grid grid-cols-12 grid-flow-col gap-2 text-solid"
       target="_blank"
       href={props.link}
       rel="nofollow"
     >
-      <div class="col-span-1 flex items-center justify-center">
-        <figure class="w-12 h-12 p-2 bg-solid-medium rounded-full text-white">
+      <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
+        <figure class="flex content-center w-11 h-11 p-1.5 bg-solid-medium rounded-full text-white">
           <Icon class="w-full" path={ResourceTypeIcons[props.type]} />
         </figure>
       </div>
-      <div class="col-span-9 items-center">
+      <div class="col-span-7 md:col-span-7 lg:col-span-10 items-center">
         <div class="text-lg">{props.title}</div>
         <Show when={props.description != ''}>
           <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
@@ -105,7 +108,6 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     resources: createMemo(() => {
       if (keyword() == '') {
         return props.list;
-      } else {
       }
       return fs.search(keyword()).map((result) => result.item);
     }),
@@ -118,7 +120,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
         if (this.enabledTypes.length !== 0) {
           return this.enabledTypes.indexOf(item.type) !== -1;
         } else if (this.enabledCategories.length !== 0) {
-          return [...new Set([...this.enabledCategories, ...item.categories])].length !== 0;
+          return this.enabledCategories.filter((cat) => item.categories.includes(cat)).length !== 0;
         }
         return true;
       });
@@ -142,8 +144,8 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Resources" />
-      <div class="grid grid-cols-12 container p-5 gap-6 relative">
-        <div class="col-span-3 overflow-auto  p-5 sticky top-20 rounded h-[82vh]">
+      <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
+        <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
           <input
             class="mb-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
@@ -175,14 +177,14 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                     'hover:opacity-60': filtered.counts[type],
                     'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1,
                   }}
-                  class="grid grid-cols-5 items-center w-full text-sm py-3 text-left border rounded-md"
+                  class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
                 >
-                  <div class="col-span-1 flex justify-center px-2">
+                  <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                     <figure class="flex content-center w-9 h-9 p-1.5 bg-solid-medium rounded-full text-white">
                       <Icon class="w-full" path={ResourceTypeIcons[type]} />
                     </figure>
                   </div>
-                  <div class="col-span-3">{name}</div>
+                  <div class="col-span-3 lg:col-span-3">{name}</div>
                   <div class="col-span-1 text-center flex-end text-gray-300 text-xs">
                     <Show when={filtered.counts[type]} fallback={0}>
                       {filtered.counts[type]}
@@ -215,7 +217,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                   classList={{
                     'opacity-20 cursor-default': !exists,
                     'hover:opacity-60': exists,
-                    'border-2': filtered.enabledCategories.indexOf(id) !== -1,
+                    'bg-gray-50': filtered.enabledCategories.indexOf(id) !== -1,
                   }}
                   class="block w-full text-sm py-4 pl-2 text-left border-b"
                 >
@@ -225,7 +227,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
             }}
           </For>
         </div>
-        <div class="col-span-9">
+        <div class="md:col-span-7 lg:col-span-9">
           <Show
             when={filtered.list.length !== 0}
             fallback={<div class="p-10 text-center">No resources found.</div>}
