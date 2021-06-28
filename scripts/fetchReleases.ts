@@ -4,7 +4,8 @@ import Got from 'got';
 import { basename } from 'path';
 import markdown from 'markdown-it';
 import frontmatter from 'front-matter';
-import anchor from 'markdown-it-anchor';
+import anchor, { AnchorInfo } from 'markdown-it-anchor';
+import Token from 'markdown-it/lib/token';
 import { getHighlighter, loadTheme } from 'shiki';
 import { existsSync } from 'fs';
 import { writeFile, mkdir, readFile } from 'fs/promises';
@@ -42,13 +43,13 @@ async function processMarkdown(mdToProcess: string) {
 
   const sections: Section[] = [];
   let first: Section;
-  let second: Section;
+  let second: Section | undefined;
 
   md.use(anchor, {
     permalink: true,
     permalinkBefore: true,
     permalinkSymbol: '#',
-    callback: (token, { slug, title }) => {
+    callback: (token: Token, { slug, title }: AnchorInfo) => {
       // h1 -> 1, h2 -> 2, etc.
       const level = Number.parseInt(token.tag[1], 10);
       const section: Section = { slug, title, level, children: [] };
@@ -59,10 +60,10 @@ async function processMarkdown(mdToProcess: string) {
         sections.push(first);
       } else if (level === 2) {
         second = section;
-        first.children.push(second);
+        first.children!.push(second);
       } else {
         if (!second) return;
-        else second.children.push(section);
+        else second.children!.push(section);
       }
     },
   });

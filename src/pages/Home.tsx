@@ -22,7 +22,7 @@ interface HomepageProps {
 }
 
 const Home: Component<HomepageProps> = (props) => {
-  let playgroundSection: HTMLElement;
+  let playgroundSection!: HTMLElement;
   let observer: IntersectionObserver;
   const [loadRepl, setLoadRepl] = createSignal(false);
 

@@ -46,7 +46,7 @@ const Docs: Component<{
                             class="col-span-1 col-end-8 w-3 transform"
                             classList={{
                               'rotate-180': !!section[firstLevel.title],
-                              hidden: !firstLevel.children.length,
+                              hidden: !firstLevel.children!.length,
                             }}
                             src={arrowDown}
                           />
@@ -59,7 +59,7 @@ const Docs: Component<{
                           'h-0': !section[firstLevel.title],
                         }}
                       >
-                        <For each={firstLevel.children}>
+                        <For each={firstLevel.children!}>
                           {(secondLevel) => (
                             <li>
                               <a
