@@ -19,7 +19,7 @@
     "markdown-it-prism": "^2.1.6",
     "monaco-editor": "^0.25.2",
     "prism-themes": "^1.7.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "solid-app-router": "^0.0.50",
     "solid-js": "^1.0.0",
     "solid-meta": "^0.27.0",
