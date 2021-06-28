@@ -30,7 +30,7 @@ The website is built with [Solid](https://github.com/ryansolid/solid). In order 
 - `yarn deploy:prod`: Helper method to deploy to prod
 - `yarn fetch:releases`: Fetch the latest releases as MD and transforms them to JSON (see below for more)
 
-## Additionnal information
+## Additional information
 
 #### How do I update the documentation?
 
@@ -52,6 +52,7 @@ All you have to do is retrieve the JSON file describing the them in your favorit
 
 - [Solid](https://github.com/ryansolid/solid) - The view library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
+- [Cloudflare Wrangler](https://github.com/shikijs/shiki) - Cloudflare Wrangler to deploy to Workers
 - [vite](http://vitejs.dev/) - For the bundler / dev server
 - [yarn](https://yarnpkg.com/) - The package manager
 - [shiki](https://github.com/shikijs/shiki) - For the code highlight
@@ -59,3 +60,11 @@ All you have to do is retrieve the JSON file describing the them in your favorit
 ## Contributions
 
 We are actively accepting contributions to improve the Solid website. We accept PRs that are well structured, have formatting applied and follow the general structure of the site. If you have any questions, want to report a bug or a general concern, feel free to reach us on Github Issues or Discord.
+
+## Sponsors
+
+Thank you to our generous and helpful sponsors. If you're interested in sponsoring Solid, reach out to us on Discord.
+
+- [Cloudflare](https://www.cloudflare.com/)
+- [Builder.io](https://www.builder.io/)
+- [SauceLabs](https://saucelabs.com/)
