@@ -4,7 +4,8 @@ import { createStore } from 'solid-js/store';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import { Section } from '../../scripts/types';
-import arrowDown from '../assets/download-arrow.svg';
+import { Icon } from '@amoutonbrady/solid-heroicons';
+import { chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 import Footer from '../components/Footer';
 
 const Docs: Component<{
@@ -42,14 +43,13 @@ const Docs: Component<{
                         >
                           <span class="flex-1 font-semibold">{firstLevel.title}</span>
 
-                          <img
-                            class="col-span-1 col-end-8 w-3 transform"
+                          <Icon
+                            class="opacity-50 8 w-7 transform transition origin-center"
                             classList={{
-                              'rotate-180': !!section[firstLevel.title],
+                              'rotate-180 opacity-100': !!section[firstLevel.title],
                               hidden: !firstLevel.children!.length,
                             }}
-                            src={arrowDown}
-                          />
+                            path={chevronDown} />
                         </a>
                       </button>
 

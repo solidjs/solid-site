@@ -29,7 +29,7 @@ const Footer: Component = () => (
             .
           </p>
 
-          <div class="mb-5 mt-7 p-2 rounded-full bg-white flex-col hidden md:flex items-center">
+          <div class="mb-5 mt-7 p-2 rounded-full bg-white hidden md:flex items-center">
             <div class="text-gray-400 my-4 ml-5 mr-2">Sponsored by</div>
             <a
               class="mx-4 hover:opacity-50 transition"
