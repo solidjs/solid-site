@@ -18,11 +18,11 @@
     "monaco-editor": "^0.25.2",
     "prism-themes": "^1.7.0",
     "prismjs": "^1.23.0",
-    "solid-app-router": "^0.0.50-rc.0",
-    "solid-js": "^1.0.0-rc.9",
-    "solid-meta": "^0.27.0-rc.1",
-    "solid-repl": "^0.11.0",
-    "solid-utils": "^0.8.0-rc.0"
+    "solid-app-router": "^0.0.50",
+    "solid-js": "^1.0.0",
+    "solid-meta": "^0.27.0",
+    "solid-repl": "^0.12.0",
+    "solid-utils": "^0.8.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -43,6 +43,6 @@
     "tailwindcss": "^2.2.4",
     "typescript": "^4.3.4",
     "vite": "^2.3.8",
-    "vite-plugin-solid": "^2.0.0-rc.4"
+    "vite-plugin-solid": "^2.0.0"
   }
 }
