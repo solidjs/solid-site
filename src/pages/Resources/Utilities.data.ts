@@ -278,6 +278,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/matteobruni/tsparticles/tree/main/components/solid',
+    title: 'solid-particles',
+    description: 'Official particles.js implementation for Solid.',
+    author: 'Matteo Bruni',
+    author_url: 'https://particles.js.org/',
+    keywords: ['particles', 'ui'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
