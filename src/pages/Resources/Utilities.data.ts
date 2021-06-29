@@ -231,6 +231,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
+    link: 'https://github.com/Acidic9/emotion-solid',
+    title: 'emotion-solid',
+    description:
+      'This library is an Emotion Styled port for Solid.',
+    author: 'Ari Seyhun',
+    author_url: 'https://github.com/Acidic9',
+    keywords: ['emotion', 'styled', 'components', 'css in js'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.AddOn],
+  },
+  {
     link: 'https://github.com/andgate/solid-orbit',
     title: 'solid-orbit',
     description:
