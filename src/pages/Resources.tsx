@@ -144,11 +144,8 @@ const Resources: Component<ResourcesDataProps> = (props) => {
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
           <div class="text-xs bg-gray-50 p-4 border rounded">
-            To have your SolidJS related project listed here reach out to us on
-            <a class="text-solid-medium" href="https://discord.com/invite/solidjs">
-              Discord
-            </a>
-            .
+            To have your SolidJS related project listed here reach out to us
+            on <a class="text-solid-medium" href="https://discord.com/invite/solidjs"> Discord</a>.
           </div>
           <input
             class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
