@@ -239,12 +239,12 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               level. With <strong>no Virtual DOM</strong> or extensive diffing, the framework never
               does more work than you want it to.
             </p>
-            <Link
-              class="button inline-block mt-8 text-solid-default chevron chevron-right  font-semibold hover:text-gray-500"
+            <a
+              class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
               href="https://playground.solidjs.com/?hash=271025478"
             >
               See it in action
-            </Link>
+            </a>
           </div>
         </section>
 
@@ -263,12 +263,12 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               be your focus, the end-user's experience is always a focus. Solid's performance edge
               means that you can scale without concern.
             </p>
-            <Link
+            <a
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
               href="https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
             >
               Read more
-            </Link>
+            </a>
           </div>
         </section>
 
