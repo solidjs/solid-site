@@ -240,7 +240,7 @@ const utilities: Array<Resource> = [
     keywords: ['emotion', 'styled', 'components', 'css in js'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.AddOn],
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
   {
     link: 'https://github.com/andgate/solid-orbit',
