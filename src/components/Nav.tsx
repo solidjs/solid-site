@@ -62,21 +62,21 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const shouldShowLogo = () => props.showLogo || !unlocked();
 
   const handleScrollMobile = (element: HTMLElement) => {
-    const scrollLeft = element.scrollLeft
+    const scrollLeft = element.scrollLeft;
     const scrollRight = scrollLeft - element.scrollWidth + element.offsetWidth;
     const newClassList: { [cls: string]: boolean } = {};
     if (scrollLeft > 10) {
-      newClassList["fadeout-before-navbar"] = true;
+      newClassList['fadeout-before-navbar'] = true;
     } else {
-      newClassList["fadeout-before-navbar"] = false;
+      newClassList['fadeout-before-navbar'] = false;
     }
     if (scrollRight < -10) {
-      newClassList["fadeout-after-navbar"] = true;
+      newClassList['fadeout-after-navbar'] = true;
     } else {
-      newClassList["fadeout-after-navbar"] = false;
+      newClassList['fadeout-after-navbar'] = false;
     }
     setClassList(newClassList);
-  }
+  };
 
   return (
     <>
@@ -88,9 +88,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         }}
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center relative z-20 space-x-10">
-          <ul ref={scrollRef} classList={classList()} onScroll={
-            e => handleScrollMobile(e.currentTarget)
-          } class="flex items-center overflow-auto">
+          <ul
+            ref={scrollRef}
+            classList={classList()}
+            onScroll={(e) => handleScrollMobile(e.currentTarget)}
+            class="flex items-center overflow-auto"
+          >
             <Logo show={shouldShowLogo()} />
             <For each={links} children={MenuLink} />
           </ul>

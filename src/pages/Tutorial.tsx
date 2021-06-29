@@ -11,6 +11,7 @@ import {
   createMemo,
   on,
   batch,
+  ErrorBoundary,
 } from 'solid-js';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
@@ -251,19 +252,25 @@ const Tutorial: Component<TutorialProps> = (props) => {
             </div>
           </div>
 
-          <Repl
-            compiler={compiler}
-            formatter={formatter}
-            isHorizontal={true}
-            interactive={true}
-            actionBar={true}
-            editableTabs={true}
-            dark={false}
-            tabs={tabs()}
-            setTabs={setTabs}
-            current={current()}
-            setCurrent={setCurrent}
-          />
+          <ErrorBoundary
+            fallback={
+              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+            }
+          >
+            <Repl
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={false}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
+            />
+          </ErrorBoundary>
         </div>
       </Suspense>
     </>

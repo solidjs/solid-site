@@ -1,4 +1,4 @@
-import { For, Component } from "solid-js";
+import { For, Component } from 'solid-js';
 
 const socials = [
   {
@@ -38,7 +38,7 @@ const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (prop
 );
 
 const Social: Component = () => {
-  return <For each={socials} children={(social) => <SocialIcon {...social} />} />
-}
+  return <For each={socials} children={(social) => <SocialIcon {...social} />} />;
+};
 
 export default Social;

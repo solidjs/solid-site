@@ -1,6 +1,6 @@
 import { createTabList, Repl } from 'solid-repl';
 import { Link } from 'solid-app-router';
-import { For, Component, createSignal, createEffect, batch } from 'solid-js';
+import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -132,19 +132,25 @@ const Examples: Component<Props> = (props) => {
           </div>
 
           <div class="col-span-9 h-[85vh] rounded-lg col-span-6 overflow-hidden shadow-2xl">
-            <Repl
-              compiler={compiler}
-              formatter={formatter}
-              isHorizontal={true}
-              interactive={true}
-              actionBar={true}
-              editableTabs={true}
-              dark={false}
-              tabs={tabs()}
-              setTabs={setTabs}
-              current={current()}
-              setCurrent={setCurrent}
-            />
+            <ErrorBoundary
+              fallback={
+                <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+              }
+            >
+              <Repl
+                compiler={compiler}
+                formatter={formatter}
+                isHorizontal={true}
+                interactive={true}
+                actionBar={true}
+                editableTabs={true}
+                dark={false}
+                tabs={tabs()}
+                setTabs={setTabs}
+                current={current()}
+                setCurrent={setCurrent}
+              />
+            </ErrorBoundary>
           </div>
         </div>
       </div>
