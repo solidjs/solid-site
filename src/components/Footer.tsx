@@ -4,6 +4,7 @@ import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
+import Social from './Social';
 
 const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')!}>
@@ -55,9 +56,12 @@ const Footer: Component = () => (
           </div>
 
           {/* TODO: Make this dynamic */}
-          <p class="text-sm text-right text-gray-400 mt-3">
+          <p class="text-sm text-center text-gray-400 mt-3">
             Last updated June 28, 2021 on Solid v1.0.0.
           </p>
+          <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
+            <Social />
+          </ul>
         </div>
       </div>
     </div>
