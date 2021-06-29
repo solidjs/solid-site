@@ -23,5 +23,5 @@ Remember you can apply names dynamically like what you'd receive in CSS modules 
 ```jsx
 import { active } from "./style.module.css"
 
-<div classList={ [active]: isActive() } />
+<div classList={{ [active]: isActive() }} />
 ```
