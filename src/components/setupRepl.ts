@@ -19,5 +19,7 @@ import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
   },
 };
 
-export const compiler = new CompilerWorker();
-export const formatter = new FormatterWorker();
+// @ts-ignore wrong type in Vite
+export const compiler = CompilerWorker();
+// @ts-ignore wrong type in Vite
+export const formatter = FormatterWorker();
