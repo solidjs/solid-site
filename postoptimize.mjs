@@ -9,7 +9,7 @@ const svgFiles = await glob(['./dist/**/*.svg'], {
   absolute: true,
 });
 
-await Promise.all(
+const svgOptimized = Promise.all(
   svgFiles.map(async (svgFile) => {
     const svgString = await readFile(svgFile, 'utf8');
     const { data } = await svgOptimize(svgString, {
@@ -19,3 +19,26 @@ await Promise.all(
     await writeFile(svgFile, data);
   }),
 );
+
+import { default as nodeMinify } from '@node-minify/core';
+import { default as jsonMinify } from '@node-minify/jsonminify';
+
+const jsonFiles = await glob(['./dist/**/*.json'], {
+  dot: true,
+  cwd: process.cwd(),
+  onlyFiles: true,
+  absolute: true,
+});
+
+const jsonOtimized = Promise.all(
+  jsonFiles.map((jsonFile) =>
+    nodeMinify({
+      compressor: jsonMinify,
+      input: jsonFile,
+      output: jsonFile,
+    }),
+  ),
+);
+
+await svgOptimized;
+await jsonOtimized;
