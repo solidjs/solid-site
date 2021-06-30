@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
+import TerserOptions from './.terserrc';
 
 export default defineConfig({
   plugins: [solid()],
@@ -14,5 +15,6 @@ export default defineConfig({
   build: {
     polyfillDynamicImport: false,
     target: 'esnext',
+    terserOptions: TerserOptions
   },
 });
