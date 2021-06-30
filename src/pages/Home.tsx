@@ -41,10 +41,10 @@ const Home: Component<HomepageProps> = (props) => {
         <div class="md:bg-hero bg-no-repeat bg-right px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
             <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
-              <img class="w-28  lg:w-48" src={logo} alt="Solid logo" />
-              <img class="w-32  lg:w-52" src={wordmark} alt="Solid wordmark" />
+              <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
+              <img class="w-32 h-15 lg:w-52" src={wordmark} alt="Solid wordmark" />
             </div>
-            <h2 class="font-semibold text-3xl text-left lg:text-4xl leading-loose">
+            <h2 class="font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
               A declarative, efficient and flexible JavaScript library for building user interfaces.
             </h2>
           </section>
@@ -53,15 +53,16 @@ const Home: Component<HomepageProps> = (props) => {
 
       <Nav />
 
-      <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
+        
         <div class="my-10 p-10 max-w-4xl m-auto text-center text-2xl">
           <b class="inline font-semibold text-solid">Solid is a purely reactive library. </b>
           It was designed from the ground up with a reactive core. It's influenced by reactive
           principles developed by previous libraries.
         </div>
 
-        <section class="flex flex-col m-5 lg:m-0 lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
-          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
+        <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
+          <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
             <img class="w-12 mb-5" src={performant} />
             <h3 class="text-xl mb-2 font-semibold">Performant</h3>
             <p class="text-base">
@@ -69,7 +70,7 @@ const Home: Component<HomepageProps> = (props) => {
             </p>
           </div>
 
-          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
+          <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
             <img class="w-12 mb-5" src={powerful} />
             <h3 class="text-xl mb-2 font-semibold">Powerful</h3>
             <p class="text-base">
@@ -77,7 +78,7 @@ const Home: Component<HomepageProps> = (props) => {
             </p>
           </div>
 
-          <div class="px-8 py-4 md:py-10 lg:border-r border-b lg:border-b-0">
+          <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
             <img class="w-12 mb-5" src={pragmatic} />
             <h3 class="text-xl mb-2 font-semibold">Pragmatic</h3>
             <p class="text-base">A sensible and tailored API makes developing fun and simple.</p>
@@ -94,7 +95,7 @@ const Home: Component<HomepageProps> = (props) => {
       </div>
 
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="bg-solid-lightgray m-5 md:m-0 border border-gray-200 text-black flex rounded-lg defer">
+        <section class="bg-solid-lightgray m-5 lg:m-0 border border-gray-200 text-black flex rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <li class="hover:bg-solid-dark hover:text-white transition">
               <a
@@ -223,20 +224,20 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
         </section>
 
-        <section class="bg-gray-50 py-20 grid md:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl md:bg-blocks-three bg-no-repeat bg-contain bg-right">
-          <div>
-            <img class="w-12" src={sandbox} />
-            <h2 class="text-3xl mt-8 text-solid font-semibold">
-              Fine-grained means you do more with less.
+        <section class="bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right">
+          <div class="px-5">
+            <img class="w-16" src={sandbox} />
+            <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
+              Fine-grained reactivity means you do more with less.
             </h2>
 
             <p class="text-2xl mt-2">
-              Every part of Solid is built on fine-grained reactivity from its simple primitives to
+              Every part of Solid is built on simple primitives to
               the JavaScript expressions in your JSX views.
             </p>
             <p class="mt-6 leading-7">
               This unlocks complete control over what gets updated and when, even at the DOM binding
-              level. With <strong>no Virtual DOM</strong> or extensive diffing, the framework never
+              level. With <strong>no Virtual DOM</strong> or extensive diffing the framework never
               does more work than you want it to.
             </p>
             <a
@@ -248,7 +249,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
         </section>
 
-        <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 ">
+        <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 space-y-10 ">
           <div class="flex flex-wrap items-center flex-1">
             <Benchmarks list={props.benchmarks} />
           </div>
@@ -256,12 +257,12 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">
             <img class="w-20" src={iconBlocks2} />
             <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
+            <h2 class="m3-6 text-2xl font-semibold text-solid">on both client and server runtime</h2>
             <p class="leading-7 mt-9">
-              It's no secret that Solid consistently performs as the top rated JS framework in the
-              world on the client side and especially server-side. The strength of fine-grained
-              reactivity as an approach shines on all notable benchmarks. While performance may not
-              be your focus, the end-user's experience is always a focus. Solid's performance edge
-              means that you can scale without concern.
+              The strength of fine-grained reactivity as an approach shines on all notable benchmarks.
+              While performance may not be your focus, the end-user's experience is always a concern.
+              Think of Solid's performance gain as a free win <i>without extra development complexity</i>.
+              It's about being fast without trying.
             </p>
             <a
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"

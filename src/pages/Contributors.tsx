@@ -67,7 +67,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
       <Header title="Team & Contributors" />
 
       <div class="px-3 lg:px-12 container my-10">
-        <div class="grid my-8 grid-cols-12 gap-20">
+        <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">
             <h2 class="text-3xl font-semibold text-solid-default">Core Team</h2>
 
@@ -76,7 +76,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
             </ul>
           </div>
 
-          <div class="col-span-6 flex flex-col space-y-7">
+          <div class="col-span-6 flex flex-col space-y-10">
             <h2 class="text-2xl font-semibold text-solid-default">Acknowledgements</h2>
 
             <p>

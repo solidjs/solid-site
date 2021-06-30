@@ -9,7 +9,7 @@ import Social from './Social';
 const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')!}>
     <div class="py-10 mt-5 bg-solid-lightgray rounded-tr-3xl rounded-tl-3xl mx-3">
-      <div class="px-3 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
+      <div class="px-7 md:px-0 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
         <a href="/media"></a>
         <img class="w-40" src={wordmark} alt="Solid logo" />
 
@@ -57,7 +57,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-center text-gray-400 mt-3">
-            Last updated June 28, 2021 on Solid v1.0.0.
+            Last updated June 30, 2021 8:30am on Solid v1.0.0.
           </p>
           <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
             <Social />

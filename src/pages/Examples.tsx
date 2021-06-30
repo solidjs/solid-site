@@ -102,8 +102,8 @@ const Examples: Component<Props> = (props) => {
       <Header title="Example Library" />
 
       <div class="my-10 w-[98vw] mx-auto">
-        <div class="grid grid-cols-12 gap-6">
-          <div class="col-span-3 overflow-auto border p-5 rounded h-[82vh]">
+        <div class="md:grid md:grid-cols-12 gap-6">
+          <div class="md:col-span-4 lg:col-span-3 overflow-auto border p-5 rounded md:h-[82vh]">
             <For each={Object.entries(list)}>
               {([name, examples]) => (
                 <>
@@ -131,7 +131,7 @@ const Examples: Component<Props> = (props) => {
             </For>
           </div>
 
-          <div class="col-span-9 h-[85vh] rounded-lg col-span-6 overflow-hidden shadow-2xl">
+          <div class="h-[85vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl">
             <ErrorBoundary
               fallback={
                 <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>

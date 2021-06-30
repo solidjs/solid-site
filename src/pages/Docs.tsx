@@ -22,13 +22,13 @@ const Docs: Component<{
       <Header title="Documentation" />
 
       <Show when={!props.loading}>
-        <div class="px-3 lg:px-12 container grid my-5 grid-cols-12 gap-4">
+        <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <div class="col-span-3">
             <div
-              class="flex flex-col py-5 sticky"
-              style={{ height: 'calc(100vh - 80px - 2.5rem)', top: '6rem' }}
+              class="lg:flex flex-col py-5 sticky hidden"
+              style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <ul class="overflow-auto flex flex-col flex-1 mt-3">
+              <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) => (
                     <li>
@@ -84,7 +84,7 @@ const Docs: Component<{
             </div>
           </div>
 
-          <div class="col-span-9 px-10 mx-5">
+          <div class="col-span-9 lg:px-10 mx-5">
             {/* <Show when={!currentDocs().latest}>
             <p
               class="sticky p-5 bg-solid-gray text-white z-50 rounded-sm mb-8"

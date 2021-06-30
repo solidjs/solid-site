@@ -84,7 +84,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       <div
         class="sticky top-0 z-50 bg-white"
         classList={{
-          'border-b': props.showLogo,
+          'shadow-md': shouldShowLogo(),
         }}
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center relative z-20 space-x-10">
