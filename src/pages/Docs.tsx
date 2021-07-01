@@ -1,12 +1,13 @@
-import { Component, For, Show, Switch, Match } from 'solid-js';
+import { Component, For, Show, Switch, Match, createEffect, createSignal, onMount, on } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
-import { chevronDown } from '@amoutonbrady/solid-heroicons/solid';
+import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import Footer from '../components/Footer';
+import createIntersectionObserver from '../utils/createIntersectionObserver';
 
 const Docs: Component<{
   doc: { content: string; sections: Section[] };
@@ -14,7 +15,19 @@ const Docs: Component<{
   loading: boolean;
   version: string;
 }> = (props) => {
+  const [current, setCurrent] = createSignal<string|null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
+  const [toggleSections, setToggleSections] = createSignal(false);
+
+  onMount(() => {
+    props.doc.sections.forEach((section) => {
+      const obs = createIntersectionObserver(document.getElementById(section.slug)!, false);
+      createEffect(
+        on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug))
+      );
+    });
+    setCurrent(props.doc.sections[0].slug);
+  });
 
   return (
     <div class="flex flex-col relative">
@@ -23,9 +36,26 @@ const Docs: Component<{
 
       <Show when={!props.loading}>
         <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
-          <div class="col-span-3">
+          <button
+            class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
+            classList={{
+              'rotate-90': toggleSections()
+            }}
+            onClick={() => setToggleSections(!toggleSections())}
+          >
+            <Icon class="h-7 w-7" path={chevronRight} />
+          </button>
+          <div class="col-span-4 lg:col-span-3 relative">
             <div
-              class="lg:flex flex-col py-5 sticky hidden"
+              class={
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 md:p-0 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
+                'md:border-0 md:shadow-none md:p-0 md:flex-col ' +
+                'lg:sticky lg:flex'
+              }
+              classList={{
+                '-left-full': !toggleSections(),
+                'left-0': toggleSections(),
+              }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
               <ul class="overflow-auto flex flex-col flex-1">
@@ -41,7 +71,12 @@ const Docs: Component<{
                           class="flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           href={`#${firstLevel.slug}`}
                         >
-                          <span class="flex-1 font-semibold">{firstLevel.title}</span>
+                          <span
+                            class="flex-1"
+                            classList={{
+                              'font-semibold': current() == firstLevel.slug
+                            }}
+                          >{firstLevel.title}</span>
 
                           <Icon
                             class="opacity-50 h-5 w-7 transform transition origin-center"
@@ -55,14 +90,14 @@ const Docs: Component<{
                       </button>
 
                       <ul
-                        class="overflow-hidden"
+                        class="overflow-hidden transition"
                         classList={{
-                          'h-0': !section[firstLevel.title],
+                          'h-0': section[firstLevel.title] !== true,
                         }}
                       >
                         <For each={firstLevel.children!}>
                           {(secondLevel) => (
-                            <li>
+                            <li onClick={() => setToggleSections(false)}>
                               <a
                                 class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
                                 classList={{
@@ -84,22 +119,7 @@ const Docs: Component<{
             </div>
           </div>
 
-          <div class="col-span-9 lg:px-10 mx-5">
-            {/* <Show when={!currentDocs().latest}>
-            <p
-              class="sticky p-5 bg-solid-gray text-white z-50 rounded-sm mb-8"
-              style={{ top: '5.5rem' }}
-            >
-              <strong>Important:</strong> <span>This documentation is for an older version</span>{' '}
-              <span>({currentDocs().version})</span>{' '}
-              <span>of Solid.js which may be different than the latest.</span>{' '}
-              <Link href="/docs/latest/api" class="text-blue-200 hover:underline">
-                Click here
-              </Link>{' '}
-              <span>to view the latest version.</span>
-            </p>
-          </Show> */}
-
+          <div class="col-span-8 lg:col-span-9 px-10 lg:px-0">
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={props.loading}>Loading documentation...</Match>
               <Match when={props.doc}>

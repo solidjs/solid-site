@@ -199,10 +199,10 @@ const Tutorial: Component<TutorialProps> = (props) => {
 
       <Suspense fallback={<p>Loading...</p>}>
         <div
-          class="grid"
-          style="height: calc(100vh - 80px); grid-template-columns: minmax(40%, 600px) auto"
+          class="md:grid"
+          style="height: calc(100vh - 60px); grid-template-columns: minmax(40%, 600px) auto"
         >
-          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey">
+          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
             <DirectoryMenu
               current={props.tutorialDirectoryEntry}
               directory={props.tutorialDirectory}

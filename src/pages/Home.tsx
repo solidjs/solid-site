@@ -257,7 +257,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">
             <img class="w-20" src={iconBlocks2} />
             <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
-            <h2 class="m3-6 text-2xl font-semibold text-solid">on both client and server runtime</h2>
+            <h2 class="m3-6 text-2xl font-semibold text-solid">on both client and server</h2>
             <p class="leading-7 mt-9">
               The strength of fine-grained reactivity as an approach shines on all notable benchmarks.
               While performance may not be your focus, the end-user's experience is always a concern.

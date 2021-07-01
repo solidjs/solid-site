@@ -44,7 +44,9 @@
 .defer {
   content-visibility: auto;
 }
-
+* {
+  scroll-margin-top: 80px;
+}
 .prose pre {
   font-size: inherit;
 }

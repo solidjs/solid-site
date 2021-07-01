@@ -84,7 +84,7 @@ const ContentRow: Component<Resource> = (props) => (
           Official
         </Show>
       </div>
-      <div class="col-span-1 flex justify-end">
+      <div class="col-span-2 lg:col-span-1 flex justify-end">
         <Icon class="w-7 mx-2 text-gray-400" path={chevronRight} />
       </div>
     </a>
