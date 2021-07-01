@@ -56,7 +56,7 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Media')),
   },
   {
-    path: "*all",
-    component: lazy(() => import("./pages/404"))
-  }
+    path: '*all',
+    component: lazy(() => import('./pages/404')),
+  },
 ];

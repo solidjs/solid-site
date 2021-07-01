@@ -1,4 +1,14 @@
-import { Component, For, Show, Switch, Match, createEffect, createSignal, onMount, on } from 'solid-js';
+import {
+  Component,
+  For,
+  Show,
+  Switch,
+  Match,
+  createEffect,
+  createSignal,
+  onMount,
+  on,
+} from 'solid-js';
 import { createStore } from 'solid-js/store';
 
 import Nav from '../components/Nav';
@@ -15,7 +25,7 @@ const Docs: Component<{
   loading: boolean;
   version: string;
 }> = (props) => {
-  const [current, setCurrent] = createSignal<string|null>(null);
+  const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
 
@@ -23,7 +33,7 @@ const Docs: Component<{
     props.doc.sections.forEach((section) => {
       const obs = createIntersectionObserver(document.getElementById(section.slug)!, false);
       createEffect(
-        on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug))
+        on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug)),
       );
     });
     setCurrent(props.doc.sections[0].slug);
@@ -39,7 +49,7 @@ const Docs: Component<{
           <button
             class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
             classList={{
-              'rotate-90': toggleSections()
+              'rotate-90': toggleSections(),
             }}
             onClick={() => setToggleSections(!toggleSections())}
           >
@@ -64,29 +74,26 @@ const Docs: Component<{
                     <li>
                       <button
                         type="button"
-                        class="text-left block w-full text-solid-medium border-b hover:text-gray-400 transition"
+                        class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                         onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                       >
-                        <a
-                          class="flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
-                          href={`#${firstLevel.slug}`}
+                        <span
+                          class="flex-1"
+                          classList={{
+                            'font-semibold': current() == firstLevel.slug,
+                          }}
                         >
-                          <span
-                            class="flex-1"
-                            classList={{
-                              'font-semibold': current() == firstLevel.slug
-                            }}
-                          >{firstLevel.title}</span>
+                          {firstLevel.title}
+                        </span>
 
-                          <Icon
-                            class="opacity-50 h-5 w-7 transform transition origin-center"
-                            classList={{
-                              'rotate-180 opacity-100': !!section[firstLevel.title],
-                              hidden: !firstLevel.children!.length,
-                            }}
-                            path={chevronDown}
-                          />
-                        </a>
+                        <Icon
+                          class="opacity-50 h-5 w-7 transform transition origin-center"
+                          classList={{
+                            'rotate-180 opacity-100': !!section[firstLevel.title],
+                            hidden: !firstLevel.children!.length,
+                          }}
+                          path={chevronDown}
+                        />
                       </button>
 
                       <ul

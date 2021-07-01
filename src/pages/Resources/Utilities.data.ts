@@ -233,8 +233,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/Acidic9/emotion-solid',
     title: 'emotion-solid',
-    description:
-      'This library is an Emotion Styled port for Solid.',
+    description: 'This library is an Emotion Styled port for Solid.',
     author: 'Ari Seyhun',
     author_url: 'https://github.com/Acidic9',
     keywords: ['emotion', 'styled', 'components', 'css in js'],

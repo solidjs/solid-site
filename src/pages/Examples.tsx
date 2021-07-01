@@ -134,7 +134,9 @@ const Examples: Component<Props> = (props) => {
           <div class="h-[85vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl">
             <ErrorBoundary
               fallback={
-                <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+                <>
+                  Repl failed to load. You may be using a browser that doesn't support Web Workers.
+                </>
               }
             >
               <Repl

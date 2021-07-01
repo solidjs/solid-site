@@ -70,6 +70,17 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://www.youtube.com/watch?v=P-AGz3U8lFY',
+    title: 'Learning SolidJS',
+    description:
+      'Alex takes a first look, building a color transformation tool and dad joke search app in the process.',
+    keywords: [''],
+    author: 'uidotdev',
+    author_url: 'https://www.youtube.com/channel/UCbAn7pVK2VIyo-UysfWGdZQ',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default videos;

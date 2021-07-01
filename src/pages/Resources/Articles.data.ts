@@ -453,7 +453,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://blog.openreplay.com/solid-vs-react-the-fastest-vs-the-most-popular-ui-library',
     title: 'Solid vs React - the Fastest VS the Most Popular UI Library',
-    description: 'An article presented by OpenReplay discussing the differences between React and Solid.',
+    description:
+      'An article presented by OpenReplay discussing the differences between React and Solid.',
     author: 'Arek Nawo',
     author_url: 'https://blog.openreplay.com/authors/arek-nawo',
     keywords: ['react', 'solid', 'comparison'],
