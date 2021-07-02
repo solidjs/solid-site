@@ -177,7 +177,9 @@ const Tutorial: Component<TutorialProps> = (props) => {
     },
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
+  let markDownRef!: HTMLDivElement;
   createEffect(async () => {
+    markDownRef.scrollTop = 0;
     const url = props.solved ? props.solvedJs : props.js;
     if (!url) return;
     const data = await fetch(url).then((r) => r.json());
@@ -208,14 +210,16 @@ const Tutorial: Component<TutorialProps> = (props) => {
               directory={props.tutorialDirectory}
             />
 
-            <Markdown class="p-10 flex-1 max-w-full overflow-auto">{props.markdown || ''}</Markdown>
+            <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
+              {props.markdown || ''}
+            </Markdown>
 
-            <div class="py-3 px-8 flex items-center justify-between border-t-2">
+            <div class="py-4 px-10 flex items-center justify-between border-t-2">
               <Show
                 when={props.solved}
                 fallback={
                   <Link
-                    class="inline-flex py-3 pt-4 leading-none px-4 bg-solid-default hover:bg-solid-mediumm text-white rounded"
+                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                     href={`/tutorial/${props.id}?solved`}
                   >
                     Solve
@@ -231,23 +235,27 @@ const Tutorial: Component<TutorialProps> = (props) => {
               </Show>
 
               <div class="flex items-center space-x-4">
-                <Link href={props.previousUrl ?? ''} external={!props.previousUrl}>
-                  <span class="sr-only">Previous step</span>
-                  <Icon
-                    path={arrowLeft}
-                    class="h-6"
-                    classList={{ 'opacity-25': !props.previousUrl }}
-                  />
-                </Link>
+                <span data-tooltip={props.previousLesson}>
+                  <Link href={props.previousUrl ?? ''} external={!props.previousUrl}>
+                    <span class="sr-only">Previous step</span>
+                    <Icon
+                      path={arrowLeft}
+                      class="h-6"
+                      classList={{ 'opacity-25': !props.previousUrl }}
+                    />
+                  </Link>
+                </span>
 
-                <Link href={props.nextUrl ?? ''} external={!props.nextUrl}>
-                  <span class="sr-only">Next step</span>
-                  <Icon
-                    path={arrowRight}
-                    class="h-6"
-                    classList={{ 'opacity-25': !props.nextUrl }}
-                  />
-                </Link>
+                <span data-tooltip={props.nextLesson}>
+                  <Link href={props.nextUrl ?? ''} external={!props.nextUrl}>
+                    <span class="sr-only">Next step</span>
+                    <Icon
+                      path={arrowRight}
+                      class="h-6"
+                      classList={{ 'opacity-25': !props.nextUrl }}
+                    />
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
