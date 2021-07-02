@@ -62,7 +62,7 @@ const Home: Component<HomepageProps> = (props) => {
 
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
           <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
-            <img class="w-12 mb-5" src={performant} />
+            <img class="w-12 mb-5" src={performant} alt="speed" />
             <h3 class="text-xl mb-2 font-semibold">Performant</h3>
             <p class="text-base">
               Consistently tops recognized UI speed and memory utilization benchmarks.
@@ -70,7 +70,7 @@ const Home: Component<HomepageProps> = (props) => {
           </div>
 
           <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
-            <img class="w-12 mb-5" src={powerful} />
+            <img class="w-12 mb-5" src={powerful} alt="powerful" />
             <h3 class="text-xl mb-2 font-semibold">Powerful</h3>
             <p class="text-base">
               Composable reactive primitives married with the flexibility of JSX.
@@ -78,13 +78,13 @@ const Home: Component<HomepageProps> = (props) => {
           </div>
 
           <div class="px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
-            <img class="w-12 mb-5" src={pragmatic} />
+            <img class="w-12 mb-5" src={pragmatic} alt="pragmatic" />
             <h3 class="text-xl mb-2 font-semibold">Pragmatic</h3>
             <p class="text-base">A sensible and tailored API makes developing fun and simple.</p>
           </div>
 
           <div class="px-8 py-4 md:py-10">
-            <img class="w-12 mb-5" src={productive} />
+            <img class="w-12 mb-5" src={productive} alt="productive" />
             <h3 class="text-xl mb-2 font-semibold">Productive</h3>
             <p class="text-base">
               Ergonomics and familiarity make building simple or complex things a breeze.
@@ -185,7 +185,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
 
           <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
-            <img class="w-20" src={iconBlocks1} />
+            <img class="w-20" src={iconBlocks1} alt="" />
             <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">
               It's familiar and modern
             </h3>
@@ -215,7 +215,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
         <section class="bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right">
           <div class="px-5">
-            <img class="w-16" src={sandbox} />
+            <img class="w-16" src={sandbox} alt="" />
             <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
               Fine-grained reactivity means you do more with less.
             </h2>
@@ -244,7 +244,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
 
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">
-            <img class="w-20" src={iconBlocks2} />
+            <img class="w-20" src={iconBlocks2} alt="" />
             <h2 class="mt-6 text-3xl font-semibold text-solid">Performance focused</h2>
             <h2 class="m3-6 text-2xl font-semibold text-solid">on both client and server</h2>
             <p class="leading-7 mt-9">
@@ -257,7 +257,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
               href="https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
             >
-              Read more
+              Read Full Article
             </a>
           </div>
         </section>
@@ -265,7 +265,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
         <section class="bg-solid-lightgray text-black rounded-br-6xl grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
-              <img class="w-10 mb-5 block" src={flag} />
+              <img class="w-10 mb-5 block" src={flag} alt="" />
               Fully loaded with all features.
             </h2>
             <p class="text-xl mt-4">
