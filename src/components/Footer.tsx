@@ -3,6 +3,7 @@ import { Portal } from 'solid-js/web';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
+import version from 'solid-js';
 import cloudflare from '../assets/supporters/cloudflare.png';
 import Social from './Social';
 
@@ -33,6 +34,7 @@ const Footer: Component = () => (
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
+              rel="noopener"
               href="https://www.cloudflare.com/"
             >
               <img class="w-32" src={cloudflare} alt="cloudflare" />
@@ -40,6 +42,7 @@ const Footer: Component = () => (
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
+              rel="noopener"
               href="https://www.builder.io/"
             >
               <img class="w-24" src={builder} alt="builder.io" />
@@ -47,6 +50,7 @@ const Footer: Component = () => (
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
+              rel="noopener"
               href="https://www.saucelabs.com/"
             >
               <img class="w-32" src={sauce} alt="SAUCELABS" />
@@ -55,7 +59,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-center text-gray-400 mt-3">
-            Last updated June 30, 2021 8:30am on Solid v1.0.0.
+            Last updated July 2, 2021 11:15am on Solid v1.0.0.
           </p>
           <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
             <Social />

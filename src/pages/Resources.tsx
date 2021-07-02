@@ -96,7 +96,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [keyword, setKeyword] = createSignal('');
+  const [keyword, setKeyword] = createSignal(globalThis.location.hash.replace('#', ''));
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
@@ -154,6 +154,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
           <input
             class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
+            value={keyword()}
             onInput={(evt) => setKeyword(evt.currentTarget!.value)}
             type="text"
           />
