@@ -81,7 +81,7 @@ Solid has a dynamic server side rendering solution that enables a truly isomorph
 
 Since Solid supports asynchronous and streaming rendering on the server, you get to write your code one way and have it execute on the server. This means that features like [render-as-you-fetch](https://reactjs.org/docs/concurrent-mode-suspense.html#approach-3-render-as-you-fetch-using-suspense) and code splitting just work in Solid.
 
-For more information, read the Server guide.
+For more information, read the [Server guide](#getting-started-with-ssr).
 
 ## No Compilation?
 

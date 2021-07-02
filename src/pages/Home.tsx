@@ -121,27 +121,17 @@ const Home: Component<HomepageProps> = (props) => {
             </li>
 
             <li class="hover:bg-solid-dark hover:text-white transition">
-              <a
-                target="_blank"
-                rel="noopener"
-                href="https://github.com/ryansolid/solid/stargazers"
-                class="inline-block px-5 py-5"
-              >
+              <div class="inline-block px-5 py-5">
                 <strong class="font-semibold">5+ years</strong>
                 <span class="block text-sm">In development</span>
-              </a>
+              </div>
             </li>
 
             <li class="hover:bg-solid-dark hover:text-white transition">
-              <a
-                target="_blank"
-                rel="noopener"
-                href="https://github.com/ryansolid/solid/stargazers"
-                class="inline-block px-5 py-5"
-              >
+              <div class="inline-block px-5 py-5">
                 <strong class="font-semibold">TypeScript</strong>
                 <span class="block text-sm">Support</span>
-              </a>
+              </div>
             </li>
 
             <li class="hover:bg-solid-dark hover:text-white transition">
