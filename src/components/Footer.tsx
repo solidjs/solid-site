@@ -10,9 +10,7 @@ const Footer: Component = () => (
   <Portal mount={document.getElementById('footer')!}>
     <div class="py-10 mt-5 bg-solid-lightgray rounded-tr-3xl rounded-tl-3xl mx-3">
       <div class="px-7 md:px-0 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
-        <a href="/media"></a>
         <img class="w-40" src={wordmark} alt="Solid logo" />
-
         <div class="text-sm max-w-5xl">
           <p>
             Solid is an open-source project supported by a team of public contributors. It's
