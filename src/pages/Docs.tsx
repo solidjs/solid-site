@@ -70,57 +70,72 @@ const Docs: Component<{
             >
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
-                  {(firstLevel: Section) => (
-                    <li>
-                      <button
-                        type="button"
-                        class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
-                        onClick={() => setSection(firstLevel.title, (prev) => !prev)}
-                      >
-                        <span
-                          class="flex-1"
+                  {(firstLevel: Section) =>
+                    firstLevel.children?.length ? (
+                      <li>
+                        <button
+                          type="button"
+                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
+                          onClick={() => setSection(firstLevel.title, (prev) => !prev)}
+                        >
+                          <span
+                            class="flex-1"
+                            classList={{
+                              'font-semibold': current() == firstLevel.slug,
+                            }}
+                          >
+                            {firstLevel.title}
+                          </span>
+
+                          <Icon
+                            class="opacity-50 h-5 w-7 transform transition origin-center"
+                            classList={{
+                              'rotate-180 opacity-100': !!section[firstLevel.title],
+                              hidden: !firstLevel.children!.length,
+                            }}
+                            path={chevronDown}
+                          />
+                        </button>
+
+                        <ul
+                          class="overflow-hidden transition"
                           classList={{
-                            'font-semibold': current() == firstLevel.slug,
+                            'h-0': section[firstLevel.title] !== true,
                           }}
                         >
-                          {firstLevel.title}
-                        </span>
-
-                        <Icon
-                          class="opacity-50 h-5 w-7 transform transition origin-center"
+                          <For each={firstLevel.children!}>
+                            {(secondLevel) => (
+                              <li onClick={() => setToggleSections(false)}>
+                                <a
+                                  class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
+                                  classList={{
+                                    'text-solid hover:text-solid-dark':
+                                      `#${secondLevel.slug}` === props.hash,
+                                    'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                                  }}
+                                  href={`#${secondLevel.slug}`}
+                                  children={secondLevel.title}
+                                />
+                              </li>
+                            )}
+                          </For>
+                        </ul>
+                      </li>
+                    ) : (
+                      <li>
+                        <a
+                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           classList={{
-                            'rotate-180 opacity-100': !!section[firstLevel.title],
-                            hidden: !firstLevel.children!.length,
+                            'text-solid hover:text-solid-dark':
+                              `#${firstLevel.slug}` === props.hash,
+                            'hover:text-gray-400': `#${firstLevel.slug}` !== props.hash,
                           }}
-                          path={chevronDown}
+                          href={`#${firstLevel.slug}`}
+                          children={firstLevel.title}
                         />
-                      </button>
-
-                      <ul
-                        class="overflow-hidden transition"
-                        classList={{
-                          'h-0': section[firstLevel.title] !== true,
-                        }}
-                      >
-                        <For each={firstLevel.children!}>
-                          {(secondLevel) => (
-                            <li onClick={() => setToggleSections(false)}>
-                              <a
-                                class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
-                                classList={{
-                                  'text-solid hover:text-solid-dark':
-                                    `#${secondLevel.slug}` === props.hash,
-                                  'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
-                                }}
-                                href={`#${secondLevel.slug}`}
-                                children={secondLevel.title}
-                              />
-                            </li>
-                          )}
-                        </For>
-                      </ul>
-                    </li>
-                  )}
+                      </li>
+                    )
+                  }
                 </For>
               </ul>
             </div>
