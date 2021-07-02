@@ -25,7 +25,8 @@
     "solid-js": "^1.0.0",
     "solid-meta": "^0.27.0",
     "solid-repl": "^0.12.0",
-    "solid-utils": "^0.8.1"
+    "solid-utils": "^0.8.1",
+    "vite-plugin-pwa": "^0.8.1"
   },
   "devDependencies": {
     "@node-minify/core": "^6.2.0",
