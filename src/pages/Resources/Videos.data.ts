@@ -81,6 +81,17 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://www.youtube.com/watch?v=_ne2BsvFBH0',
+    title: 'Solid.js - the NEXT React? In-depth code analysis.',
+    description:
+      'A super in-depth code conversation about the inner-workings of Solid.js from a React developer\'s perspective.',
+    keywords: [''],
+    author: 'Sawtaytoes',
+    author_url: 'https://www.youtube.com/channel/UCDezHlQN79VWarlRgvmim-w',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default videos;
