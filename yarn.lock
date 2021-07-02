@@ -3357,6 +3357,11 @@ tailwindcss@^2.2.4:
     resolve "^1.20.0"
     tmp "^0.2.1"
 
+terser-config-atomic@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/terser-config-atomic/-/terser-config-atomic-0.1.1.tgz#dde43bd534b09b7c3c2ba65e0cdc68ed9740ea23"
+  integrity sha512-HRAHqjCFq990eFbLpy54joStSsUMZQoD73XMk2/Akquqm7vI0AOggfO9GMvSFGEucRRNZUfLQdDjotGGsZxCtA==
+
 terser@^5.6.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/terser/-/terser-5.7.1.tgz#2dc7a61009b66bb638305cb2a824763b116bf784"

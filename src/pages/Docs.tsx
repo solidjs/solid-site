@@ -28,6 +28,10 @@ const Docs: Component<{
         );
       });
       setCurrent(props.doc.sections[0].slug);
+      if (globalThis.location.hash !== '') {
+        const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
+        anchor!.scrollIntoView();
+      }
     }
   });
 

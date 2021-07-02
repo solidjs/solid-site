@@ -288,6 +288,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/mosheduminer/solid-form-action',
+    title: 'solid-form-action',
+    description: 'This package provides a function that accepts a definition of the initial state of your form, its validation, and submission.',
+    author: 'Moshe Uminer',
+    author_url: 'https://github.com/mosheduminer',
+    keywords: ['action', 'form', 'validation', 'ui'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
