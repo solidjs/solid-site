@@ -7,6 +7,8 @@ import frontmatter from 'front-matter';
 import anchor, { AnchorInfo } from 'markdown-it-anchor';
 import Token from 'markdown-it/lib/token';
 import { getHighlighter, loadTheme } from 'shiki';
+// @ts-ignore
+import htmlnano from 'htmlnano';
 import { existsSync } from 'fs';
 import { writeFile, mkdir, readFile } from 'fs/promises';
 import { resolve, dirname } from 'path';
@@ -68,7 +70,10 @@ async function processMarkdown(mdToProcess: string) {
     },
   });
 
-  const html = '<section class="mt-10">' + md.render(body) + '</section>';
+  const renderedMarkdown = md.render(body)
+  const optimizedMarkdown = (await htmlnano.process(renderedMarkdown)).html
+
+  const html = '<section class="mt-10">' + optimizedMarkdown + '</section>';
 
   return { html, attributes, sections };
 }
