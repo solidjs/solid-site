@@ -2,25 +2,6 @@ import { Resource, ResourceCategory, ResourceType } from '../Resources';
 
 const videos: Array<Resource> = [
   {
-    link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
-    title: 'Solid Video Series',
-    description: 'Eric Schmucker walks you through Solid.',
-    author: 'Eric Schmucker',
-    author_url: 'https://www.youtube.com/user/ericsnowco',
-    keywords: [''],
-    type: ResourceType.Video,
-    categories: [ResourceCategory.Educational],
-  },
-  {
-    link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
-    title: 'Solid.js - A fast, Declarative, Compiled Web UI Library',
-    description: "Zaieste Programming walks you through Solid's web UI solution.",
-    author: 'Ryan Carniato',
-    keywords: [''],
-    type: ResourceType.Video,
-    categories: [ResourceCategory.Educational],
-  },
-  {
     link: 'https://www.youtube.com/watch?v=wu6HvLoi9VQ',
     title: 'How To Convert React Application To SolidJS',
     description: 'Maksim Ivanov walks us through Solid.js and how to use it.',
@@ -85,7 +66,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=_ne2BsvFBH0',
     title: 'Solid.js - the NEXT React? In-depth code analysis.',
     description:
-      'A super in-depth code conversation about the inner-workings of Solid.js from a React developer\'s perspective.',
+      "A super in-depth code conversation about the inner-workings of Solid.js from a React developer's perspective.",
     keywords: [''],
     author: 'Sawtaytoes',
     author_url: 'https://www.youtube.com/channel/UCDezHlQN79VWarlRgvmim-w',
