@@ -18,7 +18,7 @@
       "src": "/img/favicons/icon-256x256.png",
       "sizes": "256x256",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any"
     },
     {
       "src": "/img/favicons/icon-384x384.png",
