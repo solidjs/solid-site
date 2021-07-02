@@ -30,7 +30,7 @@ const Footer: Component = () => (
           </p>
 
           <div class="mb-5 mt-7 p-2 rounded-full bg-white hidden md:flex items-center">
-            <div class="text-gray-400 my-4 ml-5 mr-2">Sponsored by</div>
+            <div class="font-semibold text-gray-600 my-4 ml-5 mr-2">Sponsored by</div>
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
@@ -58,7 +58,7 @@ const Footer: Component = () => (
           </div>
 
           {/* TODO: Make this dynamic */}
-          <p class="text-sm text-center text-gray-400 mt-3">
+          <p class="text-sm text-center text-gray-600 mt-3">
             Last updated July 2, 2021 11:15am on Solid v1.0.0.
           </p>
           <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
