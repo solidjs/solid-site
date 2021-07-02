@@ -102,8 +102,8 @@ const Home: Component<HomepageProps> = (props) => {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://bundlephobia.com/result?p=solid-js@1.0.0"
-                class="inline-block px-5 py-5"
+                href="https://bundlephobia.com/result?p=solid-js@0.22.7"
+                class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
                 <strong class="font-semibold">6kb</strong>
                 <span class="block text-sm">Minified + Gzipped</span>
@@ -114,10 +114,10 @@ const Home: Component<HomepageProps> = (props) => {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://github.com/solidjs/solid"
-                class="inline-block px-5 py-5"
+                href="https://bundlephobia.com/result?p=solid-js@0.22.7"
+                class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold">7k+</strong>
+                <strong class="font-semibold mr-1">6k+</strong>
                 <span class="block text-sm">Github Stars</span>
               </a>
             </li>
