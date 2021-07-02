@@ -178,22 +178,27 @@ const Tutorial: Component<TutorialProps> = (props) => {
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
   let markDownRef!: HTMLDivElement;
-  createEffect(async () => {
+  createEffect(() => {
     markDownRef.scrollTop = 0;
     const url = props.solved ? props.solvedJs : props.js;
     if (!url) return;
-    const data = await fetch(url).then((r) => r.json());
-    batch(() => {
-      const newTabs = data.files.map((file: { name: string; type?: string; content: string }) => {
-        return {
-          name: file.name,
-          type: file.type || 'tsx',
-          source: file.content,
-        };
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        batch(() => {
+          const newTabs = data.files.map(
+            (file: { name: string; type?: string; content: string }) => {
+              return {
+                name: file.name,
+                type: file.type || 'tsx',
+                source: file.content,
+              };
+            },
+          );
+          setTabs(newTabs);
+          setCurrent('main.tsx');
+        });
       });
-      setTabs(newTabs);
-      setCurrent('main.tsx');
-    });
   });
   return (
     <>

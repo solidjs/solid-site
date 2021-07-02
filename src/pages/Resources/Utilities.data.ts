@@ -302,7 +302,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/mosheduminer/solid-form-action',
     title: 'solid-form-action',
-    description: 'This package provides a function that accepts a definition of the initial state of your form, its validation, and submission.',
+    description:
+      'This package provides a function that accepts a definition of the initial state of your form, its validation, and submission.',
     author: 'Moshe Uminer',
     author_url: 'https://github.com/mosheduminer',
     keywords: ['action', 'form', 'validation', 'ui'],
