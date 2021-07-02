@@ -105,7 +105,7 @@ const Home: Component<HomepageProps> = (props) => {
                 href="https://bundlephobia.com/result?p=solid-js@1.0.0"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold">6kb</strong>
+                <strong class="font-semibold mr-1">6kb</strong>
                 <span class="block text-sm">Minified + Gzipped</span>
               </a>
             </li>
@@ -123,15 +123,15 @@ const Home: Component<HomepageProps> = (props) => {
             </li>
 
             <li class="hover:bg-solid-dark hover:text-white transition">
-              <div class="inline-block px-5 py-5">
-                <strong class="font-semibold">5+ years</strong>
+              <div class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5">
+                <strong class="font-semibold mr-1">5+ years</strong>
                 <span class="block text-sm">In development</span>
               </div>
             </li>
 
             <li class="hover:bg-solid-dark hover:text-white transition">
-              <div class="inline-block px-5 py-5">
-                <strong class="font-semibold">TypeScript</strong>
+              <div class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5">
+                <strong class="font-semibold mr-1">TypeScript</strong>
                 <span class="block text-sm">Support</span>
               </div>
             </li>
@@ -141,9 +141,9 @@ const Home: Component<HomepageProps> = (props) => {
                 target="_blank"
                 rel="noopener"
                 href="https://krausest.github.io/js-framework-benchmark/2021/table_chrome_91.0.4472.77.html"
-                class="inline-block px-5 py-5"
+                class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold">Top Rated</strong>
+                <strong class="font-semibold mr-1">Top Rated</strong>
                 <span class="block text-sm">In Performance</span>
               </a>
             </li>
