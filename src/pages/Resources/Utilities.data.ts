@@ -311,6 +311,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
+    title: 'vite-solid-tailwind-starter',
+    description: 'Starter using Vite + Solid + Tailwind CSS.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['starter', 'templates', 'vite', 'tailwind'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
