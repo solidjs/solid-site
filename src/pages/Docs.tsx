@@ -1,14 +1,4 @@
-import {
-  Component,
-  For,
-  Show,
-  Switch,
-  Match,
-  createEffect,
-  createSignal,
-  onMount,
-  on,
-} from 'solid-js';
+import { Component, For, Show, Switch, Match, createEffect, createSignal, on } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
 import Nav from '../components/Nav';
@@ -29,14 +19,16 @@ const Docs: Component<{
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
 
-  onMount(() => {
-    props.doc.sections.forEach((section) => {
-      const obs = createIntersectionObserver(document.getElementById(section.slug)!, false);
-      createEffect(
-        on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug)),
-      );
-    });
-    setCurrent(props.doc.sections[0].slug);
+  createEffect(() => {
+    if (!props.loading) {
+      props.doc.sections.forEach((section) => {
+        const obs = createIntersectionObserver(document.getElementById(section.slug)!, false);
+        createEffect(
+          on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug)),
+        );
+      });
+      setCurrent(props.doc.sections[0].slug);
+    }
   });
 
   return (
