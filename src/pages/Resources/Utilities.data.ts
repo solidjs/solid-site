@@ -302,13 +302,25 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/mosheduminer/solid-form-action',
     title: 'solid-form-action',
-    description: 'This package provides a function that accepts a definition of the initial state of your form, its validation, and submission.',
+    description:
+      'This package provides a function that accepts a definition of the initial state of your form, its validation, and submission.',
     author: 'Moshe Uminer',
     author_url: 'https://github.com/mosheduminer',
     keywords: ['action', 'form', 'validation', 'ui'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
+    title: 'vite-solid-tailwind-starter',
+    description: 'Starter using Vite + Solid + Tailwind CSS.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['starter', 'templates', 'vite', 'tailwind'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
 ];
 
