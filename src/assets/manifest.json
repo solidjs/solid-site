@@ -6,27 +6,31 @@
   "start_url": "/",
   "name": "SolidJS.com",
   "short_name": "SolidJS",
-  "description": "Solid website containing documentation, tutorial and examples. ",
+  "description": "Solid website containing documentation, tutorial and examples.",
   "icons": [
     {
       "src": "/img/favicons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/img/favicons/icon-256x256.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/img/favicons/icon-384x384.png",
       "sizes": "384x384",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/img/favicons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
