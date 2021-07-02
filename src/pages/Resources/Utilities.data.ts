@@ -320,7 +320,7 @@ const utilities: Array<Resource> = [
     keywords: ['starter', 'templates', 'vite', 'tailwind'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.UI],
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
 ];
 
