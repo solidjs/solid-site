@@ -1,6 +1,8 @@
 import { optimize as svgOptimize } from 'svgo';
 import { readFile, writeFile } from 'fs/promises';
 import glob from 'fast-glob';
+import nodeMinify from '@node-minify/core';
+import jsonMinify from '@node-minify/jsonminify';
 
 const svgFiles = await glob(['./dist/**/*.svg'], {
   dot: true,
@@ -9,7 +11,14 @@ const svgFiles = await glob(['./dist/**/*.svg'], {
   absolute: true,
 });
 
-const svgOptimized = Promise.all(
+const jsonFiles = await glob(['./dist/**/*.json'], {
+  dot: true,
+  cwd: process.cwd(),
+  onlyFiles: true,
+  absolute: true,
+});
+
+await Promise.all(
   svgFiles.map(async (svgFile) => {
     const svgString = await readFile(svgFile, 'utf8');
     const { data } = await svgOptimize(svgString, {
@@ -18,19 +27,6 @@ const svgOptimized = Promise.all(
     });
     await writeFile(svgFile, data);
   }),
-);
-
-import { default as nodeMinify } from '@node-minify/core';
-import { default as jsonMinify } from '@node-minify/jsonminify';
-
-const jsonFiles = await glob(['./dist/**/*.json'], {
-  dot: true,
-  cwd: process.cwd(),
-  onlyFiles: true,
-  absolute: true,
-});
-
-const jsonOtimized = Promise.all(
   jsonFiles.map((jsonFile) =>
     nodeMinify({
       compressor: jsonMinify,
@@ -39,6 +35,3 @@ const jsonOtimized = Promise.all(
     }),
   ),
 );
-
-await svgOptimized;
-await jsonOtimized;
