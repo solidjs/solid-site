@@ -54,8 +54,10 @@ const Home: Component<HomepageProps> = (props) => {
       <Nav />
 
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
-        <div class="my-10 p-10 max-w-4xl m-auto text-center text-2xl">
-          <b class="inline font-semibold text-solid">Solid is a purely reactive library. </b>
+        <div class="my-10 p-10 max-w-4xl m-auto text-2xl">
+          <strong class="inline font-semibold text-solid">
+            Solid is a purely reactive library.{' '}
+          </strong>
           It was designed from the ground up with a reactive core. It's influenced by reactive
           principles developed by previous libraries.
         </div>
@@ -100,7 +102,7 @@ const Home: Component<HomepageProps> = (props) => {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://bundlephobia.com/result?p=solid-js@0.22.7"
+                href="https://bundlephobia.com/result?p=solid-js@1.0.0"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
                 <strong class="font-semibold mr-1">6kb</strong>
@@ -112,10 +114,10 @@ const Home: Component<HomepageProps> = (props) => {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://bundlephobia.com/result?p=solid-js@0.22.7"
+                href="https://github.com/solidjs/solid"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold mr-1">6k+</strong>
+                <strong class="font-semibold mr-1">7k+</strong>
                 <span class="block text-sm">Github Stars</span>
               </a>
             </li>
