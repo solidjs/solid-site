@@ -87,7 +87,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           'shadow-md': shouldShowLogo(),
         }}
       >
-        <nav class="px-3 lg:px-12 container lg:flex justify-between items-center relative z-20 space-x-10">
+        <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
           <ul
             ref={scrollRef}
             classList={classList()}
