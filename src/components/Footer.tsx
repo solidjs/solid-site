@@ -37,21 +37,21 @@ const Footer: Component = () => (
               target="_blank"
               href="https://www.cloudflare.com/"
             >
-              <img class="w-32" src={cloudflare} />
+              <img class="w-32" src={cloudflare} alt="cloudflare" />
             </a>
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
               href="https://www.builder.io/"
             >
-              <img class="w-24" src={builder} />
+              <img class="w-24" src={builder} alt="builder.io" />
             </a>
             <a
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
               href="https://www.saucelabs.com/"
             >
-              <img class="w-32" src={sauce} />
+              <img class="w-32" src={sauce} alt="SAUCELABS" />
             </a>
           </div>
 
