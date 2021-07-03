@@ -7,7 +7,7 @@
     url('./fonts/Gordita/Gordita Regular.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Gordita';
@@ -16,7 +16,7 @@
     url('./fonts/Gordita/Gordita Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Gordita';
@@ -25,7 +25,7 @@
     url('./fonts/Gordita/Gordita Medium.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Gordita';
@@ -34,7 +34,7 @@
     url('./fonts/Gordita/Gordita Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: fallback;
+  font-display: swap;
 }
 
 @tailwind base;
