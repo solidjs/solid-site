@@ -86,6 +86,7 @@
 }
 .chevron.chevron-right:after {
   left: 0.25em;
+  top: 0.55em;
   transform: rotate(45deg);
 }
 .chevron.chevron-right:hover::after {
@@ -184,5 +185,13 @@
 [data-tooltip][flow^='up']:hover::before,
 [data-tooltip][flow^='up']:hover::after {
   animation: move-down 200ms ease-out forwards;
+}
+
+/* Hide tooltip on small devices  */
+@media screen and (max-width: 768px) {
+  [data-tooltip]:hover::before,
+  [data-tooltip]:hover::after {
+    display: none;
+  }
 }
 /* END OF TOOLTIP STYLES */
