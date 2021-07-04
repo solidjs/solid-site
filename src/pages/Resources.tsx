@@ -73,7 +73,12 @@ const ContentRow: Component<Resource> = (props) => (
           <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
         </Show>
         <Show when={props.author && props.author_url}>
-          <a rel="noopener" href={props.author_url} target="_blank" class="text-xs text-gray-500 inline hover:text-solid-medium">
+          <a
+            rel="noopener"
+            href={props.author_url}
+            target="_blank"
+            class="text-xs text-gray-500 inline hover:text-solid-medium"
+          >
             By {props.author}
           </a>
         </Show>
@@ -119,8 +124,12 @@ const Resources: Component<ResourcesDataProps> = (props) => {
         return true;
       });
       resources.sort((a, b) => {
-        if(a.title < b.title) { return -1; }
-        if(a.title > b.title) { return 1; }
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
         return 0;
       });
       return resources;
