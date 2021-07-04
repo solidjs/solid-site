@@ -322,6 +322,28 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://www.npmjs.com/package/solid-urql',
+    title: 'solid-urql',
+    description: 'A highly customizable and versatile GraphQL client for Solid.',
+    author: 'Ari Seyhun',
+    author_url: 'https://github.com/Acidic9',
+    keywords: ['graphql', 'url', 'url', 'formidable'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Data],
+  },
+  {
+    link: 'https://github.com/pablo-abc/felte',
+    title: 'Felte',
+    description: 'An extensible form library that supports Solid. No Field or Form components are needed, just plain stores and actions.',
+    author: 'Pablo Berganza',
+    author_url: 'https://github.com/pablo-abc',
+    keywords: ['form', 'validator', 'validation', 'input'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
