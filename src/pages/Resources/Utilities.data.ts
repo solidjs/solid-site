@@ -345,6 +345,25 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/amoutonbrady/solid-i18n',
+    title: 'solid-i18n',
+    description: 'Tiny translation library for solid-js inspired by rosetta.',
+    author: 'Alexandre Mouton Brady',
+    author_url: 'https://github.com/amoutonbrady',
+    keywords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'rosetta',
+    ],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
