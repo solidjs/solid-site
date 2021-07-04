@@ -190,7 +190,7 @@ const utilities: Array<Resource> = [
     title: 'solid-dnd',
     description: 'A lightweight and extremely performant drag and drop toolkit for Solid.',
     author: 'Martin Pengelly-Phillips',
-    author_url: 'https://www.4degrees.pro',
+    author_url: 'https://github.com/martinpengellyphillips',
     keywords: ['drag', 'drop', 'dnd'],
     official: false,
     type: ResourceType.Package,
