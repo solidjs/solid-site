@@ -1,8 +1,7 @@
+import { minijson as jsonOptimize } from "@aminya/minijson"
 import { optimize as svgOptimize } from 'svgo';
 import { readFile, writeFile } from 'fs/promises';
 import glob from 'fast-glob';
-import nodeMinify from '@node-minify/core';
-import jsonMinify from '@node-minify/jsonminify';
 
 const svgFiles = await glob(['./dist/**/*.svg'], {
   dot: true,
@@ -18,8 +17,10 @@ const jsonFiles = await glob(['./dist/**/*.json'], {
   absolute: true,
 });
 
-await Promise.all(
-  svgFiles.map(async (svgFile) => {
+
+await Promise.all([
+  jsonOptimize(jsonFiles),
+  ...svgFiles.map(async (svgFile) => {
     const svgString = await readFile(svgFile, 'utf8');
     const { data } = await svgOptimize(svgString, {
       path: svgFile,
@@ -27,11 +28,4 @@ await Promise.all(
     });
     await writeFile(svgFile, data);
   }),
-  jsonFiles.map((jsonFile) =>
-    nodeMinify({
-      compressor: jsonMinify,
-      input: jsonFile,
-      output: jsonFile,
-    }),
-  ),
-);
+]);
