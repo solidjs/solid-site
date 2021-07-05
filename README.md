@@ -10,7 +10,7 @@ This is the source code for the solid website: [https://solidjs.com/](https://so
 
 The website is built with [Solid](https://github.com/ryansolid/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
 
-### Prerequisit
+### Prerequisite
 
 - [yarn](https://yarnpkg.com/getting-started/install)
 
