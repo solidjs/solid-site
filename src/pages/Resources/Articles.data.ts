@@ -2,6 +2,28 @@ import { Resource, ResourceCategory, ResourceType } from '../Resources';
 
 const articles: Array<Resource> = [
   {
+    link: 'https://dev.to/this-is-learning/javascript-frameworks-and-metagaming-pb5',
+    title: 'JavaScript Frameworks and Metagaming',
+    description:
+      'Ryan provides a post-1.0 release analysis and equates framework creation to metagaming.',
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.to/ryansolid',
+    keywords: ['metagaming', 'creating'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://www.infoq.com/news/2021/07/solid-js-released-first/',
+    title: 'Performance-Focused Reactive UI Framework Solid.JS Releases First Major Version',
+    description:
+      'InfoQ covers SolidJS initial 1.0 release and provides an example of its reactivity.',
+    author: 'Bruno Couriol',
+    author_url: 'https://www.infoq.com/profile/Bruno-Couriol/',
+    keywords: ['infoq', 'education'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
     link: 'https://medium.com/@ryansolid/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e',
     title: 'SolidJS: The Tesla of JavaScript Frameworks?',
     description: 'Tech built for Economy can be used for Performance.',
@@ -458,6 +480,17 @@ const articles: Array<Resource> = [
     author: 'Arek Nawo',
     author_url: 'https://blog.openreplay.com/authors/arek-nawo',
     keywords: ['react', 'solid', 'comparison'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://dev.to/trusktr/a-few-reasons-why-i-love-solid-js-4036',
+    title: 'A few reasons why I love Solid.js',
+    description:
+      'Joe walks through just a few things that he believes make Solid amazing.',
+    author: 'Joe Pea',
+    author_url: 'https://blog.openreplay.com/authors/arek-nawo',
+    keywords: ['love', 'lume'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },

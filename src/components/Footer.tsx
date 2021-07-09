@@ -3,7 +3,6 @@ import { Portal } from 'solid-js/web';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
-import version from 'solid-js';
 import cloudflare from '../assets/supporters/cloudflare.png';
 import Social from './Social';
 
