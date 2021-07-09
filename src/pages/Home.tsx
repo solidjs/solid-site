@@ -63,7 +63,7 @@ const Home: Component<HomepageProps> = (props) => {
         </div>
 
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
-          <div class="ml-4 px-8 py-4 md:py-10 border-b border-0 md:border-r lg:border-b-0">
+          <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0">
             <img class="w-12 mb-5" src={performant} alt="speed" />
             <h3 class="text-xl mb-2 font-semibold">Performant</h3>
             <p class="text-base">

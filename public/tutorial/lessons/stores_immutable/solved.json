@@ -6,7 +6,7 @@
     },
     {
       "name": "useRedux",
-      "content": "import { onCleanup } from \"solid-js\";\nimport { createStore, reconcile } from \"solid-js/store\";\n\nexport default function useRedux(store, actions) {\n  const [state, setState] = createStore(store.getState());\n  const unsubscribe = store.subscribe(\n    () => setState(reoncile(store.getState()))\n  );\n  onCleanup(() => unsubscribe());\n  return [\n    state,\n    mapActions(store, actions)\n  ];\n};\n\nfunction mapActions(store, actions) {\n  const mapped = {};\n  for (const key in actions) {\n    mapped[key] = (...args) => store.dispatch(actions[key](...args));\n  }\n  return mapped;\n}\n"
+      "content": "import { onCleanup } from \"solid-js\";\nimport { createStore, reconcile } from \"solid-js/store\";\n\nexport default function useRedux(store, actions) {\n  const [state, setState] = createStore(store.getState());\n  const unsubscribe = store.subscribe(\n    () => setState(reconcile(store.getState()))\n  );\n  onCleanup(() => unsubscribe());\n  return [\n    state,\n    mapActions(store, actions)\n  ];\n};\n\nfunction mapActions(store, actions) {\n  const mapped = {};\n  for (const key in actions) {\n    mapped[key] = (...args) => store.dispatch(actions[key](...args));\n  }\n  return mapped;\n}\n"
     },
     {
       "name": "actions",
