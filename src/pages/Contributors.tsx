@@ -80,8 +80,8 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
             <h2 class="text-2xl font-semibold text-solid-default">Acknowledgements</h2>
 
             <p>
-              Solid wouldn't be possible with the help of other talented individuals. As we grow we
-              hope others will find ways to give their time either in the form of bug reporting,
+              Solid wouldn't be possible without the help of other talented individuals. As we grow
+              we hope others will find ways to give their time either in the form of bug reporting,
               pull requests, design suggestions, writing and many other ways.
             </p>
 
