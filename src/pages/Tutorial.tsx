@@ -181,6 +181,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
     if (!url) return;
     const data = await fetch(url).then((r) => r.json());
     batch(() => {
+      setCurrent('main.tsx');
       const newTabs = data.files.map((file: { name: string; type?: string; content: string }) => {
         return {
           name: file.name,
@@ -189,7 +190,6 @@ const Tutorial: Component<TutorialProps> = (props) => {
         };
       });
       setTabs(newTabs);
-      setCurrent('main.tsx');
     });
   });
   return (
