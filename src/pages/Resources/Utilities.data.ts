@@ -364,6 +364,22 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Data],
   },
+  {
+    link: 'https://github.com/minht11/solid-virtual-container',
+    title: 'solid-virtual-contaier',
+    description: 'Efficient, single direction virtual list/grid for Solid-js.',
+    author: 'Justinas Delinda',
+    author_url: 'https://github.com/minht11',
+    keywords: [
+      'container',
+      'virtual',
+      'list',
+      'grid',
+    ],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
