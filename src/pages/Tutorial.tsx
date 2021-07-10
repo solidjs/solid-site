@@ -241,7 +241,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
 
               <div class="flex items-center space-x-4">
                 <span data-tooltip={props.previousLesson}>
-                  <Link href={props.previousUrl ?? ''} external={!props.previousUrl}>
+                  <Link href={props.previousUrl ?? '#'} external={!props.previousUrl}>
                     <span class="sr-only">Previous step</span>
                     <Icon
                       path={arrowLeft}
@@ -252,7 +252,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
                 </span>
 
                 <span data-tooltip={props.nextLesson}>
-                  <Link href={props.nextUrl ?? ''} external={!props.nextUrl}>
+                  <Link href={props.nextUrl ?? '#'} external={!props.nextUrl}>
                     <span class="sr-only">Next step</span>
                     <Icon
                       path={arrowRight}
