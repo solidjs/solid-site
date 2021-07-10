@@ -4,7 +4,7 @@ const core = [
     github: 'ryansolid',
     name: 'Ryan Carniato',
     role: 'Project Founder and Manager',
-    bio: 'Front-end JS performance enthusiast and long time super-fan of fine-gained reactive programming.',
+    bio: 'Front-end JS performance enthusiast and long time super-fan of fine-grained reactive programming.',
   },
   {
     img: 'david-dibiase.jpeg',
