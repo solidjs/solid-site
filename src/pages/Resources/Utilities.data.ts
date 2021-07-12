@@ -266,9 +266,9 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/lume/lume',
-    title: 'Lume',
+    title: 'LUME',
     description:
-      'A toolkit that simplifies the creation of rich and interactive 2D or 3D experiences for any device from mobile to desktop to AR/VR.',
+      'Custom elements powered by Solid. LUME is a toolkit that creates 2D or 3D experiences for any device from mobile to desktop to AR/VR.',
     author: 'Joe Pea',
     author_url: 'https://github.com/trusktr',
     keywords: ['graphics', '3d', 'ui'],
