@@ -122,6 +122,7 @@ const Docs: Component<{
                         <a
                           class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           classList={{
+                            'font-semibold': current() == firstLevel.slug,
                             'text-solid hover:text-solid-dark':
                               `#${firstLevel.slug}` === props.hash,
                             'hover:text-gray-400': `#${firstLevel.slug}` !== props.hash,
