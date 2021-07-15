@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aminya/minijson@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.5.0.tgz#3cee175d138d90e447c5b1610bc8caa457fcceb7"
-  integrity sha512-vwGhyeggwDsQm863vhy5EdSIFDiNRae2orZz2o21cB56nZOvnm1Z4Z4IOZR4yxXG37C9FqE+iMHZGkLqqHgiJg==
+"@aminya/minijson@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.6.0.tgz#65fec48609f0197133a3dbe64a130ab3018d20e1"
+  integrity sha512-tedItYKbOqs4UUhco1vjQ/EbL5M2zz8RSGxs50ZiJzyvHiJY92QjOc6vOUFB2KsUIRijK6XBQu1cYOihpOPiTA==
 
 "@amoutonbrady/lz-string@^0.0.1":
   version "0.0.1"
@@ -3946,15 +3946,20 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-solid-app-router@^0.0.50:
-  version "0.0.50"
-  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.0.50.tgz#8c5d1ddba936abe2bde3fcafb1b6e1c85b73ac2c"
-  integrity sha512-TjaTCuvDeBEqTiIYcvGltM/Ae9y/qurOr5g47DvMdgR/8XiMhoktBH9weISXcxqb4KE4cVaaoAV+G+5tboEDEA==
+solid-app-router@^0.0.51:
+  version "0.0.51"
+  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.0.51.tgz#796519ce04db58dff9964bcbf9a91face1095d28"
+  integrity sha512-9V7eassyze/v8lNp33YZ3cGadwjXN+OmCXcpmMU46BowgnzmYdJsl81crrM8WZ06CP9+mA4dvObUz7AuL8gwfg==
 
 solid-js@1.0.0, solid-js@^1.0.0, solid-js@^1.0.0-rc.9:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.0.tgz#4bbc3f3932c604e2bfcd35d5a7f20408d208288e"
   integrity sha512-5huTDVyMqZSjg5Sa4mwl15feK4il1cE68n4weL5NYGC8lX2wiDlcHhBdSB8trKgaJ50Q9/pwtLrQngFaDC+5Tw==
+
+solid-js@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.3.tgz#d7125e1dec5abde0645720c759189853b2211493"
+  integrity sha512-sCSUJvgcsMkEy3r+lFHNCApb7D8lFLq8gZy2PFNDvD5Yv7fVS+7S0PMHBzyLWxTYMJrHKoatlZWkpBk+eUAjLw==
 
 solid-meta@^0.27.0:
   version "0.27.0"
