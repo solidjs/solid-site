@@ -1,13 +1,24 @@
 import type { DataFn } from 'solid-app-router';
 import { createResource } from 'solid-js';
 
-export type DataParams = { version: string };
+export type DataParams = {
+  version: string,
+  lang?: string,
+  resource?: string,
+};
 
 const cache = new Map<string, Promise<string>>();
 
-function mdFetcher(version: string) {
+function mdFetcher(
+  {
+    version, lang, resource
+  }:
+  {
+    version: string, lang: string, resource: string
+  }
+) {
   if (!cache.has(version)) {
-    const markdown = fetch(`/api/${version}.json`).then((r) => r.json());
+    const markdown = fetch(`/docs/${version}/${lang}/${resource}.json`).then((r) => r.json());
     cache.set(version, markdown);
   }
 
@@ -17,7 +28,9 @@ function mdFetcher(version: string) {
 export const DocsData: DataFn<DataParams> = (props) => {
   const version =
     props.params.version && props.params.version !== 'latest' ? props.params.version! : '1.0.0';
-  const [doc] = createResource(() => version, mdFetcher);
+  const lang = props.query.lang || 'en';
+  const resource = props.params.resource || 'api';
+  const [doc] = createResource({version, lang, resource}, mdFetcher);
   return {
     get doc() {
       return doc();

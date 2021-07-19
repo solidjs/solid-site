@@ -19,10 +19,11 @@ export const routes: RouteDefinition[] = [
     path: '/docs',
     component: lazy(() => import('./pages/Docs')),
     children: [
-      { path: ':version', component: lazy(() => import('./pages/Docs')) },
+      { path: ':version/:resource', component: lazy(() => import('./pages/Docs')) },
+      { path: ':resource', component: lazy(() => import('./pages/Docs')) },
       { path: '*all', component: lazy(() => import('./pages/Docs')) },
     ],
-    data: DocsData,
+    data: (props, actions) => DocsData(props, actions),
   },
   {
     path: '/examples/:id',

@@ -39,7 +39,6 @@ const Docs: Component<{
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Documentation" />
-
       <Show when={!props.loading}>
         <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button
@@ -64,6 +63,11 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
+              <ul class="flex mt-5 border p-4 pb-2 pt-3 rounded-md space-x-3 text-xs bg-white m-2">
+                <li><a class="hover:text-solid-medium" href={`${location.href}?lang=en`}>English</a></li>
+                <li><a class="hover:text-solid-medium" href={`${location.href}?lang=it`}>Italian</a></li>
+                <li><a class="hover:text-solid-medium" href={`${location.href}?lang=zh-cn`}>Chinese</a></li>
+              </ul>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) =>
