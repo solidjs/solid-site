@@ -377,6 +377,28 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI, ResourceCategory.Data],
   },
   {
+    link: 'https://github.com/davedbase/solid-slider',
+    title: 'solid-slider',
+    description: 'A carousel/slider implementation in TypeScript for Solid using KeenSlider.',
+    author: 'David Di Biase',
+    author_url: 'https://github.com/davedbase/solid-slider',
+    keywords: [
+      "slider",
+      "carouse",
+      "solid",
+      "keen",
+      "slider",
+      "carousel",
+      "caroussel",
+      "slideshow",
+      "gallery",
+      "plugin"
+    ],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/minht11/solid-virtual-container',
     title: 'solid-virtual-contaier',
     description: 'Efficient, single direction virtual list/grid for Solid-js.',
