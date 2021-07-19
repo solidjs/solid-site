@@ -23,7 +23,7 @@ export const routes: RouteDefinition[] = [
       { path: ':resource', component: lazy(() => import('./pages/Docs')) },
       { path: '*all', component: lazy(() => import('./pages/Docs')) },
     ],
-    data: (props, actions) => DocsData(props, actions),
+    data: DocsData,
   },
   {
     path: '/examples/:id',
