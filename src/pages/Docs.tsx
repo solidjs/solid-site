@@ -14,6 +14,7 @@ const Docs: Component<{
   hash: string;
   loading: boolean;
   version: string;
+  lang: string;
 }> = (props) => {
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
@@ -34,6 +35,9 @@ const Docs: Component<{
       }
     }
   });
+  const changeLang = (evt: Event) => {
+    window.location.href = window.location.pathname + `?lang=${evt.target?.value}`;
+  };
 
   return (
     <div class="flex flex-col relative">
@@ -63,23 +67,15 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <ul class="flex mt-5 border p-4 pb-2 pt-3 rounded-md space-x-3 text-xs bg-white m-2">
-                <li>
-                  <a class="hover:text-solid-medium" href={`${location.href}?lang=en`}>
-                    English
-                  </a>
-                </li>
-                <li>
-                  <a class="hover:text-solid-medium" href={`${location.href}?lang=it`}>
-                    Italian
-                  </a>
-                </li>
-                <li>
-                  <a class="hover:text-solid-medium" href={`${location.href}?lang=zh-cn`}>
-                    Chinese
-                  </a>
-                </li>
-              </ul>
+              <select
+                value={props.lang}
+                onChange={changeLang}
+                class="p-3 rounded-md border-gray-200 pt-4 text-sm my-5"
+              >
+                <option value="en">English</option>
+                <option value="zh-cn">Chinese</option>
+                <option value="it">Italian</option>
+              </select>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) =>

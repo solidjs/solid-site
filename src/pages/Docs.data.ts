@@ -40,6 +40,9 @@ export const DocsData: DataFn<DataParams> = (props) => {
     get loading() {
       return doc.loading;
     },
+    get lang() {
+      return lang;
+    },
     get version() {
       return props.params.version;
     },
