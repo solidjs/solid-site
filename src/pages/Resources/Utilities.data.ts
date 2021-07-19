@@ -382,12 +382,7 @@ const utilities: Array<Resource> = [
     description: 'Efficient, single direction virtual list/grid for Solid-js.',
     author: 'Justinas Delinda',
     author_url: 'https://github.com/minht11',
-    keywords: [
-      'container',
-      'virtual',
-      'list',
-      'grid',
-    ],
+    keywords: ['container', 'virtual', 'list', 'grid'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],

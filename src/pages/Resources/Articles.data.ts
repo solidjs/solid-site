@@ -486,8 +486,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/trusktr/a-few-reasons-why-i-love-solid-js-4036',
     title: 'A few reasons why I love Solid.js',
-    description:
-      'Joe walks through just a few things that he believes make Solid amazing.',
+    description: 'Joe walks through just a few things that he believes make Solid amazing.',
     author: 'Joe Pea',
     author_url: 'https://blog.openreplay.com/authors/arek-nawo',
     keywords: ['love', 'lume'],
