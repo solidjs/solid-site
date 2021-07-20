@@ -1,13 +1,15 @@
-import { Component, For, Show, Switch, Match, createEffect, createSignal, on } from 'solid-js';
+import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
+import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
+import { createViewportObserver } from '@solid-primitives/intersection-observer';
+import createDebounce from '@solid-primitives/debounce';
+import { useRouter } from "solid-app-router";
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
-import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import Footer from '../components/Footer';
-import createIntersectionObserver from '../utils/createIntersectionObserver';
 
 const Docs: Component<{
   doc: { content: string; sections: Section[] };
@@ -16,19 +18,34 @@ const Docs: Component<{
   version: string;
   lang: string;
 }> = (props) => {
+  const [, { push }] = useRouter();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
-
+  const [ observeInteraction ] = createViewportObserver([], 0.5);
+  // Determine the section based on title positions
+  const [determineSection] = createDebounce((entry: IntersectionObserverEntry) => {
+    let prev = props.doc.sections[0].slug;
+    for (let i in props.doc.sections) {
+      const slug = props.doc.sections[i].slug;
+      const el = document.getElementById(slug)!;
+      if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
+        break;
+      }
+      prev = slug;
+    }
+    setCurrent(prev);
+  }, 150);
+  // Upon loading finish bind observers
   createEffect(() => {
     if (!props.loading) {
       props.doc.sections.forEach((section) => {
-        const obs = createIntersectionObserver(document.getElementById(section.slug)!, false);
-        createEffect(
-          on(obs, (entry) => current() !== null && entry !== null && setCurrent(section.slug)),
+        observeInteraction(
+          document.getElementById(section.slug)!,
+          // @ts-ignore
+          determineSection
         );
       });
-      setCurrent(props.doc.sections[0].slug);
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
         anchor!.scrollIntoView(true);
@@ -36,7 +53,8 @@ const Docs: Component<{
     }
   });
   const changeLang = (evt: Event) => {
-    window.location.href = window.location.pathname + `?lang=${evt.target?.value}`;
+    const lang = (evt.target as HTMLSelectElement).value;
+    push(window.location.pathname + `?lang=${lang}`);
   };
 
   return (

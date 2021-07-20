@@ -1030,6 +1030,20 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.0.1.tgz#d26729db850fa327b7cacc5522252194404226f5"
   integrity sha512-Qm9hBEBu18wt1PO2flE7LPb30BHMQt1eQgbV76YntdNk73XZGpn3izvGTYxbGgzXKgbCjiia0uxTd3aTNQrY/g==
 
+"@solid-primitives/debounce@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/debounce/-/debounce-1.0.0.tgz#8ae94e4c826e4793cf84c40491e35d233f2704a2"
+  integrity sha512-d5K1kuHv5h0NLFhlmxpgnLC8yL/zrCjYcdPSFnNq9jWUysun4xRCDw56d2f76bqsWGQYVBMRGSuFi03NEgi13w==
+  dependencies:
+    solid-js "^1.0.3"
+
+"@solid-primitives/intersection-observer@^0.0.107":
+  version "0.0.107"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-0.0.107.tgz#f5161574396a788a408e41ee2154b339c86522d4"
+  integrity sha512-6BUH1VcimpTkqq2S9H3xFVGzHqge/rZgwoEJh7fvwDdoPqRtYfQYRVYWM6C+ca7WXuLjcoshq8LWOGRmu31LHg==
+  dependencies:
+    solid-js "^1.0.3"
+
 "@surma/rollup-plugin-off-main-thread@^1.4.1":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.2.tgz#e6786b6af5799f82f7ab3a82e53f6182d2b91a58"
