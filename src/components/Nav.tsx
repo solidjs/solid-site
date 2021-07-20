@@ -5,7 +5,7 @@ import logo from '../assets/logo.svg';
 import Social from './Social';
 
 const links: MenuLinkProps[] = [
-  { title: 'Get Started', path: '/docs/latest/guide' },
+  { title: 'Get Started', path: '/guide' },
   { title: 'Docs', path: '/docs/latest/api' },
   { title: 'Resources', path: '/resources' },
   { title: 'Tutorial', path: '/tutorial' },

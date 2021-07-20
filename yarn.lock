@@ -3971,10 +3971,10 @@ solid-refresh@^0.2.1:
   resolved "https://registry.yarnpkg.com/solid-refresh/-/solid-refresh-0.2.1.tgz#3b402e5980832cbe42ec09ecc8ce316c529f92ae"
   integrity sha512-8iqVw+FxDUj5CQnadAD+D5bLlzA/yBhMx2rHECGN2e3IQGtBArNdBUHduPBPpqfnufvnP2IwszLhgcg/IdABQQ==
 
-solid-repl@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.12.0.tgz#680d515bad1c8cfcb1c584e10006e80ab41d4c53"
-  integrity sha512-BahOUq5LivWvQNymMEGFjJOsf3fT6Wyr7ipYJtZvbIkQRBONnTifOinJYjYytIMisFHLIMRNAnwtqfyRMXuDEA==
+solid-repl@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.13.0.tgz#f23ccf918510d6d3221990778a01991d279e7522"
+  integrity sha512-IH4KWr3450O96TEDD+ko2V2HYTcXSTXwj84ZGVDMWcKP9xwwAtMEH03/qc8HJZolgUfMq5Z54OShkMjzLPstpA==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@amoutonbrady/solid-heroicons" "^0.9.0-rc.0"

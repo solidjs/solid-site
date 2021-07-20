@@ -24,7 +24,7 @@
     "solid-app-router": "^0.0.51",
     "solid-js": "^1.0.3",
     "solid-meta": "^0.27.0",
-    "solid-repl": "^0.12.0",
+    "solid-repl": "^0.13.0",
     "solid-utils": "^0.8.1",
     "vite-plugin-pwa": "^0.8.1"
   },

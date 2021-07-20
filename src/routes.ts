@@ -16,12 +16,24 @@ export const routes: RouteDefinition[] = [
     }),
   },
   {
+    path: '/guide',
+    component: lazy(() => import('./pages/Docs')),
+    data: DocsData
+  },
+  {
     path: '/docs',
     component: lazy(() => import('./pages/Docs')),
     children: [
-      { path: ':version/:resource', component: lazy(() => import('./pages/Docs')) },
-      { path: ':resource', component: lazy(() => import('./pages/Docs')) },
-      { path: '*all', component: lazy(() => import('./pages/Docs')) },
+      {
+        path: ':version',
+        component: lazy(() => import('./pages/Docs')),
+        data: DocsData
+      },
+      {
+        path: '*all',
+        component: lazy(() => import('./pages/Docs')),
+        data: DocsData
+      },
     ],
     data: DocsData,
   },

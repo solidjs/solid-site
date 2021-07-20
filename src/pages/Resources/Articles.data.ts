@@ -497,6 +497,16 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://codechips.me/solidjs-first-look/',
+    title: 'SolidJS - a first look',
+    description: 'Ilia takes SolidJS for a spin and compare it to Svelte in terms of DevX',
+    author: 'Ilia Mikhailov',
+    author_url: 'https://codechips.me/',
+    keywords: ['mikhailov', 'svelte', 'codechips', 'transitions'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default articles;
