@@ -3,7 +3,7 @@ import { createStore } from 'solid-js/store';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createDebounce from '@solid-primitives/debounce';
-import { useRouter } from "solid-app-router";
+import { useRouter } from 'solid-app-router';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
@@ -18,11 +18,12 @@ const Docs: Component<{
   version: string;
   lang: string;
 }> = (props) => {
+  // @ts-ignore
   const [, { push }] = useRouter();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
-  const [ observeInteraction ] = createViewportObserver([], 0.5);
+  const [observeInteraction] = createViewportObserver([], 0.5);
   // Determine the section based on title positions
   const [determineSection] = createDebounce((entry: IntersectionObserverEntry) => {
     let prev = props.doc.sections[0].slug;
@@ -35,16 +36,12 @@ const Docs: Component<{
       prev = slug;
     }
     setCurrent(prev);
-  }, 150);
+  }, 75);
   // Upon loading finish bind observers
   createEffect(() => {
     if (!props.loading) {
       props.doc.sections.forEach((section) => {
-        observeInteraction(
-          document.getElementById(section.slug)!,
-          // @ts-ignore
-          determineSection
-        );
+        observeInteraction(document.getElementById(section.slug)!, determineSection);
       });
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
@@ -86,13 +83,17 @@ const Docs: Component<{
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
               <select
+                style={{
+                  'background-image': 'url(/img/icons/translate2.svg)',
+                  'background-size': '20px',
+                }}
                 value={props.lang}
                 onChange={changeLang}
-                class="p-3 rounded-md border-gray-200 pt-4 text-sm my-5"
+                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5"
               >
                 <option value="en">English</option>
-                <option value="zh-cn">Chinese</option>
-                <option value="it">Italian</option>
+                <option value="zh-cn">中人</option>
+                <option value="it">Italiano</option>
               </select>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>

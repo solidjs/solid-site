@@ -12,7 +12,7 @@ const cache = new Map<string, Promise<string>>();
 function mdFetcher({
   version,
   lang,
-  resource
+  resource,
 }: {
   version: string;
   lang: string;

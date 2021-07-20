@@ -18,7 +18,7 @@ export const routes: RouteDefinition[] = [
   {
     path: '/guide',
     component: lazy(() => import('./pages/Docs')),
-    data: DocsData
+    data: DocsData,
   },
   {
     path: '/docs',
@@ -27,12 +27,12 @@ export const routes: RouteDefinition[] = [
       {
         path: ':version',
         component: lazy(() => import('./pages/Docs')),
-        data: DocsData
+        data: DocsData,
       },
       {
         path: '*all',
         component: lazy(() => import('./pages/Docs')),
-        data: DocsData
+        data: DocsData,
       },
     ],
     data: DocsData,
