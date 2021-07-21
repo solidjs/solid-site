@@ -1,15 +1,15 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
+import { useRouter } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import createDebounce from '@solid-primitives/debounce';
-import { useRouter } from 'solid-app-router';
+import createThrottle from '@solid-primitives/throttle';
 
 import Nav from '../components/Nav';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
-import Footer from '../components/Footer';
 
 const Docs: Component<{
   doc: { content: string; sections: Section[] };
@@ -25,22 +25,25 @@ const Docs: Component<{
   const [toggleSections, setToggleSections] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   // Determine the section based on title positions
-  const [determineSection] = createDebounce((entry: IntersectionObserverEntry) => {
-    let prev = props.doc.sections[0].slug;
+  const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {
+    if (entry.intersectionRatio == 0) {
+      return;
+    }
+    let prev = props.doc.sections[0];
     for (let i in props.doc.sections) {
-      const slug = props.doc.sections[i].slug;
-      const el = document.getElementById(slug)!;
+      const el = document.getElementById(props.doc.sections[i].slug)!;
       if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
         break;
       }
-      prev = slug;
+      prev = props.doc.sections[i];
     }
-    setCurrent(prev);
+    setCurrent(prev.slug);
   }, 75);
   // Upon loading finish bind observers
   createEffect(() => {
     if (!props.loading) {
       props.doc.sections.forEach((section) => {
+        // @ts-ignore
         observeInteraction(document.getElementById(section.slug)!, determineSection);
       });
       if (globalThis.location.hash !== '') {
@@ -53,7 +56,6 @@ const Docs: Component<{
     const lang = (evt.target as HTMLSelectElement).value;
     push(window.location.pathname + `?lang=${lang}`);
   };
-
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
@@ -72,8 +74,8 @@ const Docs: Component<{
           <div class="col-span-4 lg:col-span-3 relative">
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 md:p-0 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
-                'md:border-0 md:shadow-none md:p-0 md:flex-col ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
+                'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
                 'lg:sticky lg:flex'
               }
               classList={{
@@ -89,7 +91,7 @@ const Docs: Component<{
                 }}
                 value={props.lang}
                 onChange={changeLang}
-                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5"
+                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5 w-full"
               >
                 <option value="en">English</option>
                 <option value="zh-cn">中人</option>
@@ -128,6 +130,7 @@ const Docs: Component<{
                           class="overflow-hidden transition"
                           classList={{
                             'h-0': section[firstLevel.title] !== true,
+                            'h-full': section[firstLevel.title],
                           }}
                         >
                           <For each={firstLevel.children!}>

@@ -10,14 +10,14 @@
     "type:check": "tsc --noEmit",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\"",
     "fetch:releases": "jiti scripts/fetchReleases",
-    "deploy:dev": "wrangler publish --env dev",
-    "deploy:prod": "wrangler publish --env prod",
+    "deploy:dev": "wrangler publish --env development",
+    "deploy:prod": "wrangler publish --env production",
     "postinstall": "patch-package"
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.9.0-rc.0",
-    "@solid-primitives/debounce": "^1.0.0",
     "@solid-primitives/intersection-observer": "^0.0.107",
+    "@solid-primitives/throttle": "^1.0.0",
     "fuse.js": "^6.4.6",
     "markdown-it-prism": "^2.1.7",
     "monaco-editor": "^0.25.2",
