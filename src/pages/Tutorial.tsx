@@ -169,6 +169,7 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 };
 
 const Tutorial: Component<TutorialProps> = (props) => {
+  let replEditor: any;
   const [tabs, setTabs] = createTabList([
     {
       name: 'main',
@@ -180,6 +181,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
   let markDownRef!: HTMLDivElement;
   createEffect(() => {
     markDownRef.scrollTop = 0;
+    replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
     const url = props.solved ? props.solvedJs : props.js;
     if (!url) return;
     fetch(url)
@@ -271,6 +273,9 @@ const Tutorial: Component<TutorialProps> = (props) => {
             }
           >
             <Repl
+              onEditorReady={(editor) => {
+                replEditor = editor;
+              }}
               compiler={compiler}
               formatter={formatter}
               isHorizontal={true}

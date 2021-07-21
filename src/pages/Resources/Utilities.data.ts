@@ -334,19 +334,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
   },
   {
-    link: 'https://github.com/pablo-abc/felte',
-    title: 'Felte',
+    link: 'https://github.com/pablo-abc/solid-reach',
+    title: 'Solid Reach',
     description:
       'This is a port of ReachUI for Solid that (hopefully) will serve you as The Accessible Foundation for Solid Apps and Design Systems.',
     author: 'Pablo Berganza',
     author_url: 'https://github.com/pablo-abc',
-    keywords: ['form', 'design', 'system', 'reach', 'ui'],
+    keywords: ['accessibility', 'system', 'reach', 'ui'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
   },
   {
-    link: 'https://github.com/pablo-abc/solid-reach',
+    link: 'https://github.com/pablo-abc/felte',
     title: 'Felte',
     description:
       'An extensible form library that supports Solid. No Field or Form components are needed, just plain stores and actions.',
