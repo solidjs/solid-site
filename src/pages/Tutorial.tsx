@@ -82,7 +82,7 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
       search.focus();
 
       // Find the closest section and scroll it into the view
-      listContainer.querySelector('.js-active')?.closest('.js-section-title')?.scrollIntoView();
+      listContainer.querySelector('.js-active')?.scrollIntoView();
     } else {
       window.removeEventListener('click', listener);
       window.removeEventListener('keydown', listener);
