@@ -94,7 +94,7 @@ const Docs: Component<{
                 class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5 w-full"
               >
                 <option value="en">English</option>
-                <option value="zh-cn">中人</option>
+                <option value="zh-cn">中文</option>
                 <option value="it">Italiano</option>
               </select>
               <ul class="overflow-auto flex flex-col flex-1">
