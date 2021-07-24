@@ -10,6 +10,7 @@
     "type:check": "tsc --noEmit",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\"",
     "fetch:releases": "jiti scripts/fetchReleases",
+    "fetch:tutorials": "jiti scripts/fetchTutorials",
     "deploy:dev": "wrangler publish --env development",
     "deploy:prod": "wrangler publish --env production",
     "postinstall": "patch-package"

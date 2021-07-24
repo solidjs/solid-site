@@ -16,7 +16,18 @@ import globby from 'globby';
 import { Documentation, Section, Release } from './types';
 
 const API_URL = 'https://api.github.com/repos/solidjs/solid-docs';
-const LANGS = ['it', 'en', 'zh-cn'];
+const LANGS = ['it', 'en', 'zh-cn', 'jp'];
+
+// Helper for calling Github API
+const client = Got.extend({
+  prefixUrl: API_URL,
+  headers: {
+    Accept: 'application/json',
+    'Accept-Charset': 'utf-8',
+    'User-Agent': 'node-github-api-client',
+    Authorization: `token ${process.env.GITHUB_TOKEN}`,
+  },
+});
 
 // Parse individual markdown files
 async function processMarkdown(mdToProcess: string) {
@@ -60,17 +71,6 @@ async function processMarkdown(mdToProcess: string) {
   const html = '<section class="mt-10">' + optimizedMarkdown + '</section>';
   return { html, attributes, sections };
 }
-
-// Helper for calling Github API
-const client = Got.extend({
-  prefixUrl: API_URL,
-  headers: {
-    Accept: 'application/json',
-    'Accept-Charset': 'utf-8',
-    'User-Agent': 'node-github-api-client',
-    Authorization: `token ${process.env.GITHUB_TOKEN}`,
-  },
-});
 
 // Download and process Markdown within a specific folder
 async function fetchReleaseFolder(
