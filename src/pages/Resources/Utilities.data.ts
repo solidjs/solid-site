@@ -27,7 +27,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid/blob/main/packages/solid-element',
     title: 'solid-element',
-    description: "Extensions to Solid.js that add a Web Component wrapper.",
+    description: 'Extensions to Solid.js that add a Web Component wrapper.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryancarniato',
     keywords: ['web', 'components', 'web components', 'elements'],
@@ -195,7 +195,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/create-solid',
     title: 'create-solid',
-    description: 'Solid\'s port of Create React App.',
+    description: "Solid's port of Create React App.",
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['starter', 'cra'],
@@ -206,7 +206,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/ryansolid/dom-expressions',
     title: 'dom-expressions',
-    description: 'The renderer behind Solid.js that enables lightning fast fine grained performance.',
+    description:
+      'The renderer behind Solid.js that enables lightning fast fine grained performance.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['dom', 'expressions'],
@@ -250,7 +251,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/amoutonbrady/solid-snowpack-starter',
     title: 'solid-snowpack-starter',
-    description: 'Solid + snowpack + tailwindcss template You get HMR out of the box and full PWA compatible.',
+    description:
+      'Solid + snowpack + tailwindcss template You get HMR out of the box and full PWA compatible.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
     keywords: ['starter', 'typescript', 'snowpack'],
@@ -261,7 +263,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/builderio/jsx-lite',
     title: 'jsx-lite',
-    description: 'Generalized JSX that transpiles into Solid, React, Angular, Vue, etc. They have plugins for Figma, VSCode, & Builder.io.',
+    description:
+      'Generalized JSX that transpiles into Solid, React, Angular, Vue, etc. They have plugins for Figma, VSCode, & Builder.io.',
     author: 'Builder.io',
     author_url: 'https://github.com/builderio',
     keywords: ['jsx', 'jsx-lite', 'builder'],
@@ -544,7 +547,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/pablo-abc/solid-reach',
-    title: 'Solid Reach',
+    title: 'solid-reach',
     description:
       'This is a port of ReachUI for Solid that (hopefully) will serve you as The Accessible Foundation for Solid Apps and Design Systems.',
     author: 'Pablo Berganza',
@@ -609,7 +612,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/minht11/solid-virtual-container',
-    title: 'solid-virtual-contaier',
+    title: 'solid-virtual-container',
     description: 'Efficient, single direction virtual list/grid for Solid-js.',
     author: 'Justinas Delinda',
     author_url: 'https://github.com/minht11',
