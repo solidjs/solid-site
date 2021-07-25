@@ -24,7 +24,7 @@ export enum ResourceType {
 export enum ResourceCategory {
   Primitives = 'primitive',
   Routers = 'router',
-  Data = 'Data',
+  Data = 'data',
   UI = 'ui',
   Plugins = 'plugin',
   Starters = 'starters',

@@ -29,6 +29,27 @@ const core = [
   },
 ] as const;
 
+const translators = [
+  {
+    name: 'Gaving Cong',
+    language: 'zh-cn',
+    flag: '🇨🇳',
+    link: 'https://github.com/Gavin-Gong'
+  },
+  {
+    name: 'Jun Shindo',
+    language: 'jp',
+    flag: '🇯🇵',
+    link: 'https://github.com/jay-es'
+  },
+  {
+    name: 'David Di Biase',
+    language: 'it',
+    flag: '🇮🇹',
+    link: 'https://github.com/davedbase'
+  }
+];
+
 const contributors = [
   {
     name: 'Eric Rochon',
@@ -86,6 +107,7 @@ const ecosystem = [
 export const ContributorsData = () => ({
   core,
   contributors,
+  translators,
   ecosystem,
 });
 
