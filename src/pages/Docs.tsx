@@ -74,7 +74,7 @@ const Docs: Component<{
           <div class="col-span-4 lg:col-span-3 relative">
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 bg-white fixed top-16 duration-300 transform ' +
                 'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
                 'lg:sticky lg:flex'
               }
@@ -84,20 +84,6 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <select
-                style={{
-                  'background-image': 'url(/img/icons/translate2.svg)',
-                  'background-size': '20px',
-                }}
-                value={props.lang}
-                onChange={changeLang}
-                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5 w-full"
-              >
-                <option value="en">English</option>
-                <option value="zh-cn">简体中文</option>
-                <option value="jp">日本</option>
-                <option value="it">Italiano</option>
-              </select>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) =>

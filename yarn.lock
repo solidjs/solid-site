@@ -1037,6 +1037,13 @@
   dependencies:
     solid-js "^1.0.3"
 
+"@solid-primitives/local-store@^0.0.100":
+  version "0.0.100"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-0.0.100.tgz#f6ba7838cae2816402cd0a4ebb41cf4d7715bb2b"
+  integrity sha512-vyz/oymwMEJkldXB06WGwyj0eB59W3NA1tYCrC0CAat7awCY3nlN1Hu5BFtJpORpy9hK0qeDqsHa3VuHQHC4mg==
+  dependencies:
+    solid-js "^1.0.3"
+
 "@solid-primitives/throttle@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.0.tgz#c33caed00e6cb0c9b9939960fdbc03d431b9bc66"

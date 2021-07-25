@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'solid-app-router';
 import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
+import createLocalStore from '@solid-primitives/local-store';
 
 import logo from '../assets/logo.svg';
 import Social from './Social';
@@ -50,6 +51,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
   const [classList, setClassList] = createSignal({});
+  const [settings, setSettings] = createLocalStore();
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
 
@@ -59,9 +61,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     onCleanup(() => observer && observer.disconnect());
     handleScrollMobile(scrollRef);
   });
-
   const shouldShowLogo = () => props.showLogo || !unlocked();
-
   const handleScrollMobile = (element: HTMLElement) => {
     const scrollLeft = element.scrollLeft;
     const scrollRight = scrollLeft - element.scrollWidth + element.offsetWidth;
@@ -100,6 +100,21 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </ul>
           <ul class="lg:flex hidden items-center space-x-3">
             <Social />
+            <select
+              class="p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
+              style={{
+                'min-width': '125px',
+                'background-image': 'url(/img/icons/translate2.svg)',
+                'background-size': '20px',
+              }}
+              value={settings.lang || 'en'}
+              onChange={(evt) => setSettings('lang', evt.currentTarget.value)}
+            >
+              <option value="en">English</option>
+              <option value="zh-cn">简体中文</option>
+              <option value="jp">日本</option>
+              <option value="it">Italiano</option>
+            </select>
           </ul>
         </nav>
       </div>
