@@ -1,6 +1,5 @@
 
-// English Translation
-
+const name = 'English';
 const locale = 'en-US';
 
 const nav = [
@@ -141,6 +140,8 @@ const resources = {
     package: 'Package',
   },
   categories: 'Categories',
+  translations: 'Translations',
+  translators_copy: 'The following individuals have graciously given their time and effort to ensure Solid goes international:',
   categories_list: {
     'primitive': 'Primitives',
     'router': 'Routers',
@@ -149,7 +150,7 @@ const resources = {
     'plugin': 'Plugins',
     'starters': 'Starters',
     'build_utility': 'Build Utilities',
-    'add_on': 'ADd On',
+    'add_on': 'Add On',
     'testing': 'Testing',
     'educational': 'Educational',
   },
@@ -198,4 +199,19 @@ const team = {
   ecosystem_team: 'Ecosystem Team',
   contributors: 'Contributors',
   open_collective: 'Open Collective'
+};
+
+export {
+  name,
+  locale,
+  nav,
+  home,
+  benchmarks,
+  docs,
+  resources,
+  footer,
+  tutorial,
+  examples,
+  media,
+  team
 };
