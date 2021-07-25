@@ -10,13 +10,13 @@ import Got from 'got';
 import { basename } from 'path';
 import { existsSync } from 'fs';
 import { writeFile, mkdir, readFile } from 'fs/promises';
-import { resolve, dirname } from 'path';
+import { resolve } from 'path';
 import globby from 'globby';
 
 import { Documentation, Section, Release } from './types';
 
 const API_URL = 'https://api.github.com/repos/solidjs/solid-docs';
-const LANGS = ['it', 'en', 'zh-cn', 'jp'];
+const LANGS = ['it', 'en', 'zh-cn', 'ja'];
 
 // Helper for calling Github API
 const client = Got.extend({
