@@ -1,0 +1,34 @@
+
+const resources = {
+  title: 'Resources',
+  cta: 'To have your SolidJS related project listed here reach out to us on <a href="https://discord.com/invite/solidjs">Discord</a>.',
+  search: 'Search resources',
+  types: 'Types',
+  types_list: {
+    article: 'Article',
+    video: 'Video',
+    library: 'Library',
+    package: 'Package',
+  },
+  categories: 'Categories',
+  translations: 'Translations',
+  translators_copy: 'The following individuals have graciously given their time and effort to ensure Solid goes international:',
+  categories_list: {
+    'primitive': 'Primitives',
+    'router': 'Routers',
+    'data': 'Data',
+    'ui': 'UI',
+    'plugin': 'Plugins',
+    'starters': 'Starters',
+    'build_utility': 'Build Utilities',
+    'add_on': 'Add On',
+    'testing': 'Testing',
+    'educational': 'Educational',
+  },
+  official: 'Official',
+  by: 'By {{author}}'
+};
+
+export default function() {
+  return resources;
+};

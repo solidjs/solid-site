@@ -1,17 +1,4 @@
 
-const name = 'English';
-const locale = 'en-US';
-
-const nav = [
-  { title: 'Get Started', path: '/guide' },
-  { title: 'Docs', path: '/docs/latest/api' },
-  { title: 'Resources', path: '/resources' },
-  { title: 'Tutorial', path: '/tutorial' },
-  { title: 'Examples', path: '/examples' },
-  { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
-  { title: 'Media', path: '/media' },
-];
-
 const home = {
   hero: 'A declarative, efficient and flexible JavaScript library for building user interfaces.',
   info: 'Solid is a purely reactive library. It was designed from the ground up with a reactive core. It\'s influenced by reactive principles developed by previous libraries.',
@@ -124,94 +111,9 @@ const benchmarks = {
   }
 };
 
-const docs = {
-  title: 'Documentation'
-};
-
-const resources = {
-  title: 'Resources',
-  cta: 'To have your SolidJS related project listed here reach out to us on <a href="https://discord.com/invite/solidjs">Discord</a>.',
-  search: 'Search resources',
-  types: 'Types',
-  types_list: {
-    article: 'Article',
-    video: 'Video',
-    library: 'Library',
-    package: 'Package',
-  },
-  categories: 'Categories',
-  translations: 'Translations',
-  translators_copy: 'The following individuals have graciously given their time and effort to ensure Solid goes international:',
-  categories_list: {
-    'primitive': 'Primitives',
-    'router': 'Routers',
-    'data': 'Data',
-    'ui': 'UI',
-    'plugin': 'Plugins',
-    'starters': 'Starters',
-    'build_utility': 'Build Utilities',
-    'add_on': 'Add On',
-    'testing': 'Testing',
-    'educational': 'Educational',
-  },
-  official: 'Official',
-  by: 'By {{author}}'
-};
-
-const footer = {
-  declaration: "Solid is an open-source project supported by a team of public contributors. It's distributed under an MIT license. This library and community are made possible by a core team and dedicated contributors.",
-  updated: 'Last updated {{date}} on Solid v{{version}}',
-};
-
-const tutorial = {
-  solve: 'Solve',
-  reset: 'Reset'
-};
-
-const examples = {
-  title: 'Example Library',
-  basic: 'Basic',
-  complex: 'Complex'
-};
-
-const media = {
-  title: 'Media Assets',
-  copy: 'The following are assets that represent the Solid brand. All assets are considered open-source contributions and should be used according to open standards and licensing rules. For additional assets or questions pertaining to brand alignment, feel free to join our Discord for support and guidance.',
-  brand_font: 'Brand Font',
-  primary: 'Primary Color',
-  secondary: 'Secondary Color',
-  light: 'Light Color',
-  accent: 'Accent Color',
-  resources: {
-    with_wordmark: 'With Wordmark',
-    without_wordmark: 'Without Wordmark',
-    only_wordmark: 'Only Wordmark',
-    dark_with_wordmark: 'Dark With Wordmark',
-    dark_without_workdmark: 'Dark Without Wordmark',
-    dark_only_wordmark: 'Only Dark Wordmark'
-  }
-};
-
-const team = {
-  title: 'Team & Contributions',
-  core_team: 'Core Team',
-  acknowledgments: 'Acknowledgments',
-  ecosystem_team: 'Ecosystem Team',
-  contributors: 'Contributors',
-  open_collective: 'Open Collective'
-};
-
-export {
-  name,
-  locale,
-  nav,
-  home,
-  benchmarks,
-  docs,
-  resources,
-  footer,
-  tutorial,
-  examples,
-  media,
-  team
+export default function() {
+  return {
+    ...home,
+    ...benchmarks
+  };
 };
