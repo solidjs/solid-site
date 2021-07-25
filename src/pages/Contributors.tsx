@@ -102,49 +102,62 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
               </a>
             </div>
 
-            <div class="flex mb-5 flex-col space-y-3">
+
+            <h2 class="text-2xl font-semibold text-solid-default">Translations</h2>
+            <div class="mt-0">
+              The following individuals have graciously given their time and effort to ensure Solid goes international:
+              <ul class="list-disc ml-8 space-y-3 mt-4">
+                <For each={props.translators}>
+                  {(translator) => <li>
+                    <a href={translator.link}>{translator.name} {translator.flag}</a>
+                  </li>}
+                </For>
+              </ul>
+            </div>
+
+            <div>
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">Open Collective</h2>
 
-              <p class="block">
+              <div class="inline-block mb-10">
                 Support us with a donation and help us continue our activities.{' '}
-                <a target="_blank" href="https://opencollective.com/solid">
-                  Contribute
+                <a target="_blank" class="text-solid-default " href="https://opencollective.com/solid">
+                  Contribute today &raquo;
                 </a>
-              </p>
+              </div>
 
-              <div class="flex">
+              <div class="grid grid-cols-8 gap-4">
                 <a href="https://opencollective.com/solid/backer/0/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/0/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/0/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/1/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/1/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/1/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/2/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/2/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/2/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/3/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/3/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/3/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/4/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/4/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/4/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/5/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/5/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/5/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/6/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/6/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/6/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/7/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/7/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/7/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/8/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/8/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/8/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/9/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/9/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/9/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/10/website" target="_blank">
-                  <img src="https://opencollective.com/solid/backer/10/avatar.svg" />
+                  <img class="w-22" src="https://opencollective.com/solid/backer/10/avatar.svg" />
                 </a>
               </div>
             </div>
