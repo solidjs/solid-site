@@ -398,6 +398,26 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
   },
   {
+    link: 'https://dev.to/ryansolid/5-ways-solidjs-differs-from-other-js-frameworks-1g63',
+    title: '5 Ways SolidJS Differs from Other JS Frameworks',
+    description: 'A deep dive into the evolution and future of React Server Components.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    keywords: ['react', 'vue', 'svelte'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf',
+    title: 'A Hands-on Introduction to Fine-Grained Reactivity',
+    description: 'Learn fine-grained reactivity by specific examples with Ryan',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    keywords: [''],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
     link: 'https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p',
     title: 'Building a Reactive Library from Scratch',
     author: 'Ryan Carniato',
@@ -507,6 +527,39 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://javascript.plainenglish.io/javascript-frameworks-performance-comparison-2020-cd881ac21fce',
+    title: 'JavaScript Frameworks, Performance Comparison 2020',
+    description: 'The ultimate performance battle between JavaScript frameworks.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://indepth.dev/solidjs-reactivity-to-rendering/',
+    title: 'SolidJS: Reactivity to Rendering',
+    description: 'An in depth look at building Solid\'s reactive renderer, piece by piece, from the ground up.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://dev.to/ryansolid/introducing-the-solidjs-ui-library-4mck',
+    title: 'Introducing the SolidJS UI Library',
+    description: 'Introduction article to Solid written in March 2020.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+
+
+
 ];
 
 export default articles;

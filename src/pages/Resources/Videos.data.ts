@@ -73,6 +73,28 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://www.youtube.com/playlist?list=PLtLhzwNMDs1fMi43erQSzXD49Y4p0TniU',
+    title: 'Solid Video Series',
+    description:
+      "Information for developers who are interested in using the Solid JavaScript UI framework to create a web application.",
+    keywords: [''],
+    author: 'Eric Schmucker',
+    author_url: 'https://www.youtube.com/channel/UCDezHlQN79VWarlRgvmim-w',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=iyY1lT8-ZDA',
+    title: 'The Deep Drive Episode #4 Reactive Frontends',
+    description:
+      "The Deep Dive delves into reactive front-end frameworks with Lars Gyrup, Brink Nielsen, Kos Palchyk and Ryan Carniato.",
+    keywords: ['reactive', 'kos palychyk'],
+    author: 'The Deep Dive',
+    author_url: 'https://www.youtube.com/channel/UCsZWzmsdKz2VA49XXBK5TQA',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default videos;
