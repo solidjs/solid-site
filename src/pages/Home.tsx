@@ -114,7 +114,7 @@ const Home: Component<HomepageProps> = (props) => {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://github.com/solidjs/solid"
+                href="https://star-history.t9t.io/#solidjs/solid"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
                 <strong class="font-semibold mr-1">9.5k+</strong>
@@ -144,7 +144,19 @@ const Home: Component<HomepageProps> = (props) => {
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
                 <strong class="font-semibold mr-1">Top Rated</strong>
-                <span class="block text-sm">In Performance</span>
+                <span class="block text-sm">In performance</span>
+              </a>
+            </li>
+
+            <li class="hover:bg-solid-dark hover:text-white transition">
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
+                class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
+              >
+                <strong class="font-semibold mr-1">Astro</strong>
+                <span class="block text-sm">Support</span>
               </a>
             </li>
           </ul>
