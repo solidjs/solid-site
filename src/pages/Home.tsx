@@ -1,5 +1,6 @@
 import { Component, createSignal, lazy, onMount, Suspense, Show, onCleanup } from 'solid-js';
 import { Link, useData } from 'solid-app-router';
+import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -18,16 +19,15 @@ import Benchmarks, { GraphData } from '../components/Benchmarks';
 const OldRepl = lazy(() => import('../components/ReplTab'));
 
 const Home: Component<{}> = () => {
-  const data = useData();
+  const data = useData<{ benchmarks: Array<GraphData> }>();
   const [loadRepl, setLoadRepl] = createSignal(false);
-  let playgroundSection!: HTMLElement;
-  let observer: IntersectionObserver;
+  const [observeInteraction] = createViewportObserver([], 0.5);
+  let playgroundRef!: HTMLElement;
 
   onMount(() => {
-    observer = new IntersectionObserver(([entry]) => entry.isIntersecting && setLoadRepl(true));
-    observer.observe(playgroundSection);
+    // @ts-ignore
+    observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
-  onCleanup(() => observer.disconnect());
 
   return (
     <div class="flex flex-col">
@@ -160,14 +160,18 @@ const Home: Component<{}> = () => {
 
         <section
           class="py-20 px-8 lg:px-15 flex flex-col lg:flex-row lg:space-x-32"
-          ref={playgroundSection}
+          ref={playgroundRef}
         >
           <div
             style="height:600px; width:100%;"
             class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 mt-10 lg:mt-0"
           >
             <Show when={loadRepl()}>
-              <Suspense fallback={'Loading...'}>
+              <Suspense
+                fallback={
+                  <div class="flex h-full justify-center items-center">Starting playground...</div>
+                }
+              >
                 <OldRepl
                   tabs={[
                     {
@@ -250,7 +254,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
         <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 space-y-10 ">
           <div class="flex flex-wrap items-center flex-1">
-            <Benchmarks list={data()?.benchmarks} />
+            <Benchmarks list={data.benchmarks} />
           </div>
 
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">

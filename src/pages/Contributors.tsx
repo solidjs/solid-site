@@ -1,17 +1,20 @@
 import { Component, For, Show } from 'solid-js';
+import { useData } from 'solid-app-router';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
 
-const CoreMember: Component<{
+interface CoreMemberProps {
   img: string;
   name: string;
   role: string;
   bio: string;
   github: string;
-}> = (props) => {
+}
+
+const CoreMember: Component<CoreMemberProps> = (props) => {
   return (
     <li class="grid grid-cols-3 gap-x-10">
       <div>
@@ -37,30 +40,31 @@ const CoreMember: Component<{
   );
 };
 
-const Contributor: Component<{
+interface ContributorProps {
   name: string;
   link: string;
   company: string;
   detail: string;
-}> = (props) => {
+}
+
+const Contributor: Component<ContributorProps> = (props) => {
   return (
     <li class="shadow-lg p-8">
       <p class="text-bold text-lg text-solid inline-flex space-x-2">
         <span>{props.name}</span>
-
         <Show when={props.company}>
           <a href={props.link} class="text-black hover:underline">
             ({props.company})
           </a>
         </Show>
       </p>
-
       <p class="text-md mt-1">{props.detail}</p>
     </li>
   );
 };
 
-const Contributors: Component<ContributorsDataProps> = (props) => {
+const Contributors: Component<{}> = () => {
+  const data = useData<ContributorsDataProps>();
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
@@ -72,7 +76,7 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
             <h2 class="text-3xl font-semibold text-solid-default">Core Team</h2>
 
             <ul class="space-y-10">
-              <For each={props.core} children={CoreMember} />
+              <For each={data.core} children={CoreMember} />
             </ul>
           </div>
 
@@ -86,13 +90,13 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
             </p>
 
             <ul class="flex flex-col space-y-3">
-              <For each={props.contributors} children={Contributor} />
+              <For each={data.contributors} children={Contributor} />
             </ul>
 
             <h2 class="text-2xl font-semibold text-solid-default">Ecosystem Team</h2>
 
             <ul class="flex flex-col space-y-3">
-              <For each={props.ecosystem} children={Contributor} />
+              <For each={data.ecosystem} children={Contributor} />
             </ul>
 
             <div class="flex mb-5 flex-col space-y-3">
@@ -102,15 +106,19 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
               </a>
             </div>
 
-
             <h2 class="text-2xl font-semibold text-solid-default">Translations</h2>
             <div class="mt-0">
-              The following individuals have graciously given their time and effort to ensure Solid goes international:
+              The following individuals have graciously given their time and effort to ensure Solid
+              goes international:
               <ul class="list-disc ml-8 space-y-3 mt-4">
-                <For each={props.translators}>
-                  {(translator) => <li>
-                    <a href={translator.link}>{translator.name} {translator.flag}</a>
-                  </li>}
+                <For each={data.translators}>
+                  {(translator) => (
+                    <li>
+                      <a href={translator.link}>
+                        {translator.name} {translator.flag}
+                      </a>
+                    </li>
+                  )}
                 </For>
               </ul>
             </div>
@@ -120,7 +128,11 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
 
               <div class="inline-block mb-10">
                 Support us with a donation and help us continue our activities.{' '}
-                <a target="_blank" class="text-solid-default " href="https://opencollective.com/solid">
+                <a
+                  target="_blank"
+                  class="text-solid-default "
+                  href="https://opencollective.com/solid"
+                >
                   Contribute today &raquo;
                 </a>
               </div>

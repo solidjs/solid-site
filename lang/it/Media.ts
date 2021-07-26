@@ -13,7 +13,7 @@ const media = {
     only_wordmark: 'Solo marchio denominativo',
     dark_with_wordmark: 'Scuro con segno di parola',
     dark_without_workdmark: 'Scuro senza segno denominativo',
-    dark_only_wordmark: 'Solo Wordmark scuro'
+    dark_only_wordmark: 'Solo wordmark scuro'
   }
 };
 

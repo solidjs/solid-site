@@ -1,11 +1,11 @@
 
 const contributors = {
-  title: 'Team & Contributions',
-  core_team: 'Core Team',
-  acknowledgments: 'Acknowledgments',
-  translators_copy: 'The following individuals have graciously given their time and effort to ensure Solid goes international:',
-  ecosystem_team: 'Ecosystem Team',
-  contributors: 'Contributors',
+  title: 'Manutentori e collaboratori',
+  core_team: 'Manutentori principali',
+  acknowledgments: 'Ringraziamenti',
+  translators_copy: 'Le seguenti persone hanno gentilmente dedicato il loro tempo e i loro sforzi per garantire che Solid diventi internazionale:',
+  ecosystem_team: 'Gruppo di ecosistema',
+  contributors: 'Contributrici',
   open_collective: 'Open Collective'
 };
 

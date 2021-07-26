@@ -3983,10 +3983,10 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-solid-app-router@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.2.tgz#4892c613b77ee1e2926bf90935df833dea9808de"
-  integrity sha512-SYIyE7ovMbkBYCOicdnjDGWcGLuuddwWIqC8SZSqqD54PpCr+tP1zv9DEkDV+/PnDsFTHTMeVeuxnIx9Wqqjkg==
+solid-app-router@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.3.tgz#5236293c1b1f675b74d98a873a7507e4419e46f3"
+  integrity sha512-Su//M8U4w/GVJqIbxPOcWPtrGBFoV0m+Ob7/Gs86fhAMOwCui9XWji/st4sGLDUzcxp4uTNWVSLjVsBlFUiw/Q==
 
 solid-js@1.0.3, solid-js@^1.0.3:
   version "1.0.3"

@@ -1,4 +1,4 @@
-import { DataFn } from 'solid-app-router';
+import { useLocation, useParams, RouteDataFunc, RouteData } from 'solid-app-router';
 import { createResource } from 'solid-js';
 
 export interface Step {
@@ -55,7 +55,7 @@ const propogateUndefined = (
   return out + strings[strings.length - 1];
 };
 
-export interface TutorialProps {
+export interface TutorialRouteData extends RouteData {
   loading: boolean;
   markdown?: string;
   js?: string;
@@ -70,10 +70,10 @@ export interface TutorialProps {
   solved?: boolean;
 }
 
-export const TutorialData: DataFn<{ id: string }> = (props) => {
+export const TutorialData: RouteDataFunc = (props) => {
+  const location = useLocation();
   const [directory] = createResource<TutorialDirectory>(fetchTutorialDirectory);
   const [data] = createResource(() => props.params.id!, fetchData);
-
   return {
     get loading() {
       return data.loading;
@@ -94,14 +94,11 @@ export const TutorialData: DataFn<{ id: string }> = (props) => {
         data.reduce<Record<string, TutorialDirectory>>((sections, item) => {
           // Turns `Basics/Signal` into ['Basics', 'Signal']
           const [section, lessonName] = item.lessonName.split('/');
-
           // Create the section if it doesn't already exists
           if (!sections[section]) {
             sections[section] = [];
           }
-
           sections[section].push({ ...item, lessonName });
-
           return sections;
         }, {})
       );
@@ -142,7 +139,7 @@ export const TutorialData: DataFn<{ id: string }> = (props) => {
       return props.params.id;
     },
     get solved() {
-      return Boolean(props.query['solved']);
+      return Boolean(location.query['solved']);
     },
   };
 };

@@ -1,6 +1,6 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { useNavigate } from 'solid-app-router';
+import { useNavigate, useData } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
@@ -11,15 +11,17 @@ import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 
-const Docs: Component<{
+interface DocRouteData {
   doc: { content: string; sections: Section[] };
   hash: string;
   loading: boolean;
   version: string;
   lang: string;
-}> = (props) => {
-  // @ts-ignore
+}
+
+const Docs: Component<{}> = (props) => {
   const navigate = useNavigate();
+  const data = useData<DocRouteData>();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -29,20 +31,20 @@ const Docs: Component<{
     if (entry.intersectionRatio == 0) {
       return;
     }
-    let prev = props.doc.sections[0];
-    for (let i in props.doc.sections) {
-      const el = document.getElementById(props.doc.sections[i].slug)!;
+    let prev = data.doc.sections[0];
+    for (let i in data.doc.sections) {
+      const el = document.getElementById(data.doc.sections[i].slug)!;
       if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
         break;
       }
-      prev = props.doc.sections[i];
+      prev = data.doc.sections[i];
     }
     setCurrent(prev.slug);
   }, 75);
   // Upon loading finish bind observers
   createEffect(() => {
-    if (!props.loading) {
-      props.doc.sections.forEach((section) => {
+    if (!data.loading) {
+      data.doc.sections.forEach((section) => {
         // @ts-ignore
         observeInteraction(document.getElementById(section.slug)!, determineSection);
       });
@@ -60,7 +62,7 @@ const Docs: Component<{
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title="Documentation" />
-      <Show when={!props.loading}>
+      <Show when={!data.loading}>
         <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button
             class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
@@ -85,7 +87,7 @@ const Docs: Component<{
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
               <ul class="overflow-auto flex flex-col flex-1">
-                <For each={props.doc.sections}>
+                <For each={data.doc.sections}>
                   {(firstLevel: Section) =>
                     firstLevel.children?.length ? (
                       <li>
@@ -127,8 +129,8 @@ const Docs: Component<{
                                   class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
                                   classList={{
                                     'text-solid hover:text-solid-dark':
-                                      `#${secondLevel.slug}` === props.hash,
-                                    'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                                      `#${secondLevel.slug}` === data.hash,
+                                    'hover:text-gray-400': `#${secondLevel.slug}` !== data.hash,
                                   }}
                                   href={`#${secondLevel.slug}`}
                                   children={secondLevel.title}
@@ -144,9 +146,8 @@ const Docs: Component<{
                           class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           classList={{
                             'font-semibold': current() == firstLevel.slug,
-                            'text-solid hover:text-solid-dark':
-                              `#${firstLevel.slug}` === props.hash,
-                            'hover:text-gray-400': `#${firstLevel.slug}` !== props.hash,
+                            'text-solid hover:text-solid-dark': `#${firstLevel.slug}` === data.hash,
+                            'hover:text-gray-400': `#${firstLevel.slug}` !== data.hash,
                           }}
                           href={`#${firstLevel.slug}`}
                           children={firstLevel.title}
@@ -161,9 +162,9 @@ const Docs: Component<{
 
           <div class="col-span-8 lg:col-span-9 px-10 lg:px-0">
             <Switch fallback={'Failed to load markdown...'}>
-              <Match when={props.loading}>Loading documentation...</Match>
-              <Match when={props.doc}>
-                <div class="prose prose-solid max-w-full" innerHTML={props.doc.content} />
+              <Match when={data.loading}>Loading documentation...</Match>
+              <Match when={data.doc}>
+                <div class="prose prose-solid max-w-full" innerHTML={data.doc.content} />
               </Match>
             </Switch>
           </div>

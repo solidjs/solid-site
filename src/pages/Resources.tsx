@@ -1,5 +1,6 @@
 import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
+import { useData } from 'solid-app-router';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -96,8 +97,9 @@ const ContentRow: Component<Resource> = (props) => (
   </li>
 );
 
-const Resources: Component<ResourcesDataProps> = (props) => {
-  const fs = new Fuse(props.list, {
+const Resources: Component = () => {
+  const data = useData<ResourcesDataProps>();
+  const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
@@ -106,7 +108,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     // Produces a base set of filtered results
     resources: createMemo(() => {
       if (keyword() == '') {
-        return props.list;
+        return data.list;
       }
       return fs.search(keyword()).map((result) => result.item);
     }),

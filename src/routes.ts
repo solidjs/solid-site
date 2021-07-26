@@ -5,6 +5,7 @@ import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
+import { ExamplesData } from './pages/Examples.data';
 
 export const routes: RouteDefinition[] = [
   {
@@ -39,10 +40,11 @@ export const routes: RouteDefinition[] = [
   {
     path: '/examples/:id',
     component: lazy(() => import('./pages/Examples')),
+    data: ExamplesData,
   },
   {
     path: '/examples',
-    component: Navigate({ href: '/examples/counter' }),
+    component: () => Navigate({ href: '/examples/counter' }),
   },
   {
     path: '/tutorial/:id',
@@ -51,7 +53,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/tutorial',
-    component: Navigate({ href: '/tutorial/introduction_basics' }),
+    component: () => Navigate({ href: '/tutorial/introduction_basics' }),
   },
   {
     path: '/contributors',

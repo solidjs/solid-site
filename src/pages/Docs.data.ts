@@ -1,4 +1,4 @@
-import type { DataFn } from 'solid-app-router';
+import { RouteDataFunc, useLocation, useParams } from 'solid-app-router';
 import { createResource } from 'solid-js';
 
 export type DataParams = {
@@ -19,19 +19,20 @@ function mdFetcher({ version, lang, resource }: DataParams) {
   return cache.get(cacheKey);
 }
 
-export const DocsData: DataFn<DataParams> = (props) => {
-  const params = (): DataParams => {
-    const version =
-      props.params.version && props.params.version !== 'latest' ? props.params.version! : '1.0.0';
-    const lang = props.query.lang ? (props.query.lang as string) : 'en';
-    const resource = props.location.includes('/guide') ? 'guide' : 'api';
+export const DocsData: RouteDataFunc = () => {
+  const params = useParams();
+  const location = useLocation();
+  const options = (): DataParams => {
+    const version = params.version && params.version !== 'latest' ? params.version! : '1.0.0';
+    const lang = location.query.lang ? (location.query.lang as string) : 'en';
+    const resource = location.pathname.includes('/guide') ? 'guide' : 'api';
     return {
       version,
       lang,
       resource,
     };
   };
-  const [doc] = createResource(params, mdFetcher);
+  const [doc] = createResource(options, mdFetcher);
   return {
     get doc() {
       return doc();
@@ -40,13 +41,13 @@ export const DocsData: DataFn<DataParams> = (props) => {
       return doc.loading;
     },
     get lang() {
-      return params().lang;
+      return options().lang;
     },
     get version() {
-      return props.params.version;
+      return params.version;
     },
     get params() {
-      return props.params;
+      return params;
     },
   };
 };
