@@ -12,7 +12,6 @@ const resources = {
   },
   categories: 'Categories',
   translations: 'Translations',
-  translators_copy: 'The following individuals have graciously given their time and effort to ensure Solid goes international:',
   categories_list: {
     'primitive': 'Primitives',
     'router': 'Routers',
