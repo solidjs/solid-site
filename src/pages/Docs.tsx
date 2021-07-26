@@ -1,6 +1,6 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { useRouter } from 'solid-app-router';
+import { useNavigate } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
@@ -19,7 +19,7 @@ const Docs: Component<{
   lang: string;
 }> = (props) => {
   // @ts-ignore
-  const [, { push }] = useRouter();
+  const navigate = useNavigate();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -54,7 +54,7 @@ const Docs: Component<{
   });
   const changeLang = (evt: Event) => {
     const lang = (evt.target as HTMLSelectElement).value;
-    push(window.location.pathname + `?lang=${lang}`);
+    navigate(window.location.pathname + `?lang=${lang}`, { replace: true });
   };
   return (
     <div class="flex flex-col relative">

@@ -1,5 +1,5 @@
 import { Component, createSignal, lazy, onMount, Suspense, Show, onCleanup } from 'solid-js';
-import { Link } from 'solid-app-router';
+import { Link, useData } from 'solid-app-router';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -17,20 +17,16 @@ import Benchmarks, { GraphData } from '../components/Benchmarks';
 
 const OldRepl = lazy(() => import('../components/ReplTab'));
 
-interface HomepageProps {
-  benchmarks: Array<GraphData>;
-}
-
-const Home: Component<HomepageProps> = (props) => {
+const Home: Component<{}> = () => {
+  const data = useData();
+  const [loadRepl, setLoadRepl] = createSignal(false);
   let playgroundSection!: HTMLElement;
   let observer: IntersectionObserver;
-  const [loadRepl, setLoadRepl] = createSignal(false);
 
   onMount(() => {
     observer = new IntersectionObserver(([entry]) => entry.isIntersecting && setLoadRepl(true));
     observer.observe(playgroundSection);
   });
-
   onCleanup(() => observer.disconnect());
 
   return (
@@ -254,7 +250,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
 
         <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 space-y-10 ">
           <div class="flex flex-wrap items-center flex-1">
-            <Benchmarks list={props.benchmarks} />
+            <Benchmarks list={data()?.benchmarks} />
           </div>
 
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">

@@ -1,11 +1,10 @@
-import { RouteDefinition } from 'solid-app-router';
+import { RouteDefinition, Navigate } from 'solid-app-router';
 import { lazy } from 'solid-js';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
-import { Redirect } from './components/Redirect';
 
 export const routes: RouteDefinition[] = [
   {
@@ -43,7 +42,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/examples',
-    component: Redirect('/examples/counter'),
+    component: Navigate({ href: '/examples/counter' }),
   },
   {
     path: '/tutorial/:id',
@@ -52,7 +51,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/tutorial',
-    component: Redirect('/tutorial/introduction_basics'),
+    component: Navigate({ href: '/tutorial/introduction_basics' }),
   },
   {
     path: '/contributors',
