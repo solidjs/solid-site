@@ -170,7 +170,6 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useData<TutorialRouteData>();
-  console.log(data);
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
     {
