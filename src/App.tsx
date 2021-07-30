@@ -1,7 +1,26 @@
-import { JSX } from 'solid-js';
+import { JSX, createContext, lazy, createResource } from 'solid-js';
 import { Meta } from 'solid-meta';
-import { useRoutes, Router } from 'solid-app-router';
+import { useRoutes, Router, useParams } from 'solid-app-router';
 import { routes } from './routes';
+
+export const LangData: RouteDataFunc = () => {
+  const params = useParams();
+  const [doc] = createResource(
+    () => ({ lang: 'it' }),
+    ({ lang }) => import(`../lang/${lang}/Home`)
+  );
+  return {
+    get loading() {
+      return doc.loading;
+    },
+  };
+};
+
+
+
+export const LangContext = createContext({
+
+});
 
 export const App = (): JSX.Element => {
   const Routes = useRoutes(routes);

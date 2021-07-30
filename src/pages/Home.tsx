@@ -20,6 +20,7 @@ const OldRepl = lazy(() => import('../components/ReplTab'));
 
 const Home: Component<{}> = () => {
   const data = useData<{ benchmarks: Array<GraphData> }>();
+  console.log(data);
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   let playgroundRef!: HTMLElement;
