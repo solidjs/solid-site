@@ -138,17 +138,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
-    link: 'https://github.com/amoutonbrady/vite-plugin-solid',
-    title: 'vite-plugin-solid',
-    description: 'A plugin to bring support for Solid to Vite.',
-    author: 'Alexandre Mouton Brady',
-    author_url: 'https://github.com/amoutonbrady',
-    keywords: ['vite', 'plugin'],
-    official: true,
-    type: ResourceType.Package,
-    categories: [ResourceCategory.AddOn],
-  },
-  {
     link: 'https://github.com/amoutonbrady/solid-heroicons',
     title: 'solid-heroicons',
     description: 'A convenient port of the Tailwind Heroicons.',

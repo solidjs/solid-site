@@ -25,9 +25,9 @@
     "prism-themes": "^1.7.0",
     "prismjs": "^1.24.0",
     "solid-app-router": "^0.0.51",
-    "solid-js": "^1.0.3",
-    "solid-meta": "^0.27.0",
-    "solid-repl": "^0.14.0",
+    "solid-js": "^1.0.7",
+    "solid-meta": "^0.27.1",
+    "solid-repl": "^0.15.1",
     "solid-utils": "^0.8.1",
     "vite-plugin-pwa": "^0.8.1"
   },
@@ -55,7 +55,7 @@
     "tailwindcss": "^2.2.4",
     "terser-config-atomic": "^0.1.1",
     "typescript": "^4.3.5",
-    "vite": "^2.4.0-beta.2",
-    "vite-plugin-solid": "^2.0.0"
+    "vite": "^2.4.4",
+    "vite-plugin-solid": "^2.0.1"
   }
 }
