@@ -538,6 +538,16 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
   },
   {
+    link: 'https://www.infoworld.com/article/3626348/solidjs-creator-javascript-innovation-isnt-slowing-down.html',
+    title: 'JavaScript Frameworks, Performance Comparison 2020',
+    description: 'As Solid marks its 1.0 release, creator Ryan Carniato discusses the origins of the framework.',
+    author: 'Matthew Tyson',
+    author_url: 'https://www.infoworld.com/author/Matthew-Tyson/',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
     link: 'https://indepth.dev/solidjs-reactivity-to-rendering/',
     title: 'SolidJS: Reactivity to Rendering',
     description:
