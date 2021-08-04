@@ -540,7 +540,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.infoworld.com/article/3626348/solidjs-creator-javascript-innovation-isnt-slowing-down.html',
     title: 'JavaScript Frameworks, Performance Comparison 2020',
-    description: 'As Solid marks its 1.0 release, creator Ryan Carniato discusses the origins of the framework.',
+    description:
+      'As Solid marks its 1.0 release, creator Ryan Carniato discusses the origins of the framework.',
     author: 'Matthew Tyson',
     author_url: 'https://www.infoworld.com/author/Matthew-Tyson/',
     keywords: [],

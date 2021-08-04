@@ -34,32 +34,32 @@ const translators = [
     name: 'Gaving Cong',
     language: 'zh-cn',
     flag: '🇨🇳',
-    link: 'https://github.com/Gavin-Gong'
+    link: 'https://github.com/Gavin-Gong',
   },
   {
     name: 'Jun Shindo',
     language: 'jp',
     flag: '🇯🇵',
-    link: 'https://github.com/jay-es'
+    link: 'https://github.com/jay-es',
   },
   {
     name: 'David Di Biase',
     language: 'it',
     flag: '🇮🇹',
-    link: 'https://github.com/davedbase'
+    link: 'https://github.com/davedbase',
   },
   {
     name: 'Candido Sales Gomez',
     language: 'pt',
     flag: '🇧🇷',
-    link: 'https://github.com/candidosales'
+    link: 'https://github.com/candidosales',
   },
   {
     name: 'Steven Yung',
     language: 'fr',
     flag: '🇫🇷',
-    link: 'https://github.com/xstevenyung'
-  }
+    link: 'https://github.com/xstevenyung',
+  },
 ];
 
 const contributors = [

@@ -102,15 +102,19 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
               </a>
             </div>
 
-
             <h2 class="text-2xl font-semibold text-solid-default">Translations</h2>
             <div class="mt-0">
-              The following individuals have graciously given their time and effort to ensure Solid goes international:
+              The following individuals have graciously given their time and effort to ensure Solid
+              goes international:
               <ul class="list-disc ml-8 space-y-3 mt-4">
                 <For each={props.translators}>
-                  {(translator) => <li>
-                    <a href={translator.link}>{translator.name} {translator.flag}</a>
-                  </li>}
+                  {(translator) => (
+                    <li>
+                      <a href={translator.link}>
+                        {translator.name} {translator.flag}
+                      </a>
+                    </li>
+                  )}
                 </For>
               </ul>
             </div>
@@ -120,7 +124,11 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
 
               <div class="inline-block mb-10">
                 Support us with a donation and help us continue our activities.{' '}
-                <a target="_blank" class="text-solid-default " href="https://opencollective.com/solid">
+                <a
+                  target="_blank"
+                  class="text-solid-default "
+                  href="https://opencollective.com/solid"
+                >
                   Contribute today &raquo;
                 </a>
               </div>

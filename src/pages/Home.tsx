@@ -58,8 +58,8 @@ const Home: Component<HomepageProps> = (props) => {
           <strong class="inline font-semibold text-solid">
             Solid is a purely reactive library.{' '}
           </strong>
-          It was designed from the ground up with a reactive core and built on modern
-          and hardened tooling and a growing ecosystem.
+          It was designed from the ground up with a reactive core and built on hardened tooling in a
+          growing ecosystem.
         </div>
 
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
@@ -208,8 +208,8 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               Solid stands on the shoulders of giants, particularly React and Knockout. If you've
               developed with React Hooks before Solid should seem very natural. In fact, more
               natural as it's model is much simpler with no Hook rules. Every Component executes
-              once while Hooks (called primitives in Solid) and bindings can execute many
-              times over as their dependencies update.
+              once while Hooks (called primitives in Solid) and bindings can execute many times over
+              as their dependencies update.
             </p>
 
             <p class="mt-4 leading-7">
@@ -240,8 +240,8 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </p>
             <p class="mt-6 leading-7">
               This unlocks complete control over what gets updated and when, even at the DOM binding
-              level. Moving <strong>beyond a costly Virtual DOM</strong>, Solid never
-              does more work than you need it to.
+              level. Moving <strong>beyond a costly Virtual DOM</strong>, Solid never does more work
+              than you need it to.
             </p>
             <a
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
