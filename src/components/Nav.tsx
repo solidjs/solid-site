@@ -74,7 +74,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <ScrollShadow
             class="relative nav-items-container"
             direction="horizontal"
-            shadowSize={'25%'}
+            shadowSize="25%"
             initShadowSize={true}
           >
             <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
