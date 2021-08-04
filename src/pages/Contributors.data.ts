@@ -48,6 +48,12 @@ const translators = [
     flag: '🇮🇹',
     link: 'https://github.com/davedbase',
   },
+  {
+    name: 'MidouWebDev',
+    language: 'fr',
+    flag: '🇫🇷',
+    link: 'https://github.com/MidouWebDev',
+  },
 ];
 
 const contributors = [
