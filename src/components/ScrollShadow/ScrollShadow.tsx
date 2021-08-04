@@ -97,9 +97,9 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
   const setPosition = (direction: string) => {
     const isFirst = child === 'first';
     if (direction === 'horizontal') {
-      return `position: ${isFirst ? 'absolute' : 'relative'}; top: 0; ${
+      return `position: ${isFirst ? 'absolute' : 'static'}; top: 0; ${
         isFirst ? 'left' : 'right'
-      }: 0; height: 100%; width: 1px`;
+      }: 0; height: 100%; width: 1px; ${isFirst ? '' : 'flex-shrink: 0; margin-left: -1px;'}`;
     }
     return `position: ${isFirst ? 'absolute' : 'relative'}; left: 0; ${
       isFirst ? 'top' : 'bottom'
