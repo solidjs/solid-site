@@ -16,7 +16,7 @@ const links: MenuLinkProps[] = [
 ];
 
 const Logo: Component<{ show: boolean }> = (props) => (
-  <li class="pr-5 sticky z-10 left-0 nav-logo-bg">
+  <li class="sticky z-10 left-0 nav-logo-bg" classList={{ 'pr-5': props.show }}>
     <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-9' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
       <img class="w-full h-auto" src={logo} alt="Solid logo" />
@@ -74,7 +74,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <ScrollShadow
             class="relative nav-items-container"
             direction="horizontal"
-            shadowSize="25%"
+            shadowSize={'25%'}
+            initShadowSize={true}
           >
             <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
               <Logo show={shouldShowLogo()} />

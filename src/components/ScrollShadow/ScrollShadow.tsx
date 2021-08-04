@@ -3,7 +3,8 @@ import { Component, onCleanup, onMount } from 'solid-js';
 type TShared = {
   direction: 'horizontal' | 'vertical';
   child: 'first' | 'last';
-  size: string;
+  shadowSize: string;
+  initShadowSize?: boolean;
 };
 
 /**
@@ -13,15 +14,17 @@ type TShared = {
 const ScrollShadow: Component<
   {
     class: string;
-    shadowSize: string;
-  } & Omit<TShared, 'child' | 'size'>
+  } & Omit<TShared, 'child'>
 > = (props) => {
-  const { class: className, direction, shadowSize } = props;
+  const { class: className, direction, shadowSize, initShadowSize } = props;
+
   const sentinelShadowState = new Map<HTMLElement, HTMLElement>();
   let shadowFirstEl!: HTMLElement;
   let shadowLastEl!: HTMLElement;
   let sentinelFirstEl = (<Sentinel child="first" direction={direction} />) as HTMLElement;
   let sentinelLastEl = (<Sentinel child="last" direction={direction} />) as HTMLElement;
+  let init = true;
+  let initResetSize = false;
 
   // won't work for SSR
   const children = props.children as HTMLElement;
@@ -29,6 +32,26 @@ const ScrollShadow: Component<
   children.appendChild(sentinelLastEl);
 
   onMount(() => {
+    const resetInitShadowSize = () => {
+      if (!initShadowSize) return;
+
+      if (!init && !initResetSize) {
+        sentinelShadowState.forEach((item) => {
+          item.style.transform = '';
+        });
+        initResetSize = true;
+      }
+    };
+
+    const setInitShadowSize = () => {
+      if (!initShadowSize) return;
+
+      sentinelShadowState.forEach((item) => {
+        item.style.transform = 'scaleX(3)';
+        shadowLastEl.style.transformOrigin = 'right';
+      });
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const target = entry.target as HTMLElement;
@@ -41,8 +64,10 @@ const ScrollShadow: Component<
         }
         shadowEl!.style.opacity = isVisible ? '0' : '1';
 
-        console.log(target, isVisible);
+        resetInitShadowSize();
       });
+
+      init = false;
     });
 
     sentinelShadowState.set(sentinelFirstEl, shadowFirstEl);
@@ -50,21 +75,25 @@ const ScrollShadow: Component<
 
     observer.observe(sentinelFirstEl);
     observer.observe(sentinelLastEl);
+    setInitShadowSize();
 
     onCleanup(() => observer && observer.disconnect());
   });
 
   return (
     <div class={className}>
-      <Shadow child="first" direction={direction} size={shadowSize} ref={shadowFirstEl} />
-      <Shadow child="last" direction={direction} size={shadowSize} ref={shadowLastEl} />
+      <Shadow child="first" direction={direction} shadowSize={shadowSize} ref={shadowFirstEl} />
+      <Shadow child="last" direction={direction} shadowSize={shadowSize} ref={shadowLastEl} />
 
       {children}
     </div>
   );
 };
 
-const Sentinel: Component<Omit<TShared, 'size'>> = ({ direction, child }) => {
+const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
+  direction,
+  child,
+}) => {
   const setPosition = (direction: string) => {
     const isFirst = child === 'first';
     if (direction === 'horizontal') {
@@ -80,22 +109,20 @@ const Sentinel: Component<Omit<TShared, 'size'>> = ({ direction, child }) => {
   return <div style={style}></div>;
 };
 
-const Shadow: Component<{ ref: any } & TShared> = ({ ref, direction, child, size }) => {
-  const setPosition = (direction: string) => {
+const Shadow: Component<{ ref: any } & TShared> = ({ child, direction, ref, shadowSize: size }) => {
+  const setPosition = () => {
     const isFirst = child === 'first';
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? 'left' : 'right'}: 0;   background: linear-gradient(to ${
         isFirst ? 'right' : 'left'
-      }, rgba(255, 255, 255, 1), 65%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%`;
+      }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%`;
     }
 
     return `left: 0; ${isFirst ? 'top' : 'bottom'}: 0; background: linear-gradient(to ${
       isFirst ? 'top' : 'bottom'
-    }, rgba(255, 255, 255, 1), 65%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%`;
+    }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%`;
   };
-  const style = `position: absolute; z-index: 1; pointer-events: none; opacity: 0; transition: 500ms opacity; ${setPosition(
-    direction,
-  )};`;
+  const style = `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;
 
   return <div ref={ref} style={style}></div>;
 };
