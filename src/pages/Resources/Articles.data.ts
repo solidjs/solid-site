@@ -66,7 +66,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://areknawo.com/solid-the-best-javascript-ui-library/',
     title: 'Solid - The best JavaScript UI library?',
-    description: 'Highlights the qualities that make Solid a powerufl solution.',
+    description: 'Highlights the qualities that make Solid a powerful solution.',
     author: 'Ryan Carniato',
     author_url: 'https://www.github.com/ryansolid',
     keywords: [''],
@@ -87,9 +87,9 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
     title: 'Comparing reactivity models - React vs Vue vs Svelte vs MobX vs Solid vs Redux',
-    description: 'Compares popular and well known frames.',
-    author: 'Ryan Carniato',
-    author_url: 'https://www.github.com/ryansolid',
+    description: 'Compares popular and well known frameworks through a basic todo app.',
+    author: 'Mateo Hrastnik',
+    author_url: 'https://github.com/hrastnik',
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
