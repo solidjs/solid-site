@@ -47,6 +47,18 @@ const translators = [
     language: 'it',
     flag: '🇮🇹',
     link: 'https://github.com/davedbase'
+  },
+  {
+    name: 'Candido Sales Gomez',
+    language: 'pt',
+    flag: '🇧🇷',
+    link: 'https://github.com/candidosales'
+  },
+  {
+    name: 'Steven Yung',
+    language: 'fr',
+    flag: '🇫🇷',
+    link: 'https://github.com/xstevenyung'
   }
 ];
 
