@@ -2,6 +2,7 @@ import { Link, NavLink } from 'solid-app-router';
 import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
 
 import logo from '../assets/logo.svg';
+import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 
 const links: MenuLinkProps[] = [
@@ -15,7 +16,7 @@ const links: MenuLinkProps[] = [
 ];
 
 const Logo: Component<{ show: boolean }> = (props) => (
-  <li class="mr-4">
+  <li class="pr-5 sticky z-10 left-0 nav-logo-bg">
     <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-9' : 'w-0'}`}>
       <span class="sr-only">Navigate to the home page</span>
       <img class="w-full h-auto" src={logo} alt="Solid logo" />
@@ -48,8 +49,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 );
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
-  const [unlocked, setUnlocked] = createSignal(props.showLogo);
-  const [classList, setClassList] = createSignal({});
+  const [unlocked, setUnlocked] = createSignal(true);
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
 
@@ -57,27 +57,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     const observer = new IntersectionObserver(([entry]) => setUnlocked(entry.isIntersecting));
     observer.observe(intersectorRef);
     onCleanup(() => observer && observer.disconnect());
-    handleScrollMobile(scrollRef);
   });
 
   const shouldShowLogo = () => props.showLogo || !unlocked();
-
-  const handleScrollMobile = (element: HTMLElement) => {
-    const scrollLeft = element.scrollLeft;
-    const scrollRight = scrollLeft - element.scrollWidth + element.offsetWidth;
-    const newClassList: { [cls: string]: boolean } = {};
-    if (scrollLeft > 10) {
-      newClassList['fadeout-before-navbar'] = true;
-    } else {
-      newClassList['fadeout-before-navbar'] = false;
-    }
-    if (scrollRight < -10) {
-      newClassList['fadeout-after-navbar'] = true;
-    } else {
-      newClassList['fadeout-after-navbar'] = false;
-    }
-    setClassList(newClassList);
-  };
 
   return (
     <>
@@ -89,15 +71,17 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         }}
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
-          <ul
-            ref={scrollRef}
-            classList={classList()}
-            onScroll={(e) => handleScrollMobile(e.currentTarget)}
-            class="flex items-center overflow-auto"
+          <ScrollShadow
+            class="relative nav-items-container"
+            direction="horizontal"
+            shadowSize="25%"
           >
-            <Logo show={shouldShowLogo()} />
-            <For each={links} children={MenuLink} />
-          </ul>
+            <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
+              <Logo show={shouldShowLogo()} />
+              <For each={links} children={MenuLink} />
+            </ul>
+          </ScrollShadow>
+
           <ul class="lg:flex hidden items-center space-x-3">
             <Social />
           </ul>
