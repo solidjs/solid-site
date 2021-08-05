@@ -1,0 +1,17 @@
+{
+  "title": "视觉传媒资料",
+  "copy": "以下是代表 Solid 品牌的资料。所有资料都被视为开源贡献，应根据开放标准和许可规则使用。关于与品牌对齐有关的其他资料或问题，请随时加入我们的 Discord 以获得支持和指导。",
+  "brand_font": "品牌字体",
+  "primary": "主色",
+  "secondary": "辅色",
+  "light": "浅色",
+  "accent": "强调色",
+  "resources": {
+    "with_wordmark": "带字标",
+    "without_wordmark": "不带字标",
+    "only_wordmark": "只有字标",
+    "dark_with_wordmark": "暗色带字标",
+    "dark_without_workdmark": "暗色无字标",
+    "dark_only_wordmark": "暗色字标"
+  }
+}
