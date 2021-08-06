@@ -27,9 +27,15 @@ const ScrollShadow: Component<
   let initResetSize = false;
 
   // won't work for SSR
-  const children = props.children as HTMLElement;
-  children.appendChild(sentinelFirstEl);
-  children.appendChild(sentinelLastEl);
+  const scrollableContainer = props.children as HTMLElement;
+  scrollableContainer.appendChild(sentinelFirstEl);
+  scrollableContainer.appendChild(sentinelLastEl);
+
+  const scrollHorizontally = (e: WheelEvent) => {
+    const target = e.currentTarget as HTMLElement;
+
+    target.scrollLeft += e.deltaY;
+  };
 
   onMount(() => {
     const resetInitShadowSize = () => {
@@ -70,6 +76,8 @@ const ScrollShadow: Component<
       init = false;
     });
 
+    scrollableContainer.addEventListener('wheel', scrollHorizontally);
+
     sentinelShadowState.set(sentinelFirstEl, shadowFirstEl);
     sentinelShadowState.set(sentinelLastEl, shadowLastEl);
 
@@ -85,7 +93,7 @@ const ScrollShadow: Component<
       <Shadow child="first" direction={direction} shadowSize={shadowSize} ref={shadowFirstEl} />
       <Shadow child="last" direction={direction} shadowSize={shadowSize} ref={shadowLastEl} />
 
-      {children}
+      {scrollableContainer}
     </div>
   );
 };
@@ -97,9 +105,9 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
   const setPosition = (direction: string) => {
     const isFirst = child === 'first';
     if (direction === 'horizontal') {
-      return `position: ${isFirst ? 'absolute' : 'relative'}; top: 0; ${
+      return `position: ${isFirst ? 'absolute' : 'static'}; top: 0; ${
         isFirst ? 'left' : 'right'
-      }: 0; height: 100%; width: 1px`;
+      }: 0; height: 100%; width: 1px; ${isFirst ? '' : 'flex-shrink: 0; margin-left: -1px;'}`;
     }
     return `position: ${isFirst ? 'absolute' : 'relative'}; left: 0; ${
       isFirst ? 'top' : 'bottom'
