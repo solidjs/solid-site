@@ -18,6 +18,7 @@ import {
 export enum ResourceType {
   Article = 'article',
   Video = 'video',
+  Podcast = 'Podcast',
   Library = 'library',
   Package = 'package',
 }
