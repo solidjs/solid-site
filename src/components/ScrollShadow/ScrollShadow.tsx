@@ -32,7 +32,6 @@ const ScrollShadow: Component<
   scrollableContainer.appendChild(sentinelLastEl);
 
   const scrollHorizontally = (e: WheelEvent) => {
-    e.preventDefault();
     const target = e.currentTarget as HTMLElement;
 
     target.scrollLeft += e.deltaY;
