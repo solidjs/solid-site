@@ -10,6 +10,7 @@ import {
   code,
   videoCamera,
   bookOpen,
+  microphone,
   terminal,
   chevronRight,
   shieldCheck,
@@ -18,7 +19,7 @@ import {
 export enum ResourceType {
   Article = 'article',
   Video = 'video',
-  Podcast = 'Podcast',
+  Podcast = 'podcast',
   Library = 'library',
   Package = 'package',
 }
@@ -47,6 +48,7 @@ export interface Resource {
 }
 const ResourceTypeIcons = {
   article: bookOpen,
+  podcast: microphone,
   video: videoCamera,
   library: code,
   package: terminal,

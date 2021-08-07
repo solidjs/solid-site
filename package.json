@@ -16,7 +16,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@amoutonbrady/solid-heroicons": "^0.9.0-rc.0",
+    "@amoutonbrady/solid-heroicons": "^0.8.0",
     "@solid-primitives/intersection-observer": "^0.0.107",
     "@solid-primitives/throttle": "^1.0.0",
     "fuse.js": "^6.4.6",
