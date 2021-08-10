@@ -1,9 +1,9 @@
 {
-  "title": "Team & Contributions",
-  "core_team": "Core Team",
-  "acknowledgments": "Acknowledgments",
-  "ecosystem_team": "Ecosystem Team",
-  "translators_copy": "The following individuals have graciously given their time and effort to ensure Solid goes international:",
-  "contributors": "Contributors",
+  "title": "チームと貢献",
+  "core_team": "コアチーム",
+  "acknowledgments": "謝辞",
+  "ecosystem_team": "エコシステムチーム",
+  "translators_copy": "以下の方々は、Solid の国際化のために時間と労力を惜しみなく提供してくださいました:",
+  "contributors": "コントリビューター",
   "open_collective": "Open Collective"
 }
