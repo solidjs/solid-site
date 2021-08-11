@@ -207,9 +207,9 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             <p class="mt-9 leading-7">
               Solid stands on the shoulders of giants, particularly React and Knockout. If you've
               developed with React Hooks before Solid should seem very natural. In fact, more
-              natural as its model is much simpler with no Hook rules. Every Component executes
-              once while Hooks (called primitives in Solid) and bindings can execute many times over
-              as their dependencies update.
+              natural as its model is much simpler with no Hook rules. Every Component executes once
+              while Hooks (called primitives in Solid) and bindings can execute many times over as
+              their dependencies update.
             </p>
 
             <p class="mt-4 leading-7">

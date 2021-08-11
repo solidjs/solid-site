@@ -95,6 +95,26 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://www.youtube.com/watch?v=OqcHoLWyyIw',
+    title: 'React vs SolidJS, Fight!',
+    description: "Let's compare React with the upstart newcomer Solid-JS in an eCommerce showdown!",
+    keywords: ['reactive', 'blue', 'jack', 'harrington'],
+    author: 'Blue Collar Coder',
+    author_url: 'https://www.youtube.com/channel/UC6vRUjYqDuoUsYsku86Lrsw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://youtu.be/cuHDQhDhvPE?t=1038',
+    title: 'I built the same app 10 times // Which JS Framework is best?',
+    description: 'Solid is featured amongst 10 other frameworks and compared.',
+    keywords: ['fireship'],
+    author: 'Fireship',
+    author_url: 'https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default videos;
