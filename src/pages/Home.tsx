@@ -117,7 +117,7 @@ const Home: Component<HomepageProps> = (props) => {
                 href="https://star-history.t9t.io/#solidjs/solid"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold mr-1">9.8k+</strong>
+                <strong class="font-semibold mr-1">10k+</strong>
                 <span class="block text-sm">Github Stars</span>
               </a>
             </li>
