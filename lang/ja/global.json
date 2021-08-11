@@ -1,25 +1,25 @@
 {
-  "name": "English",
-  "locale": "en-US",
+  "name": "日本語",
+  "locale": "ja-JP",
   "nav": [
     {
-      "title": "Get Started",
+      "title": "入門",
       "path": "/guide"
     },
     {
-      "title": "Docs",
+      "title": "ドキュメント",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Resources",
+      "title": "資料",
       "path": "/resources"
     },
     {
-      "title": "Tutorial",
+      "title": "チュートリアル",
       "path": "/tutorial"
     },
     {
-      "title": "Examples",
+      "title": "サンプル",
       "path": "/examples"
     },
     {
@@ -28,12 +28,12 @@
       "external": true
     },
     {
-      "title": "Media",
+      "title": "メディア",
       "path": "/media"
     }
   ],
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under an MIT license. This library and community are made possible by a core team and dedicated contributors.",
-    "updated": "Last updated {{date}} on Solid v{{version}}"
+    "declaration": "Solid は、一般の貢献者からなるチームによってサポートされているオープンソースプロジェクトです。MIT ライセンスの下で配布されています。このライブラリとコミュニティは、コアチームと献身的な貢献者によって実現されています。",
+    "updated": "最終更新日 {{date}} Solid v{{version}}"
   }
 }
