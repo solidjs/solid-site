@@ -610,6 +610,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/wobsoriano/solid-zustand/',
+    title: 'solid-zustand',
+    description: 'Zustand state management for Solid.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['container', 'state', 'zustand'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
