@@ -16,7 +16,7 @@ import globby from 'globby';
 import { Documentation, Section, Release } from './types';
 
 const API_URL = 'https://api.github.com/repos/solidjs/solid-docs';
-const LANGS = ['it', 'en', 'zh-cn', 'ja', 'pt'];
+const LANGS = ['it', 'en', 'zh-cn', 'ja', 'pt', 'id'];
 
 // Helper for calling Github API
 const client = Got.extend({

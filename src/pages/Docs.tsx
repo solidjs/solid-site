@@ -97,6 +97,7 @@ const Docs: Component<{
                 <option value="zh-cn">简体中文</option>
                 <option value="ja">日本語</option>
                 <option value="it">Italiano</option>
+                <option value="id">Bahasa Indonesia</option>
                 <option value="br">Português</option>
               </select>
               <ul class="overflow-auto flex flex-col flex-1">

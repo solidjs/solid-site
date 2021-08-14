@@ -58,7 +58,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-center text-gray-600 mt-3">
-            Last updated August 10, 2021 9:30pm on Solid v1.1.0.
+            Last updated August 14, 2021 8:00am on Solid v1.1.0.
           </p>
           <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
             <Social />
