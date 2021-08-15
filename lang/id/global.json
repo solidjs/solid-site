@@ -1,0 +1,39 @@
+{
+  "name": "Indonesia",
+  "locale": "id-ID",
+  "nav": [
+    {
+      "title": "Memulai",
+      "path": "/guide"
+    },
+    {
+      "title": "Dokumentasi",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Sumber daya",
+      "path": "/resources"
+    },
+    {
+      "title": "Tutorial",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Contoh",
+      "path": "/examples"
+    },
+    {
+      "title": "Playground",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Media",
+      "path": "/media"
+    }
+  ],
+  "footer": {
+    "declaration": "Solid adalah projek open-source yang didukung oleh sebuah tim dari kontributor-kontributor publik. Di distribusikan dibawah lisensi MIT. Library ini dan komunitasnya terbentuk berkat tim inti dan kontributor-kontributor yang berdedikasi.",
+    "updated": "Terakhir diperbarui {{date}} pada Solid v{{version}}"
+  }
+}
