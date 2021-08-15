@@ -1,0 +1,17 @@
+{
+  "title": "Aset-aset Media",
+  "copy": "Berikut ini adalah aset-aset yang merepresentasikan merek dari Solid. Semua aset All assets are considered open-source contributions and should be used according to open standards and licensing rules. For additional assets or questions pertaining to brand alignment, feel free to join our Discord for support and guidance.",
+  "brand_font": "Merek Font",
+  "primary": "Warna Utama",
+  "secondary": "Warna Sekunder",
+  "light": "Warna Terang",
+  "accent": "Aksen Warna",
+  "resources": {
+    "with_wordmark": "Dengan Wordmark",
+    "without_wordmark": "Tanpa Wordmark",
+    "only_wordmark": "Hanya Wordmark",
+    "dark_with_wordmark": "Gelap Dengan Wordmark",
+    "dark_without_workdmark": "Gelap Tanpa Wordmark",
+    "dark_only_wordmark": "Hanya Gelap Wordmark"
+  }
+}
