@@ -46,7 +46,7 @@ You can use it by issuing the command `yarn fetch:releases` which will download 
 
 The scripts mentionned above uses [shiki](https://github.com/shikijs/shiki) to process the code which in turn uses VSCode tokens. Therefore any VSCode theme can be applied.
 
-All you have to do is retrieve the JSON file describing the them in your favorite theme (see [./scripts/blink-light.json](scripts/blink-light.json) for an example), paste it into the [scripts](./scripts) folder and refer to it in the [fetchReleases.ts](./scripts/fetchReleases.ts) file around line 30: `const theme = await loadTheme(resolve(__dirname, 'your-theme.json'));`.
+All you have to do is retrieve the JSON file describing the them in your favorite theme (see [./scripts/github-light.json](scripts/github-light.json) for an example), paste it into the [scripts](./scripts) folder and refer to it in the [fetchReleases.ts](./scripts/fetchReleases.ts) file around line 35: `const theme = await loadTheme(resolve(__dirname, 'your-theme.json'));`.
 
 ## Credits
 
