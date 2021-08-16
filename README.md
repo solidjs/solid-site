@@ -17,7 +17,7 @@ The website is built with [Solid](https://github.com/ryansolid/solid). In order 
 ### Install
 
 1. Clone the project locally: `git clone https://github.com/ryansolid/solid-site`
-2. Change diretory into your local copy: `cd solid-website`
+2. Change diretory into your local copy: `cd solid-site`
 3. Install the dependencies: `yarn install`
 
 ### Available commands
