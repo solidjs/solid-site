@@ -8,7 +8,7 @@ This is the source code for the solid website: [https://solidjs.com/](https://so
 
 ## Getting started
 
-The website is built with [Solid](https://github.com/ryansolid/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
+The website is built with [Solid](https://github.com/solidjs/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
 
 ### Prerequisites
 
@@ -16,7 +16,7 @@ The website is built with [Solid](https://github.com/ryansolid/solid). In order 
 
 ### Install
 
-1. Clone the project locally: `git clone https://github.com/ryansolid/solid-site`
+1. Clone the project locally: `git clone https://github.com/solidjs/solid-site`
 2. Change diretory into your local copy: `cd solid-site`
 3. Install the dependencies: `yarn install`
 
@@ -50,7 +50,7 @@ All you have to do is retrieve the JSON file describing the them in your favorit
 
 ## Credits
 
-- [Solid](https://github.com/ryansolid/solid) - The view library
+- [Solid](https://github.com/solidjs/solid) - The view library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
 - [Cloudflare Wrangler](https://github.com/shikijs/shiki) - Cloudflare Wrangler to deploy to Workers
 - [vite](http://vitejs.dev/) - For the bundler / dev server
