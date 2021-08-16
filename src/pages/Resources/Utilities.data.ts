@@ -621,6 +621,18 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Data],
   },
+  {
+    link: 'https://github.com/wobsoriano/solid-supabase',
+    title: 'solid-supabase',
+    description:
+      'A simple wrapper around Supabase.js (Firebase replacement) that gives you access to the client as a Solid hook.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['database', 'firebase', 'wrapper'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
