@@ -52,7 +52,7 @@ All you have to do is retrieve the JSON file describing the them in your favorit
 
 - [Solid](https://github.com/solidjs/solid) - The view library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
-- [Cloudflare Wrangler](https://github.com/shikijs/shiki) - Cloudflare Wrangler to deploy to Workers
+- [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
 - [vite](http://vitejs.dev/) - For the bundler / dev server
 - [yarn](https://yarnpkg.com/) - The package manager
 - [shiki](https://github.com/shikijs/shiki) - For the code highlight
