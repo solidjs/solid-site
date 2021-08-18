@@ -1,0 +1,28 @@
+{
+  "title": "משאבים",
+  "cta": "רוצים שהפרויקט שלכם יופיע פה? <a href=\"https://discord.com/invite/solidjs\">צרו איתנו קשר בדיסקורד</a>.",
+  "search": "חיפוש משאבים",
+  "types": "סוגי משאבים",
+  "types_list": {
+    "article": "מאמר",
+    "video": "סרטון",
+    "library": "ספרייה",
+    "package": "חבילה"
+  },
+  "categories": "קטגוריות",
+  "translations": "תרגום",
+  "categories_list": {
+    "primitive": "אבני יסוד",
+    "router": "ראוטר",
+    "data": "מידע",
+    "ui": "UI",
+    "plugin": "פלאגינים",
+    "starters": "תבניות",
+    "build_utility": "עזרי בנייה",
+    "add_on": "תוספים",
+    "testing": "בדיקה",
+    "educational": "חינוכי"
+  },
+  "official": "רשמי",
+  "by": "נוצר על ידי {{author}}"
+}

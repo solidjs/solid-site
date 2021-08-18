@@ -1,0 +1,39 @@
+{
+  "name": "עברית",
+  "locale": "he-IL",
+  "nav": [
+    {
+      "title": "התחילו לעבוד",
+      "path": "/guide"
+    },
+    {
+      "title": "תיעוד",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "משאבים",
+      "path": "/resources"
+    },
+    {
+      "title": "מדריך",
+      "path": "/tutorial"
+    },
+    {
+      "title": "דוגמאות",
+      "path": "/examples"
+    },
+    {
+      "title": "מגרש משחקים",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "מדיה",
+      "path": "/media"
+    }
+  ],
+  "footer": {
+    "declaration": "Solid הוא פרויקט קוד חופשי הנתמך על ידי קבוצה של תורמים ציבוריים. הוא משוחרר תחת רישיון MIT. הספרייה והקהילה האלו לא היו קיימות בלי קבוצת הליבה והתורמים המסורים.",
+    "updated": "עודכן לאחרונה ב-{{date}} עם Solid גרסה {{version}}"
+  }
+}
