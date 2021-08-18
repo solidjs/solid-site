@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
-import { VitePWA, Options as VitePWAOptions } from 'vite-plugin-pwa'
+import { VitePWA, Options as VitePWAOptions } from 'vite-plugin-pwa';
 import manifest from './src/assets/manifest.json';
 
 const pwaOptions: Partial<VitePWAOptions> = {
-  registerType: 'autoUpdate',  
+  registerType: 'autoUpdate',
   manifest,
-  workbox: {}
+  workbox: {},
 };
 
 export default defineConfig({
