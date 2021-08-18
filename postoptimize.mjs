@@ -1,4 +1,4 @@
-import { minifyFiles as jsonOptimize } from "@aminya/minijson"
+import { minifyFiles as jsonOptimize } from '@aminya/minijson';
 import { optimize as svgOptimize } from 'svgo';
 import { readFile, writeFile } from 'fs/promises';
 import glob from 'fast-glob';
@@ -16,7 +16,6 @@ const jsonFiles = await glob(['./dist/**/*.json'], {
   onlyFiles: true,
   absolute: true,
 });
-
 
 await Promise.all([
   jsonOptimize(jsonFiles),
