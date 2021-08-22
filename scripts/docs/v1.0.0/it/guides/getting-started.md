@@ -8,7 +8,7 @@ sort: 0
 
 ## Prova Solid
 
-Il modo migliore per imparare Solid è provarlo online. Il nostro REPL su https://playground.solidjs.com è il modo perfetto per sperimentare i concetti fondamentali. Così come https://codesandbox.io/ dove puoi modificare uno qualsiasi dei nostri esempi.
+Il modo migliore per imparare Solid è provarlo online. Il nostro REPL su https://playground.solidjs.com è il modo perfetto per sperimentare i concetti fondamentali. Così come https://codesandbox.io/ dove puoi modificare uno qualsiasi dei [nostri esempi](https://github.com/solidjs/solid/blob/main/documentation/resources/examples.md).
 
 In alternativa, puoi utilizzare i nostri semplici modelli [Vite](https://vitejs.dev/) eseguendo questi comandi nel tuo terminale:
 
@@ -55,7 +55,7 @@ const [last, setLast] = createSignal("Bourne");
 createEffect(() => console.log(`${first()} ${last()}`));
 ```
 
-Puoi saperne di più su [Reattività di Solid](https://www.solidjs.com/docs/latest#reactivity) e [Rendering di Solid](https://www.solidjs.com/docs/latest#rendering).
+Puoi saperne di più su [Reattività di Solid](#reattività) e [Rendering di Solid](#rendering).
 
 ## Pensa in modo Solid
 
@@ -87,7 +87,7 @@ Solid ha una soluzione di rendering lato server dinamico che fornisce un'esperie
 
 Poiché Solid supporta il rendering asincrono e in streaming sul server, puoi scrivere il tuo codice in un modo e farlo eseguire sul server. Ciò significa che funzionalità come [render-as-you-fetch](https://reactjs.org/docs/concurrent-mode-suspense.html#approach-3-render-as-you-fetch-using-suspense) e code splitting funzionano solo in Solid.
 
-Per maggiori informazioni, leggi la [Guida al server](https://www.solidjs.com/docs/latest#server-side-rendering).
+Per maggiori informazioni, leggi la [Guida al server](#server-di-rendering).
 
 ## Nessuna compilazione?
 

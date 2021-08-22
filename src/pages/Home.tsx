@@ -55,8 +55,8 @@ const Home: Component<{}> = () => {
           <strong class="inline font-semibold text-solid">
             Solid is a purely reactive library.{' '}
           </strong>
-          It was designed from the ground up with a reactive core. It's influenced by reactive
-          principles developed by previous libraries.
+          It was designed from the ground up with a reactive core and built on hardened tooling in a
+          growing ecosystem.
         </div>
 
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
@@ -114,7 +114,7 @@ const Home: Component<{}> = () => {
                 href="https://star-history.t9t.io/#solidjs/solid"
                 class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
               >
-                <strong class="font-semibold mr-1">9.5k+</strong>
+                <strong class="font-semibold mr-1">10k+</strong>
                 <span class="block text-sm">Github Stars</span>
               </a>
             </li>
@@ -208,9 +208,9 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             <p class="mt-9 leading-7">
               Solid stands on the shoulders of giants, particularly React and Knockout. If you've
               developed with React Hooks before Solid should seem very natural. In fact, more
-              natural as Solid's model is much simpler with no Hook rules. Every Component executes
-              once and it is the Hooks and bindings that execute many times as their dependencies
-              update.
+              natural as its model is much simpler with no Hook rules. Every Component executes once
+              while Hooks (called primitives in Solid) and bindings can execute many times over as
+              their dependencies update.
             </p>
 
             <p class="mt-4 leading-7">
@@ -241,8 +241,8 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </p>
             <p class="mt-6 leading-7">
               This unlocks complete control over what gets updated and when, even at the DOM binding
-              level. With <strong>no Virtual DOM</strong> or extensive diffing the framework never
-              does more work than you want it to.
+              level. Moving <strong>beyond a costly Virtual DOM</strong>, Solid never does more work
+              than you need it to.
             </p>
             <a
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"

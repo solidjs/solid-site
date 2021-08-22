@@ -8,7 +8,7 @@ This is the source code for the solid website: [https://solidjs.com/](https://so
 
 ## Getting started
 
-The website is built with [Solid](https://github.com/ryansolid/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
+The website is built with [Solid](https://github.com/solidjs/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
 
 ### Prerequisites
 
@@ -16,8 +16,8 @@ The website is built with [Solid](https://github.com/ryansolid/solid). In order 
 
 ### Install
 
-1. Clone the project locally: `git clone https://github.com/ryansolid/solid-site`
-2. Change diretory into your local copy: `cd solid-website`
+1. Clone the project locally: `git clone https://github.com/solidjs/solid-site`
+2. Change directory into your local copy: `cd solid-site`
 3. Install the dependencies: `yarn install`
 
 ### Available commands
@@ -40,26 +40,26 @@ You can copy, paste and rename the [.env.example](./.env.example) at the root of
 
 There's a [fetchReleases.ts](./scripts/fetchReleases.ts) script in the [scripts](./scripts) folder .
 
-You can use it by issuing the command `yarn fetch:releases` which will download all the releases's markdown files and convert them into a json files in the `public/api` folder. These files will be used as json endpoinds to fetch the documentation from the client.
+You can use it by issuing the command `yarn fetch:releases` which will download all the releases's markdown files and convert them into json files in the `public/api` folder. These files will be used as json endpoints to fetch the documentation from the client.
 
 #### How do I change the highlight theme?
 
-The scripts mentionned above uses [shiki](https://github.com/shikijs/shiki) to process the code which in turn uses VSCode tokens. Therefore any VSCode theme can be applied.
+The script mentioned above uses [shiki](https://github.com/shikijs/shiki) to process the code which in turn uses VSCode tokens. Therefore any VSCode theme can be applied.
 
-All you have to do is retrieve the JSON file describing the them in your favorite theme (see [./scripts/blink-light.json](scripts/blink-light.json) for an example), paste it into the [scripts](./scripts) folder and refer to it in the [fetchReleases.ts](./scripts/fetchReleases.ts) file around line 30: `const theme = await loadTheme(resolve(__dirname, 'your-theme.json'));`.
+All you have to do is retrieve the JSON file describing your favorite theme (see [./scripts/github-light.json](scripts/github-light.json) for an example), paste it into the [scripts](./scripts) folder and refer to it in the [fetchReleases.ts](./scripts/fetchReleases.ts) file around line 35: `const theme = await loadTheme(resolve(__dirname, 'your-theme.json'));`.
 
 ## Credits
 
-- [Solid](https://github.com/ryansolid/solid) - The view library
+- [Solid](https://github.com/solidjs/solid) - The view library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
-- [Cloudflare Wrangler](https://github.com/shikijs/shiki) - Cloudflare Wrangler to deploy to Workers
+- [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
 - [vite](http://vitejs.dev/) - For the bundler / dev server
 - [yarn](https://yarnpkg.com/) - The package manager
 - [shiki](https://github.com/shikijs/shiki) - For the code highlight
 
 ## Contributions
 
-We are actively accepting contributions to improve the Solid website. We accept PRs that are well structured, have formatting applied and follow the general structure of the site. If you have any questions, want to report a bug or a general concern, feel free to reach us on Github Issues or Discord.
+We are actively accepting contributions to improve the Solid website. We accept PRs that are well-structured, have formatting applied and follow the general structure of the site. If you have any questions, want to report a bug or a general concern, feel free to reach us on GitHub Issues or Discord.
 
 ## Sponsors
 

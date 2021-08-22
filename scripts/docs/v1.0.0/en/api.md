@@ -77,7 +77,7 @@ export function createMemo<T>(
 ): () => T;
 ```
 
-Creates a readonly derived signal that recalculates it's value whenever the executed code's dependencies update.
+Creates a readonly derived signal that recalculates its value whenever the executed code's dependencies update.
 
 ```js
 const getValue = createMemo(() => computeExpensiveValue(a(), b()));
@@ -397,7 +397,7 @@ setState({ merge: "thisValue" });
 setState("path", "to", "value", newValue);
 ```
 
-Store objects being proxies only track on property access. And on access Stores recursively produces nested Store objects on nested data. However it only wraps arrays and plain objects. Classes are not wrapped. So things like `Date`, `HTMLElement`, `Regexp`, `Map`, `Set` are not granularly reactive. Additionally, the top level state object cannot be tracked without accessing a property on it. So it is not suitable to use for things you iterate over as adding new keys or indexes cannot trigger updates. So put any lists on a key of state rather than trying to use the state object itself.
+Store objects being proxies only track on property access. And on access Stores recursively produces nested Store objects on nested data. However it only wraps arrays and plain objects. Classes are not wrapped. So things like `Date`, `HTMLElement`, `RegExp`, `Map`, `Set` are not granularly reactive. Additionally, the top level state object cannot be tracked without accessing a property on it. So it is not suitable to use for things you iterate over as adding new keys or indexes cannot trigger updates. So put any lists on a key of state rather than trying to use the state object itself.
 
 ```js
 // put the list as a key on the state object
@@ -973,7 +973,7 @@ function Show<T>(props: {
 }): () => JSX.Element;
 ```
 
-The Show control flow is used to conditional render part of the view. It is similar to the ternary operator(`a ? b : c`) but is ideal for templating JSX.
+The Show control flow is used to conditional render part of the view: it renders `children` when the `when` is truthy, an `fallback` otherwise. It is similar to the ternary operator (`when ? children : fallback`) but is ideal for templating JSX.
 
 ```jsx
 <Show when={state.count > 0} fallback={<div>Loading...</div>}>
