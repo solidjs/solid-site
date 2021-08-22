@@ -50,13 +50,9 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 );
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
-<<<<<<< HEAD
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
   const [classList, setClassList] = createSignal({});
   const [settings, setSettings] = createLocalStore();
-=======
-  const [unlocked, setUnlocked] = createSignal(true);
->>>>>>> master
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
 
@@ -66,26 +62,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     onCleanup(() => observer && observer.disconnect());
   });
   const shouldShowLogo = () => props.showLogo || !unlocked();
-<<<<<<< HEAD
-  const handleScrollMobile = (element: HTMLElement) => {
-    const scrollLeft = element.scrollLeft;
-    const scrollRight = scrollLeft - element.scrollWidth + element.offsetWidth;
-    const newClassList: { [cls: string]: boolean } = {};
-    if (scrollLeft > 10) {
-      newClassList['fadeout-before-navbar'] = true;
-    } else {
-      newClassList['fadeout-before-navbar'] = false;
-    }
-    if (scrollRight < -10) {
-      newClassList['fadeout-after-navbar'] = true;
-    } else {
-      newClassList['fadeout-after-navbar'] = false;
-    }
-    setClassList(newClassList);
-  };
-=======
->>>>>>> master
-
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
@@ -124,6 +100,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               <option value="zh-cn">简体中文</option>
               <option value="ja">日本語</option>
               <option value="it">Italiano</option>
+              <option value="fr">Français</option>
+              <option value="id">Bahasa Indonesia</option>
+              <option value="he">עִברִית</option>
             </select>
           </ul>
         </nav>

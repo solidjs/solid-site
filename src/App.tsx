@@ -1,13 +1,13 @@
-import { JSX, createContext, lazy, createResource } from 'solid-js';
+import { JSX, createContext, createResource } from 'solid-js';
 import { Meta } from 'solid-meta';
-import { useRoutes, Router, useParams } from 'solid-app-router';
+import { useRoutes, Router, RouteDataFunc, useParams } from 'solid-app-router';
 import { routes } from './routes';
 
 export const LangData: RouteDataFunc = () => {
   const params = useParams();
   const [doc] = createResource(
     () => ({ lang: 'it' }),
-    ({ lang }) => import(`../lang/${lang}/Home`)
+    ({ lang }) => fetch(`../lang/${lang}/Home`)
   );
   return {
     get loading() {
@@ -15,8 +15,6 @@ export const LangData: RouteDataFunc = () => {
     },
   };
 };
-
-
 
 export const LangContext = createContext({
 
