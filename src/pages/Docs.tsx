@@ -1,6 +1,6 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { useRouter } from 'solid-app-router';
+import { NavLink } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
@@ -19,7 +19,6 @@ const Docs: Component<{
   lang: string;
 }> = (props) => {
   // @ts-ignore
-  const [, { push }] = useRouter();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -54,7 +53,7 @@ const Docs: Component<{
   });
   const changeLang = (evt: Event) => {
     const lang = (evt.target as HTMLSelectElement).value;
-    push(window.location.pathname + `?lang=${lang}`);
+    NavLink({ href: window.location.pathname + `?lang=${lang}` });
   };
   return (
     <div class="flex flex-col relative">
@@ -84,22 +83,6 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <select
-                style={{
-                  'background-image': 'url(/img/icons/translate2.svg)',
-                  'background-size': '20px',
-                }}
-                value={props.lang}
-                onChange={changeLang}
-                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5 w-full"
-              >
-                <option value="en">English</option>
-                <option value="zh-cn">简体中文</option>
-                <option value="ja">日本語</option>
-                <option value="it">Italiano</option>
-                <option value="id">Bahasa Indonesia</option>
-                <option value="br">Português</option>
-              </select>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>
                   {(firstLevel: Section) =>

@@ -1,26 +1,11 @@
-import { JSX, createContext, createResource } from 'solid-js';
+import { Component, createEffect } from "solid-js";
 import { Meta } from 'solid-meta';
-import { useRoutes, Router, RouteDataFunc, useParams } from 'solid-app-router';
+import { I18nProvider } from '@amoutonbrady/solid-i18n';
+import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
+import { AppData } from './App.data';
 
-export const LangData: RouteDataFunc = () => {
-  const params = useParams();
-  const [doc] = createResource(
-    () => ({ lang: 'it' }),
-    ({ lang }) => fetch(`../lang/${lang}/Home`)
-  );
-  return {
-    get loading() {
-      return doc.loading;
-    },
-  };
-};
-
-export const LangContext = createContext({
-
-});
-
-export const App = (): JSX.Element => {
+export const App = () => {
   const Routes = useRoutes(routes);
   return (
     <>
@@ -29,10 +14,22 @@ export const App = (): JSX.Element => {
         content="A declarative, efficient and flexible JavaScript library for building user interfaces."
       />
       <main class="min-h-screen">
-        <Router>
-          <Routes />
+        <Router data={AppData}>
+          <Lang>
+            <Routes />
+          </Lang>
         </Router>
       </main>
     </>
+  );
+};
+
+const Lang: Component = (props) => {
+  const data = useData<{ dict: any, locale: string }>();
+  createEffect(() => console.log(data));
+  return (
+    <I18nProvider dict={data.dict} locale={data.locale}>
+      {props.children}
+    </I18nProvider>
   );
 };

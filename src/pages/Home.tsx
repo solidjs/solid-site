@@ -1,4 +1,4 @@
-import { Component, createSignal, lazy, onMount, Suspense, Show, onCleanup } from 'solid-js';
+import { Component, createSignal, lazy, onMount, Suspense, Show, onCleanup, createEffect } from 'solid-js';
 import { Link, useData } from 'solid-app-router';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
@@ -19,12 +19,11 @@ import Benchmarks, { GraphData } from '../components/Benchmarks';
 const OldRepl = lazy(() => import('../components/ReplTab'));
 
 const Home: Component<{}> = () => {
-  const data = useData<{ benchmarks: Array<GraphData> }>();
-  console.log(data);
+  const data = useData<{ lang: any; benchmarks: Array<GraphData> }>();
+  createEffect(() => console.log(data))
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   let playgroundRef!: HTMLElement;
-
   onMount(() => {
     // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
