@@ -569,6 +569,16 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://css-tricks.com/introduction-to-the-solid-javascript-library/',
+    title: 'Introduction to the Solid JavaScript Library',
+    description: 'CSS Tricks author Charlie Gerard intros users to Solid.',
+    author: 'Charlie Gerard',
+    author_url: 'https://css-tricks.com/author/charliegerard/',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default articles;
