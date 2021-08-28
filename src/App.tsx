@@ -1,4 +1,4 @@
-import { Component, createEffect } from "solid-js";
+import { Component } from "solid-js";
 import { Meta } from 'solid-meta';
 import { I18nProvider } from '@amoutonbrady/solid-i18n';
 import { useRoutes, Router, useData } from 'solid-app-router';
@@ -25,8 +25,7 @@ export const App = () => {
 };
 
 const Lang: Component = (props) => {
-  const data = useData<{ dict: any, locale: string }>();
-  createEffect(() => console.log(data));
+  const data = useData<{ dict: any, locale: string }>(0);
   return (
     <I18nProvider dict={data.dict} locale={data.locale}>
       {props.children}

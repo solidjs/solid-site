@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'solid-app-router';
 import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
-import createLocalStore from '@solid-primitives/local-store';
-
+import { useData } from 'solid-app-router';
+import { useI18n } from '@amoutonbrady/solid-i18n';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
@@ -51,11 +51,10 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
-  const [classList, setClassList] = createSignal({});
-  const [settings, setSettings] = createLocalStore();
+  const [t, { locale }] = useI18n();
+  const data = useData<{ locale: string }>(1);
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
-
   onMount(() => {
     const observer = new IntersectionObserver(([entry]) => setUnlocked(entry.isIntersecting));
     observer.observe(intersectorRef);
@@ -93,8 +92,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                 'background-image': 'url(/img/icons/translate2.svg)',
                 'background-size': '20px',
               }}
-              value={settings.lang || 'en'}
-              onChange={(evt) => setSettings('lang', evt.currentTarget.value)}
+              value={locale()}
+              onChange={(evt) => data.locale = evt.currentTarget.value}
             >
               <option value="en">English</option>
               <option value="zh-cn">简体中文</option>

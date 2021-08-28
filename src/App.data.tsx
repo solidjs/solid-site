@@ -1,37 +1,43 @@
 import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
-import { createResource } from 'solid-js';
+import { createEffect, createResource } from 'solid-js';
 
 type DataParams = {
-  lang: string;
+  locale: string;
   page: string;
 };
 
-const fetchLang = async ({ lang, page }: DataParams) =>
-  (await fetch(`/lang/${lang}/${page}.json`)).json();
+const fetchLang = async ({ locale, page }: DataParams) =>
+  (await fetch(`/lang/${locale}/${page}.json`)).json();
 
 export const AppData: RouteDataFunc = (props) => {
-  const [settings, set] = createCookieStore<{ lang: string }>();
-  if (props.location.query.lang) {
-    set('lang', props.location.query.lang);
+  const [settings, set] = createCookieStore<{ locale: string }>();
+  if (props.location.query.locale) {
+    set('locale', props.location.query.locale);
   }
   const params = (): DataParams => {
-    const lang = settings.lang || 'en';
+    const locale = settings.locale || 'en';
     let page = props.location.pathname.slice(1);
     if (page == '') {
       page = 'home';
     }
-    return { lang, page };
+    return { locale, page };
   };
-  const [lang] = createResource(params, fetchLang);
+  const [lang] = createResource(
+    params,
+    fetchLang
+  );
   return {
+    set locale(locale: string) {
+      set('locale', locale);
+    },
     get locale() {
-      return settings.lang || 'en';
+      return settings.locale;
     },
     get dict() {
       return lang();
     },
-    get loadingLang() {
+    get loading() {
       return lang.loading;
     },
   };

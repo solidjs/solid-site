@@ -1,5 +1,6 @@
-import { Component, createSignal, lazy, onMount, Suspense, Show, onCleanup, createEffect } from 'solid-js';
+import { Component, createSignal, lazy, onMount, Suspense, Show } from 'solid-js';
 import { Link, useData } from 'solid-app-router';
+import { useI18n } from '@amoutonbrady/solid-i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
@@ -11,7 +12,6 @@ import powerful from '../assets/icons/powerful.svg';
 import pragmatic from '../assets/icons/pragmatic.svg';
 import productive from '../assets/icons/productive.svg';
 import wordmark from '../assets/wordmark.svg';
-
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
@@ -19,8 +19,8 @@ import Benchmarks, { GraphData } from '../components/Benchmarks';
 const OldRepl = lazy(() => import('../components/ReplTab'));
 
 const Home: Component<{}> = () => {
-  const data = useData<{ lang: any; benchmarks: Array<GraphData> }>();
-  createEffect(() => console.log(data))
+  const data = useData<{ benchmarks: Array<GraphData> }>();
+  const [t, { dict, locale }] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   let playgroundRef!: HTMLElement;
@@ -28,11 +28,9 @@ const Home: Component<{}> = () => {
     // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
-
   return (
     <div class="flex flex-col">
       <h1 class="sr-only">SolidJS homepage</h1>
-
       <header class="mx-3 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
         <div class="md:bg-hero bg-no-repeat bg-right px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
@@ -41,7 +39,7 @@ const Home: Component<{}> = () => {
               <img class="w-32 h-15 lg:w-52" src={wordmark} alt="Solid wordmark" />
             </div>
             <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
-              A declarative, efficient and flexible JavaScript library for building user interfaces.
+              {t('hero')}
             </h2>
           </section>
         </div>
@@ -51,11 +49,7 @@ const Home: Component<{}> = () => {
 
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
         <div class="my-10 p-10 max-w-4xl m-auto text-2xl">
-          <strong class="inline font-semibold text-solid">
-            Solid is a purely reactive library.{' '}
-          </strong>
-          It was designed from the ground up with a reactive core and built on hardened tooling in a
-          growing ecosystem.
+        {t('info')}
         </div>
 
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
