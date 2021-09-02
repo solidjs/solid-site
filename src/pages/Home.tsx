@@ -42,7 +42,7 @@ const Home: Component<HomepageProps> = (props) => {
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
             <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
               <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
-              <img class="w-32 h-15 lg:w-52" src={wordmark} alt="Solid wordmark" />
+              <img class="w-32 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
             </div>
             <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
               A declarative, efficient and flexible JavaScript library for building user interfaces.
