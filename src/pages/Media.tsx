@@ -82,8 +82,8 @@ const AssetPanel: Component<{
 }> = ({ title, assets, example, background }) => (
   <div class="shadow-md">
     <div class="p-5 border-b">{title}</div>
-    <div class={`py-8 h-60 flex justify-center ${background}`}>
-      <img class="w-6/12" src={example} alt={title} />
+    <div class={`py-8 h-56 flex px-10 items-center justify-center ${background}`}>
+      <img class="max-h-20" src={example} alt={title} />
     </div>
     <div class="border-b border-t grid grid-cols-4 text-sm text-solid">
       {Object.entries(assets).map(([name, path]) => (
