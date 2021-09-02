@@ -619,7 +619,7 @@ const utilities: Array<Resource> = [
     keywords: ['container', 'state', 'zustand'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.UI, ResourceCategory.Data],
+    categories: [ResourceCategory.Data],
   },
   {
     link: 'https://github.com/wobsoriano/solid-supabase',
@@ -631,7 +631,18 @@ const utilities: Array<Resource> = [
     keywords: ['database', 'firebase', 'wrapper'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.UI, ResourceCategory.Data],
+    categories: [ResourceCategory.Data],
+  },
+  {
+    link: 'https://github.com/otonashixav/solid-flip',
+    title: 'solid-flip',
+    description: 'A lightweight transition library for solid-js.',
+    author: 'otonashixav',
+    author_url: 'https://github.com/otonashixav',
+    keywords: ['animation', 'transition'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
   },
 ];
 
