@@ -60,6 +60,24 @@ const translators = [
     flag: '🇫🇷',
     link: 'https://github.com/xstevenyung',
   },
+  {
+    name: 'Athif Humam',
+    language: 'in',
+    flag: '🇮🇩',
+    link: 'https://github.com/athif23',
+  },
+  {
+    name: 'Alex Lohr',
+    language: 'de',
+    flag: '🇩🇪',
+    link: 'https://github.com/atk',
+  },
+  {
+    name: 'Pheianox',
+    language: 'ru',
+    flag: '🇷🇺',
+    link: 'https://github.com/pheianox',
+  },
 ];
 
 const contributors = [

@@ -126,6 +126,17 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://www.youtube.com/watch?v=2iK9zzhSKo4&t=69s',
+    title: 'React Finland 2021: SolidJS - Reactive JSX',
+    description:
+      'An introduction to SolidJS UI Library. Explore an example to show the similarity and differences between Hook + Virtual DOM versus Reactivity + DOM.',
+    keywords: ['react', 'finland'],
+    author: 'React Finland',
+    author_url: 'https://react-finland.fi/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default videos;

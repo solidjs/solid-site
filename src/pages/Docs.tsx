@@ -99,6 +99,7 @@ const Docs: Component<{
                 <option value="it">Italiano</option>
                 <option value="id">Bahasa Indonesia</option>
                 <option value="br">Português</option>
+                <option value="ru">русский</option>
               </select>
               <ul class="overflow-auto flex flex-col flex-1">
                 <For each={props.doc.sections}>

@@ -579,6 +579,16 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://dev.to/marcinwosinek/series/14003',
+    title: 'SolidJS Learning Series',
+    description: 'A 4 part series ranging topics such as setup, i18n and building with esbuild.',
+    author: 'Marcin Wosinek',
+    author_url: 'https://dev.to/marcinwosinek',
+    keywords: ['learning', 'rosetta', 'esbuild'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default articles;
