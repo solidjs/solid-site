@@ -1,20 +1,9 @@
 import { Link, NavLink } from 'solid-app-router';
 import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
-import { useData } from 'solid-app-router';
-import { useI18n } from '@amoutonbrady/solid-i18n';
+import { useI18n } from '@solid-primitives/i18n';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
-
-const links: MenuLinkProps[] = [
-  { title: 'Get Started', path: '/guide' },
-  { title: 'Docs', path: '/docs/latest/api' },
-  { title: 'Resources', path: '/resources' },
-  { title: 'Tutorial', path: '/tutorial' },
-  { title: 'Examples', path: '/examples' },
-  { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
-  { title: 'Media', path: '/media' },
-];
 
 const Logo: Component<{ show: boolean }> = (props) => (
   <li class="sticky z-10 left-0 nav-logo-bg" classList={{ 'pr-5': props.show }}>
@@ -51,8 +40,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
-  const [t, { locale }] = useI18n();
-  const data = useData<{ locale: string }>(1);
+  const [t, {locale}] = useI18n();
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
   onMount(() => {
@@ -61,6 +49,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     onCleanup(() => observer && observer.disconnect());
   });
   const shouldShowLogo = () => props.showLogo || !unlocked();
+  
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
@@ -79,7 +68,16 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           >
             <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
               <Logo show={shouldShowLogo()} />
-              <For each={links} children={MenuLink} />
+              <For each={
+              [
+                { title: 'Get Started', path: '/guide' },
+                { title: 'Docs', path: '/docs/latest/api' },
+                { title: 'Resources', path: '/resources' },
+                { title: 'Tutorial', path: '/tutorial' },
+                { title: 'Examples', path: '/examples' },
+                { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
+                { title: 'Media', path: '/media' },
+              ]} children={MenuLink} />
             </ul>
           </ScrollShadow>
 
@@ -93,7 +91,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                 'background-size': '20px',
               }}
               value={locale()}
-              onChange={(evt) => data.locale = evt.currentTarget.value}
+              onChange={(evt) => locale(evt.currentTarget.value)}
             >
               <option value="en">English</option>
               <option value="zh-cn">简体中文</option>

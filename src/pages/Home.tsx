@@ -1,6 +1,6 @@
 import { Component, createSignal, lazy, onMount, Suspense, Show } from 'solid-js';
 import { Link, useData } from 'solid-app-router';
-import { useI18n } from '@amoutonbrady/solid-i18n';
+import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import performant from '../assets/icons/performant.svg';
@@ -20,7 +20,7 @@ const OldRepl = lazy(() => import('../components/ReplTab'));
 
 const Home: Component<{}> = () => {
   const data = useData<{ benchmarks: Array<GraphData> }>();
-  const [t, { dict, locale }] = useI18n();
+  const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   let playgroundRef!: HTMLElement;
@@ -39,7 +39,7 @@ const Home: Component<{}> = () => {
               <img class="w-32 h-15 lg:w-52" src={wordmark} alt="Solid wordmark" />
             </div>
             <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
-              {t('hero')}
+              {t('home', 'hero')}
             </h2>
           </section>
         </div>

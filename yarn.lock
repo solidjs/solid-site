@@ -26,13 +26,6 @@
   dependencies:
     solid-js "^1.0.0-rc.9"
 
-"@amoutonbrady/solid-i18n@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@amoutonbrady/solid-i18n/-/solid-i18n-0.4.0.tgz#ccb138b58085d2a900fe169aa4a5311dd1eab613"
-  integrity sha512-r8tnmolZ+Fjy0SgideVmj0H4vh7Nfko/Fr1crRptrXsgoU1PftyG7m6MOAoCyG+ax2xy+Q5rvtBlJ6leIUD7WQ==
-  dependencies:
-    solid-js "^1.0.0"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.5":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.14.5.tgz#23b08d740e83f49c5e59945fbf1b43e80bbf4edb"
@@ -1044,6 +1037,14 @@
   dependencies:
     "@solid-primitives/local-store" "^1.1.2"
 
+"@solid-primitives/i18n@^0.0.100":
+  version "0.0.100"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-0.0.100.tgz#3e701ee7c43b590e32fd1048a24232edcd3ee78e"
+  integrity sha512-6wbGTec2Of03Kt6k9LDzWNHeukbwVRQrrFpuDVOwauxOUnj3I5VuWTgG9K3rR6EPcFGax5SJLFxbOcCDLLZKGg==
+  dependencies:
+    "@solid-primitives/timer" "^0.0.106"
+    solid-js "^1.0.3"
+
 "@solid-primitives/intersection-observer@^0.0.107":
   version "0.0.107"
   resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-0.0.107.tgz#f5161574396a788a408e41ee2154b339c86522d4"
@@ -1060,6 +1061,13 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.0.tgz#c33caed00e6cb0c9b9939960fdbc03d431b9bc66"
   integrity sha512-gfy1DbpWSy3y48VHRrwN5KWOr+2gCS1JbmWL+C21dSUm14wTRAjX5KyEnxo7yn+DKrLBGFcv+RvdsBe2cxfedg==
+  dependencies:
+    solid-js "^1.0.3"
+
+"@solid-primitives/timer@^0.0.106":
+  version "0.0.106"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/timer/-/timer-0.0.106.tgz#8518736f6f256447a43d3bfaf476766347c06ad6"
+  integrity sha512-VvGDisCOlu7rjs0JMxRit2k/zc3ZVERLvA2QCMyZmPqC7TCtcZQgAyrKwli2ibWxgIUO9/J3696KuQEJEXKS4Q==
   dependencies:
     solid-js "^1.0.3"
 
@@ -4036,15 +4044,15 @@ solid-js@1.0.0:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.0.tgz#4bbc3f3932c604e2bfcd35d5a7f20408d208288e"
   integrity sha512-5huTDVyMqZSjg5Sa4mwl15feK4il1cE68n4weL5NYGC8lX2wiDlcHhBdSB8trKgaJ50Q9/pwtLrQngFaDC+5Tw==
 
-solid-js@^1.0.0, solid-js@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.1.tgz#d9bdd333bf2ac792edd39bfe58f6b7320ba694aa"
-  integrity sha512-BtNNMUjBGtkx4viW5q/oqU4DOHa3WRhylN302cVVIeiBUGw6uzAE+NhNF12bAvSYJOCHLyGHpUEIeWklkeGgsg==
-
 solid-js@^1.0.0-rc.9, solid-js@^1.0.3:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.7.tgz#ad8279d1b50cc403eab072658e0686b22aa5602e"
   integrity sha512-2jHCXLwp/B7P4kh5tl0ospRaC2F++BU0uWwtfgK/8Zc/MROOyCmmkjHpLAQC2u2NWYVGnIclDIJ2FGDXJ0wcYg==
+
+solid-js@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.2.tgz#676e5cdcee7bf775978e20fa6d82e5e603f519d9"
+  integrity sha512-Zfns3Zu5mtqzd+0nX1qHpHl0fesn6IJgI/3J7qgkCnF33JH8B7XoFCK49DprMDxdu1lszs4DJb2oi807s61rww==
 
 solid-meta@^0.27.1:
   version "0.27.1"

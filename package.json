@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.8.0",
-    "@amoutonbrady/solid-i18n": "^0.4.0",
     "@solid-primitives/cookies-store": "^1.1.4",
+    "@solid-primitives/i18n": "^0.0.100",
     "@solid-primitives/intersection-observer": "^0.0.107",
     "@solid-primitives/throttle": "^1.0.0",
     "fuse.js": "^6.4.6",
@@ -27,7 +27,7 @@
     "prism-themes": "^1.8.0",
     "prismjs": "^1.24.1",
     "solid-app-router": "^0.1.5",
-    "solid-js": "^1.1.0",
+    "solid-js": "^1.1.2",
     "solid-meta": "^0.27.1",
     "solid-repl": "0.12.0",
     "solid-utils": "^0.8.1",

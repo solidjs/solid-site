@@ -1,9 +1,9 @@
 import { Component } from "solid-js";
 import { Meta } from 'solid-meta';
-import { I18nProvider } from '@amoutonbrady/solid-i18n';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
 import { AppData } from './App.data';
+import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 
 export const App = () => {
   const Routes = useRoutes(routes);
@@ -25,10 +25,10 @@ export const App = () => {
 };
 
 const Lang: Component = (props) => {
-  const data = useData<{ dict: any, locale: string }>(0);
+  const data = useData<{ i18n: ReturnType<typeof createI18nContext> }>(0);
   return (
-    <I18nProvider dict={data.dict} locale={data.locale}>
+    <I18nContext.Provider value={data.i18n}>
       {props.children}
-    </I18nProvider>
+    </I18nContext.Provider>
   );
 };
