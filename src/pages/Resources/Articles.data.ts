@@ -569,6 +569,26 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://css-tricks.com/introduction-to-the-solid-javascript-library/',
+    title: 'Introduction to the Solid JavaScript Library',
+    description: 'CSS Tricks author Charlie Gerard intros users to Solid.',
+    author: 'Charlie Gerard',
+    author_url: 'https://css-tricks.com/author/charliegerard/',
+    keywords: [],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
+  {
+    link: 'https://dev.to/marcinwosinek/series/14003',
+    title: 'SolidJS Learning Series',
+    description: 'A 4 part series ranging topics such as setup, i18n and building with esbuild.',
+    author: 'Marcin Wosinek',
+    author_url: 'https://dev.to/marcinwosinek',
+    keywords: ['learning', 'rosetta', 'esbuild'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default articles;

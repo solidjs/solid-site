@@ -3,22 +3,22 @@
     "info": "Solid היא ספרייה תגובתית (ריקאטיבית) בלבד. היא עוצבה עם ליבה תגובתית מהיסוד. היא מושפעת מעקרונות תגובתיים שפותחו על ידי ספריות קודמות.",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "יעילה",
         "description": "משיגה בעקביות תוצאות גבוהות במדדי מהירות וצריכת זיכרון של ממשקי משתמש."
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "עוצמתית",
         "description": "אבני יסוד תגובתיות וניתנות להרכבה, משולבות עם הגמישות של JSX."
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "פרגמטית",
         "description": "API הגיוני ומותאם הופך את הפיתוח לקל ופשוט."
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "פרודוקטיבית",
         "description": "ארגונומיקה ומוּכרוּת מאפשרות לבנות דברים פשוטים או מורכבים בקלות."
       }
@@ -93,9 +93,9 @@
         "הוראות"
       ]
     },
-    "time": "זמן ריצה",
-    "link_label": "מדד ביצועי ה-JS Frameworks משווה את ביצועי הדפדפן במגוון רחב של בדיקות. כמה שיותר נמוך יותר טוב.",
     "benchmarks": {
+      "time": "זמן ריצה",
+      "link_label": "מדד ביצועי ה-JS Frameworks משווה את ביצועי הדפדפן במגוון רחב של בדיקות. כמה שיותר נמוך יותר טוב.",
       "js_benchmark": {
         "title": "בדיקת ה-JS Frameworks",
         "description": "מדד ביצועי ה-JS Frameworks משווה את ביצועי הדפדפן במגוון רחב של בדיקות. כמה שיותר נמוך יותר טוב."

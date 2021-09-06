@@ -3,22 +3,22 @@
     "info": "Solid est une bibliothèque purement réactive conçue dès le départ avec un noyau réactif et influencée par les principes réactifs développés par les bibliothèques précédentes.",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "Performant",
         "description": "Surpasse systématiquement les repères reconnus de vitesse de l'interface utilisateur et d'utilisation de la mémoire."
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "Puissant",
         "description": "Primitives réactives composables mariées à la flexibilité de JSX."
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "Pragmatique",
         "description": "Une API sensée et personnalisée rend le développement simple et amusant."
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "Productif",
         "description": "L'ergonomie et la familiarité facilitent la construction de choses simples ou complexes."
       }
@@ -93,9 +93,9 @@
         "Directives"
       ]
     },
-    "time": "Temps",
-    "link_label": "Le JS Framework Benchmark compare les performances du navigateur à travers un large éventail de tests. Plus bas, c'est mieux.",
     "benchmarks": {
+      "time": "Temps",
+      "link_label": "Le JS Framework Benchmark compare les performances du navigateur à travers un large éventail de tests. Plus bas, c'est mieux.",
       "js_benchmark": {
         "title": "Benchmark du framework JS",
         "description": "Le JS Framework Benchmark compare les performances du navigateur à travers un large éventail de tests. Plus bas c'est mieux."

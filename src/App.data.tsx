@@ -25,16 +25,24 @@ export const AppData: RouteDataFunc = (props) => {
   const [lang] = createResource(params, async ({ locale }) => {
     switch (locale) {
       case 'en':
-        return (await import("../lang/en/en")).default();
+        return (await import('../lang/en/en')).default();
       case 'it':
-        return (await import("../lang/it/it")).default();
+        return (await import('../lang/it/it')).default();
       case 'ja':
-        return (await import("../lang/ja/ja")).default();
+        return (await import('../lang/ja/ja')).default();
+      case 'fr':
+        return (await import('../lang/fr/fr')).default();
+      case 'id':
+        return (await import('../lang/id/id')).default();
+      case 'he':
+        return (await import('../lang/he/he')).default();
+      case 'zh-cn':
+        return (await import('../lang/zh-cn/zh-cn')).default();
     }
   });
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
-    console.log(lang())
+    console.log(lang());
     if (!lang.loading) i18n[1].add(i18n[1].locale(), lang());
   });
   return {

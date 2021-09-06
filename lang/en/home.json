@@ -93,9 +93,11 @@
         "Directives"
       ]
     },
-    "time": "Time",
-    "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
     "benchmarks": {
+      "time": "Time",
+      "view": "View the benchmark",
+      "show_more": "Show more client + server benchmarks",
+      "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
         "description": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better."

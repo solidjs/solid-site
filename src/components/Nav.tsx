@@ -40,7 +40,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
-  const [t, {locale}] = useI18n();
+  const [t, { locale }] = useI18n();
   let intersectorRef!: HTMLDivElement;
   let scrollRef!: HTMLUListElement;
   onMount(() => {

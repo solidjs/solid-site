@@ -93,9 +93,10 @@
         "Directives"
       ]
     },
-    "time": "Volta",
-    "link_label": "Il JS Framework Benchmark confronta le prestazioni del browser in un'ampia gamma di test. È meglio più basso.",
     "benchmarks": {
+      "time": "Volta",
+      "link_label": "Il JS Framework Benchmark confronta le prestazioni del browser in un'ampia gamma di test. È meglio più basso.",
+      "show_more": "Mostra più benchmark client + server",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
         "description": "Il JS Framework Benchmark confronta le prestazioni del browser in un'ampia gamma di test. È meglio più basso."

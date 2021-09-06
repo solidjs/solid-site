@@ -3,22 +3,22 @@
     "info": "Solid 是一个纯的响应式库。它从 0 开始设计出一套响应机制。Solid 深受到现有库的响应式原则影响。",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "性能",
         "description": "始终在 UI 识别速度和内存利用率基准测试中名列前茅。"
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "强大",
         "description": "可组合的响应式原语与 JSX 的灵活性相结合。"
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "务实",
         "description": "合理且量身定制的 API 使开发变得有趣而简单。"
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "生产力",
         "description": "人体工程化设计和熟悉程度使得构建简单或复杂的东西变得轻而易举。"
       }
@@ -93,9 +93,9 @@
         "指令"
       ]
     },
-    "time": "时间",
-    "link_label": "JS 框架基准测试比较了各种测试下的浏览器性能。值越低越好。",
     "benchmarks": {
+      "time": "时间",
+      "link_label": "JS 框架基准测试比较了各种测试下的浏览器性能。值越低越好。",
       "js_benchmark": {
         "title": "JS 框架基准测试",
         "description": "JS 框架基准测试比较了各种测试下的浏览器性能。值越低越好。"

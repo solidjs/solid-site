@@ -33,7 +33,10 @@
     }
   ],
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under an MIT license. This library and community are made possible by a core team and dedicated contributors.",
+    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a class=\"underline hover:text-gray-500\" href=\"{license}\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">core team and dedicated contributors</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsored by",
     "updated": "Last updated {{date}} on Solid v{{version}}"
   }
 }

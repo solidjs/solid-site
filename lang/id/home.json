@@ -3,22 +3,22 @@
     "info": "Solid adalah library reaktif yang murni. Ia didesain dari bawah ke atas dengan inti reaktif. Ia dipengaruhi oleh prinsip-prinsip yang dikembangkan oleh library-library sebelumnya.",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "Performa",
         "description": "Secara konsisten berada di puncak benchmarks kecepatan UI yang diakui dan pemanfaatan memori."
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "Kuat",
         "description": "Primitif reaktif yang dapat dikomposisi digabung dengan fleksibilitas JSX."
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "Pragmatis",
         "description": "API yang masuk akal dan disesuaikan membuat pengembangan menjadi menyenangkan dan sederhana."
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "Produktif",
         "description": "Ergonomi dan kefamiliaran membuat membangun hal-hal sederhana atau kompleks menjadi mudah."
       }
@@ -93,9 +93,9 @@
         "Directives"
       ]
     },
-    "time": "Waktu",
-    "link_label": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik.",
     "benchmarks": {
+      "time": "Waktu",
+      "link_label": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik.",
       "js_benchmark": {
         "title": "Benchmark Framework JS",
         "description": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik."

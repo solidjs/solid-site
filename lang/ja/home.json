@@ -93,9 +93,9 @@
         "Directives"
       ]
     },
-    "time": "時間",
-    "link_label": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。",
     "benchmarks": {
+      "time": "時間",
+      "link_label": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
         "description": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。"

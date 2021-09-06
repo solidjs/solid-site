@@ -2958,10 +2958,10 @@ markdown-it-anchor@^8.1.2:
   resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-8.1.2.tgz#1f26b102005cb7750d5159d06ba3cfa9400ebc3d"
   integrity sha512-9D58TKK4dakqmjcmVuqHoB3ntKBpQJ0Ld38B83aiHJcBD72IZIyPjNtihPA6ayRI5WD33e1W68mArliNLHCprg==
 
-markdown-it-prism@^2.1.8:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/markdown-it-prism/-/markdown-it-prism-2.1.8.tgz#1e640e6934cd0da326deb770043df4ed3e2d9acc"
-  integrity sha512-PBiqlX3zGPQnOk7q7TkeveQfXlqzhjfHg2zSwntDNauYY7KFhg2FzO6O+1boillQptEBcIaEAO9gwKq/tXGHUQ==
+markdown-it-prism@^2.1.7:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-prism/-/markdown-it-prism-2.2.0.tgz#bbfcbb258da155091841dc0ed4f0b1f9edcee9bc"
+  integrity sha512-GOcP+oOt5AJHwD/6hnrdLXCSw1ZfjCCGblsmrPEyc5zEuNtRYYUjOsDX2eH5xoWTddnRwWlTT2EL/yN6mDcDwQ==
   dependencies:
     prismjs "1.24.1"
 
@@ -3071,10 +3071,15 @@ monaco-editor-textmate@^3.0.0:
   resolved "https://registry.yarnpkg.com/monaco-editor-textmate/-/monaco-editor-textmate-3.0.0.tgz#a90517380d5e52304aef780eebeab9f687ab9b67"
   integrity sha512-4BK3ual4WllRpiQBDcBO8NKdbk4ukdBtnl23cRYvu1eNWOWKYOBM0rYac50HvFClSbtd5GMezLPjkaim0iM7sw==
 
-monaco-editor@0.25.2, monaco-editor@^0.25.2:
+monaco-editor@^0.25.2:
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.25.2.tgz#119e2b15bbd968a1a99c03cac9c329316d7c37e9"
   integrity sha512-5iylzSJevCnzJn9UVsW8yOZ3yHjmAs4TfvH3zsbftKiFKmHG0xirGN6DK9Kk04VSWxYCZZAIafYJoNJJMAU1KA==
+
+monaco-editor@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.27.0.tgz#4b69108bb1dc1f60174c5dcdf51bc5306ab5ba26"
+  integrity sha512-UhwP78Wb8w0ZSYoKXQNTV/0CHObp6NS3nCt51QfKE6sKyBo5PBsvuDOHoI2ooBakc6uIwByRLHVeT7+yXQe2fQ==
 
 monaco-textmate@^3.0.1:
   version "3.0.1"
@@ -4044,15 +4049,15 @@ solid-js@1.0.0:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.0.tgz#4bbc3f3932c604e2bfcd35d5a7f20408d208288e"
   integrity sha512-5huTDVyMqZSjg5Sa4mwl15feK4il1cE68n4weL5NYGC8lX2wiDlcHhBdSB8trKgaJ50Q9/pwtLrQngFaDC+5Tw==
 
+solid-js@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.2.tgz#676e5cdcee7bf775978e20fa6d82e5e603f519d9"
+  integrity sha512-Zfns3Zu5mtqzd+0nX1qHpHl0fesn6IJgI/3J7qgkCnF33JH8B7XoFCK49DprMDxdu1lszs4DJb2oi807s61rww==
+
 solid-js@^1.0.0-rc.9, solid-js@^1.0.3:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.7.tgz#ad8279d1b50cc403eab072658e0686b22aa5602e"
   integrity sha512-2jHCXLwp/B7P4kh5tl0ospRaC2F++BU0uWwtfgK/8Zc/MROOyCmmkjHpLAQC2u2NWYVGnIclDIJ2FGDXJ0wcYg==
-
-solid-js@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.2.tgz#676e5cdcee7bf775978e20fa6d82e5e603f519d9"
-  integrity sha512-Zfns3Zu5mtqzd+0nX1qHpHl0fesn6IJgI/3J7qgkCnF33JH8B7XoFCK49DprMDxdu1lszs4DJb2oi807s61rww==
 
 solid-meta@^0.27.1:
   version "0.27.1"
