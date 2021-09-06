@@ -3,22 +3,22 @@
     "info": "Solid is a purely reactive library. It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "Performant",
         "description": "Consistently tops recognized UI speed and memory utilization benchmarks."
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "Powerful",
         "description": "Composable reactive primitives married with the flexibility of JSX."
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "Pragmatic",
         "description": "A sensible and tailored API makes developing fun and simple."
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "Productive",
         "description": "Ergonomics and familiarity make building simple or complex things a breeze."
       }

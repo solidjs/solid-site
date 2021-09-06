@@ -49,7 +49,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     onCleanup(() => observer && observer.disconnect());
   });
   const shouldShowLogo = () => props.showLogo || !unlocked();
-  
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
@@ -68,16 +67,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           >
             <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
               <Logo show={shouldShowLogo()} />
-              <For each={
-              [
-                { title: 'Get Started', path: '/guide' },
-                { title: 'Docs', path: '/docs/latest/api' },
-                { title: 'Resources', path: '/resources' },
-                { title: 'Tutorial', path: '/tutorial' },
-                { title: 'Examples', path: '/examples' },
-                { title: 'Playground', path: 'https://playground.solidjs.com', external: true },
-                { title: 'Media', path: '/media' },
-              ]} children={MenuLink} />
+              <For each={t('global.nav')} children={MenuLink} />
             </ul>
           </ScrollShadow>
 

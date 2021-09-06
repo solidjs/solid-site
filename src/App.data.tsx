@@ -8,9 +8,6 @@ type DataParams = {
   page: string;
 };
 
-// const fetchLang = async ({ locale, page }: DataParams) =>
-//   (await fetch(`/lang/${locale}/${page}.json`)).json();
-
 export const AppData: RouteDataFunc = (props) => {
   const [settings, set] = createCookieStore<{ locale: string }>();
   if (props.location.query.locale) {
@@ -31,6 +28,8 @@ export const AppData: RouteDataFunc = (props) => {
         return (await import("../lang/en/en")).default();
       case 'it':
         return (await import("../lang/it/it")).default();
+      case 'ja':
+        return (await import("../lang/ja/ja")).default();
     }
   });
   createEffect(() => set('locale', i18n[1].locale()));

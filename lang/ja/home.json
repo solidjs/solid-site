@@ -3,22 +3,22 @@
     "info": "Solid は、純粋にリアクティブなライブラリです。リアクティブなコアを使って一から設計されています。これまでのライブラリで開発されたリアクティブな原理に影響を受けています。",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "高いパフォーマンス",
         "description": "UI スピードとメモリ使用率のベンチマークで常にトップを維持しています。"
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "パワフル",
         "description": "組み合わせ可能なリアクティブ・プリミティブと JSX の柔軟性の融合。"
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "実用本位",
         "description": "機能的で調整された API は、開発を楽しくシンプルにします。"
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "生産的",
         "description": "人間工学に基づいた使い勝手の良さで、シンプルなものから複雑なものまで簡単に作ることができます。"
       }

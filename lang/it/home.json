@@ -3,22 +3,22 @@
     "info": "Solid è una libreria puramente reattiva. È stato progettato da zero con un nucleo reattivo. È influenzato da principi reattivi sviluppati da precedenti librerie.",
     "strengths": [
       {
-        "icon": "/assets/performant.svg",
+        "icon": "performant",
         "label": "Efficiente",
         "description": "Esegue estremamente bene su tutti i test di prestazione riconosciuti."
       },
       {
-        "icon": "/assets/powerful.svg",
+        "icon": "powerful",
         "label": "Potente",
         "description": "Primitive reattive componibili sposate con la flessibilità di JSX."
       },
       {
-        "icon": "/assets/pragmatic.svg",
+        "icon": "pragmatic",
         "label": "Pragmatico",
         "description": "Un'API sensata e su misura per lo sviluppo in modo semplice ed efficiente."
       },
       {
-        "icon": "/assets/productive.svg",
+        "icon": "productive",
         "label": "Produttivo",
         "description": "Ergonomia e familiarità intorno alla costruzione semplice e complessa."
       }
