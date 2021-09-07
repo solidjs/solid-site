@@ -26,5 +26,10 @@ export const App = () => {
 
 const Lang: Component = (props) => {
   const data = useData<{ i18n: ReturnType<typeof createI18nContext> }>(0);
-  return <I18nContext.Provider value={data.i18n}>{props.children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={data.i18n}>
+      <Meta name="lang" content={data.i18n[1].locale()} />
+      <div dir={data.i18n[0]('global.dir', {}, 'ltr')}>{props.children}</div>
+    </I18nContext.Provider>
+  );
 };

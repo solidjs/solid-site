@@ -42,7 +42,6 @@ export const AppData: RouteDataFunc = (props) => {
   });
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
-    console.log(lang());
     if (!lang.loading) i18n[1].add(i18n[1].locale(), lang());
   });
   return {

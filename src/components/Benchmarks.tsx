@@ -92,12 +92,12 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
           </button>
         }
       >
-        <div class="space-x-2 space-y-10">
+        <div class="flex flex-col xl:flex-row space-y-2">
           {props.list.map((item, index) => {
             return (
               <button
                 onClick={() => setCurrent(index)}
-                class="text-xs px-6 py-3 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
+                class="text-xs p-4 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
                 classList={{
                   'active text-white bg-solid-light': current() === index,
                   'bg-gray-100': current() !== index,

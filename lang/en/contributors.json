@@ -3,7 +3,9 @@
   "core_team": "Core Team",
   "acknowledgments": "Acknowledgments",
   "ecosystem_team": "Ecosystem Team",
+  "copy": "Solid wouldn't be possible without the help of other talented individuals. As we grow we hope others will find ways to give their time either in the form of bug reporting, pull requests, design suggestions, writing and many other ways.",
   "translators_copy": "The following individuals have graciously given their time and effort to ensure Solid goes international:",
   "contributors": "Contributors",
-  "open_collective": "Open Collective"
+  "open_collective": "Open Collective",
+  "support_copy": "Support us with a donation and help us continue our activities:"
 }

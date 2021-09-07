@@ -6,9 +6,11 @@ import { ExamplesDataRoute } from './Examples.data';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import { compiler, formatter } from '../components/setupRepl';
+import { useI18n } from '@solid-primitives/i18n';
 
 const Examples: Component = () => {
   const data = useData<ExamplesDataRoute>();
+  const [t] = useI18n();
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createTabList([
     {
@@ -41,8 +43,7 @@ const Examples: Component = () => {
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
-      <Header title="Example Library" />
-
+      <Header title={t('examples.title', {}, 'Examples')} />
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border p-5 rounded md:h-[82vh]">
@@ -50,7 +51,7 @@ const Examples: Component = () => {
               {([name, examples]) => (
                 <>
                   <h3 class="text-xl text-solid-default border-b font-semibold border-solid pb-2">
-                    {name}
+                    {t(`examples.${name.toLowerCase()}`, {}, name)}
                   </h3>
                   <div class="mb-10">
                     <For each={examples}>

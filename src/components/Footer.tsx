@@ -18,7 +18,7 @@ const Footer: Component = () => {
             <p
               innerHTML={t('global.footer.declaration', {
                 license: t('global.footer.license'),
-                contributors: t('global.footer.contributors'),
+                contributors: '/contributors',
               })}
             />
             <div class="mb-5 mt-7 p-2 rounded-full bg-white hidden md:flex items-center">
@@ -51,7 +51,10 @@ const Footer: Component = () => {
               </a>
             </div>
             <p class="text-sm text-center text-gray-600 mt-3">
-              {t('global.footer.updated', { date: 'September 2, 2021 10:30am', version: 'v1.1.2' })}
+              {t('global.footer.updated', {
+                date: '2021/09/07, 10:30am',
+                version: '1.1.2',
+              })}
             </p>
             <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
               <Social />

@@ -16,6 +16,7 @@ import {
   chevronRight,
   shieldCheck,
 } from '@amoutonbrady/solid-heroicons/outline';
+import { useI18n } from '@solid-primitives/i18n';
 
 export enum ResourceType {
   Article = 'article',
@@ -55,52 +56,56 @@ const ResourceTypeIcons = {
   package: terminal,
 };
 
-const ContentRow: Component<Resource> = (props) => (
-  <li class="py-6 border-b hover:bg-gray-50 duration-100">
-    <a
-      class="grid grid-cols-12 grid-flow-col gap-2 text-solid"
-      target="_blank"
-      href={props.link}
-      rel="nofollow"
-    >
-      <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
-        <figure class="flex content-center w-11 h-11 p-1.5 bg-solid-medium rounded-full text-white">
-          <Icon class="w-full" path={ResourceTypeIcons[props.type]} />
-        </figure>
-      </div>
-      <div class="col-span-7 md:col-span-7 lg:col-span-10 items-center">
-        <div class="text-lg">{props.title}</div>
-        <Show when={props.description != ''}>
-          <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
-        </Show>
-        <Show when={props.author && !props.author_url}>
-          <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
-        </Show>
-        <Show when={props.author && props.author_url}>
-          <a
-            rel="noopener"
-            href={props.author_url}
-            target="_blank"
-            class="text-xs text-gray-500 inline hover:text-solid-medium"
-          >
-            By {props.author}
-          </a>
-        </Show>
-      </div>
-      <div class="col-span-1 flex items-center text-solid-light">
-        <Show when={props.official}>
-          <Icon class="w-7 mr-2" path={shieldCheck} />
-          Official
-        </Show>
-      </div>
-      <div class="col-span-2 lg:col-span-1 flex justify-end">
-        <Icon class="w-7 mx-2 text-gray-400" path={chevronRight} />
-      </div>
-    </a>
-  </li>
-);
+const ContentRow: Component<Resource> = (props) => {
+  const [t] = useI18n();
+  return (
+    <li class="py-6 border-b hover:bg-gray-50 duration-100">
+      <a
+        class="grid grid-cols-12 grid-flow-col gap-2 text-solid"
+        target="_blank"
+        href={props.link}
+        rel="nofollow"
+      >
+        <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
+          <figure class="flex content-center w-11 h-11 p-1.5 bg-solid-medium rounded-full text-white">
+            <Icon class="w-full" path={ResourceTypeIcons[props.type]} />
+          </figure>
+        </div>
+        <div class="col-span-7 md:col-span-7 lg:col-span-10 items-center">
+          <div class="text-lg">{props.title}</div>
+          <Show when={props.description != ''}>
+            <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
+          </Show>
+          <Show when={props.author && !props.author_url}>
+            <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
+          </Show>
+          <Show when={props.author && props.author_url}>
+            <a
+              rel="noopener"
+              href={props.author_url}
+              target="_blank"
+              class="text-xs text-gray-500 inline hover:text-solid-medium"
+            >
+              {t('resources.by')} {props.author}
+            </a>
+          </Show>
+        </div>
+        <div class="col-span-1 flex items-center text-solid-light">
+          <Show when={props.official}>
+            <Icon class="w-7 mr-2" path={shieldCheck} />
+            {t('resources.official')}
+          </Show>
+        </div>
+        <div class="col-span-2 lg:col-span-1 flex justify-end">
+          <Icon class="w-7 mx-2 text-gray-400" path={chevronRight} />
+        </div>
+      </a>
+    </li>
+  );
+};
 
 const Resources: Component = () => {
+  const [t] = useI18n();
   const data = useData<ResourcesDataProps>();
   const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
@@ -160,26 +165,19 @@ const Resources: Component = () => {
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
-      <Header title="Resources" />
+      <Header title={t('resources.title')} />
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
-          <div class="text-xs bg-gray-50 p-4 border rounded">
-            To have your SolidJS related project listed here reach out to us on{' '}
-            <a rel="noopener" class="text-solid-medium" href="https://discord.com/invite/solidjs">
-              {' '}
-              Discord
-            </a>
-            .
-          </div>
+          <div class="text-xs bg-gray-50 p-4 border rounded" innerHTML={t('resources.cta')}></div>
           <input
             class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
-            placeholder="Search resources"
+            placeholder={t('resources.search')}
             value={keyword()}
             onInput={(evt) => setKeyword(evt.currentTarget!.value)}
             type="text"
           />
           <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">
-            Types
+            {t('resources.types')}
           </h3>
           <div class="flex flex-col space-y-2">
             <For each={Object.entries(ResourceType)}>
@@ -210,7 +208,9 @@ const Resources: Component = () => {
                       <Icon class="w-full" path={ResourceTypeIcons[type]} />
                     </figure>
                   </div>
-                  <div class="col-span-3 lg:col-span-3">{name}</div>
+                  <div class="col-span-3 lg:col-span-3">
+                    {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
+                  </div>
                   <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
                     <Show when={filtered.counts[type]} fallback={0}>
                       {filtered.counts[type]}
@@ -221,7 +221,7 @@ const Resources: Component = () => {
             </For>
           </div>
           <h3 class="text-xl mt-8 text-solid-default border-b font-semibold border-solid pb-2">
-            Categories
+            {t('resources.categories')}
           </h3>
           <For each={Object.entries(ResourceCategory).sort()}>
             {([name, id]) => {
@@ -247,7 +247,7 @@ const Resources: Component = () => {
                   }}
                   class="block w-full text-sm py-4 pl-4 text-left border-b"
                 >
-                  <span>{name.replace(/([a-z0-9])([A-Z])/g, '$1 $2')}</span>
+                  <span>{t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}</span>
                 </button>
               );
             }}

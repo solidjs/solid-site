@@ -79,6 +79,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                 'min-width': '125px',
                 'background-image': 'url(/img/icons/translate2.svg)',
                 'background-size': '20px',
+                'background-position': t('global.dir') === 'rtl' ? '10px' : '',
               }}
               value={locale()}
               onChange={(evt) => locale(evt.currentTarget.value)}

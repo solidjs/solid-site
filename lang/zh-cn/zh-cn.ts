@@ -3,13 +3,17 @@ import home from './home.json';
 import resources from './resources.json';
 import tutorial from './tutorial';
 import media from './media';
+import examples from './examples';
+import contributors from './contributors';
 
-const zhCn = () => ({
+const langs = () => ({
   global,
   home,
   media,
   resources,
-  tutorial
+  tutorial,
+  examples,
+  contributors
 });
 
-export default zhCn;
+export default langs;
