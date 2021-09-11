@@ -74,8 +74,8 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
   },
   {
-    link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
-    title: "Building Solid's reactive renderer from the ground up",
+    link: 'https://indepth.dev/posts/1289/solidjs-reactivity-to-rendering',
+    title: "SolidJS: Reactivity to Rendering",
     description:
       "An in depth look at building Solid's reactive renderer, piece by piece, from the ground up.",
     author: 'Ryan Carniato',
