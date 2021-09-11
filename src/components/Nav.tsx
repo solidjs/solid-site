@@ -1,5 +1,5 @@
 import { Link, NavLink, useData } from 'solid-app-router';
-import { Component, For, onCleanup, onMount, createSignal, Show } from 'solid-js';
+import { Component, For, createSignal, Show } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
