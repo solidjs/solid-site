@@ -36,7 +36,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
                   <div
-                    class="transition-all duration-75 rounded-3xl text-right text-xxs"
+                    class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs"
                     classList={{
                       'font-semibold': row.active,
                       'bg-solid-accent': row.active,
@@ -46,7 +46,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                   >
                     {row.score ? (
                       <figure>
-                        <span class="inline-block p-1 border-l border-white px-2 rounded-full">
+                        <span class="inline-block p-1 ltr:border-l rtl:border-r border-white px-2 rounded-full">
                           {row.score}
                         </span>
                       </figure>

@@ -1,5 +1,6 @@
 {
   "name": "Italiano",
+  "title": "SolidJS · Libreria Javascript reattiva",
   "locale": "it-IT",
   "nav": [
     { "title": "Iniziare", "path": "/guide" },

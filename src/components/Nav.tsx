@@ -19,13 +19,17 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
   <li>
     <NavLink
       href={props.path}
-      external={props.external}
-      class="inline-flex items-center space-x-2 transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      class="inline-flex items-center transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
       activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>
       <Show when={props.external}>
-        <svg class="h-5 -mt-1 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          class="h-5 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -37,6 +41,33 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
     </NavLink>
   </li>
 );
+
+const LanguageSelector: Component<{ class?: string }> = (props) => {
+  const [t, { locale }] = useI18n();
+  return (
+    <li class={props.class || ''}>
+      <select
+        class="p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
+        style={{
+          'min-width': '125px',
+          'background-image': 'url(/img/icons/translate2.svg)',
+          'background-size': '20px',
+          'background-position': t('global.dir') === 'rtl' ? '10px' : '',
+        }}
+        value={locale()}
+        onChange={(evt) => locale(evt.currentTarget.value)}
+      >
+        <option value="en">English</option>
+        <option value="zh-cn">简体中文</option>
+        <option value="ja">日本語</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="he">עִברִית</option>
+      </select>
+    </li>
+  );
+};
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
@@ -52,12 +83,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   return (
     <>
       <div ref={intersectorRef} class="h-0" />
-      <div
-        class="sticky top-0 z-50 bg-white"
-        classList={{
-          'shadow-md': shouldShowLogo(),
-        }}
-      >
+      <div class="sticky top-0 z-50 bg-white" classList={{ 'shadow-md': shouldShowLogo() }}>
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
           <ScrollShadow
             class="relative nav-items-container"
@@ -68,30 +94,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <ul ref={scrollRef} class="relative flex items-center overflow-auto no-scrollbar">
               <Logo show={shouldShowLogo()} />
               <For each={t('global.nav')} children={MenuLink} />
+              <LanguageSelector class="flex lg:hidden" />
             </ul>
           </ScrollShadow>
-
-          <ul class="lg:flex hidden items-center space-x-3">
+          <ul class="hidden lg:flex items-center">
             <Social />
-            <select
-              class="p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
-              style={{
-                'min-width': '125px',
-                'background-image': 'url(/img/icons/translate2.svg)',
-                'background-size': '20px',
-                'background-position': t('global.dir') === 'rtl' ? '10px' : '',
-              }}
-              value={locale()}
-              onChange={(evt) => locale(evt.currentTarget.value)}
-            >
-              <option value="en">English</option>
-              <option value="zh-cn">简体中文</option>
-              <option value="ja">日本語</option>
-              <option value="it">Italiano</option>
-              <option value="fr">Français</option>
-              <option value="id">Bahasa Indonesia</option>
-              <option value="he">עִברִית</option>
-            </select>
+            <LanguageSelector />
           </ul>
         </nav>
       </div>

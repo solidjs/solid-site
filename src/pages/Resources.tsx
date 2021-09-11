@@ -14,6 +14,7 @@ import {
   microphone,
   terminal,
   chevronRight,
+  chevronLeft,
   shieldCheck,
 } from '@amoutonbrady/solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
@@ -59,7 +60,7 @@ const ResourceTypeIcons = {
 const ContentRow: Component<Resource> = (props) => {
   const [t] = useI18n();
   return (
-    <li class="py-6 border-b hover:bg-gray-50 duration-100">
+    <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
       <a
         class="grid grid-cols-12 grid-flow-col gap-2 text-solid"
         target="_blank"
@@ -72,22 +73,26 @@ const ContentRow: Component<Resource> = (props) => {
           </figure>
         </div>
         <div class="col-span-7 md:col-span-7 lg:col-span-10 items-center">
-          <div class="text-lg">{props.title}</div>
-          <Show when={props.description != ''}>
-            <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
-          </Show>
-          <Show when={props.author && !props.author_url}>
-            <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
-          </Show>
+          <div dir="ltr">
+            <div class="text-lg">{props.title}</div>
+            <Show when={props.description != ''}>
+              <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
+            </Show>
+            <Show when={props.author && !props.author_url}>
+              <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
+            </Show>
+          </div>
           <Show when={props.author && props.author_url}>
-            <a
-              rel="noopener"
-              href={props.author_url}
-              target="_blank"
-              class="text-xs text-gray-500 inline hover:text-solid-medium"
-            >
-              {t('resources.by')} {props.author}
-            </a>
+            <div class="rtl:text-right">
+              <a
+                rel="noopener"
+                href={props.author_url}
+                target="_blank"
+                class="text-xs text-gray-500 inline hover:text-solid-medium"
+              >
+                {t('resources.by')} {props.author}
+              </a>
+            </div>
           </Show>
         </div>
         <div class="col-span-1 flex items-center text-solid-light">
@@ -97,7 +102,8 @@ const ContentRow: Component<Resource> = (props) => {
           </Show>
         </div>
         <div class="col-span-2 lg:col-span-1 flex justify-end">
-          <Icon class="w-7 mx-2 text-gray-400" path={chevronRight} />
+          <Icon class="ltr:hidden w-7 mx-2 text-gray-400" path={chevronLeft} />
+          <Icon class="rtl:hidden w-7 mx-2 text-gray-400" path={chevronRight} />
         </div>
       </a>
     </li>
@@ -208,7 +214,7 @@ const Resources: Component = () => {
                       <Icon class="w-full" path={ResourceTypeIcons[type]} />
                     </figure>
                   </div>
-                  <div class="col-span-3 lg:col-span-3">
+                  <div class="col-span-3 rtl:text-right lg:col-span-3">
                     {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
                   </div>
                   <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
@@ -245,7 +251,7 @@ const Resources: Component = () => {
                     'hover:opacity-60': exists,
                     'bg-gray-50': filtered.enabledCategories.indexOf(id) !== -1,
                   }}
-                  class="block w-full text-sm py-4 pl-4 text-left border-b"
+                  class="block w-full text-sm py-4 pl-4 ltr:text-left rtl:text-right border-b"
                 >
                   <span>{t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}</span>
                 </button>

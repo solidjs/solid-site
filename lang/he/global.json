@@ -1,6 +1,7 @@
 {
   "dir": "rtl",
   "name": "עברית",
+  "title": "SolidJS - ספריית JavaScript ריאקטיבית",
   "locale": "he-IL",
   "nav": [
     {
@@ -35,6 +36,9 @@
   ],
   "footer": {
     "declaration": "Solid הוא פרויקט קוד חופשי הנתמך על ידי קבוצה של תורמים ציבוריים. הוא משוחרר תחת רישיון MIT. הספרייה והקהילה האלו לא היו קיימות בלי קבוצת הליבה והתורמים המסורים.",
-    "updated": "עודכן לאחרונה ב-{{date}} עם Solid גרסה {{version}}"
+    "updated": "עודכן לאחרונה ב-{{date}} עם Solid גרסה {{version}}",
+    "sponsored_by": "בחסות",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors"
   }
 }

@@ -73,7 +73,10 @@ const Examples: Component = () => {
             </For>
           </div>
 
-          <div class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl">
+          <div
+            dir="ltr"
+            class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl"
+          >
             <ErrorBoundary
               fallback={
                 <>

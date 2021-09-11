@@ -125,25 +125,29 @@ const Media: Component = () => {
               <span class="w-5/12 inline-block font-semibold">
                 {t('media.primary', {}, 'Primary Color')}
               </span>
-              <figure class="rounded bg-solid-default mr-2 h-5 w-5 inline-block" /> #2c4f7c
+              <figure class="rounded bg-solid-default ltr:mr-2 rtl:ml-2 h-5 w-5 inline-block" />{' '}
+              #2c4f7c
             </div>
             <div class="flex mb-2">
               <span class="w-5/12 inline-block font-semibold">
                 {t('media.secondary', {}, 'Secondary Color')}
               </span>
-              <figure class="rounded bg-solid-medium mr-2 h-5 w-5 inline-block" /> #335d92
+              <figure class="rounded bg-solid-medium ltr:mr-2 rtl:ml-2 h-5 w-5 inline-block" />{' '}
+              #335d92
             </div>
             <div class="flex mb-2">
               <span class="w-5/12 inline-block font-semibold">
                 {t('media.light', {}, 'Light Color')}
               </span>
-              <figure class="rounded bg-solid-light mr-2 h-5 w-5 inline-block" /> #446b9e
+              <figure class="rounded bg-solid-light ltr:mr-2 rtl:ml-2 h-5 w-5 inline-block" />{' '}
+              #446b9e
             </div>
             <div class="flex">
               <span class="w-5/12 inline-block font-semibold">
                 {t('media.accent', {}, 'Accent Color')}
               </span>
-              <figure class="rounded bg-solid-accent mr-2 h-5 w-5 inline-block" /> #66e6ac
+              <figure class="rounded bg-solid-accent ltr:mr-2 rtl:ml-2 h-5 w-5 inline-block" />{' '}
+              #66e6ac
             </div>
           </div>
         </div>

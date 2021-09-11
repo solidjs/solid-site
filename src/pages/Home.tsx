@@ -18,7 +18,7 @@ import Benchmarks, { GraphData } from '../components/Benchmarks';
 
 const Repl = lazy(() => import('../components/ReplTab'));
 
-const strength_icons = {
+const strength_icons: { [key: string]: string } = {
   performant,
   powerful,
   pragmatic,
@@ -39,11 +39,11 @@ const Home: Component<{}> = () => {
     <div class="flex flex-col">
       <h1 class="sr-only">SolidJS homepage</h1>
       <header class="mx-3 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
-        <div class="md:bg-hero bg-no-repeat bg-right px-10">
+        <div class="md:bg-hero bg-no-repeat bg-right rtl:bg-left px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
             <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
               <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
-              <img class="w-32 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
+              <img class="w-52 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
             </div>
             <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
               {t('home.hero')}
@@ -56,11 +56,11 @@ const Home: Component<{}> = () => {
         <div class="my-10 p-10 max-w-4xl m-auto text-2xl">{t('home.info')}</div>
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
           <For each={t('home.strengths')}>
-            {({ icon, label, description }) => (
+            {(strength: { icon: string; label: string; description: string }) => (
               <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0">
-                <img class="w-12 mb-5" src={strength_icons[icon]} alt={label} />
-                <h3 class="text-xl mb-2 font-semibold">{label}</h3>
-                <p class="text-base">{description}</p>
+                <img class="w-12 mb-5" src={strength_icons[strength.icon]} alt={strength.label} />
+                <h3 class="text-xl mb-2 font-semibold">{strength.label}</h3>
+                <p class="text-base">{strength.description}</p>
               </div>
             )}
           </For>
@@ -70,20 +70,20 @@ const Home: Component<{}> = () => {
         <section class="bg-solid-lightgray m-5 lg:m-0 border border-gray-200 text-black flex rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
-              {({ label, detail, link }) => {
+              {(fact: any) => {
                 const d = (
                   <>
-                    <strong class="font-semibold mr-1">{label}</strong>
-                    <span class="block text-sm">{detail}</span>
+                    <strong class="font-semibold mr-1">{fact.label}</strong>
+                    <span class="block text-sm">{fact.etail}</span>
                   </>
                 );
                 return (
                   <li class="hover:bg-solid-dark hover:text-white transition">
-                    {link ? (
+                    {fact.link ? (
                       <a
                         target="_blank"
                         rel="noopener"
-                        href={link}
+                        href={fact.link}
                         class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
                       >
                         {d}
@@ -104,6 +104,7 @@ const Home: Component<{}> = () => {
           ref={playgroundRef}
         >
           <div
+            dir="ltr"
             style="height:600px; width:100%;"
             class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0"
           >
@@ -144,7 +145,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               {t('home.example.headline')}
             </h3>
             <For each={t('home.example.copy')}>
-              {(copy) => <p class="mt-9 leading-7">{copy}</p>}
+              {(copy: string) => <p class="mt-9 leading-7">{copy}</p>}
             </For>
             <Link
               class="button inline-block mt-8 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
@@ -201,7 +202,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           </div>
           <ul class="flex flex-wrap">
             <For each={t('home.features.list')}>
-              {(feature) => (
+              {(feature: string) => (
                 <li class="feature-block border-gray-300 mr-3 mt-3 px-5 py-3">
                   <span class="block text-sm">{feature}</span>
                 </li>

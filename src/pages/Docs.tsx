@@ -13,6 +13,7 @@ import { Icon } from '@amoutonbrady/solid-heroicons';
 
 interface DocData {
   loading: boolean;
+  langAvailable: boolean;
   doc: {
     sections: Section[];
     content: string;
