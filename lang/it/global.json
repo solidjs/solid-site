@@ -10,6 +10,10 @@
     { "title": "Playground", "path": "https://playground.solidjs.com", "external": true },
     { "title": "Media", "path": "/media" }
   ],
+  "404": {
+    "header": "Merda! Quattro-zero-quattro.",
+    "body": "crede che questa pagina sicuramente non esista."
+  },
   "footer": {
     "declaration": "Solid è un progetto open source supportato da un team di contributori pubblici. È distribuito <a class=\"underline hover:text-gray-500\" href=\"{license}\">con licenza MIT</a>. Questa libreria e comunità sono rese possibili da un <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">team principale e collaboratori dedicati</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",

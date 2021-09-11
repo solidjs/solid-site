@@ -62,7 +62,7 @@ const Docs: Component<{
       <Nav showLogo />
       <Header title="Documentation" />
       <Show when={!data.loading}>
-        <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
+        <div dir="ltr" class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button
             class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
             classList={{
@@ -161,6 +161,20 @@ const Docs: Component<{
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={data.loading}>Loading documentation...</Match>
               <Match when={data.doc}>
+                <Show when={data.langAvailable}>
+                  <div class="bg-yellow-100 p-5 rounded-lg text-sm">
+                    Unfortunately our docs are not currently available in your language. We
+                    encourage you to support Solid by{' '}
+                    <a
+                      class="underline"
+                      target="_blank"
+                      href="https://github.com/solidjs/solid-docs/blob/main/README.md#support"
+                    >
+                      helping with on-going translation efforts
+                    </a>
+                    .
+                  </div>
+                </Show>
                 <div class="prose prose-solid max-w-full" innerHTML={data.doc.content} />
               </Match>
             </Switch>

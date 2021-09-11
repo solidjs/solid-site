@@ -16,7 +16,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
 
-const OldRepl = lazy(() => import('../components/ReplTab'));
+const Repl = lazy(() => import('../components/ReplTab'));
 
 const strength_icons = {
   performant,
@@ -105,7 +105,7 @@ const Home: Component<{}> = () => {
         >
           <div
             style="height:600px; width:100%;"
-            class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 mt-10 lg:mt-0"
+            class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0"
           >
             <Show when={loadRepl()}>
               <Suspense
@@ -113,7 +113,7 @@ const Home: Component<{}> = () => {
                   <div class="flex h-full justify-center items-center">Starting playground...</div>
                 }
               >
-                <OldRepl
+                <Repl
                   tabs={[
                     {
                       name: 'main1',
@@ -138,7 +138,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               </Suspense>
             </Show>
           </div>
-          <div class="flex flex-col justify-center flex-1 order-1 lg:order-2">
+          <div class="flex flex-col justify-center flex-1 order-1 lg:order-2 rtl:order-1">
             <img class="w-20" src={iconBlocks1} alt="" />
             <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">
               {t('home.example.headline')}
@@ -154,7 +154,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </Link>
           </div>
         </section>
-        <section class="bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right">
+        <section class="bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div class="px-5">
             <img class="w-16" src={sandbox} alt="" />
             <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
@@ -170,8 +170,8 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 space-y-10 ">
-          <div class="flex flex-wrap items-center flex-1">
+        <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 rtl:space-x-0 space-y-10">
+          <div class="flex flex-wrap items-center flex-1 rtl:ml-10">
             <Benchmarks list={data.benchmarks} />
           </div>
           <div class="flex flex-col justify-center flex-1 bg-no-repeat">
@@ -191,7 +191,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="bg-solid-lightgray text-black rounded-lg grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-39">
+        <section class="bg-solid-lightgray text-black rounded-lg grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} alt="" />

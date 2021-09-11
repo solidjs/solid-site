@@ -20,6 +20,7 @@ import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
+import { useI18n } from '@solid-primitives/i18n';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -33,9 +34,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   const [searchQuery, setSearchQuery] = createSignal('');
   let listContainer!: HTMLOListElement;
   let search!: HTMLInputElement;
-
   const directory = createMemo(() => Object.entries(props.directory || {}));
-
   const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
     return (
       directory()
@@ -170,6 +169,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useData<TutorialRouteData>();
+  const [t] = useI18n();
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
     {
@@ -206,9 +206,9 @@ const Tutorial: Component = () => {
   return (
     <>
       <Nav showLogo filled />
-
       <Suspense fallback={<p>Loading...</p>}>
         <div
+          dir="ltr"
           class="md:grid"
           style="height: calc(100vh - 60px); grid-template-columns: minmax(40%, 600px) auto"
         >
@@ -230,7 +230,7 @@ const Tutorial: Component = () => {
                     class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                     href={`/tutorial/${data.id}?solved`}
                   >
-                    Solve
+                    {t('tutorial.solve')}
                   </NavLink>
                 }
               >
@@ -238,7 +238,7 @@ const Tutorial: Component = () => {
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                   href={`/tutorial/${data.id}`}
                 >
-                  Reset
+                  {t('tutorial.reset')}
                 </NavLink>
               </Show>
 

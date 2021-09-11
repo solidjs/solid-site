@@ -88,7 +88,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
             class="py-3 text-sm chevron chevron-right button text-solid-default font-semibold hover:text-gray-500"
             onClick={() => setExpanded(true)}
           >
-            {t('home.benchmarks.show_more')}
+            {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}
           </button>
         }
       >
