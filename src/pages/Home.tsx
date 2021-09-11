@@ -36,10 +36,10 @@ const Home: Component<{}> = () => {
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
   return (
-    <div class="flex flex-col">
+    <div class="dark:bg-solid-gray flex flex-col">
       <h1 class="sr-only">SolidJS homepage</h1>
       <header class="mx-3 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
-        <div class="md:bg-hero bg-no-repeat bg-right rtl:bg-left px-10">
+        <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
             <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
               <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
@@ -155,7 +155,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </Link>
           </div>
         </section>
-        <section class="bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
+        <section class="dark:bg-gray-500 bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div class="px-5">
             <img class="w-16" src={sandbox} alt="" />
             <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
@@ -192,7 +192,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="bg-solid-lightgray text-black rounded-lg grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-12">
+        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} alt="" />

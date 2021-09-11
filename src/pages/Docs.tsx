@@ -76,7 +76,7 @@ const Docs: Component<{
           <div class="col-span-4 lg:col-span-3 relative">
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lgoverflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lgoverflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-12 duration-300 transform ' +
                 'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
                 'lg:sticky lg:flex'
               }
@@ -86,14 +86,14 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <ul class="overflow-auto mt-5 flex flex-col flex-1">
+              <ul class="overflow-auto mt-5 flex dark:text-white flex-col flex-1">
                 <For each={data.doc.sections}>
                   {(firstLevel: Section) =>
                     firstLevel.children?.length ? (
                       <li>
                         <button
                           type="button"
-                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
+                          class="text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                         >
                           <span
@@ -141,7 +141,7 @@ const Docs: Component<{
                     ) : (
                       <li>
                         <a
-                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
+                          class="text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           classList={{
                             'font-semibold': current() == firstLevel.slug,
                             'text-solid hover:text-solid-dark':
@@ -176,7 +176,7 @@ const Docs: Component<{
                     .
                   </div>
                 </Show>
-                <div class="prose prose-solid max-w-full" innerHTML={data.doc.content} />
+                <div class="prose dark:text-white prose-solid max-w-full" innerHTML={data.doc.content} />
               </Match>
             </Switch>
           </div>

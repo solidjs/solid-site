@@ -1268,12 +1268,10 @@
     "@solid-primitives/timer" "^0.0.106"
     solid-js "^1.0.3"
 
-"@solid-primitives/intersection-observer@^0.0.107":
-  version "0.0.107"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-0.0.107.tgz#f5161574396a788a408e41ee2154b339c86522d4"
-  integrity sha512-6BUH1VcimpTkqq2S9H3xFVGzHqge/rZgwoEJh7fvwDdoPqRtYfQYRVYWM6C+ca7WXuLjcoshq8LWOGRmu31LHg==
-  dependencies:
-    solid-js "^1.0.3"
+"@solid-primitives/intersection-observer@^0.0.108":
+  version "0.0.108"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-0.0.108.tgz#bc18caa82236aa0b624cbe2a070f00d28d3d7d3f"
+  integrity sha512-TYp40QNFQ3xkdUpWyu82HL/RnKsKsMG4yO0bonfQZC3d1USwJ2P/bwr/xOwyVlsxb5EQGc+71I16t8+6jihTDQ==
 
 "@solid-primitives/local-store@^1.1.2":
   version "1.1.3"

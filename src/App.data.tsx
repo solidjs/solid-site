@@ -19,7 +19,7 @@ type DataParams = {
 };
 
 export const AppData: RouteDataFunc = (props) => {
-  const [settings, set] = createCookieStore<{ locale: string }>();
+  const [settings, set] = createCookieStore<{ dark: string, locale: string }>();
   const browserLang = navigator.language.slice(0, 2);
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);
@@ -42,6 +42,12 @@ export const AppData: RouteDataFunc = (props) => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
   return {
+    set isDark(value) {
+      settings.dark = value === true ? 'true' : 'false';
+    },
+    get isDark() {
+      return settings.dark === 'true' ? true : false;
+    },
     get i18n() {
       return i18n;
     },

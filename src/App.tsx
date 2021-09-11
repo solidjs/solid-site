@@ -29,7 +29,9 @@ const Lang: Component = (props) => {
         name="description"
         content="A declarative, efficient and flexible JavaScript library for building user interfaces."
       />
-      <div dir={t('global.dir', {}, 'ltr')}>{props.children}</div>
+      <div class="dark" dir={t('global.dir', {}, 'ltr')}>
+        <div class="dark:bg-solid-gray dark:text-white">{props.children}</div>
+      </div>
     </I18nContext.Provider>
   );
 };
