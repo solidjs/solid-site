@@ -48,9 +48,10 @@ const LanguageSelector: Component<{ class?: string }> = (props) => {
   return (
     <li class={props.class || ''}>
       <select
-        class="dark:bg-solid-gray dark:border-dark p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
+        class="dark:bg-solid-gray hover:border-gray-500 cursor-pointer dark:border-dark p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
         style={{
-          'min-width': '125px',
+          color: 'transparent',
+          'max-width': '42.5px',
           'background-image': 'url(/img/icons/translate2.svg)',
           'background-size': '20px',
           'background-position': t('global.dir') === 'rtl' ? '10px' : '',
@@ -74,12 +75,15 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [unlocked, setUnlocked] = createSignal(props.showLogo);
   const data = useData<{ isDark: boolean }>();
   const [t] = useI18n();
-  const [ observer ] = createIntersectionObserver([], ([entry]) => setUnlocked(entry.isIntersecting));
+  const [observer] = createIntersectionObserver([], ([entry]) => setUnlocked(entry.isIntersecting));
   const shouldShowLogo = () => props.showLogo || !unlocked();
   return (
     <>
       <div use:observer class="h-0" />
-      <div class="sticky top-0 z-50 dark:bg-solid-gray bg-white" classList={{ 'shadow-md': shouldShowLogo() }}>
+      <div
+        class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
+        classList={{ 'shadow-md': shouldShowLogo() }}
+      >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
           <ScrollShadow
             class="relative nav-items-container"

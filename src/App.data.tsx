@@ -19,7 +19,7 @@ type DataParams = {
 };
 
 export const AppData: RouteDataFunc = (props) => {
-  const [settings, set] = createCookieStore<{ dark: string, locale: string }>();
+  const [settings, set] = createCookieStore<{ dark: string; locale: string }>();
   const browserLang = navigator.language.slice(0, 2);
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);

@@ -176,7 +176,10 @@ const Docs: Component<{
                     .
                   </div>
                 </Show>
-                <div class="prose dark:text-white prose-solid max-w-full" innerHTML={data.doc.content} />
+                <div
+                  class="prose dark:text-white prose-solid max-w-full"
+                  innerHTML={data.doc.content}
+                />
               </Match>
             </Switch>
           </div>

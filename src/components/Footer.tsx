@@ -11,8 +11,7 @@ import Social from './Social';
 
 const Footer: Component = () => {
   const [t] = useI18n();
-  const data = useData<{ isDark: true }>(0);
-  console.log(data)
+  // const data = useData<{ isDark: true }>(0);
   return (
     <Portal mount={document.getElementById('footer')!}>
       <div
