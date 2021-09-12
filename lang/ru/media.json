@@ -1,17 +1,17 @@
 {
-  "title": "Media Assets",
-  "copy": "The following are assets that represent the Solid brand. All assets are considered open-source contributions and should be used according to open standards and licensing rules. For additional assets or questions pertaining to brand alignment, feel free to join our Discord for support and guidance.",
-  "brand_font": "Brand Font",
-  "primary": "Primary Color",
-  "secondary": "Secondary Color",
-  "light": "Light Color",
-  "accent": "Accent Color",
+  "title": "Атрибуты бренда",
+  "copy": "Ниже перечислены атрибуты, которые представляют бренд Solid. Все атрибуты считаются вкладом с открытым исходным кодом и должны использоваться в соответствии с открытыми стандартами и правилами лицензирования. Для получения дополнительных материалов или вопросов, связанных с согласованием бренда, присоединяйтесь к нашему Discord для получения поддержки и рекомендаций.",
+  "brand_font": "Шрифт бренда",
+  "primary": "Основной цвет",
+  "secondary": "Вторичный цвет",
+  "light": "Светлый цвет",
+  "accent": "Акцентирующий цвет",
   "resources": {
-    "with_wordmark": "With Wordmark",
-    "without_wordmark": "Without Wordmark",
-    "only_wordmark": "Only Wordmark",
-    "dark_with_wordmark": "Dark With Wordmark",
-    "dark_without_wordmark": "Dark Without Wordmark",
-    "dark_only_wordmark": "Only Dark Wordmark"
+    "with_wordmark": "Со словесным знаком",
+    "without_wordmark": "Без словесного знака",
+    "only_wordmark": "Только словесный знак",
+    "dark_with_wordmark": "Темный со словесным знаком",
+    "dark_without_wordmark": "Темный без словесного знака",
+    "dark_only_wordmark": "Темный только словесный знак"
   }
 }
