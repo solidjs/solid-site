@@ -73,7 +73,7 @@
         "Performance focused",
         "on both client and server"
       ],
-      "copy": "The strength of fine-grained reactivity as an approach shines on all notable benchmarks. While performance may not be your focus, the end-user's experience is always a concern. Think of Solid's performance gain as a free win without extra development complexity. It's about being fast without trying.",
+      "copy": "The strength of fine-grained reactivity as an approach shines on all notable benchmarks. Even if performance is not your focus, it's virtually effortless and without the cost of complicated/involved DX. Think of Solid's performance gain as a free win. Solid is about being fast without trying.",
       "link_label": "Read full article",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
