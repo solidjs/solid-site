@@ -27,7 +27,7 @@ const socials = [
 ];
 
 const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (props) => (
-  <li class="mx-2">
+  <li>
     <a href={props.href} rel="noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
       <svg viewBox="0 0 24 24" class="h-8 transition hover:opacity-50 opacity-60">

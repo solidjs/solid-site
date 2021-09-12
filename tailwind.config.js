@@ -3,7 +3,6 @@ const theme = require('tailwindcss/defaultTheme');
 module.exports = {
   purge: ['index.html', 'src/**/*.tsx'],
   mode: 'jit',
-  darkMode: 'class',
   theme: {
     extend: {
       fontSize: {
@@ -68,5 +67,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],
+  plugins: [require('@tailwindcss/typography')],
 };
