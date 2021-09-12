@@ -75,6 +75,12 @@ const translators = [
     link: 'https://github.com/xstevenyung',
   },
   {
+    name: 'Mehdi (MidouWebDev)',
+    language: 'fr',
+    flag: '🇫🇷',
+    link: 'https://github.com/MidouWebDev',
+  },
+  {
     name: 'Athif Humam',
     language: 'in',
     flag: '🇮🇩',
