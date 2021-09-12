@@ -65,12 +65,15 @@ const LanguageSelector: Component<{ class?: string }> = (props) => {
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const data = useData<{ isDark: boolean }>();
-  const [unlocked, setUnlocked] = createSignal<boolean>(props.showLogo || true);
+  const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [t] = useI18n();
-  const [observer] = createIntersectionObserver([], ([entry]) =>
-    setUnlocked(entry.intersectionRatio < 0),
+  let firstLoad = true;
+  const [observer] = createIntersectionObserver([], ([entry]) => {
+    if (firstLoad) { firstLoad = false; return ;}
+    setLocked(entry.isIntersecting);
+  }
   );
-  const showLogo = createMemo(() => props.showLogo || unlocked());
+  const showLogo = createMemo(() => props.showLogo || !locked());
   return (
     <>
       <div use:observer class="h-0" />
