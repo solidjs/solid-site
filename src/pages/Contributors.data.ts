@@ -37,7 +37,7 @@ const core = [
   {
     img: 'dan-jutan.jpeg',
     github: 'jutan',
-    name: 'Dan Juntan',
+    name: 'Dan Jutan',
     role: 'Documentation Maintainer',
     bio: "Web dev, UX, digital humanities. Researcher at Georgia Tech's DILAC and at Emory University's DH Lab.",
   },
