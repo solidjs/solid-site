@@ -70,7 +70,7 @@ const Home: Component<{}> = () => {
         <section class="bg-solid-lightgray m-5 lg:m-0 border border-gray-200 text-black flex rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
-              {(fact: { label: string, detail: string, link: string }) => {
+              {(fact: { label: string; detail: string; link: string }) => {
                 const d = (
                   <>
                     <strong class="font-semibold mr-1">{fact.label}</strong>

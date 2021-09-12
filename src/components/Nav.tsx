@@ -8,14 +8,14 @@ import Social from './Social';
 
 const langs = {
   en: 'English',
-  'zh-cn' :'简体中文',
+  'zh-cn': '简体中文',
   ja: '日本語',
   it: 'Italiano',
   fr: 'Français',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
-  ru: 'русский'
-}
+  ru: 'русский',
+};
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
 
@@ -46,7 +46,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
   </li>
 );
 
-const LanguageSelector: Component<{ onClick: () => void, class?: string }> = (props) => {
+const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => {
   const [t] = useI18n();
   return (
     <li class={props.class || ''}>
@@ -56,7 +56,7 @@ const LanguageSelector: Component<{ onClick: () => void, class?: string }> = (pr
         style={{
           'background-image': 'url(/img/icons/translate2.svg)',
           'background-size': '24px',
-        }}       
+        }}
       />
     </li>
   );
@@ -65,13 +65,15 @@ const LanguageSelector: Component<{ onClick: () => void, class?: string }> = (pr
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [t, {locale}] = useI18n();
+  const [t, { locale }] = useI18n();
   let firstLoad = true;
   const [observer] = createIntersectionObserver([], ([entry]) => {
-    if (firstLoad) { firstLoad = false; return ;}
+    if (firstLoad) {
+      firstLoad = false;
+      return;
+    }
     setLocked(entry.isIntersecting);
-  }
-  );
+  });
   const showLogo = createMemo(() => props.showLogo || !locked());
   return (
     <>
@@ -110,12 +112,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <div class="container absolute flex -mt-4 justify-end">
             <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
               <For each={Object.entries(langs)}>
-                {([ lang, label ]) => (
+                {([lang, label]) => (
                   <button
                     class="first:rounded-t hover:bg-solid-lightgray last:rounded-b text-left p-3 text-sm border-b w-full"
                     classList={{
                       'bg-solid-medium text-white': lang == locale(),
-                      'hover:bg-solid-light': lang == locale()
+                      'hover:bg-solid-light': lang == locale(),
                     }}
                     onClick={() => locale(lang) && toggleLangs(false)}
                   >

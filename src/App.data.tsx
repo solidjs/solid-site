@@ -52,9 +52,6 @@ export const AppData: RouteDataFunc = (props) => {
     get i18n() {
       return i18n;
     },
-    get languages() {
-      return langList;
-    },
     get loading() {
       return lang.loading;
     },
