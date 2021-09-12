@@ -24,7 +24,7 @@ export const AppData: RouteDataFunc = (props) => {
   const browserLang = navigator.language.slice(0, 2);
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);
-  } else if (langs.hasOwnProperty(browserLang)) {
+  } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
   const i18n = createI18nContext({}, settings.locale || 'en');
