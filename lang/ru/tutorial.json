@@ -1,0 +1,23 @@
+{
+  "solve": "Solve",
+  "reset": "Reset",
+  "playground": {
+    "result": "Result",
+    "output": "Output",
+    "clear": "Clear",
+    "add_tab": "Add new tab",
+    "refresh": "Refresh the page",
+    "format": "Format source code",
+    "copy": "Copy source code",
+    "mode": "Compile mode",
+    "client_render": "Client-side rendering",
+    "server_render": "Server-side rendering",
+    "client_hydration_render": "Client-side rendering with hydration",
+    "dark_mode": "Toggle dark mode",
+    "import_json": "Import JSON",
+    "export_json": "Export JSON",
+    "export_codesandbox": "Export to CodeSandBox",
+    "share": "Share with a minified link",
+    "scale": "Scale editor to make text larger or smaller"
+  }
+}
