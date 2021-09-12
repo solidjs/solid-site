@@ -27,6 +27,20 @@ const core = [
     role: 'Library Maintainer',
     bio: ' A web developer with an interest in reactive programming and making the web a better place.',
   },
+  {
+    img: 'ryan-turnquist.png',
+    github: 'rturnq',
+    name: 'Ryan Turnquist',
+    role: 'Library Maintainer',
+    bio: 'Full-stack developer, web UX enthusiast, passionate problem solver.',
+  },
+  {
+    img: 'dan-jutan.jpeg',
+    github: 'jutan',
+    name: 'Dan Juntan',
+    role: 'Documentation Maintainer',
+    bio: "Web dev, UX, digital humanities. Researcher at Georgia Tech's DILAC and at Emory University's DH Lab.",
+  },
 ] as const;
 
 const translators = [
@@ -121,16 +135,22 @@ const ecosystem = [
     detail: 'Founder of Builder.io CMS and creator of JSX-Lite.',
   },
   {
-    name: 'Ryan Turnquist',
-    company: '',
-    link: 'https://github.com/rturnq',
-    detail: 'Full-stack developer, web UX enthusiast, passionate problem solver.',
-  },
-  {
     name: 'Vish Vadlamani',
     company: '',
     link: '',
     detail: 'Provides support and insight on Solid.',
+  },
+  {
+    name: 'Alex Lohr',
+    company: '',
+    link: '',
+    detail: 'Web developer and engineer.',
+  },
+  {
+    name: 'Alexis Munsayac',
+    company: 'LyonInc',
+    link: 'https://lxsmnsyc.vercel.app/',
+    detail: 'Vice president of software engineer and research at LyonInc.',
   },
 ] as const;
 

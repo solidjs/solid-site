@@ -67,7 +67,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const data = useData<{ isDark: boolean }>();
   const [unlocked, setUnlocked] = createSignal<boolean>(props.showLogo || true);
   const [t] = useI18n();
-  const [observer] = createIntersectionObserver([], ([entry]) => setUnlocked(entry.intersectionRatio < 0));
+  const [observer] = createIntersectionObserver([], ([entry]) =>
+    setUnlocked(entry.intersectionRatio < 0),
+  );
   const showLogo = createMemo(() => props.showLogo || unlocked());
   return (
     <>
@@ -84,7 +86,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             initShadowSize={true}
           >
             <ul class="relative flex items-center overflow-auto no-scrollbar">
-              <li class="sticky z-10 left-0 nav-logo-bg dark:bg-solid-gray" classList={{ 'pr-5': showLogo() }}>
+              <li
+                class="sticky z-10 left-0 nav-logo-bg dark:bg-solid-gray"
+                classList={{ 'pr-5': showLogo() }}
+              >
                 <Link href="/" class={`py-3 flex transition-all ${showLogo() ? 'w-9' : 'w-0'}`}>
                   <span class="sr-only">Navigate to the home page</span>
                   <img class="w-full h-auto" src={logo} alt="Solid logo" />
