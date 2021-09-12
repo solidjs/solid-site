@@ -1,47 +1,47 @@
 {
-  "name": "English",
-  "title": "SolidJS · Reactive Javascript Library",
-  "locale": "en-US",
+  "name": "Русский",
+  "title": "SolidJS · Реактивная Javascript-библиотека",
+  "locale": "ru-RU",
   "nav": [
     {
-      "title": "Get Started",
+      "title": "Начать",
       "path": "/guide"
     },
     {
-      "title": "Docs",
+      "title": "Документатция",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Resources",
+      "title": "Ресурсы",
       "path": "/resources"
     },
     {
-      "title": "Tutorial",
+      "title": "Туториалы",
       "path": "/tutorial"
     },
     {
-      "title": "Examples",
+      "title": "Примеры",
       "path": "/examples"
     },
     {
-      "title": "Playground",
+      "title": "Плэйграунд",
       "path": "https://playground.solidjs.com",
       "external": true
     },
     {
-      "title": "Media",
+      "title": "Медиа",
       "path": "/media"
     }
   ],
   "404": {
-    "header": "Oops. Four oh four.",
-    "body": "believes this page definitely doesn't exist."
+    "header": "Упс! Четыреста четыре.",
+    "body": "Этой страницы точно не существует."
   },
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a class=\"underline hover:text-gray-500\" href=\"{license}\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">core team and dedicated contributors</a>.",
+    "declaration": "Solid - это проект с открытым исходным кодом, поддерживаемый командой публичных участников. Распространяется под <a class=\"underline hover:text-gray-500\" href=\"{license}\">лицензией MIT</a>. Эта библиотека и сообщество стали возможными благодаря <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">основной команде и преданным участникам</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
-    "sponsored_by": "Sponsored by",
-    "updated": "Last updated {{date}} on Solid v{{version}}"
+    "sponsored_by": "Спорнсор",
+    "updated": "Последнее обновление {{date}} Solid версии {{version}}"
   }
 }
