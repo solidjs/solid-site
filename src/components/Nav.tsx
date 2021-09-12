@@ -1,21 +1,13 @@
+import { Component, For, createMemo, createSignal, Show, onCleanup } from 'solid-js';
 import { Link, NavLink, useData } from 'solid-app-router';
-import { Component, For, createSignal, Show } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 
-const Logo: Component<{ show: boolean }> = (props) => (
-  <li class="sticky z-10 left-0 nav-logo-bg dark:bg-solid-gray" classList={{ 'pr-5': props.show }}>
-    <Link href="/" class={`py-3 flex transition-all ${props.show ? 'w-9' : 'w-0'}`}>
-      <span class="sr-only">Navigate to the home page</span>
-      <img class="w-full h-auto" src={logo} alt="Solid logo" />
-    </Link>
-  </li>
-);
-
 type MenuLinkProps = { path: string; external?: boolean; title: string };
+
 const MenuLink: Component<MenuLinkProps> = (props) => (
   <li>
     <NavLink
@@ -72,17 +64,17 @@ const LanguageSelector: Component<{ class?: string }> = (props) => {
 };
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
-  const [unlocked, setUnlocked] = createSignal(props.showLogo);
   const data = useData<{ isDark: boolean }>();
+  const [unlocked, setUnlocked] = createSignal<boolean>(props.showLogo || true);
   const [t] = useI18n();
-  const [observer] = createIntersectionObserver([], ([entry]) => setUnlocked(entry.isIntersecting));
-  const shouldShowLogo = () => props.showLogo || !unlocked();
+  const [observer] = createIntersectionObserver([], ([entry]) => setUnlocked(entry.intersectionRatio < 0));
+  const showLogo = createMemo(() => props.showLogo || unlocked());
   return (
     <>
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
-        classList={{ 'shadow-md': shouldShowLogo() }}
+        classList={{ 'shadow-md': showLogo() }}
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
           <ScrollShadow
@@ -92,7 +84,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             initShadowSize={true}
           >
             <ul class="relative flex items-center overflow-auto no-scrollbar">
-              <Logo show={shouldShowLogo()} />
+              <li class="sticky z-10 left-0 nav-logo-bg dark:bg-solid-gray" classList={{ 'pr-5': showLogo() }}>
+                <Link href="/" class={`py-3 flex transition-all ${showLogo() ? 'w-9' : 'w-0'}`}>
+                  <span class="sr-only">Navigate to the home page</span>
+                  <img class="w-full h-auto" src={logo} alt="Solid logo" />
+                </Link>
+              </li>
               <For each={t('global.nav')} children={MenuLink} />
               <LanguageSelector class="flex lg:hidden" />
             </ul>
