@@ -1,0 +1,25 @@
+{
+  "name": "Italiano",
+  "title": "SolidJS · Libreria Javascript reattiva",
+  "locale": "it-IT",
+  "nav": [
+    { "title": "Iniziare", "path": "/guide" },
+    { "title": "Documentazione", "path": "/docs/latest/api" },
+    { "title": "Risorse", "path": "/resources" },
+    { "title": "Tutorial", "path": "/tutorial" },
+    { "title": "Esempi", "path": "/examples" },
+    { "title": "Playground", "path": "https://playground.solidjs.com", "external": true },
+    { "title": "Media", "path": "/media" }
+  ],
+  "404": {
+    "header": "Merda! Quattro-zero-quattro.",
+    "body": "crede che questa pagina sicuramente non esista."
+  },
+  "footer": {
+    "declaration": "Solid è un progetto open source supportato da un team di contributori pubblici. È distribuito <a class=\"underline hover:text-gray-500\" href=\"{license}\">con licenza MIT</a>. Questa libreria e comunità sono rese possibili da un <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">team principale e collaboratori dedicati</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsorizzata da",
+    "updated": "Ultimo aggiornamento {{date}} su Solid v{{version}}"
+  }
+}

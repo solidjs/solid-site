@@ -10,8 +10,10 @@ curl  -H "Authorization: Basic ${TOKEN}" \
 tar -zxvf lessons.tar.gz --strip-components=1 -C ./tmp
 
 # Move all necessary files
-mv ./tmp/en/tutorial/* ../public/tutorial/lessons
+mv ./tmp/en/tutorials/* ../public/tutorial/lessons/en
+mv ./tmp/ja/tutorials/* ../public/tutorial/lessons/ja
+mv ./tmp/zh-cn/tutorials/* ../public/tutorial/lessons/zh-cn
 
 # Clean up temp directory
-rm lessons.tar.gz
-rm -R -f tmp
+# rm lessons.tar.gz
+# rm -R -f tmp
