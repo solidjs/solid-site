@@ -1,0 +1,28 @@
+{
+  "title": "资料",
+  "cta": "要展示你的 SolidJS 项目可以通过 <a href=\"https://discord.com/invite/solidjs\">Discord</a> 联系我们。",
+  "search": "搜索资料",
+  "types": "分类",
+  "types_list": {
+    "article": "文章",
+    "video": "视频",
+    "library": "库",
+    "package": "包"
+  },
+  "categories": "类目",
+  "translations": "翻译",
+  "categories_list": {
+    "primitive": "Primitive",
+    "router": "路由",
+    "data": "数据",
+    "ui": "UI",
+    "plugin": "插件",
+    "starters": "脚手架",
+    "build_utility": "构建工具",
+    "add_on": "扩展",
+    "testing": "测试",
+    "educational": "教学"
+  },
+  "official": "官方",
+  "by": "作者 {{author}}"
+}

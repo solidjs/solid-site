@@ -1,0 +1,40 @@
+{
+  "name": "中文",
+  "title": "反应式 JavaScript 库",
+  "locale": "zh-cn",
+  "nav": [
+    {
+      "title": "入门",
+      "path": "/guide"
+    },
+    {
+      "title": "文档",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "资料",
+      "path": "/resources"
+    },
+    {
+      "title": "教程",
+      "path": "/tutorial"
+    },
+    {
+      "title": "示例",
+      "path": "/examples"
+    },
+    {
+      "title": "Playground",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "视觉传媒",
+      "path": "/media"
+    }
+  ],
+  "footer": {
+    "declaration": "Solid 是一个由公共贡献者团队支持的开源项目。Solid 在 MIT 许可下分发。是一个由公共贡献者团队支持的开源项目。Solid 库和社区由一个核心团队和专门的贡献者创作。",
+    "updated": "最后更新于 {{date}} 基于 Solid v{{version}}"
+  }
+}

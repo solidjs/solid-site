@@ -1,0 +1,28 @@
+{
+  "title": "Sumber daya",
+  "cta": "Untuk membuat project kamu yang berhubungan dengan SolidJS terdaftar disini, hubung kami di <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Pencarian sumber daya",
+  "types": "Tipe-tipe",
+  "types_list": {
+    "article": "Artikel",
+    "video": "Video",
+    "library": "Library",
+    "package": "Package"
+  },
+  "categories": "Kategori",
+  "translations": "Terjemahan",
+  "categories_list": {
+    "primitive": "Primitif",
+    "router": "Routers",
+    "data": "Data",
+    "ui": "UI",
+    "plugin": "Plugins",
+    "starters": "Starters",
+    "build_utility": "Build Utilities",
+    "add_on": "Add On",
+    "testing": "Testing",
+    "educational": "Edukasi"
+  },
+  "official": "Resmi",
+  "by": "Oleh {{author}}"
+}

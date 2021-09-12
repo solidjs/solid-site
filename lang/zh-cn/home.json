@@ -1,0 +1,108 @@
+{
+    "hero": "一个声明式、高效且灵活用于构建用户界面的 JavaScript 库。",
+    "info": "Solid 是一个纯的响应式库。它从 0 开始设计出一套响应机制。Solid 深受到现有库的响应式原则影响。",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "性能",
+        "description": "始终在 UI 识别速度和内存利用率基准测试中名列前茅。"
+      },
+      {
+        "icon": "powerful",
+        "label": "强大",
+        "description": "可组合的响应式原语与 JSX 的灵活性相结合。"
+      },
+      {
+        "icon": "pragmatic",
+        "label": "务实",
+        "description": "合理且量身定制的 API 使开发变得有趣而简单。"
+      },
+      {
+        "icon": "productive",
+        "label": "生产力",
+        "description": "人体工程化设计和熟悉程度使得构建简单或复杂的东西变得轻而易举。"
+      }
+    ],
+    "facts": [
+      {
+        "label": "6kb",
+        "detail": "压缩 + Gzip",
+        "link": "https://bundlephobia.com/package/solid-js@1.0.0"
+      },
+      {
+        "label": "9.5k+",
+        "detail": "Github 收藏",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "5+ 年",
+        "detail": "持续开发"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "支持"
+      },
+      {
+        "label": "评分最高",
+        "detail": "在性能上"
+      },
+      {
+        "label": "Astro",
+        "detail": "支持",
+        "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
+      }
+    ],
+    "example": {
+      "headline": "它既让你感到熟悉又现代",
+      "copy": [
+        "Solid 站在 React, Knockout 等巨人的肩膀上。如果你之前用 React Hooks 开发过，Solid 应该看起来很自然。事实上，Solid 模型更简单，没有 Hook 规则。每个组件执行一次，随着依赖项的更新，钩子和绑定会多次执行。",
+        "Solid 遵循与 React 相同的理念，具有单向数据流、读/写隔离和不可变接口。但是放弃了使用虚拟 DOM，使用了完全不同的实现。"
+      ],
+      "link_label": "查看文档",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "细粒度的响应性意味着你可以事半功倍。",
+      "subheadline": "Solid 的每个部分都建立在 JSX 视图中 JavaScript 表达式的简单 primitive 之上。",
+      "copy": "Solid 解锁了对更新内容和时间的完全控制，即使在 DOM 绑定级别也是如此。没有虚拟 DOM 或广泛的差异对比，框架永远不会做额外工作。",
+      "link_label": "查看示例",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "专注于性能”",
+        "无论是客户端还是服务端"
+      ],
+      "copy": "细粒度响应式这一策略在所有显眼的基准测试中大放异彩。虽然性能可能不是你的关注点，但最终会影响到用户体验。Solid 无需额外的开发复杂度就可以获得很好的性能。就是说无需特意调优就可以运行很快",
+      "link_label": "阅读全文",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "满载所有功能。",
+      "copy": "Solid 支持所有常见的和预期的库功能，并在各个方面进行扩展以增强开发体验。",
+      "list": [
+        "Fragments",
+        "Portals",
+        "Context",
+        "Suspense",
+        "错误边界",
+        "组件懒加载",
+        "异步和并发渲染",
+        "隐式事件委托",
+        "服务端渲染和注水",
+        "指令"
+      ]
+    },
+    "benchmarks": {
+      "time": "时间",
+      "link_label": "JS 框架基准测试比较了各种测试下的浏览器性能。值越低越好。",
+      "js_benchmark": {
+        "title": "JS 框架基准测试",
+        "description": "JS 框架基准测试比较了各种测试下的浏览器性能。值越低越好。"
+      },
+      "isomorophic_benchmark": {
+        "title": "同构 UI 基准测试（搜索结果为例）",
+        "description": "该基准测试测试原生服务器渲染速度。值越高越好。"
+      }
+    }
+  }

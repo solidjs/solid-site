@@ -1,11 +1,15 @@
-import type { DataFn } from 'solid-app-router';
+import { useParams, useLocation } from 'solid-app-router';
 import { createResource } from 'solid-js';
+import { useI18n } from '@solid-primitives/i18n';
 
 export type DataParams = {
   version: string;
   lang: string;
   resource: string;
 };
+
+const currentVersion = '1.0.0';
+const availableLangs = ['br', 'en', 'fr', 'id', 'it', 'ja', 'pt', 'ru', 'zh-cn'];
 
 const cache = new Map<string, Promise<string>>();
 
@@ -15,38 +19,41 @@ function mdFetcher({ version, lang, resource }: DataParams) {
     const markdown = fetch(`/docs/${version}/${lang}/${resource}.json`).then((r) => r.json());
     cache.set(cacheKey, markdown);
   }
-
   return cache.get(cacheKey);
 }
 
-export const DocsData: DataFn<DataParams> = (props) => {
-  const params = (): DataParams => {
+export const DocsData = () => {
+  const params = useParams();
+  const [, { locale }] = useI18n();
+  const location = useLocation();
+  const paramList = (): DataParams => {
     const version =
-      props.params.version && props.params.version !== 'latest' ? props.params.version! : '1.0.0';
-    const lang = props.query.lang ? (props.query.lang as string) : 'en';
-    const resource = props.location.includes('/guide') ? 'guide' : 'api';
+      params.version && params.version !== 'latest' ? params.version! : currentVersion;
+    const lang = location.query.locale ? (location.query.locale as string) : locale();
+    const resource = location.pathname.includes('/guide') ? 'guide' : 'api';
     return {
       version,
-      lang,
+      lang: availableLangs.includes(lang) ? lang : 'en',
       resource,
     };
   };
-  const [doc] = createResource(params, mdFetcher);
+  const [doc] = createResource(paramList, mdFetcher);
   return {
+    get langAvailable() {
+      const lang = location.query.locale ? (location.query.locale as string) : locale();
+      return !availableLangs.includes(lang);
+    },
     get doc() {
       return doc();
     },
     get loading() {
       return doc.loading;
     },
-    get lang() {
-      return params().lang;
-    },
     get version() {
-      return props.params.version;
+      return paramList().version;
     },
     get params() {
-      return props.params;
+      return paramList;
     },
   };
 };

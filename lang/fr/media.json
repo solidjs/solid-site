@@ -1,0 +1,17 @@
+{
+  "title": "Système de conception",
+  "copy": "Les éléments suivants sont des fichiers de conception de SolidJS. Il s'agit de contributions open source et doivent être utilisés conformément aux normes ouvertes et aux règles de licence. Pour des ressources supplémentaires ou des questions relatives à la marque, n'hésitez pas à rejoindre notre Discord pour obtenir de l'aide et des conseils.",
+  "brand_font": "SolidJS Police d'écriture",
+  "primary": "Couleur primaire",
+  "secondary": "Couleur secondaire",
+  "light": "Couleur claire",
+  "accent": "Couleur accentuée",
+  "resources": {
+    "with_wordmark": "Avec mot-symbole",
+    "without_wordmark": "Sans mot-symbole",
+    "only_wordmark": "Mot-symbole uniquement",
+    "dark_with_wordmark": "Noir avec mot-symbole",
+    "dark_without_wordmark": "Noir sans mot-symbole",
+    "dark_only_wordmark": "Mot-symbole noir uniquement"
+  }
+}

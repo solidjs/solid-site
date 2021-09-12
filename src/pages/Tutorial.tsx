@@ -1,5 +1,5 @@
 import { Repl, createTabList } from 'solid-repl';
-import { Link, NavLink } from 'solid-app-router';
+import { useData, NavLink } from 'solid-app-router';
 import {
   For,
   Component,
@@ -19,23 +19,22 @@ import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicon
 import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
-import type { TutorialDirectory, TutorialDirectoryItem, TutorialProps } from './Tutorial.data';
+import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
+import { useI18n } from '@solid-primitives/i18n';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-interface DirectoryProps {
+interface DirectoryMenuProps {
   directory?: Record<string, TutorialDirectory>;
   current?: TutorialDirectoryItem;
 }
 
-const DirectoryMenu: Component<DirectoryProps> = (props) => {
+const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
   const [searchQuery, setSearchQuery] = createSignal('');
   let listContainer!: HTMLOListElement;
   let search!: HTMLInputElement;
-
   const directory = createMemo(() => Object.entries(props.directory || {}));
-
   const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
     return (
       directory()
@@ -168,7 +167,9 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
   );
 };
 
-const Tutorial: Component<TutorialProps> = (props) => {
+const Tutorial: Component = () => {
+  const data = useData<TutorialRouteData>();
+  const [t] = useI18n();
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
     {
@@ -182,7 +183,7 @@ const Tutorial: Component<TutorialProps> = (props) => {
   createEffect(() => {
     markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
-    const url = props.solved ? props.solvedJs : props.js;
+    const url = data.solved ? data.solvedJs : data.js;
     if (!url) return;
     fetch(url)
       .then((r) => r.json())
@@ -205,63 +206,63 @@ const Tutorial: Component<TutorialProps> = (props) => {
   return (
     <>
       <Nav showLogo filled />
-
       <Suspense fallback={<p>Loading...</p>}>
         <div
+          dir="ltr"
           class="md:grid"
           style="height: calc(100vh - 60px); grid-template-columns: minmax(40%, 600px) auto"
         >
           <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
             <DirectoryMenu
-              current={props.tutorialDirectoryEntry}
-              directory={props.tutorialDirectory}
+              current={data.tutorialDirectoryEntry}
+              directory={data.tutorialDirectory}
             />
 
             <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
-              {props.markdown || ''}
+              {data.markdown || ''}
             </Markdown>
 
             <div class="py-4 px-10 flex items-center justify-between border-t-2">
               <Show
-                when={props.solved}
+                when={data.solved}
                 fallback={
-                  <Link
+                  <NavLink
                     class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                    href={`/tutorial/${props.id}?solved`}
+                    href={`/tutorial/${data.id}?solved`}
                   >
-                    Solve
-                  </Link>
+                    {t('tutorial.solve')}
+                  </NavLink>
                 }
               >
-                <Link
+                <NavLink
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                  href={`/tutorial/${props.id}`}
+                  href={`/tutorial/${data.id}`}
                 >
-                  Reset
-                </Link>
+                  {t('tutorial.reset')}
+                </NavLink>
               </Show>
 
               <div class="flex items-center space-x-4">
-                <span data-tooltip={props.previousLesson}>
-                  <Link href={props.previousUrl ?? '#'} external={!props.previousUrl}>
+                <span data-tooltip={data.previousLesson}>
+                  <NavLink href={data.previousUrl ?? '#'}>
                     <span class="sr-only">Previous step</span>
                     <Icon
                       path={arrowLeft}
                       class="h-6"
-                      classList={{ 'opacity-25': !props.previousUrl }}
+                      classList={{ 'opacity-25': !data.previousUrl }}
                     />
-                  </Link>
+                  </NavLink>
                 </span>
 
-                <span data-tooltip={props.nextLesson}>
-                  <Link href={props.nextUrl ?? '#'} external={!props.nextUrl}>
+                <span data-tooltip={data.nextLesson}>
+                  <NavLink href={data.nextUrl ?? '#'}>
                     <span class="sr-only">Next step</span>
                     <Icon
                       path={arrowRight}
                       class="h-6"
-                      classList={{ 'opacity-25': !props.nextUrl }}
+                      classList={{ 'opacity-25': !data.nextUrl }}
                     />
-                  </Link>
+                  </NavLink>
                 </span>
               </div>
             </div>
