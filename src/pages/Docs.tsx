@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
+import { useI18n } from '@solid-primitives/i18n';
 
 interface DocData {
   loading: boolean;
@@ -26,6 +27,7 @@ const Docs: Component<{
   version: string;
 }> = (props) => {
   const data = useData<DocData>();
+  const [t] = useI18n();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -61,7 +63,7 @@ const Docs: Component<{
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
-      <Header title="Documentation" />
+      <Header title={t('docs.title')} />
       <Show when={!data.loading}>
         <div dir="ltr" class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button

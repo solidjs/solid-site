@@ -47,7 +47,7 @@
         "detail": "In performance"
       },
       {
-        "label": "Astro",
+        "label": "Astro & Vite",
         "detail": "Support",
         "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
       }
