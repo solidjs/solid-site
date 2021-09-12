@@ -1,28 +1,28 @@
 {
-  "title": "Resources",
-  "cta": "To have your SolidJS related project listed here reach out to us on <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
-  "search": "Search resources",
-  "types": "Types",
+  "title": "Ресурсы",
+  "cta": "Для того чтобы ваш проект, связанный с SolidJS, был представлен здесь, свяжитесь с нами на <a href=\"https://discord.com/invite/solidjs\">Дискорде</a>.",
+  "search": "Поиск",
+  "types": "Типы",
   "types_list": {
-    "article": "Article",
-    "video": "Video",
-    "library": "Library",
-    "package": "Package"
+    "article": "Статья",
+    "video": "Видео",
+    "library": "Библиотека",
+    "package": "Пакеты"
   },
-  "categories": "Categories",
-  "translations": "Translations",
+  "categories": "Категории",
+  "translations": "Переводы",
   "categories_list": {
-    "primitive": "Primitives",
-    "router": "Routers",
-    "data": "Data",
-    "ui": "UI",
-    "plugin": "Plugins",
-    "starters": "Starters",
-    "build_utility": "Build Utilities",
-    "add_on": "Add On",
-    "testing": "Testing",
-    "educational": "Educational"
+    "primitive": "Примитивы",
+    "router": "Роутеры",
+    "data": "Данные",
+    "ui": "Интерфейс Пользователя",
+    "plugin": "Плагины",
+    "starters": "Стартеры",
+    "build_utility": "Build-утилиты",
+    "add_on": "Добавки",
+    "testing": "Тестировние",
+    "educational": "Образовательное"
   },
-  "official": "Official",
-  "by": "By {{author}}"
+  "official": "Официальное",
+  "by": "От {{author}}"
 }
