@@ -4,7 +4,7 @@ const core = [
     github: 'ryansolid',
     name: 'Ryan Carniato',
     role: 'Project Founder and Manager',
-    bio: 'Front-end JS performance enthusiast and long time super-fan of fine-gained reactive programming.',
+    bio: 'Front-end JS performance enthusiast and long time super-fan of fine-grained reactive programming.',
   },
   {
     img: 'david-dibiase.jpeg',
@@ -28,6 +28,57 @@ const core = [
     bio: ' A web developer with an interest in reactive programming and making the web a better place.',
   },
 ] as const;
+
+const translators = [
+  {
+    name: 'Gaving Cong',
+    language: 'zh-cn',
+    flag: '🇨🇳',
+    link: 'https://github.com/Gavin-Gong',
+  },
+  {
+    name: 'Jun Shindo',
+    language: 'jp',
+    flag: '🇯🇵',
+    link: 'https://github.com/jay-es',
+  },
+  {
+    name: 'David Di Biase',
+    language: 'it',
+    flag: '🇮🇹',
+    link: 'https://github.com/davedbase',
+  },
+  {
+    name: 'Candido Sales Gomez',
+    language: 'pt',
+    flag: '🇧🇷',
+    link: 'https://github.com/candidosales',
+  },
+  {
+    name: 'Steven Yung',
+    language: 'fr',
+    flag: '🇫🇷',
+    link: 'https://github.com/xstevenyung',
+  },
+  {
+    name: 'Athif Humam',
+    language: 'in',
+    flag: '🇮🇩',
+    link: 'https://github.com/athif23',
+  },
+  {
+    name: 'Alex Lohr',
+    language: 'de',
+    flag: '🇩🇪',
+    link: 'https://github.com/atk',
+  },
+  {
+    name: 'Pheianox',
+    language: 'ru',
+    flag: '🇷🇺',
+    link: 'https://github.com/pheianox',
+  },
+];
 
 const contributors = [
   {
@@ -86,6 +137,7 @@ const ecosystem = [
 export const ContributorsData = () => ({
   core,
   contributors,
+  translators,
   ecosystem,
 });
 

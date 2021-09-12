@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        'xxs': '.55rem',
+        xxs: '.55rem',
       },
       colors: {
         primary: '#4483c1',
@@ -14,7 +14,7 @@ module.exports = {
           default: '#2c4f7c',
           dark: '#335d92',
           gray: '#414042',
-          lightgray: "#f9fafb",
+          lightgray: '#f3f5f7',
           medium: '#446b9e',
           light: '#4f88c6',
           accent: '#66e6ac',
@@ -24,21 +24,21 @@ module.exports = {
         DEFAULT: {
           css: {
             color: '#333',
-            fontFamily: 'Gordita' ,
+            fontFamily: 'Gordita',
             h1: {
               fontWeight: '600',
               fontSize: '1.75rem',
               borderBottom: '1px solid #e5e7eb',
               paddingBottom: '1rem',
               marginTop: '2rem',
-              color: '#2c4f7c'
+              color: '#2c4f7c',
             },
             h2: {
               fontWeight: '600',
               borderBottom: '1px solid #e5e7eb',
               paddingBottom: '1rem',
               marginTop: '2rem',
-              color: '#2c4f7c'
+              color: '#2c4f7c',
             },
             a: {
               color: '#999',
@@ -50,8 +50,8 @@ module.exports = {
           },
         },
       },
-      backgroundImage: theme => ({
-        'hero': "url('/src/assets/shapes/header.svg')",
+      backgroundImage: (theme) => ({
+        hero: "url('/src/assets/shapes/header.svg')",
         'blocks-one': "url('/src/assets/shapes/blocks1.svg')",
         'blocks-two': "url('/src/assets/shapes/blocks2.svg')",
         'blocks-three': "url('/src/assets/shapes/blocks3.svg')",
@@ -60,7 +60,7 @@ module.exports = {
         center: true,
       },
       borderRadius: {
-        '6xl': '3.5rem'
+        '6xl': '3.5rem',
       },
       fontFamily: {
         display: ['Gordita', ...theme.fontFamily.sans],

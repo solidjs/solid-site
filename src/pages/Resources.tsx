@@ -10,6 +10,7 @@ import {
   code,
   videoCamera,
   bookOpen,
+  microphone,
   terminal,
   chevronRight,
   shieldCheck,
@@ -18,13 +19,14 @@ import {
 export enum ResourceType {
   Article = 'article',
   Video = 'video',
+  Podcast = 'podcast',
   Library = 'library',
   Package = 'package',
 }
 export enum ResourceCategory {
   Primitives = 'primitive',
   Routers = 'router',
-  Data = 'Data',
+  Data = 'data',
   UI = 'ui',
   Plugins = 'plugin',
   Starters = 'starters',
@@ -46,6 +48,7 @@ export interface Resource {
 }
 const ResourceTypeIcons = {
   article: bookOpen,
+  podcast: microphone,
   video: videoCamera,
   library: code,
   package: terminal,
@@ -73,7 +76,12 @@ const ContentRow: Component<Resource> = (props) => (
           <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
         </Show>
         <Show when={props.author && props.author_url}>
-          <a href={props.author_url} class="text-xs text-gray-500 inline hover:text-solid-medium">
+          <a
+            rel="noopener"
+            href={props.author_url}
+            target="_blank"
+            class="text-xs text-gray-500 inline hover:text-solid-medium"
+          >
             By {props.author}
           </a>
         </Show>
@@ -84,7 +92,7 @@ const ContentRow: Component<Resource> = (props) => (
           Official
         </Show>
       </div>
-      <div class="col-span-1 flex justify-end">
+      <div class="col-span-2 lg:col-span-1 flex justify-end">
         <Icon class="w-7 mx-2 text-gray-400" path={chevronRight} />
       </div>
     </a>
@@ -96,7 +104,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [keyword, setKeyword] = createSignal('');
+  const [keyword, setKeyword] = createSignal(globalThis.location.hash.replace('#', ''));
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
@@ -110,7 +118,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
     enabledCategories: [] as ResourceCategory[],
     // Final list produces that applies enabled types and categories
     get list(): Array<Resource> {
-      return this.resources().filter((item) => {
+      let resources = this.resources().filter((item) => {
         if (this.enabledTypes.length !== 0) {
           return this.enabledTypes.indexOf(item.type) !== -1;
         } else if (this.enabledCategories.length !== 0) {
@@ -118,6 +126,16 @@ const Resources: Component<ResourcesDataProps> = (props) => {
         }
         return true;
       });
+      resources.sort((a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+      return resources;
     },
     // Retrieve a list categories that have resources
     get categories() {
@@ -144,12 +162,17 @@ const Resources: Component<ResourcesDataProps> = (props) => {
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
           <div class="text-xs bg-gray-50 p-4 border rounded">
-            To have your SolidJS related project listed here reach out to us on 
-            <a class="text-solid-medium" href="https://discord.com/invite/solidjs">Discord</a>.
+            To have your SolidJS related project listed here reach out to us on{' '}
+            <a rel="noopener" class="text-solid-medium" href="https://discord.com/invite/solidjs">
+              {' '}
+              Discord
+            </a>
+            .
           </div>
           <input
             class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder="Search resources"
+            value={keyword()}
             onInput={(evt) => setKeyword(evt.currentTarget!.value)}
             type="text"
           />
@@ -186,7 +209,7 @@ const Resources: Component<ResourcesDataProps> = (props) => {
                     </figure>
                   </div>
                   <div class="col-span-3 lg:col-span-3">{name}</div>
-                  <div class="col-span-1 text-center flex-end text-gray-300 text-xs">
+                  <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
                     <Show when={filtered.counts[type]} fallback={0}>
                       {filtered.counts[type]}
                     </Show>

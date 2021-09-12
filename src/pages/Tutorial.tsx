@@ -11,6 +11,7 @@ import {
   createMemo,
   on,
   batch,
+  ErrorBoundary,
 } from 'solid-js';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
@@ -81,7 +82,7 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
       search.focus();
 
       // Find the closest section and scroll it into the view
-      listContainer.querySelector('.js-active')?.closest('.js-section-title')?.scrollIntoView();
+      listContainer.querySelector('.js-active')?.scrollIntoView();
     } else {
       window.removeEventListener('click', listener);
       window.removeEventListener('keydown', listener);
@@ -168,6 +169,7 @@ const DirectoryMenu: Component<DirectoryProps> = (props) => {
 };
 
 const Tutorial: Component<TutorialProps> = (props) => {
+  let replEditor: any;
   const [tabs, setTabs] = createTabList([
     {
       name: 'main',
@@ -176,21 +178,29 @@ const Tutorial: Component<TutorialProps> = (props) => {
     },
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
-  createEffect(async () => {
+  let markDownRef!: HTMLDivElement;
+  createEffect(() => {
+    markDownRef.scrollTop = 0;
+    replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
     const url = props.solved ? props.solvedJs : props.js;
     if (!url) return;
-    const data = await fetch(url).then((r) => r.json());
-    batch(() => {
-      setCurrent('main.tsx');
-      const newTabs = data.files.map((file: { name: string; type?: string; content: string }) => {
-        return {
-          name: file.name,
-          type: file.type || 'tsx',
-          source: file.content,
-        };
+    fetch(url)
+      .then((r) => r.json())
+      .then((data) => {
+        batch(() => {
+          const newTabs = data.files.map(
+            (file: { name: string; type?: string; content: string }) => {
+              return {
+                name: file.name,
+                type: file.type || 'tsx',
+                source: file.content,
+              };
+            },
+          );
+          setTabs(newTabs);
+          setCurrent('main.tsx');
+        });
       });
-      setTabs(newTabs);
-    });
   });
   return (
     <>
@@ -198,23 +208,25 @@ const Tutorial: Component<TutorialProps> = (props) => {
 
       <Suspense fallback={<p>Loading...</p>}>
         <div
-          class="grid"
-          style="height: calc(100vh - 80px); grid-template-columns: minmax(40%, 600px) auto"
+          class="md:grid"
+          style="height: calc(100vh - 60px); grid-template-columns: minmax(40%, 600px) auto"
         >
-          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey">
+          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
             <DirectoryMenu
               current={props.tutorialDirectoryEntry}
               directory={props.tutorialDirectory}
             />
 
-            <Markdown class="p-10 flex-1 max-w-full overflow-auto">{props.markdown || ''}</Markdown>
+            <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
+              {props.markdown || ''}
+            </Markdown>
 
-            <div class="py-3 px-8 flex items-center justify-between border-t-2">
+            <div class="py-4 px-10 flex items-center justify-between border-t-2">
               <Show
                 when={props.solved}
                 fallback={
                   <Link
-                    class="inline-flex py-3 pt-4 leading-none px-4 bg-solid-default hover:bg-solid-mediumm text-white rounded"
+                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                     href={`/tutorial/${props.id}?solved`}
                   >
                     Solve
@@ -230,40 +242,53 @@ const Tutorial: Component<TutorialProps> = (props) => {
               </Show>
 
               <div class="flex items-center space-x-4">
-                <Link href={props.previousUrl ?? ''} external={!props.previousUrl}>
-                  <span class="sr-only">Previous step</span>
-                  <Icon
-                    path={arrowLeft}
-                    class="h-6"
-                    classList={{ 'opacity-25': !props.previousUrl }}
-                  />
-                </Link>
+                <span data-tooltip={props.previousLesson}>
+                  <Link href={props.previousUrl ?? '#'} external={!props.previousUrl}>
+                    <span class="sr-only">Previous step</span>
+                    <Icon
+                      path={arrowLeft}
+                      class="h-6"
+                      classList={{ 'opacity-25': !props.previousUrl }}
+                    />
+                  </Link>
+                </span>
 
-                <Link href={props.nextUrl ?? ''} external={!props.nextUrl}>
-                  <span class="sr-only">Next step</span>
-                  <Icon
-                    path={arrowRight}
-                    class="h-6"
-                    classList={{ 'opacity-25': !props.nextUrl }}
-                  />
-                </Link>
+                <span data-tooltip={props.nextLesson}>
+                  <Link href={props.nextUrl ?? '#'} external={!props.nextUrl}>
+                    <span class="sr-only">Next step</span>
+                    <Icon
+                      path={arrowRight}
+                      class="h-6"
+                      classList={{ 'opacity-25': !props.nextUrl }}
+                    />
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
 
-          <Repl
-            compiler={compiler}
-            formatter={formatter}
-            isHorizontal={true}
-            interactive={true}
-            actionBar={true}
-            editableTabs={true}
-            dark={false}
-            tabs={tabs()}
-            setTabs={setTabs}
-            current={current()}
-            setCurrent={setCurrent}
-          />
+          <ErrorBoundary
+            fallback={
+              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+            }
+          >
+            <Repl
+              onEditorReady={(editor) => {
+                replEditor = editor;
+              }}
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={false}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
+            />
+          </ErrorBoundary>
         </div>
       </Suspense>
     </>

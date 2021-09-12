@@ -26,6 +26,18 @@ export interface Release {
   body: string;
 }
 
+export interface DocumentationRelease {
+  version: string,
+  isLatest: boolean,
+  html: string,
+  date: string,
+  tar: string,
+  zip: string,
+  sections: Section[],
+  content: string,
+  body: string,
+};
+
 export interface Author {
   login: string;
   id: number;

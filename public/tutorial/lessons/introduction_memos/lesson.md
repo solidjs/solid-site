@@ -11,6 +11,6 @@ Place a console.log inside the `fib` function if you want to confirm.
 ```jsx
 const fib = createMemo(() => {
   console.log("Calculating Fibonacci");
-  fibonacci(count());
+  return fibonacci(count());
 });
 ```

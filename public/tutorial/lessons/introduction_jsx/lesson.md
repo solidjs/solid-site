@@ -4,7 +4,7 @@ Unlike some other frameworks that use JSX, Solid attempts to stay as close to HT
 
 There are 3 main differences between JSX and HTML that prevent JSX from being seen as a superset of HTML.
 1. JSX does not have void elements. This means that all elements must have a closing tag or self close. Keep this in mind when copying over things like `<input>` or `<br>`.
-2. JSX must return a single Element. To represent multiple top level elements use an Fragment element.
+2. JSX must return a single Element. To represent multiple top level elements use a Fragment element.
 
 ```jsx
 <>

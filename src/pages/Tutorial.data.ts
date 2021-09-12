@@ -64,6 +64,8 @@ export interface TutorialProps {
   tutorialDirectoryEntry?: TutorialDirectoryItem;
   nextUrl?: string;
   previousUrl?: string;
+  nextLesson?: string;
+  previousLesson?: string;
   id?: string;
   solved?: boolean;
 }
@@ -119,6 +121,22 @@ export const TutorialData: DataFn<{ id: string }> = (props) => {
       return propogateUndefined`/tutorial/${
         data && data[data.findIndex((el) => el.internalName === props.params.id) - 1]?.internalName
       }`;
+    },
+    get nextLesson() {
+      const data = directory();
+      return propogateUndefined`${
+        data && data[data.findIndex((el) => el.internalName === props.params.id) + 1]?.lessonName
+      }`
+        ?.split('/')
+        .pop();
+    },
+    get previousLesson() {
+      const data = directory();
+      return propogateUndefined`${
+        data && data[data.findIndex((el) => el.internalName === props.params.id) - 1]?.lessonName
+      }`
+        ?.split('/')
+        .pop();
     },
     get id() {
       return props.params.id;

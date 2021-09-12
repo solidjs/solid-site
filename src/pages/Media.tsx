@@ -80,10 +80,10 @@ const AssetPanel: Component<{
   assets: Record<string, string>;
   background: string;
 }> = ({ title, assets, example, background }) => (
-  <div class="shadow-lg">
+  <div class="shadow-md">
     <div class="p-5 border-b">{title}</div>
-    <div class={`py-8 h-60 flex justify-center ${background}`}>
-      <img class="w-6/12" src={example} alt={title} />
+    <div class={`py-8 h-56 flex px-10 items-center justify-center ${background}`}>
+      <img class="max-h-20" src={example} alt={title} />
     </div>
     <div class="border-b border-t grid grid-cols-4 text-sm text-solid">
       {Object.entries(assets).map(([name, path]) => (
@@ -105,14 +105,14 @@ const Media: Component = () => (
     <Nav showLogo />
     <Header title="Media Assets" />
     <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
-      <div class="mb-10 grid grid-cols-6 gap-10">
+      <div class="mb-10 md:grid md:grid-cols-6 gap-10">
         <div class="col-span-4">
           The following are assets that represent the Solid brand. All assets are considered
           open-source contributions and should be used according to open standards and licensing
           rules. For additional assets or questions pertaining to brand alignment, feel free to join
           our Discord for support and guidance.
         </div>
-        <div class="col-span-2 col-end-7">
+        <div class="col-span-2 col-end-7 mt-9 md:mt-0">
           <div class="flex mb-2">
             <span class="w-5/12 inline-block font-semibold">Brand Font</span> Gordita
           </div>
@@ -134,7 +134,7 @@ const Media: Component = () => (
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="lg:grid lg:grid-cols-3 gap-4 space-y-5 md:space-y-0">
         <For each={assets}>{(props) => <AssetPanel {...props} />}</For>
       </div>
     </div>

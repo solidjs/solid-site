@@ -10,6 +10,7 @@
     },
     {
       "name": "styles",
+      "type": "css",
       "content": "input {\n  display: inline-block;\n  padding: 4px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n}\n.error-message {\n  color: red;\n  padding: 8px;\n}\n.error-input {\n  box-shadow: 0px 0px 2px 1px red;\n}"
     }
   ]
