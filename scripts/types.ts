@@ -1,3 +1,12 @@
+
+declare module "solid-js" {
+  namespace JSX {
+    interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+      ["use:observer"]?: {};
+    }
+  }
+}
+
 export interface Section {
   slug: string;
   title: string;

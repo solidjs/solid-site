@@ -6,6 +6,17 @@ import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 
+const langs = {
+  en: 'English',
+  'zh-cn' :'简体中文',
+  ja: '日本語',
+  it: 'Italiano',
+  fr: 'Français',
+  id: 'Bahasa Indonesia',
+  he: 'עִברִית',
+  ru: 'русский'
+}
+
 type MenuLinkProps = { path: string; external?: boolean; title: string };
 
 const MenuLink: Component<MenuLinkProps> = (props) => (
@@ -35,39 +46,26 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
   </li>
 );
 
-const LanguageSelector: Component<{ class?: string }> = (props) => {
-  const [t, { locale }] = useI18n();
+const LanguageSelector: Component<{ onClick: () => void, class?: string }> = (props) => {
+  const [t] = useI18n();
   return (
     <li class={props.class || ''}>
-      <select
-        class="dark:bg-solid-gray hover:border-gray-500 cursor-pointer dark:border-dark p-3 pl-4 ml-5 rounded-md border-gray-200 pt-4 text-sm my-3 w-full"
+      <button
+        onClick={props.onClick}
+        class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
         style={{
-          color: 'transparent',
-          'max-width': '42.5px',
           'background-image': 'url(/img/icons/translate2.svg)',
-          'background-size': '20px',
-          'background-position': t('global.dir') === 'rtl' ? '10px' : '',
-        }}
-        value={locale()}
-        onChange={(evt) => locale(evt.currentTarget.value)}
-      >
-        <option value="en">English</option>
-        <option value="zh-cn">简体中文</option>
-        <option value="ja">日本語</option>
-        <option value="it">Italiano</option>
-        <option value="fr">Français</option>
-        <option value="id">Bahasa Indonesia</option>
-        <option value="he">עִברִית</option>
-        <option value="ru">русский</option>
-      </select>
+          'background-size': '24px',
+        }}       
+      />
     </li>
   );
 };
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
-  const data = useData<{ isDark: boolean }>();
+  const [showLangs, toggleLangs] = createSignal(false);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [t] = useI18n();
+  const [t, {locale}] = useI18n();
   let firstLoad = true;
   const [observer] = createIntersectionObserver([], ([entry]) => {
     if (firstLoad) { firstLoad = false; return ;}
@@ -100,14 +98,34 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                 </Link>
               </li>
               <For each={t('global.nav')} children={MenuLink} />
-              <LanguageSelector class="flex lg:hidden" />
+              <LanguageSelector onClick={() => toggleLangs(!showLangs())} class="flex lg:hidden" />
             </ul>
           </ScrollShadow>
           <ul class="hidden lg:flex items-center">
             <Social />
-            <LanguageSelector />
+            <LanguageSelector onClick={() => toggleLangs(!showLangs())} />
           </ul>
         </nav>
+        <Show when={showLangs()}>
+          <div class="container absolute flex -mt-4 justify-end">
+            <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
+              <For each={Object.entries(langs)}>
+                {([ lang, label ]) => (
+                  <button
+                    class="first:rounded-t hover:bg-solid-lightgray last:rounded-b text-left p-3 text-sm border-b w-full"
+                    classList={{
+                      'bg-solid-medium text-white': lang == locale(),
+                      'hover:bg-solid-light': lang == locale()
+                    }}
+                    onClick={() => locale(lang) && toggleLangs(false)}
+                  >
+                    {label}
+                  </button>
+                )}
+              </For>
+            </div>
+          </div>
+        </Show>
       </div>
     </>
   );
