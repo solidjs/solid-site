@@ -1,8 +1,5 @@
-import { useI18n } from '@solid-primitives/i18n';
-import { useLocation, RouteDataFunc, RouteData } from 'solid-app-router';
+import { DataFn } from 'solid-app-router';
 import { createResource } from 'solid-js';
-
-const supportedLanguages = ['en', 'ja', 'zh-cn'];
 
 export interface Step {
   md: string;
@@ -15,37 +12,35 @@ export interface TutorialDirectoryItem {
   description: string;
 }
 
-interface Params {
-  lang: string;
-  id?: string;
-}
-
 export type TutorialDirectory = TutorialDirectoryItem[];
 
 const markdownCache = new Map<string, Promise<string>>();
-let directoryCache: { [key: string]: Promise<TutorialDirectory> | undefined } = {};
+let directoryCache: Promise<TutorialDirectory> | undefined;
 
-function getMarkdown(locale: string, id: string) {
-  const cacheKey = `${locale}-${id}`;
-  if (markdownCache.has(id)) return markdownCache.get(cacheKey);
-  const markdown = fetch(`/tutorial/lessons/${locale}/${id}/lesson.md`).then((res) => res.text());
-  markdownCache.set(cacheKey, markdown);
+function getMarkdown(id: string) {
+  if (markdownCache.has(id)) return markdownCache.get(id);
+
+  const markdown = fetch(`/tutorial/lessons/${id}/lesson.md`).then((res) => res.text());
+  markdownCache.set(id, markdown);
+
   return markdown;
 }
 
-async function fetchData({ lang, id }: Params) {
+async function fetchData(id: string) {
   if (!id) return {};
-  const markdown = await getMarkdown(lang, id);
-  const javascript = `/tutorial/lessons/${lang}/${id}/lesson.json`;
-  const solved = `/tutorial/lessons/${lang}/${id}/solved.json`;
+
+  const markdown = await getMarkdown(id);
+  const javascript = `/tutorial/lessons/${id}/lesson.json`;
+  const solved = `/tutorial/lessons/${id}/solved.json`;
+
   return { markdown, javascript, solved };
 }
 
-async function fetchTutorialDirectory({ lang }: Params) {
-  if (directoryCache[lang] === undefined) {
-    directoryCache[lang] = fetch(`/tutorial/lessons/${lang}/directory.json`).then((r) => r.json());
+async function fetchTutorialDirectory() {
+  if (directoryCache === undefined) {
+    directoryCache = fetch('/tutorial/lessons/directory.json').then((r) => r.json());
   }
-  return directoryCache[lang];
+  return directoryCache;
 }
 
 const propogateUndefined = (
@@ -60,7 +55,7 @@ const propogateUndefined = (
   return out + strings[strings.length - 1];
 };
 
-export interface TutorialRouteData extends RouteData {
+export interface TutorialProps {
   loading: boolean;
   markdown?: string;
   js?: string;
@@ -75,18 +70,10 @@ export interface TutorialRouteData extends RouteData {
   solved?: boolean;
 }
 
-export const TutorialData: RouteDataFunc = (props) => {
-  const location = useLocation();
-  const [, { locale }] = useI18n();
-  const params = () => {
-    let lang = locale();
-    if (!supportedLanguages.includes(lang)) {
-      lang = 'en';
-    }
-    return { lang, id: props.params.id! };
-  };
-  const [directory] = createResource<TutorialDirectory>(params, fetchTutorialDirectory);
-  const [data] = createResource(params, fetchData);
+export const TutorialData: DataFn<{ id: string }> = (props) => {
+  const [directory] = createResource<TutorialDirectory>(fetchTutorialDirectory);
+  const [data] = createResource(() => props.params.id!, fetchData);
+
   return {
     get loading() {
       return data.loading;
@@ -107,11 +94,14 @@ export const TutorialData: RouteDataFunc = (props) => {
         data.reduce<Record<string, TutorialDirectory>>((sections, item) => {
           // Turns `Basics/Signal` into ['Basics', 'Signal']
           const [section, lessonName] = item.lessonName.split('/');
+
           // Create the section if it doesn't already exists
           if (!sections[section]) {
             sections[section] = [];
           }
+
           sections[section].push({ ...item, lessonName });
+
           return sections;
         }, {})
       );
@@ -152,7 +142,7 @@ export const TutorialData: RouteDataFunc = (props) => {
       return props.params.id;
     },
     get solved() {
-      return Boolean(location.query['solved']);
+      return Boolean(props.query['solved']);
     },
   };
 };

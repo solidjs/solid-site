@@ -1,5 +1,4 @@
 import type { Component } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { createSignal, createMemo, For, Show } from 'solid-js';
 
 export interface GraphData {
@@ -36,7 +35,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
                   <div
-                    class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs"
+                    class="transition-all duration-75 rounded-3xl text-right text-xxs"
                     classList={{
                       'font-semibold': row.active,
                       'bg-solid-accent': row.active,
@@ -46,7 +45,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                   >
                     {row.score ? (
                       <figure>
-                        <span class="inline-block p-1 ltr:border-l rtl:border-r border-white px-2 rounded-full">
+                        <span class="inline-block p-1 border-l border-white px-2 rounded-full">
                           {row.score}
                         </span>
                       </figure>
@@ -75,7 +74,6 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
 };
 
 const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
-  const [t] = useI18n();
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
   return (
@@ -88,16 +86,16 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
             class="py-3 text-sm chevron chevron-right button text-solid-default font-semibold hover:text-gray-500"
             onClick={() => setExpanded(true)}
           >
-            {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}
+            Show more client + server benchmarks
           </button>
         }
       >
-        <div class="flex flex-col xl:flex-row space-y-2">
+        <div class="space-x-2 space-y-10">
           {props.list.map((item, index) => {
             return (
               <button
                 onClick={() => setCurrent(index)}
-                class="text-xs p-4 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
+                class="text-xs px-6 py-3 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
                 classList={{
                   'active text-white bg-solid-light': current() === index,
                   'bg-gray-100': current() !== index,
@@ -117,7 +115,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
               rel="noopener noreferrer"
               href={props.list[current()].link}
             >
-              {t('home.benchmarks.view')}
+              View the benchmark
             </a>
           </Show>
         </div>
