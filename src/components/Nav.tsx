@@ -58,6 +58,7 @@ const LanguageSelector: Component<{ class?: string }> = (props) => {
         <option value="fr">Français</option>
         <option value="id">Bahasa Indonesia</option>
         <option value="he">עִברִית</option>
+        <option value="ru">русский</option>
       </select>
     </li>
   );

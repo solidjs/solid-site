@@ -10,6 +10,7 @@ const langs = {
   fr: async () => (await import('../lang/fr/fr')).default(),
   id: async () => (await import('../lang/id/id')).default(),
   he: async () => (await import('../lang/he/he')).default(),
+  ru: async () => (await import('../lang/ru/ru')).default(),
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
 };
 
