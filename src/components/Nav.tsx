@@ -79,7 +79,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     <>
       <div use:observer class="h-0" />
       <div
-        class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
+        class="flex justify-center sticky top-0 z-50 dark:bg-solid-gray bg-white"
         classList={{ 'shadow-md': showLogo() }}
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
@@ -109,7 +109,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </ul>
         </nav>
         <Show when={showLangs()}>
-          <div class="container absolute flex -mt-4 justify-end">
+          <div class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end">
             <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
               <For each={Object.entries(langs)}>
                 {([lang, label]) => (

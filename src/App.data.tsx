@@ -3,7 +3,7 @@ import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
 
-const langs = {
+const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
   it: async () => (await import('../lang/it/it')).default(),
   ja: async () => (await import('../lang/ja/ja')).default(),

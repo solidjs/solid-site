@@ -38,7 +38,7 @@ const Home: Component<{}> = () => {
   return (
     <div class="dark:bg-solid-gray flex flex-col">
       <h1 class="sr-only">SolidJS homepage</h1>
-      <header class="mx-3 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
+      <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
         <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
           <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
             <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
