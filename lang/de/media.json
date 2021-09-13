@@ -1,17 +1,17 @@
 {
-  "title": "Media Assets",
-  "copy": "The following are assets that represent the Solid brand. All assets are considered open-source contributions and should be used according to open standards and licensing rules. For additional assets or questions pertaining to brand alignment, feel free to join our Discord for support and guidance.",
-  "brand_font": "Brand Font",
-  "primary": "Primary Color",
-  "secondary": "Secondary Color",
-  "light": "Light Color",
-  "accent": "Accent Color",
+  "title": "Medien",
+  "copy": "Die folgenden Medien repräsentieren die Marke Solid. Alle Dateien sind Open-Source und sollten gemäß offener Standards und Lizenzbestimmungen eingesetzt werden. Für zusätzliche Medien oder Fragen zu der Markenorientierung wende man sich an unseren Discord für Unterstützung und Hilfe.",
+  "brand_font": "Markenschrift",
+  "primary": "Primärfarbe",
+  "secondary": "Sekundärfarbe",
+  "light": "Helle Farbe",
+  "accent": "Akzentfarbe",
   "resources": {
-    "with_wordmark": "With Wordmark",
-    "without_wordmark": "Without Wordmark",
-    "only_wordmark": "Only Wordmark",
-    "dark_with_wordmark": "Dark With Wordmark",
-    "dark_without_wordmark": "Dark Without Wordmark",
-    "dark_only_wordmark": "Only Dark Wordmark"
+    "with_wordmark": "Mit Schrift",
+    "without_wordmark": "Ohne Schrift",
+    "only_wordmark": "Nur Schrift",
+    "dark_with_wordmark": "Dunkel mit Schrift",
+    "dark_without_wordmark": "Dunkel ohne Schrift",
+    "dark_only_wordmark": "Dunkel nur Schrift"
   }
 }
