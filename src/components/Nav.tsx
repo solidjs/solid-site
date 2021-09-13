@@ -12,9 +12,10 @@ const langs = {
   ja: '日本語',
   it: 'Italiano',
   fr: 'Français',
+  de: 'Deutsch',
+  ru: 'русский',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
-  ru: 'русский',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
@@ -46,21 +47,18 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
   </li>
 );
 
-const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => {
-  const [t] = useI18n();
-  return (
-    <li class={props.class || ''}>
-      <button
-        onClick={props.onClick}
-        class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
-        style={{
-          'background-image': 'url(/img/icons/translate2.svg)',
-          'background-size': '24px',
-        }}
-      />
-    </li>
-  );
-};
+const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => (
+  <li class={props.class || ''}>
+    <button
+      onClick={props.onClick}
+      class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+      style={{
+        'background-image': 'url(/img/icons/translate2.svg)',
+        'background-size': '24px',
+      }}
+    />
+  </li>
+);
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
