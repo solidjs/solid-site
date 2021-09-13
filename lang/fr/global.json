@@ -33,8 +33,15 @@
       "path": "/media"
     }
   ],
+  "404": {
+    "header": "Oups. Quatre Zéro Quatre.",
+    "body": "a constaté que cette page n'existe pas !"
+  },
   "footer": {
-    "declaration": "Solid est un projet open-source soutenu par un groupe de contributeurs, distribué sous licence MIT. Cette bibliothèque et cette communauté sont rendues possibles par une équipe de base et grâce à des contributeurs dévoués",
+    "declaration": "Solid est un projet open-source soutenu par un groupe de contributeurs, distribué sous <a class=\"underline hover:text-gray-500\" href=\"{license}\">licence MIT</a>. Cette bibliothèque et cette communauté sont rendues possibles par <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">une équipe de base et grâce à des contributeurs dévoués</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsorisé par",
     "updated": "Mis à jour le {{date}} sur Solid v{{version}}"
   }
 }
