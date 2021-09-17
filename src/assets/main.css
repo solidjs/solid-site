@@ -89,6 +89,11 @@
   top: 0.55em;
   transform: rotate(45deg);
 }
+.chevron.chevron-left:after {
+  right: 0.25em;
+  top: 0.55em;
+  transform: rotate(225deg);
+}
 .chevron.chevron-right:hover::after {
   left: 0.45em;
 }
