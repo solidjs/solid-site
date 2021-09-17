@@ -35,7 +35,9 @@ const Home: Component<{}> = () => {
     // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
-  const chevron = createMemo(() => t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right');
+  const chevron = createMemo(() =>
+    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
+  );
   return (
     <div class="dark:bg-solid-gray flex flex-col">
       <h1 class="sr-only">SolidJS homepage</h1>
