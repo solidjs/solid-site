@@ -28,7 +28,7 @@ const core = [
     bio: ' A web developer with an interest in reactive programming and making the web a better place.',
   },
   {
-    img: 'ryan-turnquist.png',
+    img: 'ryan-turnquist.jpeg',
     github: 'rturnq',
     name: 'Ryan Turnquist',
     role: 'Library Maintainer',
