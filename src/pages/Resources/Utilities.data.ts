@@ -656,6 +656,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/lxsmnsyc/solid-uppy',
+    title: 'solid-uppy',
+    description: 'Sleek, modular open source JavaScript file uploader for Solid using Uppy.',
+    author: 'lxsmnsyc',
+    author_url: 'https://github.com/lxsmnsyc',
+    keywords: ['form', 'upload'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;

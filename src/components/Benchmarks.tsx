@@ -78,6 +78,9 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
   const [t] = useI18n();
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
+  const chevron = createMemo(() =>
+    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
+  );
   return (
     <>
       <Chart scale={props.list[current()].scale} rows={props.list[current()].data} />
@@ -85,7 +88,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         when={expanded()}
         fallback={
           <button
-            class="py-3 text-sm chevron chevron-right button text-solid-default font-semibold hover:text-gray-500"
+            class={`py-3 text-sm chevron button text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
             onClick={() => setExpanded(true)}
           >
             {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}

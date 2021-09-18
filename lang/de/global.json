@@ -1,46 +1,46 @@
 {
-  "name": "English",
-  "locale": "en-US",
+  "name": "Deutsch",
+  "locale": "de-DE",
   "nav": [
     {
-      "title": "Get Started",
+      "title": "Loslegen",
       "path": "/guide"
     },
     {
-      "title": "Docs",
+      "title": "Dokumentation",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Resources",
+      "title": "Ressourcen",
       "path": "/resources"
     },
     {
-      "title": "Tutorial",
+      "title": "Anleitung",
       "path": "/tutorial"
     },
     {
-      "title": "Examples",
+      "title": "Beispiele",
       "path": "/examples"
     },
     {
-      "title": "Playground",
+      "title": "Spielwiese",
       "path": "https://playground.solidjs.com",
       "external": true
     },
     {
-      "title": "Media",
+      "title": "Medien",
       "path": "/media"
     }
   ],
   "404": {
-    "header": "Oops. Four oh four.",
-    "body": "believes this page definitely doesn't exist."
+    "header": "Na sowas. Vier Null Vier.",
+    "body": "glaubt, diese Seite existiert bestimmt nicht."
   },
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a class=\"underline hover:text-gray-500\" href=\"{license}\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">core team and dedicated contributors</a>.",
+    "declaration": "Solid ist ein Open-Source-Project, das von einem Team von öffentlichen Mitwirkenden unterstützt wird. Es wird unter <a class=\"underline hover:text-gray-500\" href=\"{{license}}\">einer MIT-Lizenz</a> veröffentlicht. Diese Library und Gemeinschaft sind möglich dank unserem <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">Kern-Team und treuen Mitwirkenden</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
-    "sponsored_by": "Sponsored by",
-    "updated": "Last updated {{date}} on Solid v{{version}}"
+    "sponsored_by": "Gesponsert von",
+    "updated": "Letztes Update am {{date}} auf Solid v{{version}}"
   }
 }

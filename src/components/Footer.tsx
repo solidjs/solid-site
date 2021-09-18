@@ -16,7 +16,7 @@ const Footer: Component = () => {
     <Portal mount={document.getElementById('footer')!}>
       <div
         dir={t('global.dir', {}, 'ltr')}
-        class="py-10 mt-5 bg-solid-lightgray dark:text-white dark:bg-solid-gray rounded-tr-3xl rounded-tl-3xl mx-3"
+        class="py-10 mt-5 bg-solid-lightgray dark:text-white dark:bg-solid-gray rounded-tr-3xl rounded-tl-3xl mx-2"
       >
         <div class="px-7 md:px-0 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
           <img class="w-52" src={wordmark} alt="Solid logo" />
@@ -59,7 +59,7 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021/09/11, 11:23am',
+                  date: '2021/09/17, 9:00am',
                   version: '1.1.2',
                 })}
               </p>

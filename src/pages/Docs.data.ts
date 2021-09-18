@@ -9,7 +9,7 @@ export type DataParams = {
 };
 
 const currentVersion = '1.0.0';
-const availableLangs = ['br', 'en', 'fr', 'id', 'it', 'ja', 'pt', 'ru', 'zh-cn'];
+const availableLangs = ['br', 'en', 'de', 'fr', 'id', 'it', 'ja', 'pt', 'ru', 'zh-cn'];
 
 const cache = new Map<string, Promise<string>>();
 

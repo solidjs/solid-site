@@ -71,24 +71,20 @@ const Contributors: Component<{}> = () => {
     <div class="flex flex-col relative">
       <Nav showLogo />
       <Header title={t('contributors.title', {}, 'Team & Contributors')} />
-
       <div class="px-3 lg:px-12 container my-10">
         <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">
             <h2 class="text-3xl font-semibold text-solid-default">
               {t('contributors.core_team', {}, 'Core Team')}
             </h2>
-
             <ul class="space-y-10">
               <For each={data.core} children={CoreMember} />
             </ul>
           </div>
-
           <div class="col-span-6 flex flex-col space-y-10">
             <h2 class="text-2xl font-semibold text-solid-default">
               {t('contributors.acknowledgments', {}, 'Acknowledgements')}
             </h2>
-
             <p>
               {t(
                 'contributors.copy',
@@ -96,19 +92,15 @@ const Contributors: Component<{}> = () => {
                 "Solid wouldn't be possible without the help of other talented individuals. As we grow we hope others will find ways to give their time either in the form of bug reporting, pull requests, design suggestions, writing and many other ways.",
               )}
             </p>
-
             <ul class="flex flex-col space-y-3">
               <For each={data.contributors} children={Contributor} />
             </ul>
-
             <h2 class="text-2xl font-semibold text-solid-default">
               {t('contributors.ecosystem_team', {}, 'Ecosystem Team')}
             </h2>
-
             <ul class="flex flex-col space-y-3">
               <For each={data.ecosystem} children={Contributor} />
             </ul>
-
             <div class="flex mb-5 flex-col space-y-3">
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">
                 {t('contributors.contributors', {}, 'Contributors')}
@@ -117,7 +109,6 @@ const Contributors: Component<{}> = () => {
                 <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
               </a>
             </div>
-
             <h2 class="text-2xl font-semibold text-solid-default">
               {t('contributors.internationalization', {}, 'Internationalization')}
             </h2>
@@ -139,7 +130,6 @@ const Contributors: Component<{}> = () => {
                 </For>
               </ul>
             </div>
-
             <div>
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">Open Collective</h2>
               <div class="inline-block mb-10">
@@ -156,7 +146,6 @@ const Contributors: Component<{}> = () => {
                   Contribute today &raquo;
                 </a>
               </div>
-
               <div class="grid grid-cols-8 gap-4">
                 <a href="https://opencollective.com/solid/backer/0/website" target="_blank">
                   <img class="w-22" src="https://opencollective.com/solid/backer/0/avatar.svg" />
@@ -196,7 +185,6 @@ const Contributors: Component<{}> = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

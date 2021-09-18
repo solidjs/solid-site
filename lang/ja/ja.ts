@@ -5,10 +5,12 @@ import tutorial from './tutorial';
 import media from './media';
 import examples from './examples';
 import contributors from './contributors';
+import docs from './docs';
 
 const langs = () => ({
   global,
   home,
+  docs,
   media,
   resources,
   tutorial,

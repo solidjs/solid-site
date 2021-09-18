@@ -95,6 +95,8 @@
     },
     "benchmarks": {
       "time": "Temps",
+      "view": "Voir les résultats du Test Benchmark",
+      "show_more": "Afficher plus de références client + serveur",
       "link_label": "Le JS Framework Benchmark compare les performances du navigateur à travers un large éventail de tests. Plus bas, c'est mieux.",
       "js_benchmark": {
         "title": "Benchmark du framework JS",

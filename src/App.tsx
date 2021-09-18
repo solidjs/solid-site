@@ -20,20 +20,16 @@ export const App = () => {
 
 const Lang: Component = (props) => {
   const data = useData<{ isDark: true; i18n: ReturnType<typeof createI18nContext> }>(0);
-  const [t] = data.i18n;
+  const [t, { locale }] = data.i18n;
   return (
     <I18nContext.Provider value={data.i18n}>
       <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
-      <Meta name="lang" content={data.i18n[1].locale()} />
-      <Meta
-        name="description"
-        content="A declarative, efficient and flexible JavaScript library for building user interfaces."
-      />
+      <Meta name="lang" content={locale()} />
       <div
+        dir={t('global.dir', {}, 'ltr')}
         classList={{
           dark: data.isDark === true,
         }}
-        dir={t('global.dir', {}, 'ltr')}
       >
         <div class="dark:bg-solid-gray dark:text-white">{props.children}</div>
       </div>

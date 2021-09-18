@@ -57,6 +57,7 @@ const Examples: Component = () => {
                     <For each={examples}>
                       {(example) => (
                         <NavLink
+                          dir="ltr"
                           href={`/examples/${example.id}`}
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
                           activeClass="text-solid-light"

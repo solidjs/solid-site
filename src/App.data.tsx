@@ -3,13 +3,15 @@ import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
 
-const langs = {
+const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
   it: async () => (await import('../lang/it/it')).default(),
+  de: async () => (await import('../lang/de/de')).default(),
   ja: async () => (await import('../lang/ja/ja')).default(),
   fr: async () => (await import('../lang/fr/fr')).default(),
   id: async () => (await import('../lang/id/id')).default(),
   he: async () => (await import('../lang/he/he')).default(),
+  ru: async () => (await import('../lang/ru/ru')).default(),
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
 };
 
@@ -23,7 +25,7 @@ export const AppData: RouteDataFunc = (props) => {
   const browserLang = navigator.language.slice(0, 2);
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);
-  } else if (langs.hasOwnProperty(browserLang)) {
+  } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
   const i18n = createI18nContext({}, settings.locale || 'en');
