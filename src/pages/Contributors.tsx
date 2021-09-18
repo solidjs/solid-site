@@ -1,7 +1,5 @@
 import { Component, For, Show } from 'solid-js';
 import { useData } from 'solid-app-router';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
@@ -69,8 +67,6 @@ const Contributors: Component<{}> = () => {
   const data = useData<ContributorsDataProps>();
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title={t('contributors.title', {}, 'Team & Contributors')} />
       <div class="px-3 lg:px-12 container my-10">
         <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">

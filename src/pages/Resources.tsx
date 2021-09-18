@@ -68,8 +68,8 @@ const ContentRow: Component<Resource> = (props) => {
         rel="nofollow"
       >
         <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
-          <figure class="flex content-center w-11 h-11 p-1.5 bg-solid-medium rounded-full text-white">
-            <Icon class="w-full" path={ResourceTypeIcons[props.type]} />
+          <figure class="flex justify-center content-center w-14 h-14 p-1.5 border-4 border-solid-medium rounded-full text-white">
+            <Icon class="text-solid-medium w-5/6" path={ResourceTypeIcons[props.type]} />
           </figure>
         </div>
         <div class="col-span-7 md:col-span-7 lg:col-span-10 items-center">
@@ -170,11 +170,9 @@ const Resources: Component = () => {
   });
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title={t('resources.title')} />
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
-        <div class="md:col-span-5 lg:col-span-3 overflow-auto  p-5 md:sticky md:top-20 rounded md:h-[82vh]">
-          <div class="text-xs bg-gray-50 p-4 border rounded" innerHTML={t('resources.cta')}></div>
+        <div class="md:col-span-5 lg:col-span-3 overflow-auto p-5 md:sticky md:top-20 rounded md:h-[82vh]">
+          <div class="text-xs bg-gray-100 p-4 rounded" innerHTML={t('resources.cta')}></div>
           <input
             class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-25 placeholder-gray-500"
             placeholder={t('resources.search')}
@@ -210,8 +208,8 @@ const Resources: Component = () => {
                   class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
                 >
                   <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                    <figure class="flex content-center w-9 h-9 p-1.5 bg-solid-medium rounded-full text-white">
-                      <Icon class="w-full" path={ResourceTypeIcons[type]} />
+                    <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
+                      <Icon class="text-solid-medium w-5/6" path={ResourceTypeIcons[type]} />
                     </figure>
                   </div>
                   <div class="col-span-3 rtl:text-right lg:col-span-3">

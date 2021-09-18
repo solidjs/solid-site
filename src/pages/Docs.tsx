@@ -62,8 +62,6 @@ const Docs: Component<{
   });
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title={t('docs.title')} />
       <Show when={!data.loading}>
         <div dir="ltr" class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button

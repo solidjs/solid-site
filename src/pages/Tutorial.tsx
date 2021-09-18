@@ -13,14 +13,13 @@ import {
   batch,
   ErrorBoundary,
 } from 'solid-js';
+import { useI18n } from '@solid-primitives/i18n';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
-import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
-import { useI18n } from '@solid-primitives/i18n';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -205,7 +204,6 @@ const Tutorial: Component = () => {
   });
   return (
     <>
-      <Nav showLogo filled />
       <Suspense fallback={<p>Loading...</p>}>
         <div
           dir="ltr"

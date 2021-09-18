@@ -2,6 +2,7 @@ import { Component } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
+import Header from './components/Header';
 import { AppData } from './App.data';
 import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 
@@ -11,6 +12,7 @@ export const App = () => {
     <main class="min-h-screen">
       <Router data={AppData}>
         <Lang>
+          <Header />
           <Routes />
         </Lang>
       </Router>

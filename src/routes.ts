@@ -6,6 +6,7 @@ import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
 import { ExamplesData } from './pages/Examples.data';
+import { BlogData } from './pages/Blog.data';
 
 export const routes: RouteDefinition[] = [
   {
@@ -19,6 +20,23 @@ export const routes: RouteDefinition[] = [
     path: '/guide',
     component: lazy(() => import('./pages/Docs')),
     data: DocsData,
+  },
+  {
+    path: '/blog',
+    component: lazy(() => import('./pages/Blog')),
+    children: [
+      {
+        path: ':article',
+        component: lazy(() => import('./pages/Blog')),
+        data: BlogData,
+      },
+      {
+        path: '*all',
+        component: lazy(() => import('./pages/Blog')),
+        data: BlogData,
+      },
+    ],
+    data: BlogData,
   },
   {
     path: '/docs',

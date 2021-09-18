@@ -3,8 +3,6 @@ import { NavLink, useData, useParams } from 'solid-app-router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 
@@ -42,8 +40,6 @@ const Examples: Component = () => {
   });
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title={t('examples.title', {}, 'Examples')} />
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border p-5 rounded md:h-[82vh]">

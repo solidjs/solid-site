@@ -2,7 +2,6 @@ import { Component, createSignal, lazy, onMount, For, Suspense, Show, createMemo
 import { Link, useData } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import logo from '../assets/logo.svg';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
 import iconBlocks2 from '../assets/icons/blocks2.svg';
 import flag from '../assets/icons/flag.svg';
@@ -11,8 +10,6 @@ import performant from '../assets/icons/performant.svg';
 import powerful from '../assets/icons/powerful.svg';
 import pragmatic from '../assets/icons/pragmatic.svg';
 import productive from '../assets/icons/productive.svg';
-import wordmark from '../assets/wordmark.svg';
-import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
 
@@ -40,23 +37,8 @@ const Home: Component<{}> = () => {
   );
   return (
     <div class="dark:bg-solid-gray flex flex-col">
-      <h1 class="sr-only">SolidJS homepage</h1>
-      <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white">
-        <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
-          <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
-            <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
-              <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
-              <img class="w-52 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
-            </div>
-            <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
-              {t('home.hero')}
-            </h2>
-          </section>
-        </div>
-      </header>
-      <Nav />
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
-        <div class="my-10 p-10 max-w-4xl m-auto text-2xl">{t('home.info')}</div>
+        <div class="my-10 p-10 max-w-4xl m-auto text-2xl" innerHTML={t('home.info')} />
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (

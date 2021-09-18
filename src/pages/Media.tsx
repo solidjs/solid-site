@@ -109,8 +109,6 @@ const Media: Component = () => {
   const [t] = useI18n();
   return (
     <div class="flex flex-col">
-      <Nav showLogo />
-      <Header title={t('media.title')} />
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 md:grid md:grid-cols-6 gap-10">
           <div class="col-span-4">{t('media.copy')}</div>
