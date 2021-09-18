@@ -7,6 +7,7 @@ const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
   it: async () => (await import('../lang/it/it')).default(),
   de: async () => (await import('../lang/de/de')).default(),
+  pt: async () => (await import('../lang/pt/pt')).default(),
   ja: async () => (await import('../lang/ja/ja')).default(),
   fr: async () => (await import('../lang/fr/fr')).default(),
   id: async () => (await import('../lang/id/id')).default(),
