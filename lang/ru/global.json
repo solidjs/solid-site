@@ -38,7 +38,7 @@
     "body": "Этой страницы точно не существует."
   },
   "footer": {
-    "declaration": "Solid - это проект с открытым исходным кодом, поддерживаемый командой публичных участников. Распространяется под <a class=\"underline hover:text-gray-500\" href=\"{{license}}\">лицензией MIT</a>. Эта библиотека и сообщество стали возможными благодаря <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">основной команде и преданным участникам</a>.",
+    "declaration": "Solid - это проект с открытым исходным кодом, поддерживаемый командой публичных участников. Распространяется под <a class=\"underline hover:text-gray-500\" href=\"{license}\">лицензией MIT</a>. Эта библиотека и сообщество стали возможными благодаря <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">основной команде и преданным участникам</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Спонсоры",

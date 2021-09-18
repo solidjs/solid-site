@@ -13,6 +13,7 @@ const langs = {
   it: 'Italiano',
   fr: 'Français',
   de: 'Deutsch',
+  pt: 'Português',
   ru: 'русский',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
