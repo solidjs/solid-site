@@ -6,6 +6,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionDuration: {
+        0: '0ms',
+        5000: '5000ms',
+      },
       fontSize: {
         xxs: '.55rem',
       },

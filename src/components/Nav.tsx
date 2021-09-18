@@ -63,7 +63,7 @@ const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (pr
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
-  const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
+  const [locked, setLocked] = createSignal<boolean>(true);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
   const [observer] = createIntersectionObserver([], ([entry]) => {
@@ -73,7 +73,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     }
     setLocked(entry.isIntersecting);
   });
-  const showLogo = createMemo(() => props.showLogo || !locked());
+  const showLogo = createMemo(() => (props.showLogo ? true : !locked()));
   return (
     <>
       <div use:observer class="h-0" />

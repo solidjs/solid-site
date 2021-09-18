@@ -1211,6 +1211,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@otonashixav/solid-flip@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@otonashixav/solid-flip/-/solid-flip-0.6.0.tgz#9c0bcd26cd23285d74cca134593a2d681cfb577e"
+  integrity sha512-9OlzH0wuUk81ZM1sBLF5gNNJVt0NtUu4rrSq5eAsXm2/pTUeXcSHtURJ7cTayzS8cQgZMq4yQ2O118qwmXfV5Q==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -4506,6 +4511,11 @@ solid-repl@0.15.1:
     register-service-worker "^1.7.2"
     rollup "^2.55.1"
     solid-js "1.0.7"
+
+solid-transition-group@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/solid-transition-group/-/solid-transition-group-0.0.8.tgz#56c0eb7fd7079ecc945f3d52b5376184e3985d45"
+  integrity sha512-5cS/Ircfs/Y0J00oEToL+MWd9V07KgQlw+qRD8kpd6azb2Ri5SjXg/ocqT8U8Wgdx1VQPx45HyopQN+UumkVGQ==
 
 solid-utils@^0.8.1:
   version "0.8.1"

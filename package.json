@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.8.0",
+    "@otonashixav/solid-flip": "^0.6.0",
     "@solid-primitives/cookies-store": "^1.1.4",
     "@solid-primitives/i18n": "^0.0.105",
     "@solid-primitives/intersection-observer": "^0.0.108",
@@ -30,6 +31,7 @@
     "solid-js": "1.1.2",
     "solid-meta": "^0.27.1",
     "solid-repl": "0.15.1",
+    "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1",
     "tailwindcss-rtl": "^0.7.3",
     "vite-plugin-pwa": "^0.8.2"
