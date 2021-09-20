@@ -4,6 +4,7 @@ import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
+import netlify from '../assets/supporters/netlify.png';
 import Social from './Social';
 
 const Footer: Component = () => (
@@ -42,6 +43,14 @@ const Footer: Component = () => (
               class="mx-4 hover:opacity-50 transition"
               target="_blank"
               rel="noopener"
+              href="https://www.netlify.com/"
+            >
+              <img class="w-32" src={netlify} alt="netlify" />
+            </a>
+            <a
+              class="mx-4 hover:opacity-50 transition"
+              target="_blank"
+              rel="noopener"
               href="https://www.builder.io/"
             >
               <img class="w-24" src={builder} alt="builder.io" />
@@ -58,7 +67,7 @@ const Footer: Component = () => (
 
           {/* TODO: Make this dynamic */}
           <p class="text-sm text-center text-gray-600 mt-3">
-            Last updated September 2, 2021 10:30am on Solid v1.1.2.
+            Last updated September 20, 2021 1:40pm on Solid v1.1.2.
           </p>
           <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
             <Social />

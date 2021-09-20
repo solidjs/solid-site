@@ -75,7 +75,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://indepth.dev/posts/1289/solidjs-reactivity-to-rendering',
-    title: "SolidJS: Reactivity to Rendering",
+    title: 'SolidJS: Reactivity to Rendering',
     description:
       "An in depth look at building Solid's reactive renderer, piece by piece, from the ground up.",
     author: 'Ryan Carniato',
