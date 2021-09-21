@@ -1,28 +1,28 @@
 {
-  "title": "Resources",
-  "cta": "To have your SolidJS related project listed here reach out to us on <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
-  "search": "Search resources",
-  "types": "Types",
+  "title": "Recursos",
+  "cta": "Para ter seu projeto SolidJS listado aqui, entre em contato conosco no <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Pesquise por recursos",
+  "types": "Tipos",
   "types_list": {
-    "article": "Article",
-    "video": "Video",
-    "library": "Library",
-    "package": "Package"
+    "article": "Artigos",
+    "video": "Videos",
+    "library": "Bibliotecas",
+    "package": "Pacotes"
   },
-  "categories": "Categories",
-  "translations": "Translations",
+  "categories": "Categorias",
+  "translations": "Traduções",
   "categories_list": {
-    "primitive": "Primitives",
-    "router": "Routers",
-    "data": "Data",
-    "ui": "UI",
+    "primitive": "Primitivos",
+    "router": "Roteador",
+    "data": "Dados",
+    "ui": "Interface",
     "plugin": "Plugins",
-    "starters": "Starters",
-    "build_utility": "Build Utilities",
-    "add_on": "Add On",
-    "testing": "Testing",
-    "educational": "Educational"
+    "starters": "Iniciantes",
+    "build_utility": "Utilitários de Build",
+    "add_on": "Adicionais",
+    "testing": "Testes",
+    "educational": "Educacional"
   },
-  "official": "Official",
-  "by": "By {{author}}"
+  "official": "Oficial",
+  "by": "Por {{author}}"
 }
