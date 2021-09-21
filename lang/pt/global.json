@@ -1,6 +1,6 @@
 {
   "name": "Português",
-  "title": "SolidJS · Reactive Javascript Library",
+  "title": "SolidJS · Biblioteca de Javascript reativa",
   "locale": "pt-PT",
   "nav": [
     {
@@ -38,7 +38,7 @@
     "body": "tem certeza que essa página não existe."
   },
   "footer": {
-    "declaration": "Solid é um projeto de código aberto mantido por uma equipe de contribuidores. É distribuído sobre a <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\">licensa do MIT</a>. Esta biblioteca e comunidade é possível graças à <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">contribuidores dedicados e a equipe principal</a>.",
+    "declaration": "Solid é um projeto de código aberto mantido por uma equipe de contribuidores. É distribuído sobre a <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\">licensa do MIT</a>. Esta biblioteca e comunidade é possível graças à <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">estes contribuidores dedicados e a equipe principal</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Patrocinado por",
