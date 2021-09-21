@@ -6,6 +6,7 @@ import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
+import netlify from '../assets/supporters/netlify.png';
 import darkLight from '../../public/img/icons/dark-light.svg';
 import Social from './Social';
 
@@ -38,6 +39,14 @@ const Footer: Component = () => {
                 href="https://www.cloudflare.com/"
               >
                 <img class="w-32" src={cloudflare} alt="cloudflare" />
+              </a>
+              <a
+                class="mx-4 hover:opacity-50 transition"
+                target="_blank"
+                rel="noopener"
+                href="https://www.netlify.com/"
+              >
+                <img class="w-32" src={netlify} alt="netlify" />
               </a>
               <a
                 class="mx-4 hover:opacity-50 transition"

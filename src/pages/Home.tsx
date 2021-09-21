@@ -56,7 +56,7 @@ const Home: Component<{}> = () => {
       </header>
       <Nav />
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
-        <div class="my-10 p-10 max-w-4xl m-auto text-2xl">{t('home.info')}</div>
+        <div class="my-10 p-10 max-w-4xl m-auto text-2xl" innerHTML={t('home.info')} />
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (

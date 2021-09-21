@@ -1,6 +1,6 @@
 {
     "hero": "A declarative, efficient and flexible JavaScript library for building user interfaces.",
-    "info": "Solid is a purely reactive library. It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
+    "info": "<span class=\"font-semibold\">Solid is a purely reactive library.</span> It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
     "strengths": [
       {
         "icon": "performant",
@@ -30,7 +30,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.0.0"
       },
       {
-        "label": "9.5k+",
+        "label": "11k+",
         "detail": "Github stars",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
