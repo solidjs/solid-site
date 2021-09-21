@@ -1,20 +1,20 @@
 {
-    "hero": "Uma biblioteca JavaScript declarativa, eficiente e flexível para construir interfaces de usuário.",
-    "info": "Solid é uma biblioteca puramente reativa. Ele foi projetado desde o início com um núcleo reativo. É influenciado por princípios reativos desenvolvidos por bibliotecas anteriores.",
+    "hero": "Uma biblioteca JavaScript declarativa, eficiente e flexível para construir UIs.",
+    "info": "Solid é uma biblioteca puramente reativa. Projetado desde o início com um núcleo reativo. É influenciado por princípios reativos desenvolvidos por bibliotecas anteriores.",
     "strengths": [
       {
         "icon": "performant",
         "label": "Performante",
-        "description": "Supera consistentemente os benchmarks reconhecidos de velocidade de interface do usuário e utilização de memória."
+        "description": "Supera constantemente os benchmarks reconhecidos de performance de UI e utilização de memória."
       },
       {
         "icon": "powerful",
         "label": "Poderoso",
-        "description": "Primitivos reativos composíveis casados com a flexibilidade do JSX."
+        "description": "Primitivos reativos casados até o final com a flexibilidade do JSX."
       },
       {
         "icon": "pragmatic",
-        "label": "Pragmático",
+        "label": "Prático",
         "description": "Uma API sensível e personalizada torna o desenvolvimento divertido e simples."
       },
       {
@@ -40,15 +40,15 @@
       },
       {
         "label": "TypeScript",
-        "detail": "Suporte"
+        "detail": "Suportado"
       },
       {
-        "label": "Melhor avaliado",
+        "label": "O melhor",
         "detail": "Em performance"
       },
       {
         "label": "Astro & Vite",
-        "detail": "Suporte"
+        "detail": "Suportados"
       }
     ],
     "example": {
@@ -72,7 +72,7 @@
         "Focado em performance",
         "tanto no cliente quanto no servidor"
       ],
-      "copy": "A abordagem da reatividade refinada é visível em qualquer benchmark. Mesmo se desempenho não for seu foco, você não terá nenhum esforço adicional para receber do mesmo. Pense no ganho de desempenho do Solid como uma vitória gratuita. Solid significa ser rápido sem nem tentar.",
+      "copy": "O resultado de uma reatividade refinada é visível em qualquer benchmark. Mesmo se desempenho não for seu foco, você não terá nenhum esforço adicional para receber do mesmo. Pense no ganho de desempenho do Solid como uma vitória gratuita. Solid significa ser rápido sem nem tentar.",
       "link_label": "Ler artigo",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
