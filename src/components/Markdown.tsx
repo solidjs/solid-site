@@ -13,7 +13,7 @@ import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-typescript';
 
 const Markdown: Component<Props> = (props) => {
-  const [internal, external] = splitProps(props, ['class', 'onLoadSections']);
+  const [internal, external] = splitProps(props, ['class', 'onLoadSections', 'children']);
 
   const doc = createMemo(() => {
     const sections: Section[] = [];
@@ -28,7 +28,7 @@ const Markdown: Component<Props> = (props) => {
         },
       });
 
-    const html = md.render(props.children as string);
+    const html = md.render(internal.children as string);
 
     return {
       html,
