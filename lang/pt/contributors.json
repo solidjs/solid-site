@@ -1,11 +1,11 @@
 {
-  "title": "Equipe & Contribuidores",
+  "title": "Equipe e Contribuidores",
   "core_team": "Equipe Principal",
   "acknowledgments": "Agradecimentos",
   "ecosystem_team": "Equipe do Ecosistema",
-  "copy": "Solid não seria possível sem a ajuda de outras pessoas talentosas. Enquanto crescemos, esperamos que as pessoas encontrem maneiras de doar do seu tempo, seja reportando bugs, criando pull requests, fazendo sugestões ao design, escrevendo, entre muitas outras coisas",
-  "translators_copy": "As pessoas a seguir se esforçaram e dedicaram graciosamente seu tempo para ter certeza que Solid se tornasse internacional:",
+  "copy": "Solid não seria possível sem ajuda de outras pessoas talentosas. À medida que crescemos, esperamos que outros encontrem maneiras de dedicar seu tempo, na forma de nota de bugs, pull requests, sugestões de design, escrita e muitas outras maneiras."
+  "translators_copy": "As pessoas a seguir se esforçaram e dedicaram seu precioso tempo para ter certeza que Solid se tornasse internacional:",
   "contributors": "Contribuidores",
-  "open_collective": "Coletivo Aberto",
+  "open_collective": "Coletiva aberta",
   "support_copy": "Apoie-nos com uma doação e nos ajude a continuar desenvolvendo:"
 }
