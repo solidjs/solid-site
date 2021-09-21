@@ -1,0 +1,46 @@
+{
+  "name": "Deutsch",
+  "locale": "de-DE",
+  "nav": [
+    {
+      "title": "Loslegen",
+      "path": "/guide"
+    },
+    {
+      "title": "Dokumentation",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Ressourcen",
+      "path": "/resources"
+    },
+    {
+      "title": "Anleitung",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Beispiele",
+      "path": "/examples"
+    },
+    {
+      "title": "Spielwiese",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Medien",
+      "path": "/media"
+    }
+  ],
+  "404": {
+    "header": "Na sowas. Vier Null Vier.",
+    "body": "glaubt, diese Seite existiert bestimmt nicht."
+  },
+  "footer": {
+    "declaration": "Solid ist ein Open-Source-Project, das von einem Team von öffentlichen Mitwirkenden unterstützt wird. Es wird unter <a class=\"underline hover:text-gray-500\" href=\"{{license}}\">einer MIT-Lizenz</a> veröffentlicht. Diese Library und Gemeinschaft sind möglich dank unserem <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">Kern-Team und treuen Mitwirkenden</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Gesponsert von",
+    "updated": "Letztes Update am {{date}} auf Solid v{{version}}"
+  }
+}

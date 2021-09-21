@@ -1,0 +1,108 @@
+{
+    "hero": "Sebuah library Javascript yang deklaratif, effisien, dan fleksibel untuk membangun user interfaces.",
+    "info": "Solid adalah library reaktif yang murni. Ia didesain dari bawah ke atas dengan inti reaktif. Ia dipengaruhi oleh prinsip-prinsip yang dikembangkan oleh library-library sebelumnya.",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "Performa",
+        "description": "Secara konsisten berada di puncak benchmarks kecepatan UI yang diakui dan pemanfaatan memori."
+      },
+      {
+        "icon": "powerful",
+        "label": "Kuat",
+        "description": "Primitif reaktif yang dapat dikomposisi digabung dengan fleksibilitas JSX."
+      },
+      {
+        "icon": "pragmatic",
+        "label": "Pragmatis",
+        "description": "API yang masuk akal dan disesuaikan membuat pengembangan menjadi menyenangkan dan sederhana."
+      },
+      {
+        "icon": "productive",
+        "label": "Produktif",
+        "description": "Ergonomi dan kefamiliaran membuat membangun hal-hal sederhana atau kompleks menjadi mudah."
+      }
+    ],
+    "facts": [
+      {
+        "label": "6kb",
+        "detail": "Minified + Gzipped",
+        "link": "https://bundlephobia.com/package/solid-js@1.0.0"
+      },
+      {
+        "label": "11k+",
+        "detail": "Github stars",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "5+ tahun",
+        "detail": "Dalam Pembuatan"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "Support"
+      },
+      {
+        "label": "Peringkat Atas",
+        "detail": "Pada Performa"
+      },
+      {
+        "label": "Astro",
+        "detail": "Support",
+        "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
+      }
+    ],
+    "example": {
+      "headline": "Ia familiar dan modern",
+      "copy": [
+        "Solid berdiri di antara para raksasa, khususnya React dan Knockout. Jika kamu pernah menggunakan React Hooks sebelumnya, Solid seharusnya terlihat sangat alami. Bahkan, model Solid lebih alami karena jauh lebih sederhana tanpa aturan-aturan Hook. Setiap Komponen dijalankan sekali dan Hooks dan bindinglah yang dijalankan berkali-kali saat dependensinya diperbarui.",
+        "Solid mengikuti filosofi yang sama dengan React dengan 'unidirectional data flow', pemisahan baca/tulis, dan antarmuka yang tidak dapat diubah. Hanya saja ia memiliki implementasi yang sama sekali berbeda yang tidak menggunakan Virtual DOM."
+      ],
+      "link_label": "Lihat Dokumentasi",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "Reaktifitas fine-grained berarti kamu bisa melakukan lebih banyak dengan sedikit.",
+      "subheadline": "Setiap bagian dari Solid terdiri dari primitif-primitif sederhana kepada ekspresi Javascript pada tampilan JSX kamu.",
+      "copy": "Ini membuka kontrol penuh atas apa yang diperbarui dan kapan, bahkan pada tingkat pengikatan/binding DOM. Tanpa Virtual DOM atau perbedaan ekstensif (extensive diffing), framework tidak akan pernah bekerja lebih dari yang Anda inginkan.",
+      "link_label": "Lihat dalam tindakan.",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "Fokus pada performa",
+        "di klien dan server"
+      ],
+      "copy": "Kekuatan reaktivitas fine-grained sebagai pendekatan bersinar di benchmark-benchmark penting. Meskipun kinerja mungkin bukan fokus kamu, pengalaman pengguna akhir selalu menjadi perhatian. Pikirkan peningkatan kinerja Solid sebagai hadiah gratis tanpa tambahan kompleksitas pada pengembangan (development). Ini tentang menjadi cepat tanpa berusaha.",
+      "link_label": "Baca artikel fullnya",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "Penuh dengan semua fitur.",
+      "copy": "Solid mendukung semua fitur-fitur library yang umum dan diharapkan, dan memperluas aspek untuk meningkatkan DX.",
+      "list": [
+        "Fragments",
+        "Portals",
+        "Context",
+        "Suspense",
+        "Error Boundaries",
+        "Komponen-komponen Lazy",
+        "Async & Concurrent Rendering",
+        "Implicit Delegation",
+        "SSR & Hydration",
+        "Directives"
+      ]
+    },
+    "benchmarks": {
+      "time": "Waktu",
+      "link_label": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik.",
+      "js_benchmark": {
+        "title": "Benchmark Framework JS",
+        "description": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik."
+      },
+      "isomorophic_benchmark": {
+        "title": "Benchmark Isomorphic UI (Hasil Pencarian)",
+        "description": "Benchmark ini mengetes kecepatan asli Server Rendering. Lebih tinggi lebih baik."
+      }
+    }
+  }

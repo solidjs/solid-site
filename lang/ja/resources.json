@@ -1,0 +1,28 @@
+{
+  "title": "資料",
+  "cta": "あなたのSolidJS関連プロジェクトをここに掲載したい場合は、<a href=\"https://discord.com/invite/solidjs\">Discord</a> でご連絡ください。",
+  "search": "Search resources",
+  "types": "Types",
+  "types_list": {
+    "article": "Article",
+    "video": "Video",
+    "library": "Library",
+    "package": "Package"
+  },
+  "categories": "Categories",
+  "translations": "Translations",
+  "categories_list": {
+    "primitive": "Primitives",
+    "router": "Routers",
+    "data": "Data",
+    "ui": "UI",
+    "plugin": "Plugins",
+    "starters": "Starters",
+    "build_utility": "Build Utilities",
+    "add_on": "Add On",
+    "testing": "Testing",
+    "educational": "Educational"
+  },
+  "official": "Official",
+  "by": "By {{author}}"
+}

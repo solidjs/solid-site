@@ -1,0 +1,17 @@
+{
+  "title": "Recursos para Mídia",
+  "copy": "A seguir são recursos que representam a marca Solid. Todos recursos são abertos para contribuições e devem ser usados seguindo os padrões abertos e as regras de licensiamento. Para recursos adicionais ou questões pertencente a marca, sinta-se livre a entrar em nosso Discord para orientações e suporte adicional.",
+  "brand_font": "Fonte da marca",
+  "primary": "Cor Primária",
+  "secondary": "Cor Secundária",
+  "light": "Cor Clara",
+  "accent": "Cor para Destaque",
+  "resources": {
+    "with_wordmark": "Imagotipo",
+    "without_wordmark": "Isotipo",
+    "only_wordmark": "Logotipo",
+    "dark_with_wordmark": "Imagotipo escura",
+    "dark_without_wordmark": "Isotipo escura",
+    "dark_only_wordmark": "Logotipo escura"
+  }
+}

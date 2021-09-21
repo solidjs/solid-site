@@ -1,0 +1,107 @@
+{
+  "hero": "Eine deklarative, effiziente und flexible JavaScript-Library zum Bauen von Benutzeroberflächen.",
+  "info": "Solid ist eine vollkommen reaktive Library. Sie wurde von Grund auf mit einem reaktiven Kern entworfen und von den reaktiven Prinzipien vorangegangener Libraries beeinflusst.",
+  "strengths": [
+    {
+      "icon": "performant",
+      "label": "Performant",
+      "description": "Übertrifft konsistent bei anerkannten UI-Geschwindigkeits- und Speichernutzungs-Tests."
+    },
+    {
+      "icon": "powerful",
+      "label": "Mächtig",
+      "description": "Zusammensetzbare reaktive Primitiven verbunden mit der Flexibilität von JSX."
+    },
+    {
+      "icon": "pragmatic",
+      "label": "Pragmatisch",
+      "description": "Eine maßgeschneiderte, vernünftige API macht Spaß und vereinfacht die Entwicklung."
+    },
+    {
+      "icon": "productive",
+      "label": "Produktiv",
+      "description": "Ergonomie und Vertrautheit machen es leicht, einfache oder komplexe Dinge zu bauen."
+    }
+  ],
+  "facts": [
+    {
+      "label": "6kb",
+      "detail": "Minifiziert + Gzipped",
+      "link": "https://bundlephobia.com/package/solid-js@1.0.0"
+    },
+    {
+      "label": "11k+",
+      "detail": "Github-Sterne",
+      "link": "https://star-history.t9t.io/#solidjs/solid"
+    },
+    {
+      "label": "5+ Jahre",
+      "detail": "In Entwicklung"
+    },
+    {
+      "label": "TypeScript-",
+      "detail": "Unterstützung"
+    },
+    {
+      "label": "Bestbewertete",
+      "detail": "Performanz"
+    },
+    {
+      "label": "Astro-",
+      "detail": "Support",
+      "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
+    }
+  ],
+  "example": {
+    "headline": "Vertraut und modern",
+    "copy": [
+      "Solid steht auf den Schultern von Riesen, besonders denen von React und Knockout. Falls man je zuvor mit React Hooks gearbeitet hat, wird einem Solid sehr natürlich vorkommen. Sogar noch natürlicher, da Solids Modell so viel einfacher ist und ohne Hook-Regeln auskommt. Jede Komponente wird einmal ausgeführt und dann sind es die Hooks und Effekte, die mehrfach ausgeführt werden, sobald ihre Abhängigkeiten aktualisiert werden.",
+      "Solid folgt der gleichen Philosophie wie React mit unidirektionalem Datenfluss, Trennung zwischen Lesen und Schreiben und unveränderlichen Schnittstellen. Es hat nur eine völlig andere Implementierung, die das virtuelle DOM auslässt."
+    ],
+    "link_label": "Dokumentation",
+    "link": "https://www.solidjs.com/docs/latest#component-apis"
+  },
+  "reactivity": {
+    "headline": "Feingranulare Reaktivität hilft, mit weniger mehr zu erreichen.",
+    "subheadline": "Jeder Teil von Solid basiert auf einfachen Primitiven zu den JavaScript-Ausdrücken im JSX.",
+    "copy": "Das ermöglicht komplette Kontrolle darüber, was wann wo aktualisiert wird, sogar auf Ebene des DOMs. Ohne virtuelles DOM und aufwendiges Abgleichen macht dieses Framework nie mehr, als man von ihm möchte.",
+    "link_label": "In Aktion sehen",
+    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+  },
+  "performance": {
+    "headline": ["Auf Performance ausgerichtet", "auf Client und Server"],
+    "copy": "Die Stärke von feingranularer Reaktivität als Grundprinzip beweist sich in allen Benchmark-Tests. Während Performanz nicht jedermanns Fokus ist, ist die Nutzbarkeit immer ein Thema. Solids Performanz ist ein Freigewinn ohne zusätzliche Komplexität für die Entwicklung. Es ist einfach schnell, ohne sich darum zu bemühen zu müssen.",
+    "link_label": "Ganzen Artikel lesen",
+    "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+  },
+  "features": {
+    "headline": "Mit allen Funktionen komplett bestückt.",
+    "copy": "Solid unterstützt alle gewöhnlichen und zu erwartenden Funktionen und erweitert einige Aspekte für eine bessere Entwicklererfahrung.",
+    "list": [
+      "Fragmente",
+      "Portale",
+      "Kontext",
+      "Suspense",
+      "Error-Boundaries",
+      "Nachgeladene Komponenten",
+      "Asynchrones & gleichzeitiges Rendering",
+      "Implizite Delegation",
+      "SSR & Hydration",
+      "Direktiven"
+    ]
+  },
+  "benchmarks": {
+    "time": "Zeit",
+    "view": "Zeige den Benchmark",
+    "show_more": "Zeige mehr Client + Server Benchmarks",
+    "link_label": "Der JS Framework Benchmark vergleicht Browser-Performanz über eine weite Reihe von Tests. Weniger ist besser.",
+    "js_benchmark": {
+      "title": "JS Framework Benchmark",
+      "description": "Der JS Framework Benchmark vergleicht Browser-Performanz über eine weite Reihe von Tests. Weniger ist besser."
+    },
+    "isomorophic_benchmark": {
+      "title": "Isomorphic UI Benchmarks (Ergebnisse suchen)",
+      "description": "Dieser Benchmark testet rohe Server-Rendering-Geschwindigkeit. Höher ist besser."
+    }
+  }
+}

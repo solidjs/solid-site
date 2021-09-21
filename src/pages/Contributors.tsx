@@ -1,17 +1,21 @@
 import { Component, For, Show } from 'solid-js';
+import { useData } from 'solid-app-router';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
+import { useI18n } from '@solid-primitives/i18n';
 
-const CoreMember: Component<{
+interface CoreMemberProps {
   img: string;
   name: string;
   role: string;
   bio: string;
   github: string;
-}> = (props) => {
+}
+
+const CoreMember: Component<CoreMemberProps> = (props) => {
   return (
     <li class="grid grid-cols-3 gap-x-10">
       <div>
@@ -37,77 +41,85 @@ const CoreMember: Component<{
   );
 };
 
-const Contributor: Component<{
+interface ContributorProps {
   name: string;
   link: string;
   company: string;
   detail: string;
-}> = (props) => {
+}
+
+const Contributor: Component<ContributorProps> = (props) => {
   return (
     <li class="shadow-lg p-8">
       <p class="text-bold text-lg text-solid inline-flex space-x-2">
         <span>{props.name}</span>
-
         <Show when={props.company}>
           <a href={props.link} class="text-black hover:underline">
             ({props.company})
           </a>
         </Show>
       </p>
-
       <p class="text-md mt-1">{props.detail}</p>
     </li>
   );
 };
 
-const Contributors: Component<ContributorsDataProps> = (props) => {
+const Contributors: Component<{}> = () => {
+  const [t] = useI18n();
+  const data = useData<ContributorsDataProps>();
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
-      <Header title="Team & Contributors" />
-
+      <Header title={t('contributors.title', {}, 'Team & Contributors')} />
       <div class="px-3 lg:px-12 container my-10">
         <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">
-            <h2 class="text-3xl font-semibold text-solid-default">Core Team</h2>
-
+            <h2 class="text-3xl font-semibold text-solid-default">
+              {t('contributors.core_team', {}, 'Core Team')}
+            </h2>
             <ul class="space-y-10">
-              <For each={props.core} children={CoreMember} />
+              <For each={data.core} children={CoreMember} />
             </ul>
           </div>
-
           <div class="col-span-6 flex flex-col space-y-10">
-            <h2 class="text-2xl font-semibold text-solid-default">Acknowledgements</h2>
-
+            <h2 class="text-2xl font-semibold text-solid-default">
+              {t('contributors.acknowledgments', {}, 'Acknowledgements')}
+            </h2>
             <p>
-              Solid wouldn't be possible without the help of other talented individuals. As we grow
-              we hope others will find ways to give their time either in the form of bug reporting,
-              pull requests, design suggestions, writing and many other ways.
+              {t(
+                'contributors.copy',
+                {},
+                "Solid wouldn't be possible without the help of other talented individuals. As we grow we hope others will find ways to give their time either in the form of bug reporting, pull requests, design suggestions, writing and many other ways.",
+              )}
             </p>
-
             <ul class="flex flex-col space-y-3">
-              <For each={props.contributors} children={Contributor} />
+              <For each={data.contributors} children={Contributor} />
             </ul>
-
-            <h2 class="text-2xl font-semibold text-solid-default">Ecosystem Team</h2>
-
+            <h2 class="text-2xl font-semibold text-solid-default">
+              {t('contributors.ecosystem_team', {}, 'Ecosystem Team')}
+            </h2>
             <ul class="flex flex-col space-y-3">
-              <For each={props.ecosystem} children={Contributor} />
+              <For each={data.ecosystem} children={Contributor} />
             </ul>
-
             <div class="flex mb-5 flex-col space-y-3">
-              <h2 class="text-2xl mb-5 font-semibold text-solid-default">Contributors</h2>
+              <h2 class="text-2xl mb-5 font-semibold text-solid-default">
+                {t('contributors.contributors', {}, 'Contributors')}
+              </h2>
               <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors">
                 <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
               </a>
             </div>
-
-            <h2 class="text-2xl font-semibold text-solid-default">Translations</h2>
+            <h2 class="text-2xl font-semibold text-solid-default">
+              {t('contributors.internationalization', {}, 'Internationalization')}
+            </h2>
             <div class="mt-0">
-              The following individuals have graciously given their time and effort to ensure Solid
-              goes international:
+              {t(
+                'contributors.translators_copy',
+                {},
+                'The following individuals have graciously given their time and effort to ensure Solid goes international:',
+              )}
               <ul class="list-disc ml-8 space-y-3 mt-4">
-                <For each={props.translators}>
+                <For each={data.translators}>
                   {(translator) => (
                     <li>
                       <a href={translator.link}>
@@ -118,12 +130,14 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
                 </For>
               </ul>
             </div>
-
             <div>
               <h2 class="text-2xl mb-5 font-semibold text-solid-default">Open Collective</h2>
-
               <div class="inline-block mb-10">
-                Support us with a donation and help us continue our activities.{' '}
+                {t(
+                  'contributors.support_copy',
+                  {},
+                  'Support us with a donation and help us continue our activities:',
+                )}{' '}
                 <a
                   target="_blank"
                   class="text-solid-default "
@@ -132,7 +146,6 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
                   Contribute today &raquo;
                 </a>
               </div>
-
               <div class="grid grid-cols-8 gap-4">
                 <a href="https://opencollective.com/solid/backer/0/website" target="_blank">
                   <img class="w-22" src="https://opencollective.com/solid/backer/0/avatar.svg" />
@@ -172,7 +185,6 @@ const Contributors: Component<ContributorsDataProps> = (props) => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

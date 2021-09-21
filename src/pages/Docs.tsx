@@ -1,6 +1,6 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { useRouter } from 'solid-app-router';
+import { useData } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
@@ -10,16 +10,24 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
+import { useI18n } from '@solid-primitives/i18n';
+
+interface DocData {
+  loading: boolean;
+  langAvailable: boolean;
+  doc: {
+    sections: Section[];
+    content: string;
+  };
+}
 
 const Docs: Component<{
-  doc: { content: string; sections: Section[] };
   hash: string;
   loading: boolean;
   version: string;
-  lang: string;
 }> = (props) => {
-  // @ts-ignore
-  const [, { push }] = useRouter();
+  const data = useData<DocData>();
+  const [t] = useI18n();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -29,20 +37,20 @@ const Docs: Component<{
     if (entry.intersectionRatio == 0) {
       return;
     }
-    let prev = props.doc.sections[0];
-    for (let i in props.doc.sections) {
-      const el = document.getElementById(props.doc.sections[i].slug)!;
+    let prev = data.doc.sections[0];
+    for (let i in data.doc.sections) {
+      const el = document.getElementById(data.doc.sections[i].slug)!;
       if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
         break;
       }
-      prev = props.doc.sections[i];
+      prev = data.doc.sections[i];
     }
     setCurrent(prev.slug);
   }, 75);
   // Upon loading finish bind observers
   createEffect(() => {
-    if (!props.loading) {
-      props.doc.sections.forEach((section) => {
+    if (!data.loading) {
+      data.doc.sections.forEach((section) => {
         // @ts-ignore
         observeInteraction(document.getElementById(section.slug)!, determineSection);
       });
@@ -52,16 +60,12 @@ const Docs: Component<{
       }
     }
   });
-  const changeLang = (evt: Event) => {
-    const lang = (evt.target as HTMLSelectElement).value;
-    push(window.location.pathname + `?lang=${lang}`);
-  };
   return (
     <div class="flex flex-col relative">
       <Nav showLogo />
-      <Header title="Documentation" />
-      <Show when={!props.loading}>
-        <div class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
+      <Header title={t('docs.title')} />
+      <Show when={!data.loading}>
+        <div dir="ltr" class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button
             class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
             classList={{
@@ -74,7 +78,7 @@ const Docs: Component<{
           <div class="col-span-4 lg:col-span-3 relative">
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 bg-white fixed top-12 duration-300 transform ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lgoverflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-12 duration-300 transform ' +
                 'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
                 'lg:sticky lg:flex'
               }
@@ -84,31 +88,14 @@ const Docs: Component<{
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
-              <select
-                style={{
-                  'background-image': 'url(/img/icons/translate2.svg)',
-                  'background-size': '20px',
-                }}
-                value={props.lang}
-                onChange={changeLang}
-                class="p-3 pl-4 rounded-md border-gray-200 pt-4 text-sm my-5 w-full"
-              >
-                <option value="en">English</option>
-                <option value="zh-cn">简体中文</option>
-                <option value="ja">日本語</option>
-                <option value="it">Italiano</option>
-                <option value="id">Bahasa Indonesia</option>
-                <option value="br">Português</option>
-                <option value="ru">русский</option>
-              </select>
-              <ul class="overflow-auto flex flex-col flex-1">
-                <For each={props.doc.sections}>
+              <ul class="overflow-auto mt-5 flex dark:text-white flex-col flex-1">
+                <For each={data.doc.sections}>
                   {(firstLevel: Section) =>
                     firstLevel.children?.length ? (
                       <li>
                         <button
                           type="button"
-                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
+                          class="text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           onClick={() => setSection(firstLevel.title, (prev) => !prev)}
                         >
                           <span
@@ -119,7 +106,6 @@ const Docs: Component<{
                           >
                             {firstLevel.title}
                           </span>
-
                           <Icon
                             class="opacity-50 h-5 w-7 transform transition origin-center"
                             classList={{
@@ -129,7 +115,6 @@ const Docs: Component<{
                             path={chevronDown}
                           />
                         </button>
-
                         <ul
                           class="overflow-hidden transition"
                           classList={{
@@ -158,7 +143,7 @@ const Docs: Component<{
                     ) : (
                       <li>
                         <a
-                          class="text-left w-full text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
+                          class="text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400 transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4"
                           classList={{
                             'font-semibold': current() == firstLevel.slug,
                             'text-solid hover:text-solid-dark':
@@ -175,18 +160,33 @@ const Docs: Component<{
               </ul>
             </div>
           </div>
-
           <div class="col-span-8 lg:col-span-9 px-10 lg:px-0">
             <Switch fallback={'Failed to load markdown...'}>
-              <Match when={props.loading}>Loading documentation...</Match>
-              <Match when={props.doc}>
-                <div class="prose prose-solid max-w-full" innerHTML={props.doc.content} />
+              <Match when={data.loading}>Loading documentation...</Match>
+              <Match when={data.doc}>
+                <Show when={data.langAvailable}>
+                  <div class="bg-yellow-100 p-5 rounded-lg text-sm">
+                    Unfortunately our docs are not currently available in your language. We
+                    encourage you to support Solid by{' '}
+                    <a
+                      class="underline"
+                      target="_blank"
+                      href="https://github.com/solidjs/solid-docs/blob/main/README.md#support"
+                    >
+                      helping with on-going translation efforts
+                    </a>
+                    .
+                  </div>
+                </Show>
+                <div
+                  class="prose dark:text-white prose-solid max-w-full"
+                  innerHTML={data.doc.content}
+                />
               </Match>
             </Switch>
           </div>
         </div>
       </Show>
-
       <Footer />
     </div>
   );

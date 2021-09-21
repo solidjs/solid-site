@@ -11,12 +11,12 @@ import { basename } from 'path';
 import { existsSync } from 'fs';
 import { writeFile, mkdir, readFile } from 'fs/promises';
 import { resolve } from 'path';
-import globby from 'globby';
+import { globby } from 'globby';
 
 import { Documentation, Section, Release } from './types';
 
 const API_URL = 'https://api.github.com/repos/solidjs/solid-docs';
-const LANGS = ['it', 'en', 'zh-cn', 'ja', 'pt', 'id', 'ru'];
+const LANGS = ['it', 'en', 'de', 'fr', 'zh-cn', 'ja', 'pt', 'id', 'ru'];
 
 // Helper for calling Github API
 const client = Got.extend({

@@ -3,6 +3,7 @@ const theme = require('tailwindcss/defaultTheme');
 module.exports = {
   purge: ['index.html', 'src/**/*.tsx'],
   mode: 'jit',
+  darkMode: 'class',
   theme: {
     extend: {
       fontSize: {
@@ -25,8 +26,6 @@ module.exports = {
           css: {
             color: '#333',
             fontFamily: 'Gordita',
-            'blockquote p:first-of-type::before': { content: 'none' },
-            'blockquote p:first-of-type::after': { content: 'none' },
             h1: {
               fontWeight: '600',
               fontSize: '1.75rem',
@@ -69,5 +68,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],
 };

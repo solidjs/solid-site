@@ -1,0 +1,28 @@
+{
+  "title": "Recursos",
+  "cta": "Para listar seu projeto SolidJS aqui, contate-nos em nosso <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Pesquise por recursos",
+  "types": "Tipos",
+  "types_list": {
+    "article": "Artigos",
+    "video": "Videos",
+    "library": "Bibliotecas",
+    "package": "Pacotes"
+  },
+  "categories": "Categorias",
+  "translations": "Traduções",
+  "categories_list": {
+    "primitive": "Primitivos",
+    "router": "Roteador",
+    "data": "Dados",
+    "ui": "Interface",
+    "plugin": "Plugins",
+    "starters": "Iniciantes",
+    "build_utility": "Utilitários de Build",
+    "add_on": "Adicionais",
+    "testing": "Testes",
+    "educational": "Educacional"
+  },
+  "official": "Oficial",
+  "by": "Por {{author}}"
+}
