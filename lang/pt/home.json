@@ -1,109 +1,109 @@
 {
-    "hero": "Uma biblioteca JavaScript declarativa, eficiente e flexível para construir interfaces de usuário.",
-    "info": "Solid é uma biblioteca puramente reativa. Ele foi projetado desde o início com um núcleo reativo. É influenciado por princípios reativos desenvolvidos por bibliotecas anteriores.",
+    "hero": "Uma biblioteca JavaScript declarativa, eficiente e flexível para construir UIs.",
+    "info": "Solid é uma biblioteca puramente reativa. Projetado desde o início com um núcleo reativo. É influenciado por princípios reativos desenvolvidos por bibliotecas anteriores.",
     "strengths": [
       {
         "icon": "performant",
         "label": "Performante",
-        "description": "Supera consistentemente os benchmarks reconhecidos de velocidade de interface do usuário e utilização de memória."
+        "description": "Supera constantemente os benchmarks reconhecidos de performance de UI e utilização de memória."
       },
       {
         "icon": "powerful",
-        "label": "Poderosa",
-        "description": "Primitivos reativos composíveis casados com a flexibilidade do JSX."
+        "label": "Poderoso",
+        "description": "Primitivos reativos casados até o final com a flexibilidade do JSX."
       },
       {
         "icon": "pragmatic",
-        "label": "Pragmática",
+        "label": "Prático",
         "description": "Uma API sensível e personalizada torna o desenvolvimento divertido e simples."
       },
       {
         "icon": "productive",
-        "label": "Produtiva",
+        "label": "Produtivo",
         "description": "Ergonomia e familiaridade tornam a construção de coisas simples ou complexas uma brisa."
       }
     ],
     "facts": [
       {
         "label": "6kb",
-        "detail": "Minified + Gzipped",
+        "detail": "Minimizado + Gzip",
         "link": "https://bundlephobia.com/package/solid-js@1.0.0"
       },
       {
-        "label": "9.5k+",
-        "detail": "Github stars",
+        "label": "11k+",
+        "detail": "Estrelas no Github",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ years",
-        "detail": "In development"
+        "label": "5+ anos",
+        "detail": "Em desenvolvimento"
       },
       {
         "label": "TypeScript",
-        "detail": "Support"
+        "detail": "Suportado"
       },
       {
-        "label": "Top Rated",
-        "detail": "In performance"
+        "label": "O melhor",
+        "detail": "Em performance"
       },
       {
         "label": "Astro & Vite",
-        "detail": "Support"
+        "detail": "Suportados"
       }
     ],
     "example": {
-      "headline": "It's familiar and modern",
+      "headline": "É familiar e moderno",
       "copy": [
-        "Solid stands on the shoulders of giants, particularly React and Knockout. If you've developed with React Hooks before, Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.",
-        "Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It just has a completely different implementation that forgoes using a Virtual DOM."
+        "Solid é pensado em cima de gigantes, principalmente React e Knocout. Se você já programou com os Hooks do React antes, Solid deve ser nada menos do que natural. Na verdade, até mais natural já que os modelos do Solid não usam as regras de hooks. Todo componente é executado apenas uma vez e seus hooks e ligações executam a cada atualização de dependência.",
+        "Solid segue a mesma filosofia do React com um fluxo unidirecional de dados, segregação de leitura e escrita e interfaces imutáveis. Apenas tem uma implementação completamente diferente que dispensa o uso de uma DOM virtual."
       ],
-      "link_label": "View Docs",
+      "link_label": "Ver documentação",
       "link": "https://www.solidjs.com/docs/latest#component-apis"
     },
     "reactivity": {
-      "headline": "Fine-grained reactivity means you do more with less.",
-      "subheadline": "Every part of Solid is built on simple primitives to the JavaScript expressions in your JSX views.",
-      "copy": "This unlocks complete control over what gets updated and when, even at the DOM binding level. With no Virtual DOM or extensive diffing the framework never does more work than you want it to.",
-      "link_label": "See it in action",
+      "headline": "Reatividade refinada aonde você faz mais com menos.",
+      "subheadline": "Toda parte do Solid é construída em cima de primitivos simples do JavaScript em suas interfaces JSX.",
+      "copy": "Isso permite que você controle o que vai ser atualizado e quando, até mesmo no nível do DOM. Sem o uso de Virtual DOM ou sistemas avançados de diferença, a biblioteca nunca fará mais do que o necessário.",
+      "link_label": "Veja Solid em ação",
       "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
     },
     "performance": {
       "headline": [
-        "Performance focused",
-        "on both client and server"
+        "Focado em performance",
+        "tanto no cliente quanto no servidor"
       ],
-      "copy": "The strength of fine-grained reactivity as an approach shines on all notable benchmarks. Even if performance is not your focus, it's virtually effortless and without the cost of complicated/involved DX. Think of Solid's performance gain as a free win. Solid is about being fast without trying.",
-      "link_label": "Read full article",
+      "copy": "O resultado de uma reatividade refinada é visível em qualquer benchmark. Mesmo se desempenho não for seu foco, você não terá nenhum esforço adicional para receber do mesmo. Pense no ganho de desempenho do Solid como uma vitória gratuita. Solid significa ser rápido sem nem tentar.",
+      "link_label": "Ler artigo",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
     "features": {
-      "headline": "Fully loaded with all features.",
-      "copy": "Solid supports all common and expected library features and expands on aspects to increase DX.",
+      "headline": "Carregado com as melhores funcionalidades.",
+      "copy": "Solid suporta todas funcionalidades esperadas e comuns, até mesmo expandindo em aspectos para melhorar a experiência do desenvolvedor.",
       "list": [
-        "Fragments",
-        "Portals",
-        "Context",
-        "Suspense",
-        "Error Boundaries",
-        "Lazy Components",
-        "Async & Concurrent Rendering",
-        "Implicit Delegation",
-        "SSR & Hydration",
-        "Directives"
+        "Fragmentos",
+        "Portais",
+        "Contexto",
+        "Suspensão",
+        "Erros Limitados",
+        "Componentes Lazy",
+        "Renderização Assíncrona e Concorrente",
+        "Delegação Implícita",
+        "SSR & Hidratação",
+        "Diretivos"
       ]
     },
     "benchmarks": {
-      "time": "Time",
-      "view": "View the benchmark",
-      "show_more": "Show more client + server benchmarks",
-      "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
+      "time": "Tempo",
+      "view": "Acessar benchmark",
+      "show_more": "Mostrar mais benchmarks do cliente e servidor",
+      "link_label": "A benchmark de frameworks JS compara performance do navegador em uma grande variedade de testes. Quanto menor melhor.",
       "js_benchmark": {
-        "title": "JS Framework Benchmark",
-        "description": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better."
+        "title": "Benchmark de Framework JS",
+        "description": "A benchmark de frameworks JS compara performance do navegador em uma grande variedade de testes. Quanto menor melhor."
       },
       "isomorophic_benchmark": {
-        "title": "Isomorphic UI Benchmarks (Search Results)",
-        "description": "This benchmark tests raw Server Rendering speeds. Higher is better."
+        "title": "Benchmarks Isomórficas de UI (Pesquisar Resultados)",
+        "description": "Esta benchmark testa a velocidade pura de renderização no servidor. Quanto maior melhor."
       }
     }
   }

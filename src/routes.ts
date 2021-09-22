@@ -56,15 +56,6 @@ export const routes: RouteDefinition[] = [
     data: DocsData,
   },
   {
-    path: '/examples/:id',
-    component: lazy(() => import('./pages/Examples')),
-    data: ExamplesData,
-  },
-  {
-    path: '/examples',
-    component: () => Navigate({ href: '/examples/counter' }),
-  },
-  {
     path: '/tutorial/:id',
     component: lazy(() => import('./pages/Tutorial')),
     data: TutorialData,
@@ -72,6 +63,16 @@ export const routes: RouteDefinition[] = [
   {
     path: '/tutorial',
     component: () => Navigate({ href: '/tutorial/introduction_basics' }),
+  },
+
+  {
+    path: '/examples/:id',
+    component: lazy(() => import('./pages/Examples')),
+    data: ExamplesData,
+  },
+  {
+    path: '/examples',
+    component: () => Navigate({ href: '/examples/counter' }),
   },
   {
     path: '/contributors',

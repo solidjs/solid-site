@@ -6,6 +6,7 @@ import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
+import netlify from '../assets/supporters/netlify.png';
 import darkLight from '../../public/img/icons/dark-light.svg';
 import Social from './Social';
 
@@ -43,6 +44,14 @@ const Footer: Component = () => {
                 class="mx-4 hover:opacity-50 transition"
                 target="_blank"
                 rel="noopener"
+                href="https://www.netlify.com/"
+              >
+                <img class="w-32" src={netlify} alt="netlify" />
+              </a>
+              <a
+                class="mx-4 hover:opacity-50 transition"
+                target="_blank"
+                rel="noopener"
                 href="https://www.builder.io/"
               >
                 <img class="w-24" src={builder} alt="builder.io" />
@@ -57,10 +66,10 @@ const Footer: Component = () => {
               </a>
             </div>
             <div class="flex justify-between">
-              <p class="text-xs text-center text-gray-600">
+              <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021-09-17 09:00EST',
-                  version: '1.1.2',
+                  date: '2021/09/21, 11:10pm',
+                  version: '1.1.5',
                 })}
               </p>
               {/* <button class="flex text-gray-600" onClick={() => data.isDark = !!data.isDark}>
