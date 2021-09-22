@@ -4486,10 +4486,15 @@ solid-js@1.0.7, solid-js@^1.0.0-rc.9, solid-js@^1.0.3:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.0.7.tgz#ad8279d1b50cc403eab072658e0686b22aa5602e"
   integrity sha512-2jHCXLwp/B7P4kh5tl0ospRaC2F++BU0uWwtfgK/8Zc/MROOyCmmkjHpLAQC2u2NWYVGnIclDIJ2FGDXJ0wcYg==
 
-solid-js@1.1.2, solid-js@^1.1.1:
+solid-js@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.2.tgz#676e5cdcee7bf775978e20fa6d82e5e603f519d9"
   integrity sha512-Zfns3Zu5mtqzd+0nX1qHpHl0fesn6IJgI/3J7qgkCnF33JH8B7XoFCK49DprMDxdu1lszs4DJb2oi807s61rww==
+
+solid-js@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.5.tgz#d06ca0ec0e7dc54912d230ff889df1dd240d4f03"
+  integrity sha512-cwMNe1U/1bqCTMco2za6LDU66jDn/57m5kfrDUhW3ls9YIbaREdktqPFGULrill22qyoFDngEg5hgm6a6vf6wg==
 
 solid-meta@^0.27.1:
   version "0.27.1"

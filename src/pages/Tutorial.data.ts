@@ -1,5 +1,5 @@
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation, useParams, RouteDataFunc, RouteData } from 'solid-app-router';
+import { RouteDataFunc, RouteData } from 'solid-app-router';
 import { createResource } from 'solid-js';
 
 const supportedLanguages = ['en', 'ja', 'zh-cn'];
@@ -75,16 +75,14 @@ export interface TutorialRouteData extends RouteData {
   solved?: boolean;
 }
 
-export const TutorialData: RouteDataFunc = () => {
-  const params = useParams();
-  const location = useLocation();
+export const TutorialData: RouteDataFunc = (props) => {
   const [, { locale }] = useI18n();
   const paramList = () => {
     let lang = locale();
     if (!supportedLanguages.includes(lang)) {
       lang = 'en';
     }
-    return { lang, id: params.id };
+    return { lang, id: props.params.id || 'introduction_basics' };
   };
   const [directory] = createResource(paramList, fetchTutorialDirectory);
   const [data] = createResource(paramList, fetchData);
@@ -153,7 +151,7 @@ export const TutorialData: RouteDataFunc = () => {
       return paramList().id;
     },
     get solved() {
-      return Boolean(location.query['solved']);
+      return Boolean(props.location.search.includes('solved'));
     },
   };
 };

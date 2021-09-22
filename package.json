@@ -27,7 +27,7 @@
     "prism-themes": "^1.8.0",
     "prismjs": "^1.25.0",
     "solid-app-router": "^0.1.5",
-    "solid-js": "1.1.2",
+    "solid-js": "^1.1.5",
     "solid-meta": "^0.27.1",
     "solid-repl": "0.15.1",
     "solid-utils": "^0.8.1",
