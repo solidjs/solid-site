@@ -48,7 +48,7 @@ export const routes: RouteDefinition[] = [
       },
       {
         path: '*all',
-        component: lazy(() => import('./pages/Tutorial')),
+        component: () => Navigate({ href: '/tutorial/introduction_basics' }),
         data: TutorialData,
       },
     ],

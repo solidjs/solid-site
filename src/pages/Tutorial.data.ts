@@ -78,14 +78,13 @@ export interface TutorialRouteData extends RouteData {
 export const TutorialData: RouteDataFunc = () => {
   const params = useParams();
   const location = useLocation();
-  console.log(JSON.stringify(params));
   const [, { locale }] = useI18n();
   const paramList = () => {
     let lang = locale();
     if (!supportedLanguages.includes(lang)) {
       lang = 'en';
     }
-    return { lang, id: params.id || 'introduction_basics' };
+    return { lang, id: params.id };
   };
   const [directory] = createResource(paramList, fetchTutorialDirectory);
   const [data] = createResource(paramList, fetchData);
