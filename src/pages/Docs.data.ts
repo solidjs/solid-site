@@ -1,4 +1,4 @@
-import { useParams, useLocation } from 'solid-app-router';
+import { useParams, useLocation, RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 
@@ -22,7 +22,7 @@ function mdFetcher({ version, lang, resource }: DataParams) {
   return cache.get(cacheKey);
 }
 
-export const DocsData = () => {
+export const DocsData: RouteDataFunc = () => {
   const params = useParams();
   const [, { locale }] = useI18n();
   const location = useLocation();

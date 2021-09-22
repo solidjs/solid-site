@@ -21,11 +21,7 @@ interface DocData {
   };
 }
 
-const Docs: Component<{
-  hash: string;
-  loading: boolean;
-  version: string;
-}> = (props) => {
+const Docs: Component = (props) => {
   const data = useData<DocData>();
   const [t] = useI18n();
   const [current, setCurrent] = createSignal<string | null>(null);
