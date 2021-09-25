@@ -14,7 +14,7 @@ const langs = {
   fr: 'Français',
   de: 'Deutsch',
   pt: 'Português',
-  ru: 'русский',
+  ru: 'Русский',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
 };
