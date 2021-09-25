@@ -33,6 +33,16 @@ const podcasts: Array<Resource> = [
     type: ResourceType.Podcast,
     categories: [ResourceCategory.Educational],
   },
+  {
+    title: 'SolidJS with Ryan Carniato',
+    link: 'https://podrocket.logrocket.com/solidjs',
+    description: 'Kos Palchyk and Ryan Carniato do a deep dive into SolidJS.',
+    author: 'Ben Edelstein (LogRocket)',
+    author_url: 'https://podrocket.logrocket.com/hosts/benedelstein',
+    keywords: ['logrocket', 'podrocket'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default podcasts;

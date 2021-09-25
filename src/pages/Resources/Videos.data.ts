@@ -140,8 +140,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=PW6Re59Hb-8',
     title: 'AM Coder - SolidJS Todo App for Express/Mongo API',
-    description:
-      'Alex Merced walks us through creating a Solid app with Express and Mongo.',
+    description: 'Alex Merced walks us through creating a Solid app with Express and Mongo.',
     keywords: ['express', 'app', 'mongo'],
     author: 'Alex Merced',
     author_url: 'https://www.youtube.com/channel/UCoc4UCEetAt3htM3hV1dQgQ',
@@ -152,7 +151,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=LZc2hSghezM&t=57s',
     title: 'Solid + GraphQL = Realtime Magic',
     description:
-      'Let\'s use the Solid-JS framework to create a todo app using queries, mutations and ',
+      "Let's use the Solid-JS framework to create a todo app using queries, mutations and ",
     keywords: ['graphql', 'queries'],
     author: 'Jack Harrington',
     author_url: 'https://www.youtube.com/channel/UC6vRUjYqDuoUsYsku86Lrsw',
@@ -162,8 +161,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=0zadjVUV7zM',
     title: 'Streaming SolidJS - Server Rendering',
-    description:
-      'Ryan talks about Server Rendering with SolidJS Framework',
+    description: 'Ryan talks about Server Rendering with SolidJS Framework',
     keywords: ['ssr', 'streaming'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
@@ -184,8 +182,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=jnZmG4hyNas',
     title: 'First look at DOM Expressions',
-    description:
-      'Overview of the universal reactive renderer that powers SolidJS.',
+    description: 'Overview of the universal reactive renderer that powers SolidJS.',
     keywords: ['expressions', 'dom'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
