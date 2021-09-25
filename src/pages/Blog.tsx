@@ -1,33 +1,32 @@
-import { Component, lazy, Show } from 'solid-js';
+import { Component, For, lazy, Show } from 'solid-js';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
-import { useData } from 'solid-app-router';
+import { useData, NavLink } from 'solid-app-router';
+import { BlogInfo } from './Blog.data';
 
 const Repl = lazy(() => import('../components/ReplTab'));
 
-const BlogArchive: Component = () => {
-  return (
-    <a href="/blog/entry" class="block text-md mx-auto mb-10 pb-10 text-center">
-      <img class="w-4/6 mx-auto rounded-md mb-10 shadow-md" src="/img/blog/sample/header.png" />
-      <h1 class="text-xl font-semibold text-solid-medium">Welcome to the Solid blog!</h1>A new Solid
-      based blog with lots of information and helpful details for you to view.
-      <div class="text-xs mt-3">By Ryan Carniato</div>
-    </a>
-  );
-};
+const BlogArticle: Component<BlogInfo> = (props) => (
+  <NavLink href={`/blog/${props.id}`} class="block text-md mx-auto mb-10 pb-10 text-center">
+    <img class="w-4/6 mx-auto rounded-md mb-10 shadow-md" src={props.img} />
+    <h1 class="text-2xl mb-3 font-semibold text-solid-medium">{props.title}</h1>
+    {props.description}
+    <div class="text-xs mt-3">By {props.author}</div>
+  </NavLink>
+);
 
 const Blog: Component = () => {
   const [t] = useI18n();
-  const data = useData<any>();
+  const data = useData<{ archive: boolean, articles: { [id: string]: BlogInfo } }>();
   return (
     <div class="flex flex-col">
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 flex justify-center">
           <Show when={data.archive}>
             <div class="space-y-10">
-              <BlogArchive />
-              <BlogArchive />
-              <BlogArchive />
+              <For each={Object.entries(data.articles)}>
+                {([id, article]: [string, BlogInfo]) => <BlogArticle {...article} />}
+              </For>
             </div>
           </Show>
           <Show when={!data.archive}>
