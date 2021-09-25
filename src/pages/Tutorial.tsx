@@ -57,10 +57,11 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   createEffect(
     on(
       () => props.current,
-      () => {
-        setShowDirectory(false);
-        setSearchQuery('');
-      },
+      () =>
+        setTimeout(() => {
+          setShowDirectory(false);
+          setSearchQuery('');
+        }, 0),
     ),
   );
 
