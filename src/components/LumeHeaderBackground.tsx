@@ -26,7 +26,13 @@ export const LumeHeaderBackground: Component<{ mouseX: number; mouseY: number }>
   };
 
   var scene = (
-    <lume-scene webgl background-color="#446b9e">
+    <lume-scene
+      webgl
+      background-color="#446b9e"
+      fog-mode="expo2"
+      fog-color="#446b9e"
+      fog-density="0.0015"
+    >
       <lume-point-light color="white" position="500 -500 500" align-point="0.5 0.5 0.5" />
       <lume-ambient-light color="white" intensity="0.4" />
 
@@ -53,19 +59,12 @@ export const LumeHeaderBackground: Component<{ mouseX: number; mouseY: number }>
     </lume-scene>
   ) as Scene;
 
-  createEffect(() => {
-    const { mouseX, mouseY } = props;
-    const size = scene.calculatedSize;
-
-    // console.log('mouse pos:', mouseX, mouseY);
-  });
-
   // Wait for scene to be upgraded to a LUME.Scene instance.
-  setTimeout(() => {
-    // TODO add attributes for <lume-scene> for fog.
-    scene.three.fog = new THREE.FogExp2(new THREE.Color('#446b9e').getHex(), 0.0015);
-    scene.needsUpdate();
-  });
+  // setTimeout(() => {
+  //   // TODO add attributes for <lume-scene> for fog.
+  //   scene.three.fog = new THREE.FogExp2(new THREE.Color('#446b9e').getHex(), 0.0015);
+  //   scene.needsUpdate();
+  // });
 
   // scene.three.fog = new THREE.FogExp2(new THREE.Color('#345887').getHex(), 0.0015);
 
