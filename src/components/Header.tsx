@@ -1,10 +1,10 @@
 import { Component, Switch, Match, Show, on, createEffect, createSignal } from 'solid-js';
-import Nav from './Nav';
-import logo from '../assets/logo.svg';
-import wordmark from '../assets/wordmark.svg';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
 import { useLocation } from 'solid-app-router';
+import Nav from './Nav';
+import logo from '../assets/logo.svg';
+import wordmark from '../assets/wordmark.svg';
 
 const Header: Component<{ title?: string }> = (props) => {
   const [t] = useI18n();
@@ -23,7 +23,7 @@ const Header: Component<{ title?: string }> = (props) => {
   );
   return (
     <>
-      <Transition enterClass="opacity-100 max-h-full" exitToClass="max-h-0 opacity-0">
+      <Transition enterToClass="opacity-100 max-h-full" exitToClass="max-h-0 opacity-0">
         <Show when={!collapsed()}>
           <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white transition duration-5000 overflow-hidden">
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
