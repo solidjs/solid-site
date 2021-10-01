@@ -74,8 +74,8 @@ const Docs: Component = (props) => {
           <div class="col-span-4 lg:col-span-3 relative">
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lgoverflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-12 duration-300 transform ' +
-                'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-14 duration-300 transform ' +
+                'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
                 'lg:sticky lg:flex'
               }
               classList={{
