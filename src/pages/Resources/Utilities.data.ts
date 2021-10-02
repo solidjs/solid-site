@@ -711,6 +711,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    link: 'https://aquaductape.github.io/solid-dismiss/',
+    title: 'solid-dismiss',
+    description: 'Handle "click outside" behavior to close dropdowns/popups for Solid.',
+    author: 'aquaductape',
+    author_url: 'https://github.com/aquaductape',
+    keywords: ['click', 'outside', 'dismiss'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
