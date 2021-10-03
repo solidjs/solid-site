@@ -11,7 +11,7 @@ const podcasts: Array<Resource> = [
     keywords: ['runtime', 'rafael'],
     type: ResourceType.Podcast,
     categories: [ResourceCategory.Educational],
-    published_at: undefined,
+    published_at: 1628272800000,
   },
   {
     title: 'React vs Svelte vs Solid & MicroFrontends',
@@ -23,7 +23,7 @@ const podcasts: Array<Resource> = [
     keywords: ['nikos'],
     type: ResourceType.Podcast,
     categories: [ResourceCategory.Educational],
-    published_at: undefined,
+    published_at: 1627534800000,
   },
   {
     title: 'The Deep Dive Episode 4: Reactive frontend frameworks',
@@ -45,7 +45,7 @@ const podcasts: Array<Resource> = [
     keywords: ['logrocket', 'podrocket'],
     type: ResourceType.Podcast,
     categories: [ResourceCategory.Educational],
-    published_at: undefined,
+    published_at: 1630645200000,
   },
 ];
 
