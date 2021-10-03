@@ -10,6 +10,7 @@ const videos: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1592265600000,
   },
   {
     link: 'https://www.youtube.com/watch?v=Dq5EAcup044',
@@ -20,6 +21,7 @@ const videos: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1616544000000,
   },
   {
     link: 'https://www.youtube.com/watch?v=P8iGK8zYzns',
@@ -31,6 +33,7 @@ const videos: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1615593600000,
   },
   {
     link: 'https://www.youtube.com/watch?v=p8e9ta269x8',
@@ -42,6 +45,7 @@ const videos: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1617062400000,
   },
   {
     link: 'https://www.youtube.com/watch?v=-CymMzGwzP8',
@@ -50,6 +54,7 @@ const videos: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1601164800000,
   },
   {
     link: 'https://www.youtube.com/watch?v=P-AGz3U8lFY',
@@ -61,6 +66,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCbAn7pVK2VIyo-UysfWGdZQ',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1625011200000,
   },
   {
     link: 'https://www.youtube.com/watch?v=_ne2BsvFBH0',
@@ -72,6 +78,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCDezHlQN79VWarlRgvmim-w',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1625184000000,
   },
   {
     link: 'https://www.youtube.com/playlist?list=PLtLhzwNMDs1fMi43erQSzXD49Y4p0TniU',
@@ -83,6 +90,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCDezHlQN79VWarlRgvmim-w',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: undefined,
   },
   {
     link: 'https://www.youtube.com/watch?v=iyY1lT8-ZDA',
@@ -94,6 +102,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCsZWzmsdKz2VA49XXBK5TQA',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1615939200000,
   },
   {
     link: 'https://www.youtube.com/watch?v=OqcHoLWyyIw',
@@ -104,6 +113,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UC6vRUjYqDuoUsYsku86Lrsw',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1628640000000,
   },
   {
     link: 'https://youtu.be/cuHDQhDhvPE?t=1038',
@@ -114,6 +124,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1628640000000,
   },
   {
     link: 'https://www.twitch.tv/videos/1115142350',
@@ -125,6 +136,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.twitch.tv/codeitlive',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: undefined,
   },
   {
     link: 'https://www.youtube.com/watch?v=2iK9zzhSKo4&t=69s',
@@ -136,6 +148,7 @@ const videos: Array<Resource> = [
     author_url: 'https://react-finland.fi/',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1630368000000,
   },
   {
     link: 'https://www.youtube.com/watch?v=PW6Re59Hb-8',
@@ -146,6 +159,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCoc4UCEetAt3htM3hV1dQgQ',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational, ResourceCategory.Data, ResourceCategory.UI],
+    published_at: 1631059200000,
   },
   {
     link: 'https://www.youtube.com/watch?v=LZc2hSghezM&t=57s',
@@ -157,6 +171,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UC6vRUjYqDuoUsYsku86Lrsw',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational, ResourceCategory.Data],
+    published_at: 1630886400000,
   },
   {
     link: 'https://www.youtube.com/watch?v=0zadjVUV7zM',
@@ -167,6 +182,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1632441600000,
   },
   {
     link: 'https://www.youtube.com/watch?v=b9e7VXs_A4s',
@@ -178,6 +194,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1631232000000,
   },
   {
     link: 'https://www.youtube.com/watch?v=jnZmG4hyNas',
@@ -188,6 +205,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
+    published_at: 1630713600000,
   },
 ];
 
