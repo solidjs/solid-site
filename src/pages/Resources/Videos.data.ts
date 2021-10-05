@@ -116,13 +116,13 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
   },
   {
-    link: 'https://www.twitch.tv/videos/1115142350',
+    link: 'https://www.youtube.com/watch?v=cFasysKU7vk&t=5s',
     title: "React Wednesdays: Let's Learn Solid JS with Ryan Carniato",
     description:
       'On this episode of React Wednesdays we welcome in Ryan Carniato, a member of the Marko team at eBay, and the author of Solid JS.',
     keywords: ['react', 'wednesday'],
     author: 'CodeItLive',
-    author_url: 'https://www.twitch.tv/codeitlive',
+    author_url: 'https://www.telerik.com/react-wednesdays',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
   },

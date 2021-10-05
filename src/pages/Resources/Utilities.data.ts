@@ -722,6 +722,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/niliadu/solid-js-form',
+    title: 'solid-js-form',
+    description: 'Form library for Solid.JS that uses yup as the validation schema.',
+    author: 'niliadu',
+    author_url: 'https://github.com/niliadu',
+    keywords: ['input', 'form'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;

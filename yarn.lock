@@ -1231,10 +1231,10 @@
   dependencies:
     "@solid-primitives/local-store" "^1.1.2"
 
-"@solid-primitives/i18n@^0.0.105":
-  version "0.0.105"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-0.0.105.tgz#6bae9d56a59ee3d71498cb8b06fb292ad0e8183a"
-  integrity sha512-7D16CY7drlxqVc1RIC4HPZ/FSqqc16n8iNO8gQOdJaSg8nmjbw2fj/iWkGL5meGnbrPR+xIpobkZWSGPbwOXpg==
+"@solid-primitives/i18n@^0.0.250":
+  version "0.0.250"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-0.0.250.tgz#a5c5ae1340961f967eeb0fa87bfac0d81130ec39"
+  integrity sha512-eOlGo8feaXRSEXspXepgEfIh7MAD0uSWuN065rXVR4eLG2cpsydb1kr97QXi0WLNiizox+TiHwmpKpPD+NhzAw==
   dependencies:
     "@solid-primitives/timer" "^0.0.106"
     solid-js "^1.0.3"
