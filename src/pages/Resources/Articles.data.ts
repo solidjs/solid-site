@@ -45,7 +45,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1602738000000,
+    published_at: 1602756000000,
   },
   {
     link: 'https://dev.to/ryansolid/why-i-m-not-a-fan-of-single-file-components-3bfl',
@@ -90,7 +90,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1592888400000,
+    published_at: 1592906400000,
   },
   {
     link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
@@ -123,7 +123,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1591074000000,
+    published_at: 1591092000000,
   },
   {
     link: 'https://dev.to/ryansolid/why-solidjs-do-we-need-another-js-ui-library-1mdc',
@@ -601,7 +601,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1627286400000,
+    published_at: 1627304400000,
   },
   {
     link: 'https://indepth.dev/solidjs-reactivity-to-rendering/',
@@ -613,7 +613,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1592888400000,
+    published_at: 1592906400000,
   },
   {
     link: 'https://dev.to/ryansolid/introducing-the-solidjs-ui-library-4mck',
