@@ -48,6 +48,7 @@ export interface Resource {
   categories: Array<ResourceCategory>;
   official?: boolean; // If the resource is an official Solid resource
   keywords?: Array<string>;
+  published_at?: number;
 }
 const ResourceTypeIcons = {
   article: bookOpen,
