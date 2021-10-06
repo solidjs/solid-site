@@ -589,6 +589,16 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
   },
+  {
+    link: 'https://dev.to/canburaks/introduction-to-solidjs-and-reactive-primitives-1o6h',
+    title: 'Introduction to SolidJS and Reactive Primitives',
+    description: "Walks new users through reactivitiy and Solid's core primitives.",
+    author: 'Can Burak Sofyalioglu',
+    author_url: 'https://dev.to/canburaks',
+    keywords: ['learning', 'primitives'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+  },
 ];
 
 export default articles;
