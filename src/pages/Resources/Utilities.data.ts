@@ -711,6 +711,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/isaacHagoel/solid-dnd-directive',
+    title: 'solid-dnd-directive',
+    description: 'A feature-complete implementation of drag and drop for Solid JS using a custom directive..',
+    author: 'Isaac Hagoel',
+    author_url: 'https://github.com/isaacHagoel',
+    keywords: ['dnd', 'drag', 'drop'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
