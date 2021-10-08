@@ -1231,6 +1231,14 @@
   dependencies:
     "@solid-primitives/local-store" "^1.1.2"
 
+"@solid-primitives/countdown@^0.0.100":
+  version "0.0.100"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-0.0.100.tgz#bdf6cb5ea14d9d1d7adc01dbf20a96d2c4dfdba7"
+  integrity sha512-YoGwoprrQgCVyyBP4eoN5GwAIRP4bjjtV1qaWzneM+tRGtsNOyebDSAa3n7GMUPAhe3e0ys+hShGOhCHAfXBGg==
+  dependencies:
+    "@solid-primitives/timer" "^0.0.106"
+    solid-js "^1.0.3"
+
 "@solid-primitives/i18n@^0.0.250":
   version "0.0.250"
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-0.0.250.tgz#a5c5ae1340961f967eeb0fa87bfac0d81130ec39"
