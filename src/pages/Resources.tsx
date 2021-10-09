@@ -67,9 +67,9 @@ const Resource: Component<Resource> = (props) => {
   const { days, hours } = createCountdown(now, () => published, -1);
   const publish_detail = () => {
     if (days! > 1) {
-      return t('resources.days_ago', { amount: days!.toString()}, '{{amount}} days ago');
+      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago');
     }
-    return t('resources.hours_ago', { amount: hours!.toString()}, '{{amount}} hours ago');
+    return t('resources.hours_ago', { amount: hours!.toString() }, '{{amount}} hours ago');
   };
   return (
     <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
@@ -91,7 +91,9 @@ const Resource: Component<Resource> = (props) => {
               <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
             </Show>
             <Show when={props.author && !props.author_url}>
-              <div class="text-xs mt-3 text-gray-500 block">{t('resources.by')} {props.author}</div>
+              <div class="text-xs mt-3 text-gray-500 block">
+                {t('resources.by')} {props.author}
+              </div>
             </Show>
           </div>
           <Show when={props.author && props.author_url}>
@@ -108,7 +110,9 @@ const Resource: Component<Resource> = (props) => {
             <Show when={props.published_at}>
               <div class="rtl:text-right text-xs text-gray-400 block">
                 {t('resources.published', {}, 'Published')} {published.toDateString()}
-                <Show when={days! < 60}><span class="text-gray-300"> - {publish_detail()}</span></Show>
+                <Show when={days! < 60}>
+                  <span class="text-gray-300"> - {publish_detail()}</span>
+                </Show>
               </div>
             </Show>
           </Show>
