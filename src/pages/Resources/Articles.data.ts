@@ -11,6 +11,7 @@ const articles: Array<Resource> = [
     keywords: ['metagaming', 'creating'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1625584447000,
   },
   {
     link: 'https://www.infoq.com/news/2021/07/solid-js-released-first/',
@@ -22,6 +23,7 @@ const articles: Array<Resource> = [
     keywords: ['infoq', 'education'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1625529600000,
   },
   {
     link: 'https://medium.com/@ryansolid/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e',
@@ -32,6 +34,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1603098166557,
   },
   {
     link: 'https://indepth.dev/the-journey-to-isomorphic-rendering-performance',
@@ -42,6 +45,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1602756000000,
   },
   {
     link: 'https://dev.to/ryansolid/why-i-m-not-a-fan-of-single-file-components-3bfl',
@@ -52,6 +56,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1600667167000,
   },
   {
     link: 'https://levelup.gitconnected.com/how-we-wrote-the-fastest-javascript-ui-framework-again-db097ddd99b6',
@@ -62,6 +67,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1600421218440,
   },
   {
     link: 'https://areknawo.com/solid-the-best-javascript-ui-library/',
@@ -72,6 +78,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1599075919000,
   },
   {
     link: 'https://indepth.dev/posts/1289/solidjs-reactivity-to-rendering',
@@ -83,6 +90,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1592906400000,
   },
   {
     link: 'https://dev.to/lloyds-digital/comparing-reactivity-models-react-vs-vue-vs-svelte-vs-mobx-vs-solid-29m8',
@@ -93,6 +101,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1596527613000,
   },
   {
     link: 'https://areknawo.com/best-react-like-jsx-ui-libraries-in-2020/',
@@ -103,6 +112,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1595534217000,
   },
   {
     link: 'https://indepth.dev/exploring-the-state-of-reactivity-patterns-in-2020/',
@@ -113,6 +123,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1591092000000,
   },
   {
     link: 'https://dev.to/ryansolid/why-solidjs-do-we-need-another-js-ui-library-1mdc',
@@ -123,6 +134,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1590995267000,
   },
   {
     link: 'https://dev.to/ryansolid/thinking-granular-how-is-solidjs-so-performant-4g37',
@@ -133,6 +145,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1586983522000,
   },
   {
     link: 'https://levelup.gitconnected.com/a-solid-realworld-demo-comparison-8c3363448fd8',
@@ -143,6 +156,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1582790369043,
   },
   {
     link: 'https://levelup.gitconnected.com/designing-solidjs-abstraction-66d8c63fa7d1?source=friends_link&amp;sk=9cc520bbba3d97872a78081a8ab7b259',
@@ -153,6 +167,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1580976731118,
   },
   {
     link: 'https://itnext.io/designing-solidjs-suspense-f4e92c625cb5?source=friends_link&amp;sk=f06f93d28632daba59048ed3d6d6b0a5',
@@ -163,6 +178,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1575360287522,
   },
   {
     link: 'https://medium.com/@ryansolid/designing-solidjs-jsx-50ee2b791d4c?source=friends_link&amp;sk=ef3d7ada15b50a6b5b7f5aee2cb8f952',
@@ -174,6 +190,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1575268127582,
   },
   {
     link: 'https://medium.com/javascript-in-plain-english/designing-solidjs-immutability-f1e46fe9f321?source=friends_link&amp;sk=912e32c63353ff0e084630bf3b63a8b1',
@@ -184,6 +201,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1574066462982,
   },
   {
     link: 'https://dev.to/atfzl/understanding-solid-jsx-584p',
@@ -193,6 +211,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1574717523000,
   },
   {
     link: 'https://dev.to/atfzl/understanding-solid-reactivity-basics-39kk',
@@ -202,6 +221,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1570724447000,
   },
   {
     link: 'https://medium.com/@ryansolid/designing-solidjs-components-8f1ebb88d78b?source=friends_link&amp;sk=cac89d1679d8be2c7bf2b303fabd153c',
@@ -212,6 +232,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1573776889202,
   },
   {
     link: 'https://medium.com/@ryansolid/designing-solidjs-reactivity-75180a4c74b4?source=friends_link&amp;sk=dbb9dd46a2e902c199ad3d5c7aeb1566',
@@ -222,6 +243,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1568843075544,
   },
   {
     link: 'https://medium.com/@ryansolid/designing-solidjs-dualities-69ee4c08aa03?source=friends_link&amp;sk=161ddd70db4fca50d6f33b6d53056d36',
@@ -232,6 +254,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1567481829245,
   },
   {
     link: 'https://medium.com/@ryansolid/how-we-wrote-the-fastest-javascript-ui-frameworks-a96f2636431e',
@@ -242,6 +265,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1564115293877,
   },
   {
     link: 'https://levelup.gitconnected.com/finding-fine-grained-reactive-programming-89741994ddee?source=friends_link&amp;sk=31c66a70c1dce7dd5f3f4229423ad127',
@@ -252,6 +276,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1561960861096,
   },
   {
     link: 'https://medium.com/better-programming/the-real-cost-of-ui-components-6d2da4aba205?source=friends_link&amp;sk=a412aa18825c8424870d72a556db2169',
@@ -262,6 +287,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1560955215263,
   },
   {
     link: 'https://medium.com/@ryansolid/the-fastest-way-to-render-the-dom-e3b226b15ca3?source=friends_link&amp;sk=5ae1688dde789e46cecf5c976e708da5',
@@ -272,6 +298,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1559107533103,
   },
   {
     link: 'https://medium.com/@ryansolid/javascript-ui-compilers-comparing-svelte-and-solid-cbcba2120cea',
@@ -282,6 +309,7 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     keywords: [''],
     categories: [ResourceCategory.Educational],
+    published_at: 1557807639966,
   },
   {
     link: 'https://levelup.gitconnected.com/building-a-simple-javascript-app-with-solid-ff17c8836409',
@@ -292,6 +320,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1554809461904,
   },
   {
     link: 'https://levelup.gitconnected.com/solid-the-best-javascript-ui-library-youve-never-heard-of-297b22848ac1?source=friends_link&amp;sk=d61fc9352b4a98c6c9f5f6bd2077a722',
@@ -301,6 +330,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1554453079625,
   },
   {
     link: 'https://medium.com/@ryansolid/what-every-javascript-framework-could-learn-from-react-1e2bbd9feb09?source=friends_link&amp;sk=75b3f6f90eecc7d210814baa2d5ab52c',
@@ -311,6 +341,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1553646091290,
   },
   {
     link: 'https://medium.com/js-dojo/react-hooks-has-react-jumped-the-shark-c8cf04e246cf?source=friends_link&amp;sk=a5017cca813ea970b480cc44afb32034',
@@ -321,6 +352,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1551338947894,
   },
   {
     link: 'https://medium.com/@ryansolid/how-i-wrote-the-fastest-javascript-ui-framework-37525b42d6c9?source=friends_link&amp;sk=8eb9387a535a306d1eb96f7ce88c4db5',
@@ -331,6 +363,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1549778800718,
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-5-js-frameworks-in-2019-deb9c4d3e74',
@@ -340,6 +373,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1548919406928,
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-4-rendering-the-dom-753657689647',
@@ -349,6 +383,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1548328281275,
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-3-change-management-in-javascript-frameworks-6af6e436f63c',
@@ -358,6 +393,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1546555117530,
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-2-web-components-as-containers-85e04a7d96e9',
@@ -367,6 +403,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1542710478949,
   },
   {
     link: 'https://medium.com/@ryansolid/b-y-o-f-part-1-writing-a-js-framework-in-2018-b02a41026929',
@@ -376,6 +413,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1541869780189,
   },
   {
     link: 'https://dev.to/ryansolid/jsx-is-not-hyperscript-61i',
@@ -386,6 +424,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1588404911000,
   },
   {
     link: 'https://dev.to/this-is-learning/learning-to-appreciate-react-server-components-49ka',
@@ -396,6 +435,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1617212767000,
   },
   {
     link: 'https://dev.to/ryansolid/5-ways-solidjs-differs-from-other-js-frameworks-1g63',
@@ -406,6 +446,7 @@ const articles: Array<Resource> = [
     keywords: ['react', 'vue', 'svelte'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1611601719000,
   },
   {
     link: 'https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf',
@@ -416,6 +457,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1612885016000,
   },
   {
     link: 'https://dev.to/ryansolid/building-a-reactive-library-from-scratch-1i0p',
@@ -425,6 +467,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1613661656000,
   },
   {
     link: 'https://dev.to/this-is-learning/is-0kb-of-javascript-in-your-future-48og',
@@ -435,6 +478,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1620052032000,
   },
   {
     link: 'https://dev.to/ryansolid/server-rendering-in-javascript-optimizing-performance-1jnk',
@@ -445,6 +489,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1614267281000,
   },
   {
     link: 'https://dev.to/this-is-learning/components-are-pure-overhead-hpm',
@@ -455,6 +500,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1620666795000,
   },
   {
     link: 'https://dev.to/this-is-learning/two-years-of-writing-about-designing-javascript-frameworks-2018-2020-3ha5',
@@ -465,6 +511,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1621434498000,
   },
   {
     link: 'https://dev.to/this-is-learning/what-the-hell-is-reactive-programming-anyway-31p5',
@@ -475,6 +522,7 @@ const articles: Array<Resource> = [
     keywords: [''],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1616487018000,
   },
   {
     link: 'https://dev.to/this-is-learning/5-places-solidjs-is-not-the-best-5019',
@@ -485,6 +533,7 @@ const articles: Array<Resource> = [
     keywords: ['update'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1617726240000,
   },
   {
     link: 'https://dev.to/ryansolid/solid-update-march-2021-1jj6',
@@ -495,6 +544,7 @@ const articles: Array<Resource> = [
     keywords: ['update'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1617004918000,
   },
   {
     link: 'https://blog.openreplay.com/solid-vs-react-the-fastest-vs-the-most-popular-ui-library',
@@ -506,6 +556,7 @@ const articles: Array<Resource> = [
     keywords: ['react', 'solid', 'comparison'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1624838400000,
   },
   {
     link: 'https://dev.to/trusktr/a-few-reasons-why-i-love-solid-js-4036',
@@ -516,6 +567,7 @@ const articles: Array<Resource> = [
     keywords: ['love', 'lume'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1625423335000,
   },
   {
     link: 'https://codechips.me/solidjs-first-look/',
@@ -526,6 +578,7 @@ const articles: Array<Resource> = [
     keywords: ['mikhailov', 'svelte', 'codechips', 'transitions'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1626739200000,
   },
   {
     link: 'https://javascript.plainenglish.io/javascript-frameworks-performance-comparison-2020-cd881ac21fce',
@@ -536,6 +589,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1608552197675,
   },
   {
     link: 'https://www.infoworld.com/article/3626348/solidjs-creator-javascript-innovation-isnt-slowing-down.html',
@@ -547,6 +601,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1627304400000,
   },
   {
     link: 'https://indepth.dev/solidjs-reactivity-to-rendering/',
@@ -558,6 +613,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1592906400000,
   },
   {
     link: 'https://dev.to/ryansolid/introducing-the-solidjs-ui-library-4mck',
@@ -568,6 +624,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1585189369000,
   },
   {
     link: 'https://css-tricks.com/introduction-to-the-solid-javascript-library/',
@@ -578,6 +635,7 @@ const articles: Array<Resource> = [
     keywords: [],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1629815450000,
   },
   {
     link: 'https://dev.to/marcinwosinek/series/14003',
@@ -588,6 +646,18 @@ const articles: Array<Resource> = [
     keywords: ['learning', 'rosetta', 'esbuild'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
+    published_at: 1628532062000,
+  },
+  {
+    link: 'https://dev.to/canburaks/introduction-to-solidjs-and-reactive-primitives-1o6h',
+    title: 'Introduction to SolidJS and Reactive Primitives',
+    description: "Walks new users through reactivitiy and Solid's core primitives.",
+    author: 'Can Burak Sofyalioglu',
+    author_url: 'https://dev.to/canburaks',
+    keywords: ['learning', 'primitives'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1633545291000
   },
 ];
 

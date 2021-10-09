@@ -1,8 +1,6 @@
 import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ResourcesDataProps } from './Resources.data';
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -18,6 +16,7 @@ import {
   shieldCheck,
 } from '@amoutonbrady/solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
+import createCountdown from '@solid-primitives/countdown';
 
 export enum ResourceType {
   Article = 'article',
@@ -48,6 +47,7 @@ export interface Resource {
   categories: Array<ResourceCategory>;
   official?: boolean; // If the resource is an official Solid resource
   keywords?: Array<string>;
+  published_at?: number;
 }
 const ResourceTypeIcons = {
   article: bookOpen,
@@ -57,8 +57,18 @@ const ResourceTypeIcons = {
   package: terminal,
 };
 
-const ContentRow: Component<Resource> = (props) => {
+const Resource: Component<Resource> = (props) => {
   const [t] = useI18n();
+  const now = new Date();
+  const published = new Date(0);
+  published.setTime(props.published_at || 0);
+  const { days, hours } = createCountdown(now, () => published, -1);
+  const publish_detail = () => {
+    if (days! > 1) {
+      return t('resources.days_ago', { amount: days!.toString()}, '{{amount}} days ago');
+    }
+    return t('resources.hours_ago', { amount: hours!.toString()}, '{{amount}} hours ago');
+  };
   return (
     <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
       <a
@@ -79,7 +89,7 @@ const ContentRow: Component<Resource> = (props) => {
               <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
             </Show>
             <Show when={props.author && !props.author_url}>
-              <div class="text-xs mt-3 text-gray-500 block">By {props.author}</div>
+              <div class="text-xs mt-3 text-gray-500 block">{t('resources.by')} {props.author}</div>
             </Show>
           </div>
           <Show when={props.author && props.author_url}>
@@ -93,6 +103,12 @@ const ContentRow: Component<Resource> = (props) => {
                 {t('resources.by')} {props.author}
               </a>
             </div>
+            <Show when={props.published_at}>
+              <div class="rtl:text-right text-xs text-gray-400 block">
+                {t('resources.published', {}, 'Published')} {published.toDateString()}
+                <Show when={days! < 60}><span class="text-gray-300"> - {publish_detail()}</span></Show>
+              </div>
+            </Show>
           </Show>
         </div>
         <div class="col-span-1 flex items-center text-solid-light">
@@ -139,15 +155,7 @@ const Resources: Component = () => {
         }
         return true;
       });
-      resources.sort((a, b) => {
-        if (a.title < b.title) {
-          return -1;
-        }
-        if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      });
+      resources.sort((b, a) => (a.published_at || 0) - (b.published_at || 0));
       return resources;
     },
     // Retrieve a list categories that have resources
@@ -263,7 +271,7 @@ const Resources: Component = () => {
             fallback={<div class="p-10 text-center">No resources found.</div>}
           >
             <ul>
-              <For each={filtered.list}>{(resource) => <ContentRow {...resource} />}</For>
+              <For each={filtered.list}>{(resource) => <Resource {...resource} />}</For>
             </ul>
           </Show>
         </div>

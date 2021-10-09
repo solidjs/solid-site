@@ -13,13 +13,15 @@ import {
   batch,
   ErrorBoundary,
 } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
+import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
+import { useI18n } from '@solid-primitives/i18n';
+import Dismiss from 'solid-dismiss';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -32,6 +34,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   const [showDirectory, setShowDirectory] = createSignal(false);
   const [searchQuery, setSearchQuery] = createSignal('');
   let listContainer!: HTMLOListElement;
+  let menuButton!: HTMLButtonElement;
   let search!: HTMLInputElement;
   const directory = createMemo(() => Object.entries(props.directory || {}));
   const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
@@ -56,40 +59,22 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   createEffect(
     on(
       () => props.current,
-      () => {
-        setShowDirectory(false);
-        setSearchQuery('');
-      },
+      () =>
+        setTimeout(() => {
+          setShowDirectory(false);
+          setSearchQuery('');
+        }, 0),
     ),
   );
 
-  const listener = (event: MouseEvent | KeyboardEvent) => {
-    if (event instanceof MouseEvent) {
-      return setShowDirectory(false);
-    }
-
-    if (event.key === 'Escape') setShowDirectory(false);
-  };
-
   createEffect(() => {
     if (showDirectory()) {
-      window.addEventListener('click', listener);
-      window.addEventListener('keydown', listener);
-
       // Focus the search input
       search.focus();
 
       // Find the closest section and scroll it into the view
       listContainer.querySelector('.js-active')?.scrollIntoView();
-    } else {
-      window.removeEventListener('click', listener);
-      window.removeEventListener('keydown', listener);
     }
-  });
-
-  onCleanup(() => {
-    window.removeEventListener('click', listener);
-    window.removeEventListener('keydown', listener);
   });
 
   return (
@@ -97,10 +82,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white">
         <button
           class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowDirectory(!showDirectory());
-          }}
+          ref={menuButton}
         >
           <div class="flex-grow inline-flex flex-col items-baseline">
             <h3 class="text-xl text-solid leading-none">{props.current?.lessonName}</h3>
@@ -114,54 +96,54 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
           />
         </button>
       </div>
+      <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
+        <ol
+          ref={listContainer}
+          class="shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          classList={{ hidden: !showDirectory() }}
+        >
+          <li class="sticky top-0">
+            <input
+              ref={search}
+              value={searchQuery()}
+              onInput={(e) => setSearchQuery(e.currentTarget.value)}
+              id="search"
+              name="search"
+              type="search"
+              placeholder="Search..."
+              class="py-2 px-3 block w-full"
+            />
+          </li>
+          <For each={filteredDirectory()}>
+            {([section, entries], sectionIndex) => (
+              <li class="js-section-title">
+                <p class="inline-block px-3 py-1 font-semibold">
+                  {sectionIndex() + 1}. {section}
+                </p>
 
-      <ol
-        ref={listContainer}
-        class="shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
-        classList={{ hidden: !showDirectory() }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <li class="sticky top-0">
-          <input
-            ref={search}
-            value={searchQuery()}
-            onInput={(e) => setSearchQuery(e.currentTarget.value)}
-            id="search"
-            name="search"
-            type="search"
-            placeholder="Search..."
-            class="py-2 px-3 block w-full"
-          />
-        </li>
-        <For each={filteredDirectory()}>
-          {([section, entries], sectionIndex) => (
-            <li class="js-section-title">
-              <p class="inline-block px-3 py-1 font-semibold">
-                {sectionIndex() + 1}. {section}
-              </p>
-
-              <ul class="divide-y box-border">
-                <For each={entries}>
-                  {(entry, entryIndex) => (
-                    <li>
-                      <NavLink
-                        activeClass="js-active bg-blue-50"
-                        class="hover:bg-blue-100 py-3 px-4 block"
-                        href={`/tutorial/${entry.internalName}`}
-                      >
-                        <p class="text-sm font-medium text-gray-900">
-                          {alphabet[entryIndex()]}. {entry.lessonName}
-                        </p>
-                        <p class="text-sm text-gray-500">{entry.description}</p>
-                      </NavLink>
-                    </li>
-                  )}
-                </For>
-              </ul>
-            </li>
-          )}
-        </For>
-      </ol>
+                <ul class="divide-y box-border">
+                  <For each={entries}>
+                    {(entry, entryIndex) => (
+                      <li>
+                        <NavLink
+                          activeClass="js-active bg-blue-50"
+                          class="hover:bg-blue-100 py-3 px-4 block"
+                          href={`/tutorial/${entry.internalName}`}
+                        >
+                          <p class="text-sm font-medium text-gray-900">
+                            {alphabet[entryIndex()]}. {entry.lessonName}
+                          </p>
+                          <p class="text-sm text-gray-500">{entry.description}</p>
+                        </NavLink>
+                      </li>
+                    )}
+                  </For>
+                </ul>
+              </li>
+            )}
+          </For>
+        </ol>
+      </Dismiss>
     </div>
   );
 };
