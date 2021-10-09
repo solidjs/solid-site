@@ -1,7 +1,6 @@
 import type { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import { useI18n } from '@solid-primitives/i18n';
-import { useData } from 'solid-app-router';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
@@ -68,8 +67,8 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021/10/08, 6:20pm',
-                  version: '1.1.5',
+                  date: '2021/10/09, 11:00am',
+                  version: '1.1.6',
                 })}
               </p>
               {/* <button class="flex text-gray-600" onClick={() => data.isDark = !!data.isDark}>

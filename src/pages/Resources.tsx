@@ -64,9 +64,12 @@ const Resource: Component<Resource> = (props) => {
   const now = new Date();
   const published = new Date(0);
   published.setTime(props.published_at || 0);
-  const { days } = createCountdown(now, () => published, 5000);
-  const publication_detail = () => {
-
+  const { days, hours } = createCountdown(now, () => published, -1);
+  const publish_detail = () => {
+    if (days! > 1) {
+      return t('resources.days_ago', { amount: days!.toString()}, '{{amount}} days ago');
+    }
+    return t('resources.hours_ago', { amount: hours!.toString()}, '{{amount}} hours ago');
   };
   return (
     <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
@@ -102,10 +105,10 @@ const Resource: Component<Resource> = (props) => {
                 {t('resources.by')} {props.author}
               </a>
             </div>
-            <Show when={published < now}>
+            <Show when={props.published_at}>
               <div class="rtl:text-right text-xs text-gray-400 block">
-                {t('days ago', {}, 'Published')} {published.toDateString()}
-                <Show when={days! < 60 && days! > 0}><span class="text-gray-300"> - {days} {t('days ago', {}, 'days ago')}</span></Show>
+                {t('resources.published', {}, 'Published')} {published.toDateString()}
+                <Show when={days! < 60}><span class="text-gray-300"> - {publish_detail()}</span></Show>
               </div>
             </Show>
           </Show>

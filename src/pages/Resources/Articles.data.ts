@@ -646,7 +646,7 @@ const articles: Array<Resource> = [
     keywords: ['learning', 'rosetta', 'esbuild'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1633732537000,
+    published_at: 1628532062000,
   },
   {
     link: 'https://dev.to/canburaks/introduction-to-solidjs-and-reactive-primitives-1o6h',
@@ -657,7 +657,7 @@ const articles: Array<Resource> = [
     keywords: ['learning', 'primitives'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1633660760000
+    published_at: 1633545291000
   },
 ];
 
