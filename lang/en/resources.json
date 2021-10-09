@@ -9,6 +9,9 @@
     "library": "Library",
     "package": "Package"
   },
+  "published": "Publisheed",
+  "days_ago": "{{amount}} days ago",
+  "hours_ago": "{{amount}} hours ago",
   "categories": "Categories",
   "translations": "Translations",
   "categories_list": {

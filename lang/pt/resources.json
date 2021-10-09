@@ -9,6 +9,9 @@
     "library": "Bibliotecas",
     "package": "Pacotes"
   },
+  "published": "Publicados",
+  "days_ago": "{{amount}} dias atrás",
+  "hours_ago": "{{amount}} horas atrás",
   "categories": "Categorias",
   "translations": "Traduções",
   "categories_list": {
