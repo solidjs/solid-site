@@ -11,6 +11,9 @@
   },
   "categories": "Categorie",
   "translations": "Traduzioni",
+  "published": "Pubblicato",
+  "days_ago": "{{amount}} giorni fa",
+  "hours_ago": "{{amount}} ore fa",
   "categories_list": {
     "primitive": "Primitivi",
     "router": "Routers",

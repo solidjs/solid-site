@@ -2,7 +2,7 @@ import { useI18n } from '@solid-primitives/i18n';
 import { RouteDataFunc, RouteData } from 'solid-app-router';
 import { createResource } from 'solid-js';
 
-const supportedLanguages = ['en', 'ja', 'zh-cn'];
+const supportedLanguages = ['en', 'de', 'ja', 'zh-cn'];
 
 export interface Step {
   md: string;
