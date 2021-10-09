@@ -56,7 +56,7 @@ const Header: Component<{ title?: string }> = (props) => {
               <h1 class="py-8 text-3xl">
                 <Transition
                   enterClass="ml-5 opacity-0"
-                  enterActiveClass="opacity-100"
+                  enterActiveClass="ml-0 opacity-100"
                   exitToClass="ml-5 opacity-0"
                 >
                   <Switch>
