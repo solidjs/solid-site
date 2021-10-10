@@ -97,7 +97,11 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
     }: 0; height: 1px; width: 100%`;
   };
   const style = `pointer-events: none; ${setPosition(direction)}; `;
-  return <div style={style}></div>;
+  return (
+    <li>
+      <div style={style}></div>
+    </li>
+  );
 };
 
 const Shadow: Component<{ ref: any } & TShared> = ({ child, direction, ref, shadowSize: size }) => {
