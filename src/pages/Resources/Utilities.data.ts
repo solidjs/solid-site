@@ -759,7 +759,7 @@ const utilities: Array<Resource> = [
     published_at: 1633118125000,
   },
   {
-    link: 'https://github.com/rturnq/solid-primitives',
+    link: 'https://github.com/davedbase/solid-primitives',
     title: 'solid-primitives',
     description: "A library of high-quality primitives that extend Solid's reactivity.",
     author: 'David Di Biase',
