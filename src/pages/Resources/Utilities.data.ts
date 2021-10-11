@@ -770,6 +770,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Primitives],
     published_at: 1633118125000,
   },
+    {
+    link: 'https://guillotin.recodable.io/',
+    title: '@guillotin/solid',
+    description: "Collection of Headless Components for demanding developers.",
+    author: 'Steven Yung',
+    author_url: 'https://github.com/xstevenyung',
+    keywords: ['headless', 'ui', 'components'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1633118125000,
+  },
 ];
 
 export default utilities;
