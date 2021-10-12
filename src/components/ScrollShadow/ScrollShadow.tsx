@@ -34,6 +34,7 @@ const ScrollShadow: Component<
     const target = e.currentTarget as HTMLElement;
     target.scrollLeft += e.deltaY;
   };
+
   onMount(() => {
     const resetInitShadowSize = () => {
       if (!initShadowSize) return;
@@ -97,11 +98,7 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
     }: 0; height: 1px; width: 100%`;
   };
   const style = `pointer-events: none; ${setPosition(direction)}; `;
-  return (
-    <li>
-      <div style={style}></div>
-    </li>
-  );
+  return <div aria-hidden="true" style={style}></div>;
 };
 
 const Shadow: Component<{ ref: any } & TShared> = ({ child, direction, ref, shadowSize: size }) => {
