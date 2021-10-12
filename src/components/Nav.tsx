@@ -51,6 +51,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
 const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => (
   <li class={props.class || ''}>
     <button
+      aria-label="Select Language"
       onClick={props.onClick}
       class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{

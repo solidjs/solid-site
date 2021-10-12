@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, createEffect } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
@@ -21,6 +21,11 @@ export const App = () => {
 const Lang: Component = (props) => {
   const data = useData<{ isDark: true; i18n: ReturnType<typeof createI18nContext> }>(0);
   const [t, { locale }] = data.i18n;
+
+  createEffect(() => {
+    document.documentElement.setAttribute('lang', locale());
+  });
+
   return (
     <I18nContext.Provider value={data.i18n}>
       <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
