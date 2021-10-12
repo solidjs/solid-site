@@ -68,3 +68,4 @@ Thank you to our generous and helpful sponsors. If you're interested in sponsori
 - [Cloudflare](https://www.cloudflare.com/)
 - [Builder.io](https://www.builder.io/)
 - [SauceLabs](https://saucelabs.com/)
+- [Netlify](https://www.netlify.com/)
