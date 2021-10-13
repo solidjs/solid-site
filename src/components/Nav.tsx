@@ -25,7 +25,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => (
   <li>
     <NavLink
       href={props.path}
-      class="inline-flex items-center transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
+      class="inline-flex items-center transition m-1 px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
       activeClass="bg-solid-medium text-white"
     >
       <span>{props.title}</span>

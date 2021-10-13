@@ -9,6 +9,11 @@ module.exports = {
       fontSize: {
         xxs: '.55rem',
       },
+      screens: {
+        'pointer-fine': {
+          raw: '(pointer: fine)',
+        },
+      },
       colors: {
         primary: '#4483c1',
         solid: {
