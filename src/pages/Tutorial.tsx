@@ -191,7 +191,7 @@ const Tutorial: Component = () => {
         <div
           dir="ltr"
           class="md:grid"
-          style="height: calc(100vh - 60px); grid-template-columns: minmax(40%, 600px) auto"
+          style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
         >
           <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
             <DirectoryMenu
