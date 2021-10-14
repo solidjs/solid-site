@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { useI18n } from '@solid-primitives/i18n';
+import Dismiss from 'solid-dismiss';
 
 interface DocData {
   loading: boolean;
@@ -43,6 +44,7 @@ const Docs: Component = (props) => {
     }
     setCurrent(prev.slug);
   }, 75);
+  let menuButton!: HTMLButtonElement;
   // Upon loading finish bind observers
   createEffect(() => {
     if (!data.loading) {
@@ -65,15 +67,21 @@ const Docs: Component = (props) => {
             classList={{
               'rotate-90': toggleSections(),
             }}
-            onClick={() => setToggleSections(!toggleSections())}
+            ref={menuButton}
           >
             <Icon class="h-7 w-7" path={chevronRight} />
           </button>
-          <div class="col-span-4 lg:col-span-3 relative">
+          <Dismiss
+            class="col-span-4 lg:col-span-3 relative"
+            menuButton={menuButton}
+            open={toggleSections}
+            setOpen={setToggleSections}
+            show
+          >
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lgoverflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-12 duration-300 transform ' +
-                'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-14 duration-300 transform ' +
+                'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
                 'lg:sticky lg:flex'
               }
               classList={{
@@ -153,7 +161,8 @@ const Docs: Component = (props) => {
                 </For>
               </ul>
             </div>
-          </div>
+          </Dismiss>
+
           <div class="col-span-8 lg:col-span-9 px-10 lg:px-0">
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={data.loading}>Loading documentation...</Match>

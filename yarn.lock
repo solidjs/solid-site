@@ -4484,15 +4484,15 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-solid-app-router@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.8.tgz#762a704efd1e47b4114bd16f4fa351e7daa0c4e7"
-  integrity sha512-LgKBGmydHwn9gzOWCZ6Nxi/NGK+jgllrxoTTuK+LxLh8qPEhmtZRXd9bTvJrurXrZ3XwhVA19B/B7ytMo3Vkjw==
+solid-app-router@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.9.tgz#ab03421b4a8e8d4b2d3699908b36d5b523b0b2ba"
+  integrity sha512-A6qW9EinOSBvi7BSm6pewRqosVdjYDO89XHr3M6A7spyFuqV11l3KUtDGCOMujYeP6oX1sUhMRnpEIPwC9RxoA==
 
-solid-dismiss@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.12.tgz#aa7b23bd1b0719af0a95f5d10a1d17c7786547b4"
-  integrity sha512-aAJHB1yqI4Y6DAL4gkKPiOOqqVeLsSIVV8YbkZBB7PYmQYWUObqGzqLzEgDWjufNQ8NyI5e60PXNmcTgOlrgxw==
+solid-dismiss@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.13.tgz#60fe3011820e6cd9c1b20926666631a972086d46"
+  integrity sha512-Chnv0iiEdOeolBWcE3LeV6JGZdr0hejQB09pbZvtjvU/mX8tVoZEq7Aw6ievNaCk7eINNCZuk+OwjePDY3GZoQ==
 
 solid-js@0.26.5:
   version "0.26.5"
