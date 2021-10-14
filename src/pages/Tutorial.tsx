@@ -73,7 +73,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       document.documentElement.style.scrollBehavior = 'auto';
       document.body.clientWidth; // reflow
 
-      listContainer.querySelector('.js-active')?.scrollIntoView({ block: 'start' });
+      listContainer.querySelector('.js-active')?.scrollIntoView();
       window.scrollTo({ top: 0 });
       document.documentElement.style.scrollBehavior = 'smooth';
     }
