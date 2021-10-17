@@ -1,9 +1,9 @@
 import { Component, createEffect } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
+import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
 import { AppData } from './App.data';
-import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 
 export const App = () => {
   const Routes = useRoutes(routes);

@@ -6,7 +6,6 @@ import {
   Show,
   createSignal,
   createEffect,
-  onCleanup,
   Suspense,
   createMemo,
   on,
