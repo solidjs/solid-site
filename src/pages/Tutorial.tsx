@@ -69,11 +69,13 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
   createEffect(() => {
     if (showDirectory()) {
-      // Focus the search input
       search.focus();
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.body.clientWidth; // reflow
 
-      // Find the closest section and scroll it into the view
       listContainer.querySelector('.js-active')?.scrollIntoView();
+      window.scrollTo({ top: 0 });
+      document.documentElement.style.scrollBehavior = 'smooth';
     }
   });
 
