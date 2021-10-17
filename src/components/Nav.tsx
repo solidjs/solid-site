@@ -1,5 +1,5 @@
-import { Component, For, createMemo, createSignal, Show, onCleanup } from 'solid-js';
-import { Link, NavLink, useData } from 'solid-app-router';
+import { Component, For, createMemo, createSignal, Show, onMount } from 'solid-js';
+import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
@@ -14,43 +14,57 @@ const langs = {
   fr: 'Français',
   de: 'Deutsch',
   pt: 'Português',
-  ru: 'русский',
+  ru: 'Русский',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
 
-const MenuLink: Component<MenuLinkProps> = (props) => (
-  <li>
-    <NavLink
-      href={props.path}
-      class="inline-flex items-center transition m-1 px-4 py-3 rounded hover:text-white hover:bg-solid-medium whitespace-nowrap"
-      activeClass="bg-solid-medium text-white"
-    >
-      <span>{props.title}</span>
-      <Show when={props.external}>
-        <svg
-          class="h-5 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
-      </Show>
-    </NavLink>
-  </li>
-);
+const MenuLink: Component<MenuLinkProps> = (props) => {
+  let linkEl!: HTMLAnchorElement;
+
+  onMount(() => {
+    if (!window.location.pathname.startsWith(props.path)) return;
+
+    setTimeout(() => {
+      linkEl.scrollIntoView({ inline: 'center' });
+    });
+  });
+
+  return (
+    <li>
+      <NavLink
+        href={props.path}
+        class="inline-flex items-center transition m-1 px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
+        activeClass="bg-solid-medium text-white"
+        ref={linkEl}
+      >
+        <span>{props.title}</span>
+        <Show when={props.external}>
+          <svg
+            class="h-5 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </Show>
+      </NavLink>
+    </li>
+  );
+};
 
 const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => (
   <li class={props.class || ''}>
     <button
+      aria-label="Select Language"
       onClick={props.onClick}
       class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{
@@ -63,7 +77,7 @@ const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (pr
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
-  const [locked, setLocked] = createSignal<boolean>(true);
+  const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
   const [observer] = createIntersectionObserver([], ([entry]) => {
@@ -73,7 +87,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     }
     setLocked(entry.isIntersecting);
   });
-  const showLogo = createMemo(() => (props.showLogo ? true : !locked()));
+  const showLogo = createMemo(() => props.showLogo || !locked());
   return (
     <>
       <div use:observer class="h-0" />

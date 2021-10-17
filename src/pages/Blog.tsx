@@ -15,7 +15,7 @@ const BlogArticle: Component<BlogInfo> = (props) => (
 
 const Blog: Component = () => {
   const [t] = useI18n();
-  const data = useData<{ archive: boolean, articles: { [id: string]: BlogInfo } }>();
+  const data = useData<{ archive: boolean; articles: { [id: string]: BlogInfo } }>();
   console.log('body', data.body);
   return (
     <div class="flex flex-col">
@@ -41,9 +41,7 @@ const Blog: Component = () => {
                 </div>
               </div>
               <hr class="mt-10 w-1/6 mx-auto" />
-              <article class="mt-10 prose mx-auto">
-                {/* {data.body()} */}
-              </article>
+              <article class="mt-10 prose mx-auto">{/* {data.body()} */}</article>
             </div>
           </Show>
         </div>

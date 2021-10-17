@@ -232,8 +232,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=UPhx3OxUH0w',
     title: 'Streaming SolidJS - First look at Astro',
-    description:
-      'Ryan takes a look at what Astro is all about with Solid.',
+    description: 'Ryan takes a look at what Astro is all about with Solid.',
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
     keywords: ['astro', 'streaming', 'ryanstream'],
@@ -244,7 +243,8 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=YxroH_MXuhw',
     title: 'Streaming SolidJS: Routing',
-    description: 'Looks at control flow and routing in Solid and the approach we\'ve taken with Solid App Router.',
+    description:
+      "Looks at control flow and routing in Solid and the approach we've taken with Solid App Router.",
     keywords: ['introduction', 'control flow', 'routing', 'stream', 'ryanstreams'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',

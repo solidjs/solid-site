@@ -18,8 +18,8 @@ const Header: Component<{ title?: string }> = (props) => {
         if (collapsed() != result) {
           setCollapsed(result);
         }
-      }
-    )
+      },
+    ),
   );
   return (
     <>

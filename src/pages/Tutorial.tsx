@@ -1,18 +1,17 @@
-import { Repl, createTabList } from 'solid-repl';
-import { useData, NavLink } from 'solid-app-router';
 import {
   For,
   Component,
   Show,
   createSignal,
   createEffect,
-  onCleanup,
   Suspense,
   createMemo,
   on,
   batch,
   ErrorBoundary,
 } from 'solid-js';
+import { Repl, createTabList } from 'solid-repl';
+import { useData, NavLink } from 'solid-app-router';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
@@ -69,11 +68,13 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
   createEffect(() => {
     if (showDirectory()) {
-      // Focus the search input
       search.focus();
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.body.clientWidth; // reflow
 
-      // Find the closest section and scroll it into the view
       listContainer.querySelector('.js-active')?.scrollIntoView();
+      window.scrollTo({ top: 0 });
+      document.documentElement.style.scrollBehavior = 'smooth';
     }
   });
 
@@ -185,92 +186,95 @@ const Tutorial: Component = () => {
       });
   });
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <div
-        dir="ltr"
-        class="md:grid"
-        style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
-      >
-        <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
-          <DirectoryMenu
-            current={data.tutorialDirectoryEntry}
-            directory={data.tutorialDirectory}
-          />
+    <>
+      <Nav showLogo filled />
+      <Suspense fallback={<p>Loading...</p>}>
+        <div
+          dir="ltr"
+          class="md:grid"
+          style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
+        >
+          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
+            <DirectoryMenu
+              current={data.tutorialDirectoryEntry}
+              directory={data.tutorialDirectory}
+            />
 
-          <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
-            {data.markdown || ''}
-          </Markdown>
+            <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
+              {data.markdown || ''}
+            </Markdown>
 
-          <div class="py-4 px-10 flex items-center justify-between border-t-2">
-            <Show
-              when={data.solved}
-              fallback={
+            <div class="py-4 px-10 flex items-center justify-between border-t-2">
+              <Show
+                when={data.solved}
+                fallback={
+                  <NavLink
+                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
+                    href={`/tutorial/${data.id}?solved`}
+                  >
+                    {t('tutorial.solve')}
+                  </NavLink>
+                }
+              >
                 <NavLink
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                  href={`/tutorial/${data.id}?solved`}
+                  href={`/tutorial/${data.id}`}
                 >
-                  {t('tutorial.solve')}
+                  {t('tutorial.reset')}
                 </NavLink>
-              }
-            >
-              <NavLink
-                class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                href={`/tutorial/${data.id}`}
-              >
-                {t('tutorial.reset')}
-              </NavLink>
-            </Show>
+              </Show>
 
-            <div class="flex items-center space-x-4">
-              <span data-tooltip={data.previousLesson}>
-                <NavLink href={data.previousUrl ?? '#'}>
-                  <span class="sr-only">Previous step</span>
-                  <Icon
-                    path={arrowLeft}
-                    class="h-6"
-                    classList={{ 'opacity-25': !data.previousUrl }}
-                  />
-                </NavLink>
-              </span>
+              <div class="flex items-center space-x-4">
+                <span data-tooltip={data.previousLesson}>
+                  <NavLink href={data.previousUrl ?? '#'}>
+                    <span class="sr-only">Previous step</span>
+                    <Icon
+                      path={arrowLeft}
+                      class="h-6"
+                      classList={{ 'opacity-25': !data.previousUrl }}
+                    />
+                  </NavLink>
+                </span>
 
-              <span data-tooltip={data.nextLesson}>
-                <NavLink href={data.nextUrl ?? '#'}>
-                  <span class="sr-only">Next step</span>
-                  <Icon
-                    path={arrowRight}
-                    class="h-6"
-                    classList={{ 'opacity-25': !data.nextUrl }}
-                  />
-                </NavLink>
-              </span>
+                <span data-tooltip={data.nextLesson}>
+                  <NavLink href={data.nextUrl ?? '#'}>
+                    <span class="sr-only">Next step</span>
+                    <Icon
+                      path={arrowRight}
+                      class="h-6"
+                      classList={{ 'opacity-25': !data.nextUrl }}
+                    />
+                  </NavLink>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <ErrorBoundary
-          fallback={
-            <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-          }
-        >
-          <Repl
-            onEditorReady={(editor) => {
-              replEditor = editor;
-            }}
-            compiler={compiler}
-            formatter={formatter}
-            isHorizontal={true}
-            interactive={true}
-            actionBar={true}
-            editableTabs={true}
-            dark={false}
-            tabs={tabs()}
-            setTabs={setTabs}
-            current={current()}
-            setCurrent={setCurrent}
-          />
-        </ErrorBoundary>
-      </div>
-    </Suspense>
+          <ErrorBoundary
+            fallback={
+              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+            }
+          >
+            <Repl
+              onEditorReady={(editor) => {
+                replEditor = editor;
+              }}
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={false}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
+            />
+          </ErrorBoundary>
+        </div>
+      </Suspense>
+    </>
   );
 };
 

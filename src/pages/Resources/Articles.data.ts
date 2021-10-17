@@ -657,7 +657,7 @@ const articles: Array<Resource> = [
     keywords: ['learning', 'primitives'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1633545291000
+    published_at: 1633545291000,
   },
 ];
 
