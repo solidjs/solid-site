@@ -1,0 +1,23 @@
+{
+  "solve": "اعمال تغییرات",
+  "reset": "ریست",
+  "playground": {
+    "result": "نتیجه",
+    "output": "خروجی",
+    "clear": "پاک کردن",
+    "add_tab": "باز کردن تب جدید",
+    "refresh": "رفرش صفحه",
+    "format": "فرمت کردن کد",
+    "copy": "کپی کردن کد",
+    "mode": "حالت کامپایل",
+    "client_render": "Client-side rendering",
+    "server_render": "Server-side rendering",
+    "client_hydration_render": "Client-side rendering with hydration",
+    "dark_mode": "دارک مود",
+    "import_json": "ورودی JSON",
+    "export_json": "خروجی JSON",
+    "export_codesandbox": "خروجی CodeSandBox",
+    "share": "اشتراک گذاری لینک کوتاه شده",
+    "scale": "بزرگ و کوچک کردن نوشته ها"
+  }
+}

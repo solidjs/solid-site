@@ -1,0 +1,48 @@
+{
+  "dir": "rtl",
+  "name": "فارسی",
+  "title": "SolidJS · کتابخانه واکنش گرای جاوااسکریپت",
+  "locale": "fa-IR",
+  "nav": [
+    {
+      "title": "شروع",
+      "path": "/guide"
+    },
+    {
+      "title": "مستندات",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "منابع",
+      "path": "/resources"
+    },
+    {
+      "title": "آموزش ها",
+      "path": "/tutorial"
+    },
+    {
+      "title": "مثال ها",
+      "path": "/examples"
+    },
+    {
+      "title": "Playground",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "نشان تجاری",
+      "path": "/media"
+    }
+  ],
+  "404": {
+    "header": "خطای چهارصد و چهار",
+    "body": "نشان می دهد که چنین صفحه ای وجود ندارد."
+  },
+  "footer": {
+    "declaration": "Solid یک پروژه اپن سورس بوده و با حمایت تیمی از افراد غیر سازمانی ساخته شده است و تحت مجوز <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT license</a> منتشر شده است. این کتابخانه و اکو سیستم آن توسط <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">تیم اصلی و مشارکت کنندگان وفادار</a> ساخته شده است.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "اسپانسر ها",
+    "updated": "آخرین آپدیت {{date}} با Solid ورژن {{version}}"
+  }
+}
