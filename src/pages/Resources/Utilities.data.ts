@@ -782,6 +782,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1633118125000,
   },
+  {
+    link: 'https://github.com/sophiabrandt/solid-heroes',
+    title: 'solid-heroes',
+    description:
+      'Simple SolidJS example using GraphQL-Yoga as the server and URQL as the client.',
+    author: 'Sophia Brandt',
+    author_url: 'https://github.com/sophiabrandt',
+    keywords: ['graphql', 'urql', 'yoga'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Educational, ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
