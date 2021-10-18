@@ -3,6 +3,7 @@ import { Component, onCleanup, onMount } from 'solid-js';
 type TShared = {
   direction: 'horizontal' | 'vertical';
   child: 'first' | 'last';
+  rtl?: boolean;
   shadowSize: string;
   initShadowSize?: boolean;
 };
@@ -20,8 +21,12 @@ const ScrollShadow: Component<
   const sentinelShadowState = new Map<HTMLElement, HTMLElement>();
   let shadowFirstEl!: HTMLElement;
   let shadowLastEl!: HTMLElement;
-  let sentinelFirstEl = (<Sentinel child="first" direction={direction} />) as HTMLElement;
-  let sentinelLastEl = (<Sentinel child="last" direction={direction} />) as HTMLElement;
+  let sentinelFirstEl = (
+    <Sentinel child="first" direction={direction} rtl={props.rtl} />
+  ) as HTMLElement;
+  let sentinelLastEl = (
+    <Sentinel child="last" direction={direction} rtl={props.rtl} />
+  ) as HTMLElement;
   let init = true;
   let initResetSize = false;
 
@@ -49,7 +54,7 @@ const ScrollShadow: Component<
       if (!initShadowSize) return;
       sentinelShadowState.forEach((item) => {
         item.style.transform = 'scaleX(3)';
-        shadowLastEl.style.transformOrigin = 'right';
+        shadowLastEl.style.transformOrigin = props.rtl ? 'left' : 'right';
       });
     };
     const observer = new IntersectionObserver((entries) => {
@@ -65,6 +70,7 @@ const ScrollShadow: Component<
       });
       init = false;
     });
+
     scrollableContainer.addEventListener('wheel', scrollHorizontally, { passive: true });
     sentinelShadowState.set(sentinelFirstEl, shadowFirstEl);
     sentinelShadowState.set(sentinelLastEl, shadowLastEl);
@@ -75,46 +81,68 @@ const ScrollShadow: Component<
   });
   return (
     <div class={className}>
-      <Shadow child="first" direction={direction} shadowSize={shadowSize} ref={shadowFirstEl} />
-      <Shadow child="last" direction={direction} shadowSize={shadowSize} ref={shadowLastEl} />
+      <Shadow
+        child="first"
+        direction={direction}
+        shadowSize={shadowSize}
+        rtl={props.rtl}
+        ref={shadowFirstEl}
+      />
+      <Shadow
+        child="last"
+        direction={direction}
+        shadowSize={shadowSize}
+        rtl={props.rtl}
+        ref={shadowLastEl}
+      />
       {scrollableContainer}
     </div>
   );
 };
 
-const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = ({
-  direction,
-  child,
-}) => {
-  const setPosition = (direction: string) => {
+const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = (props) => {
+  const { direction, child } = props;
+
+  const setPosition = () => {
     const isFirst = child === 'first';
+    const rtl = props.rtl;
+    const marginLeft = rtl ? 'margin-right' : 'margin-left';
+    const left = rtl ? 'right' : 'left';
+    const right = rtl ? 'left' : 'right';
+
     if (direction === 'horizontal') {
       return `position: ${isFirst ? 'absolute' : 'static'}; top: 0; ${
-        isFirst ? 'left' : 'right'
-      }: 0; height: 100%; width: 1px; ${isFirst ? '' : 'flex-shrink: 0; margin-left: -1px;'}`;
+        isFirst ? left : right
+      }: 0; height: 100%; width: 1px; ${isFirst ? '' : `flex-shrink: 0; ${marginLeft}: -1px;`}`;
     }
     return `position: ${isFirst ? 'absolute' : 'relative'}; left: 0; ${
       isFirst ? 'top' : 'bottom'
     }: 0; height: 1px; width: 100%`;
   };
-  const style = `pointer-events: none; ${setPosition(direction)}; `;
-  return <div aria-hidden="true" style={style}></div>;
+  const style = () => `pointer-events: none; ${setPosition()}; `;
+  return <div aria-hidden="true" style={style()}></div>;
 };
 
-const Shadow: Component<{ ref: any } & TShared> = ({ child, direction, ref, shadowSize: size }) => {
+const Shadow: Component<{ ref: any } & TShared> = (props) => {
+  const { child, direction, ref, shadowSize: size } = props;
   const setPosition = () => {
     const isFirst = child === 'first';
+    const rtl = props.rtl;
+    const left = rtl ? 'right' : 'left';
+    const right = rtl ? 'left' : 'right';
+
     if (direction === 'horizontal') {
-      return `top: 0; ${isFirst ? 'left' : 'right'}: 0; background: linear-gradient(to ${
-        isFirst ? 'right' : 'left'
+      return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
+        isFirst ? right : left
       }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%`;
     }
     return `left: 0; ${isFirst ? 'top' : 'bottom'}: 0; background: linear-gradient(to ${
       isFirst ? 'top' : 'bottom'
     }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%`;
   };
-  const style = `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;
-  return <div ref={ref} style={style}></div>;
+  const style = () =>
+    `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;
+  return <div ref={ref} style={style()}></div>;
 };
 
 export default ScrollShadow;

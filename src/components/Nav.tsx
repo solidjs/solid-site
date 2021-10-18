@@ -100,13 +100,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <ScrollShadow
             class="relative nav-items-container"
             direction="horizontal"
+            rtl={t('global.dir', {}, 'ltr') === 'rtl'}
             shadowSize="25%"
             initShadowSize={true}
           >
             <ul class="relative flex items-center overflow-auto no-scrollbar">
               <li
-                class="sticky z-10 left-0 nav-logo-bg dark:bg-solid-gray"
-                classList={{ 'pr-5': showLogo() }}
+                class="z-10 left-0 nav-logo-bg dark:bg-solid-gray"
+                classList={{ 'pr-5': showLogo(), sticky: t('global.dir', {}, 'ltr') === 'ltr' }}
               >
                 <Link href="/" class={`py-3 flex transition-all ${showLogo() ? 'w-9' : 'w-0'}`}>
                   <span class="sr-only">Navigate to the home page</span>
