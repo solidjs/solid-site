@@ -1,0 +1,106 @@
+{
+  "hero": "یک کتابخانه کارآمد، منعطف و اعلانی جاوااسکریپت برای ساخت رابط کاربری.",
+  "info": "<span class=\"font-semibold\">Solid یک کتابخانه کاملا واکنش گرا می باشد.</span> این کتابخانه از ابتدا با یک هسته واکنش گرا طراحی شده و از اصول واکنشی محور توسعه داده شده توسط کتابخانه های قبل از خود الهام گرفته است.",
+  "strengths": [
+    {
+      "icon": "performant",
+      "label": "سریع",
+      "description": "به طور مداوم در صدر بنچمارک های مربوط به تست سرعت و حافظه قرار دارد."
+    },
+    {
+      "icon": "powerful",
+      "label": "قدرتمند",
+      "description": "توابع داخلی واکنش گرای ترکیب شونده همراه با انعطاف پذیری بالای JSX."
+    },
+    {
+      "icon": "pragmatic",
+      "label": "کاربردی",
+      "description": "یک API معقول و مناسب، فرایند توسعه را جذاب و آسان می کند."
+    },
+    {
+      "icon": "productive",
+      "label": "تولید کننده",
+      "description": "ارگونومی و آشنا بودن مفاهیم، ساخت پروژه های ساده و پیچیده را به آب خوردن تبدیل می کند."
+    }
+  ],
+  "facts": [
+    {
+      "label": "6kb",
+      "detail": "فشرده شده",
+      "link": "https://bundlephobia.com/package/solid-js@1.0.0"
+    },
+    {
+      "label": "11k+",
+      "detail": "ستاره های گیت هاب",
+      "link": "https://star-history.t9t.io/#solidjs/solid"
+    },
+    {
+      "label": "بیش از 5 سال",
+      "detail": "در حال توسعه"
+    },
+    {
+      "label": "TypeScript",
+      "detail": "پشتیبانی از"
+    },
+    {
+      "label": "رتبه برتر",
+      "detail": "در سرعت"
+    },
+    {
+      "label": "Astro & Vite",
+      "detail": "پشتیبانی از"
+    }
+  ],
+  "example": {
+    "headline": "آشنا و در عین حال بسیار مدرن",
+    "copy": [
+      "Solid از ویژگی های غول های دیگری به ویژه React و Knockout الهام گرفته است. اگر تا کنون از React Hooks استفاده کرده باشید، Solid بسیار آشنا به نظر خواهد آمد. در واقع آسان تر نیز خواهد بود، زیرا مدل Solid ساده تر و بدون قوانین مربوط به Hook ها است. هر کامپوننت فقط یکبار اجرا می شود و این هوک ها و پیوندها هستند که بارها و با به روز رسانی مقادیری که به آن ها وابسته اند، اجرا می شوند.",
+      "Solid از فلسفه های طراحی شده در React مانند جریان داده یک طرفه، تفکیک خواندن/نوشتن و رابط های تغییر ناپذیر تبعیت می کند. تنها تفاوت آن در نحوه پیاده سازی این ویژگی هاست که باعث می شود نیازی به Virtual DOM نداشته باشد."
+    ],
+    "link_label": "مراجعه به مستندات",
+    "link": "https://www.solidjs.com/docs/latest#component-apis"
+  },
+  "reactivity": {
+    "headline": "واکنش پذیری Fine-grained به این معنی است که شما با دستورات کمتر، کارهای بیشتری انجام خواهید داد.",
+    "subheadline": "تمامی بخش های Solid از توابع داخلی گرفته تا JSX و کدهای نوشته شده توسط کاربر با استفاده از واکنش پذیری کارآمد ساخته شده است.",
+    "copy": "این کار منجر می شود که کنترل کامل بخش هایی که آپدیت می شوند و همچنین زمان آن ها در کنترل کامل شما باشد. به دلیل عدم وجود Virtual DOM و مقایسه های فراوان، این فریمورک هیچ کار اضافه ای بجز چیزهایی که از آن خواسته شده است، انجام نمی دهد.",
+    "link_label": "مشاهده کد خروجی",
+    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+  },
+  "performance": {
+    "headline": ["تمرکز بر روی کارایی بالا", "هم در سمت کاربر و هم در سمت سرور"],
+    "copy": "قدرت واکنش پذیری روش fine-grained در تمامی بنچمارک ها قابل مشاهده است. حتی اگر کارایی برای شما اهمیت نداشته باش، این روش بسیار آسان و بدون دردسرهای مربوط به فرایند توسعه است. به کارایی بالای Solid به عنوان یک ویژگی مثبت اضافی نگاه کنید. Solid یک کتابخانه سریع بدون نیاز به تلاش برای بهینه کردن آن است.",
+    "link_label": "مطالعه مقاله",
+    "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+  },
+  "features": {
+    "headline": "دارای تمام ویژگی های رایج",
+    "copy": "Solid از تمام ویژگی های رایج و مورد نیاز پشتیبانی می کند و حتی در بعضی زمینه ها آن ها را گسترش می دهد تا تجزبه کاربری بهتری را ارائه کند.",
+    "list": [
+      "Fragments",
+      "Portals",
+      "Context",
+      "Suspense",
+      "Error Boundaries",
+      "Lazy Components",
+      "Async & Concurrent Rendering",
+      "Implicit Delegation",
+      "SSR & Hydration",
+      "Directives"
+    ]
+  },
+  "benchmarks": {
+    "time": "زمان",
+    "view": "مشاهده بنچمارک",
+    "show_more": "مشاهده بنچمارک های سمت کاربر و سمت سرور دیگر",
+    "link_label": "این بنچمارک سرعت فریمورک ها را در مرورگر و توسط تست های فراوان نشان می دهد. هر چه کمتر، بهتر.",
+    "js_benchmark": {
+      "title": "JS Framework Benchmark",
+      "description": "این بنچمارک سرعت فریمورک ها را در مرورگر و توسط تست های فراوان نشان می دهد. هر چه کمتر باشد، بهتر است."
+    },
+    "isomorophic_benchmark": {
+      "title": "Isomorphic UI Benchmarks (Search Results)",
+      "description": "این بنچمارک سرعت خام رندرینگ سمت سرور را نشان می دهد. هر چه بیشتر باشد، بهتر است."
+    }
+  }
+}
