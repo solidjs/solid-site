@@ -17,6 +17,7 @@ const langs = {
   ru: 'Русский',
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
+  fa: 'فارسی',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
