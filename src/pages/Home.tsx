@@ -48,7 +48,7 @@ const Home: Component<{}> = () => {
               <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
               <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
             </div>
-            <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
+            <h2 class="lg:font-semibold text-3xl lg:text-4xl leading-snug xl:max-w-4xl">
               {t('home.hero')}
             </h2>
           </section>
