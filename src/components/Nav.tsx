@@ -5,6 +5,7 @@ import { createIntersectionObserver } from '@solid-primitives/intersection-obser
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
+import Dismiss from 'solid-dismiss';
 
 const langs = {
   en: 'English',
@@ -62,11 +63,11 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   );
 };
 
-const LanguageSelector: Component<{ onClick: () => void; class?: string }> = (props) => (
+const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = (props) => (
   <li class={props.class || ''}>
     <button
       aria-label="Select Language"
-      onClick={props.onClick}
+      ref={props.ref}
       class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{
         'background-image': 'url(/img/icons/translate2.svg)',
@@ -81,6 +82,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
+  let langBtnTablet!: HTMLButtonElement;
+  let langBtnDesktop!: HTMLButtonElement;
+
   const [observer] = createIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
@@ -89,6 +93,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   const showLogo = createMemo(() => props.showLogo || !locked());
+
   return (
     <>
       <div use:observer class="h-0" />
@@ -115,34 +120,37 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                 </Link>
               </li>
               <For each={t('global.nav')} children={MenuLink} />
-              <LanguageSelector onClick={() => toggleLangs(!showLangs())} class="flex lg:hidden" />
+              <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
             </ul>
           </ScrollShadow>
           <ul class="hidden lg:flex items-center">
             <Social />
-            <LanguageSelector onClick={() => toggleLangs(!showLangs())} />
+            <LanguageSelector ref={langBtnDesktop} />
           </ul>
         </nav>
-        <Show when={showLangs()}>
-          <div class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end">
-            <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
-              <For each={Object.entries(langs)}>
-                {([lang, label]) => (
-                  <button
-                    class="first:rounded-t hover:bg-solid-lightgray last:rounded-b text-left p-3 text-sm border-b w-full"
-                    classList={{
-                      'bg-solid-medium text-white': lang == locale(),
-                      'hover:bg-solid-light': lang == locale(),
-                    }}
-                    onClick={() => locale(lang) && toggleLangs(false)}
-                  >
-                    {label}
-                  </button>
-                )}
-              </For>
-            </div>
+        <Dismiss
+          menuButton={[langBtnTablet, langBtnDesktop]}
+          open={showLangs}
+          setOpen={toggleLangs}
+          class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end"
+        >
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
+            <For each={Object.entries(langs)}>
+              {([lang, label]) => (
+                <button
+                  class="first:rounded-t hover:bg-solid-lightgray last:rounded-b text-left p-3 text-sm border-b w-full"
+                  classList={{
+                    'bg-solid-medium text-white': lang == locale(),
+                    'hover:bg-solid-light': lang == locale(),
+                  }}
+                  onClick={() => locale(lang) && toggleLangs(false)}
+                >
+                  {label}
+                </button>
+              )}
+            </For>
           </div>
-        </Show>
+        </Dismiss>
       </div>
     </>
   );

@@ -5464,10 +5464,10 @@ solid-app-router@^0.1.5:
   resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.5.tgz#565f128ba08796988e7dc736f680b82e547c22b2"
   integrity sha512-8wxpBP1pOea4rQFba1NH6uyPFBvqcSxHB4i9dSuoQw5OABgecvrFfAe+0TbYCP/7OhJ9RcEfsej+LBEdE/YS0Q==
 
-solid-dismiss@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.12.tgz#aa7b23bd1b0719af0a95f5d10a1d17c7786547b4"
-  integrity sha512-aAJHB1yqI4Y6DAL4gkKPiOOqqVeLsSIVV8YbkZBB7PYmQYWUObqGzqLzEgDWjufNQ8NyI5e60PXNmcTgOlrgxw==
+solid-dismiss@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.14.tgz#9923ef18b97ff498d04bcae65e1fd9f5231c5831"
+  integrity sha512-QMddRPKt3Es39XuNnevIFINzMty8sJ7Gl2bpFm+lV9zdqj0T18ED+OcxLzwad3paZW7TlKB8CXlLzkCzd5II7w==
 
 solid-js@0.26.5:
   version "0.26.5"
