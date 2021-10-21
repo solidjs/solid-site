@@ -39,7 +39,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
       <NavLink
         href={props.path}
         class="inline-flex items-center transition m-1 px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
-        activeClass="bg-solid-medium text-white"
+        activeClass="bg-solid-medium text-white pointer-fine:group-hover:bg-solid-default"
         ref={linkEl}
       >
         <span>{props.title}</span>
@@ -103,7 +103,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       >
         <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
           <ScrollShadow
-            class="relative nav-items-container"
+            class="group relative nav-items-container"
             direction="horizontal"
             rtl={t('global.dir', {}, 'ltr') === 'rtl'}
             shadowSize="25%"
@@ -111,8 +111,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           >
             <ul class="relative flex items-center overflow-auto no-scrollbar">
               <li
-                class="z-10 left-0 nav-logo-bg dark:bg-solid-gray"
-                classList={{ 'pr-5': showLogo(), sticky: t('global.dir', {}, 'ltr') === 'ltr' }}
+                class="left-0 nav-logo-bg dark:bg-solid-gray"
+                classList={{
+                  'pr-5': showLogo(),
+                  sticky: t('global.dir', {}, 'ltr') === 'ltr',
+                  'z-10': t('global.dir', {}, 'ltr') === 'ltr',
+                }}
               >
                 <Link href="/" class={`py-3 flex transition-all ${showLogo() ? 'w-9' : 'w-0'}`}>
                   <span class="sr-only">Navigate to the home page</span>

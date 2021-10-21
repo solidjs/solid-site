@@ -158,8 +158,11 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </Link>
           </div>
         </section>
-        <section class="dark:bg-gray-500 bg-gray-50 py-20 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-20 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
-          <div class="px-5">
+        <section class="dark:bg-gray-500 bg-gray-50 py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
+          <div
+            class="px-9 py-4 bg-gray-50 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
+            classList={{ 'xl:bg-opacity-0': t('global.dir', {}, 'ltr') === 'ltr' }}
+          >
             <img class="w-16" src={sandbox} alt="" />
             <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
               {t('home.reactivity.headline')}

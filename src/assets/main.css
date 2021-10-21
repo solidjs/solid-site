@@ -76,6 +76,7 @@
   border-radius: 3px;
 }
 .chevron::after {
+  @apply border-gray-300;
   border-style: solid;
   transition: all 250ms;
   border-width: 0.15em 0.15em 0 0;
@@ -90,12 +91,12 @@
 }
 .chevron.chevron-right:after {
   left: 0.25em;
-  top: 0.55em;
+  top: 0.43em;
   transform: rotate(45deg);
 }
 .chevron.chevron-left:after {
   right: 0.25em;
-  top: 0.55em;
+  top: 0.43em;
   transform: rotate(225deg);
 }
 .chevron.chevron-right:hover::after {
