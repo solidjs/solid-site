@@ -123,6 +123,7 @@ const Docs: Component = (props) => {
                           class="overflow-hidden transition"
                           classList={{
                             'h-0': section[firstLevel.title] !== true,
+                            invisible: section[firstLevel.title] !== true,
                             'h-full': section[firstLevel.title],
                           }}
                         >
