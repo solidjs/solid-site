@@ -73,5 +73,10 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      backgroundColor: ['group-hover'],
+    },
+  },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],
 };
