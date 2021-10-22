@@ -856,7 +856,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/aldy505/vite-plugin-pages-solid',
-    title: 'solid-markdown',
+    title: 'vite-plugin-pages-solid',
     description: 'A fork of vite-plugin-pages for Vue adapted for Solid.',
     author: 'Reinaldy Rafli',
     author_url: 'https://github.com/aldy505',
