@@ -252,6 +252,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.Routers],
     published_at: 1633752000000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Q0mXYbA86Qo',
+    title: 'Islands, Partial Hydration, & JavaScript Frameworks',
+    description:
+      "Ryan explores the ideas of islands, islets, and partial hydration, and look at what frameworks like Marko, Astro, and Qwik are attacking this.",
+    keywords: ['islands', 'islets', 'hydration', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational, ResourceCategory.Routers],
+    published_at: 1634326849000,
+  },
 ];
 
 export default videos;

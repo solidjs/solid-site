@@ -9,7 +9,7 @@
     "library": "Library",
     "package": "Package"
   },
-  "published": "Publisheed",
+  "published": "Published",
   "days_ago": "{{amount}} days ago",
   "hours_ago": "{{amount}} hours ago",
   "categories": "Categories",
