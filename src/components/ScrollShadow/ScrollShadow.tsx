@@ -55,6 +55,7 @@ const ScrollShadow: Component<
       sentinelShadowState.forEach((item) => {
         item.style.transform = 'scaleX(3)';
         shadowLastEl.style.transformOrigin = props.rtl ? 'left' : 'right';
+        shadowFirstEl.style.transformOrigin = props.rtl ? 'right' : 'left';
       });
     };
     const observer = new IntersectionObserver((entries) => {
@@ -125,6 +126,12 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = (pro
 
 const Shadow: Component<{ ref: any } & TShared> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
+  const refCb = (el: HTMLElement) => {
+    ref(el);
+    divEl = el;
+  };
+  let divEl!: HTMLElement;
+
   const setPosition = () => {
     const isFirst = child === 'first';
     const rtl = props.rtl;
@@ -134,15 +141,19 @@ const Shadow: Component<{ ref: any } & TShared> = (props) => {
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
         isFirst ? right : left
-      }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%`;
+      }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%; ${
+        divEl ? `opacity: ${divEl.style.opacity};` : ''
+      }`;
     }
     return `left: 0; ${isFirst ? 'top' : 'bottom'}: 0; background: linear-gradient(to ${
       isFirst ? 'top' : 'bottom'
-    }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%`;
+    }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%; ${
+      divEl ? `opacity: ${divEl.style.opacity};` : ''
+    }`;
   };
   const style = () =>
     `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;
-  return <div ref={ref} style={style()}></div>;
+  return <div ref={refCb} style={style()}></div>;
 };
 
 export default ScrollShadow;
