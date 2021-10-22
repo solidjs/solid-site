@@ -854,6 +854,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1633895338000,
   },
+  {
+    link: 'https://github.com/aldy505/vite-plugin-pages-solid',
+    title: 'solid-markdown',
+    description: 'A fork of vite-plugin-pages for Vue adapted for Solid.',
+    author: 'Reinaldy Rafli',
+    author_url: 'https://github.com/aldy505',
+    keywords: ['vite', 'pages', 'build'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1634931664000,
+  },
 ];
 
 export default utilities;
