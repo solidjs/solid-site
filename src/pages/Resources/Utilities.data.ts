@@ -793,6 +793,28 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Educational, ResourceCategory.Data],
   },
+  {
+    link: 'https://github.com/lxsmnsyc/solid-giphy',
+    title: 'solid-giphy',
+    description: 'Solid bindings for Giphy API service.',
+    author: 'Alexis H. Munsayac',
+    author_url: 'https://github.com/lxsmnsyc',
+    keywords: ['giphy', 'images'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/one-aalam/solid-starter-kit',
+    title: 'solid-starter-kit',
+    description: 'Solid Starter Kit is an opinionated boilerplate with Supabase, Tailwind, TS and Prettier.',
+    author: 'Aftab Alam',
+    author_url: 'https://github.com/one-aalam',
+    keywords: ['supabase', 'tailwind', 'tailwind'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Starters],
+  },
 ];
 
 export default utilities;
