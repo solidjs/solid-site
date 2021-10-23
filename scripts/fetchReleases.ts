@@ -92,7 +92,7 @@ async function fetchReleaseFolder(
       })
       .json<Documentation[]>()
       .then((docs) => docs.filter(({ size, download_url }) => size && download_url));
-    
+
     for (const item of files) {
       const name = basename(item.download_url);
       const content = await Got.get(item.download_url).text();
@@ -169,5 +169,5 @@ async function run() {
     await fetchReleases(LANGS[i]);
   }
 }
- 
+
 run();

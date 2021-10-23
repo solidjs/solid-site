@@ -14,7 +14,6 @@ import 'prismjs/components/prism-typescript';
 
 const Markdown: Component<Props> = (props) => {
   const [internal, external] = splitProps(props, ['class', 'onLoadSections', 'children']);
-
   const doc = createMemo(() => {
     const sections: Section[] = [];
 

@@ -25,6 +25,7 @@ interface DocData {
 const Docs: Component = (props) => {
   const data = useData<DocData>();
   const [t] = useI18n();
+
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
