@@ -28,12 +28,12 @@ const Header: Component<{ title?: string }> = () => {
     <>
       <Transition
         enterClass="max-h-0 opacity-0"
-        enterToClass="max-h-30 opacity-100"
-        exitClass="max-h-0"
+        enterToClass="max-h-96 opacity-100"
+        exitClass="max-h-96 opacity-100"
         exitToClass="max-h-0 opacity-0"
       >
         <Show when={collapsed() === false}>
-          <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white transition duration-500 overflow-hidden">
+          <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white transition-all duration-500 overflow-hidden">
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
@@ -52,11 +52,11 @@ const Header: Component<{ title?: string }> = () => {
       <Transition
         enterClass="opacity-0 max-h-0"
         enterToClass="max-h-52"
-        exitClass="max-h-0"
+        exitClass="max-h-52"
         exitToClass="opacity-0 max-h-0"
       >
         <Show when={collapsed() === true && !location.pathname.includes('tutorial')}>
-          <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right transition duration-400 overflow-hidden">
+          <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right transition-all duration-400 overflow-hidden">
             <div class="px-3 lg:px-12 container">
               <h1 class="py-8 text-3xl">
                 <Transition
