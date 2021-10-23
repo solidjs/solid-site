@@ -19,6 +19,7 @@ const langs = {
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
   fa: 'فارسی',
+  tr: 'Türkçe',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
