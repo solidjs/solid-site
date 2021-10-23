@@ -37,9 +37,8 @@ const Home: Component<{}> = () => {
   );
   return (
     <div class="dark:bg-solid-gray flex flex-col">
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 bg-blocks-one bg-no-repeat bg-left-top">
-        <div class="my-10 p-10 max-w-4xl m-auto text-2xl" innerHTML={t('home.info')} />
-        <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 border-4 rounded-lg">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-right-top">
+        <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
               <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0">
@@ -52,7 +51,7 @@ const Home: Component<{}> = () => {
         </section>
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="bg-solid-lightgray m-5 lg:m-0 border border-gray-200 text-black flex rounded-lg defer">
+        <section class="border-4 m-5 lg:m-0 border-gray-200 text-black flex rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
               {(fact: { label: string; detail: string; link: string }) => {

@@ -5,8 +5,6 @@ import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
 
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';

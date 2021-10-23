@@ -6,7 +6,7 @@ import Nav from './Nav';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 
-const Header: Component<{ title?: string }> = (props) => {
+const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();
   const [collapsed, setCollapsed] = createSignal(false);
   const location = useLocation();
@@ -27,8 +27,9 @@ const Header: Component<{ title?: string }> = (props) => {
       enterToClass="ml-0 opacity-100"
       exitClass="ml-0 opacity-100"
       exitToClass="ml-5 opacity-0"
+      mode="inout"
     >
-      <span>{props.children}</span>
+      <span class="transition-all duration-300">{props.children}</span>
     </Transition>
   );
   return (
