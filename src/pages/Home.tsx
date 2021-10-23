@@ -36,7 +36,7 @@ const Home: Component<{}> = () => {
     t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
   );
   return (
-    <div class="dark:bg-solid-gray flex flex-col">
+    <div class="dark:bg-solid-gray flex flex-col pt-8">
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-right-top">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
