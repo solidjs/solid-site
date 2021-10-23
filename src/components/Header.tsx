@@ -21,6 +21,16 @@ const Header: Component<{ title?: string }> = (props) => {
       },
     ),
   );
+  const Title: Component = (props) => (
+    <Transition
+      enterClass="ml-5 opacity-0"
+      enterToClass="ml-0 opacity-100"
+      exitClass="ml-0 opacity-100"
+      exitToClass="ml-5 opacity-0"
+    >
+      <span>{props.children}</span>
+    </Transition>
+  );
   return (
     <>
       <Transition
@@ -53,40 +63,32 @@ const Header: Component<{ title?: string }> = (props) => {
         exitToClass="opacity-0 max-h-0"
       >
         <Show when={collapsed() === true && !location.pathname.includes('tutorial')}>
-          <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right transition duration-500 overflow-hidden">
+          <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right transition duration-400 overflow-hidden">
             <div class="px-3 lg:px-12 container">
               <h1 class="py-8 text-3xl">
-                <Transition
-                  enterClass="ml-5 opacity-0"
-                  enterToClass="ml-0 opacity-100"
-                  exitClass="ml-5 opacity-0"
-                  exitToClass="ml-5 opacity-0"
-                  mode="inout"
-                >
-                  <Switch>
-                    <Match when={location.pathname.includes('/blog')}>
-                      <span>{t('global.blog.title', {}, 'Blog')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/guide')}>
-                      <span>{t('docs.title', {}, 'Guides')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/docs')}>
-                      <span>{t('docs.title', {}, 'Guides')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/resources')}>
-                      <span>{t('resources.title', {}, 'Guides')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/examples')}>
-                      <span>{t('examples.title', {}, 'Guides')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/media')}>
-                      <span>{t('media.title', {}, 'Guides')}</span>
-                    </Match>
-                    <Match when={location.pathname.includes('/contributors')}>
-                      <span>{t('contributors.title', {}, 'Team & Contributions')}</span>
-                    </Match>
-                  </Switch>
-                </Transition>
+                <Switch>
+                  <Match when={location.pathname.includes('/blog')}>
+                    <Title>{t('global.blog.title', {}, 'Blog')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/guide')}>
+                    <Title>{t('docs.title', {}, 'Guides')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/docs')}>
+                    <Title>{t('docs.title', {}, 'Guides')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/resources')}>
+                    <Title>{t('resources.title', {}, 'Guides')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/examples')}>
+                    <Title>{t('examples.title', {}, 'Guides')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/media')}>
+                    <Title>{t('media.title', {}, 'Guides')}</Title>
+                  </Match>
+                  <Match when={location.pathname.includes('/contributors')}>
+                    <Title>{t('contributors.title', {}, 'Team & Contributions')}</Title>
+                  </Match>
+                </Switch>
               </h1>
             </div>
           </header>

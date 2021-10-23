@@ -22,7 +22,7 @@ interface DocData {
   };
 }
 
-const Docs: Component = (props) => {
+const Docs: Component<{ hash: string }> = (props) => {
   const data = useData<DocData>();
   const [t] = useI18n();
   const [current, setCurrent] = createSignal<string | null>(null);
@@ -121,6 +121,7 @@ const Docs: Component = (props) => {
                           class="overflow-hidden transition"
                           classList={{
                             'h-0': section[firstLevel.title] !== true,
+                            invisible: section[firstLevel.title] !== true,
                             'h-full': section[firstLevel.title],
                           }}
                         >

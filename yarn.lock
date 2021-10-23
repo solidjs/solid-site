@@ -2468,6 +2468,11 @@ esbuild-windows-arm64@0.13.5:
   resolved "https://registry.yarnpkg.com/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.5.tgz#e0501e82b88f4165cce7cd017db83428f459f775"
   integrity sha512-KKRDmUOIE4oCvJp0I4p4QyazK2X79spF29vsZr2U8qHhmxbTLSQWvYmb2WlF5Clb1URRsX0L013rhwHx1SEu0w==
 
+esbuild@^0.12.8:
+  version "0.12.29"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.29.tgz#be602db7c4dc78944a9dbde0d1ea19d36c1f882d"
+  integrity sha512-w/XuoBCSwepyiZtIRsKsetiLDUVGPVw1E/R3VTFSecIy8UR7Cq3SOtwKHJMFoVqqVG36aGkzh4e8BvpO1Fdc7g==
+
 esbuild@^0.13.2:
   version "0.13.5"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.13.5.tgz#f9add2c2c899a9023dd7f7b64c452320f008aa79"
@@ -4514,6 +4519,13 @@ rollup-plugin-terser@^7.0.0:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
+rollup@^2.38.5, rollup@^2.57.0:
+  version "2.58.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.58.0.tgz#a643983365e7bf7f5b7c62a8331b983b7c4c67fb"
+  integrity sha512-NOXpusKnaRpbS7ZVSzcEXqxcLDOagN6iFS8p45RkoiMqPHDLwJm758UF05KlMoCRbLBTZsPOIa887gZJ1AiXvw==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 rollup@^2.43.1:
   version "2.52.7"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.7.tgz#e15a8bf734f6e4c204b7cdf33521151310250cb2"
@@ -4525,13 +4537,6 @@ rollup@^2.55.1, rollup@^2.56.1:
   version "2.56.3"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.56.3.tgz#b63edadd9851b0d618a6d0e6af8201955a77aeff"
   integrity sha512-Au92NuznFklgQCUcV96iXlxUbHuB1vQMaH76DHl5M11TotjOHwqk9CwcrT78+Tnv4FN9uTBxq6p4EJoYkpyekg==
-  optionalDependencies:
-    fsevents "~2.3.2"
-
-rollup@^2.57.0:
-  version "2.58.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.58.0.tgz#a643983365e7bf7f5b7c62a8331b983b7c4c67fb"
-  integrity sha512-NOXpusKnaRpbS7ZVSzcEXqxcLDOagN6iFS8p45RkoiMqPHDLwJm758UF05KlMoCRbLBTZsPOIa887gZJ1AiXvw==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5259,7 +5264,19 @@ vite-plugin-solid@^2.1.0:
     solid-refresh "^0.2.2"
     vite "^2.6.2"
 
-vite@^2.6.2, vite@^2.6.7:
+vite@2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.4.4.tgz#8c402a07ad45f168f6eb5428bead38f3e4363e47"
+  integrity sha512-m1wK6pFJKmaYA6AeZIUXyiAgUAAJzVXhIMYCdZUpCaFMGps0v0IlNJtbmPvkUhVEyautalajmnW5X6NboUPsnw==
+  dependencies:
+    esbuild "^0.12.8"
+    postcss "^8.3.6"
+    resolve "^1.20.0"
+    rollup "^2.38.5"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+vite@^2.6.2:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.6.7.tgz#e15c1d8327950720b5d7c4ec3fb36a5a58ccf7cb"
   integrity sha512-ewk//jve9k6vlU8PfJmWUHN8k0YYdw4VaKOMvoQ3nT2Pb6k5OSMKQi4jPOzVH/TlUqMsCrq7IJ80xcuDDVyigg==
