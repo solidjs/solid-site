@@ -820,7 +820,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/andi23rosca/tiptap-solid',
-    title: 'solid-tiptap',
+    title: 'tiptap-solid',
     description: 'Solid components for tiptap v2.',
     author: 'Andi Rosca',
     author_url: 'https://github.com/andi23rosca',
