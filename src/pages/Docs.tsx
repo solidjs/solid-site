@@ -5,8 +5,6 @@ import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import createThrottle from '@solid-primitives/throttle';
 
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -22,7 +20,7 @@ interface DocData {
   };
 }
 
-const Docs: Component = (props) => {
+const Docs: Component<{ hash: string }> = (props) => {
   const data = useData<DocData>();
   const [t] = useI18n();
 
@@ -122,6 +120,7 @@ const Docs: Component = (props) => {
                           class="overflow-hidden transition"
                           classList={{
                             'h-0': section[firstLevel.title] !== true,
+                            invisible: section[firstLevel.title] !== true,
                             'h-full': section[firstLevel.title],
                           }}
                         >
