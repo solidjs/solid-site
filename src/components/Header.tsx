@@ -25,7 +25,8 @@ const Header: Component<{ title?: string }> = (props) => {
     <>
       <Transition
         enterClass="max-h-0 opacity-0"
-        enterActiveClass="opacity-100"
+        enterToClass="max-h-30 opacity-100"
+        exitClass="max-h-0"
         exitToClass="max-h-0 opacity-0"
       >
         <Show when={collapsed() === false}>
@@ -47,7 +48,8 @@ const Header: Component<{ title?: string }> = (props) => {
       <Nav showLogo={collapsed()} />
       <Transition
         enterClass="opacity-0 max-h-0"
-        enterActiveClass="opacity-100 max-h-52"
+        enterToClass="max-h-52"
+        exitClass="max-h-0"
         exitToClass="opacity-0 max-h-0"
       >
         <Show when={collapsed() === true && !location.pathname.includes('tutorial')}>
@@ -56,8 +58,10 @@ const Header: Component<{ title?: string }> = (props) => {
               <h1 class="py-8 text-3xl">
                 <Transition
                   enterClass="ml-5 opacity-0"
-                  enterActiveClass="ml-0 opacity-100"
+                  enterToClass="ml-0 opacity-100"
+                  exitClass="ml-5 opacity-0"
                   exitToClass="ml-5 opacity-0"
+                  mode="inout"
                 >
                   <Switch>
                     <Match when={location.pathname.includes('/blog')}>
