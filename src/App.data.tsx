@@ -14,6 +14,7 @@ const langs: { [lang: string]: any } = {
   he: async () => (await import('../lang/he/he')).default(),
   ru: async () => (await import('../lang/ru/ru')).default(),
   fa: async () => (await import('../lang/fa/fa')).default(),
+  tr: async () => (await import('../lang/tr/tr')).default(), 
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
 };
 
