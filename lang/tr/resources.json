@@ -1,0 +1,31 @@
+{
+  "title": "Kaynaklar",
+  "cta": "SolidJS ile ilgili projenizin burada listelenmesi için <a href=\"https://discord.com/invite/solidjs\">Discord</a> üzerinden bize ulaşın .",
+  "search": "Kaynak ara",
+  "types": "Tipler",
+  "types_list": {
+    "article": "Makale",
+    "video": "Video",
+    "library": "Kütüphane",
+    "package": "Paket"
+  },
+  "published": "Yayınlandı",
+  "days_ago": "{{amount}} gün önce",
+  "hours_ago": "{{amount}} saat önce",
+  "categories": "Kategoriler",
+  "translations": "Çeviriler",
+  "categories_list": {
+    "primitive": "Basit",
+    "router": "Rota Araçları",
+    "data": "Veri",
+    "ui": "UI",
+    "plugin": "Eklentiler",
+    "starters": "Başlarken",
+    "build_utility": "Build Araçları",
+    "add_on": "Farklı",
+    "testing": "Test",
+    "educational": "Eğitimsel"
+  },
+  "official": "Kurumsal",
+  "by": "By {{author}}"
+}
