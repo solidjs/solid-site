@@ -264,6 +264,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.Routers],
     published_at: 1634326849000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Yi_MJ8cVCCs',
+    title: 'Streaming SolidJS - Benchmarking and Custom Renderers',
+    description:
+      "The history of JavaScript framework benchmarking and the new custom renderer API coming in Solid 1.2.0",
+    keywords: ['custom render', 'benchmarking', 'performance'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational, ResourceCategory.Routers],
+    published_at: 1635047498000,
+  },
 ];
 
 export default videos;
