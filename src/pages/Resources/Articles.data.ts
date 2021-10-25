@@ -692,6 +692,17 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.Testing],
     published_at: 1634241650000,
   },
+  {
+    link: 'https://dev.to/lexlohr/testing-solidjs-code-beyond-jest-39p',
+    title: 'Testing your Solid.js code beyond jest',
+    description: "A follow up article extending the conversation of testing Solid further beyond Jest.",
+    author: 'Alex Lohr',
+    author_url: 'https://github.com/atk',
+    keywords: ['solid-jest', 'ts-jest', 'jest', 'testing'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational, ResourceCategory.Testing],
+    published_at: 1635095541000,
+  },
 ];
 
 export default articles;
