@@ -2,6 +2,7 @@ type = "webpack"
 account_id = ""
 zone_id = "9258b29d3b22bdba0666469e82d18225"
 workers_dev = true
+compatibility_date = "2021-10-25"
 
 [env.development]
 name = "solidjs-dev"
