@@ -866,6 +866,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1634931664000,
   },
+  {
+    link: 'https://github.com/atk/solid-register',
+    title: 'solid-register',
+    description: 'Allows running and testing Solid.js browser code in Node.js.',
+    author: 'Alex Lohr',
+    author_url: 'https://github.com/atk',
+    keywords: ['runner', 'testing'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities, ResourceCategory.Testing],
+    published_at: 1635095541000,
+  },
 ];
 
 export default utilities;
