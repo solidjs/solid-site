@@ -1,7 +1,7 @@
 import { useI18n } from '@solid-primitives/i18n';
 import { RouteDataFunc, RouteData } from 'solid-app-router';
 import { createResource } from 'solid-js';
-import { getTutorial, supportedTutorials, getTutorialDirectory } from "solid-docs"
+import { getTutorial, supportedTutorials, getTutorialDirectory } from "@solid.js/docs"
 
 const supportedLanguages = supportedTutorials;
 

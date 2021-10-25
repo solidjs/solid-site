@@ -23,6 +23,7 @@
     "@solid-primitives/i18n": "^0.0.250",
     "@solid-primitives/intersection-observer": "^0.0.108",
     "@solid-primitives/throttle": "^1.0.0",
+    "@solid.js/docs": "^1.0.1",
     "fuse.js": "^6.4.6",
     "markdown-it-prism": "^2.1.7",
     "monaco-editor": "0.25.2",

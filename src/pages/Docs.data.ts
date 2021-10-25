@@ -1,7 +1,7 @@
 import { useParams, useLocation, RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
-import { getDoc, supportedDocs } from "solid-docs"
+import { getDoc, supportedDocs } from "@solid.js/docs"
 
 export type DataParams = {
   version: string;
