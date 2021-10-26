@@ -1,4 +1,4 @@
-import { writeFile, readdir } from 'fs/promises';
+import { writeFile, readdir, readFile } from 'fs/promises';
 
 const routes = [
   '/',
@@ -28,8 +28,14 @@ async function generateSitemap() {
     content = `${content}${formatPage(path, publishDate)}`;
   });
 
-  const tutorials = await readdir('public/tutorial/lessons');
-	tutorials.forEach(route => {
+	/*
+	 * This doesn't work within the script for some reason; it doesn't seem to be able to read its /dist/
+   * const tutorialLookup = await getTutorialDirectory("en");
+	 */
+
+  const tutorialLookup = JSON.parse(await readFile("node_modules/@solid.js/docs/dist/tutorials/en/directory.json"));
+  const lessons = tutorialLookup.map(lookup => lookup.internalName);
+	lessons.forEach(route => {
     const path = `${site_url}/tutorial/${route}`;
     content = `${content}${formatPage(path, publishDate)}`;
   });

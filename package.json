@@ -7,10 +7,9 @@
     "dev": "vite",
     "build:vite": "vite build",
     "build:postoptimize": "node ./postoptimize.mjs",
+    "build:sitemap": "jiti scripts/generateSitemap.js",
     "type:check": "tsc --noEmit",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"*.{js,ts,mjs}\"",
-    "fetch:releases": "jiti scripts/fetchReleases",
-    "fetch:tutorials": "jiti scripts/fetchTutorials",
     "deploy:dev": "wrangler publish --env development",
     "deploy:prod": "wrangler publish --env production",
     "postinstall": "patch-package"
