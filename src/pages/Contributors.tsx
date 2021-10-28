@@ -4,6 +4,7 @@ import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
+import { useRouteReadyState } from '../routeReadyState';
 
 interface CoreMemberProps {
   img: string;
@@ -65,6 +66,9 @@ const Contributor: Component<ContributorProps> = (props) => {
 const Contributors: Component<{}> = () => {
   const [t] = useI18n();
   const data = useData<ContributorsDataProps>();
+
+  useRouteReadyState();
+
   return (
     <div class="flex flex-col relative">
       <div class="px-3 lg:px-12 container my-10">

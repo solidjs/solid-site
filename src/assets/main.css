@@ -188,6 +188,7 @@
     animation: move-down 200ms ease-out forwards;
   }
 }
+/* END OF TOOLTIP STYLES */
 
 .reveal-delay {
   animation: reveal-delay 100ms 600ms forwards;
@@ -198,37 +199,3 @@
     opacity: 1;
   }
 }
-
-/* @keyframes progress-bar {
-  0% {
-    stroke-dashoffset: 344;
-  }
-  15%,
-  22.5% {
-    stroke-dashoffset: 202.3529411764706;
-  }
-  30%,
-  37.5% {
-    stroke-dashoffset: 119.03114186851212;
-  }
-  45%,
-  52.5% {
-    stroke-dashoffset: 70.0183187461836;
-  }
-  60%,
-  67.5% {
-    stroke-dashoffset: 41.187246321284476;
-  }
-  75%,
-  82.5% {
-    stroke-dashoffset: 24.227791953696748;
-  }
-  90%,
-  91.875% {
-    stroke-dashoffset: 14.251642325703967;
-  }
-  100% {
-    stroke-dashoffset: -344;
-  }
-} */
-/* END OF TOOLTIP STYLES */

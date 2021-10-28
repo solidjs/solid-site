@@ -34,7 +34,7 @@ const langs = {
   fa: 'فارسی',
 };
 
-type MenuLinkProps = { path: string; external?: boolean; isRouting: () => boolean; title: string };
+type MenuLinkProps = { path: string; external?: boolean; title: string };
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
