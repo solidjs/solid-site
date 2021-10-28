@@ -20,6 +20,7 @@ import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
+import { useRouteReadyState } from '../routeReadyState';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -161,6 +162,9 @@ const Tutorial: Component = () => {
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
   let markDownRef!: HTMLDivElement;
+
+  useRouteReadyState();
+
   createEffect(() => {
     markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
@@ -192,10 +196,7 @@ const Tutorial: Component = () => {
         style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
       >
         <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
-          <DirectoryMenu
-            current={data.tutorialDirectoryEntry}
-            directory={data.tutorialDirectory}
-          />
+          <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
           <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
             {data.markdown || ''}
@@ -236,17 +237,12 @@ const Tutorial: Component = () => {
               <span data-tooltip={data.nextLesson}>
                 <NavLink href={data.nextUrl ?? '#'}>
                   <span class="sr-only">Next step</span>
-                  <Icon
-                    path={arrowRight}
-                    class="h-6"
-                    classList={{ 'opacity-25': !data.nextUrl }}
-                  />
+                  <Icon path={arrowRight} class="h-6" classList={{ 'opacity-25': !data.nextUrl }} />
                 </NavLink>
               </span>
             </div>
           </div>
         </div>
-
         <ErrorBoundary
           fallback={
             <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>

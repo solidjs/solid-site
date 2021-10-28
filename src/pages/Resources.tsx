@@ -17,6 +17,7 @@ import {
 } from '@amoutonbrady/solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import createCountdown from '@solid-primitives/countdown';
+import { useRouteReadyState } from '../routeReadyState';
 
 export enum ResourceType {
   Article = 'article',
@@ -69,6 +70,8 @@ const Resource: Component<Resource> = (props) => {
     }
     return t('resources.hours_ago', { amount: hours!.toString() }, '{{amount}} hours ago');
   };
+
+  useRouteReadyState();
   return (
     <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
       <a

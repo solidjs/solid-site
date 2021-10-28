@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
+import { useRouteReadyState } from '../routeReadyState';
 
 const assets = [
   {
@@ -107,6 +108,9 @@ const AssetPanel: Component<{
 
 const Media: Component = () => {
   const [t] = useI18n();
+
+  useRouteReadyState();
+
   return (
     <div class="flex flex-col">
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">

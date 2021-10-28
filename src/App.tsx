@@ -1,4 +1,13 @@
-import { Component } from 'solid-js';
+import {
+  JSX,
+  batch,
+  children,
+  Component,
+  createComputed,
+  createSignal,
+  untrack,
+  Suspense,
+} from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';
@@ -13,7 +22,16 @@ export const App = () => {
       <Router data={AppData}>
         <Lang>
           <Header />
-          <Routes />
+          {/* two div wrappers to make page animation work and performant */}
+          <div id="main-content">
+            <div>
+              {/* <TransitionRoutes> */}
+              <Suspense>
+                <Routes />
+              </Suspense>
+              {/* </TransitionRoutes> */}
+            </div>
+          </div>
         </Lang>
       </Router>
     </main>

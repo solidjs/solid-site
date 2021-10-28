@@ -1,39 +1,64 @@
-import { Component, Switch, Match, Show, on, createEffect, createSignal } from 'solid-js';
+import {
+  Component,
+  Switch,
+  Match,
+  Show,
+  on,
+  createEffect,
+  createSignal,
+  batch,
+  createComputed,
+  onMount,
+} from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
 import { useLocation } from 'solid-app-router';
 import Nav from './Nav';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
+import { reflow } from '../utils';
+import PageLoadingBar from './LoadingBar/PageLoadingBar';
+import { routeReadyState } from '../routeReadyState';
 
 const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();
-  const [collapsed, setCollapsed] = createSignal(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
+  const noSmallHeader = !isHome && !location.pathname.includes('tutorial');
+  const [showLogo, setShowLogo] = createSignal(!isHome);
+  const [showHeaderSmall, setShowHeaderSmall] = createSignal(noSmallHeader);
+  const [showHeaderSplash, setShowHeaderSplash] = createSignal(isHome);
+  let headerSplashEl!: HTMLElement;
+
   createEffect(
     on(
-      () => location.pathname,
-      () => {
+      routeReadyState,
+      (readyState) => {
+        if (readyState.loading) return;
         const result = location.pathname !== '/';
-        if (collapsed() != result) {
-          setCollapsed(result);
-        }
+        const noHeaderSmall = result && !location.pathname.includes('tutorial');
+
+        setShowHeaderSmall(noHeaderSmall);
+        setShowLogo(result);
+        setShowHeaderSplash(!result);
       },
+      { defer: true },
     ),
   );
   const Title: Component = (props) => (
-    <span class="transition-all duration-200">{props.children}</span>
+    <span class="inline-block transition-all duration-200">{props.children}</span>
   );
   return (
     <>
-      <Transition
-        enterClass="max-h-0 opacity-0"
-        enterToClass="max-h-96 opacity-100"
-        exitClass="max-h-96 opacity-100"
-        exitToClass="max-h-0 opacity-0"
-      >
-        <Show when={collapsed() === false}>
-          <header class="mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white transition-all duration-500 overflow-hidden">
+      <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
+        <Show when={showHeaderSplash()}>
+          <header
+            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
+            ref={headerSplashEl}
+          >
+            <Show when={routeReadyState().loading}>
+              <PageLoadingBar postion="bottom" width={headerSplashEl.clientWidth}></PageLoadingBar>
+            </Show>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
@@ -48,55 +73,213 @@ const Header: Component<{ title?: string }> = () => {
           </header>
         </Show>
       </Transition>
-      <Nav showLogo={collapsed()} />
-      <Transition
-        enterClass="opacity-0 max-h-0"
-        enterToClass="max-h-52"
-        exitClass="max-h-52"
-        exitToClass="opacity-0 max-h-0"
-      >
-        <Show when={collapsed() === true && !location.pathname.includes('tutorial')}>
-          <header class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right transition-all duration-400 overflow-hidden">
-            <div class="px-3 lg:px-12 container">
-              <h1 class="py-8 text-3xl">
-                <Transition
-                  enterClass="ml-5 opacity-0"
-                  enterToClass="ml-0 opacity-100"
-                  exitClass="ml-0 opacity-100"
-                  exitToClass="ml-5 opacity-0"
-                  mode="inout"
-                >
-                  <Switch>
-                    <Match when={location.pathname.includes('/blog')}>
-                      <Title>{t('global.blog.title', {}, 'Blog')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/guide')}>
-                      <Title>{t('guides.title', {}, 'Guides')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/docs')}>
-                      <Title>{t('docs.title', {}, 'Guides')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/resources')}>
-                      <Title>{t('resources.title', {}, 'Guides')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/examples')}>
-                      <Title>{t('examples.title', {}, 'Guides')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/media')}>
-                      <Title>{t('media.title', {}, 'Guides')}</Title>
-                    </Match>
-                    <Match when={location.pathname.includes('/contributors')}>
-                      <Title>{t('contributors.title', {}, 'Team & Contributions')}</Title>
-                    </Match>
-                  </Switch>
-                </Transition>
-              </h1>
-            </div>
-          </header>
-        </Show>
-      </Transition>
+      <Nav showLogo={showLogo()} />
+      <div>
+        <Transition onEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
+          <Show when={showHeaderSmall()}>
+            <header class="overflow-hidden">
+              <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right">
+                <div class="px-3 lg:px-12 container">
+                  <h1 class="py-8 text-3xl">
+                    <Transition
+                      enterClass="translate-x-5 opacity-0"
+                      enterToClass="translate-x-0 opacity-100"
+                      exitClass="translate-x-0 opacity-100"
+                      exitToClass="translate-x-5 opacity-0"
+                      mode="inout"
+                    >
+                      <Switch>
+                        <Match when={location.pathname.includes('/blog')}>
+                          <Title>{t('global.blog.title', {}, 'Blog')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/guide')}>
+                          <Title>{t('guides.title', {}, 'Guides')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/docs')}>
+                          <Title>{t('docs.title', {}, 'Guides')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/resources')}>
+                          <Title>{t('resources.title', {}, 'Guides')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/examples')}>
+                          <Title>{t('examples.title', {}, 'Guides')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/media')}>
+                          <Title>{t('media.title', {}, 'Guides')}</Title>
+                        </Match>
+                        <Match when={location.pathname.includes('/contributors')}>
+                          <Title>{t('contributors.title', {}, 'Team & Contributions')}</Title>
+                        </Match>
+                      </Switch>
+                    </Transition>
+                  </h1>
+                </div>
+              </div>
+            </header>
+          </Show>
+        </Transition>
+      </div>
     </>
   );
 };
 
+const pageTransitionDuration = 500;
+
+const onEnterBigHeader = (el: Element, done: () => void) => {
+  const headerEl = el as HTMLElement;
+  const parentEl = headerEl.parentElement!;
+  const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
+  const headerHeight = headerEl.clientHeight + 'px';
+  const bannerEl = headerEl.firstElementChild as HTMLElement;
+  const elements = [headerEl, bannerEl, ...mainChildren];
+
+  // @ts-ignore
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  elements.forEach((el) => {
+    el.style.transform = `translateY(-${headerHeight})`;
+  });
+
+  bannerEl.style.transform = `translateY(${headerHeight})`;
+
+  reflow();
+
+  elements.forEach((el) => {
+    el.style.transform = '';
+    el.style.transition = `transform ${pageTransitionDuration}ms`;
+  });
+
+  headerEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+      });
+
+      done();
+    },
+    { once: true },
+  );
+};
+
+const onExitBigHeader = (el: Element, done: () => void) => {
+  const headerEl = el as HTMLElement;
+  const parentEl = headerEl.parentElement!;
+  const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
+  const bannerEl = headerEl.firstElementChild as HTMLElement;
+  const scrollY = window.scrollY;
+  const headerHeight = headerEl.clientHeight;
+  const elements = [headerEl, bannerEl, ...mainChildren];
+
+  if (scrollY >= headerHeight) {
+    const pageEl = document.body;
+    pageEl.style.minHeight = '';
+    headerEl.style.height = '0px';
+    // @ts-ignore
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    return done();
+  }
+
+  elements.forEach((el) => {
+    el.style.transform = `translateY(-${headerHeight}px)`;
+    el.style.transition = `transform ${pageTransitionDuration}ms`;
+  });
+  bannerEl.style.transform = `translateY(${headerHeight}px)`;
+
+  headerEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      const pageEl = document.body;
+      pageEl.style.minHeight = '';
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+      });
+
+      done();
+    },
+    { once: true },
+  );
+};
+
+const onEnterSmallHeader = (el: Element, done: () => void) => {
+  const headerEl = el as HTMLElement;
+  const bgContainerEl = el.firstElementChild as HTMLElement;
+
+  const contentEl = bgContainerEl.firstElementChild as HTMLElement;
+  const mainContentChild = document.getElementById('main-content')
+    ?.firstElementChild as HTMLElement;
+  const headerHeight = bgContainerEl.clientHeight + 'px';
+  const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
+
+  bgContainerEl.style.transform = `translateY(-100%)`;
+  contentEl.style.transform = `translateY(100%)`;
+  mainContentChild.style.transform = `translateY(-${headerHeight})`;
+
+  reflow();
+  elements.forEach((el) => {
+    el.style.transform = 'translateY(0)';
+    el.style.transition = `transform ${pageTransitionDuration}ms`;
+  });
+
+  bgContainerEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+      });
+
+      done();
+    },
+    { once: true },
+  );
+};
+
+const onExitSmallHeader = (el: Element, done: () => void) => {
+  const headerEl = el as HTMLElement;
+  const bgContainerEl = headerEl.firstElementChild as HTMLElement;
+  const contentEl = bgContainerEl.firstElementChild as HTMLElement;
+  const mainContentChild = document.getElementById('main-content')
+    ?.firstElementChild as HTMLElement;
+  const scrollY = window.scrollY;
+  const headerHeight = headerEl.clientHeight;
+  const navHeight = 64;
+  const elements = [bgContainerEl, contentEl, mainContentChild];
+
+  if (scrollY >= headerHeight + navHeight) {
+    headerEl.style.height = '0px';
+    // @ts-ignore
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    return done();
+  }
+
+  bgContainerEl.style.transform = `translateY(-100%)`;
+  contentEl.style.transform = `translateY(100%)`;
+  mainContentChild.style.transform = `translateY(-${headerHeight}px)`;
+  elements.forEach((el) => {
+    el.style.transition = `transform ${pageTransitionDuration}ms`;
+  });
+
+  bgContainerEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+      });
+
+      done();
+    },
+    { once: true },
+  );
+};
 export default Header;

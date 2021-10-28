@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { BlogInfo } from './Blog.data';
+import { useRouteReadyState } from '../routeReadyState';
 
 const BlogArticle: Component<BlogInfo> = (props) => (
   <NavLink href={`/blog/${props.id}`} class="block text-md mx-auto mb-10 pb-10 text-center">
@@ -16,6 +17,9 @@ const BlogArticle: Component<BlogInfo> = (props) => (
 const Blog: Component = () => {
   const [t] = useI18n();
   const data = useData<{ archive: boolean; articles: { [id: string]: BlogInfo } }>();
+
+  useRouteReadyState(data);
+
   console.log('body', data.body);
   return (
     <div class="flex flex-col">

@@ -1,5 +1,16 @@
-import { Component, createSignal, lazy, onMount, For, Suspense, Show, createMemo } from 'solid-js';
-import { Link, useData } from 'solid-app-router';
+import {
+  Component,
+  createSignal,
+  lazy,
+  onMount,
+  For,
+  Suspense,
+  Show,
+  createMemo,
+  createEffect,
+  createComputed,
+} from 'solid-js';
+import { Link, useData, useIsRouting } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -12,6 +23,7 @@ import pragmatic from '../assets/icons/pragmatic.svg';
 import productive from '../assets/icons/productive.svg';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
+import { setRouteReadyState, useRouteReadyState } from '../routeReadyState';
 
 const Repl = lazy(() => import('../components/ReplTab'));
 
@@ -23,6 +35,7 @@ const strength_icons: { [key: string]: string } = {
 };
 
 const Home: Component<{}> = () => {
+  const isRouting = useIsRouting();
   const data = useData<{ benchmarks: Array<GraphData> }>();
   const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
@@ -32,9 +45,19 @@ const Home: Component<{}> = () => {
     // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
+
+  createEffect(() => {
+    if (isRouting()) {
+      setLoadRepl(false);
+    }
+  });
+
+  useRouteReadyState();
+
   const chevron = createMemo(() =>
     t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
   );
+
   return (
     <div class="dark:bg-solid-gray flex flex-col pt-8">
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-right-top">

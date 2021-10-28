@@ -5,6 +5,7 @@ import { ExamplesDataRoute } from './Examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
+import { useRouteReadyState } from '../routeReadyState';
 
 const Examples: Component = () => {
   const data = useData<ExamplesDataRoute>();
@@ -18,6 +19,9 @@ const Examples: Component = () => {
     },
   ]);
   const [current, setCurrent] = createSignal(`main.tsx`);
+
+  useRouteReadyState();
+
   createEffect(async () => {
     createEffect(async () => {
       const exampleData = await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>

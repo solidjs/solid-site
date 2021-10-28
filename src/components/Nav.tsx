@@ -1,11 +1,24 @@
-import { Component, For, createMemo, createSignal, Show, onMount } from 'solid-js';
-import { Link, NavLink } from 'solid-app-router';
+import {
+  Component,
+  For,
+  createMemo,
+  createSignal,
+  Show,
+  onMount,
+  createEffect,
+  on,
+  createComputed,
+} from 'solid-js';
+import { Link, NavLink, useIsRouting } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 import Dismiss from 'solid-dismiss';
+import { reflow } from '../utils';
+import { routeReadyState, setRouteReadyState } from '../routeReadyState';
+import PageLoadingBar from './LoadingBar/PageLoadingBar';
 
 const langs = {
   en: 'English',
@@ -21,7 +34,7 @@ const langs = {
   fa: 'فارسی',
 };
 
-type MenuLinkProps = { path: string; external?: boolean; title: string };
+type MenuLinkProps = { path: string; external?: boolean; isRouting: () => boolean; title: string };
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
@@ -40,6 +53,12 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         href={props.path}
         class="inline-flex items-center transition m-1 px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
         activeClass="bg-solid-medium text-white pointer-fine:group-hover:bg-solid-default"
+        onClick={() => {
+          const pageEl = document.body;
+          pageEl.style.minHeight = document.body.scrollHeight + 'px';
+          setRouteReadyState({ loading: true, routeChanged: true });
+        }}
+        noScroll
         ref={linkEl}
       >
         <span>{props.title}</span>
@@ -84,6 +103,18 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
   let langBtnDesktop!: HTMLButtonElement;
+  let logoEl!: HTMLDivElement;
+
+  const logoPosition = () =>
+    t('global.dir', {}, 'ltr') === 'rtl' ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5';
+
+  const navListPosition = () => {
+    const isRTL = t('global.dir', {}, 'ltr') === 'rtl';
+    if (isRTL) {
+      return showLogo() && 'mr-[56px]';
+    }
+    return showLogo() && 'ml-[56px]';
+  };
 
   const [observer] = createIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
@@ -94,6 +125,18 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   });
   const showLogo = createMemo(() => props.showLogo || !locked());
 
+  createComputed(
+    on(
+      showLogo,
+      (showLogo) => {
+        const isRTL = t('global.dir', {}, 'ltr') === 'rtl';
+        showLogo && onEnterLogo(logoEl, isRTL);
+        !showLogo && onExitLogo(logoEl, isRTL);
+      },
+      { defer: true },
+    ),
+  );
+
   return (
     <>
       <div use:observer class="h-0" />
@@ -101,28 +144,36 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         class="flex justify-center sticky top-0 z-50 dark:bg-solid-gray bg-white"
         classList={{ 'shadow-md': showLogo() }}
       >
-        <nav class="px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20 space-x-10">
+        <Show when={showLogo() && routeReadyState().loading}>
+          <PageLoadingBar postion="top" width={window.innerWidth}></PageLoadingBar>
+        </Show>
+        <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20">
+          <div
+            class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
+              showLogo() ? 'scale-100' : 'scale-0'
+            }`}
+            ref={logoEl}
+          >
+            <Link
+              href="/"
+              onClick={() => {
+                setRouteReadyState({ loading: true, routeChanged: true });
+              }}
+              noScroll
+              class={`py-3 flex w-9 `}
+            >
+              <span class="sr-only">Navigate to the home page</span>
+              <img class="w-full h-auto" src={logo} alt="Solid logo" />
+            </Link>
+          </div>
           <ScrollShadow
-            class="group relative nav-items-container"
+            class={`group relative nav-items-container ${navListPosition()}`}
             direction="horizontal"
             rtl={t('global.dir', {}, 'ltr') === 'rtl'}
             shadowSize="25%"
             initShadowSize={true}
           >
             <ul class="relative flex items-center overflow-auto no-scrollbar">
-              <li
-                class="left-0 nav-logo-bg dark:bg-solid-gray"
-                classList={{
-                  'pr-5': showLogo(),
-                  sticky: t('global.dir', {}, 'ltr') === 'ltr',
-                  'z-10': t('global.dir', {}, 'ltr') === 'ltr',
-                }}
-              >
-                <Link href="/" class={`py-3 flex transition-all ${showLogo() ? 'w-9' : 'w-0'}`}>
-                  <span class="sr-only">Navigate to the home page</span>
-                  <img class="w-full h-auto" src={logo} alt="Solid logo" />
-                </Link>
-              </li>
               <For each={t('global.nav')} children={MenuLink} />
               <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
             </ul>
@@ -133,7 +184,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </ul>
         </nav>
         <Dismiss
-          menuButton={[langBtnTablet, langBtnDesktop]}
+          menuButton={langBtnDesktop}
           open={showLangs}
           setOpen={toggleLangs}
           class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end"
@@ -157,6 +208,71 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
       </div>
     </>
+  );
+};
+
+const logoTransition = 500;
+const onEnterLogo = (el: Element, isRTL: boolean) => {
+  const logoEl = el as HTMLElement;
+  const navList = el.nextElementSibling as HTMLElement;
+  const logoWidth = '56px';
+  const elements = [logoEl, navList];
+
+  logoEl.style.transform = `scale(0)`;
+  logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
+  navList.style.transform = `translateX(${isRTL ? '' : '-'}${logoWidth})`;
+
+  reflow();
+  logoEl.style.transform = `scale(1)`;
+  navList.style.transform = `translateX(0)`;
+  elements.forEach((el) => {
+    el.style.transition = `transform ${logoTransition}ms`;
+  });
+
+  logoEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+        el.style.transformOrigin = '';
+      });
+    },
+    { once: true },
+  );
+};
+
+const onExitLogo = (el: Element, isRTL: boolean) => {
+  const logoEl = el as HTMLElement;
+  const navList = el.nextElementSibling as HTMLElement;
+  const logoWidth = '56px';
+  const elements = [logoEl, navList];
+
+  logoEl.style.transform = `scale(1)`;
+  navList.style.transform = `translateX(${isRTL ? '-' : ''}${logoWidth})`;
+  reflow();
+  logoEl.style.transform = `scale(0)`;
+  logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
+  navList.style.transform = `translateX(0)`;
+
+  elements.forEach((el) => {
+    el.style.transition = `transform ${logoTransition}ms`;
+  });
+
+  logoEl.addEventListener(
+    'transitionend',
+    (e) => {
+      if (e.target !== e.currentTarget) return;
+
+      elements.forEach((el) => {
+        el.style.transition = '';
+        el.style.transform = '';
+        el.style.transformOrigin = '';
+      });
+    },
+    { once: true },
   );
 };
 

@@ -15,6 +15,7 @@ type TShared = {
 const ScrollShadow: Component<
   {
     class: string;
+    classList?: { [key: string]: boolean };
   } & Omit<TShared, 'child'>
 > = (props) => {
   const { class: className, direction, shadowSize, initShadowSize } = props;
@@ -81,7 +82,7 @@ const ScrollShadow: Component<
     onCleanup(() => observer && observer.disconnect());
   });
   return (
-    <div class={className}>
+    <div class={props.class} classList={props.classList}>
       <Shadow
         child="first"
         direction={direction}

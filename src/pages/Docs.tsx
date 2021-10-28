@@ -1,4 +1,14 @@
-import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
+import {
+  Component,
+  For,
+  Show,
+  Switch,
+  Match,
+  createEffect,
+  createSignal,
+  createResource,
+  createComputed,
+} from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
@@ -10,6 +20,7 @@ import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
+import { routeReadyState, setRouteReadyState, useRouteReadyState } from '../routeReadyState';
 
 interface DocData {
   loading: boolean;
@@ -27,6 +38,7 @@ const Docs: Component<{ hash: string }> = (props) => {
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
+
   // Determine the section based on title positions
   const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {
     if (entry.intersectionRatio == 0) {
@@ -43,6 +55,9 @@ const Docs: Component<{ hash: string }> = (props) => {
     setCurrent(prev.slug);
   }, 75);
   let menuButton!: HTMLButtonElement;
+
+  useRouteReadyState();
+
   // Upon loading finish bind observers
   createEffect(() => {
     if (!data.loading) {
@@ -58,12 +73,13 @@ const Docs: Component<{ hash: string }> = (props) => {
   });
   return (
     <div class="flex flex-col relative">
-      <Show when={!data.loading}>
+      <Show when={data.doc}>
         <div dir="ltr" class="lg:px-12 container my-5 lg:grid lg:grid-cols-12 gap-4">
           <button
-            class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium"
+            class="fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 bg-solid-medium reveal-delay"
             classList={{
               'rotate-90': toggleSections(),
+              'opacity-0': routeReadyState().routeChanged,
             }}
             ref={menuButton}
           >
