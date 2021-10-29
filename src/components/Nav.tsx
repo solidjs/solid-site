@@ -252,6 +252,12 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
 
   logoEl.style.transform = `scale(1)`;
   navList.style.transform = `translateX(${isRTL ? '-' : ''}${logoWidth})`;
+  if (isRTL) {
+    navList.style.marginRight = '0';
+  } else {
+    navList.style.marginLeft = '0';
+  }
+
   reflow();
   logoEl.style.transform = `scale(0)`;
   logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
@@ -259,6 +265,7 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
 
   elements.forEach((el) => {
     el.style.transition = `transform ${logoTransition}ms`;
+    el.style.backfaceVisibility = 'hidden';
   });
 
   logoEl.addEventListener(
@@ -266,9 +273,13 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
     (e) => {
       if (e.target !== e.currentTarget) return;
 
+      navList.style.marginLeft = '';
+      navList.style.marginRight = '';
+
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';
+        el.style.backfaceVisibility = '';
         el.style.transformOrigin = '';
       });
     },

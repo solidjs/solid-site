@@ -14,6 +14,8 @@ const PageLoadingBar: Component<{ postion?: 'top' | 'bottom'; width?: number }> 
   let timeoutId = null as unknown as number;
   let styleElement: HTMLStyleElement;
   let animationName = `page-loading-bar-animation-${id}`;
+  let duration = 8000;
+  let delay = 250;
   // Safari reads keyframe animation name once, so updated keyframes are ignored. Solution is to create new name
   id++;
 
@@ -46,16 +48,22 @@ const PageLoadingBar: Component<{ postion?: 'top' | 'bottom'; width?: number }> 
     const step = 15;
     let percentage = 100;
 
-    let keyframes = `0% {stroke-dashoffset: ${width}}`;
+    let keyframes = `0% {stroke-dashoffset: ${width}px}`;
 
     for (let i = step; i < frames; i += step) {
       const divide = i + step >= frames ? 10 : 2;
       percentage /= 1.7;
 
-      keyframes += `${i}%,${i + step / divide}% {stroke-dashoffset: ${width * (percentage / 100)}}`;
+      keyframes += `${i}%,${i + step / divide}% {
+        stroke-dashoffset: ${width * (percentage / 100)}px;
+        transform: translateX(0px);
+      }`;
     }
 
-    keyframes += `100% {stroke-dashoffset: -${width}}`;
+    keyframes += `100% {
+      stroke-dashoffset: 0;
+      transform: translateX(${width}px);
+    }`;
     return keyframes;
   };
 
@@ -84,11 +92,11 @@ const PageLoadingBar: Component<{ postion?: 'top' | 'bottom'; width?: number }> 
         ref={pathEl}
         d={`M 0, ${postion === 'top' ? 3 : 5} h ${width}`}
         stroke={`url(#${gradientId})`}
-        stroke-dasharray={`${width}`}
-        stroke-dashoffset={`${width}`}
+        stroke-dasharray={`${width}px`}
+        stroke-dashoffset={`${width}px`}
         stroke-width="8"
         stroke-linecap="round"
-        style={`animation: ${animationName} 8000ms infinite;`}
+        style={`animation: ${animationName} ${duration}ms ${delay}ms infinite;`}
       />
     </svg>
   );
