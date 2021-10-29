@@ -878,6 +878,30 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities, ResourceCategory.Testing],
     published_at: 1635095541000,
   },
+  {
+    link: 'https://github.com/merged-js/solid-apollo',
+    title: 'solid-apollo',
+    description: 'An Apollo client for Solid.',
+    author: 'merged-js',
+    author_url: 'https://github.com/merged-js',
+    keywords: ['apollo', 'graphql'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1635523744000,
+  },
+  {
+    link: 'https://github.com/merged-js/react-solid',
+    title: 'react-solid',
+    description: 'A way to use Solid components inside React.',
+    author: 'merged-js',
+    author_url: 'https://github.com/merged-js',
+    keywords: ['react', 'binding'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1635523744000,
+  },
 ];
 
 export default utilities;
