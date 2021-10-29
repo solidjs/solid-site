@@ -184,7 +184,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </ul>
         </nav>
         <Dismiss
-          menuButton={langBtnDesktop}
+          menuButton={[langBtnTablet, langBtnDesktop]}
           open={showLangs}
           setOpen={toggleLangs}
           class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end"
