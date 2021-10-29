@@ -61,11 +61,11 @@ const Header: Component<{ title?: string }> = () => {
             </Show>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
-                <div class="flex items-center space-y-4 lg:space-y-0 lg:space-x-4">
+                <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">
                   <img class="w-28 h-30 lg:w-48" src={logo} alt="Solid logo" />
-                  <img class="w-52 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
+                  <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
                 </div>
-                <h2 class="lg:font-semibold text-3xl text-left lg:text-4xl leading-snug xl:max-w-4xl">
+                <h2 class="lg:font-semibold text-3xl lg:text-4xl leading-snug xl:max-w-4xl">
                   {t('home.hero')}
                 </h2>
               </section>
