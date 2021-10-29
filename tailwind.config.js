@@ -13,6 +13,11 @@ module.exports = {
       fontSize: {
         xxs: '.55rem',
       },
+      screens: {
+        'pointer-fine': {
+          raw: '(pointer: fine)',
+        },
+      },
       colors: {
         primary: '#4483c1',
         solid: {
@@ -70,6 +75,11 @@ module.exports = {
       fontFamily: {
         display: ['Gordita', ...theme.fontFamily.sans],
       },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['group-hover'],
     },
   },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],
