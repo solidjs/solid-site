@@ -4641,10 +4641,10 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-solid-app-router@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.5.tgz#565f128ba08796988e7dc736f680b82e547c22b2"
-  integrity sha512-8wxpBP1pOea4rQFba1NH6uyPFBvqcSxHB4i9dSuoQw5OABgecvrFfAe+0TbYCP/7OhJ9RcEfsej+LBEdE/YS0Q==
+solid-app-router@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.11.tgz#43228fda5325936f102d4a3a037e30a3ac289607"
+  integrity sha512-O0Gp2MhsqMJCDFzMNEH1rjpKFIFXO+0pX12AwTDYXQVnGwscbjD0ysAtyvjgXZAcj2udbYEL4uR5IgnJfI3YKw==
 
 solid-dismiss@^1.0.18:
   version "1.0.18"
@@ -4666,10 +4666,10 @@ solid-js@^1.1.1:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.7.tgz#e9518be0447678344e92e902cbca5311299b66b8"
   integrity sha512-+zZOdR++hFJ/dEmAaHjyI5/tPqRdItOVKsnLuBOKajCqG0n/Bs3uc8xWf8CiYTI7OIwSt5A6ASM8KDoKehfs6w==
 
-solid-js@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.1.6.tgz#83076ed9d3a85312549636e79858ad1daba267d8"
-  integrity sha512-o7Nm654Q9vF+W293P1pxr2uv1dYhTjDM0tsYnmQTcNCvUcGMlW947SE3fx4pvH1Rcrjm549HkNy50Ors3D4+zQ==
+solid-js@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.0.tgz#d6e85d4455e5a3cabffede3f1f6be0c48428ecdc"
+  integrity sha512-4zi7Ip+wH0ctZIiQkDPC9of4v9TDYK33/4oqn2cu7wHfBjWElk8wnwSwlkZLkmtr9VYbsEfrroXsNH1mKJdJFg==
 
 solid-meta@^0.27.1:
   version "0.27.1"
