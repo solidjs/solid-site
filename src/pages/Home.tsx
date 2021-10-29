@@ -60,11 +60,11 @@ const Home: Component<{}> = () => {
 
   return (
     <div class="dark:bg-solid-gray flex flex-col pt-8">
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-right-top">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
-              <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0">
+              <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
                 <img class="w-12 mb-5" src={strength_icons[strength.icon]} alt={strength.label} />
                 <h3 class="text-xl mb-2 font-semibold">{strength.label}</h3>
                 <p class="text-base">{strength.description}</p>
@@ -74,7 +74,7 @@ const Home: Component<{}> = () => {
         </section>
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="border-4 m-5 lg:m-0 border-gray-200 text-black flex rounded-lg defer">
+        <section class="border-2 m-5 lg:m-0 border-gray-200 text-black flex rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
               {(fact: { label: string; detail: string; link: string }) => {
@@ -85,7 +85,13 @@ const Home: Component<{}> = () => {
                   </>
                 );
                 return (
-                  <li class="hover:bg-solid-dark hover:text-white transition">
+                  <li
+                    class="transition border-gray-100 border-r"
+                    classList={{
+                      "hover:bg-solid-dark": !!fact.link,
+                      "hover:text-white": !!fact.link,
+                    }}
+                  >
                     {fact.link ? (
                       <a
                         target="_blank"
@@ -178,7 +184,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="py-20 px-8 lg:px-10 flex flex-col lg:flex-row lg:space-x-32 rtl:space-x-0 space-y-10">
+        <section class="py-20 px-10 lg:px-10 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-32 rtl:space-x-0">
           <div class="flex flex-wrap items-center flex-1 rtl:ml-10">
             <Benchmarks list={data.benchmarks} />
           </div>
@@ -199,7 +205,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-8 lg:px-20 space-x-12">
+        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} alt="" />
