@@ -875,7 +875,7 @@ const utilities: Array<Resource> = [
     keywords: ['runner', 'testing'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.BuildUtilities, ResourceCategory.Testing],
+    categories: [ResourceCategory.Testing],
     published_at: 1635095541000,
   },
   {
@@ -887,7 +887,7 @@ const utilities: Array<Resource> = [
     keywords: ['apollo', 'graphql'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1635523744000,
   },
   {
@@ -899,7 +899,7 @@ const utilities: Array<Resource> = [
     keywords: ['react', 'binding'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1635523744000,
   },
 ];
