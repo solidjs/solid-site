@@ -1,6 +1,6 @@
 import { Component, onCleanup, onMount } from 'solid-js';
+import createThrottle from '@solid-primitives/throttle';
 
-let prevWidth = 0;
 // why not use createUniqueId? Because it takes to long for devices with low cpu to render loading bar.
 let id = 0;
 
@@ -9,38 +9,52 @@ const PageLoadingBar: Component<{ postion?: 'top' | 'bottom'; width?: number }> 
   width = 0,
 }) => {
   const gradientId = 'page-loading-bar-linear-gradient';
+  const duration = 8000;
+  const delay = 250;
+  const [onResizeThrottled, clearOnResizeThrottled] = createThrottle(onResize, 250);
+  const animationName = () => `page-loading-bar-animation-${id}`;
+  const animationValue = () => `${animationName()} ${duration}ms ${delay}ms infinite`;
+  const pathDValue = () => `M 0, ${postion === 'top' ? 3 : 5} h ${width}`;
+
   let svgEl!: SVGSVGElement;
   let pathEl!: SVGPathElement;
-  let timeoutId = null as unknown as number;
-  let styleElement: HTMLStyleElement;
-  let animationName = `page-loading-bar-animation-${id}`;
-  let duration = 8000;
-  let delay = 250;
+  let styleEl: HTMLStyleElement;
   // Safari reads keyframe animation name once, so updated keyframes are ignored. Solution is to create new name
   id++;
 
   onMount(() => {
     createKeyframe();
+
+    window.addEventListener('resize', onResizeThrottled);
   });
 
   onCleanup(() => {
-    window.clearTimeout(timeoutId);
+    clearOnResizeThrottled();
+    window.removeEventListener('resize', onResizeThrottled);
   });
 
-  const createKeyframe = () => {
-    const keyframe = `@keyframes ${animationName} {${generateAnimation()}}`;
+  function onResize() {
+    width = svgEl.parentElement!.clientWidth;
+    svgEl.setAttribute('width', `${width}`);
+    pathEl.setAttribute('d', pathDValue());
+    pathEl.setAttribute('stroke-dasharray', `${width}px`);
+    pathEl.setAttribute('stroke-dashoffset', `${width}px`);
+    id++;
+    pathEl.style.animation = animationValue();
+    createKeyframe();
+  }
 
-    if (prevWidth === width) return;
-    if (styleElement) {
-      styleElement.textContent = keyframe;
+  const createKeyframe = () => {
+    const keyframe = `@keyframes ${animationName()} {${generateAnimation()}}`;
+
+    if (styleEl) {
+      styleEl.textContent = keyframe;
       return;
     }
 
-    const styleEl = document.createElement('style');
+    styleEl = document.createElement('style');
     styleEl.textContent = keyframe;
-    styleElement = styleEl;
-    document.head.appendChild(styleElement);
-    prevWidth = width;
+    document.head.appendChild(styleEl);
   };
 
   const generateAnimation = () => {
@@ -90,13 +104,13 @@ const PageLoadingBar: Component<{ postion?: 'top' | 'bottom'; width?: number }> 
       </defs>
       <path
         ref={pathEl}
-        d={`M 0, ${postion === 'top' ? 3 : 5} h ${width}`}
+        d={pathDValue()}
         stroke={`url(#${gradientId})`}
         stroke-dasharray={`${width}px`}
         stroke-dashoffset={`${width}px`}
         stroke-width="8"
         stroke-linecap="round"
-        style={`animation: ${animationName} ${duration}ms ${delay}ms infinite;`}
+        style={`animation: ${animationValue()};`}
       />
     </svg>
   );
