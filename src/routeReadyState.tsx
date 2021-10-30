@@ -7,6 +7,11 @@ export const [routeReadyState, setRouteReadyState] = createSignal(
 );
 
 export const useRouteReadyState = () => {
+  const restorePageHeight = () => {
+    const pageEl = document.body;
+    pageEl.style.minHeight = '';
+  };
+
   try {
     const data = useData<{ loading: boolean }>();
 
@@ -16,6 +21,7 @@ export const useRouteReadyState = () => {
         setTimeout(() => {
           // @ts-ignore
           window.scrollTo({ top: 0, behavior: 'instant' });
+          restorePageHeight();
         });
       }
     });
@@ -24,6 +30,7 @@ export const useRouteReadyState = () => {
     setTimeout(() => {
       // @ts-ignore
       window.scrollTo({ top: 0, behavior: 'instant' });
+      restorePageHeight();
     });
   }
 };

@@ -174,8 +174,6 @@ const onExitBigHeader = (el: Element, done: () => void) => {
   const elements = [headerEl, bannerEl, ...mainChildren];
 
   if (scrollY >= headerHeight) {
-    const pageEl = document.body;
-    pageEl.style.minHeight = '';
     headerEl.style.height = '0px';
     // @ts-ignore
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -193,8 +191,6 @@ const onExitBigHeader = (el: Element, done: () => void) => {
     (e) => {
       if (e.target !== e.currentTarget) return;
 
-      const pageEl = document.body;
-      pageEl.style.minHeight = '';
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';
