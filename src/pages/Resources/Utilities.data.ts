@@ -572,7 +572,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/amoutonbrady/solid-i18n',
-    title: 'solid-i18n',
+    title: '@amoutonbrady/solid-i18n',
     description: 'Tiny translation library for solid-js inspired by rosetta.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
@@ -901,6 +901,43 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1635523744000,
+  },
+  {
+    link: 'https://github.com/SanichKotikov/solid-i18n',
+    title: 'solid-i18n',
+    description: 'Tiny translation library for solid-js inspired by Rosetta.',
+    author: 'merged-js',
+    author_url: 'https://github.com/SanichKotikov',
+    keyords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'rosetta',
+    ],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    published_at: 1635697432000,
+  },
+  {
+    link: 'https://github.com/poudels14/slate-solid',
+    title: 'slate-solid',
+    description: 'Slate Solid is a solid-js wrapper for Slate rich text editor.',
+    author: 'Sagar Poudel',
+    author_url: 'https://github.com/poudels14',
+    keyords: [
+      'slate',
+      'wysiwyg',
+      'editor',
+      'rich text'
+    ],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    published_at: 1635697432000,
   },
 ];
 
