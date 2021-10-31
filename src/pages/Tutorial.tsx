@@ -13,14 +13,26 @@ import {
 import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
 import { Icon } from '@amoutonbrady/solid-heroicons';
-import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
+import {
+  arrowLeft,
+  arrowRight,
+  chevronDown,
+} from '@amoutonbrady/solid-heroicons/solid';
 
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
-import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
+import type {
+  TutorialDirectory,
+  TutorialDirectoryItem,
+  TutorialRouteData,
+} from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
+<<<<<<< HEAD
 import { useRouteReadyState } from '../routeReadyState';
+=======
+import { isFileServingAllowed } from 'vite/dist/node/server/middlewares/static';
+>>>>>>> npm-docs
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -79,62 +91,67 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   });
 
   return (
-    <div class="z-10 relative">
-      <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white">
+    <div class='z-10 relative'>
+      <div
+        class='box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white'>
         <button
-          class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
+          class='py-2 px-10 flex items-center focus:outline-none space-x-1 group'
           ref={menuButton}
         >
-          <div class="flex-grow inline-flex flex-col items-baseline">
-            <h3 class="text-xl text-solid leading-none">{props.current?.lessonName}</h3>
-            <p class="block text-gray-500 text-md">{props.current?.description}</p>
+          <div class='flex-grow inline-flex flex-col items-baseline'>
+            <h3
+              class='text-xl text-solid leading-none'>{props.current?.lessonName}</h3>
+            <p
+              class='block text-gray-500 text-md'>{props.current?.description}</p>
           </div>
 
           <Icon
             path={chevronDown}
-            class="h-8 -mb-1 transform transition group-hover:translate-y-0.5 duration-300"
+            class='h-8 -mb-1 transform transition group-hover:translate-y-0.5 duration-300'
             classList={{ 'translate-y-0.5': showDirectory() }}
           />
         </button>
       </div>
-      <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
+      <Dismiss menuButton={menuButton} open={showDirectory}
+               setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
-          class="shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          class='shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3'
           classList={{ hidden: !showDirectory() }}
         >
-          <li class="sticky top-0">
+          <li class='sticky top-0'>
             <input
               ref={search}
               value={searchQuery()}
               onInput={(e) => setSearchQuery(e.currentTarget.value)}
-              id="search"
-              name="search"
-              type="search"
-              placeholder="Search..."
-              class="py-2 px-3 block w-full"
+              id='search'
+              name='search'
+              type='search'
+              placeholder='Search...'
+              class='py-2 px-3 block w-full'
             />
           </li>
           <For each={filteredDirectory()}>
             {([section, entries], sectionIndex) => (
-              <li class="js-section-title">
-                <p class="inline-block px-3 py-1 font-semibold">
+              <li class='js-section-title'>
+                <p class='inline-block px-3 py-1 font-semibold'>
                   {sectionIndex() + 1}. {section}
                 </p>
 
-                <ul class="divide-y box-border">
+                <ul class='divide-y box-border'>
                   <For each={entries}>
                     {(entry, entryIndex) => (
                       <li>
                         <NavLink
-                          activeClass="js-active bg-blue-50"
-                          class="hover:bg-blue-100 py-3 px-4 block"
+                          activeClass='js-active bg-blue-50'
+                          class='hover:bg-blue-100 py-3 px-4 block'
                           href={`/tutorial/${entry.internalName}`}
                         >
-                          <p class="text-sm font-medium text-gray-900">
+                          <p class='text-sm font-medium text-gray-900'>
                             {alphabet[entryIndex()]}. {entry.lessonName}
                           </p>
-                          <p class="text-sm text-gray-500">{entry.description}</p>
+                          <p
+                            class='text-sm text-gray-500'>{entry.description}</p>
                         </NavLink>
                       </li>
                     )}
@@ -163,31 +180,32 @@ const Tutorial: Component = () => {
   const [current, setCurrent] = createSignal('main.tsx');
   let markDownRef!: HTMLDivElement;
 
+<<<<<<< HEAD
   useRouteReadyState();
 
+=======
+>>>>>>> npm-docs
   createEffect(() => {
     markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
-    const url = data.solved ? data.solvedJs : data.js;
-    if (!url) return;
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
-        batch(() => {
-          const newTabs = data.files.map(
-            (file: { name: string; type?: string; content: string }) => {
-              return {
-                name: file.name,
-                type: file.type || 'tsx',
-                source: file.content,
-              };
-            },
-          );
-          setTabs(newTabs);
-          setCurrent('main.tsx');
-        });
-      });
+    const fileset = data.solved ? data.solvedJs : data.js;
+    const files = fileset?.files;
+    if (!files) return;
+    batch(() => {
+      const newTabs = files.map(
+        (file: { name: string; type?: string; content: string }) => {
+          return {
+            name: file.name,
+            type: file.type || 'tsx',
+            source: file.content,
+          };
+        },
+      );
+      setTabs(newTabs);
+      setCurrent('main.tsx');
+    });
   });
+
   return (
     <Suspense fallback={<p>Loading...</p>}>
       <div
@@ -221,7 +239,6 @@ const Tutorial: Component = () => {
                 {t('tutorial.reset')}
               </NavLink>
             </Show>
-
             <div class="flex items-center space-x-4">
               <span data-tooltip={data.previousLesson}>
                 <NavLink href={data.previousUrl ?? '#'}>
