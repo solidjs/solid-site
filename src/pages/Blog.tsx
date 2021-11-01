@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { BlogInfo } from './Blog.data';
-import { useRouteReadyState } from '../routeReadyState';
+import { useRouteReadyState } from '../utils/routeReadyState';
 
 const Blog: Component = () => {
   const [t] = useI18n();
@@ -27,7 +27,9 @@ const Blog: Component = () => {
                   class="block px-3 lg:px-0 text-md mx-auto mb-10 pb-10 text-center"
                 >
                   <img class="lg:w-4/6 mx-auto rounded-md mb-10 shadow-md" src={article.img} />
-                  <h1 class="text-xl lg:text-2xl mb-3 font-semibold text-solid-medium">{article.title}</h1>
+                  <h1 class="text-xl lg:text-2xl mb-3 font-semibold text-solid-medium">
+                    {article.title}
+                  </h1>
                   <span class="text-md">{article.description}</span>
                   <div class="text-xs mt-3">
                     By {article.author} on {new Date(article.date).toDateString()}

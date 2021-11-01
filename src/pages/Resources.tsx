@@ -17,7 +17,7 @@ import {
 } from '@amoutonbrady/solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import createCountdown from '@solid-primitives/countdown';
-import { useRouteReadyState } from '../routeReadyState';
+import { useRouteReadyState } from '../utils/routeReadyState';
 
 export enum ResourceType {
   Article = 'article',

@@ -5,20 +5,19 @@ import {
   createSignal,
   Show,
   onMount,
-  createEffect,
   on,
   createComputed,
 } from 'solid-js';
-import { Link, NavLink, useIsRouting } from 'solid-app-router';
+import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 import Dismiss from 'solid-dismiss';
-import { reflow } from '../utils';
-import { routeReadyState, setRouteReadyState } from '../routeReadyState';
+import { routeReadyState, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
+import { reflow } from '../utils';
 
 const langs = {
   en: 'English',
@@ -32,6 +31,7 @@ const langs = {
   id: 'Bahasa Indonesia',
   he: 'עִברִית',
   fa: 'فارسی',
+  tr: 'Türkçe',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };

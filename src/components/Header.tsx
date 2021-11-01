@@ -6,9 +6,6 @@ import {
   on,
   createEffect,
   createSignal,
-  batch,
-  createComputed,
-  onMount,
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
@@ -18,7 +15,7 @@ import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
-import { routeReadyState } from '../routeReadyState';
+import { routeReadyState } from '../utils/routeReadyState';
 
 const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();

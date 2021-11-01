@@ -20,7 +20,7 @@ import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
-import { useRouteReadyState } from '../routeReadyState';
+import { useRouteReadyState } from '../utils/routeReadyState';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 

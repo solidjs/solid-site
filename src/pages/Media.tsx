@@ -1,11 +1,8 @@
 import { Component, For } from 'solid-js';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
-
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
-import { useRouteReadyState } from '../routeReadyState';
+import { useRouteReadyState } from '../utils/routeReadyState';
 
 const assets = [
   {

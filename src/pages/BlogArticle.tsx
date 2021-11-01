@@ -1,7 +1,7 @@
 import { Component, Show, createMemo } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
-import { useRouteReadyState } from '../routeReadyState';
+import { useRouteReadyState } from '../utils/routeReadyState';
 import SolidMarkdown from 'solid-markdown';
 import { BlogInfo } from './Blog.data';
 import Footer from '../components/Footer';

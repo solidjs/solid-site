@@ -20,7 +20,7 @@ import { Section } from '../../scripts/types';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
-import { routeReadyState, setRouteReadyState, useRouteReadyState } from '../routeReadyState';
+import { routeReadyState, setRouteReadyState, useRouteReadyState } from '../utils/routeReadyState';
 
 interface DocData {
   loading: boolean;
