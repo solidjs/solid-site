@@ -98,6 +98,24 @@ const translators = [
     flag: '🇷🇺',
     link: 'https://github.com/pheianox',
   },
+  {
+    name: 'TheFedaikin',
+    language: 'ru',
+    flag: '🇷🇺',
+    link: 'https://github.com/TheFedaikin',
+  },
+  {
+    name: 'Yury Popov',
+    language: 'ru',
+    flag: '🇷🇺',
+    link: 'https://github.com/nairabrab',
+  },
+  {
+    name: 'Vladislav Mamon',
+    language: 'ru',
+    flag: '🇷🇺',
+    link: 'https://github.com/norskeld',
+  },
 ];
 
 const contributors = [
@@ -158,6 +176,12 @@ const ecosystem = [
     link: 'https://lxsmnsyc.vercel.app/',
     detail: 'Vice president of software engineer and research at LyonInc.',
   },
+  {
+    name: 'Caleb Taylor',
+    company: '',
+    link: 'https://github.com/aquaductape',
+    detail: 'Front-End Developer',
+  }
 ] as const;
 
 export const ContributorsData = () => ({
