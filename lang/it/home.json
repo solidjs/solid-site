@@ -25,12 +25,12 @@
     ],
     "facts": [
       {
-        "label": "6kb",
+        "label": "6.4kb",
         "detail": "Minified + Gzipped",
-        "link": "https://bundlephobia.com/package/solid-js@1.0.0"
+        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "11k+",
+        "label": "12k+",
         "detail": "Stelle Github",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
