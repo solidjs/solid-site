@@ -54,9 +54,10 @@ const Home: Component<{}> = () => {
 
   useRouteReadyState();
 
-  const chevron = createMemo(() =>
-    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
-  );
+  const chevron = createMemo(() => {
+    const direction = t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right';
+    return `chevron ${direction}`;
+  });
 
   return (
     <div class="dark:bg-solid-gray flex flex-col pt-8">
@@ -161,7 +162,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               {(copy: string) => <p class="mt-9 leading-7">{copy}</p>}
             </For>
             <Link
-              class={`button inline-block mt-8 text-solid-default chevron font-semibold hover:text-gray-500 ${chevron()}`}
+              class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
               href={t('home.example.link')}
             >
               {t('home.example.link_label')}
@@ -180,7 +181,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             <p class="text-2xl mt-2">{t('home.reactivity.subheadline')}</p>
             <p class="mt-6 leading-7">{t('home.reactivity.copy')}</p>
             <a
-              class={`button inline-block mt-8 text-solid-default font-semibold chevron hover:text-gray-500 ${chevron()}`}
+              class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
               href={t('home.reactivity.link')}
             >
               {t('home.reactivity.link_label')}
