@@ -2430,7 +2430,7 @@ function-bind@^1.1.1:
 
 fuse.js@^6.4.6:
   version "6.4.6"
-  resolved "https://registry.npmjs.org/fuse.js/-/fuse.js-6.4.6.tgz"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.6.tgz#62f216c110e5aa22486aff20be7896d19a059b79"
   integrity sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==
 
 gensync@^1.0.0-beta.2:
@@ -3790,7 +3790,7 @@ monaco-editor-textmate@^3.0.0:
   resolved "https://registry.npmjs.org/monaco-editor-textmate/-/monaco-editor-textmate-3.0.0.tgz"
   integrity sha512-4BK3ual4WllRpiQBDcBO8NKdbk4ukdBtnl23cRYvu1eNWOWKYOBM0rYac50HvFClSbtd5GMezLPjkaim0iM7sw==
 
-monaco-editor@0.25.2, monaco-editor@^0.25.2:
+monaco-editor@^0.25.2:
   version "0.25.2"
   resolved "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.25.2.tgz"
   integrity sha512-5iylzSJevCnzJn9UVsW8yOZ3yHjmAs4TfvH3zsbftKiFKmHG0xirGN6DK9Kk04VSWxYCZZAIafYJoNJJMAU1KA==
@@ -4972,7 +4972,7 @@ solid-repl@0.15.1:
 
 solid-transition-group@^0.0.8:
   version "0.0.8"
-  resolved "https://registry.npmjs.org/solid-transition-group/-/solid-transition-group-0.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/solid-transition-group/-/solid-transition-group-0.0.8.tgz#56c0eb7fd7079ecc945f3d52b5376184e3985d45"
   integrity sha512-5cS/Ircfs/Y0J00oEToL+MWd9V07KgQlw+qRD8kpd6azb2Ri5SjXg/ocqT8U8Wgdx1VQPx45HyopQN+UumkVGQ==
 
 solid-utils@^0.8.1:
@@ -5198,7 +5198,7 @@ tailwindcss-dir@^4.0.0:
 
 tailwindcss-rtl@^0.7.3:
   version "0.7.3"
-  resolved "https://registry.npmjs.org/tailwindcss-rtl/-/tailwindcss-rtl-0.7.3.tgz"
+  resolved "https://registry.yarnpkg.com/tailwindcss-rtl/-/tailwindcss-rtl-0.7.3.tgz#d8d3236e446fd7504d9240366aea8a5987e66c12"
   integrity sha512-4lOuA5HJj/a9qBmnPmzdxJybqmQUKhA4/iDBiGs7YZqJ7eqSziKR035er3ZhGOl08s3FaKwlgNPlgQ13vMs/Tw==
 
 tailwindcss@^1.0.1:
@@ -5615,9 +5615,9 @@ vfile@^5.0.0, vfile@^5.2.0:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-plugin-pwa@^0.11.2:
+vite-plugin-pwa@^0.11.3:
   version "0.11.3"
-  resolved "https://registry.npmjs.org/vite-plugin-pwa/-/vite-plugin-pwa-0.11.3.tgz"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.11.3.tgz#274c6472dfd94860639b8b65359bbe5fb9c2a3e6"
   integrity sha512-KAuv7aAX1VTkaR7DakpmUG7LypNXlf+M/x4y2xYrYgQHoqk2Y2mKKR0dAG5cGBekqcev56QsABusTBScPm50mw==
   dependencies:
     chalk "^4.1.2"
