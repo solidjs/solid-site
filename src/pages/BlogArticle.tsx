@@ -21,14 +21,14 @@ export const BlogArticle: Component = () => {
   );
   return (
     <div class="flex flex-col">
-      <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
-        <div class="mb-10 flex justify-center">
-          <div class="space-y-10">
+      <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
+        <div class="mb-10 lg:flex justify-center">
+          <div class="space-y-10 px-4 lg:px-0">
             <Show
               fallback={<div class="text-center p-10 m-10">Loading article...</div>}
               when={!data.loading}
             >
-              <div class="container px-10">
+              <div class="container lg:px-10">
                 <div class="text-center space-y-5">
                   <img class="rounded-md mb-10 shadow-md" src={data.details.img} />
                   <h1 class="text-4xl font-semibold mt-10 text-solid-medium">
