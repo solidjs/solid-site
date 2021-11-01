@@ -1,0 +1,109 @@
+{
+    "hero": "Kullanıcı arayüzleri oluşturmak için bildirime dayalı, verimli ve esnek bir JavaScript kütüphanesi.",
+    "info": "<span class=\"font-semibold\">Solid, tamamen reaktif bir kütüphanedir.</span> Sıfırdan reaktif bir çekirdekle tasarlandı. Önceki kütüphaneler tarafından geliştirilen reaktif ilkelerden etkilenir.",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "Hızlı",
+        "description": "Sürekli olarak, tanınan UI hızı ve bellek kullanımı karşılaştırmalarında en üst sıralarda yer alır."
+      },
+      {
+        "icon": "powerful",
+        "label": "Güçlü",
+        "description": "JSX'in esnekliğiyle birleştirilen birleştirilebilir reaktif temeller."
+      },
+      {
+        "icon": "pragmatic",
+        "label": "Faydalı",
+        "description": "Mantıklı ve uyarlanmış bir API, geliştirmeyi eğlenceli ve basit hale getirir."
+      },
+      {
+        "icon": "productive",
+        "label": "Verimli",
+        "description": "Ergonomi ve aşinalık, basit veya karmaşık şeyler inşa etmeyi bir esinti haline getirir."
+      }
+    ],
+    "facts": [
+      {
+        "label": "6.4kb",
+        "detail": "Minified + Gzipped",
+        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      },
+      {
+        "label": "12k+",
+        "detail": "Github Yıldızı",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "5+ yıl",
+        "detail": "Geliştirmede 5+ yıl"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "Destekler"
+      },
+      {
+        "label": "En İyi",
+        "detail": "Performans"
+      },
+      {
+        "label": "Astro & Vite",
+        "detail": "Destekler"
+      }
+    ],
+    "example": {
+      "headline": "Tanıdık ve modern",
+      "copy": [
+        "Solid, devlerin, özellikle React ve Knockout'un omuzlarında duruyor. Daha önce React Hooks ile geliştirdiyseniz, Solid size çok tanıdık gelecek. Gerçekten de, Solid'in modeli, Hook kuralı olmadan çok daha basit olduğundan daha kolaydır. Her Bileşen bir kez yürütülür ve bağımlılıkları güncellenirken birçok kez yürütülen Hooklar ve bağlamlardır.",
+        "Solid, tek yönlü veri akışı, okuma/yazma ayrımı ve değişmez arayüzler ile React ile aynı felsefeyi takip eder. Sadece bir Sanal DOM kullanmaktan vazgeçen tamamen farklı bir uygulamaya sahip."
+      ],
+      "link_label": "Dökümanı İncele",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "İncelikli özenli reaktivite, daha azıyla daha fazlasını yapmanız anlamına gelir",
+      "subheadline": "Solid, kullanıcı alanı kodunuzdan JSX görünümlerinize kadar verimli reaktif temel öğelerle oluşturulmuştur.",
+      "copy": "Bu, DOM bağlama düzeyinde bile nelerin ve ne zaman güncelleneceği üzerinde tam kontrolün kilidini açar. Sanal DOM veya kapsamlı farklılık olmadan, Solid asla istediğinizden daha fazla iş yapmaz",
+      "link_label": "Örneğe göz atın",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "Performans odaklı",
+        "hem client hem de sunucuda"
+      ],
+      "copy": "Bir yaklaşım olarak incelikli özenli reaktivitenin gücü, tüm dikkate değer ölçütlerde parlıyor. Odak noktanız performans olmasa bile, neredeyse zahmetsizdir ve karmaşık/ilgili DX maliyeti yoktur. Solid'in performans kazancını bedava bir kazanç olarak düşünün. Solid, hızı düşünmeden hızlı olmakla ilgilidir.",
+      "link_label": "Tüm makaleyi oku",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "Tüm Özellikler var.",
+      "copy": "Solid, tüm yaygın ve beklenen kitaplık özelliklerini destekler ve DX'i artırmak için yönleri genişletir.",
+      "list": [
+        "Fragments",
+        "Portals",
+        "Context",
+        "Suspense",
+        "Error Boundaries",
+        "Lazy Components",
+        "Async & Concurrent Rendering",
+        "Implicit Delegation",
+        "SSR & Hydration",
+        "Directives"
+      ]
+    },
+    "benchmarks": {
+      "time": "Zaman",
+      "view": "Karşılaştırmayı görüntüle",
+      "show_more": "Daha fazla istemci + sunucu karşılaştırması göster",
+      "link_label": "JS Framework Benchmark, tarayıcı performansını çok çeşitli testler arasında karşılaştırır. Düşük olanlar daha iyi.",
+      "js_benchmark": {
+        "title": "JS Framework Benchmark",
+        "description": "JS Framework Benchmark, tarayıcı performansını çok çeşitli testler arasında karşılaştırır. Düşük olanlar daha iyi."
+      },
+      "isomorophic_benchmark": {
+        "title": "Isomorphic UI Benchmarks (Search Results)",
+        "description": "Bu kıyaslama, ham Sunucu İşleme hızlarını test eder. Yüksek olanlar daha iyi."
+      }
+    }
+  }

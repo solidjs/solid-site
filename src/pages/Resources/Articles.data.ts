@@ -659,6 +659,52 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1633545291000,
   },
+  {
+    link: 'https://www.cbsofyalioglu.com/code/adonisjs-solidjs/',
+    title: 'Using SolidJS in AdonisJS App',
+    description:
+      'This blog post shows how to integrate SolidJS frontend library with AdonisJS backend framework.',
+    author: 'Can Burak Sofyalioglu',
+    author_url: 'https://dev.to/canburaks',
+    keywords: ['adonis'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1634927260000,
+  },
+  {
+    link: 'https://www.cbsofyalioglu.com/code/styling-and-control-flow-in-solidj/',
+    title: 'Exploring SolidJS – Styling and Control Flow',
+    description: 'Explores styling and control flow in SolidJS.',
+    author: 'Can Burak Sofyalioglu',
+    author_url: 'https://dev.to/canburaks',
+    keywords: ['control flow', 'styling'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1634927260000,
+  },
+  {
+    link: 'https://dev.to/lexlohr/testing-your-solidjs-code-2gfh',
+    title: 'Testing your Solid.js code with jest',
+    description: 'An interesting guide on different testing practices for Solid.',
+    author: 'Alex Lohr',
+    author_url: 'https://github.com/atk',
+    keywords: ['solid-jest', 'ts-jest', 'jest', 'testing'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational, ResourceCategory.Testing],
+    published_at: 1634241650000,
+  },
+  {
+    link: 'https://dev.to/lexlohr/testing-solidjs-code-beyond-jest-39p',
+    title: 'Testing your Solid.js code beyond jest',
+    description:
+      'A follow up article extending the conversation of testing Solid further beyond Jest.',
+    author: 'Alex Lohr',
+    author_url: 'https://github.com/atk',
+    keywords: ['solid-jest', 'ts-jest', 'jest', 'testing'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational, ResourceCategory.Testing],
+    published_at: 1635095541000,
+  },
 ];
 
 export default articles;

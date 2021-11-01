@@ -1,0 +1,17 @@
+{
+  "title": "Medya Varlıkları",
+  "copy": "Aşağıdakiler Solid markasını temsil eden varlıklardır. Tüm varlıklar açık kaynak katkıları olarak kabul edilir ve açık standartlara ve lisanslama kurallarına göre kullanılmalıdır. Marka uyumuyla ilgili ek öğeler veya sorular için destek ve rehberlik için Discord'umuza katılmaktan çekinmeyin.",
+  "brand_font": "Brand Yazı Tipi",
+  "primary": "Birincil Renk",
+  "secondary": "İkincil Renk",
+  "light": "Açık Renk",
+  "accent": "Vurgu Rengi",
+  "resources": {
+    "with_wordmark": "Yazı ile",
+    "without_wordmark": "Yazısız",
+    "only_wordmark": "Sadece Yazı",
+    "dark_with_wordmark": "Koyu Yazı ile",
+    "dark_without_wordmark": "Koyu Yazısız",
+    "dark_only_wordmark": "Sadece Koyu Yazı"
+  }
+}

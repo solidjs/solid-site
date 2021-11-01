@@ -30,7 +30,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "11k+",
+        "label": "12k+",
         "detail": "Stelle Github",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
@@ -63,7 +63,7 @@
     },
     "reactivity": {
       "headline": "Reattività a grana fine significa fare di più con meno.",
-      "subheadline": "Ogni parte di Solid è costruita su semplici primitive per le espressioni JavaScript nelle tue viste JSX.",
+      "subheadline": "Solid è costruito con primitive reattive efficienti dal codice della tua area utente alle tue JSX.",
       "copy": "Questo sblocca il controllo completo su cosa viene aggiornato e quando/Anche a livello di associazione DOM. Senza Virtual DOM o diffing esteso, il framework non funziona mai più di quanto tu voglia.",
       "link_label": "Guardalo in azione",
       "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"

@@ -30,7 +30,7 @@
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "11k+",
+      "label": "12k+",
       "detail": "Github-Sterne",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
@@ -63,7 +63,7 @@
   },
   "reactivity": {
     "headline": "Feingranulare Reaktivität hilft, mit weniger mehr zu erreichen.",
-    "subheadline": "Jeder Teil von Solid basiert auf einfachen Primitiven zu den JavaScript-Ausdrücken im JSX.",
+    "subheadline": "Jeder Teil von Solid baut auf effizienter Reaktivität auf, von den mächtigen Primitiven bis zum JSX und deinem eigenen Code.",
     "copy": "Das ermöglicht komplette Kontrolle darüber, was wann wo aktualisiert wird, sogar auf Ebene des DOMs. Ohne virtuelles DOM und aufwendiges Abgleichen macht dieses Framework nie mehr, als man von ihm möchte.",
     "link_label": "In Aktion sehen",
     "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"

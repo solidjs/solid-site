@@ -1,0 +1,31 @@
+{
+  "title": "منابع",
+  "cta": "برای افزودن پروژه های مربوط به SolidJS خود به این لیست، درخواست خود را در <a href=\"https://discord.com/invite/solidjs\">کانال دیسکورد ما</a> اعلام کنید.",
+  "search": "جستجو در منابع",
+  "types": "نوع منابع",
+  "types_list": {
+    "article": "مقالات",
+    "video": "ویدیو ها",
+    "library": "کتابخانه ها",
+    "package": "پکیج ها"
+  },
+  "published": "منتشر شده در تاریخ",
+  "days_ago": "{{amount}} days ago",
+  "hours_ago": "{{amount}} hours ago",
+  "categories": "دسته بندی ها",
+  "translations": "ترجمه ها",
+  "categories_list": {
+    "primitive": "Primitives",
+    "router": "Routers",
+    "data": "Data",
+    "ui": "UI",
+    "plugin": "پلاگین ها",
+    "starters": "Starters",
+    "build_utility": "ابزار های توسعه",
+    "add_on": "Add On",
+    "testing": "تست",
+    "educational": "آموزشی"
+  },
+  "official": "رسمی",
+  "by": "توسط {{author}}"
+}

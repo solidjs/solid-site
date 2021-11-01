@@ -1,0 +1,23 @@
+{
+  "solve": "Çöz",
+  "reset": "Çözümü geri al",
+  "playground": {
+    "result": "Sonuç",
+    "output": "Çıktı",
+    "clear": "Temizle",
+    "add_tab": "Yeni tab",
+    "refresh": "Sayfayı yenile",
+    "format": "Kodu geri al",
+    "copy": "Kodu kopyala",
+    "mode": "Derleyici mod",
+    "client_render": "Ön taraf render (CSR)",
+    "server_render": "Arka taraf render (SSR)",
+    "client_hydration_render": "hydration ile ön taraf render",
+    "dark_mode": "Koyu modu değiştir",
+    "import_json": "JSON içeri aktar",
+    "export_json": "JSON dışarı aktar",
+    "export_codesandbox": "CodeSandBox'a aktar",
+    "share": "Kısaltılmış link ile paylaş",
+    "scale": "Metni büyütmek veya küçültmek için düzenleyiciyi ölçeklendirin"
+  }
+}

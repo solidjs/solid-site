@@ -1,0 +1,47 @@
+{
+  "name": "Türkçe",
+  "title": "SolidJS · Reaktif Javascript Kütüphanesi",
+  "locale": "tr-TR",
+  "nav": [
+    {
+      "title": "Başlarken",
+      "path": "/guide"
+    },
+    {
+      "title": "Döküman",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Kaynaklar",
+      "path": "/resources"
+    },
+    {
+      "title": "Eğitim",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Örnekler",
+      "path": "/examples"
+    },
+    {
+      "title": "Online Kod Editörü",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Medya",
+      "path": "/media"
+    }
+  ],
+  "404": {
+    "header": "Oops. Dört yüz dört.",
+    "body": "bu sayfanın kesinlikle var olmadığına inanıyor"
+  },
+  "footer": {
+    "declaration": "Solid, ortak katkıda bulunanlardan oluşan bir ekip tarafından desteklenen açık kaynaklı bir projedir. Bir <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT lisansı</a> altında dağıtır. Bu kütüphane ve topluluk, <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">çekirdek bir ekip ve özel katkıda bulunanlar</a> tarafından mümkün kılınmıştır.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsorluğunda",
+    "updated": "Solid v{{version}} Son Güncelleme {{date}}"
+  }
+}
