@@ -967,11 +967,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@otonashixav/solid-flip@^0.6.0":
-  version "0.6.4"
-  resolved "https://registry.npmjs.org/@otonashixav/solid-flip/-/solid-flip-0.6.4.tgz"
-  integrity sha512-DjSDEHURLvb55ylvATGUns6Ol/eoNCWyoy3WSkOB7mgmDYTQcmBNYmhiBllMkMVSNHjGeFnlQzC3Cw2h8E8Z1Q==
-
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz"
