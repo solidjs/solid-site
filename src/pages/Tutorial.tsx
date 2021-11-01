@@ -28,11 +28,7 @@ import type {
 } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
-<<<<<<< HEAD
 import { useRouteReadyState } from '../routeReadyState';
-=======
-import { isFileServingAllowed } from 'vite/dist/node/server/middlewares/static';
->>>>>>> npm-docs
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -180,11 +176,8 @@ const Tutorial: Component = () => {
   const [current, setCurrent] = createSignal('main.tsx');
   let markDownRef!: HTMLDivElement;
 
-<<<<<<< HEAD
   useRouteReadyState();
 
-=======
->>>>>>> npm-docs
   createEffect(() => {
     markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
