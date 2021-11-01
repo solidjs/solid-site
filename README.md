@@ -25,28 +25,16 @@ The website is built with [Solid](https://github.com/solidjs/solid). In order to
 - `yarn install`: Install the dependencies
 - `yarn dev`: Start the dev server
 - `yarn build`: Build the project
+- `yarn build:sitemap`: Generate the `sitemap.xml` file
 - `yarn format`: Format the whole project with prettier
 - `yarn deploy:dev`: Helper method to deploy to dev
 - `yarn deploy:prod`: Helper method to deploy to prod
-- `yarn fetch:releases`: Fetch the latest releases as MD and transforms them to JSON (see below for more)
 
 ## Additional information
 
-#### How do I update the documentation?
+#### How do the documentation files work?
 
-First you need to generate a [github token](https://github.com/settings/tokens) and add it to a `.env` file at the root of the project in the `GITHUB_TOKEN` variable.
-
-You can copy, paste and rename the [.env.example](./.env.example) at the root of the project to get going faster.
-
-There's a [fetchReleases.ts](./scripts/fetchReleases.ts) script in the [scripts](./scripts) folder .
-
-You can use it by issuing the command `yarn fetch:releases` which will download all the releases's markdown files and convert them into json files in the `public/api` folder. These files will be used as json endpoints to fetch the documentation from the client.
-
-#### How do I change the highlight theme?
-
-The script mentioned above uses [shiki](https://github.com/shikijs/shiki) to process the code which in turn uses VSCode tokens. Therefore any VSCode theme can be applied.
-
-All you have to do is retrieve the JSON file describing your favorite theme (see [./scripts/github-light.json](scripts/github-light.json) for an example), paste it into the [scripts](./scripts) folder and refer to it in the [fetchReleases.ts](./scripts/fetchReleases.ts) file around line 35: `const theme = await loadTheme(resolve(__dirname, 'your-theme.json'));`.
+They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) package. There's a script there that builds the markdown files into consumable JSON files, and the package provides functions to load them.
 
 ## Credits
 
@@ -68,4 +56,3 @@ Thank you to our generous and helpful sponsors. If you're interested in sponsori
 - [Cloudflare](https://www.cloudflare.com/)
 - [Builder.io](https://www.builder.io/)
 - [SauceLabs](https://saucelabs.com/)
-- [Netlify](https://www.netlify.com/)

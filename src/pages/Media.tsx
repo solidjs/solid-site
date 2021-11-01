@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
+import { useRouteReadyState } from '../routeReadyState';
 
 const assets = [
   {
@@ -107,10 +108,11 @@ const AssetPanel: Component<{
 
 const Media: Component = () => {
   const [t] = useI18n();
+
+  useRouteReadyState();
+
   return (
     <div class="flex flex-col">
-      <Nav showLogo />
-      <Header title={t('media.title')} />
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 md:grid md:grid-cols-6 gap-10">
           <div class="col-span-4">{t('media.copy')}</div>

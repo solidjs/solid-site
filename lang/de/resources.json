@@ -9,9 +9,6 @@
     "library": "Library",
     "package": "Paket"
   },
-  "published": "Veröffentlicht am",
-  "days_ago": "vor {{amount}} Tagen",
-  "hours_ago": "vor {{amount}} Stunden",
   "categories": "Kategorien",
   "translations": "Übersetzungen",
   "categories_list": {

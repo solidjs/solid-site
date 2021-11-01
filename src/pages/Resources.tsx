@@ -1,8 +1,6 @@
 import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ResourcesDataProps } from './Resources.data';
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -19,6 +17,7 @@ import {
 } from '@amoutonbrady/solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import createCountdown from '@solid-primitives/countdown';
+import { useRouteReadyState } from '../routeReadyState';
 
 export enum ResourceType {
   Article = 'article',
@@ -71,6 +70,8 @@ const Resource: Component<Resource> = (props) => {
     }
     return t('resources.hours_ago', { amount: hours!.toString() }, '{{amount}} hours ago');
   };
+
+  useRouteReadyState();
   return (
     <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
       <a
@@ -184,8 +185,6 @@ const Resources: Component = () => {
   });
   return (
     <div class="flex flex-col relative">
-      <Nav showLogo />
-      <Header title={t('resources.title')} />
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="md:col-span-5 lg:col-span-3 overflow-auto p-5 md:sticky md:top-20 rounded md:h-[82vh]">
           <div class="text-xs bg-gray-100 p-4 rounded" innerHTML={t('resources.cta')}></div>

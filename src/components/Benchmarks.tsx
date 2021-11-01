@@ -36,7 +36,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
                   <div
-                    class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs"
+                    class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                     classList={{
                       'font-semibold': row.active,
                       'bg-solid-accent': row.active,
@@ -95,12 +95,12 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
           </button>
         }
       >
-        <div class="flex flex-col xl:flex-row space-y-2">
+        <div class="mt-4 flex flex-col space-y-2 m-auto lg:space-y-0 lg:m-0 lg:flex-row">
           {props.list.map((item, index) => {
             return (
               <button
                 onClick={() => setCurrent(index)}
-                class="text-xs p-4 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
+                class="text-xs lg:mr-1 p-3 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
                 classList={{
                   'active text-white bg-solid-light': current() === index,
                   'bg-gray-100': current() !== index,

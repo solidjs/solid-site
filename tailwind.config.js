@@ -6,6 +6,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionDuration: {
+        0: '0ms',
+        5000: '5000ms',
+      },
       fontSize: {
         xxs: '.55rem',
       },
@@ -71,6 +75,11 @@ module.exports = {
       fontFamily: {
         display: ['Gordita', ...theme.fontFamily.sans],
       },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['group-hover'],
     },
   },
   plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],

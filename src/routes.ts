@@ -1,11 +1,13 @@
-import { RouteDefinition, Navigate } from 'solid-app-router';
 import { lazy } from 'solid-js';
+import { RouteDefinition, Navigate } from 'solid-app-router';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
 import { ExamplesData } from './pages/Examples.data';
+import { BlogData } from './pages/Blog.data';
+import { BlogArticleData } from './pages/BlogArticle.data';
 
 export const routes: RouteDefinition[] = [
   {
@@ -21,18 +23,26 @@ export const routes: RouteDefinition[] = [
     data: DocsData,
   },
   {
+    path: '/blog/:slug',
+    component: lazy(() => import('./pages/BlogArticle')),
+    data: BlogArticleData,
+  },
+  {
+    path: '/blog',
+    component: lazy(() => import('./pages/Blog')),
+    data: BlogData,
+  },
+  {
     path: '/docs',
     component: lazy(() => import('./pages/Docs')),
     children: [
       {
-        path: ':version',
+        path: '/:version',
         component: lazy(() => import('./pages/Docs')),
-        data: DocsData,
       },
       {
-        path: '*all',
+        path: '/*all',
         component: lazy(() => import('./pages/Docs')),
-        data: DocsData,
       },
     ],
     data: DocsData,
@@ -71,7 +81,7 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Media')),
   },
   {
-    path: '*all',
+    path: '/*all',
     component: lazy(() => import('./pages/404')),
   },
 ];

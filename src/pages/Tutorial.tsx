@@ -1,27 +1,26 @@
-import { Repl, createTabList } from 'solid-repl';
-import { useData, NavLink } from 'solid-app-router';
 import {
   For,
   Component,
   Show,
   createSignal,
   createEffect,
-  onCleanup,
   Suspense,
   createMemo,
   on,
   batch,
   ErrorBoundary,
 } from 'solid-js';
+import { Repl, createTabList } from 'solid-repl';
+import { useData, NavLink } from 'solid-app-router';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
-import Nav from '../components/Nav';
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
+import { useRouteReadyState } from '../routeReadyState';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -163,119 +162,106 @@ const Tutorial: Component = () => {
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
   let markDownRef!: HTMLDivElement;
+
+  useRouteReadyState();
+
   createEffect(() => {
     markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
-    const url = data.solved ? data.solvedJs : data.js;
-    if (!url) return;
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
-        batch(() => {
-          const newTabs = data.files.map(
-            (file: { name: string; type?: string; content: string }) => {
-              return {
-                name: file.name,
-                type: file.type || 'tsx',
-                source: file.content,
-              };
-            },
-          );
-          setTabs(newTabs);
-          setCurrent('main.tsx');
-        });
+    const fileset = data.solved ? data.solvedJs : data.js;
+    const files = fileset?.files;
+    if (!files) return;
+    batch(() => {
+      const newTabs = files.map((file: { name: string; type?: string; content: string }) => {
+        return {
+          name: file.name,
+          type: file.type || 'tsx',
+          source: file.content,
+        };
       });
+      setTabs(newTabs);
+      setCurrent('main.tsx');
+    });
   });
+
   return (
-    <>
-      <Nav showLogo filled />
-      <Suspense fallback={<p>Loading...</p>}>
-        <div
-          dir="ltr"
-          class="md:grid"
-          style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
-        >
-          <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
-            <DirectoryMenu
-              current={data.tutorialDirectoryEntry}
-              directory={data.tutorialDirectory}
-            />
+    <Suspense fallback={<p>Loading...</p>}>
+      <div
+        dir="ltr"
+        class="md:grid"
+        style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
+      >
+        <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
+          <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
-            <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
-              {data.markdown || ''}
-            </Markdown>
+          <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
+            {data.markdown || ''}
+          </Markdown>
 
-            <div class="py-4 px-10 flex items-center justify-between border-t-2">
-              <Show
-                when={data.solved}
-                fallback={
-                  <NavLink
-                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                    href={`/tutorial/${data.id}?solved`}
-                  >
-                    {t('tutorial.solve')}
-                  </NavLink>
-                }
-              >
+          <div class="py-4 px-10 flex items-center justify-between border-t-2">
+            <Show
+              when={data.solved}
+              fallback={
                 <NavLink
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                  href={`/tutorial/${data.id}`}
+                  href={`/tutorial/${data.id}?solved`}
                 >
-                  {t('tutorial.reset')}
+                  {t('tutorial.solve')}
                 </NavLink>
-              </Show>
+              }
+            >
+              <NavLink
+                class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
+                href={`/tutorial/${data.id}`}
+              >
+                {t('tutorial.reset')}
+              </NavLink>
+            </Show>
+            <div class="flex items-center space-x-4">
+              <span data-tooltip={data.previousLesson}>
+                <NavLink href={data.previousUrl ?? '#'}>
+                  <span class="sr-only">Previous step</span>
+                  <Icon
+                    path={arrowLeft}
+                    class="h-6"
+                    classList={{ 'opacity-25': !data.previousUrl }}
+                  />
+                </NavLink>
+              </span>
 
-              <div class="flex items-center space-x-4">
-                <span data-tooltip={data.previousLesson}>
-                  <NavLink href={data.previousUrl ?? '#'}>
-                    <span class="sr-only">Previous step</span>
-                    <Icon
-                      path={arrowLeft}
-                      class="h-6"
-                      classList={{ 'opacity-25': !data.previousUrl }}
-                    />
-                  </NavLink>
-                </span>
-
-                <span data-tooltip={data.nextLesson}>
-                  <NavLink href={data.nextUrl ?? '#'}>
-                    <span class="sr-only">Next step</span>
-                    <Icon
-                      path={arrowRight}
-                      class="h-6"
-                      classList={{ 'opacity-25': !data.nextUrl }}
-                    />
-                  </NavLink>
-                </span>
-              </div>
+              <span data-tooltip={data.nextLesson}>
+                <NavLink href={data.nextUrl ?? '#'}>
+                  <span class="sr-only">Next step</span>
+                  <Icon path={arrowRight} class="h-6" classList={{ 'opacity-25': !data.nextUrl }} />
+                </NavLink>
+              </span>
             </div>
           </div>
-
-          <ErrorBoundary
-            fallback={
-              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-            }
-          >
-            <Repl
-              onEditorReady={(editor) => {
-                replEditor = editor;
-              }}
-              compiler={compiler}
-              formatter={formatter}
-              isHorizontal={true}
-              interactive={true}
-              actionBar={true}
-              editableTabs={true}
-              dark={false}
-              tabs={tabs()}
-              setTabs={setTabs}
-              current={current()}
-              setCurrent={setCurrent}
-            />
-          </ErrorBoundary>
         </div>
-      </Suspense>
-    </>
+        <ErrorBoundary
+          fallback={
+            <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+          }
+        >
+          <Repl
+            onEditorReady={(editor) => {
+              replEditor = editor;
+            }}
+            compiler={compiler}
+            formatter={formatter}
+            isHorizontal={true}
+            interactive={true}
+            actionBar={true}
+            editableTabs={true}
+            dark={false}
+            tabs={tabs()}
+            setTabs={setTabs}
+            current={current()}
+            setCurrent={setCurrent}
+          />
+        </ErrorBoundary>
+      </div>
+    </Suspense>
   );
 };
 

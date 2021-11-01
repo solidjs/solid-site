@@ -11,6 +11,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 
 export default defineConfig({
   plugins: [solid(), VitePWA(pwaOptions)],
+  assetsInclude: ['**/*.md'],
   optimizeDeps: {
     include: [
       'prismjs/components/prism-typescript',
@@ -18,6 +19,7 @@ export default defineConfig({
       'prismjs/components/prism-json',
       'prismjs/components/prism-bash',
     ],
+    exclude: ['@solid.js/docs'],
   },
   build: {
     polyfillDynamicImport: false,

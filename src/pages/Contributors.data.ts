@@ -158,6 +158,12 @@ const ecosystem = [
     link: 'https://lxsmnsyc.vercel.app/',
     detail: 'Vice president of software engineer and research at LyonInc.',
   },
+  {
+    name: 'Caleb Taylor',
+    company: '',
+    link: 'https://github.com/aquaductape',
+    detail: 'Front-End Developer',
+  },
 ] as const;
 
 export const ContributorsData = () => ({

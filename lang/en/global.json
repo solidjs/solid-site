@@ -29,6 +29,10 @@
       "external": true
     },
     {
+      "title": "Blog",
+      "path": "/blog"
+    },
+    {
       "title": "Media",
       "path": "/media"
     }
@@ -38,7 +42,7 @@
     "body": "believes this page definitely doesn't exist."
   },
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">core team and dedicated contributors</a>.",
+    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">core team and dedicated contributors</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Sponsored by",

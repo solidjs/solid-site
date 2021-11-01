@@ -1,6 +1,7 @@
 import { useParams, useLocation, RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
+import { getDoc, supportedDocs } from '@solid.js/docs';
 
 export type DataParams = {
   version: string;
@@ -9,23 +10,16 @@ export type DataParams = {
 };
 
 const currentVersion = '1.0.0';
-const availableLangs = ['br', 'en', 'de', 'pt', 'fr', 'id', 'it', 'ja', 'pt', 'ru', 'zh-cn'];
+const availableLangs = supportedDocs;
 
-const cache = new Map<string, Promise<string>>();
-
-function mdFetcher({ version, lang, resource }: DataParams) {
-  const cacheKey = `${version}-${resource}-${lang}`;
-  if (!cache.has(cacheKey)) {
-    const markdown = fetch(`/docs/${version}/${lang}/${resource}.json`).then((r) => r.json());
-    cache.set(cacheKey, markdown);
-  }
-  return cache.get(cacheKey);
+function docFetcher({ version, lang, resource }: DataParams) {
+  return getDoc(lang, resource);
 }
 
 export const DocsData: RouteDataFunc = () => {
   const params = useParams();
-  const [, { locale }] = useI18n();
   const location = useLocation();
+  const [, { locale }] = useI18n();
   const paramList = (): DataParams => {
     const version =
       params.version && params.version !== 'latest' ? params.version! : currentVersion;
@@ -37,7 +31,7 @@ export const DocsData: RouteDataFunc = () => {
       resource,
     };
   };
-  const [doc] = createResource(paramList, mdFetcher);
+  const [doc] = createResource(paramList, docFetcher);
   return {
     get langAvailable() {
       const lang = location.query.locale ? (location.query.locale as string) : locale();
