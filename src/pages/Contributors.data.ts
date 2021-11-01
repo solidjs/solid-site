@@ -162,7 +162,7 @@ const ecosystem = [
     name: 'Caleb Taylor',
     company: '',
     link: 'https://github.com/aquaductape',
-    detail: 'Web Developer',
+    detail: 'Front-End Developer',
   },
 ] as const;
 
