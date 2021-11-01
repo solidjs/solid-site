@@ -15,6 +15,7 @@ mv ./tmp/en/tutorials ../public/tutorial/lessons/en
 mv ./tmp/ja/tutorials ../public/tutorial/lessons/ja
 mv ./tmp/de/tutorials ../public/tutorial/lessons/de
 mv ./tmp/zh-cn/tutorials ../public/tutorial/lessons/zh-cn
+mv ./tmp/ru/tutorials ../public/tutorial/lessons/ru
 
 # Clean up temp directory
 rm lessons.tar.gz
