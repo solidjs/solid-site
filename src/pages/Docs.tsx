@@ -31,7 +31,7 @@ interface DocData {
   };
 }
 
-const Docs: Component<{ hash: string }> = (props) => {
+const Docs: Component<{ hash?: string }> = (props) => {
   const data = useData<DocData>();
   const [t] = useI18n();
 

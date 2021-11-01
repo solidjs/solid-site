@@ -113,16 +113,16 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         </div>
         <div>
           <div class="pt-5 text-xs block">{props.list[current()].description}</div>
-            <Show when={props.list[current()].link}>
-              <a
-                target="_blank"
-                class="button text-xs block mt-3 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
-                rel="noopener noreferrer"
-                href={props.list[current()].link}
-              >
-                {t('home.benchmarks.view')}
-              </a>
-            </Show>
+          <Show when={props.list[current()].link}>
+            <a
+              target="_blank"
+              class="button text-xs block mt-3 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
+              rel="noopener noreferrer"
+              href={props.list[current()].link}
+            >
+              {t('home.benchmarks.view')}
+            </a>
+          </Show>
         </div>
       </Show>
     </>

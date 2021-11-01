@@ -19,9 +19,7 @@ export default defineConfig({
       'prismjs/components/prism-json',
       'prismjs/components/prism-bash',
     ],
-    exclude: [
-      "@solid.js/docs"
-    ]
+    exclude: ['@solid.js/docs'],
   },
   build: {
     polyfillDynamicImport: false,

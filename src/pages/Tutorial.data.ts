@@ -1,7 +1,7 @@
 import { useI18n } from '@solid-primitives/i18n';
-import { RouteDataFunc, RouteData } from 'solid-app-router';
+import { RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
-import { getTutorial, supportedTutorials, getTutorialDirectory } from "@solid.js/docs"
+import { getTutorial, supportedTutorials, getTutorialDirectory } from '@solid.js/docs';
 
 const supportedLanguages = supportedTutorials;
 
@@ -26,11 +26,10 @@ export type TutorialDirectory = TutorialDirectoryItem[];
 const markdownCache = new Map<string, Promise<string>>();
 let directoryCache: { [key: string]: Promise<TutorialDirectory> | undefined } = {};
 
-
 async function fetchData({ lang, id }: DataParams) {
   if (!id) return {};
 
-  const  file = await getTutorial(lang, id);
+  const file = await getTutorial(lang, id);
   // const javascript = `/tutorial/lessons/${lang}/${id}/lesson.json`;
   // const solved = `/tutorial/lessons/${lang}/${id}/solved.json`;
   return { markdown: file.markdown, javascript: file.lesson, solvedJs: file.solved };
@@ -53,10 +52,10 @@ const propogateUndefined = (
 };
 
 type JsFiles = {
-  files: any[]
-}
+  files: any[];
+};
 
-export interface TutorialRouteData extends RouteData {
+export interface TutorialRouteData {
   loading: boolean;
   markdown?: string;
   js?: JsFiles;
@@ -113,24 +112,27 @@ export const TutorialData: RouteDataFunc = (props) => {
     },
     get tutorialDirectoryEntry() {
       const data = directory();
-      return data && data.find((el) => el.internalName === paramList().id);
+      return data && data.find((el: any) => el.internalName === paramList().id);
     },
     get nextUrl() {
       const data = directory();
       return propogateUndefined`/tutorial/${
-        data && data[data.findIndex((el) => el.internalName === paramList().id) + 1]?.internalName
+        data &&
+        data[data.findIndex((el: any) => el.internalName === paramList().id) + 1]?.internalName
       }`;
     },
     get previousUrl() {
       const data = directory();
       return propogateUndefined`/tutorial/${
-        data && data[data.findIndex((el) => el.internalName === paramList().id) - 1]?.internalName
+        data &&
+        data[data.findIndex((el: any) => el.internalName === paramList().id) - 1]?.internalName
       }`;
     },
     get nextLesson() {
       const data = directory();
       return propogateUndefined`${
-        data && data[data.findIndex((el) => el.internalName === paramList().id) + 1]?.lessonName
+        data &&
+        data[data.findIndex((el: any) => el.internalName === paramList().id) + 1]?.lessonName
       }`
         ?.split('/')
         .pop();
@@ -138,7 +140,8 @@ export const TutorialData: RouteDataFunc = (props) => {
     get previousLesson() {
       const data = directory();
       return propogateUndefined`${
-        data && data[data.findIndex((el) => el.internalName === paramList().id) - 1]?.lessonName
+        data &&
+        data[data.findIndex((el: any) => el.internalName === paramList().id) - 1]?.lessonName
       }`
         ?.split('/')
         .pop();
