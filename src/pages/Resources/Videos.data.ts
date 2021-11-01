@@ -256,7 +256,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=Q0mXYbA86Qo',
     title: 'Islands, Partial Hydration, & JavaScript Frameworks',
     description:
-      "Ryan explores the ideas of islands, islets, and partial hydration, and look at what frameworks like Marko, Astro, and Qwik are attacking this.",
+      'Ryan explores the ideas of islands, islets, and partial hydration, and look at what frameworks like Marko, Astro, and Qwik are attacking this.',
     keywords: ['islands', 'islets', 'hydration', 'ryanstreams'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
@@ -268,7 +268,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=Yi_MJ8cVCCs',
     title: 'Streaming SolidJS - Benchmarking and Custom Renderers',
     description:
-      "The history of JavaScript framework benchmarking and the new custom renderer API coming in Solid 1.2.0",
+      'The history of JavaScript framework benchmarking and the new custom renderer API coming in Solid 1.2.0',
     keywords: ['custom render', 'benchmarking', 'performance'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',

@@ -662,7 +662,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.cbsofyalioglu.com/code/adonisjs-solidjs/',
     title: 'Using SolidJS in AdonisJS App',
-    description: "This blog post shows how to integrate SolidJS frontend library with AdonisJS backend framework.",
+    description:
+      'This blog post shows how to integrate SolidJS frontend library with AdonisJS backend framework.',
     author: 'Can Burak Sofyalioglu',
     author_url: 'https://dev.to/canburaks',
     keywords: ['adonis'],
@@ -673,7 +674,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.cbsofyalioglu.com/code/styling-and-control-flow-in-solidj/',
     title: 'Exploring SolidJS – Styling and Control Flow',
-    description: "Explores styling and control flow in SolidJS.",
+    description: 'Explores styling and control flow in SolidJS.',
     author: 'Can Burak Sofyalioglu',
     author_url: 'https://dev.to/canburaks',
     keywords: ['control flow', 'styling'],
@@ -684,7 +685,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/lexlohr/testing-your-solidjs-code-2gfh',
     title: 'Testing your Solid.js code with jest',
-    description: "An interesting guide on different testing practices for Solid.",
+    description: 'An interesting guide on different testing practices for Solid.',
     author: 'Alex Lohr',
     author_url: 'https://github.com/atk',
     keywords: ['solid-jest', 'ts-jest', 'jest', 'testing'],
@@ -695,7 +696,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/lexlohr/testing-solidjs-code-beyond-jest-39p',
     title: 'Testing your Solid.js code beyond jest',
-    description: "A follow up article extending the conversation of testing Solid further beyond Jest.",
+    description:
+      'A follow up article extending the conversation of testing Solid further beyond Jest.',
     author: 'Alex Lohr',
     author_url: 'https://github.com/atk',
     keywords: ['solid-jest', 'ts-jest', 'jest', 'testing'],

@@ -809,7 +809,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/one-aalam/solid-starter-kit',
     title: 'solid-starter-kit',
-    description: 'Solid Starter Kit is an opinionated boilerplate with Supabase, Tailwind, TS and Prettier.',
+    description:
+      'Solid Starter Kit is an opinionated boilerplate with Supabase, Tailwind, TS and Prettier.',
     author: 'Aftab Alam',
     author_url: 'https://github.com/one-aalam',
     keywords: ['supabase', 'tailwind', 'tailwind'],
@@ -928,12 +929,7 @@ const utilities: Array<Resource> = [
     description: 'Slate Solid is a solid-js wrapper for Slate rich text editor.',
     author: 'Sagar Poudel',
     author_url: 'https://github.com/poudels14',
-    keyords: [
-      'slate',
-      'wysiwyg',
-      'editor',
-      'rich text'
-    ],
+    keyords: ['slate', 'wysiwyg', 'editor', 'rich text'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
