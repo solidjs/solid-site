@@ -147,7 +147,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         <Show when={showLogo() && routeReadyState().loading}>
           <PageLoadingBar postion="top" width={window.innerWidth}></PageLoadingBar>
         </Show>
-        <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 relative z-20">
+        <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
           <div
             class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
               showLogo() ? 'scale-100' : 'scale-0'

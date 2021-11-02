@@ -29,6 +29,10 @@
       "external": true
     },
     {
+      "title": "Blog",
+      "path": "/blog"
+    },
+    {
       "title": "Media",
       "path": "/media"
     }

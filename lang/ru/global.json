@@ -29,6 +29,10 @@
       "external": true
     },
     {
+      "title": "блог",
+      "path": "/blog"
+    },
+    {
       "title": "Медиа",
       "path": "/media"
     }

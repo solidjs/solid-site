@@ -30,6 +30,10 @@
       "external": true
     },
     {
+      "title": "Blog",
+      "path": "/blog"
+    },
+    {
       "title": "מדיה",
       "path": "/media"
     }

@@ -28,6 +28,10 @@
       "external": true
     },
     {
+      "title": "Blog",
+      "path": "/blog"
+    },
+    {
       "title": "Medien",
       "path": "/media"
     }

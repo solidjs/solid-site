@@ -29,6 +29,10 @@
       "external": true
     },
     {
+      "title": "Blog",
+      "path": "/blog"
+    },
+    {
       "title": "视觉传媒",
       "path": "/media"
     }
