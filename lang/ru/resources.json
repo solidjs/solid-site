@@ -1,6 +1,6 @@
 {
   "title": "Ресурсы",
-  "cta": "Для того чтобы ваш проект, связанный с SolidJS, был представлен здесь, свяжитесь с нами на <a href=\"https://discord.com/invite/solidjs\">Дискорде</a>.",
+  "cta": "Для того чтобы ваш проект, связанный с Solid, был представлен здесь, свяжитесь с нами в <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
   "search": "Поиск",
   "types": "Типы",
   "types_list": {
@@ -15,13 +15,13 @@
     "primitive": "Примитивы",
     "router": "Роутеры",
     "data": "Данные",
-    "ui": "Интерфейс Пользователя",
+    "ui": "UI",
     "plugin": "Плагины",
     "starters": "Стартеры",
     "build_utility": "Build-утилиты",
-    "add_on": "Добавки",
-    "testing": "Тестировние",
-    "educational": "Образовательное"
+    "add_on": "Экосистема",
+    "testing": "Тестирование",
+    "educational": "Материалы"
   },
   "official": "Официальное",
   "by": "От {{author}}"
