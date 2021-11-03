@@ -6,35 +6,20 @@ import {
   Match,
   createEffect,
   createSignal,
-  createResource,
-  createComputed,
 } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
+import { Icon } from '@amoutonbrady/solid-heroicons';
 import createThrottle from '@solid-primitives/throttle';
+import Dismiss from 'solid-dismiss';
 
 import Footer from '../components/Footer';
-import { Section } from '../../scripts/types';
-import { Icon } from '@amoutonbrady/solid-heroicons';
-import { useI18n } from '@solid-primitives/i18n';
-import Dismiss from 'solid-dismiss';
-import { routeReadyState, setRouteReadyState, useRouteReadyState } from '../utils/routeReadyState';
-
-interface DocData {
-  loading: boolean;
-  langAvailable: boolean;
-  doc: {
-    sections: Section[];
-    content: string;
-  };
-}
+import { routeReadyState, useRouteReadyState } from '../utils/routeReadyState';
 
 const Docs: Component<{ hash?: string }> = (props) => {
   const data = useData<DocData>();
-  const [t] = useI18n();
-
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -144,7 +129,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
                             {(secondLevel) => (
                               <li onClick={() => setToggleSections(false)}>
                                 <a
-                                  class="block px-5 border-b border-gray-100 pb-3 text-sm my-4 break-words"
+                                  class="block pl-5 border-b border-gray-100 text-gray-500  pb-3 text-sm my-4 break-words"
                                   classList={{
                                     'text-solid hover:text-solid-dark':
                                       `#${secondLevel.slug}` === props.hash,
@@ -153,6 +138,26 @@ const Docs: Component<{ hash?: string }> = (props) => {
                                   href={`#${secondLevel.slug}`}
                                   children={secondLevel.title}
                                 />
+                                <Show when={secondLevel.children}>
+                                  <ul>
+                                    <For each={secondLevel.children!}>
+                                      {(thirdLevel) => (
+                                        <li>
+                                          <a
+                                            class="block ml-8 border-b border-gray-100 text-gray-400 pb-3 text-xs my-4 break-words"
+                                            classList={{
+                                              'text-solid hover:text-solid-dark':
+                                                `#${thirdLevel.slug}` === props.hash,
+                                              'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
+                                            }}
+                                            href={`#${thirdLevel.slug}`}
+                                            children={`› ${thirdLevel.title}`}
+                                          />
+                                        </li>
+                                      )}
+                                    </For>
+                                  </ul>
+                                </Show>
                               </li>
                             )}
                           </For>

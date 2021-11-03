@@ -11,12 +11,12 @@
     "newLine": "lf",
     "sourceMap": true,
     "jsxImportSource": "solid-js",
-    "types": ["vite/client", "vite-plugin-pwa/client"],
+    "types": ["vite/client", "solid-js", "vite-plugin-pwa/client"],
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"]
   },
-  "include": ["./src", "vite.config.js", "./scripts"],
+  "include": ["./src/**/*", "vite.config.js", "./scripts", "src/types.d.ts"],
   "exclude": ["node_modules/", "Markdown.tsx"]
 }
