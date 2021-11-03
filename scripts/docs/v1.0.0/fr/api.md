@@ -11,7 +11,7 @@ sort: 0
 ```ts
 export function createSignal<T>(
   value: T,
-  options?: { name?: string; equals?: false | ((prev: T, next: T) => boolean) },
+  options?: { name?: string; equals?: false | ((prev: T, next: T) => boolean) }
 ): [get: () => T, set: (v: T) => T];
 ```
 
@@ -41,7 +41,11 @@ N'oubliez pas d'accéder aux signaux sous une portée surveillée si vous souhai
 ## `createEffect`
 
 ```ts
-export function createEffect<T>(fn: (v: T) => T, value?: T, options?: { name?: string }): void;
+export function createEffect<T>(
+  fn: (v: T) => T,
+  value?: T,
+  options?: { name?: string }
+): void;
 ```
 
 Créer un nouveau calcul qui va automatiquement surveiller ses dépendances et s'exécuter après chaque rendu où les dépendances ont été changées. Ceci est idéal pour l'utilisation de `ref`s et la gestion d'autres effets secondaires.
@@ -69,7 +73,7 @@ createEffect((prev) => {
 export function createMemo<T>(
   fn: (v: T) => T,
   value?: T,
-  options?: { name?: string; equals?: false | ((prev: T, next: T) => boolean) },
+  options?: { name?: string; equals?: false | ((prev: T, next: T) => boolean) }
 ): () => T;
 ```
 
@@ -100,18 +104,18 @@ type ResourceReturn<T> = [
   {
     mutate: (v: T | undefined) => T | undefined;
     refetch: () => void;
-  },
+  }
 ];
 
 export function createResource<T, U = true>(
   fetcher: (k: U, getPrev: () => T | undefined) => T | Promise<T>,
-  options?: { initialValue?: T; name?: string },
+  options?: { initialValue?: T; name?: string }
 ): ResourceReturn<T>;
 
 export function createResource<T, U>(
   source: U | false | null | (() => U | false | null),
   fetcher: (k: U, getPrev: () => T | undefined) => T | Promise<T>,
-  options?: { initialValue?: T; name?: string },
+  options?: { initialValue?: T; name?: string }
 ): ResourceReturn<T>;
 ```
 
@@ -191,7 +195,7 @@ Groupe les mises à jour dans le bloc jusqu'à la fin pour éviter des calculs i
 export function on<T extends Array<() => any> | (() => any), U>(
   deps: T,
   fn: (input: T, prevInput: T, prevValue?: U) => U,
-  options: { defer?: boolean } = {},
+  options: { defer?: boolean } = {}
 ): (prevValue?: U) => U | undefined;
 ```
 
@@ -213,7 +217,7 @@ Vous pouvez aussi ne pas exécuter le calcul immédiatement et à la place chois
 // Ne s'exécute pas immédiatement
 createEffect(on(a, (v) => console.log(v), { defer: true }));
 
-setA('new'); // Maintenant elle s'exécute
+setA("new"); // Maintenant elle s'exécute
 ```
 
 ## `createRoot`
@@ -238,7 +242,7 @@ Cette méthode fonctionne en utilisant les proxies et associant les propriétés
 
 ```js
 // props par défault
-props = mergeProps({ name: 'Smith' }, props);
+props = mergeProps({ name: "Smith" }, props);
 
 // cloner l'objet props
 newProps = mergeProps(props);
@@ -250,7 +254,10 @@ props = mergeProps(props, otherProps);
 ## `splitProps`
 
 ```ts
-export function splitProps<T>(props: T, ...keys: Array<(keyof T)[]>): [...parts: Partial<T>];
+export function splitProps<T>(
+  props: T,
+  ...keys: Array<(keyof T)[]>
+): [...parts: Partial<T>];
 ```
 
 C'est un remplacement de la déstructuration. Elle va séparer un objet réactif par une liste de clés pour maintenir la réactivité.
@@ -267,7 +274,10 @@ const [local, others] = splitProps(props, ["children"]);
 ## `useTransition`
 
 ```ts
-export function useTransition(): [() => boolean, (fn: () => void, cb?: () => void) => void];
+export function useTransition(): [
+  () => boolean,
+  (fn: () => void, cb?: () => void) => void
+];
 ```
 
 Utilisé pour grouper les mises à jour asynchrones dans une transition qui va reporter les changements jusqu'à ce que tous les processus asynchrones soient complétés. Ceci est lié au Suspense et surveille seulement les ressources lues dans les limites des Suspenses.
@@ -291,7 +301,7 @@ export function observable<T>(input: () => T): Observable<T>;
 Cette méthode prend un signal et produit un simple objet Observable. Vous pouvez l'utiliser avec une librairie Observable de votre choix typiquement avec l'opérateur `from`.
 
 ```js
-import { from } from 'rxjs';
+import { from } from "rxjs";
 
 const [s, set] = createSignal(0);
 
@@ -305,7 +315,7 @@ obsv$.subscribe((v) => console.log(v));
 ```ts
 export function mapArray<T, U>(
   list: () => readonly T[],
-  mapFn: (v: T, i: () => number) => U,
+  mapFn: (v: T, i: () => number) => U
 ): () => U[];
 ```
 
@@ -337,7 +347,7 @@ const mapped = mapArray(source, (model) => {
 ```ts
 export function indexArray<T, U>(
   list: () => readonly T[],
-  mapFn: (v: () => T, i: number) => U,
+  mapFn: (v: () => T, i: number) => U
 ): () => U[];
 ```
 
@@ -370,7 +380,7 @@ Ces APIs sont disponibles sous `solid-js/store`.
 ```ts
 export function createStore<T extends StoreNode>(
   state: T | Store<T>,
-  options?: { name?: string },
+  options?: { name?: string }
 ): [get: Store<T>, set: SetStoreFunction<T>];
 ```
 
@@ -383,9 +393,9 @@ const [state, setState] = createStore(initialValue);
 state.someValue;
 
 // met à jour une valeur
-setState({ merge: 'thisValue' });
+setState({ merge: "thisValue" });
 
-setState('path', 'to', 'value', newValue);
+setState("path", "to", "value", newValue);
 ```
 
 Les objets Store sont des proxies qui sont surveillés seulement sur l'accès aux propriétés. Et à l'accès, les Stores produisent récursivement des objets Store imbriqués sur les données imbriquées. Cependant, ça ne peut enrober que des tableaux et de simples objets. Les classes ne sont pas enrobées. Donc les `Date`, `HTMLElement`, `RegExp`, `Map`, `Set` ne sont pas réactifs. De plus, les objets de haut niveau ne peuvent pas être surveillés sans accéder à une de leurs propriétés. Donc il ne convient pas de les utiliser pour des éléments sur lesquels on va itérer, car l'ajout de nouvelles clés ou d'index ne va pas engendrer une mise à jour. Donc mettez vos listes dans une clé de votre état au lieu d'essayer d'utiliser l'objet état directement.
@@ -405,8 +415,8 @@ Les objets Store supportent l'utilisation d'accesseur pour calculer des valeurs.
 ```js
 const [state, setState] = createStore({
   user: {
-    firstName: 'John',
-    lastName: 'Smith',
+    firstName: "John",
+    lastName: "Smith",
     get fullName() {
       return `${this.firstName} ${this.lastName}`;
     },
@@ -420,8 +430,8 @@ Ce sont de simples accesseurs, donc vous avez besoin d'utiliser Mémo si vous so
 let fullName;
 const [state, setState] = createStore({
   user: {
-    firstName: 'John',
-    lastName: 'Smith',
+    firstName: "John",
+    lastName: "Smith",
     get fullName() {
       return fullName();
     },
@@ -436,14 +446,14 @@ Les changements peuvent prendre la forme de fonction qui passe en paramètre la 
 
 ```js
 const [state, setState] = createStore({
-  firstName: 'John',
-  lastName: 'Miller',
+  firstName: "John",
+  lastName: "Miller",
 });
 
-setState({ firstName: 'Johnny', middleName: 'Lee' });
+setState({ firstName: "Johnny", middleName: "Lee" });
 // ({ firstName: 'Johnny', middleName: 'Lee', lastName: 'Miller' })
 
-setState((state) => ({ preferredName: state.firstName, lastName: 'Milner' }));
+setState((state) => ({ preferredName: state.firstName, lastName: "Milner" }));
 // ({ firstName: 'Johnny', preferredName: 'Johnny', middleName: 'Lee', lastName: 'Milner' })
 ```
 
@@ -525,8 +535,10 @@ setState('todos', {}, todo => ({ marked: true, completed: !todo.completed }))
 
 ```ts
 export function produce<T>(
-  fn: (state: T) => void,
-): (state: T extends NotWrappable ? T : Store<T>) => T extends NotWrappable ? T : Store<T>;
+  fn: (state: T) => void
+): (
+  state: T extends NotWrappable ? T : Store<T>
+) => T extends NotWrappable ? T : Store<T>;
 ```
 
 Inspiré de l'API d'Immer qui a été adapté pour les objets Store dans Solid pour permettre la mutation localisée.
@@ -534,9 +546,9 @@ Inspiré de l'API d'Immer qui a été adapté pour les objets Store dans Solid p
 ```js
 setState(
   produce((s) => {
-    s.user.name = 'Frank';
-    s.list.push('Pencil Crayon');
-  }),
+    s.user.name = "Frank";
+    s.list.push("Pencil Crayon");
+  })
 );
 ```
 
@@ -548,8 +560,10 @@ export function reconcile<T>(
   options?: {
     key?: string | null;
     merge?: boolean;
-  } = { key: 'id' },
-): (state: T extends NotWrappable ? T : Store<T>) => T extends NotWrappable ? T : Store<T>;
+  } = { key: "id" }
+): (
+  state: T extends NotWrappable ? T : Store<T>
+) => T extends NotWrappable ? T : Store<T>;
 ```
 
 La comparaison de données n'est pas appliquée lorsque l'on ne peut pas appliquer de mise à jour précise. Utile quand nous voulons gérer des données immuables depuis les stores ou grosses réponses d'API.
@@ -595,13 +609,13 @@ Les Mutables supportent les fonctions de mutations ainsi que les fonctions acces
 
 ```js
 const user = createMutable({
-  firstName: 'John',
-  lastName: 'Smith',
+  firstName: "John",
+  lastName: "Smith",
   get fullName() {
     return `${this.firstName} ${this.lastName}`;
   },
   set fullName(value) {
-    [this.firstName, this.lastName] = value.split(' ');
+    [this.firstName, this.lastName] = value.split(" ");
   },
 });
 ```
@@ -632,15 +646,19 @@ export function CounterProvider(props) {
     state,
     {
       increment() {
-        setState('count', (c) => c + 1);
+        setState("count", (c) => c + 1);
       },
       decrement() {
-        setState('count', (c) => c - 1);
+        setState("count", (c) => c - 1);
       },
     },
   ];
 
-  return <CounterContext.Provider value={store}>{props.children}</CounterContext.Provider>;
+  return (
+    <CounterContext.Provider value={store}>
+      {props.children}
+    </CounterContext.Provider>
+  );
 }
 ```
 
@@ -677,7 +695,7 @@ createEffect(() => list());
 
 ```ts
 export function lazy<T extends Component<any>>(
-  fn: () => Promise<{ default: T }>,
+  fn: () => Promise<{ default: T }>
 ): T & { preload: () => Promise<T> };
 ```
 
@@ -685,7 +703,7 @@ Utiliser le chargement de composant en mode paresseux pour permettre le découpa
 
 ```js
 // Enrobe l'import
-const ComponentA = lazy(() => import('./ComponentA'));
+const ComponentA = lazy(() => import("./ComponentA"));
 
 // utiliser dans le JSX
 <ComponentA title={props.title} />;
@@ -704,7 +722,7 @@ export function createDeferred<T>(
     timeoutMs?: number;
     name?: string;
     equals?: false | ((prev: T, next: T) => boolean);
-  },
+  }
 ): () => T;
 ```
 
@@ -713,7 +731,11 @@ Créer une valeur en lecture seule qui va notifier les changements en aval quand
 ## `createComputed`
 
 ```ts
-export function createComputed<T>(fn: (v: T) => T, value?: T, options?: { name?: string }): void;
+export function createComputed<T>(
+  fn: (v: T) => T,
+  value?: T,
+  options?: { name?: string }
+): void;
 ```
 
 Crée une nouvelle fonction de calcul qui va automatiquement tracer les dépendances et s'exécuter immédiatement avant le rendu. L'utiliser pour écrire sur d'autres primitives réactives. Quand c'est possible, utiliser plutôt `createMemo` car écrire sur un signal en milieu de mise à jour peut causer d'autres fonctions à se recalculer.
@@ -724,7 +746,7 @@ Crée une nouvelle fonction de calcul qui va automatiquement tracer les dépenda
 export function createRenderEffect<T>(
   fn: (v: T) => T,
   value?: T,
-  options?: { name?: string },
+  options?: { name?: string }
 ): void;
 ```
 
@@ -736,7 +758,7 @@ Créer un nouveau calcul qui va automatiquement tracer ces dépendances et s'ex�
 export function createSelector<T, U>(
   source: () => T,
   fn?: (a: U, b: T) => boolean,
-  options?: { name?: string },
+  options?: { name?: string }
 ): (k: U) => boolean;
 ```
 
@@ -759,25 +781,31 @@ Ces imports sont exposés depuis `solid-js/web`.
 ## `render`
 
 ```ts
-export function render(code: () => JSX.Element, element: MountableElement): () => void;
+export function render(
+  code: () => JSX.Element,
+  element: MountableElement
+): () => void;
 ```
 
 Le point d'entrée de l'application côté navigateur. Il faut fournir une définition de composant de haut niveau ou une fonction et un élément sur lequel monter l'application. Il est recommandé que cet élément soit vide, car la fonction de disposition va effacer tous les enfants.
 
 ```js
-const dispose = render(App, document.getElementById('app'));
+const dispose = render(App, document.getElementById("app"));
 ```
 
 ## `hydrate`
 
 ```ts
-export function hydrate(fn: () => JSX.Element, node: MountableElement): () => void;
+export function hydrate(
+  fn: () => JSX.Element,
+  node: MountableElement
+): () => void;
 ```
 
 Cette méthode est similaire à `render` sauf qu'elle essaye d'hydrater ce qui est déjà rendu dans le DOM. Quand elle est initialisée dans le navigateur, une page a déjà été rendue côté serveur.
 
 ```js
-const dispose = hydrate(App, document.getElementById('app'));
+const dispose = hydrate(App, document.getElementById("app"));
 ```
 
 ## `renderToString`
@@ -788,7 +816,7 @@ export function renderToString<T>(
   options?: {
     eventNames?: string[];
     nonce?: string;
-  },
+  }
 ): string;
 ```
 
@@ -807,7 +835,7 @@ export function renderToStringAsync<T>(
     eventNames?: string[];
     timeoutMs?: number;
     nonce?: string;
-  },
+  }
 ): Promise<string>;
 ```
 
@@ -834,7 +862,7 @@ export function pipeToNodeWritable<T>(
     noScript?: boolean;
     onReady?: (r: PipeToWritableResults) => void;
     onComplete?: (r: PipeToWritableResults) => void | Promise<void>;
-  },
+  }
 ): void;
 ```
 
@@ -861,9 +889,15 @@ export function pipeToWritable<T>(
     eventNames?: string[];
     nonce?: string;
     noScript?: boolean;
-    onReady?: (writable: { write: (v: string) => void }, r: PipeToWritableResults) => void;
-    onComplete?: (writable: { write: (v: string) => void }, r: PipeToWritableResults) => void;
-  },
+    onReady?: (
+      writable: { write: (v: string) => void },
+      r: PipeToWritableResults
+    ) => void;
+    onComplete?: (
+      writable: { write: (v: string) => void },
+      r: PipeToWritableResults
+    ) => void;
+  }
 ): void;
 ```
 
@@ -961,7 +995,10 @@ Le contrôle de flux `Show` est utilisée pour afficher conditionnellement une p
 ## `<Switch>`/`<Match>`
 
 ```ts
-export function Switch(props: { fallback?: JSX.Element; children: JSX.Element }): () => JSX.Element;
+export function Switch(props: {
+  fallback?: JSX.Element;
+  children: JSX.Element;
+}): () => JSX.Element;
 
 type MatchProps<T> = {
   when: T | undefined | null | false;
@@ -974,10 +1011,10 @@ Utile quand il y a plus de 2 conditions mutuelles exclusives. Peut-être utilise
 
 ```jsx
 <Switch fallback={<div>Not Found</div>}>
-  <Match when={state.route === 'home'}>
+  <Match when={state.route === "home"}>
     <Home />
   </Match>
-  <Match when={state.route === 'settings'}>
+  <Match when={state.route === "settings"}>
     <Settings />
   </Match>
 </Switch>
@@ -1037,7 +1074,9 @@ Intercepte les erreurs qui ne sont pas traitées et affiche un contenu de repli.
 Il est aussi possible de passer une fonction qui va recevoir l'erreur ainsi qu'une fonction de réinitialisation.
 
 ```jsx
-<ErrorBoundary fallback={(err, reset) => <div onClick={reset}>Error: {err.toString()}</div>}>
+<ErrorBoundary
+  fallback={(err, reset) => <div onClick={reset}>Error: {err.toString()}</div>}
+>
   <MyComp />
 </ErrorBoundary>
 ```
@@ -1045,7 +1084,10 @@ Il est aussi possible de passer une fonction qui va recevoir l'erreur ainsi qu'u
 ## `<Suspense>`
 
 ```ts
-export function Suspense(props: { fallback?: JSX.Element; children: JSX.Element }): JSX.Element;
+export function Suspense(props: {
+  fallback?: JSX.Element;
+  children: JSX.Element;
+}): JSX.Element;
 ```
 
 Un composant qui garde une trace de toutes les ressources lues dans sa portée et affiche un contenu de repli jusqu'à ce que toutes les ressources soient chargées. Ce qui rend les `Suspenses` différents de `Show` est l'aspect non bloquant, car les deux branches existent en même temps même si elles ne sont pas dans le DOM.
@@ -1061,8 +1103,8 @@ Un composant qui garde une trace de toutes les ressources lues dans sa portée e
 ```ts
 function SuspenseList(props: {
   children: JSX.Element;
-  revealOrder: 'forwards' | 'backwards' | 'together';
-  tail?: 'collapsed' | 'hidden';
+  revealOrder: "forwards" | "backwards" | "together";
+  tail?: "collapsed" | "hidden";
 }): JSX.Element;
 ```
 
@@ -1089,7 +1131,7 @@ function Dynamic<T>(
   props: T & {
     children?: any;
     component?: Component<T> | string | keyof JSX.IntrinsicElements;
-  },
+  }
 ): () => JSX.Element;
 ```
 
@@ -1115,7 +1157,7 @@ Ce composant va insérer un élément dans le nœud monté. C'est utile pour ins
 Le portail est monté dans une `<div>` à moins que la cible est un entête de document. `useShadow` place l'élément dans un `ShadowRoot` pour l'isolation de style, et `isSVG` est requise si l'insertion est faite dans un élément SVG pour que la `<div>` ne soit pas insérée.
 
 ```jsx
-<Portal mount={document.getElementById('modal')}>
+<Portal mount={document.getElementById("modal")}>
   <div>My Content</div>
 </Portal>
 ```
@@ -1127,7 +1169,7 @@ En général, Solid essaye de respecter un maximum les conventions du DOM. La ma
 Pour les attributs dans un espace de noms personnalisé avec TypeScript, vous aurez besoin d'étendre l'espace de nom JSX de Solid :
 
 ```ts
-declare module 'solid-js' {
+declare module "solid-js" {
   namespace JSX {
     interface Directives {
       // use:____
@@ -1183,7 +1225,9 @@ function App() {
 Un attribut d'aide pour utiliser `element.classList.toggle`. Il va prendre un objet dont la clé est un nom de classes et l'assigner quand la condition sera considérée `true`
 
 ```jsx
-<div classList={{ active: state.active, editing: state.currentId === row.id }} />
+<div
+  classList={{ active: state.active, editing: state.currentId === row.id }}
+/>
 ```
 
 ## `style`
@@ -1259,12 +1303,12 @@ function directive(element: Element, accessor: () => any): void;
 Les fonctions directives sont appelées au moment du rendu, mais avant d'être ajouté au DOM. Vous pouvez faire ce que vous souhaitez à l'intérieur, y compris créer des signaux, effets, programmer des fonctions de nettoyage, etc.
 
 ```js
-const [name, setName] = createSignal('');
+const [name, setName] = createSignal("");
 
 function model(el, value) {
   const [field, setField] = value();
   createRenderEffect(() => (el.value = field()));
-  el.addEventListener('input', (e) => setField(e.target.value));
+  el.addEventListener("input", (e) => setField(e.target.value));
 }
 
 <input type="text" use:model={[name, setName]} />;
@@ -1273,7 +1317,7 @@ function model(el, value) {
 Pour étendre l'espace de noms de JSX dans TypeScript.
 
 ```ts
-declare module 'solid-js' {
+declare module "solid-js" {
   namespace JSX {
     interface Directives {
       model: [() => any, (v: any) => any];
@@ -1287,7 +1331,7 @@ declare module 'solid-js' {
 Force la prop à être traitée comme une propriété au lieu d'un attribut.
 
 ```jsx
-<div prop:scrollTop={props.scrollPos + 'px'} />
+<div prop:scrollTop={props.scrollPos + "px"} />
 ```
 
 ## `attr:___`
