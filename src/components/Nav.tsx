@@ -47,17 +47,24 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     });
   });
 
+  const onClick = () => {
+    if (window.location.pathname.startsWith(props.path)) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+
+    const pageEl = document.body;
+    pageEl.style.minHeight = document.body.scrollHeight + 'px';
+    setRouteReadyState({ loading: true, routeChanged: true });
+  };
+
   return (
     <li>
       <NavLink
         href={props.path}
         class="inline-flex items-center transition text-[15px] sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
         activeClass="bg-solid-medium text-white pointer-fine:group-hover:bg-solid-default"
-        onClick={() => {
-          const pageEl = document.body;
-          pageEl.style.minHeight = document.body.scrollHeight + 'px';
-          setRouteReadyState({ loading: true, routeChanged: true });
-        }}
+        onClick={onClick}
         noScroll
         ref={linkEl}
       >
@@ -137,6 +144,15 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     ),
   );
 
+  const onClickLogo = () => {
+    if (window.location.pathname === '/') {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+
+    setRouteReadyState({ loading: true, routeChanged: true });
+  };
+
   return (
     <>
       <div use:observer class="h-0" />
@@ -154,14 +170,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             }`}
             ref={logoEl}
           >
-            <Link
-              href="/"
-              onClick={() => {
-                setRouteReadyState({ loading: true, routeChanged: true });
-              }}
-              noScroll
-              class={`py-3 flex w-9 `}
-            >
+            <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
               <span class="sr-only">Navigate to the home page</span>
               <img class="w-full h-auto" src={logo} alt="Solid logo" />
             </Link>
