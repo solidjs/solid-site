@@ -15,9 +15,9 @@ import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 import Dismiss from 'solid-dismiss';
+import { reflow } from '../utils';
 import { routeReadyState, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
-import { reflow } from '../utils';
 
 const langs = {
   en: 'English',
@@ -51,7 +51,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     <li>
       <NavLink
         href={props.path}
-        class="inline-flex items-center transition m-1 px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
+        class="inline-flex items-center transition text-[15px] sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
         activeClass="bg-solid-medium text-white pointer-fine:group-hover:bg-solid-default"
         onClick={() => {
           const pageEl = document.body;
@@ -141,7 +141,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     <>
       <div use:observer class="h-0" />
       <div
-        class="flex justify-center sticky top-0 z-50 dark:bg-solid-gray bg-white"
+        class="flex justify-center sticky top-0 z-50 dark:bg-solid-gray bg-white overflow-hidden"
         classList={{ 'shadow-md': showLogo() }}
       >
         <Show when={showLogo() && routeReadyState().loading}>
