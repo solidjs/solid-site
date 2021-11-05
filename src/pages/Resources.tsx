@@ -348,7 +348,7 @@ const Resources: Component = () => {
         >
           <div
             class={
-              'fixed top-14 left-0 z-20 py-5 w-full rounded-t-2xl overflow-auto  p-10 shadow-top-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white duration-300 transform lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 lg:sticky lg:flex '
+              'fixed top-14 left-0 z-20 py-5 w-full rounded-t-2xl overflow-auto  p-10 shadow-top-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white transition-transform duration-300 lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 lg:sticky lg:flex '
             }
             style={{ height: 'calc(100vh - 8rem)', top: '8rem' }}
           >

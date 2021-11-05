@@ -157,48 +157,57 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     <>
       <div use:observer class="h-0" />
       <div
-        class="flex justify-center sticky top-0 z-50 dark:bg-solid-gray bg-white overflow-hidden"
+        class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
         classList={{ 'shadow-md': showLogo() }}
       >
-        <Show when={showLogo() && routeReadyState().loading}>
-          <PageLoadingBar postion="top" width={window.innerWidth}></PageLoadingBar>
-        </Show>
-        <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
-          <div
-            class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
-              showLogo() ? 'scale-100' : 'scale-0'
-            }`}
-            ref={logoEl}
-          >
-            <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
-              <span class="sr-only">Navigate to the home page</span>
-              <img class="w-full h-auto" src={logo} alt="Solid logo" />
-            </Link>
-          </div>
-          <ScrollShadow
-            class={`group relative nav-items-container ${navListPosition()}`}
-            direction="horizontal"
-            rtl={t('global.dir', {}, 'ltr') === 'rtl'}
-            shadowSize="25%"
-            initShadowSize={true}
-          >
-            <ul class="relative flex items-center overflow-auto no-scrollbar">
-              <For each={t('global.nav')} children={MenuLink} />
-              <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
+        <div class="flex justify-center  w-full">
+          <Show when={showLogo() && routeReadyState().loading}>
+            <PageLoadingBar postion="top" width={window.innerWidth}></PageLoadingBar>
+          </Show>
+          <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
+            <div
+              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
+                showLogo() ? 'scale-100' : 'scale-0'
+              }`}
+              ref={logoEl}
+            >
+              <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
+                <span class="sr-only">Navigate to the home page</span>
+                <img class="w-full h-auto" src={logo} alt="Solid logo" />
+              </Link>
+            </div>
+            <ScrollShadow
+              class={`group relative nav-items-container ${navListPosition()}`}
+              direction="horizontal"
+              rtl={t('global.dir', {}, 'ltr') === 'rtl'}
+              shadowSize="25%"
+              initShadowSize={true}
+            >
+              <ul class="relative flex items-center overflow-auto no-scrollbar">
+                <For each={t('global.nav')} children={MenuLink} />
+                <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
+              </ul>
+            </ScrollShadow>
+            <ul class="hidden lg:flex items-center">
+              <Social />
+              <LanguageSelector ref={langBtnDesktop} />
             </ul>
-          </ScrollShadow>
-          <ul class="hidden lg:flex items-center">
-            <Social />
-            <LanguageSelector ref={langBtnDesktop} />
-          </ul>
-        </nav>
+          </nav>
+        </div>
         <Dismiss
           menuButton={[langBtnTablet, langBtnDesktop]}
           open={showLangs}
           setOpen={toggleLangs}
-          class="container mx-auto bottom-0 bg-gray-200 absolute flex -mt-4 justify-end"
+          class="container mx-auto left-0 right-0 bottom-0 absolute flex -mt-4 justify-end"
+          animation={{
+            appendToElement: 'menuPopup',
+            enterClass: 'opacity-0 -translate-y-4',
+            enterToClass: 'opacity-1 translate-y-0',
+            exitClass: 'opacity-1 translate-y-0',
+            exitToClass: 'opacity-0 -translate-y-4',
+          }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 bg-white shadow-md">
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 transition-composite bg-white shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button

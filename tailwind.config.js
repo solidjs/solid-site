@@ -6,6 +6,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionProperty: {
+        composite: 'transform, opacity',
+      },
       zIndex: {
         negative: -1,
       },
