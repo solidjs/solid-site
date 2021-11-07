@@ -6,6 +6,7 @@
   "secondary": "Secondary Color",
   "light": "Light Color",
   "accent": "Accent Color",
+  "copy_hex": "Click the color to copy the hex.",
   "resources": {
     "with_wordmark": "With Wordmark",
     "without_wordmark": "Without Wordmark",

@@ -3,6 +3,7 @@ import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import createClipboard, { copyToClipboard } from '@solid-primitives/clipboard';
 
 const assets = [
   {
@@ -105,6 +106,8 @@ const AssetPanel: Component<{
 
 const Media: Component = () => {
   const [t] = useI18n();
+  const [ setter ] = createClipboard();
+  copyToClipboard;
 
   useRouteReadyState();
 
@@ -120,22 +123,27 @@ const Media: Component = () => {
               </div>{' '}
               <div class="text-md">Gordita</div>
             </div>
-            <div class="flex h-28 bg-solid-default p-4 justify-between items-end text-white between">
+            <div class="flex h-36 bg-solid-default p-4 justify-between items-end text-white between">
               <div>{t('media.primary', {}, 'Primary Color')}</div>
-              <div class="text-sm">#2c4f7c</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#2c4f7c</div>
             </div>
-            <div class="flex h-24 bg-solid-medium p-4 justify-between items-end text-white">
+            <div class="flex h-28 bg-solid-medium p-4 justify-between items-end text-white">
               <div>{t('media.secondary', {}, 'Secondary Color')}</div>
-              <div class="text-sm">#335d92</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#335d92</div>
             </div>
             <div class="flex h-20 p-4 bg-solid-light justify-between items-end text-white">
               <div>{t('media.light', {}, 'Light Color')}</div>
-              <div class="text-sm">#446b9e</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#446b9e</div>
             </div>
             <div class="flex h-20 p-4 bg-solid-accent justify-between items-end text-white">
               <div>{t('media.accent', {}, 'Accent Color')}</div>
-              <div class="text-sm">#66e6ac</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#66e6ac</div>
             </div>
+            <div class="flex h-20 p-4 bg-solid-secondaccent justify-between items-end text-white">
+              <div>{t('media.second_accent', {}, 'Second Accent Color')}</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#66e6ac</div>
+            </div>
+            <div class="text-xs text-gray-500 text-right mt-3">{t('media.copy_hex')}</div>
           </div>
           <div class="col-span-4 col-end-7 mt-9 md:mt-0">
             <div class="lg:grid lg:grid-cols-2 gap-4 space-y-5 md:space-y-0">

@@ -6,6 +6,8 @@
     "secondary": "Colore secondario",
     "light": "Colore chiaro",
     "accent": "Colore accento",
+    "second_accent": "Secondo colore accento",
+    "copy_hex": "Fare clic sul valore esadecimale per il colore",
     "resources": {
       "with_wordmark": "Con marchio denominativo",
       "without_wordmark": "Senza marchio denominativo",

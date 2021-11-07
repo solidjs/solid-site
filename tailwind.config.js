@@ -31,12 +31,13 @@ module.exports = {
         primary: '#4483c1',
         solid: {
           default: '#2c4f7c',
-          dark: '#335d92',
+          dark: '#07254A',
           gray: '#414042',
           lightgray: '#f3f5f7',
           medium: '#446b9e',
           light: '#4f88c6',
-          accent: '#66e6ac',
+          accent: '#3FE32B',
+          secondaccent: '#7FE871'
         },
       },
       typography: {

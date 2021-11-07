@@ -67,7 +67,7 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021/11/06, 9:00pm',
+                  date: '2021/11/07, 2:33pm',
                   version: '1.2.1',
                 })}
               </p>
