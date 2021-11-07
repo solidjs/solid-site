@@ -6,6 +6,15 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionProperty: {
+        composite: 'transform, opacity',
+      },
+      zIndex: {
+        negative: -1,
+      },
+      boxShadow: {
+        'top-2xl': '0 -25px 50px -12px rgba(0, 0, 0, 0.25)',
+      },
       transitionDuration: {
         0: '0ms',
         5000: '5000ms',

@@ -1,12 +1,4 @@
-import {
-  Component,
-  For,
-  Show,
-  Switch,
-  Match,
-  createEffect,
-  createSignal,
-} from 'solid-js';
+import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
 import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
@@ -80,13 +72,13 @@ const Docs: Component<{ hash?: string }> = (props) => {
           >
             <div
               class={
-                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed top-14 duration-300 transform ' +
+                'py-5 h-5/6 w-5/6 rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 dark:bg-solid-gray bg-white fixed left-0 top-14 lg:translate-x-0 lg:duration-0 transition-transform duration-300 ' +
                 'max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
                 'lg:sticky lg:flex'
               }
               classList={{
-                '-left-full': !toggleSections(),
-                'left-0': toggleSections(),
+                '-translate-x-full': !toggleSections(),
+                'translate-x-0': toggleSections(),
               }}
               style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
             >
@@ -148,7 +140,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
                                             classList={{
                                               'text-solid hover:text-solid-dark':
                                                 `#${thirdLevel.slug}` === props.hash,
-                                              'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
+                                              'hover:text-gray-400':
+                                                `#${thirdLevel.slug}` !== props.hash,
                                             }}
                                             href={`#${thirdLevel.slug}`}
                                             children={`› ${thirdLevel.title}`}
