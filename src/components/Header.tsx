@@ -42,7 +42,7 @@ const Header: Component<{ title?: string }> = () => {
       <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
           <header
-            class="relative mx-1 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
+            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
             ref={headerSplashEl}
           >
             <Show when={routeReadyState().loading}>
