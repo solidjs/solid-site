@@ -17,6 +17,17 @@ const assets = [
     },
   },
   {
+    title: 'Dark With Wordmark',
+    background: 'bg-solid-gray',
+    example: '/img/logo/dark-with-wordmark/logo.svg',
+    assets: {
+      SVG: '/img/logo/dark-with-wordmark/logo.svg',
+      PNG: '/img/logo/dark-with-wordmark/logo.png',
+      EPS: '/img/logo/dark-with-wordmark/logo.eps',
+      JPG: '/img/logo/dark-with-wordmark/logo.jpg',
+    },
+  },
+  {
     title: 'Without Wordmark',
     background: 'bg-white',
     example: '/img/logo/without-wordmark/logo.svg',
@@ -28,28 +39,6 @@ const assets = [
     },
   },
   {
-    title: 'Only Wordmark',
-    background: 'bg-white',
-    example: '/img/logo/wordmark/logo.svg',
-    assets: {
-      SVG: '/img/logo/wordmark/logo.svg',
-      PNG: '/img/logo/wordmark/logo.png',
-      EPS: '/img/logo/wordmark/logo.eps',
-      JPG: '/img/logo/wordmark/logo.jpg',
-    },
-  },
-  {
-    title: 'With Wordmark',
-    background: 'bg-solid-gray',
-    example: '/img/logo/dark-with-wordmark/logo.svg',
-    assets: {
-      SVG: '/img/logo/dark-with-wordmark/logo.svg',
-      PNG: '/img/logo/dark-with-wordmark/logo.png',
-      EPS: '/img/logo/dark-with-wordmark/logo.eps',
-      JPG: '/img/logo/dark-with-wordmark/logo.jpg',
-    },
-  },
-  {
     title: 'Dark Without Wordmark',
     background: 'bg-solid-gray',
     example: '/img/logo/dark-without-wordmark/logo.svg',
@@ -58,6 +47,17 @@ const assets = [
       PNG: '/img/logo/dark-without-wordmark/logo.png',
       EPS: '/img/logo/dark-without-wordmark/logo.eps',
       JPG: '/img/logo/dark-without-wordmark/logo.jpg',
+    },
+  },
+  {
+    title: 'Only Wordmark',
+    background: 'bg-white',
+    example: '/img/logo/wordmark/logo.svg',
+    assets: {
+      SVG: '/img/logo/wordmark/logo.svg',
+      PNG: '/img/logo/wordmark/logo.png',
+      EPS: '/img/logo/wordmark/logo.eps',
+      JPG: '/img/logo/wordmark/logo.jpg',
     },
   },
   {
