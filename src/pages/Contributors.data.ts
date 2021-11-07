@@ -181,7 +181,7 @@ const ecosystem = [
     company: '',
     link: 'https://github.com/aquaductape',
     detail: 'Front-End Developer',
-  }
+  },
 ] as const;
 
 export const ContributorsData = () => ({

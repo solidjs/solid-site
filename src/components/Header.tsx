@@ -42,7 +42,7 @@ const Header: Component<{ title?: string }> = () => {
       <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
           <header
-            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
+            class="relative mx-1 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
             ref={headerSplashEl}
           >
             <Show when={routeReadyState().loading}>
@@ -59,7 +59,7 @@ const Header: Component<{ title?: string }> = () => {
                   />
                   <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
                 </div>
-                <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-10 lg:text-4xl sm:leading-snug xl:max-w-4xl">
+                <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-4xl">
                   {t('home.hero')}
                 </h2>
               </section>

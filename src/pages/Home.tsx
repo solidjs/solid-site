@@ -8,7 +8,6 @@ import {
   Show,
   createMemo,
   createEffect,
-  createComputed,
 } from 'solid-js';
 import { Link, useData, useIsRouting } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
@@ -41,6 +40,7 @@ const Home: Component<{}> = () => {
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver([], 0.5);
   let playgroundRef!: HTMLElement;
+
   onMount(() => {
     // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));

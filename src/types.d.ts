@@ -1,4 +1,3 @@
-
 interface Section {
   slug: string;
   title: string;
@@ -37,16 +36,16 @@ interface Release {
 }
 
 interface DocumentationRelease {
-  version: string,
-  isLatest: boolean,
-  html: string,
-  date: string,
-  tar: string,
-  zip: string,
-  sections: Section[],
-  content: string,
-  body: string,
-};
+  version: string;
+  isLatest: boolean;
+  html: string;
+  date: string;
+  tar: string;
+  zip: string;
+  sections: Section[];
+  content: string;
+  body: string;
+}
 
 interface Author {
   login: string;

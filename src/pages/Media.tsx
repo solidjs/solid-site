@@ -114,33 +114,33 @@ const Media: Component = () => {
         <div class="mb-10 md:grid md:grid-cols-6 gap-10">
           <div class="col-span-2">
             <div class="mb-8">{t('media.copy')}</div>
-              <div class="flex p-4 border-2 justify-between border-b-0">
-                <div class="w-5/12 inline-block font-semibold">
-                  {t('media.brand_font', {}, 'Brand Font')}
-                </div>{' '}
-                <div class="text-md">Gordita</div>
-              </div>
-              <div class="flex h-28 bg-solid-default p-4 justify-between items-end text-white between">
-                <div>{t('media.primary', {}, 'Primary Color')}</div>
-                <div class="text-sm">#2c4f7c</div>
-              </div>
-              <div class="flex h-24 bg-solid-medium p-4 justify-between items-end text-white">
-                <div>{t('media.secondary', {}, 'Secondary Color')}</div>
-                <div class="text-sm">#335d92</div>
-              </div>
-              <div class="flex h-20 p-4 bg-solid-light justify-between items-end text-white">
-                <div>{t('media.light', {}, 'Light Color')}</div>
-                <div class="text-sm">#446b9e</div>
-              </div>
-              <div class="flex h-20 p-4 bg-solid-accent justify-between items-end text-white">
-                <div>{t('media.accent', {}, 'Accent Color')}</div>
-                <div class="text-sm">#66e6ac</div>
-              </div>
+            <div class="flex p-4 border-2 justify-between border-b-0">
+              <div class="w-5/12 inline-block font-semibold">
+                {t('media.brand_font', {}, 'Brand Font')}
+              </div>{' '}
+              <div class="text-md">Gordita</div>
             </div>
-            <div class="col-span-4 col-end-7 mt-9 md:mt-0">
-              <div class="lg:grid lg:grid-cols-2 gap-4 space-y-5 md:space-y-0">
-                <For each={assets}>{(props) => <AssetPanel {...props} />}</For>
-              </div>
+            <div class="flex h-28 bg-solid-default p-4 justify-between items-end text-white between">
+              <div>{t('media.primary', {}, 'Primary Color')}</div>
+              <div class="text-sm">#2c4f7c</div>
+            </div>
+            <div class="flex h-24 bg-solid-medium p-4 justify-between items-end text-white">
+              <div>{t('media.secondary', {}, 'Secondary Color')}</div>
+              <div class="text-sm">#335d92</div>
+            </div>
+            <div class="flex h-20 p-4 bg-solid-light justify-between items-end text-white">
+              <div>{t('media.light', {}, 'Light Color')}</div>
+              <div class="text-sm">#446b9e</div>
+            </div>
+            <div class="flex h-20 p-4 bg-solid-accent justify-between items-end text-white">
+              <div>{t('media.accent', {}, 'Accent Color')}</div>
+              <div class="text-sm">#66e6ac</div>
+            </div>
+          </div>
+          <div class="col-span-4 col-end-7 mt-9 md:mt-0">
+            <div class="lg:grid lg:grid-cols-2 gap-4 space-y-5 md:space-y-0">
+              <For each={assets}>{(props) => <AssetPanel {...props} />}</For>
+            </div>
           </div>
         </div>
       </div>
