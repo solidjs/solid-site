@@ -1,5 +1,5 @@
 {
-    "hero": "Simple and extremely performant reactivity for Javascript UIs.",
+    "hero": "Simple and performant reactivity for building user interfaces.",
     "info": "<span class=\"font-semibold\">Solid is a purely reactive library.</span> It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
     "strengths": [
       {

@@ -59,7 +59,7 @@ const Header: Component<{ title?: string }> = () => {
                   />
                   <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
                 </div>
-                <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-4xl">
+                <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-3xl">
                   {t('home.hero')}
                 </h2>
               </section>
