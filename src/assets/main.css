@@ -68,7 +68,7 @@
   background-repeat: no-repeat;
   background-size: 100% 2px;
   background-position: 0 1.1em;
-  padding-bottom: 1em;
+  padding-bottom: 0.4em;
   transition: background-size 300ms;
 }
 
