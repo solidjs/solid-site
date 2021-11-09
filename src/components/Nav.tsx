@@ -42,9 +42,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   onMount(() => {
     if (!window.location.pathname.startsWith(props.path)) return;
 
-    setTimeout(() => {
-      linkEl.scrollIntoView({ inline: 'center' });
-    });
+    // @ts-ignore
+    linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
   });
 
   const onClick = () => {
@@ -160,7 +159,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
         classList={{ 'shadow-md': showLogo() }}
       >
-        <div class="flex justify-center  w-full">
+        <div class="flex justify-center w-full overflow-hidden">
           <Show when={showLogo() && routeReadyState().loading}>
             <PageLoadingBar postion="top" width={window.innerWidth}></PageLoadingBar>
           </Show>

@@ -907,7 +907,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/SanichKotikov/solid-i18n',
     title: 'solid-i18n',
     description: 'Tiny translation library for solid-js inspired by Rosetta.',
-    author: 'merged-js',
+    author: 'SanichKotikov',
     author_url: 'https://github.com/SanichKotikov',
     keyords: [
       'i18n',

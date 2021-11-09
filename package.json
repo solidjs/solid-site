@@ -28,6 +28,7 @@
     "monaco-editor": "^0.25.2",
     "prism-themes": "^1.8.0",
     "prismjs": "^1.25.0",
+    "scroll-behavior-polyfill": "^2.0.13",
     "solid-app-router": "^0.1.11",
     "solid-dismiss": "^1.0.22",
     "solid-js": "^1.2.1",
