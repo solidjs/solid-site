@@ -140,7 +140,7 @@
 
 @media (orientation: landscape) {
   body::-webkit-scrollbar-track {
-    background-color: rgba(0, 20, 107, 0.06);
+    background-color: #f0f1f6;
   }
   body::-webkit-scrollbar-thumb {
     background-color: #959aaa;
