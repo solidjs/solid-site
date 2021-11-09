@@ -118,7 +118,7 @@ const Media: Component = () => {
           <div class="col-span-2">
             <div class="mb-8">{t('media.copy')}</div>
             <div class="flex p-4 border-2 justify-between border-b-0">
-              <div class="w-5/12 inline-block font-semibold">
+              <div class="w-5/12 inline-block">
                 {t('media.brand_font', {}, 'Brand Font')}
               </div>{' '}
               <div class="text-md">Gordita</div>
