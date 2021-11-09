@@ -42,9 +42,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   onMount(() => {
     if (!window.location.pathname.startsWith(props.path)) return;
 
-    setTimeout(() => {
-      linkEl.scrollIntoView({ inline: 'center' });
-    });
+    // @ts-ignore
+    linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
   });
 
   const onClick = () => {
