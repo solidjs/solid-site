@@ -45,7 +45,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
       });
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
-        anchor!.scrollIntoView(true);
+
+        anchor && anchor!.scrollIntoView(true);
       }
     }
   });
