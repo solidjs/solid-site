@@ -39,6 +39,7 @@ const ScrollShadow: Component<
   const scrollHorizontally = (e: WheelEvent) => {
     const target = e.currentTarget as HTMLElement;
     target.scrollLeft += e.deltaY;
+    e.preventDefault();
   };
 
   onMount(() => {
@@ -73,7 +74,7 @@ const ScrollShadow: Component<
       init = false;
     });
 
-    scrollableContainer.addEventListener('wheel', scrollHorizontally, { passive: true });
+    scrollableContainer.addEventListener('wheel', scrollHorizontally);
     sentinelShadowState.set(sentinelFirstEl, shadowFirstEl);
     sentinelShadowState.set(sentinelLastEl, shadowLastEl);
     observer.observe(sentinelFirstEl);
