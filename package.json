@@ -1,6 +1,9 @@
 {
   "name": "solid-site",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "build": "run-s format type:check build:vite build:postoptimize",
     "preview": "vite preview",
