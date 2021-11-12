@@ -705,6 +705,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.Testing],
     published_at: 1635095541000,
   },
+  {
+    link: 'https://blog.logrocket.com/introduction-solidjs/',
+    title: 'Introduction to SolidJS',
+    description:
+      'An introduction to the SolidJS library.',
+    author: 'Iniubong Obonguko (LockRocket)',
+    author_url: 'https://blog.logrocket.com/author/iniubongobonguko/',
+    keywords: ['introduction'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1636574110000,
+  },
 ];
 
 export default articles;
