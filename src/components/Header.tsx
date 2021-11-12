@@ -17,7 +17,6 @@ const Header: Component<{ title?: string }> = () => {
   const [showLogo, setShowLogo] = createSignal(!isHome);
   const [showHeaderSmall, setShowHeaderSmall] = createSignal(noSmallHeader);
   const [showHeaderSplash, setShowHeaderSplash] = createSignal(isHome);
-  let headerSplashEl!: HTMLElement;
 
   createEffect(
     on(
@@ -41,13 +40,8 @@ const Header: Component<{ title?: string }> = () => {
     <>
       <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
-          <header
-            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden"
-            ref={headerSplashEl}
-          >
-            <Show when={routeReadyState().loading}>
-              <PageLoadingBar postion="bottom" width={headerSplashEl.clientWidth}></PageLoadingBar>
-            </Show>
+          <header class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden">
+            <PageLoadingBar active={routeReadyState().loading} postion="bottom"></PageLoadingBar>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">

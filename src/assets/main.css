@@ -264,3 +264,36 @@
     opacity: 1;
   }
 }
+
+@keyframes Page-Loading-Bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  15%,
+  22.5% {
+    transform: translateX(-60%);
+  }
+  30%,
+  37.5% {
+    transform: translateX(-50%);
+  }
+  45%,
+  52.5% {
+    transform: translateX(-30%);
+  }
+  60%,
+  67.5% {
+    transform: translateX(-25%);
+  }
+  75%,
+  82.5% {
+    transform: translateX(-10%);
+  }
+  90%,
+  91.5% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
