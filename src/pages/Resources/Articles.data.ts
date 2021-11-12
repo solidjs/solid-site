@@ -717,6 +717,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1636574110000,
   },
+  {
+    link: 'https://dev.to/this-is-learning/understanding-transitional-javascript-apps-27i2',
+    title: 'Understanding Transitional JavaScript Apps',
+    description:
+      'Transitional JavaScript Apps? What?',
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.to/ryansolid',
+    keywords: ['transitional', 'apps', 'spa', 'mpa'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1636730779000,
+  },
 ];
 
 export default articles;
