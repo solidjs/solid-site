@@ -1,6 +1,7 @@
 import type { Component } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { createSignal, createMemo, For, Show } from 'solid-js';
+import { createVisibilityObserver } from '@solid-primitives/intersection-observer';
 
 export interface GraphData {
   id: string;
@@ -31,19 +32,20 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
       <tbody>
         <For each={options()}>
           {(row) => {
+            let chartRef: HTMLDivElement;
+            const [isVisible] = createVisibilityObserver(() => chartRef);
             return (
               <tr>
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
                   <div
-                    class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
+                    ref={(ref) => chartRef = ref}
+                    class="transition-all duration-700 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                     classList={{
-                      'font-semibold': row.active,
-                      'bg-solid-default': row.active,
-                      'text-white': row.active,
+                      'bg-solid-light text-white font-semibold': row.active,
                       'bg-gray-100': !row.active,
                     }}
-                    style={{ width: row.width }}
+                    style={{ width: isVisible() ? row.width : 0 }}
                   >
                     {row.score ? (
                       <figure>
