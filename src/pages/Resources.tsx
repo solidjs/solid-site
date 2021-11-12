@@ -200,6 +200,7 @@ const Resources: Component = () => {
     }
     setStickyBarActive(!entry.isIntersecting);
   });
+  observer;
 
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;

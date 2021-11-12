@@ -141,7 +141,7 @@ const Media: Component = () => {
             </div>
             <div class="flex h-20 p-4 bg-solid-secondaccent justify-between items-end text-white">
               <div>{t('media.second_accent', {}, 'Second Accent Color')}</div>
-              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#66e6ac</div>
+              <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard={{ setter }}>#0CDC73</div>
             </div>
             <div class="text-xs text-gray-500 text-right mt-3">{t('media.copy_hex')}</div>
           </div>

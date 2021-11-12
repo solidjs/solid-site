@@ -38,7 +38,7 @@ const Home: Component<{}> = () => {
   const data = useData<{ benchmarks: Array<GraphData> }>();
   const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
-  const [observeInteraction] = createViewportObserver([], 0.5);
+  const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
   let playgroundRef!: HTMLElement;
 
   onMount(() => {

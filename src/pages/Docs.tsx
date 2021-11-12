@@ -15,7 +15,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const [current, setCurrent] = createSignal<string | null>(null);
   const [section, setSection] = createStore<Record<string, boolean>>({});
   const [toggleSections, setToggleSections] = createSignal(false);
-  const [observeInteraction] = createViewportObserver([], 0.5);
+  const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
 
   // Determine the section based on title positions
   const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {

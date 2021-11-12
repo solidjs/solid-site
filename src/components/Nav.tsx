@@ -129,6 +129,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     }
     setLocked(entry.isIntersecting);
   });
+  observer;
   const showLogo = createMemo(() => props.showLogo || !locked());
 
   createComputed(
@@ -148,7 +149,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       window.scrollTo({ top: 0 });
       return;
     }
-
     setRouteReadyState({ loading: true, routeChanged: true });
   };
 

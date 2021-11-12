@@ -36,8 +36,8 @@ module.exports = {
           lightgray: '#f3f5f7',
           medium: '#446b9e',
           light: '#4f88c6',
-          accent: '#3FE32B',
-          secondaccent: '#7FE871'
+          accent: '#0cdc73',
+          secondaccent: '#0dfc85'
         },
       },
       typography: {

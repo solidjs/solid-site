@@ -39,7 +39,8 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                     class="transition-all duration-75 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                     classList={{
                       'font-semibold': row.active,
-                      'bg-solid-accent': row.active,
+                      'bg-solid-default': row.active,
+                      'text-white': row.active,
                       'bg-gray-100': !row.active,
                     }}
                     style={{ width: row.width }}
