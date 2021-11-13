@@ -7,7 +7,7 @@ import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
-import { routeReadyState } from '../utils/routeReadyState';
+import { routeReadyState, page } from '../utils/routeReadyState';
 
 const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();
@@ -40,8 +40,8 @@ const Header: Component<{ title?: string }> = () => {
     <>
       <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
-          <header class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden">
-            <PageLoadingBar active={routeReadyState().loading} postion="bottom"></PageLoadingBar>
+          <header id="header" class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden z-[1]">
+            <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">
@@ -160,11 +160,10 @@ const onExitBigHeader = (el: Element, done: () => void) => {
   const parentEl = headerEl.parentElement!;
   const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
   const bannerEl = headerEl.firstElementChild as HTMLElement;
-  const scrollY = window.scrollY;
   const headerHeight = headerEl.clientHeight;
   const elements = [headerEl, bannerEl, ...mainChildren];
 
-  if (scrollY >= headerHeight) {
+  if (page.scrollY >= headerHeight) {
     headerEl.style.height = '0px';
     // @ts-ignore
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -235,12 +234,11 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
   const contentEl = bgContainerEl.firstElementChild as HTMLElement;
   const mainContentChild = document.getElementById('main-content')
     ?.firstElementChild as HTMLElement;
-  const scrollY = window.scrollY;
   const headerHeight = headerEl.clientHeight;
   const navHeight = 64;
   const elements = [bgContainerEl, contentEl, mainContentChild];
 
-  if (scrollY >= headerHeight + navHeight) {
+  if (page.scrollY >= headerHeight + navHeight) {
     headerEl.style.height = '0px';
     // @ts-ignore
     window.scrollTo({ top: 0, behavior: 'instant' });

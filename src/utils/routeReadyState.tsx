@@ -1,8 +1,13 @@
 import { useData } from 'solid-app-router';
 import { createComputed, createSignal } from 'solid-js';
+export const page = {
+  scrollY: 0
+}
 
 export const [routeReadyState, setRouteReadyState] = createSignal(
-  { loading: false, routeChanged: false },
+  {
+    loading: false, routeChanged: false, loadingBar: false
+  },
   { equals: false },
 );
 
@@ -19,28 +24,24 @@ export const useRouteReadyState = () => {
 
     createComputed(() => {
       if (!data.loading) {
-        setRouteReadyState((prev) => ({ ...prev, loading: false }));
+        setRouteReadyState((prev) => ({ ...prev, loading: false, loadingBar: false }));
         if (init) {
           init = false;
           return true;
         }
-        setTimeout(() => {
-          // @ts-ignore
-          window.scrollTo({ top: 0, behavior: 'instant' });
-          restorePageHeight();
-        });
+        // @ts-ignore
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        restorePageHeight();
       }
     });
   } catch (err) {
-    setRouteReadyState((prev) => ({ ...prev, loading: false }));
+    setRouteReadyState((prev) => ({ ...prev, loading: false, loadingBar: false }));
     if (init) {
       init = false;
       return true;
     }
-    setTimeout(() => {
-      // @ts-ignore
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      restorePageHeight();
-    });
+    // @ts-ignore
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    restorePageHeight();
   }
 };

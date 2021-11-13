@@ -16,7 +16,7 @@ import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 import Dismiss from 'solid-dismiss';
 import { reflow } from '../utils';
-import { routeReadyState, setRouteReadyState } from '../utils/routeReadyState';
+import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 
 const langs = {
@@ -40,11 +40,35 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
 
   onMount(() => {
+    // necessary in order for page loading bar to render in Safari
+    linkEl.addEventListener('mousedown', () => {
+      setRouteReadyState(prev => ({ ...prev, loadingBar: true }));
+      page.scrollY = window.scrollY
+      reflow();
+
+      const onMouseLeave = () => {
+        setRouteReadyState(prev => ({ ...prev, loadingBar: false }));
+        removeEvents()
+      }
+      const onClick = () => {
+        removeEvents()
+      }
+      const removeEvents = () => {
+        linkEl.removeEventListener('mouseleave', onMouseLeave)
+        linkEl.removeEventListener('click', onClick)
+      }
+      linkEl.addEventListener('mouseleave', onMouseLeave)
+      linkEl.addEventListener('click', onClick)
+    })
+
     if (!window.location.pathname.startsWith(props.path)) return;
 
     // @ts-ignore
     linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
+
   });
+
+
 
   const onClick = () => {
     if (window.location.pathname.startsWith(props.path)) {
@@ -54,7 +78,9 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
 
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
-    setRouteReadyState({ loading: true, routeChanged: true });
+
+    reflow()
+    setRouteReadyState(prev => ({ ...prev, loadingBar: true, loading: true, routeChanged: true }));
   };
 
   return (
@@ -149,7 +175,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       window.scrollTo({ top: 0 });
       return;
     }
-    setRouteReadyState({ loading: true, routeChanged: true });
+    page.scrollY = window.scrollY
+    setRouteReadyState((prev) => ({ ...prev, loading: true, routeChanged: true, showPageLoadingBar: true }));
   };
 
   return (
@@ -162,13 +189,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         <div class="flex justify-center w-full overflow-hidden">
           <PageLoadingBar
             postion="top"
-            active={showLogo() && routeReadyState().loading}
+            active={showLogo() && routeReadyState().loadingBar}
           />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
             <div
-              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
-                showLogo() ? 'scale-100' : 'scale-0'
-              }`}
+              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${showLogo() ? 'scale-100' : 'scale-0'
+                }`}
               ref={logoEl}
             >
               <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>

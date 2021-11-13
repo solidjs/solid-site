@@ -269,9 +269,13 @@
   0% {
     transform: translateX(-100%);
   }
-  15%,
-  22.5% {
-    transform: translateX(-60%);
+  /* delay frames in order to work with Safari  */
+  5% {
+    transform: translateX(-100%);
+  }
+  20%,
+  24.5% {
+    transform: translateX(-70%);
   }
   30%,
   37.5% {
