@@ -1,7 +1,7 @@
 import { Component, createSignal, ErrorBoundary } from 'solid-js';
-import { createTabList, Repl, Tab } from 'solid-repl';
-import { compiler, formatter } from './setupRepl';
-import { useAppContext } from '../AppContext';
+import type { Tab } from 'solid-repl';
+import { compiler, formatter, createTabList, Repl } from './setupRepl';
+import { useAppContext } from './AppContext';
 
 let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
@@ -39,4 +39,5 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
     </ErrorBoundary>
   );
 };
+
 export default OldRepl;

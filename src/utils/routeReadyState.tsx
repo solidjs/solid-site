@@ -1,5 +1,6 @@
 import { useRouteData } from 'solid-app-router';
 import { createComputed, createSignal } from 'solid-js';
+import { isServer } from 'solid-js/web';
 export const page = {
   scrollY: 0,
 };
@@ -16,6 +17,8 @@ export const [routeReadyState, setRouteReadyState] = createSignal(
 let init = true;
 
 export const useRouteReadyState = () => {
+  if (isServer) return;
+
   const restorePageHeight = () => {
     const pageEl = document.body;
     pageEl.style.minHeight = '';

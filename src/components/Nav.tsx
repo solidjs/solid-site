@@ -21,7 +21,7 @@ import logo from '../assets/logo.svg';
 import ukraine from '../assets/for-ukraine.png';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
-import { useAppContext } from '../AppContext';
+import { useAppContext } from './AppContext';
 import { reflow } from '../utils';
 import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';

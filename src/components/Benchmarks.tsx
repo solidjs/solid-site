@@ -18,9 +18,9 @@ interface RowData {
 }
 
 const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string }> = (props) => {
-  const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
+  const maxValue = createMemo(() => Math.max(...(props.rows?.map((row) => row.score) ?? [])));
   const options = createMemo(() =>
-    props.rows
+    (props.rows ?? [])
       .sort((a, b) => a.score - b.score)
       .map((row) => ({
         ...row,
@@ -94,8 +94,8 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
   return (
     <>
       <Chart
-        scale={props.list[current()].scale}
-        rows={props.list[current()].data}
+        scale={props.list?.[current()]?.scale}
+        rows={props.list?.[current()]?.data}
         direction={direction()}
       />
       <Show
@@ -110,7 +110,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         }
       >
         <div class="mt-4 flex flex-col space-y-2 m-auto lg:space-y-0 lg:m-0 lg:flex-row">
-          {props.list.map((item, index) => {
+          {props.list?.map((item, index) => {
             return (
               <button
                 onClick={() => setCurrent(index)}
@@ -126,8 +126,8 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
           })}
         </div>
         <div>
-          <div class="pt-5 text-xs block">{props.list[current()].description}</div>
-          <Show when={props.list[current()].link}>
+          <div class="pt-5 text-xs block">{props.list?.[current()]?.description}</div>
+          <Show when={props.list?.[current()]?.link}>
             <a
               target="_blank"
               class="button text-xs block mt-3 text-solid-default dark:text-solid-darkdefault chevron chevron-right font-semibold hover:text-gray-500 dark:hover:text-gray-300"

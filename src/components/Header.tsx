@@ -12,7 +12,7 @@ import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
 import { useLocation } from 'solid-app-router';
 import Nav from './Nav';
-import { useAppContext } from '../AppContext';
+import { useAppContext } from './AppContext';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { reflow } from '../utils';
@@ -156,7 +156,7 @@ const pageTransitionDuration = 500;
 const onEnterBigHeader = (el: Element, done: () => void) => {
   const headerEl = el as HTMLElement;
   const parentEl = headerEl.parentElement!;
-  const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
+  const mainChildren = [...(parentEl?.children ?? [])].filter((_, idx) => idx) as HTMLElement[];
   const headerHeight = headerEl.clientHeight + 'px';
   const bannerEl = headerEl.firstElementChild as HTMLElement;
   const elements = [headerEl, bannerEl, ...mainChildren];

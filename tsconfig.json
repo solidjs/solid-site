@@ -11,7 +11,7 @@
     "newLine": "lf",
     "sourceMap": true,
     "jsxImportSource": "solid-js",
-    "types": ["vite/client", "vite-plugin-pwa/client"],
+    "types": ["vite/client"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,

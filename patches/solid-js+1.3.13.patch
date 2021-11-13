@@ -1,0 +1,23 @@
+diff --git a/node_modules/solid-js/dist/server.js b/node_modules/solid-js/dist/server.js
+index c1c2cad..cd3942c 100644
+--- a/node_modules/solid-js/dist/server.js
++++ b/node_modules/solid-js/dist/server.js
+@@ -521,3 +521,4 @@ function Suspense(props) {
+ }
+ 
+ export { $DEVCOMP, $PROXY, DEV, ErrorBoundary, For, Index, Match, Show, Suspense, SuspenseList, Switch, batch, children, createComponent, createComputed, createContext, createDeferred, createEffect, createMemo, createReaction, createRenderEffect, createResource, createRoot, createSelector, createSignal, createUniqueId, enableExternalSource, enableHydration, enableScheduling, equalFn, from, getListener, getOwner, lazy, mapArray, mergeProps, observable, on, onCleanup, onError, onMount, refetchResources, requestCallback, resetErrorBoundaries, runWithOwner, sharedConfig, splitProps, startTransition, untrack, useContext, useTransition };
++export default undefined;
+\ No newline at end of file
+diff --git a/node_modules/solid-js/web/dist/server.js b/node_modules/solid-js/web/dist/server.js
+index d64efc3..96fc8b6 100644
+--- a/node_modules/solid-js/web/dist/server.js
++++ b/node_modules/solid-js/web/dist/server.js
+@@ -679,5 +679,7 @@ function Dynamic(props) {
+ function Portal(props) {
+   return "";
+ }
++function insert() {
+ 
+-export { Assets, Dynamic, HydrationScript, NoHydration, Portal, escape, generateHydrationScript, getHydrationKey, isServer, pipeToNodeWritable, pipeToWritable, renderToStream, renderToString, renderToStringAsync, resolveSSRNode, spread, ssr, ssrBoolean, ssrClassList, ssrHydrationKey, ssrSpread, ssrStyle };
++}
++export { Assets, Dynamic, HydrationScript, NoHydration, Portal, escape, generateHydrationScript, getHydrationKey, isServer, pipeToNodeWritable, pipeToWritable, renderToStream, renderToString, renderToStringAsync, resolveSSRNode, spread, ssr, ssrBoolean, ssrClassList, ssrHydrationKey, ssrSpread, ssrStyle, insert };

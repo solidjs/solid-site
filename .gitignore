@@ -1,6 +1,7 @@
 lib/
 solidjs-prod
 solidjs-dev
+.solid/
 
 .idea
 

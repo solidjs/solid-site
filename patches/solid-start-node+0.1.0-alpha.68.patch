@@ -1,0 +1,33 @@
+diff --git a/node_modules/solid-start-node/index.js b/node_modules/solid-start-node/index.js
+index a0a72fe..6119a6a 100644
+--- a/node_modules/solid-start-node/index.js
++++ b/node_modules/solid-start-node/index.js
+@@ -34,7 +34,7 @@ export default function () {
+             input: resolve(join(config.root, "src", `entry-server`)),
+             output: {
+               format: "esm"
+-            }
++            },
+           }
+         }
+       });
+@@ -51,9 +51,17 @@ export default function () {
+             preferBuiltins: true,
+             exportConditions: ["node", "solid"]
+           }),
+-          common()
++          common(),
++          {
++            name: "ignore-css",
++            load(id) {
++              if (id.endsWith(".css")) {
++                return "export default \"\"";
++              }
++            }
++          }
+         ],
+-        external: ["undici", "stream/web", "@prisma/client"]
++        external: ["undici", "stream/web", "@prisma/client", /solid-repl/, /\?worker$/, "solid-markdown"]
+       });
+       // or write the bundle to disk
+       await bundle.write({ format: "esm", dir: join(config.root, "dist") });
