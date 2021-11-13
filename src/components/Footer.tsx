@@ -27,8 +27,8 @@ const Footer: Component = () => {
                 contributors: '/contributors',
               })}
             />
-            <div class="mb-5 mt-7 p-2 rounded-full bg-white hidden md:flex items-center">
-              <div class="font-semibold text-gray-600 my-4 ml-5 mr-2">
+            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
+              <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 md:text-sm md:static md:text-left md:my-4 md:ml-5 md:mr-2">
                 {t('global.footer.sponsored_by')}
               </div>
               <a
