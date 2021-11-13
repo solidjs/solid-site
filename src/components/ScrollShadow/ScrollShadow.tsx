@@ -19,7 +19,7 @@ const ScrollShadow: Component<
   } & Omit<TShared, 'child'>
 > = (props) => {
   const { class: className, direction, shadowSize, initShadowSize } = props;
-  const sentinelShadowState = new Map<HTMLElement, HTMLElement>();
+  const sentinelShadowState = new Map<HTMLElement, { el: HTMLElement; visible: boolean }>();
   let shadowFirstEl!: HTMLElement;
   let shadowLastEl!: HTMLElement;
   let sentinelFirstEl = (
@@ -30,6 +30,7 @@ const ScrollShadow: Component<
   ) as HTMLElement;
   let init = true;
   let initResetSize = false;
+  let isScrollable = false;
 
   // Won't work for SSR
   const scrollableContainer = props.children as HTMLElement;
@@ -37,6 +38,8 @@ const ScrollShadow: Component<
   scrollableContainer.appendChild(sentinelLastEl);
 
   const scrollHorizontally = (e: WheelEvent) => {
+    if (!isScrollable) return;
+
     e.preventDefault();
 
     const target = e.currentTarget as HTMLElement;
@@ -47,16 +50,16 @@ const ScrollShadow: Component<
     const resetInitShadowSize = () => {
       if (!initShadowSize) return;
       if (!init && !initResetSize) {
-        sentinelShadowState.forEach((item) => {
-          item.style.transform = '';
+        sentinelShadowState.forEach(({ el }) => {
+          el.style.transform = '';
         });
         initResetSize = true;
       }
     };
     const setInitShadowSize = () => {
       if (!initShadowSize) return;
-      sentinelShadowState.forEach((item) => {
-        item.style.transform = 'scaleX(3)';
+      sentinelShadowState.forEach(({ el }) => {
+        el.style.transform = 'scaleX(3)';
         shadowLastEl.style.transformOrigin = props.rtl ? 'left' : 'right';
         shadowFirstEl.style.transformOrigin = props.rtl ? 'right' : 'left';
       });
@@ -64,20 +67,22 @@ const ScrollShadow: Component<
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const target = entry.target as HTMLElement;
-        const shadowEl = sentinelShadowState.get(target);
+        const { el: shadowEl } = sentinelShadowState.get(target)!;
         let isVisible = false;
         if (entry.isIntersecting) {
           isVisible = true;
         }
         shadowEl!.style.opacity = isVisible ? '0' : '1';
+        sentinelShadowState.set(target, { el: shadowEl, visible: isVisible });
         resetInitShadowSize();
       });
+      isScrollable = ![...sentinelShadowState].every(([_, { visible }]) => visible === true);
       init = false;
     });
 
     scrollableContainer.addEventListener('wheel', scrollHorizontally);
-    sentinelShadowState.set(sentinelFirstEl, shadowFirstEl);
-    sentinelShadowState.set(sentinelLastEl, shadowLastEl);
+    sentinelShadowState.set(sentinelFirstEl, { el: shadowFirstEl, visible: false });
+    sentinelShadowState.set(sentinelLastEl, { el: shadowLastEl, visible: false });
     observer.observe(sentinelFirstEl);
     observer.observe(sentinelLastEl);
     setInitShadowSize();
