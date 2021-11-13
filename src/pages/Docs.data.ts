@@ -12,11 +12,11 @@ export type DataParams = {
 const currentVersion = '1.0.0';
 const availableLangs = supportedDocs;
 
-function docFetcher({ version, lang, resource }: DataParams) {
+function docFetcher({ lang, resource }: DataParams) {
   return getDoc(lang, resource);
 }
 
-export const DocsData: RouteDataFunc = () => {
+const DocsData: RouteDataFunc = () => {
   const params = useParams();
   const location = useLocation();
   const [, { locale }] = useI18n();
@@ -51,3 +51,5 @@ export const DocsData: RouteDataFunc = () => {
     },
   };
 };
+
+export default DocsData;

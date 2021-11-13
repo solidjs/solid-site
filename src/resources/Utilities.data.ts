@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../Resources';
+import { Resource, ResourceCategory, ResourceType } from '../pages/resources';
 
 const utilities: Array<Resource> = [
   {
@@ -909,7 +909,7 @@ const utilities: Array<Resource> = [
     description: 'Tiny translation library for solid-js inspired by Rosetta.',
     author: 'SanichKotikov',
     author_url: 'https://github.com/SanichKotikov',
-    keyords: [
+    keywords: [
       'i18n',
       'localisation',
       'localization',
@@ -929,7 +929,7 @@ const utilities: Array<Resource> = [
     description: 'Slate Solid is a solid-js wrapper for Slate rich text editor.',
     author: 'Sagar Poudel',
     author_url: 'https://github.com/poudels14',
-    keyords: ['slate', 'wysiwyg', 'editor', 'rich text'],
+    keywords: ['slate', 'wysiwyg', 'editor', 'rich text'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],

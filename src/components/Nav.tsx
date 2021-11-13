@@ -160,10 +160,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         classList={{ 'shadow-md': showLogo() }}
       >
         <div class="flex justify-center w-full overflow-hidden">
-          <PageLoadingBar
-            postion="top"
-            active={showLogo() && routeReadyState().loading}
-          />
+          <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loading} />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
             <div
               class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
@@ -185,7 +182,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             >
               <ul class="relative flex items-center overflow-auto no-scrollbar">
                 {/* Temporarily hide the blog */}
-                <For each={(t('global.nav') || []).filter((nav) => nav.path !== '/blog')} children={MenuLink} />
+                <For
+                  each={(t('global.nav') || []).filter((nav) => nav.path !== '/blog')}
+                  children={MenuLink}
+                />
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>

@@ -32,7 +32,7 @@ export const list: { [id: string]: BlogInfo } = {
   },
 };
 
-export const BlogData: RouteDataFunc = () => {
+const BlogData: RouteDataFunc = () => {
   return {
     get articles() {
       return list;
@@ -42,3 +42,5 @@ export const BlogData: RouteDataFunc = () => {
     },
   };
 };
+
+export default BlogData;

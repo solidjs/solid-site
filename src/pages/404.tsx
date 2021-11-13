@@ -1,12 +1,9 @@
 import { Component } from 'solid-js';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { emojiSad } from '@amoutonbrady/solid-heroicons/outline';
-
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 
-const FourOhFour: Component<{}> = (props) => {
+const FourOhFour: Component<{}> = () => {
   const [t] = useI18n();
   return (
     <div>

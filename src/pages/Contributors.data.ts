@@ -184,7 +184,7 @@ const ecosystem = [
   },
 ] as const;
 
-export const ContributorsData = () => ({
+const ContributorsData = () => ({
   core,
   contributors,
   translators,
@@ -192,3 +192,4 @@ export const ContributorsData = () => ({
 });
 
 export type ContributorsDataProps = ReturnType<typeof ContributorsData>;
+export default ContributorsData;

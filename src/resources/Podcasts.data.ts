@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../Resources';
+import { Resource, ResourceCategory, ResourceType } from '../pages/resources';
 
 const podcasts: Array<Resource> = [
   {
@@ -50,7 +50,8 @@ const podcasts: Array<Resource> = [
   {
     title: 'FSJam Episode 53 - Solid with Ryan Carniato',
     link: 'https://fsjam.org/episodes/episode-53-solid-with-ryan-carniato',
-    description: 'Discusses the definition of reactive programming, the benefits of building a new framework on JSX.',
+    description:
+      'Discusses the definition of reactive programming, the benefits of building a new framework on JSX.',
     author: 'FSJam',
     author_url: 'https://fsjam.org/',
     keywords: ['fsjam', 'reactivity', 'framework', 'SPA', 'MPA'],

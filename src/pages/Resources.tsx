@@ -1,8 +1,8 @@
-import { Component, For, Show, createSignal, createMemo, createComputed, on } from 'solid-js';
+import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
 import Footer from '../components/Footer';
-import { ResourcesDataProps } from './Resources.data';
+import { ResourcesDataProps } from './resources.data';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import Fuse from 'fuse.js';
 import {

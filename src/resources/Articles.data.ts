@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../Resources';
+import { Resource, ResourceCategory, ResourceType } from '../pages/resources';
 
 const articles: Array<Resource> = [
   {
@@ -708,8 +708,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://blog.logrocket.com/introduction-solidjs/',
     title: 'Introduction to SolidJS',
-    description:
-      'An introduction to the SolidJS library.',
+    description: 'An introduction to the SolidJS library.',
     author: 'Iniubong Obonguko (LockRocket)',
     author_url: 'https://blog.logrocket.com/author/iniubongobonguko/',
     keywords: ['introduction'],
@@ -720,8 +719,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/this-is-learning/understanding-transitional-javascript-apps-27i2',
     title: 'Understanding Transitional JavaScript Apps',
-    description:
-      'Transitional JavaScript Apps? What?',
+    description: 'Transitional JavaScript Apps? What?',
     author: 'Ryan Carniato',
     author_url: 'https://dev.to/ryansolid',
     keywords: ['transitional', 'apps', 'spa', 'mpa'],

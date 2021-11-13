@@ -87,4 +87,6 @@ const isomorphic = {
   ],
 } as GraphData;
 
-export const BenchmarkData = () => [js_framework, isomorphic];
+const BenchmarkData = () => [js_framework, isomorphic];
+
+export default BenchmarkData;

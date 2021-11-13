@@ -1,21 +1,19 @@
 {
   "name": "solid-site",
   "license": "MIT",
+  "version": "1.3.0",
   "engines": {
     "node": ">=16.0.0"
   },
+  "type": "module",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "run-s format type:check build:vite build:postoptimize",
-    "preview": "vite preview",
-    "dev": "vite",
-    "build:vite": "vite build",
-    "build:postoptimize": "node ./postoptimize.mjs",
-    "build:sitemap": "jiti scripts/generateSitemap.js",
     "type:check": "tsc --noEmit",
-    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"*.{js,ts,mjs}\"",
-    "deploy:dev": "wrangler publish --env development",
-    "deploy:prod": "wrangler publish --env production",
-    "postinstall": "patch-package"
+    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\"",
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start",
+    "clean": "rimraf embeddist"
   },
   "dependencies": {
     "@amoutonbrady/solid-heroicons": "^0.8.0",
@@ -38,6 +36,7 @@
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.2",
     "solid-repl": "0.15.1",
+    "solid-start": "^0.1.0-alpha.35",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"
   },
@@ -61,15 +60,15 @@
     "postcss": "^8.3.6",
     "prettier": "^2.4.1",
     "shiki": "^0.9.12",
+    "solid-start-cloudflare-workers": "^0.1.0-alpha.36",
     "svgo": "^2.8.0",
     "tailwindcss": "^2.2.19",
     "tailwindcss-dir": "^4.0.0",
     "tailwindcss-rtl": "^0.7.3",
     "terser-config-atomic": "^0.1.1",
     "typescript": "^4.4.4",
-    "vite": "2.4.4",
+    "vite": "^2.6.14",
     "vite-plugin-pwa": "^0.11.3",
     "vite-plugin-solid": "^2.1.0"
-  },
-  "version": "0.0.0"
+  }
 }

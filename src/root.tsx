@@ -1,46 +1,31 @@
-import {
-  JSX,
-  batch,
-  children,
-  Component,
-  createComputed,
-  createSignal,
-  untrack,
-  Suspense,
-} from 'solid-js';
+import { Component, Suspense } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
-import { useRoutes, Router, useData } from 'solid-app-router';
-import { routes } from './routes';
+import { useData } from 'solid-app-router';
+import { Outlet } from 'solid-start/components';
 import Header from './components/Header';
-import { AppData } from './App.data';
 import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 import { preventSmoothScrollOnTabbing } from './utils';
+import RootData from './root.data';
 
-export const App = () => {
-  const Routes = useRoutes(routes);
-
+export default function Root({ Start }) {
   preventSmoothScrollOnTabbing();
-
   return (
     <main class="min-h-screen">
-      <Router data={AppData}>
+      <Start data={RootData}>
         <Lang>
           <Header />
-          {/* two div wrappers to make page animation work and performant */}
           <div id="main-content">
             <div>
-              {/* <TransitionRoutes> */}
               <Suspense>
-                <Routes />
+                <Outlet />
               </Suspense>
-              {/* </TransitionRoutes> */}
             </div>
           </div>
         </Lang>
-      </Router>
+      </Start>
     </main>
   );
-};
+}
 
 const Lang: Component = (props) => {
   const data = useData<{ isDark: true; i18n: ReturnType<typeof createI18nContext> }>(0);

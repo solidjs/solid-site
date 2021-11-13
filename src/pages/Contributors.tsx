@@ -1,7 +1,7 @@
 import { Component, For, Show } from 'solid-js';
 import { useData } from 'solid-app-router';
 import github from '../assets/github.svg';
-import { ContributorsDataProps } from './Contributors.data';
+import { ContributorsDataProps } from './contributors.data';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';

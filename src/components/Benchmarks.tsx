@@ -39,7 +39,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
                   <div
-                    ref={(ref) => chartRef = ref}
+                    ref={(ref) => (chartRef = ref)}
                     class="transition-all duration-700 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                     classList={{
                       'bg-solid-light text-white font-semibold': row.active,

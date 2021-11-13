@@ -10,6 +10,7 @@ import {
   batch,
   ErrorBoundary,
 } from 'solid-js';
+import { isServer } from 'solid-js/web';
 import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
 import { Icon } from '@amoutonbrady/solid-heroicons';
@@ -238,28 +239,30 @@ const Tutorial: Component = () => {
             </div>
           </div>
         </div>
-        <ErrorBoundary
-          fallback={
-            <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-          }
-        >
-          <Repl
-            onEditorReady={(editor) => {
-              replEditor = editor;
-            }}
-            compiler={compiler}
-            formatter={formatter}
-            isHorizontal={true}
-            interactive={true}
-            actionBar={true}
-            editableTabs={true}
-            dark={false}
-            tabs={tabs()}
-            setTabs={setTabs}
-            current={current()}
-            setCurrent={setCurrent}
-          />
-        </ErrorBoundary>
+        <Show when={!isServer}>
+          <ErrorBoundary
+            fallback={
+              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+            }
+          >
+            <Repl
+              onEditorReady={(editor) => {
+                replEditor = editor;
+              }}
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={false}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
+            />
+          </ErrorBoundary>
+        </Show>
       </div>
     </Suspense>
   );

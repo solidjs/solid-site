@@ -1,10 +1,11 @@
-import articles from './Resources/Articles.data';
-import utilities from './Resources/Utilities.data';
-import videos from './Resources/Videos.data';
-import podcasts from './Resources/Podcasts.data';
+import articles from '../resources/Articles.data';
+import utilities from '../resources/Utilities.data';
+import videos from '../resources/Videos.data';
+import podcasts from '../resources/Podcasts.data';
 
-export const ResourceData = () => ({
+const ResourceData = () => ({
   list: [...utilities, ...videos, ...articles, ...podcasts],
 });
 
 export type ResourcesDataProps = ReturnType<typeof ResourceData>;
+export default ResourceData;

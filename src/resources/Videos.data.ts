@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../Resources';
+import { Resource, ResourceCategory, ResourceType } from '../pages/resources';
 
 const videos: Array<Resource> = [
   {
@@ -280,7 +280,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=O2kFXlNSdn0',
     title: 'Streaming SolidJS - Netlify and Vercel and Cloudflare, Oh My!',
     description:
-      'This stream looks at what deployment is like on different platforms. And reflect on the work we\'ve been doing with adapters in Solid Start.',
+      "This stream looks at what deployment is like on different platforms. And reflect on the work we've been doing with adapters in Solid Start.",
     keywords: ['netlify', 'vercel', 'cloudflare', 'deployment', 'ryanstreams'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',

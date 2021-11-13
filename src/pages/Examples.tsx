@@ -1,7 +1,8 @@
+import { For, Component, createSignal, createEffect, batch, ErrorBoundary, Show } from 'solid-js';
+import { isServer } from 'solid-js/web';
 import { createTabList, Repl } from 'solid-repl';
 import { NavLink, useData, useParams } from 'solid-app-router';
-import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
-import { ExamplesDataRoute } from './Examples.data';
+import { ExamplesDataRoute } from './examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
@@ -78,27 +79,29 @@ const Examples: Component = () => {
             dir="ltr"
             class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl"
           >
-            <ErrorBoundary
-              fallback={
-                <>
-                  Repl failed to load. You may be using a browser that doesn't support Web Workers.
-                </>
-              }
-            >
-              <Repl
-                compiler={compiler}
-                formatter={formatter}
-                isHorizontal={true}
-                interactive={true}
-                actionBar={true}
-                editableTabs={true}
-                dark={false}
-                tabs={tabs()}
-                setTabs={setTabs}
-                current={current()}
-                setCurrent={setCurrent}
-              />
-            </ErrorBoundary>
+            <Show when={!isServer}>
+              <ErrorBoundary
+                fallback={
+                  <>
+                    Repl failed to load. You may be using a browser that doesn't support Web Workers.
+                  </>
+                }
+              >
+                <Repl
+                  compiler={compiler}
+                  formatter={formatter}
+                  isHorizontal={true}
+                  interactive={true}
+                  actionBar={true}
+                  editableTabs={true}
+                  dark={false}
+                  tabs={tabs()}
+                  setTabs={setTabs}
+                  current={current()}
+                  setCurrent={setCurrent}
+                />
+              </ErrorBoundary>
+            </Show>
           </div>
         </div>
       </div>

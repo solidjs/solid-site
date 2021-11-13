@@ -1,4 +1,5 @@
 import { createEffect, createResource } from 'solid-js';
+import { isServer } from 'solid-js/web';
 import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
@@ -23,9 +24,9 @@ type DataParams = {
   page: string;
 };
 
-export const AppData: RouteDataFunc = (props) => {
+const RootData: RouteDataFunc = (props) => {
   const [settings, set] = createCookieStore<{ dark: string; locale: string }>();
-  const browserLang = navigator.language.slice(0, 2);
+  const browserLang = !isServer ? navigator.language.slice(0, 2) : 'en';
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);
   } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
@@ -61,3 +62,5 @@ export const AppData: RouteDataFunc = (props) => {
     },
   };
 };
+
+export default RootData;

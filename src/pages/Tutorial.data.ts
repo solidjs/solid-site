@@ -70,7 +70,7 @@ export interface TutorialRouteData {
   solved?: boolean;
 }
 
-export const TutorialData: RouteDataFunc = (props) => {
+const TutorialData: RouteDataFunc = (props) => {
   const [, { locale }] = useI18n();
   const paramList = () => {
     let lang = locale();
@@ -154,3 +154,5 @@ export const TutorialData: RouteDataFunc = (props) => {
     },
   };
 };
+
+export default TutorialData;

@@ -56,8 +56,9 @@ const list: Record<string, Example[]> = {
   ],
 };
 
-export const ExamplesData = () => ({
+const ExamplesData = () => ({
   list,
 });
 
 export type ExamplesDataRoute = ReturnType<typeof ExamplesData>;
+export default ExamplesData;
