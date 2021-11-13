@@ -38,24 +38,28 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
               <tr>
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
-                  <div
-                    ref={(ref) => chartRef = ref}
-                    class="transition-all duration-700 rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
-                    classList={{
-                      'bg-solid-light text-white font-semibold': row.active,
-                      'bg-gray-100': !row.active,
-                    }}
-                    style={{ width: isVisible() ? row.width : 0 }}
-                  >
-                    {row.score ? (
-                      <figure>
-                        <span class="inline-block p-1 ltr:border-l rtl:border-r border-white px-2 rounded-full">
-                          {row.score.toLocaleString()}
-                        </span>
-                      </figure>
-                    ) : (
-                      ''
-                    )}
+                  <div ref={(ref) => (chartRef = ref)} class="rounded-3xl overflow-hidden">
+                    <div
+                      class="transition-transform -translate-x-full duration-700 w-full h-full rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
+                      classList={{
+                        'bg-solid-light text-white font-semibold': row.active,
+                        'bg-gray-100': !row.active,
+                      }}
+                      style={{
+                        width: row.width,
+                        transform: `translateX(${isVisible() ? '0%' : '-100%'})`,
+                      }}
+                    >
+                      {row.score ? (
+                        <figure>
+                          <span class="inline-block p-1 ltr:border-l rtl:border-r border-white px-2 rounded-full">
+                            {row.score.toLocaleString()}
+                          </span>
+                        </figure>
+                      ) : (
+                        ''
+                      )}
+                    </div>
                   </div>
                 </td>
               </tr>
