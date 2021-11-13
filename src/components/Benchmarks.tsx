@@ -38,7 +38,10 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
               <tr>
                 <td class="w-1/6 text-xs">{row.label}</td>
                 <td class="w-4/6 py-1">
-                  <div ref={(ref) => (chartRef = ref)} class="rounded-3xl overflow-hidden">
+                  <div
+                    ref={(ref) => (chartRef = ref)}
+                    class="relative z-10 rounded-3xl overflow-hidden"
+                  >
                     <div
                       class="transition-transform -translate-x-full duration-700 w-full h-full rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                       classList={{
