@@ -263,6 +263,7 @@ const Tutorial: Component = () => {
             setTabs={setTabs}
             current={current()}
             setCurrent={setCurrent}
+            id="tutorial"
           />
         </ErrorBoundary>
       </div>
