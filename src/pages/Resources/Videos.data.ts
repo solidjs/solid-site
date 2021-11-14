@@ -288,6 +288,19 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.BuildUtilities],
     published_at: 1636779600000,
   },
+
+  {
+    link: 'https://www.youtube.com/watch?v=9xJI9S1bDo4',
+    title: 'Evie.Codes : Introduction to SolidJS',
+    description:
+      'Evie creates a basic Todo list application and take a look at some of the great features SolidJS has to offer.',
+    keywords: ['netlify', 'vercel', 'cloudflare', 'deployment', 'ryanstreams'],
+    author: 'Evie.Codes',
+    author_url: 'https://www.youtube.com/channel/UCvQubaJPD0D-PSokbd5DAiw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1636866000000,
+  },
 ];
 
 export default videos;
