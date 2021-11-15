@@ -15,12 +15,12 @@ import { useData, NavLink } from 'solid-app-router';
 import { Icon } from '@amoutonbrady/solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
 
-import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import SolidMarkdown from 'solid-markdown';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -166,7 +166,7 @@ const Tutorial: Component = () => {
   useRouteReadyState();
 
   createEffect(() => {
-    markDownRef.scrollTop = 0;
+    // markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
     const fileset = data.solved ? data.solvedJs : data.js;
     const files = fileset?.files;
@@ -194,9 +194,11 @@ const Tutorial: Component = () => {
         <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
           <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
-          <Markdown ref={markDownRef} class="p-10 flex-1 max-w-full overflow-auto">
-            {data.markdown || ''}
-          </Markdown>
+          <div ref={markDownRef} class="p-10 prose flex-1 max-w-full overflow-auto">
+            <SolidMarkdown>
+              {data.markdown || ''}
+            </SolidMarkdown>
+          </div>
 
           <div class="py-4 px-10 flex items-center justify-between border-t-2">
             <Show

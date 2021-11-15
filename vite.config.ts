@@ -14,10 +14,6 @@ export default defineConfig({
   assetsInclude: ['**/*.md'],
   optimizeDeps: {
     include: [
-      'prismjs/components/prism-typescript',
-      'prismjs/components/prism-jsx',
-      'prismjs/components/prism-json',
-      'prismjs/components/prism-bash',
     ],
     exclude: ['@solid.js/docs'],
   },
