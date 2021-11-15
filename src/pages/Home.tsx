@@ -38,7 +38,7 @@ const Home: Component<{}> = () => {
   const data = useData<{ benchmarks: Array<GraphData> }>();
   const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
-  const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
+  const [observeInteraction] = createViewportObserver({ threshold: 0.4 });
   let playgroundRef!: HTMLElement;
 
   onMount(() => {
@@ -50,6 +50,10 @@ const Home: Component<{}> = () => {
     if (isRouting()) {
       setLoadRepl(false);
     }
+  });
+
+  createEffect(() => {
+    console.log('load', loadRepl());
   });
 
   useRouteReadyState();
@@ -119,7 +123,7 @@ const Home: Component<{}> = () => {
         >
           <div
             dir="ltr"
-            style="height: 70vh; min-height: 600px; max-height: 1000px; width: 100%;"
+            style="height: 70vh; max-height: 900px; min-height: 475px; width: 100%;"
             class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0"
           >
             <Show when={loadRepl()}>
