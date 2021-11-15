@@ -123,7 +123,7 @@ const Home: Component<{}> = () => {
         >
           <div
             dir="ltr"
-            style="height: 70vh; max-height: 900px; min-height: 475px; width: 100%;"
+            style="height: 70vh; max-height: 600px; min-height: 475px; width: 100%;"
             class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0"
           >
             <Show when={loadRepl()}>
