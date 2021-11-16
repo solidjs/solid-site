@@ -54,5 +54,6 @@ We are actively accepting contributions to improve the Solid website. We accept 
 Thank you to our generous and helpful sponsors. If you're interested in sponsoring Solid, reach out to us on Discord.
 
 - [Cloudflare](https://www.cloudflare.com/)
+- [Netlify](https://www.netlify.com/)
 - [Builder.io](https://www.builder.io/)
 - [SauceLabs](https://saucelabs.com/)
