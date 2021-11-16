@@ -52,10 +52,6 @@ const Home: Component<{}> = () => {
     }
   });
 
-  createEffect(() => {
-    console.log('load', loadRepl());
-  });
-
   useRouteReadyState();
 
   const chevron = createMemo(() => {
