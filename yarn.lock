@@ -885,7 +885,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-typescript@^7.14.5", "@babel/preset-typescript@^7.15.0":
+"@babel/preset-typescript@^7.15.0":
   version "7.15.0"
   resolved "https://registry.npmjs.org/@babel/preset-typescript/-/preset-typescript-7.15.0.tgz"
   integrity sha512-lt0Y/8V3y06Wq/8H/u0WakrqciZ7Fz7mwPDHWUJAXlABL5hiUG42BNlRXiELNjeWjO5rWmnNKlx+yzJvxezHow==
@@ -901,10 +901,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.14.8":
-  version "7.15.8"
-  resolved "https://registry.npmjs.org/@babel/standalone/-/standalone-7.15.8.tgz"
-  integrity sha512-EF2uQLeuwflnPRGetWH2Z400ITOSK7YbkXIKxY91EWSiOJ8xsbupT3sx3sFRwVyQgjsHSILFDzLcSo/rGspLhQ==
+"@babel/standalone@^7.15.8":
+  version "7.16.4"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.16.4.tgz#f62a5b14fc0e881668f26739f28bcdaacedd3080"
+  integrity sha512-FDRLwjeQfPm5jaHNuB+vwNyGCp24Ah3kEsbLzKmh0eSru+QCr4DmjgbRPoz71AwXLVtXU+l/i7MlVlIj5XO7Gw==
 
 "@babel/template@^7.15.4":
   version "7.15.4"
@@ -1082,9 +1082,9 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@tailwindcss/forms@^0.3.3":
+"@tailwindcss/forms@^0.3.4":
   version "0.3.4"
-  resolved "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.3.4.tgz"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.3.4.tgz#e4939dc16450eccf4fd2029770096f38cbb556d4"
   integrity sha512-vlAoBifNJUkagB+PAdW4aHMe4pKmSLroH398UPgIogBFc91D2VlHUxe4pjxQhiJl0Nfw53sHSJSQBSTQBZP3vA==
   dependencies:
     mini-svg-data-uri "^1.2.3"
@@ -1394,7 +1394,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-jsx-dom-expressions@^0.29.17, babel-plugin-jsx-dom-expressions@^0.29.9:
+babel-plugin-jsx-dom-expressions@^0.29.17:
   version "0.29.17"
   resolved "https://registry.npmjs.org/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.29.17.tgz"
   integrity sha512-RGd2bUEu6Ym+t/eqS+CwhTMRBnoIgVUEPDD+rUx5GhwLLuGBbJI2tTC0Q92ScX1I5hQpJgveAvaaoDjjyGkgPA==
@@ -1427,14 +1427,7 @@ babel-plugin-polyfill-regenerator@^0.2.2:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
-babel-preset-solid@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.0.6.tgz"
-  integrity sha512-D+VLpF8WCif5IQmojypImyhlarxcjCD/lBOd4DBEDStXGMGNdlFBgsuVkKFiJ1yQA2KsHLljpbqrv9GsZYrZ3w==
-  dependencies:
-    babel-plugin-jsx-dom-expressions "^0.29.9"
-
-babel-preset-solid@^1.1.5:
+babel-preset-solid@1.1.5, babel-preset-solid@^1.1.5:
   version "1.1.5"
   resolved "https://registry.npmjs.org/babel-preset-solid/-/babel-preset-solid-1.1.5.tgz"
   integrity sha512-u+s+3zwErLfQzNqE6BfMRxfalxjSCm7BY/ua4pkCHlUuS5KrCFF/i4Bv5G98Z2uC9fWRXoD1nAu5zXA79vwkZA==
@@ -3776,6 +3769,11 @@ monaco-editor@^0.25.2:
   resolved "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.25.2.tgz"
   integrity sha512-5iylzSJevCnzJn9UVsW8yOZ3yHjmAs4TfvH3zsbftKiFKmHG0xirGN6DK9Kk04VSWxYCZZAIafYJoNJJMAU1KA==
 
+monaco-editor@^0.29.1:
+  version "0.29.1"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.29.1.tgz#6ee93d8a5320704d48fd7058204deed72429c020"
+  integrity sha512-rguaEG/zrPQSaKzQB7IfX/PpNa0qxF1FY8ZXRkN4WIl8qZdTQRSRJCtRto7IMcSgrU6H53RXI+fTcywOBC4aVw==
+
 monaco-textmate@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/monaco-textmate/-/monaco-textmate-3.0.1.tgz"
@@ -4437,11 +4435,6 @@ prelude-ls@~1.1.2:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.1.2.tgz"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier@=2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/prettier/-/prettier-2.3.0.tgz"
-  integrity sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==
-
 prettier@^2.4.1:
   version "2.4.1"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.4.1.tgz"
@@ -4756,7 +4749,7 @@ rollup@^2.38.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^2.43.1, rollup@^2.55.1, rollup@^2.57.0, rollup@^2.58.0:
+rollup@^2.43.1, rollup@^2.57.0, rollup@^2.58.0:
   version "2.58.0"
   resolved "https://registry.npmjs.org/rollup/-/rollup-2.58.0.tgz"
   integrity sha512-NOXpusKnaRpbS7ZVSzcEXqxcLDOagN6iFS8p45RkoiMqPHDLwJm758UF05KlMoCRbLBTZsPOIa887gZJ1AiXvw==
@@ -4878,7 +4871,7 @@ solid-app-router@^0.1.11:
   resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.11.tgz#43228fda5325936f102d4a3a037e30a3ac289607"
   integrity sha512-O0Gp2MhsqMJCDFzMNEH1rjpKFIFXO+0pX12AwTDYXQVnGwscbjD0ysAtyvjgXZAcj2udbYEL4uR5IgnJfI3YKw==
 
-solid-dismiss@^1.0.22:
+solid-dismiss@^1.0.13, solid-dismiss@^1.0.22:
   version "1.0.22"
   resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.22.tgz#942fb3dbe3e59c214bd8685e08115542c3a06ace"
   integrity sha512-SQtYWCZPFzCKm/4TKq5EBGBz3msok7tAWSwbPnNJBYtFu0A88DtudYC8JvLkqp5Z1+yj/XpmxJfjh77N4FDu3A==
@@ -4888,15 +4881,15 @@ solid-js@0.26.5:
   resolved "https://registry.npmjs.org/solid-js/-/solid-js-0.26.5.tgz"
   integrity sha512-cMjxcVoyRBgnfSpwYxXPM5WF800guR+x/01RDBFQjAAkqU7X28GbRkTNKcyQ1KHcFOnzEsG18J+JJ9/PvqyNmw==
 
-solid-js@1.0.7, solid-js@^1.0.0-rc.9:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.0.7.tgz"
-  integrity sha512-2jHCXLwp/B7P4kh5tl0ospRaC2F++BU0uWwtfgK/8Zc/MROOyCmmkjHpLAQC2u2NWYVGnIclDIJ2FGDXJ0wcYg==
-
-solid-js@^1.0.3, solid-js@^1.0.7, solid-js@^1.1.6:
+solid-js@1.1.6, solid-js@^1.0.3, solid-js@^1.0.7, solid-js@^1.1.6:
   version "1.1.6"
   resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.1.6.tgz"
   integrity sha512-o7Nm654Q9vF+W293P1pxr2uv1dYhTjDM0tsYnmQTcNCvUcGMlW947SE3fx4pvH1Rcrjm549HkNy50Ors3D4+zQ==
+
+solid-js@^1.0.0-rc.9:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/solid-js/-/solid-js-1.0.7.tgz"
+  integrity sha512-2jHCXLwp/B7P4kh5tl0ospRaC2F++BU0uWwtfgK/8Zc/MROOyCmmkjHpLAQC2u2NWYVGnIclDIJ2FGDXJ0wcYg==
 
 solid-js@^1.2.1:
   version "1.2.1"
@@ -4929,27 +4922,28 @@ solid-refresh@^0.2.2:
   resolved "https://registry.npmjs.org/solid-refresh/-/solid-refresh-0.2.2.tgz"
   integrity sha512-oQN3pUJ8fBd4ldMxZVqK7S4PGzAn1yx1B5bRRfANoxoqmHyY2QLfzrOzXsYnAkhh272K+W24oKgFWlmdUZ6HtQ==
 
-solid-repl@0.15.1:
-  version "0.15.1"
-  resolved "https://registry.npmjs.org/solid-repl/-/solid-repl-0.15.1.tgz"
-  integrity sha512-DU16QN9WKbPKll7Q/TAi3OXxd48LgFcp9ZWzDNJVnZFbN3+lE8TS3+ECDmojxGHIJViFkuMSY3Try5v+XYY//A==
+solid-repl@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.17.0.tgz#13504ae9e01ae6769db2284dc19a3d695527be0b"
+  integrity sha512-yeQ3QwBl6VSnAMbzblUORPcugFs70cMt3VkHlenCRrc3kGgfJqggKlcLkVM6jTwDrb3BmOXFiK9Mzm/FfRTT9A==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@amoutonbrady/solid-heroicons" "^0.9.0-rc.0"
-    "@babel/preset-typescript" "^7.14.5"
-    "@babel/standalone" "^7.14.8"
-    "@tailwindcss/forms" "^0.3.3"
-    babel-preset-solid "1.0.6"
+    "@babel/preset-typescript" "^7.15.0"
+    "@babel/standalone" "^7.15.8"
+    "@tailwindcss/forms" "^0.3.4"
+    babel-preset-solid "1.1.5"
     dedent "^0.7.0"
     mitt "^3.0.0"
-    monaco-editor "^0.25.2"
+    monaco-editor "^0.29.1"
     monaco-editor-textmate "^3.0.0"
     monaco-textmate "^3.0.1"
     onigasm "^2.2.5"
-    prettier "=2.3.0"
+    prettier "^2.4.1"
     register-service-worker "^1.7.2"
-    rollup "^2.55.1"
-    solid-js "1.0.7"
+    rollup "^2.58.0"
+    solid-dismiss "^1.0.13"
+    solid-js "1.1.6"
 
 solid-transition-group@^0.0.8:
   version "0.0.8"
