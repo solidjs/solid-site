@@ -38,8 +38,8 @@ const core = [
     img: 'dan-jutan.jpeg',
     github: 'jutanium',
     name: 'Dan Jutan',
-    role: 'Documentation Maintainer',
-    bio: "Web developer passionate about using the web to make things make sense. Researcher at Georgia Tech's DILAC and at Emory University's DH Lab.",
+    role: 'Documentation Engineer',
+    bio: "Web developer passionate about using the web to make things make sense.",
   },
 ] as const;
 
