@@ -21,8 +21,8 @@ const pwaOptions: Partial<VitePWAOptions> = {
   workbox: {
     // be careful, DON'T add sw.js and workbox-xxxx.js
     globPatterns: ['*.html', 'manifest.webmanifest', 'assets/*', '*.{svg,png,jpg}'],
-    // the size of monaco and some other js assets is above 4.5MIB, we need to increase
-    // the workbox size, if not all assets with size > 2MIB will be excluded
+    // we need to increase the workbox size, all assets with size > 2MIB will
+    // be excluded and then will not work on offline when used
     maximumFileSizeToCacheInBytes: 5000000
   },
 };
