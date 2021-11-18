@@ -2,6 +2,7 @@ import { useI18n } from '@solid-primitives/i18n';
 import { RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { getTutorial, supportedTutorials, getTutorialDirectory } from '@solid.js/docs';
+import { LessonLookup } from '@solid.js/docs/dist/src/types';
 
 const supportedLanguages = supportedTutorials;
 
@@ -23,20 +24,18 @@ interface DataParams {
 
 export type TutorialDirectory = TutorialDirectoryItem[];
 
-const markdownCache = new Map<string, Promise<string>>();
-let directoryCache: { [key: string]: Promise<TutorialDirectory> | undefined } = {};
-
 async function fetchData({ lang, id }: DataParams) {
   if (!id) return {};
 
   const file = await getTutorial(lang, id);
+  if (!file) return;
   // const javascript = `/tutorial/lessons/${lang}/${id}/lesson.json`;
   // const solved = `/tutorial/lessons/${lang}/${id}/solved.json`;
   return { markdown: file.markdown, javascript: file.lesson, solvedJs: file.solved };
 }
 
 async function fetchTutorialDirectory({ lang }: DataParams) {
-  return await getTutorialDirectory(lang);
+  return (await getTutorialDirectory(lang)) || undefined;
 }
 
 const propogateUndefined = (
@@ -98,7 +97,7 @@ export const TutorialData: RouteDataFunc = (props) => {
       const data = directory();
       return (
         data &&
-        data.reduce<Record<string, TutorialDirectory>>((sections, item) => {
+        data.reduce<Record<string, LessonLookup[]>>((sections, item) => {
           // Turns `Basics/Signal` into ['Basics', 'Signal']
           const [section, lessonName] = item.lessonName.split('/');
           // Create the section if it doesn't already exists

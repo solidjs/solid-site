@@ -1,12 +1,14 @@
 import { useData } from 'solid-app-router';
 import { createComputed, createSignal } from 'solid-js';
 export const page = {
-  scrollY: 0
-}
+  scrollY: 0,
+};
 
 export const [routeReadyState, setRouteReadyState] = createSignal(
   {
-    loading: false, routeChanged: false, loadingBar: false
+    loading: false,
+    routeChanged: false,
+    loadingBar: false,
   },
   { equals: false },
 );

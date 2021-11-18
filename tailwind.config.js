@@ -38,7 +38,7 @@ module.exports = {
           medium: '#446b9e',
           light: '#4f88c6',
           accent: '#0cdc73',
-          secondaccent: '#0dfc85'
+          secondaccent: '#0dfc85',
         },
       },
       typography: {

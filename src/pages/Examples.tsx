@@ -97,6 +97,7 @@ const Examples: Component = () => {
                 setTabs={setTabs}
                 current={current()}
                 setCurrent={setCurrent}
+                id="examples"
               />
             </ErrorBoundary>
           </div>

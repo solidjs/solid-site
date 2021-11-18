@@ -39,7 +39,7 @@ const core = [
     github: 'jutanium',
     name: 'Dan Jutan',
     role: 'Documentation Engineer',
-    bio: "Web developer passionate about using the web to make things make sense.",
+    bio: 'Web developer passionate about using the web to make things make sense.',
   },
 ] as const;
 

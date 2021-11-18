@@ -1,7 +1,5 @@
 import { Component } from 'solid-js';
 
-
-
 const PageLoadingBar: Component<{
   postion?: 'top' | 'bottom';
   active: boolean;
@@ -9,9 +7,7 @@ const PageLoadingBar: Component<{
   const duration = 8000;
   // delay property is not included, instead its within keyframes in order to work with Safari
   const animationName = 'Page-Loading-Bar';
-  const animationValue = () =>
-    props.active ? `${animationName} ${duration}ms infinite` : 'none';
-
+  const animationValue = () => (props.active ? `${animationName} ${duration}ms infinite` : 'none');
 
   return (
     <div
@@ -21,7 +17,6 @@ const PageLoadingBar: Component<{
       <div
         class="w-full h-full rounded-full"
         style={`background: #000955; transform: translateX(-100%); animation: ${animationValue()}; transform-origin: left; `}
-
       ></div>
     </div>
   );

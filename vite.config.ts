@@ -61,8 +61,7 @@ export default defineConfig({
   plugins: [solid(), VitePWA(pwaOptions)],
   assetsInclude: ['**/*.md'],
   optimizeDeps: {
-    include: [
-    ],
+    include: [],
     exclude: ['@solid.js/docs'],
   },
   build: {

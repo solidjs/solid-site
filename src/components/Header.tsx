@@ -40,7 +40,10 @@ const Header: Component<{ title?: string }> = () => {
     <>
       <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
-          <header id="header" class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden z-[1]">
+          <header
+            id="header"
+            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden z-[1]"
+          >
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
