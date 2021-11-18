@@ -1,7 +1,4 @@
-import { createResource } from 'solid-js';
-import { RouteDataFunc, useParams } from 'solid-app-router';
-
-const fetchBlogMarkdown = async (slug: string) => (await fetch(`articles/${slug}.md`)).text();
+import { RouteDataFunc } from 'solid-app-router';
 
 export type BlogInfo = {
   id?: string;

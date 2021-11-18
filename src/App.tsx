@@ -1,13 +1,4 @@
-import {
-  JSX,
-  batch,
-  children,
-  Component,
-  createComputed,
-  createSignal,
-  untrack,
-  Suspense,
-} from 'solid-js';
+import { Component, Suspense } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useRoutes, Router, useData } from 'solid-app-router';
 import { routes } from './routes';

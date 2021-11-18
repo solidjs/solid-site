@@ -12,7 +12,7 @@ export type DataParams = {
 const currentVersion = '1.0.0';
 const availableLangs = supportedDocs;
 
-function docFetcher({ version, lang, resource }: DataParams) {
+function docFetcher({ lang, resource }: DataParams) {
   return getDoc(lang, resource);
 }
 

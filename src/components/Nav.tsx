@@ -42,33 +42,30 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   onMount(() => {
     // necessary in order for page loading bar to render in Safari
     linkEl.addEventListener('mousedown', () => {
-      setRouteReadyState(prev => ({ ...prev, loadingBar: true }));
-      page.scrollY = window.scrollY
+      setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
+      page.scrollY = window.scrollY;
       reflow();
 
       const onMouseLeave = () => {
-        setRouteReadyState(prev => ({ ...prev, loadingBar: false }));
-        removeEvents()
-      }
+        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
+        removeEvents();
+      };
       const onClick = () => {
-        removeEvents()
-      }
+        removeEvents();
+      };
       const removeEvents = () => {
-        linkEl.removeEventListener('mouseleave', onMouseLeave)
-        linkEl.removeEventListener('click', onClick)
-      }
-      linkEl.addEventListener('mouseleave', onMouseLeave)
-      linkEl.addEventListener('click', onClick)
-    })
+        linkEl.removeEventListener('mouseleave', onMouseLeave);
+        linkEl.removeEventListener('click', onClick);
+      };
+      linkEl.addEventListener('mouseleave', onMouseLeave);
+      linkEl.addEventListener('click', onClick);
+    });
 
     if (!window.location.pathname.startsWith(props.path)) return;
 
     // @ts-ignore
     linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
-
   });
-
-
 
   const onClick = () => {
     if (window.location.pathname.startsWith(props.path)) {
@@ -79,8 +76,13 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
 
-    reflow()
-    setRouteReadyState(prev => ({ ...prev, loadingBar: true, loading: true, routeChanged: true }));
+    reflow();
+    setRouteReadyState((prev) => ({
+      ...prev,
+      loadingBar: true,
+      loading: true,
+      routeChanged: true,
+    }));
   };
 
   return (
@@ -175,8 +177,13 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       window.scrollTo({ top: 0 });
       return;
     }
-    page.scrollY = window.scrollY
-    setRouteReadyState((prev) => ({ ...prev, loading: true, routeChanged: true, showPageLoadingBar: true }));
+    page.scrollY = window.scrollY;
+    setRouteReadyState((prev) => ({
+      ...prev,
+      loading: true,
+      routeChanged: true,
+      showPageLoadingBar: true,
+    }));
   };
 
   return (
@@ -187,14 +194,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         classList={{ 'shadow-md': showLogo() }}
       >
         <div class="flex justify-center w-full overflow-hidden">
-          <PageLoadingBar
-            postion="top"
-            active={showLogo() && routeReadyState().loadingBar}
-          />
+          <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
             <div
-              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${showLogo() ? 'scale-100' : 'scale-0'
-                }`}
+              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
+                showLogo() ? 'scale-100' : 'scale-0'
+              }`}
               ref={logoEl}
             >
               <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
@@ -211,7 +216,12 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             >
               <ul class="relative flex items-center overflow-auto no-scrollbar">
                 {/* Temporarily hide the blog */}
-                <For each={(t('global.nav') || []).filter((nav) => nav.path !== '/blog')} children={MenuLink} />
+                <For
+                  each={(t('global.nav') || []).filter(
+                    (nav: { path: string }) => nav.path !== '/blog',
+                  )}
+                  children={MenuLink}
+                />
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>

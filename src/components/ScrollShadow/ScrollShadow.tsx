@@ -18,7 +18,7 @@ const ScrollShadow: Component<
     classList?: { [key: string]: boolean };
   } & Omit<TShared, 'child'>
 > = (props) => {
-  const { class: className, direction, shadowSize, initShadowSize } = props;
+  const { direction, shadowSize, initShadowSize } = props;
   const sentinelShadowState = new Map<HTMLElement, { el: HTMLElement; visible: boolean }>();
   let shadowFirstEl!: HTMLElement;
   let shadowLastEl!: HTMLElement;

@@ -2,7 +2,9 @@ import { Component, createSignal, ErrorBoundary } from 'solid-js';
 import { createTabList, Repl, Tab } from 'solid-repl';
 import { compiler, formatter } from './setupRepl';
 
+let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
+  count++;
   const initialTabs = props.tabs || [
     {
       name: 'main',
@@ -19,6 +21,7 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
       }
     >
       <Repl
+        id={`repl-${count}`}
         compiler={compiler}
         formatter={formatter}
         isHorizontal={true}

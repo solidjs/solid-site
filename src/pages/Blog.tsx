@@ -1,12 +1,10 @@
 import { Component, For } from 'solid-js';
 import Footer from '../components/Footer';
-import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { BlogInfo } from './Blog.data';
 import { useRouteReadyState } from '../utils/routeReadyState';
 
 const Blog: Component = () => {
-  const [t] = useI18n();
   const data = useData<{
     article: string;
     loading: boolean;
