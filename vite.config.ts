@@ -23,7 +23,37 @@ const pwaOptions: Partial<VitePWAOptions> = {
     globPatterns: ['*.html', 'manifest.webmanifest', 'assets/*', '*.{svg,png,jpg}'],
     // we need to increase the workbox size, all assets with size > 2MIB will
     // be excluded and then will not work on offline when used
-    maximumFileSizeToCacheInBytes: 5000000
+    maximumFileSizeToCacheInBytes: 5000000,
+    runtimeCaching: [
+      {
+        urlPattern: /^https:\/\/unpkg\.com\/\//i,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'unpkg-com',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200]
+          }
+        }
+      },
+      {
+        urlPattern: /^https:\/\/cdn\.skypack\.dev\//i,
+        handler: 'CacheFirst',
+        options: {
+          cacheName: 'cdn-skypack-dev',
+          expiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+          },
+          cacheableResponse: {
+            statuses: [0, 200]
+          }
+        }
+      }
+    ]
   },
 };
 
