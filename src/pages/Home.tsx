@@ -60,8 +60,8 @@ const Home: Component<{}> = () => {
   });
 
   return (
-    <div class="dark:bg-solid-gray flex flex-col pt-8">
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
+    <div class="dark:bg-solid-gray flex flex-col md:pt-8">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
@@ -209,7 +209,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 space-x-12">
+        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block" src={flag} alt="" />
@@ -220,7 +220,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <ul class="flex flex-wrap">
             <For each={t('home.features.list')}>
               {(feature: string) => (
-                <li class="feature-block border-gray-300 mr-3 mt-3 px-5 py-3">
+                <li class="feature-block border-gray-300 w-full mr-3 mt-3 px-5 py-3">
                   <span class="block text-sm">{feature}</span>
                 </li>
               )}
