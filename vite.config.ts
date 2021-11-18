@@ -5,11 +5,18 @@ import manifest from './src/assets/manifest.json';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
-  // DON'T add sitemap,xml yet:
+  // DON'T add sitemap.xml yet:
   // - we should check if we can include it or not
   // - if you ping crawlers it should not be on sw precache
   // review images to include from public/img subdirectories: bios and blog
-  includeAssets: ['/robots.txt', '/og.png', 'img/icons/*.svg', 'img/favicons/*.{png,ico}'],
+  includeAssets: [
+    'robots.txt',
+    'og.png',
+    'img/icons/*.svg',
+    'img/favicons/*.{png,ico}',
+    'examples/*.json',
+    'img/logo/**/logo.svg'
+  ],
   manifest,
   workbox: {
     // be careful, DON'T add sw.js and workbox-xxxx.js
