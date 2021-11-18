@@ -194,14 +194,13 @@ const Tutorial: Component = () => {
         <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
           <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
-        <Show when={data.markdown} fallback={''}>
-            {(markdown) => 
-            <div ref={markDownRef} class="p-10 prose flex-1 max-w-full overflow-auto" >
-              <SolidMarkdown>
-                {markdown}
-              </SolidMarkdown>
-            </div>}
-        </Show>
+          <Show when={data.markdown} fallback={''}>
+            {(markdown) => (
+              <div ref={markDownRef} class="p-10 prose flex-1 max-w-full overflow-auto">
+                <SolidMarkdown>{markdown}</SolidMarkdown>
+              </div>
+            )}
+          </Show>
 
           <div class="py-4 px-10 flex items-center justify-between border-t-2">
             <Show

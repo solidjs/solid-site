@@ -6,7 +6,6 @@ import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
 import netlify from '../assets/supporters/netlify.png';
-import darkLight from '../../public/img/icons/dark-light.svg';
 import Social from './Social';
 
 const Footer: Component = () => {
