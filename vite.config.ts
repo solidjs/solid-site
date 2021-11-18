@@ -15,7 +15,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
     'img/icons/*.svg',
     'img/favicons/*.{png,ico}',
     'examples/*.json',
-    'img/logo/**/logo.svg'
+    'img/logo/**/logo.svg',
   ],
   manifest,
   workbox: {
@@ -32,12 +32,12 @@ const pwaOptions: Partial<VitePWAOptions> = {
           cacheName: 'unpkg-com',
           expiration: {
             maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
           },
           cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
+            statuses: [0, 200],
+          },
+        },
       },
       {
         urlPattern: /^https:\/\/cdn\.skypack\.dev\//i,
@@ -46,14 +46,14 @@ const pwaOptions: Partial<VitePWAOptions> = {
           cacheName: 'cdn-skypack-dev',
           expiration: {
             maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
           },
           cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      }
-    ]
+            statuses: [0, 200],
+          },
+        },
+      },
+    ],
   },
 };
 
