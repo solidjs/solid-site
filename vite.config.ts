@@ -15,12 +15,12 @@ const pwaOptions: Partial<VitePWAOptions> = {
     'img/icons/*.svg',
     'img/favicons/*.{png,ico}',
     'examples/*.json',
-    'img/logo/**/logo.svg',
+    'img/logo/*/logo.*',
   ],
   manifest,
   workbox: {
     // Warning: DON'T add sw.js and workbox-xxxx.js
-    globPatterns: ['*.html', 'manifest.webmanifest', 'assets/*', '*.{svg,png,jpg}'],
+    globPatterns: ['*.html', 'manifest.webmanifest', 'assets/*', '*.{svg,png,jpg,woff,eot,ttf}'],
     // We need to increase the workbox size, all assets with size > 2MIB will
     // be excluded and then will not work on offline when used
     maximumFileSizeToCacheInBytes: 5000000,
