@@ -5,10 +5,10 @@ import manifest from './src/assets/manifest.json';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
-  // DON'T add sitemap.xml yet:
-  // - we should check if we can include it or not
-  // - if you ping crawlers it should not be on sw precache
-  // review images to include from public/img subdirectories: bios and blog
+  // Warning: don't add sitemap.xml yet:
+  // - Should check if we can include it or not
+  // - If you ping crawlers it should not be on sw precache
+  // - Review images to include from public/img subdirectories: bios and blog
   includeAssets: [
     'robots.txt',
     'og.png',
@@ -19,9 +19,9 @@ const pwaOptions: Partial<VitePWAOptions> = {
   ],
   manifest,
   workbox: {
-    // be careful, DON'T add sw.js and workbox-xxxx.js
+    // Warning: DON'T add sw.js and workbox-xxxx.js
     globPatterns: ['*.html', 'manifest.webmanifest', 'assets/*', '*.{svg,png,jpg}'],
-    // we need to increase the workbox size, all assets with size > 2MIB will
+    // We need to increase the workbox size, all assets with size > 2MIB will
     // be excluded and then will not work on offline when used
     maximumFileSizeToCacheInBytes: 5000000,
     runtimeCaching: [

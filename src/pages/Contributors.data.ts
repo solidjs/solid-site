@@ -137,6 +137,12 @@ const contributors = [
     link: 'https://github.com/seneca',
     detail: 'Les provides support for copywriting on the website and our tutorials.',
   },
+  {
+    name: 'Joaquín (userquin)',
+    company: '',
+    link: 'https://github.com/userquin',
+    detail: 'Provided extreme guidance and support for PWA integration of our website.',
+  },
 ] as const;
 
 const ecosystem = [

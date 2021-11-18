@@ -30,6 +30,10 @@ The website is built with [Solid](https://github.com/solidjs/solid). In order to
 - `yarn deploy:dev`: Helper method to deploy to dev
 - `yarn deploy:prod`: Helper method to deploy to prod
 
+### PWA Testing
+
+Solid Site supports PWA and worker auto updating powered by Vite PWA Plugin. When testing `run yarn https-preview`. Running it the first time will ask to install the certificate if not yet done. Then open your Chrome and press F12 > Network Tab > browse to https://localhost. Wait until the network requests with gears at the begining stops downloading the SW precache, then on the same Network Tab just change `No throttling` option to `Offline`. All pages should work by pressing F5 (do not do a hard refresh Crtl + F5 as it will force the browser to go to the server and the Chrome Dinosaur will appear).
+
 ## Additional information
 
 #### How do the documentation files work?
@@ -44,6 +48,7 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 - [vite](http://vitejs.dev/) - For the bundler / dev server
 - [yarn](https://yarnpkg.com/) - The package manager
 - [shiki](https://github.com/shikijs/shiki) - For the code highlight
+- [Vite PWA](vite-plugin-pwa) - For PWA functionality
 
 ## Contributions
 
