@@ -220,7 +220,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <ul class="flex flex-wrap">
             <For each={t('home.features.list')}>
               {(feature: string) => (
-                <li class="feature-block border-gray-300 w-full mr-3 mt-3 px-5 py-3">
+                <li class="feature-block border-gray-300 w-full md:w-auto mr-3 mt-3 px-5 py-3">
                   <span class="block text-sm">{feature}</span>
                 </li>
               )}
