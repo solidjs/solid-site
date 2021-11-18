@@ -42,12 +42,12 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 
 ## Credits
 
-- [Solid](https://github.com/solidjs/solid) - The view library
+- [SolidJS](https://github.com/solidjs/solid) - Reactive Javascript UI library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
 - [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
-- [vite](http://vitejs.dev/) - For the bundler / dev server
-- [yarn](https://yarnpkg.com/) - The package manager
-- [shiki](https://github.com/shikijs/shiki) - For the code highlight
+- [Yite](http://vitejs.dev/) - For the bundler / dev server
+- [Yarn](https://yarnpkg.com/) - The package manager
+- [Shiki](https://github.com/shikijs/shiki) - For the code highlight
 - [Vite PWA](vite-plugin-pwa) - For PWA functionality
 
 ## Contributions
