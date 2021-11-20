@@ -1017,10 +1017,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.2.0.tgz#667bfc6186ae7c9e0b45a08960c551437176e1ca"
   integrity sha512-VkE3KLBmJwcCaVARtQpfuKcKv8gcBmUubrfHGF84dXuuW6jgsRYxPtzcIhPyK9WAPpRt2/xY6zkD9MnRaJzSyw==
 
-"@solid-primitives/clipboard@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.0.0.tgz#38b8e796cd1002acc2b82d3601c20acd05358237"
-  integrity sha512-cd7m9uPwEbWECrqjzmPATmHgP7ye6DPW0JR4RPdgObwAh1mXR3YJKCX9CXO5flBDRqUaegDBJUjflUOwCvGAYg==
+"@solid-primitives/clipboard@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.0.2.tgz#03d7991775164901f30a5b278c2a7dfc1fb90493"
+  integrity sha512-zZmjIJA2NcO2R1kjx8zvoCi6iuGe3x8eRM9vEqDUk5LDdx6yJ7d9TwLfJ8UYiGBbzY3z/36sltVm7ulbAUnT6g==
 
 "@solid-primitives/cookies-store@^1.1.11":
   version "1.1.11"
