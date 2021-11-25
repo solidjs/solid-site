@@ -1,4 +1,4 @@
-import { Component, Suspense } from 'solid-js';
+import { Component, Suspense, Show } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useData } from 'solid-app-router';
 import { Outlet } from 'solid-start/components';
@@ -40,7 +40,9 @@ const Lang: Component = (props) => {
           dark: data.isDark === true,
         }}
       >
-        <div class="dark:bg-solid-gray dark:text-white">{props.children}</div>
+        <Show when={props.children}>
+          <div class="dark:bg-solid-gray dark:text-white">{props.children}</div>
+        </Show>
       </div>
     </I18nContext.Provider>
   );

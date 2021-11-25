@@ -24,7 +24,7 @@ import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
 import { useRouteReadyState } from '../utils/routeReadyState';
 
-const Repl = lazy(() => import('../components/ReplTab'));
+// const Repl = lazy(() => import('../components/ReplTab'));
 
 const strength_icons: { [key: string]: string } = {
   performant,
@@ -128,7 +128,7 @@ const Home: Component<{}> = () => {
                   <div class="flex h-full justify-center items-center">Starting playground...</div>
                 }
               >
-                <Repl
+                {/* <Repl
                   tabs={[
                     {
                       name: 'main1',
@@ -149,7 +149,7 @@ const CountingComponent = () => {
 render(() => <CountingComponent />, document.getElementById("app"));`,
                     },
                   ]}
-                />
+                /> */}
               </Suspense>
             </Show>
           </div>

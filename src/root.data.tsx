@@ -1,7 +1,7 @@
 import { createEffect, createResource } from 'solid-js';
 import { isServer } from 'solid-js/web';
 import { RouteDataFunc } from 'solid-app-router';
-import createCookieStore from '@solid-primitives/cookies-store';
+import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext } from '@solid-primitives/i18n';
 
 const langs: { [lang: string]: any } = {
@@ -25,13 +25,15 @@ type DataParams = {
 };
 
 const RootData: RouteDataFunc = (props) => {
-  const [settings, set] = createCookieStore<{ dark: string; locale: string }>();
+  const [settings, set] = createCookieStorage<{ dark: string; locale: string }>();
   const browserLang = !isServer ? navigator.language.slice(0, 2) : 'en';
   if (props.location.query.locale) {
+    console.log('HI SET LANG', props.location.query.locale);
     set('locale', props.location.query.locale);
   } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
+  console.log('SET', settings.locale);
   const i18n = createI18nContext({}, settings.locale || 'en');
   const [, { add }] = i18n;
   const params = (): DataParams => {
@@ -47,6 +49,9 @@ const RootData: RouteDataFunc = (props) => {
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
+  console.log(props.location.query.locale, lang());
+  console.log(props.location.pathname, lang());
+  console.log(params());
   return {
     set isDark(value) {
       settings.dark = value === true ? 'true' : 'false';
