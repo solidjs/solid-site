@@ -1030,36 +1030,35 @@
     "@solid-primitives/local-store" "^1.1.2"
     solid-js "^1.0.7"
 
-"@solid-primitives/countdown@^0.0.100":
-  version "0.0.100"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-0.0.100.tgz#bdf6cb5ea14d9d1d7adc01dbf20a96d2c4dfdba7"
-  integrity sha512-YoGwoprrQgCVyyBP4eoN5GwAIRP4bjjtV1qaWzneM+tRGtsNOyebDSAa3n7GMUPAhe3e0ys+hShGOhCHAfXBGg==
+"@solid-primitives/countdown@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-1.0.2.tgz#6630222e377f353c175327861844aeaed09fada1"
+  integrity sha512-LNBP7DHGEBlMtKuFTWpDi1TMT3SnZe9crTmKupbmkCEal0l1YeMdGbpvSgoOsaoz29MKKkKxnxwBwwiFWjKx+Q==
   dependencies:
     "@solid-primitives/timer" "^0.0.106"
     solid-js "^1.0.3"
 
-"@solid-primitives/i18n@^0.0.250":
-  version "0.0.250"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-0.0.250.tgz#a5c5ae1340961f967eeb0fa87bfac0d81130ec39"
-  integrity sha512-eOlGo8feaXRSEXspXepgEfIh7MAD0uSWuN065rXVR4eLG2cpsydb1kr97QXi0WLNiizox+TiHwmpKpPD+NhzAw==
+"@solid-primitives/i18n@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.2.tgz#300b0ae7b5973f7b0bb078af312a59683cdd8a72"
+  integrity sha512-BGkdd73iSVzwdyLOR66J0h+QnxmsmFIggMeP2CrsaBg0B+26mCgX9rp/GGmACHkv70Ga5ugybWXvUqXwO5l+fA==
   dependencies:
-    "@solid-primitives/timer" "^0.0.106"
-    solid-js "^1.0.3"
+    solid-js "^1.1.6"
 
-"@solid-primitives/intersection-observer@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.1.tgz#6b8203e19abc6bcd28a5fdbb1907ee1dbd388476"
-  integrity sha512-vrje+ssxJAwbkTqqAX43FoTvHCiT0BMYx/n1msWyPI+FYu5b4u+rq1mJZn+2wCYizJuSsr7nbs2H4SaTqiWALg==
+"@solid-primitives/intersection-observer@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.3.tgz#25cd67456de696a3b4004449fba4a2589d7df05c"
+  integrity sha512-8g7y2Q9NwaSKpZCG//6pC4LMbGMUgeRdbi3cnh4kjnfPy2B6OX2JTbGdsm32fk9hFwmILVLMzdKq8D1qX1FnfQ==
 
 "@solid-primitives/local-store@^1.1.2":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-1.1.4.tgz#426214b9ca4b97050df57f6e04c42694f4e041aa"
   integrity sha512-sjje0IdTNZ4bKN9c16Rw03QOAbgkk2UVYcqyvyP52xyORvN9VSWXQxUY9nxnxlJR7GCn5VfDZWfXMrqexnix1Q==
 
-"@solid-primitives/throttle@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.3.tgz#3cec21041d28aabe6684859888a51dab26267f33"
-  integrity sha512-LSzB4K/GoeCd7euAhci2f2aCwEf4CNIlZiCWlxbdUmINBAUO7eHUcEdaIba6OftldztyMMiX9UZh59xV8phmmg==
+"@solid-primitives/throttle@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.5.tgz#bf88c64d79120019c7a382d5ce74b19dbd5fbf73"
+  integrity sha512-iINoTFoAieIKeLSmYcNZ0+Fnfo9XWGJ8VxzmDiRJ7e9K5uUZO+Hhqb6mLi/454N9edfM5IBSEwHkH6omJlZ5fw==
 
 "@solid-primitives/timer@^0.0.106":
   version "0.0.106"
@@ -5334,10 +5333,15 @@ solid-js@0.26.5:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-0.26.5.tgz#be171d2298b4dc506c84fd11fe750a1743c7080b"
   integrity sha512-cMjxcVoyRBgnfSpwYxXPM5WF800guR+x/01RDBFQjAAkqU7X28GbRkTNKcyQ1KHcFOnzEsG18J+JJ9/PvqyNmw==
 
-solid-js@1.2.3, solid-js@^1.0.0-rc.9, solid-js@^1.0.3, solid-js@^1.0.7, solid-js@^1.2.2, solid-js@^1.2.3:
+solid-js@1.2.3, solid-js@^1.0.0-rc.9, solid-js@^1.0.3, solid-js@^1.0.7, solid-js@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.3.tgz#5f1ef6559465d453d392b3f221b2f36f80ee0154"
   integrity sha512-HQv7F23wSQRIuD0gNF3L1/0MHkTEia7J9Oc4VcEeLjAenkqz89tFkztBIp0PABDqK83fxzcixhSXx0xLv4lNAQ==
+
+solid-js@^1.1.6, solid-js@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.5.tgz#26175228ae562c95e92f476c73db744b6b36fc2c"
+  integrity sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==
 
 solid-markdown@^1.1.0:
   version "1.1.0"

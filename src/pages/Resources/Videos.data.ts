@@ -288,7 +288,6 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.BuildUtilities],
     published_at: 1636779600000,
   },
-
   {
     link: 'https://www.youtube.com/watch?v=9xJI9S1bDo4',
     title: 'Evie.Codes : Introduction to SolidJS',
@@ -300,6 +299,18 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1636866000000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Hdc5QqPfFH8&t=21s',
+    title: 'Streaming SolidJS: Concurrent Rendering without a Virtual DOM',
+    description:
+      "I'm no stranger to skeptics. But today I hope to lay to rest the myth that the VDOM is the only game in town.",
+    keywords: ['streaming', 'concurrent', 'rendering'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational, ResourceCategory.BuildUtilities],
+    published_at: 1637367008000,
   },
 ];
 
