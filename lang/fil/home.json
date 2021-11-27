@@ -10,17 +10,17 @@
       {
         "icon": "makapngyarihan",
         "label": "Makapngyarihan",
-        "description": "Composable reactive primitives na may flexibility ng JSX."
+        "description": "Mapagsamasama na reaktibong primitibo na may flexibility ng JSX."
       },
       {
         "icon": "pragmatik",
         "label": "Pragmatik",
-        "description": "A sensible and tailored API makes developing fun and simple."
+        "description": "Isang matino at pinasadyang API na ginagawang masaya at simple ang pagbubuo."
       },
       {
         "icon": "produktibo",
         "label": "Produktibo",
-        "description": "Ergonomics and familiarity make building simple or complex things a breeze."
+        "description": "Ergonomya at pagiging pamilyar sa paggawa ng simple o komplikadong bagay na walang hirap."
       }
     ],
     "facts": [
@@ -54,31 +54,31 @@
     "example": {
       "headline": "Ito'y pamilyar at makabago",
       "copy": [
-        "Solid stands on the shoulders of giants, particularly React and Knockout. If you've developed with React Hooks before, Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.",
-        "Solid follows the same philosophy as React with unidirectional data flow, read/write segregation, and immutable interfaces. It however has a completely different implementation that forgoes using a Virtual DOM."
+        "Nakatayo at sumasabay ang Solid sa mga framework at library katulad ng React at Knockout. Kung nasubukan mo nang gumawa ng React Hooks, magiging natural na lang sa iyo ang Solid. Sa katunayan, mas natural ang simpleng modelo ng Solid nang walang ginagamit na Hooks. Ang bawat Component ay nageexecut ng isang beses at ang Hooks at bindings ang nageexecute ng maraming beses bilang dependencies update.",
+        "Sinusundan ni Solid ang mga pilosopiya na may unidirectional data flow, read/write na segregasyon, at immutable interfaces. Gayumpaman, meron itong ibang implemetasyon na hindi na kailangan ang Virtual DOM."
       ],
-      "link_label": "View Docs",
+      "link_label": "Tignan ang Docs",
       "link": "https://www.solidjs.com/docs/latest#component-apis"
     },
     "reactivity": {
-      "headline": "Fine-grained reactivity means you do more with less.",
-      "subheadline": "Solid is built with efficient reactive primitives from your userland code to your JSX views.",
-      "copy": "This unlocks complete control over what gets updated and when, even at the DOM binding level. With no Virtual DOM or extensive diffing the framework never does more work than you want it to.",
-      "link_label": "See it in action",
+      "headline": "Kaunti na lang gagawin dahil pinong-pino ang pagiging reaktibo nito.",
+      "subheadline": "Ang Solid ay ginawa ng may mabisang reaktibong primitibo na galing sa gawa mong code papunta sa iyong JSX views.",
+      "copy": "Binubuksan nito ang kontrol kung ano ang nauupdate at kung kailan, kahit pa sa DOM binding level. Kahit walang Virtual DOM o extensive diffing, hindi na kailangan ng framework gumawa ng karagdagang trabaho.",
+      "link_label": "Tignan sa aktual",
       "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
     },
     "performance": {
       "headline": [
-        "Performance focused",
-        "on both client and server"
+        "Nakapokus sa performance",
+        "sa parehas client at server"
       ],
-      "copy": "The strength of fine-grained reactivity as an approach shines on all notable benchmarks. Even if performance is not your focus, it's virtually effortless and without the cost of complicated/involved DX. Think of Solid's performance gain as a free win. Solid is about being fast without trying.",
-      "link_label": "Read full article",
+      "copy": "Ang kalakasan ng isang pinong-pino na reaktibidad ay nangingibabaw sa lahat ng notable benchmarks. Kahit hindi bilis ang iyong habol, Ito ay halos walang hirap at hindi komplikadong DX. Isiping libreng panalo ang makukuhang bilis mula sa Solid. Ang Solid ay ukol sa bilis na walang karagdagang gawa.",
+      "link_label": "Basahin ang buong artikulo",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
     "features": {
-      "headline": "Fully loaded with all features.",
-      "copy": "Solid supports all common and expected library features and expands on aspects to increase DX.",
+      "headline": "Punong-puno ng lahat ng features.",
+      "copy": "Ang Solid ay sumusuporta sa lahat ng pangkaraniwan at inaasahang library features at lumalawak nag saklaw sa mga aspeto para dumagdag sa DX.",
       "list": [
         "Fragments",
         "Portals",
@@ -94,16 +94,16 @@
     },
     "benchmarks": {
       "time": "Time",
-      "view": "View the benchmark",
+      "view": "Tignan ang benchmark",
       "show_more": "Show more client + server benchmarks",
-      "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
+      "link_label": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda.",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
-        "description": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better."
+        "description": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda."
       },
       "isomorophic_benchmark": {
         "title": "Isomorphic UI Benchmarks (Search Results)",
-        "description": "This benchmark tests raw Server Rendering speeds. Higher is better."
+        "description": "Ang benchmark na ito ay sumusubok sa hilaw na bilis ng Server Rendering. Mas mataas, mas maganda."
       }
     }
   }
