@@ -1,5 +1,5 @@
 import { Component, createSignal, ErrorBoundary } from 'solid-js';
-import { createTabList, Repl, Tab } from 'solid-repl';
+// import { createTabList, Repl, Tab } from 'solid-repl';
 import { compiler, formatter } from './setupRepl';
 
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
@@ -18,7 +18,7 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
         <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
       }
     >
-      <Repl
+      {/* <Repl
         compiler={compiler}
         formatter={formatter}
         isHorizontal={true}
@@ -30,7 +30,7 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
         setTabs={setTabs}
         current={current()}
         setCurrent={setCurrent}
-      />
+      /> */}
     </ErrorBoundary>
   );
 };

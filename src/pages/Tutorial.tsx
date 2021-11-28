@@ -245,7 +245,7 @@ const Tutorial: Component = () => {
               <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
             }
           >
-            <Repl
+            {/* <Repl
               onEditorReady={(editor) => {
                 replEditor = editor;
               }}
@@ -260,7 +260,7 @@ const Tutorial: Component = () => {
               setTabs={setTabs}
               current={current()}
               setCurrent={setCurrent}
-            />
+            /> */}
           </ErrorBoundary>
         </Show>
       </div>
