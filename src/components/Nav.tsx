@@ -32,7 +32,7 @@ const langs = {
   he: 'עִברִית',
   fa: 'فارسی',
   tr: 'Türkçe',
-  fl: 'Filipino',
+  tl: 'Tagalog (Filipino)',
 };
 
 type MenuLinkProps = { path: string; external?: boolean; title: string };
