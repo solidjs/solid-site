@@ -316,7 +316,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=WE5rIOX12gs',
     title: 'Introduction to SolidJS - SolidJS vs ReactJS',
     description:
-      "This video is a small introduction to Solid JS framework with a help of a small todo App.",
+      'This video is a small introduction to Solid JS framework with a help of a small todo App.',
     keywords: ['intro', 'react'],
     author: 'dotJS',
     author_url: 'https://www.youtube.com/channel/UCcSeQUrdrNObZqyqMD-913g',
@@ -328,7 +328,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=wre8TPir36s',
     title: 'Reactive Primitives in Solid JS',
     description:
-      "This video is about different SolidJS reactive primitives. How to use them in a an application.",
+      'This video is about different SolidJS reactive primitives. How to use them in a an application.',
     keywords: ['intro', 'primitives'],
     author: 'dotJS',
     author_url: 'https://www.youtube.com/channel/UCcSeQUrdrNObZqyqMD-913g',

@@ -3,22 +3,22 @@
     "info": "<span class=\"font-semibold\">Solid ay isang purely reactive na library.</span> Dinesenyo ito sa simula na may reactive core. Naimpluwensiyahan it ng mga reactibong prinsipyo na dinevelop ng mga nakaraang libraries.",
     "strengths": [
       {
-        "icon": "mabisa",
+        "icon": "performant",
         "label": "Mabisa",
         "description": "Palaging kinikilala sa UI speed and memory utilization benchmarks."
       },
       {
-        "icon": "makapngyarihan",
+        "icon": "powerful",
         "label": "Makapngyarihan",
         "description": "Mapagsamasama na reaktibong primitibo na may flexibility ng JSX."
       },
       {
-        "icon": "pragmatik",
+        "icon": "pragmatic",
         "label": "Pragmatik",
         "description": "Isang matino at pinasadyang API na ginagawang masaya at simple ang pagbubuo."
       },
       {
-        "icon": "produktibo",
+        "icon": "productive",
         "label": "Produktibo",
         "description": "Ergonomya at pagiging pamilyar sa paggawa ng simple o komplikadong bagay na walang hirap."
       }
