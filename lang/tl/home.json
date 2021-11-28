@@ -1,26 +1,26 @@
 {
-    "hero": "Simple and performant reactivity para sa paggawa ng user interfaces.",
+    "hero": "Reaktibiti na simple at mahusay para sa paggawa ng user interfaces.",
     "info": "<span class=\"font-semibold\">Solid ay isang purely reactive na library.</span> Dinesenyo ito sa simula na may reactive core. Naimpluwensiyahan it ng mga reactibong prinsipyo na dinevelop ng mga nakaraang libraries.",
     "strengths": [
       {
         "icon": "performant",
-        "label": "Mabisa",
-        "description": "Palaging kinikilala sa UI speed and memory utilization benchmarks."
+        "label": "Mahusay",
+        "description": "Patuloy na nangunguna sa kinikilalang bilis ng UI at mga benchmark sa paggamit ng memorya."
       },
       {
         "icon": "powerful",
-        "label": "Makapngyarihan",
-        "description": "Mapagsamasama na reaktibong primitibo na may flexibility ng JSX."
+        "label": "Makapangyarihan",
+        "description": "Makabubuo ng reaktibong primitives na may kakayahang umangkop ng JSX."
       },
       {
         "icon": "pragmatic",
-        "label": "Pragmatik",
-        "description": "Isang matino at pinasadyang API na ginagawang masaya at simple ang pagbubuo."
+        "label": "Pragmatiko",
+        "description": "Ang isang makatwiran at iniangkop na API ay ginagawang masaya at simple ang pagbuo."
       },
       {
         "icon": "productive",
         "label": "Produktibo",
-        "description": "Ergonomya at pagiging pamilyar sa paggawa ng simple o komplikadong bagay na walang hirap."
+        "description": "Ang ergonomya at pagiging pamilyar ay ginagawang madali ang pagbuo ng mga bagay, simple o kumplikado."
       }
     ],
     "facts": [
@@ -52,9 +52,9 @@
       }
     ],
     "example": {
-      "headline": "Ito'y pamilyar at makabago",
+      "headline": "Ito'y pamilyar at moderno",
       "copy": [
-        "Nakatayo at sumasabay ang Solid sa mga framework at library katulad ng React at Knockout. Kung nasubukan mo nang gumawa ng React Hooks, magiging natural na lang sa iyo ang Solid. Sa katunayan, mas natural ang simpleng modelo ng Solid nang walang ginagamit na Hooks. Ang bawat Component ay nageexecut ng isang beses at ang Hooks at bindings ang nageexecute ng maraming beses bilang dependencies update.",
+        "Nakatayo at sumasabay ang Solid sa mga framework at library katulad ng React at Knockout. Kung nakabuo ka na gamit ang React Hooks dati, ang Solid ay magmumukhang natural. Sa katunayan, mas natural dahil ang modelo ni Solid ay mas simple nang walang mga panuntunan sa Hook. Ang bawat Component ay nag-e-execute nang isang beses habang ang Hooks at bindings ay ine-execute nang maraming beses habang ina-update ang kanilang mga dependency.",
         "Sinusundan ni Solid ang mga pilosopiya na may unidirectional data flow, read/write na segregasyon, at immutable interfaces. Gayumpaman, meron itong ibang implemetasyon na hindi na kailangan ang Virtual DOM."
       ],
       "link_label": "Tignan ang Docs",
