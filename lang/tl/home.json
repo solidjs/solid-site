@@ -40,7 +40,7 @@
       },
       {
         "label": "TypeScript",
-        "detail": "ay Suportado"
+        "detail": "ay suportado"
       },
       {
         "label": "Nangunguna",
@@ -48,7 +48,7 @@
       },
       {
         "label": "Astro & Vite",
-        "detail": "ay Suportado"
+        "detail": "ay suportado"
       }
     ],
     "example": {
@@ -77,7 +77,7 @@
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
     "features": {
-      "headline": "Punong-puno ng lahat ng features.",
+      "headline": "Punumpuno ng mga feature.",
       "copy": "Sinusuportahan ng Solid ang lahat ng pangkaraniwan at inaasahang mga library feature at nilalawakan nito ang saklaw sa mga aspeto na makapagpapagaan sa DX.",
       "list": [
         "Mga Fragment",
