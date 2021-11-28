@@ -1,7 +1,7 @@
 {
   "title": "Mapagkukunan",
-  "cta": "Para mailathala ang iyong SolidJS na proyekto, maaring makipagugayan sa amin sa <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
-  "search": "Maghanap ng resources",
+  "cta": "Para mailathala ang iyong SolidJS na proyekto, maaring makipag-ugayan sa amin sa <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Maghanap ng mga resource",
   "types": "Mga Uri",
   "types_list": {
     "article": "Artikulo",
@@ -15,17 +15,17 @@
   "categories": "Mga kategorya",
   "translations": "Mga pagsasalin",
   "categories_list": {
-    "primitive": "Primitives",
-    "router": "Routers",
-    "data": "Data",
+    "primitive": "Mga Primitive",
+    "router": "Mga Router",
+    "data": "Datos",
     "ui": "UI",
-    "plugin": "Plugins",
-    "starters": "Starters",
-    "build_utility": "Build Utilities",
+    "plugin": "Mga Plugin",
+    "starters": "Mga Starter",
+    "build_utility": "Mga Build Utility",
     "add_on": "Add On",
-    "testing": "Testing",
-    "educational": "Educational"
+    "testing": "Pagte-test",
+    "educational": "Pag-aaral"
   },
   "official": "Opisyal",
-  "by": "By {{author}}"
+  "by": "Mula kay {{author}}"
 }
