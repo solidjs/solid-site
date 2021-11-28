@@ -1,7 +1,7 @@
 {
   "name": "Filipino",
   "title": "SolidJS · Reactive Javascript Library",
-  "locale": "fil_PH",
+  "locale": "tl_PH",
   "nav": [
     {
       "title": "Panimula",
@@ -38,11 +38,11 @@
     }
   ],
   "404": {
-    "header": "Awit, sayang wala. 404 daw",
-    "body": "Walang nakapaloob rito."
+    "header": "Hala, 404.",
+    "body": "Walang matatagpuan rito."
   },
   "footer": {
-    "declaration": "Ang Solid ay isang open-source na proyekto na sinusuportahan ng grupo ng mga pampublikong kontribyutor. It's distributed under <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">core team and dedicated contributors</a>.",
+    "declaration": "Ang Solid ay isang open-source na proyekto na sinusuportahan ng grupo ng mga pampublikong kontribyutor. Ito ay sumasailalim sa <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT license</a>. Naging posible ang library at komunidad dahil sa <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">core team at mga dedikadong mga contributor</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Sponsored ng",

@@ -1,6 +1,6 @@
 {
-    "hero": "Reaktibiti na simple at mahusay para sa paggawa ng user interfaces.",
-    "info": "<span class=\"font-semibold\">Solid ay isang purely reactive na library.</span> Dinesenyo ito sa simula na may reactive core. Naimpluwensiyahan it ng mga reactibong prinsipyo na dinevelop ng mga nakaraang libraries.",
+    "hero": "Simple at mahusay na reactivity para sa paggawa ng mga user interface.",
+    "info": "<span class=\"font-semibold\">Ang Solid ay isang purely reactive na library.</span> Dinisenyo ito sa simula na may reactive core. Naimpluwensiyahan ito ng mga prinsipyo sa reactivity na dinevelop ng mga libraries bago ito.",
     "strengths": [
       {
         "icon": "performant",
@@ -10,17 +10,17 @@
       {
         "icon": "powerful",
         "label": "Makapangyarihan",
-        "description": "Makabubuo ng reaktibong primitives na may kakayahang umangkop ng JSX."
+        "description": "Makabubuo ng mga reactive primitive habang nagagamit ang kalakasan ng JSX."
       },
       {
         "icon": "pragmatic",
         "label": "Pragmatiko",
-        "description": "Ang isang makatwiran at iniangkop na API ay ginagawang masaya at simple ang pagbuo."
+        "description": "Ginagawang masaya at simple ang pagbuo mula sa makatuwiran at angkop na API."
       },
       {
         "icon": "productive",
         "label": "Produktibo",
-        "description": "Ang ergonomya at pagiging pamilyar ay ginagawang madali ang pagbuo ng mga bagay, simple o kumplikado."
+        "description": "Ginagawang madali ang pagbuo ng mga bagay, simple o kumplikado, mula sa ergonomiya at pagiging pamilyar nito."
       }
     ],
     "facts": [
@@ -40,7 +40,7 @@
       },
       {
         "label": "TypeScript",
-        "detail": "Support"
+        "detail": "ay Suportado"
       },
       {
         "label": "Nangunguna",
@@ -48,62 +48,62 @@
       },
       {
         "label": "Astro & Vite",
-        "detail": "Support"
+        "detail": "ay Suportado"
       }
     ],
     "example": {
       "headline": "Ito'y pamilyar at moderno",
       "copy": [
-        "Nakatayo at sumasabay ang Solid sa mga framework at library katulad ng React at Knockout. Kung nakabuo ka na gamit ang React Hooks dati, ang Solid ay magmumukhang natural. Sa katunayan, mas natural dahil ang modelo ni Solid ay mas simple nang walang mga panuntunan sa Hook. Ang bawat Component ay nag-e-execute nang isang beses habang ang Hooks at bindings ay ine-execute nang maraming beses habang ina-update ang kanilang mga dependency.",
-        "Sinusundan ni Solid ang mga pilosopiya na may unidirectional data flow, read/write na segregasyon, at immutable interfaces. Gayumpaman, meron itong ibang implemetasyon na hindi na kailangan ang Virtual DOM."
+        "Nakatayo at sumasabay ang Solid sa mga teknolohiya tulad ng React at Knockout. Kung nakabuo ka na gamit ang React Hooks dati, magmumukhang likas ang paggamit ng Solid. Sa katunayan, mas likas ang modelo ng Solid dahil ito ay mas simple at walang mga panuntunan sa Hook. Tumatakbo ang bawat Component nang isang beses lamang, at maraming ulit gumagana ang Hooks at bindings habang ina-update ang kanilang mga dependency.",
+        "Sinusundan ng Solid ang mga pilosopiya na may unidirectional data flow, paghihiwalay ng read/write, at mga immutable interface. Gayumpaman, hindi na kailangan ang Virtual DOM sapagkat iba ang implemetasyon ukol sa mga nabanggit na kaugalian."
       ],
-      "link_label": "Tignan ang Docs",
+      "link_label": "Tingnan ang Docs",
       "link": "https://www.solidjs.com/docs/latest#component-apis"
     },
     "reactivity": {
-      "headline": "Kaunti na lang gagawin dahil pinong-pino ang pagiging reaktibo nito.",
-      "subheadline": "Ang Solid ay ginawa ng may mabisang reaktibong primitibo na galing sa gawa mong code papunta sa iyong JSX views.",
-      "copy": "Binubuksan nito ang kontrol kung ano ang nauupdate at kung kailan, kahit pa sa DOM binding level. Kahit walang Virtual DOM o extensive diffing, hindi na kailangan ng framework gumawa ng karagdagang trabaho.",
-      "link_label": "Tignan sa aktual",
+      "headline": "Kaunti na lamang ang gagawin dahil pinumpino ang pagiging reaktibo nito.",
+      "subheadline": "Ginawa ang Solid nang may mabisang mga reactive primitive mula sa iyong code papunta sa iyong mga JSX view.",
+      "copy": "Tinatanggal nito ang limitasyon kung ano ang naa-update at kung kailan, kahit pa sa lebel ng DOM binding. Kahit walang Virtual DOM o extensive diffing, hindi na kinakailangan ng framework na gumawa pa ng karagdagang trabaho.",
+      "link_label": "Tingnan sa aktual",
       "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
     },
     "performance": {
       "headline": [
-        "Nakapokus sa performance",
-        "sa parehas client at server"
+        "Tutok sa performance",
+        "sa parehas na client at server"
       ],
-      "copy": "Ang kalakasan ng isang pinong-pino na reaktibidad ay nangingibabaw sa lahat ng notable benchmarks. Kahit hindi bilis ang iyong habol, Ito ay halos walang hirap at hindi komplikadong DX. Isiping libreng panalo ang makukuhang bilis mula sa Solid. Ang Solid ay ukol sa bilis na walang karagdagang gawa.",
+      "copy": "Ang kalakasan ng fine-grained reactivity ay nangingibabaw sa lahat ng mga notable benchmark. Hindi man pagiging mabisa ang iyong habol, walang hirap ang paggawa nang hindi ginagawang masalimuot ang DX. Isipin mo na panalo ka sa makukuhang bilis mula sa Solid. Ang Solid ay ginawa para sa bilis nang hindi kailangang magkunwari.",
       "link_label": "Basahin ang buong artikulo",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
     "features": {
       "headline": "Punong-puno ng lahat ng features.",
-      "copy": "Ang Solid ay sumusuporta sa lahat ng pangkaraniwan at inaasahang library features at lumalawak nag saklaw sa mga aspeto para dumagdag sa DX.",
+      "copy": "Sinusuportahan ng Solid ang lahat ng pangkaraniwan at inaasahang mga library feature at nilalawakan nito ang saklaw sa mga aspeto na makapagpapagaan sa DX.",
       "list": [
-        "Fragments",
-        "Portals",
-        "Context",
+        "Mga Fragment",
+        "Mga Portal",
+        "Mga Context",
         "Suspense",
-        "Error Boundaries",
-        "Lazy Components",
-        "Async & Concurrent Rendering",
+        "Mga Error Boundary",
+        "Mga Lazy Component",
+        "Async at Sabay-sabay (Concurrent) na Rendering",
         "Implicit Delegation",
-        "SSR & Hydration",
-        "Directives"
+        "SSR at Hydration",
+        "Mga Directive"
       ]
     },
     "benchmarks": {
-      "time": "Time",
-      "view": "Tignan ang benchmark",
-      "show_more": "Show more client + server benchmarks",
-      "link_label": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda.",
+      "time": "Bilis",
+      "view": "Tingnan ang benchmark",
+      "show_more": "Ipakita ang iba pang mga client + server benchmark",
+      "link_label": "Kinukumpara ng JS Framework Benchmark ang bilis ng browser sa pamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda.",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
-        "description": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda."
+        "description": "Kinukumpara ng JS Framework Benchmark ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda."
       },
       "isomorophic_benchmark": {
         "title": "Isomorphic UI Benchmarks (Search Results)",
-        "description": "Ang benchmark na ito ay sumusubok sa hilaw na bilis ng Server Rendering. Mas mataas, mas maganda."
+        "description": "Sinusubok ng benchmark na ito ang hilaw na bilis ng Server Rendering. Mas mataas, mas maganda."
       }
     }
   }
