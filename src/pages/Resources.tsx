@@ -3,7 +3,7 @@ import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
 import Footer from '../components/Footer';
 import { ResourcesDataProps } from './resources.data';
-import { Icon } from '@amoutonbrady/solid-heroicons';
+import { Icon } from 'solid-heroicons';
 import Fuse from 'fuse.js';
 import {
   code,
@@ -15,7 +15,7 @@ import {
   chevronLeft,
   shieldCheck,
   filter,
-} from '@amoutonbrady/solid-heroicons/outline';
+} from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import createCountdown from '@solid-primitives/countdown';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';

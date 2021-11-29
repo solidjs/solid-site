@@ -11,10 +11,10 @@ import {
   ErrorBoundary,
 } from 'solid-js';
 import { isServer } from 'solid-js/web';
-import { Repl, createTabList } from 'solid-repl';
+// import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
-import { Icon } from '@amoutonbrady/solid-heroicons';
-import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
+import { Icon } from 'solid-heroicons';
+import { arrowLeft, arrowRight, chevronDown } from 'solid-heroicons/solid';
 
 import Markdown from '../components/Markdown';
 import { compiler, formatter } from '../components/setupRepl';

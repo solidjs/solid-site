@@ -34,7 +34,7 @@
     "solid-js": "^1.2.5",
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.2",
-    "solid-start": "^0.1.0-alpha.43",
+    "solid-start": "^0.1.0-alpha.44",
     "solid-transition-group": "^0.0.8"
   },
   "devDependencies": {

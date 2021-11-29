@@ -1,6 +1,6 @@
 import { Component } from 'solid-js';
-import { Icon } from '@amoutonbrady/solid-heroicons';
-import { emojiSad } from '@amoutonbrady/solid-heroicons/outline';
+import { Icon } from 'solid-heroicons';
+import { emojiSad } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 
 const FourOhFour: Component<{}> = () => {
