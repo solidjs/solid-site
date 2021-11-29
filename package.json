@@ -19,7 +19,7 @@
     "@solid-primitives/clipboard": "1.0.5",
     "@solid-primitives/countdown": "^1.0.3",
     "@solid-primitives/i18n": "^1.0.6",
-    "@solid-primitives/intersection-observer": "1.1.4",
+    "@solid-primitives/intersection-observer": "^1.1.5",
     "@solid-primitives/storage": "1.0.4",
     "@solid-primitives/throttle": "1.0.6",
     "@solid-primitives/timer": "^1.0.2",

@@ -1047,10 +1047,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.6.tgz#8cdb873bf294ee2506fefbeff2674c18f7f38b0c"
   integrity sha512-vW6l2yVs622MGPlgP0Ukiz+Vyn6rm6jqZkeUhDkvS0cUtC0j191/poT7oLMg8+lWRrU3b+NERrYBBRYzJ24gxA==
 
-"@solid-primitives/intersection-observer@1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.4.tgz#4daad0b7a9c6a08761800dfb2eccc95bb88b27ef"
-  integrity sha512-tuBq5KZditnI+vzGSgoDyV2PZ4WG0yXtwvSNfiJgVlNMCEFDB/0q0sAETCk1I7/Ch/HTVYUxoSg/dBDFmGc6Sg==
+"@solid-primitives/intersection-observer@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.5.tgz#8c3c5a26e409836b48954d843b6c582e2682ff45"
+  integrity sha512-WHaLKtm+iikSv3XPPAeNnvcA3ctiW+a/dbJQVknY4Q2XAqujdIJ0wgpP19mkV7bejWcxOCxWk+fDpitrHbc8Gw==
 
 "@solid-primitives/storage@1.0.4":
   version "1.0.4"
