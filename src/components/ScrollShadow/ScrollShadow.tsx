@@ -1,4 +1,5 @@
 import { Component, onCleanup, onMount } from 'solid-js';
+import { isServer } from 'solid-js/web';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
@@ -33,8 +34,10 @@ const ScrollShadow: Component<
 
   // Won't work for SSR
   const scrollableContainer = props.children as HTMLElement;
-  scrollableContainer.appendChild(sentinelFirstEl);
-  scrollableContainer.appendChild(sentinelLastEl);
+  if (!isServer) {
+    scrollableContainer.appendChild(sentinelFirstEl);
+    scrollableContainer.appendChild(sentinelLastEl);
+  }
 
   const scrollHorizontally = (e: WheelEvent) => {
     e.preventDefault();
