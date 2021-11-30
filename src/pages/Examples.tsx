@@ -83,7 +83,8 @@ const Examples: Component = () => {
               <ErrorBoundary
                 fallback={
                   <>
-                    Repl failed to load. You may be using a browser that doesn't support Web Workers.
+                    Repl failed to load. You may be using a browser that doesn't support Web
+                    Workers.
                   </>
                 }
               >

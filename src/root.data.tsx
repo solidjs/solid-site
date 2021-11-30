@@ -25,7 +25,9 @@ type DataParams = {
 };
 
 const RootData: RouteDataFunc = (props) => {
-  const [settings, set] = !isServer ? createCookieStorage<{ dark: string; locale: string }>() : createSignal({ dark: false, locale: 'en' });
+  const [settings, set] = !isServer
+    ? createCookieStorage<{ dark: string; locale: string }>()
+    : createSignal({ dark: false, locale: 'en' });
   const browserLang = !isServer ? navigator.language.slice(0, 2) : 'en';
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);

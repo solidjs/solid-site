@@ -1,7 +1,7 @@
 import { Component, Suspense, Show } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useData } from 'solid-app-router';
-import { Outlet, Scripts, Links } from "solid-start/components";
+import { Outlet, Scripts, Links } from 'solid-start/components';
 import Header from './components/Header';
 import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 import { preventSmoothScrollOnTabbing } from './utils';
@@ -17,16 +17,16 @@ export default function Root({ Start }) {
         </head>
         <body>
           <main class="min-h-screen">
-              <Lang>
-                <Header />
-                <div id="main-content">
-                  <div>
-                    <Suspense>
-                      <Outlet />
-                    </Suspense>
-                  </div>
+            <Lang>
+              <Header />
+              <div id="main-content">
+                <div>
+                  <Suspense>
+                    <Outlet />
+                  </Suspense>
                 </div>
-              </Lang>
+              </div>
+            </Lang>
           </main>
           <Scripts />
         </body>
