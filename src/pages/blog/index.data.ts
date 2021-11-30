@@ -1,7 +1,4 @@
-import { createResource } from 'solid-js';
-import { RouteDataFunc, useParams } from 'solid-app-router';
-
-const fetchBlogMarkdown = async (slug: string) => (await fetch(`articles/${slug}.md`)).text();
+import { RouteDataFunc } from 'solid-app-router';
 
 export type BlogInfo = {
   id?: string;
@@ -13,7 +10,7 @@ export type BlogInfo = {
   body?: string;
 };
 
-export const list: { [id: string]: BlogInfo } = {
+export const articleList: { [id: string]: BlogInfo } = {
   'state-of-solid-september-2021': {
     img: '/img/blog/state-of-solid-september-2021/header.png',
     title: 'The State of Solid: September 2021',
@@ -35,7 +32,7 @@ export const list: { [id: string]: BlogInfo } = {
 const BlogData: RouteDataFunc = () => {
   return {
     get articles() {
-      return list;
+      return articleList;
     },
     get archive() {
       return true;
