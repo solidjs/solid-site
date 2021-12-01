@@ -53,7 +53,6 @@ const Home: Component<{}> = () => {
   });
 
   useRouteReadyState();
-
   const chevron = createMemo(() => {
     const direction = t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right';
     return `chevron ${direction}`;

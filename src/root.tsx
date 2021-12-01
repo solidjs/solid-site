@@ -7,6 +7,8 @@ import { preventSmoothScrollOnTabbing } from './utils';
 import Header from './components/Header';
 import RootData from './root.data';
 
+import './assets/main.css';
+
 export default function Root({ Start }) {
   preventSmoothScrollOnTabbing();
   return (
@@ -22,7 +24,7 @@ export default function Root({ Start }) {
                 <Header />
                 <div id="main-content">
                   <div>
-                      <Outlet />
+                    <Outlet />
                   </div>
                 </div>
               </Lang>
@@ -37,7 +39,6 @@ export default function Root({ Start }) {
 
 const Lang: Component = (props) => {
   const data = useData<{ isDark: true; i18n: ReturnType<typeof createI18nContext> }>(0);
-  console.log('HERE -> ', data.i18n);
   const [t, { locale }] = data.i18n;
   return (
     <I18nContext.Provider value={data.i18n}>
