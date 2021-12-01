@@ -2,9 +2,9 @@ import { Component, Suspense, Show } from 'solid-js';
 import { Title, Meta } from 'solid-meta';
 import { useData } from 'solid-app-router';
 import { Outlet, Scripts, Links } from 'solid-start/components';
-import Header from './components/Header';
 import { I18nContext, createI18nContext } from '@solid-primitives/i18n';
 import { preventSmoothScrollOnTabbing } from './utils';
+import Header from './components/Header';
 import RootData from './root.data';
 
 export default function Root({ Start }) {
@@ -17,16 +17,16 @@ export default function Root({ Start }) {
         </head>
         <body>
           <main class="min-h-screen">
-            <Lang>
-              <Header />
-              <div id="main-content">
-                <div>
-                  <Suspense>
-                    <Outlet />
-                  </Suspense>
+            <Suspense>
+              <Lang>
+                <Header />
+                <div id="main-content">
+                  <div>
+                      <Outlet />
+                  </div>
                 </div>
-              </div>
-            </Lang>
+              </Lang>
+            </Suspense>
           </main>
           <Scripts />
         </body>
@@ -37,7 +37,7 @@ export default function Root({ Start }) {
 
 const Lang: Component = (props) => {
   const data = useData<{ isDark: true; i18n: ReturnType<typeof createI18nContext> }>(0);
-  console.log(data.i18n);
+  console.log('HERE -> ', data.i18n);
   const [t, { locale }] = data.i18n;
   return (
     <I18nContext.Provider value={data.i18n}>

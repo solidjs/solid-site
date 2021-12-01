@@ -49,6 +49,7 @@ const RootData: RouteDataFunc = (props) => {
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
+  console.log('HI')
   return {
     set isDark(value) {
       settings.dark = value === true ? 'true' : 'false';
@@ -57,6 +58,7 @@ const RootData: RouteDataFunc = (props) => {
       return settings.dark === 'true' ? true : false;
     },
     get i18n() {
+      console.log('RETURN', i18n)
       return i18n;
     },
     get loading() {
