@@ -288,7 +288,6 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational, ResourceCategory.BuildUtilities],
     published_at: 1636779600000,
   },
-
   {
     link: 'https://www.youtube.com/watch?v=ZZ-a7B761Ds&list=PLz8Iz-Fnk_eTpvd49Sa77NiF8Uqq5Iykx',
     title: 'Learn With Jason',

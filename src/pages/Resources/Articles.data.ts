@@ -730,7 +730,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.infoworld.com/article/3643331/hands-on-with-solidjs.html',
     title: 'Hands-on with SolidJS',
-    description: 'Get a first-hand look at the simple and powerful approach to reactive front-end JavaScript that is fast making Solid a favorite.',
+    description:
+      'Get a first-hand look at the simple and powerful approach to reactive front-end JavaScript that is fast making Solid a favorite.',
     author: 'Matthew Tyson',
     author_url: 'https://www.infoworld.com/author/Matthew-Tyson/',
     keywords: ['started', 'solid', 'intro', 'growing'],
