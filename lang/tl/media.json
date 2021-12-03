@@ -1,0 +1,18 @@
+{
+  "title": "Media Assets",
+  "copy": "Ang mga sumusunod ay asset na kumakatawan sa Solid brand. Lahat ng mga asset ay kinukunsiderang open-source contribution at magagamit lamang batay sa open standards at mga panuntunan ng licensing. Para sa karagdagang asset o tanong tungkol sa tatak ng Solid JS, maaari lamang na sumali sa aming Discord Server para kayo'y matugunan.",
+  "brand_font": "Brand Font",
+  "primary": "Pangunahing Kulay",
+  "secondary": "Pangalawang Kulay",
+  "light": "Light Color",
+  "accent": "Accent Color",
+  "copy_hex": "Pindutin ang kulay para kopyahin ang hex code.",
+  "resources": {
+    "with_wordmark": "May Wordmark",
+    "without_wordmark": "Walang Wordmark",
+    "only_wordmark": "Wordmark Lamang",
+    "dark_with_wordmark": "Madilim na May Wordmark",
+    "dark_without_wordmark": "Madilim na Walang Wordmark",
+    "dark_only_wordmark": "Madilim na Wordmark Lamang"
+  }
+}

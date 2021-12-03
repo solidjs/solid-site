@@ -15,8 +15,15 @@ const langs: { [lang: string]: any } = {
   ru: async () => (await import('../lang/ru/ru')).default(),
   fa: async () => (await import('../lang/fa/fa')).default(),
   tr: async () => (await import('../lang/tr/tr')).default(),
-  fl: async () => (await import('../lang/fl/fl')).default(),
+  tl: async () => (await import('../lang/tl/tl')).default(),
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
+};
+
+// Some browsers does not map correctly to some locale code
+// due to offering multiple locale code for similar language (e.g. tl and fil)
+// This object maps it to correct `langs` key
+const langAliases: Record<string, string> = {
+  fil: 'tl',
 };
 
 type DataParams = {
@@ -39,6 +46,9 @@ export const AppData: RouteDataFunc = (props) => {
     let page = props.location.pathname.slice(1);
     if (page == '') {
       page = 'home';
+    }
+    if (locale in langAliases) {
+      return { locale: langAliases[locale], page };
     }
     return { locale, page };
   };
