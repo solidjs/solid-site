@@ -300,6 +300,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1638507600000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Off4L7NJgA0&t=29534s',
+    title: 'JS Conf India Online 2021: The Future is Reactive',
+    description:
+      'Ryan introduces the concept of reactivity and describes why it is the future of UI.',
+    keywords: ['netlify', 'jsonf', 'india', 'reactivity', 'ryanstreams'],
+    author: 'JSConf India',
+    author_url: 'https://www.jsconf.in/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1638576320000,
+  },
 ];
 
 export default videos;
