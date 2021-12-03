@@ -935,6 +935,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1635697432000,
   },
+  {
+    link: 'https://solid-libs.github.io/solid-bootstrap/#/',
+    title: 'solid-bootstrap',
+    description: 'The most popular front-end framework rebuilt for SolidJS.',
+    author: 'Brendan-csel',
+    author_url: 'https://github.com/Brendan-csel',
+    keywords: ['bootstrap', 'design', 'ui', 'components'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    published_at: 1638514856000,
+  },
 ];
 
 export default utilities;

@@ -1,0 +1,31 @@
+{
+  "title": "Mapagkukunan",
+  "cta": "Para mailathala ang iyong SolidJS na proyekto, maaring makipag-ugayan sa amin sa <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Maghanap ng mga resource",
+  "types": "Mga Uri",
+  "types_list": {
+    "article": "Artikulo",
+    "video": "Video",
+    "library": "Library",
+    "package": "Package"
+  },
+  "published": "Published",
+  "days_ago": "{{amount}} araw na nakalipas",
+  "hours_ago": "{{amount}} oras na nakalipas",
+  "categories": "Mga kategorya",
+  "translations": "Mga pagsasalin",
+  "categories_list": {
+    "primitive": "Mga Primitive",
+    "router": "Mga Router",
+    "data": "Datos",
+    "ui": "UI",
+    "plugin": "Mga Plugin",
+    "starters": "Mga Starter",
+    "build_utility": "Mga Build Utility",
+    "add_on": "Add On",
+    "testing": "Pagte-test",
+    "educational": "Pag-aaral"
+  },
+  "official": "Opisyal",
+  "by": "Mula kay {{author}}"
+}
