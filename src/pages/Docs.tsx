@@ -9,9 +9,9 @@ import {
   Accessor,
 } from 'solid-js';
 import { useData } from 'solid-app-router';
-import { chevronRight } from '@amoutonbrady/solid-heroicons/solid';
+import { chevronRight } from 'solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import { Icon } from '@amoutonbrady/solid-heroicons';
+import { Icon } from 'solid-heroicons';
 import createThrottle from '@solid-primitives/throttle';
 import Dismiss from 'solid-dismiss';
 

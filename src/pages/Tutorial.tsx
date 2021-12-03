@@ -12,8 +12,8 @@ import {
 } from 'solid-js';
 import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
-import { Icon } from '@amoutonbrady/solid-heroicons';
-import { arrowLeft, arrowRight, chevronDown } from '@amoutonbrady/solid-heroicons/solid';
+import { Icon } from 'solid-heroicons';
+import { arrowLeft, arrowRight, chevronDown } from 'solid-heroicons/solid';
 
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
