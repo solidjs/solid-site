@@ -290,16 +290,16 @@ const videos: Array<Resource> = [
   },
 
   {
-    link: 'https://www.youtube.com/watch?v=9xJI9S1bDo4',
-    title: 'Evie.Codes : Introduction to SolidJS',
+    link: 'https://www.youtube.com/watch?v=ZZ-a7B761Ds&list=PLz8Iz-Fnk_eTpvd49Sa77NiF8Uqq5Iykx',
+    title: 'Learn With Jason',
     description:
-      'Evie creates a basic Todo list application and take a look at some of the great features SolidJS has to offer.',
+      'In this episode, Ryan Carniato will teach us how to get started with our first SolidJS app!',
     keywords: ['netlify', 'vercel', 'cloudflare', 'deployment', 'ryanstreams'],
-    author: 'Evie.Codes',
-    author_url: 'https://www.youtube.com/channel/UCvQubaJPD0D-PSokbd5DAiw',
+    author: 'Jason Lengstorf',
+    author_url: 'https://www.youtube.com/channel/UCnty0z0pNRDgnuoirYXnC5A',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
-    published_at: 1636866000000,
+    published_at: 1638507600000,
   },
 ];
 

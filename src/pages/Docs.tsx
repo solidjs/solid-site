@@ -1,9 +1,9 @@
 import { Component, For, Show, Switch, Match, createEffect, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useData } from 'solid-app-router';
-import { chevronDown, chevronRight } from '@amoutonbrady/solid-heroicons/solid';
+import { chevronDown, chevronRight } from 'solid-heroicons/solid';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import { Icon } from '@amoutonbrady/solid-heroicons';
+import { Icon } from 'solid-heroicons';
 import createThrottle from '@solid-primitives/throttle';
 import Dismiss from 'solid-dismiss';
 

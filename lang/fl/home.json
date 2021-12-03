@@ -1,0 +1,109 @@
+{
+    "hero": "Simple and performant reactivity para sa paggawa ng user interfaces.",
+    "info": "<span class=\"font-semibold\">Solid ay isang purely reactive na library.</span> Dinesenyo ito sa simula na may reactive core. Naimpluwensiyahan it ng mga reactibong prinsipyo na dinevelop ng mga nakaraang libraries.",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "Mabisa",
+        "description": "Palaging kinikilala sa UI speed and memory utilization benchmarks."
+      },
+      {
+        "icon": "powerful",
+        "label": "Makapngyarihan",
+        "description": "Mapagsamasama na reaktibong primitibo na may flexibility ng JSX."
+      },
+      {
+        "icon": "pragmatic",
+        "label": "Pragmatik",
+        "description": "Isang matino at pinasadyang API na ginagawang masaya at simple ang pagbubuo."
+      },
+      {
+        "icon": "productive",
+        "label": "Produktibo",
+        "description": "Ergonomya at pagiging pamilyar sa paggawa ng simple o komplikadong bagay na walang hirap."
+      }
+    ],
+    "facts": [
+      {
+        "label": "6.4kb",
+        "detail": "Minified + Gzipped",
+        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      },
+      {
+        "label": "12k+",
+        "detail": "Github stars",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "5+ taon",
+        "detail": "sa development"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "Support"
+      },
+      {
+        "label": "Nangunguna",
+        "detail": "sa performance"
+      },
+      {
+        "label": "Astro & Vite",
+        "detail": "Support"
+      }
+    ],
+    "example": {
+      "headline": "Ito'y pamilyar at makabago",
+      "copy": [
+        "Nakatayo at sumasabay ang Solid sa mga framework at library katulad ng React at Knockout. Kung nasubukan mo nang gumawa ng React Hooks, magiging natural na lang sa iyo ang Solid. Sa katunayan, mas natural ang simpleng modelo ng Solid nang walang ginagamit na Hooks. Ang bawat Component ay nageexecut ng isang beses at ang Hooks at bindings ang nageexecute ng maraming beses bilang dependencies update.",
+        "Sinusundan ni Solid ang mga pilosopiya na may unidirectional data flow, read/write na segregasyon, at immutable interfaces. Gayumpaman, meron itong ibang implemetasyon na hindi na kailangan ang Virtual DOM."
+      ],
+      "link_label": "Tignan ang Docs",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "Kaunti na lang gagawin dahil pinong-pino ang pagiging reaktibo nito.",
+      "subheadline": "Ang Solid ay ginawa ng may mabisang reaktibong primitibo na galing sa gawa mong code papunta sa iyong JSX views.",
+      "copy": "Binubuksan nito ang kontrol kung ano ang nauupdate at kung kailan, kahit pa sa DOM binding level. Kahit walang Virtual DOM o extensive diffing, hindi na kailangan ng framework gumawa ng karagdagang trabaho.",
+      "link_label": "Tignan sa aktual",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "Nakapokus sa performance",
+        "sa parehas client at server"
+      ],
+      "copy": "Ang kalakasan ng isang pinong-pino na reaktibidad ay nangingibabaw sa lahat ng notable benchmarks. Kahit hindi bilis ang iyong habol, Ito ay halos walang hirap at hindi komplikadong DX. Isiping libreng panalo ang makukuhang bilis mula sa Solid. Ang Solid ay ukol sa bilis na walang karagdagang gawa.",
+      "link_label": "Basahin ang buong artikulo",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "Punong-puno ng lahat ng features.",
+      "copy": "Ang Solid ay sumusuporta sa lahat ng pangkaraniwan at inaasahang library features at lumalawak nag saklaw sa mga aspeto para dumagdag sa DX.",
+      "list": [
+        "Fragments",
+        "Portals",
+        "Context",
+        "Suspense",
+        "Error Boundaries",
+        "Lazy Components",
+        "Async & Concurrent Rendering",
+        "Implicit Delegation",
+        "SSR & Hydration",
+        "Directives"
+      ]
+    },
+    "benchmarks": {
+      "time": "Time",
+      "view": "Tignan ang benchmark",
+      "show_more": "Show more client + server benchmarks",
+      "link_label": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda.",
+      "js_benchmark": {
+        "title": "JS Framework Benchmark",
+        "description": "Ang JS Framework Benchmark ay ikinukumpara ang bilis ng browser sa papamamagitan ng malawakang pagtutuos nito. Mas mababa, mas maganda."
+      },
+      "isomorophic_benchmark": {
+        "title": "Isomorphic UI Benchmarks (Search Results)",
+        "description": "Ang benchmark na ito ay sumusubok sa hilaw na bilis ng Server Rendering. Mas mataas, mas maganda."
+      }
+    }
+  }
