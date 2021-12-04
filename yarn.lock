@@ -1020,44 +1020,42 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.2.0.tgz#667bfc6186ae7c9e0b45a08960c551437176e1ca"
   integrity sha512-VkE3KLBmJwcCaVARtQpfuKcKv8gcBmUubrfHGF84dXuuW6jgsRYxPtzcIhPyK9WAPpRt2/xY6zkD9MnRaJzSyw==
 
-"@solid-primitives/clipboard@^1.0.8":
+"@solid-primitives/clipboard@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.2.7.tgz#b7258b83b4b1f7c35951b48e6cb60b86f7d9ca5b"
+  integrity sha512-P9J7sKw36RAKxqgv/qbmFcacXYVGJY4nCAAnWPH8ETBswY1DQb6RI9KJ2UTBFYKn+ItZAMTi9OhEZQOJjErgvQ==
+
+"@solid-primitives/countdown@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-1.0.7.tgz#5693175910c9befd40f8c92a39dd550e733ab964"
+  integrity sha512-50OsTnoL1OyaGng1RpXm9DJI3ojBEvq0Z8HjzSE1MlEDvfiOjlp2BPAsUq/GOX07Ju6lFdRvEAGPfMbvXbJQzg==
+  dependencies:
+    "@solid-primitives/timer" "^1.0.2"
+
+"@solid-primitives/i18n@^1.0.8":
   version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.0.8.tgz#584b1437137b7bd0f7c6e34a09faffd03a91614e"
-  integrity sha512-aGwvwvqg83FAoTxW1hHkGqhlumyyey5UTb/PpvJ/35C6JpVurLGOUJE6itePxqCVsgzRgMejnKz1UFdapU2oYQ==
+  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.8.tgz#aa030a91177b5d1af16c3d2656e9788b79db3f08"
+  integrity sha512-MK5eiPJo7LnPB0bAXk7mFTqy5PNO55wqs8qj0d0gIc+v2ks3d+yt/oYJPM3lJrJF9Vgm5KURlfXlJGAQ3SK+cA==
 
-"@solid-primitives/countdown@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-1.0.4.tgz#2cd2611126d2f5dccd9b6f5cf2b1fd1faf5a4e6c"
-  integrity sha512-Z84f+Nir+9o4fSwZbLXcSDIM2tu5J9gZ09dcCWV9ANerm9stFBRmNwDhq6hsnM7mnrgFpllsPHLVTtPI8mhIVQ==
+"@solid-primitives/intersection-observer@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.13.tgz#fe7b822a5e20147e89d1d6148a07fe79b284cf39"
+  integrity sha512-mx/mWwAUxIVAlpSGIctni7Yc37RGx2wkyhb8eK24pi9Gt/yLQzYJuLPfQMYS6V0RwxpikVjHe3Zatj3wn6xGGQ==
 
-"@solid-primitives/i18n@^1.0.7":
+"@solid-primitives/storage@^1.0.7":
   version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.7.tgz#d497e23c1a01aaec15cb6055d903123ecc01a75f"
-  integrity sha512-FsAsQ8SAf9s296VJJulAUkoMT4iqILG8cKabUW3d01Hv61jIA3K4ws+xZvcd4CR7q6oFDf3K3tMTx6OEi3xA4g==
+  resolved "https://registry.yarnpkg.com/@solid-primitives/storage/-/storage-1.0.7.tgz#619b628cce4bc177a079f27cadf037a02dc40abe"
+  integrity sha512-uZE2+VVtwv8UR1A91yyBd9oniIKerbVMWXCw1OPIwIJuwZvZkG3GqycCgVIOOxvaf82FC/EMNyfqetJh8I+GUA==
 
-"@solid-primitives/intersection-observer@^1.1.17":
-  version "1.1.17"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.17.tgz#765bf21ea0abd096f5f4c77ea6ad7bf0b8ee7cb5"
-  integrity sha512-2ftC90OHPLJpGuzVE2S4juNJE0X5UAwjJOesC3NFR9OrSL2+oDCBTuUmTLXUQf3lqPu5JmgoSPh3E4/xV6nbDA==
+"@solid-primitives/throttle@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.8.tgz#03fc9fa47b28d0d910953867b14ca9c268f1d644"
+  integrity sha512-iuJXhIkaSb6XDfULixfokD81EUD4E23t71GuITuUmTu/O2dYnYbBy0LjBEHorZwDjZWLN34KI6uZQuyvvwZ4EA==
 
-"@solid-primitives/storage@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/storage/-/storage-1.0.4.tgz#6ecd8551b617c549da633f37c6f33d237dd6c1d9"
-  integrity sha512-qxa8WK2k8jmoNniJeVtG16MBPoZ9ckY1Tvi9un5rc9OHRdgur+99L9NRT68lli3ze4J8UvqH7IuH2OIluePS+Q==
-  dependencies:
-    solid-js "^1.2.5"
-
-"@solid-primitives/throttle@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.0.7.tgz#e8f58f10caf7822cc946baf54d476f576ea51940"
-  integrity sha512-CtBzHu9vx7C6sparzgz+cna34/LeMITxnPuo8FFDXpZmmCmZR85nyViwvNFWUZL4bV7ZFF++S3bGIPEcOFGqNA==
-
-"@solid-primitives/timer@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/timer/-/timer-1.0.2.tgz#f10f6846fa748b79d3ac4045a75f068136e3f43d"
-  integrity sha512-RTpmgkc4jzG3vGLL5DRlp5jNeSerz5ZV1J0y15wUi2wjQi8FOX38n1VqYvJWzD3hucjaRMYBdR2aPbl6IlAgkA==
-  dependencies:
-    solid-js "^1.2.5"
+"@solid-primitives/timer@^1.0.2", "@solid-primitives/timer@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/timer/-/timer-1.0.3.tgz#deeda8d6559e91e8ea245af06256f9335f346536"
+  integrity sha512-XDknRz91x0VVJnGemyW5tNdUixJuSSi5QQlLRH74TedmU48MQmhhD3kLghcHCO5mcewRF84sm9jAh5Y6NpRIAw==
 
 "@solid.js/docs@^1.0.6":
   version "1.0.6"
@@ -3441,9 +3439,9 @@ merge2@^1.3.0, merge2@^1.4.1:
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
 micromark-core-commonmark@^1.0.0, micromark-core-commonmark@^1.0.1:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/micromark-core-commonmark/-/micromark-core-commonmark-1.0.5.tgz#b49d31b2fa2d4a13d710681e0139cbadb71308c1"
-  integrity sha512-ZNtWumX94lpiyAu/lxvth6I5+XzxF+BLVUB7u60XzOBy4RojrbZqrx0mcRmbfqEMO6489vyvDfIQNv5hdulrPg==
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/micromark-core-commonmark/-/micromark-core-commonmark-1.0.6.tgz#edff4c72e5993d93724a3c206970f5a15b0585ad"
+  integrity sha512-K+PkJTxqjFfSNkfAhp4GB+cZPfQd6dxtTXnf+RjZOV7T4EEXnvgzOcnp+eSTmpGk9d1S9sL6/lqrgSNn/s0HZA==
   dependencies:
     decode-named-character-reference "^1.0.0"
     micromark-factory-destination "^1.0.0"
@@ -3692,9 +3690,9 @@ micromark-util-types@^1.0.0, micromark-util-types@^1.0.1:
   integrity sha512-DCfg/T8fcrhrRKTPjRrw/5LLvdGV7BHySf/1LOZx7TzWZdYRjogNtyNq885z3nNallwr3QUKARjqvHqX1/7t+w==
 
 micromark@^3.0.0:
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/micromark/-/micromark-3.0.9.tgz#2ac001ffd126342fcf5f4ec2f944aa08206dd8d5"
-  integrity sha512-aWPjuXAqiFab4+oKLjH1vSNQm8S9GMnnf5sFNLrQaIggGYMBcQ9CS0Tt7+BJH6hbyv783zk3vgDhaORl3K33IQ==
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/micromark/-/micromark-3.0.10.tgz#1eac156f0399d42736458a14b0ca2d86190b457c"
+  integrity sha512-ryTDy6UUunOXy2HPjelppgJ2sNfcPz1pLlMdA6Rz9jPzhLikWXv/irpWV/I2jd68Uhmny7hHxAlAhk4+vWggpg==
   dependencies:
     "@types/debug" "^4.0.0"
     debug "^4.0.0"
@@ -4399,9 +4397,9 @@ prelude-ls@~1.1.2:
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
 prettier@^2.4.1:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.0.tgz#a6370e2d4594e093270419d9cc47f7670488f893"
-  integrity sha512-FM/zAKgWTxj40rH03VxzIPdXmj39SwSjwG0heUcNFwI+EMZJnY93yAiKXM3dObIKAM5TA88werc8T/EwhB45eg==
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
+  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.6.0:
   version "5.6.0"
@@ -4866,7 +4864,7 @@ solid-app-router@^0.1.13:
   resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.13.tgz#24618a2435b09be2579d1a32192a0008ae1d86ac"
   integrity sha512-tO6JNmKQ3c1P8c3Rzea6r93AzqIctaS5okbfwyfw1pp5gnX4stAeS9kz/xQfXnycrlMGskbql2w7AuR6b2Nu7g==
 
-solid-dismiss@^1.0.22:
+solid-dismiss@^1.0.26:
   version "1.0.26"
   resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.26.tgz#c8245f5e592bb30a194e27f5bb4574951d6f8244"
   integrity sha512-55d3aAAMxzk96DU5MGASjL8XNHsgPXcbZnEzGFoIYwzobNRIlq2Z7g9JvTP+7IbfycPaaC94v5Nt/6Y+aZG0og==
@@ -5586,9 +5584,9 @@ vfile@^5.0.0, vfile@^5.2.0:
     vfile-message "^3.0.0"
 
 vite-plugin-pwa@^0.11.8:
-  version "0.11.9"
-  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.11.9.tgz#b48ccba6ccdd3dd00560a0a652e3d29d1ac2c9e1"
-  integrity sha512-w2rWd91Kw/UrwJurrnkGCuPlDiLYdNCe4B29smcACoEgopgM/rw2AVsNhaKeut6nHlzKEyu9tnGd4YN80N4R1g==
+  version "0.11.10"
+  resolved "https://registry.yarnpkg.com/vite-plugin-pwa/-/vite-plugin-pwa-0.11.10.tgz#acd6153ae5af313185ea7d697140b78d84046cf0"
+  integrity sha512-H2iIe6XVN8it0jkrpZcdmBaGarZxeA657y+9WeDKtxjRJmwIL8qixhiE9FZr0SFS2OHyzkumJvE7FOaemt1/SQ==
   dependencies:
     chalk "^4.1.2"
     debug "^4.3.2"
