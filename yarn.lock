@@ -1025,10 +1025,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.2.7.tgz#b7258b83b4b1f7c35951b48e6cb60b86f7d9ca5b"
   integrity sha512-P9J7sKw36RAKxqgv/qbmFcacXYVGJY4nCAAnWPH8ETBswY1DQb6RI9KJ2UTBFYKn+ItZAMTi9OhEZQOJjErgvQ==
 
-"@solid-primitives/countdown@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-1.0.7.tgz#5693175910c9befd40f8c92a39dd550e733ab964"
-  integrity sha512-50OsTnoL1OyaGng1RpXm9DJI3ojBEvq0Z8HjzSE1MlEDvfiOjlp2BPAsUq/GOX07Ju6lFdRvEAGPfMbvXbJQzg==
+"@solid-primitives/countdown@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/countdown/-/countdown-1.0.9.tgz#ee7d57e9e7ff20b61a6006a22e2b5628c4aa8a28"
+  integrity sha512-QwIym7DjtLTAD9qfGJbYVvmYOVfAIY0Ed82PUpV1jsMbxlW/8KkZNgh1IZQuPdgNyrz9trnC5g1Ccp6koBakNA==
   dependencies:
     "@solid-primitives/timer" "^1.0.2"
 
