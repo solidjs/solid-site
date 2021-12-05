@@ -935,6 +935,30 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1635697432000,
   },
+  {
+    link: 'https://solid-libs.github.io/solid-bootstrap/#/',
+    title: 'solid-bootstrap',
+    description: 'The most popular front-end framework rebuilt for SolidJS.',
+    author: 'Brendan-csel',
+    author_url: 'https://github.com/Brendan-csel',
+    keywords: ['bootstrap', 'design', 'ui', 'components'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    published_at: 1638514856000,
+  },
+  {
+    link: 'https://github.com/orenelbaum/babel-plugin-solid-undestructure',
+    title: 'babel-plugin-solid-undestructure',
+    description: 'This babel plugin allows you to destructure your props in your Solid components without losing reactivity.',
+    author: 'orenelbaum',
+    author_url: 'https://github.com/orenelbaum',
+    keywords: ['spread', 'props', 'babel', 'plugin'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.BuildUtilities],
+    published_at: 1638514856000,
+  },
 ];
 
 export default utilities;
