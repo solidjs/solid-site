@@ -950,7 +950,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/orenelbaum/babel-plugin-solid-undestructure',
     title: 'babel-plugin-solid-undestructure',
-    description: 'This babel plugin allows you to destructure your props in your Solid components without losing reactivity.',
+    description:
+      'This babel plugin allows you to destructure your props in your Solid components without losing reactivity.',
     author: 'orenelbaum',
     author_url: 'https://github.com/orenelbaum',
     keywords: ['spread', 'props', 'babel', 'plugin'],

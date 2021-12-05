@@ -185,11 +185,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
                 }}
                 style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
               >
-                <Sidebar
-                  items={data.doc.sections}
-                  current={current}
-                  hash={props.hash}
-                />
+                <Sidebar items={data.doc.sections} current={current} hash={props.hash} />
               </div>
             </Dismiss>
           </div>
