@@ -33,7 +33,7 @@ const SectionButton: Component<{
   </li>
 );
 
-const Sections: Component<{
+const Sidebar: Component<{
   items: Section[];
   current: Accessor<string | null>;
   hash: string | undefined;
@@ -46,7 +46,7 @@ const Sections: Component<{
             title={firstLevel.title}
             class={
               `text-left w-full dark:text-white border-b border-gray-300 hover:text-gray-400 transition ` +
-              `flex flex-wrap content-center justify-between space-x-2 text-2xl p-2 py-6 mb-8`
+              `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-4 mb-8`
             }
             classList={{
               'font-semibold text-solid-medium': props.current() == firstLevel.slug,
@@ -58,21 +58,21 @@ const Sections: Component<{
                 {(secondLevel) => (
                   <SectionButton
                     title={secondLevel.title}
-                    class="block pl-2 text-gray-500 py-2 text-lg font-semibold my-2 break-words"
+                    class="block pl-2 text-gray-500 py-1 text-md font-semibold my-2 break-words"
                     classList={{
                       'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
                       'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
                     }}
                     href={`#${secondLevel.slug}`}
                   >
-                    <Show when={secondLevel.children}>
-                      <ul>
+                    <Show when={secondLevel.children && secondLevel.children.length !== 0}>
+                      <ul class="my-5">
                         <For each={secondLevel.children!}>
                           {(thirdLevel) => (
                             <SectionButton
                               href={`#${thirdLevel.slug}`}
                               title={thirdLevel.title}
-                              class="block ml-8 font-semibold text-gray-400 pb-2 my-4 break-words"
+                              class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
                               classList={{
                                 'text-solid hover:text-solid-dark':
                                   `#${thirdLevel.slug}` === props.hash,
@@ -185,7 +185,11 @@ const Docs: Component<{ hash?: string }> = (props) => {
                 }}
                 style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
               >
-                <Sections items={data.doc.sections} current={current} hash={props.hash} />
+                <Sidebar
+                  items={data.doc.sections}
+                  current={current}
+                  hash={props.hash}
+                />
               </div>
             </Dismiss>
           </div>
