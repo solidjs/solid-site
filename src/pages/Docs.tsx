@@ -167,7 +167,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
             </button>
             <Dismiss
               show
-              class="col-span-4 lg:col-span-3 relative"
+              class="col-span-4 lg:col-span-3 lg:sticky lg:top-[4rem]"
               menuButton={menuButton}
               open={toggleSections}
               setOpen={setToggleSections}
@@ -177,13 +177,13 @@ const Docs: Component<{ hash?: string }> = (props) => {
                   'rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 ' +
                   'dark:bg-solid-gray fixed left-0 top-14 lg:translate-x-0 lg:duration-0 transition-transform ' +
                   'duration-300 max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
-                  'lg:sticky lg:flex'
+                  'relative lg:flex'
                 }
                 classList={{
                   '-translate-x-full': !toggleSections(),
                   'translate-x-0': toggleSections(),
                 }}
-                style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
+                style={{ height: 'calc(100vh - 4rem)', top: 0 }}
               >
                 <Sidebar items={data.doc.sections} current={current} hash={props.hash} />
               </div>
