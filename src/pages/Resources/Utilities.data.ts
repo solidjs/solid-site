@@ -667,6 +667,17 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/mbarzda/solid-i18next',
+    title: 'solid-i18next',
+    description: 'Small library which covers i18next for Solid applications.',
+    author: 'Martynas Barzda',
+    author_url: 'https://github.com/mbarzda',
+    keywords: ['i18n', 'i18next', 'localization', 'translate', 'translations', 'language'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
