@@ -14,6 +14,18 @@ const articles: Array<Resource> = [
     published_at: 1625584447000,
   },
   {
+    link: 'https://dev.to/this-is-learning/javascript-framework-todomvc-size-comparison-504f',
+    title: 'JavaScript Framework TodoMVC Size Comparison',
+    description:
+      'Size in JavaScript Frameworks is actually a pretty tricky thing to estimate.',
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.to/ryansolid',
+    keywords: ['bundles', 'scaling', 'size'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1634253475000,
+  },
+  {
     link: 'https://www.infoq.com/news/2021/07/solid-js-released-first/',
     title: 'Performance-Focused Reactive UI Framework Solid.JS Releases First Major Version',
     description:
