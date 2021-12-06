@@ -11,7 +11,8 @@ import {
   createComputed,
   useContext,
   Accessor,
-  Setter
+  Setter,
+  batch
 } from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
@@ -52,17 +53,22 @@ type MenuLinkProps = {
 export const NavContext = createContext<{
   subnav: Accessor<MenuLinkProps[]>,
   setSubnav: Setter<MenuLinkProps[]>,
-  closeSubnav: () => void;
+  closeSubnav: () => void,
+  subnavPosition: Accessor<number>
+  setSubnavPosition: Setter<number>
 }>();
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
-  const { setSubnav, closeSubnav } = useContext(NavContext)!;
+  const { setSubnav, closeSubnav, setSubnavPosition } = useContext(NavContext)!;
   let linkEl!: HTMLAnchorElement;
 
   onMount(() => {
     if (props.children) {
       createEventListener(linkEl, 'mouseenter', () => {
-        setSubnav(props.children);
+        batch(() => {
+          setSubnav(props.children);
+          setSubnavPosition(linkEl.getBoundingClientRect().left);
+        })
       });
       createEventListener(linkEl, 'mouseleave', () => closeSubnav());
     }
@@ -156,8 +162,9 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
+  const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [closeSubnav, clearClose] = createDebounce(() => setSubnav([]), 500);
+  const [closeSubnav, clearClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -219,7 +226,13 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   });
 
   return (
-    <NavContext.Provider value={{ subnav, setSubnav, closeSubnav }}>
+    <NavContext.Provider value={{
+      subnav,
+      setSubnav,
+      closeSubnav,
+      subnavPosition,
+      setSubnavPosition
+    }}>
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
@@ -295,9 +308,11 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
         <Show when={subnav().length !== 0}>
           <div
+            use:createEventListener={['mouseenter', clearClose]}
+            use:createEventListener={['mouseleave', closeSubnav]}
             ref={subnavEl}
             class="absolute left-50 bg-gray-200 shadow-xl"
-            style={{ left: '605px' }}
+            style={{ left: `${subnavPosition()}px` }}
           >
             <ul class="px-2 py-3">
               <For each={subnav()}>
@@ -311,7 +326,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </div>
         </Show>
       </div>
-    </ NavContext.Provider>
+    </NavContext.Provider>
   );
 };
 
