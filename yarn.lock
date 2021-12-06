@@ -1031,6 +1031,16 @@
     "@solid-primitives/timer" "^0.0.106"
     solid-js "^1.0.3"
 
+"@solid-primitives/debounce@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/debounce/-/debounce-1.0.8.tgz#50bfab8fc54818f4a355238680c1df2882aa5d29"
+  integrity sha512-QrcQBEex7LUTCslgC1DtIF76f+MYlw8N9NGpvgeusDF9Gnd7JT0ugmOG4duB83Zvae+YDLV7mtawDRvz/uYLLQ==
+
+"@solid-primitives/event-listener@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/event-listener/-/event-listener-1.2.6.tgz#4efd118e2049780792f1c72c202166843fa5936e"
+  integrity sha512-RUHpEEi5Ld3YfDNjbhXrOvrcKoah7NN4KNeUH2Y029ec1gj4Be2B3jVCPx2iNGce8/DyUo5Jlg22MIO41d6ojg==
+
 "@solid-primitives/i18n@^1.0.7":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.7.tgz#d497e23c1a01aaec15cb6055d903123ecc01a75f"

@@ -5,7 +5,25 @@
   "nav": [
     {
       "title": "Get Started",
-      "path": "/guide"
+      "path": "/guide",
+      "children": [
+        {
+          "title": "Try Solid",
+          "path": "/guides/try-solid"
+        },
+        {
+          "title": "Testing Solid",
+          "path": "/guides/testing-solid"
+        },
+        {
+          "title": "Comparing other Libraries",
+          "path": "/guides/testing-solid"
+        },
+        {
+          "title": "Rendering",
+          "path": "/guides/rendering"
+        }
+      ]
     },
     {
       "title": "Docs",

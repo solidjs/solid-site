@@ -6,11 +6,18 @@ import {
   Show,
   onMount,
   on,
+  createContext,
+  createEffect,
   createComputed,
+  useContext,
+  Accessor,
+  Setter
 } from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import createEventListener from '@solid-primitives/event-listener';
+import createDebounce from '@solid-primitives/debounce';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
@@ -35,31 +42,46 @@ const langs = {
   tl: 'Filipino',
 };
 
-type MenuLinkProps = { path: string; external?: boolean; title: string };
+type MenuLinkProps = {
+  path: string;
+  external?: boolean;
+  title: string,
+  children: MenuLinkProps[]
+};
+
+export const NavContext = createContext<{
+  subnav: Accessor<MenuLinkProps[]>,
+  setSubnav: Setter<MenuLinkProps[]>,
+  closeSubnav: () => void;
+}>();
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
+  const { setSubnav, closeSubnav } = useContext(NavContext)!;
   let linkEl!: HTMLAnchorElement;
 
   onMount(() => {
-    // necessary in order for page loading bar to render in Safari
-    linkEl.addEventListener('mousedown', () => {
+    if (props.children) {
+      createEventListener(linkEl, 'mouseenter', () => {
+        setSubnav(props.children);
+      });
+      createEventListener(linkEl, 'mouseleave', () => closeSubnav());
+    }
+    createEventListener(linkEl, 'mousedown', () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
       reflow();
-
-      const onMouseLeave = () => {
+      const [, removeMouse] = createEventListener(linkEl, 'mouseleave', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
-      };
-      const onClick = () => {
+      });
+      const [, removeClick] = createEventListener(linkEl, 'click', () => {
+        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
-      };
+      });
       const removeEvents = () => {
-        linkEl.removeEventListener('mouseleave', onMouseLeave);
-        linkEl.removeEventListener('click', onClick);
+        removeMouse(linkEl);
+        removeClick(linkEl);
       };
-      linkEl.addEventListener('mouseleave', onMouseLeave);
-      linkEl.addEventListener('click', onClick);
     });
 
     if (!window.location.pathname.startsWith(props.path)) return;
@@ -133,12 +155,15 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
+  const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
+  const [closeSubnav, clearClose] = createDebounce(() => setSubnav([]), 500);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
   let langBtnDesktop!: HTMLButtonElement;
   let logoEl!: HTMLDivElement;
+  let subnavEl!: HTMLDivElement;
 
   const logoPosition = () =>
     t('global.dir', {}, 'ltr') === 'rtl' ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5';
@@ -186,9 +211,15 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       showPageLoadingBar: true,
     }));
   };
+  createEffect(() => {
+    if (subnavEl) {
+      createEventListener(subnavEl, 'mouseenter', clearClose);
+      createEventListener(subnavEl, 'mouseleave', close);
+    }
+  });
 
   return (
-    <>
+    <NavContext.Provider value={{ subnav, setSubnav, closeSubnav }}>
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
@@ -262,8 +293,25 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             </For>
           </div>
         </Dismiss>
+        <Show when={subnav().length !== 0}>
+          <div
+            ref={subnavEl}
+            class="absolute left-50 bg-gray-200 shadow-xl"
+            style={{ left: '605px' }}
+          >
+            <ul class="px-2 py-3">
+              <For each={subnav()}>
+                {(link) => (
+                  <li class="hover:text-solid-medium border-l-4 border-solid-light transition duration-300">
+                    <a class="px-5 py-3 w-full block" href={link.path}>{link.title}</a>
+                  </li>
+                )}
+              </For>
+            </ul>
+          </div>
+        </Show>
       </div>
-    </>
+    </ NavContext.Provider>
   );
 };
 
@@ -284,19 +332,18 @@ const onEnterLogo = (el: Element, isRTL: boolean) => {
   elements.forEach((el) => {
     el.style.transition = `transform ${logoTransition}ms`;
   });
-
-  logoEl.addEventListener(
-    'transitionend',
+  createEventListener(
+    logoEl,
+    'transitioned',
     (e) => {
       if (e.target !== e.currentTarget) return;
-
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';
         el.style.transformOrigin = '';
       });
     },
-    { once: true },
+    { once: true }
   );
 };
 
@@ -324,14 +371,13 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
     el.style.backfaceVisibility = 'hidden';
   });
 
-  logoEl.addEventListener(
+  createEventListener(
+    logoEl,
     'transitionend',
     (e) => {
       if (e.target !== e.currentTarget) return;
-
       navList.style.marginLeft = '';
       navList.style.marginRight = '';
-
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';
