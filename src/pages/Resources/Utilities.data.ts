@@ -958,6 +958,18 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.BuildUtilities],
     published_at: 1638514856000,
+  },,
+  {
+    link: 'https://github.com/git-ced/solid-plyr',
+    title: 'solid-plyr',
+    description: 'A simple HTML5, YouTube and Vimeo player (Plyr) for SolidJS.',
+    author: 'Prince Neil Cedrick Castro (git-ced)',
+    author_url: 'https://github.com/git-ced',
+    keywords: ['player', 'video', 'html5', 'youtube', 'vimeo'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins],
+    published_at: 1638915904000,
   },
 ];
 
