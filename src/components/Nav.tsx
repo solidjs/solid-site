@@ -12,7 +12,7 @@ import {
   useContext,
   Accessor,
   Setter,
-  batch
+  batch,
 } from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
@@ -44,31 +44,34 @@ const langs = {
 };
 
 type MenuLinkProps = {
+  title: string;
+  description: string;
   path: string;
   external?: boolean;
-  title: string,
-  children: MenuLinkProps[]
+  children: MenuLinkProps[];
 };
 
 export const NavContext = createContext<{
-  subnav: Accessor<MenuLinkProps[]>,
-  setSubnav: Setter<MenuLinkProps[]>,
-  closeSubnav: () => void,
-  subnavPosition: Accessor<number>
-  setSubnavPosition: Setter<number>
+  subnav: Accessor<MenuLinkProps[]>;
+  setSubnav: Setter<MenuLinkProps[]>;
+  closeSubnav: () => void;
+  clearSubnavClose: () => void;
+  subnavPosition: Accessor<number>;
+  setSubnavPosition: Setter<number>;
 }>();
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
-  const { setSubnav, closeSubnav, setSubnavPosition } = useContext(NavContext)!;
+  const { setSubnav, closeSubnav, clearSubnavClose, setSubnavPosition } = useContext(NavContext)!;
   let linkEl!: HTMLAnchorElement;
 
   onMount(() => {
     if (props.children) {
       createEventListener(linkEl, 'mouseenter', () => {
+        clearSubnavClose();
         batch(() => {
           setSubnav(props.children);
           setSubnavPosition(linkEl.getBoundingClientRect().left);
-        })
+        });
       });
       createEventListener(linkEl, 'mouseleave', () => closeSubnav());
     }
@@ -164,7 +167,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [closeSubnav, clearClose] = createDebounce(() => setSubnav([]), 350);
+  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -220,19 +223,22 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   };
   createEffect(() => {
     if (subnavEl) {
-      createEventListener(subnavEl, 'mouseenter', clearClose);
+      createEventListener(subnavEl, 'mouseenter', clearSubnavClose);
       createEventListener(subnavEl, 'mouseleave', close);
     }
   });
 
   return (
-    <NavContext.Provider value={{
-      subnav,
-      setSubnav,
-      closeSubnav,
-      subnavPosition,
-      setSubnavPosition
-    }}>
+    <NavContext.Provider
+      value={{
+        subnav,
+        setSubnav,
+        closeSubnav,
+        subnavPosition,
+        clearSubnavClose,
+        setSubnavPosition,
+      }}
+    >
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
@@ -308,17 +314,22 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
         <Show when={subnav().length !== 0}>
           <div
-            use:createEventListener={['mouseenter', clearClose]}
+            use:createEventListener={['mouseenter', clearSubnavClose]}
             use:createEventListener={['mouseleave', closeSubnav]}
             ref={subnavEl}
-            class="absolute left-50 bg-gray-200 shadow-xl"
+            class="absolute left-50 bg-gray-200 shadow-xl transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
           >
-            <ul class="px-2 py-3">
+            <ul class="px-5 py-4">
               <For each={subnav()}>
                 {(link) => (
-                  <li class="hover:text-solid-medium border-l-4 border-solid-light transition duration-300">
-                    <a class="px-5 py-3 w-full block" href={link.path}>{link.title}</a>
+                  <li class="hover:text-solid-medium transition duration-300">
+                    <a class="px-6 py-4 w-full block" href={link.path}>
+                      {link.title}
+                      <Show when={link.description}>
+                        <span class="block text-sm text-gray-400">{link.description}</span>
+                      </Show>
+                    </a>
                   </li>
                 )}
               </For>
@@ -358,7 +369,7 @@ const onEnterLogo = (el: Element, isRTL: boolean) => {
         el.style.transformOrigin = '';
       });
     },
-    { once: true }
+    { once: true },
   );
 };
 
