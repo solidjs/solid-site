@@ -312,6 +312,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1638576320000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=s_Fs4AXsTnA',
+    title: 'Micro-Frontends in Just 10 Minutes',
+    description:
+      'Take ten minutes to create three applications using Module Federation to create and share a Micro-Frontend between SolidJS and React..',
+    keywords: ['micro', 'front-end', 'react', 'module', 'federation'],
+    author: 'JSConf India',
+    author_url: 'https://www.jsconf.in/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1634192389000,
+  },
 ];
 
 export default videos;
