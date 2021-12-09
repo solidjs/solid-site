@@ -950,7 +950,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/orenelbaum/babel-plugin-solid-undestructure',
     title: 'babel-plugin-solid-undestructure',
-    description: 'This babel plugin allows you to destructure your props in your Solid components without losing reactivity.',
+    description:
+      'This babel plugin allows you to destructure your props in your Solid components without losing reactivity.',
     author: 'orenelbaum',
     author_url: 'https://github.com/orenelbaum',
     keywords: ['spread', 'props', 'babel', 'plugin'],
@@ -974,7 +975,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/aminya/solid-simple-table',
     title: 'solid-simple-table',
-    description: 'Solid SimpleTable is a blazing fast reactive table component that gives you freedom.',
+    description:
+      'Solid SimpleTable is a blazing fast reactive table component that gives you freedom.',
     author: 'Amin Yahyaabadi (aminya)',
     author_url: 'https://github.com/aminya',
     keywords: ['table', 'simple'],

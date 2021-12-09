@@ -16,8 +16,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/this-is-learning/javascript-framework-todomvc-size-comparison-504f',
     title: 'JavaScript Framework TodoMVC Size Comparison',
-    description:
-      'Size in JavaScript Frameworks is actually a pretty tricky thing to estimate.',
+    description: 'Size in JavaScript Frameworks is actually a pretty tricky thing to estimate.',
     author: 'Ryan Carniato',
     author_url: 'https://dev.to/ryansolid',
     keywords: ['bundles', 'scaling', 'size'],
@@ -754,8 +753,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://blog.logrocket.com/styling-solidjs-applications-using-tailwind-css/',
     title: 'Styling SolidJS applications using Tailwind CSS',
-    description:
-      'Learn about Tailwind CSS and SolidJS and how to use them together effecitvely.',
+    description: 'Learn about Tailwind CSS and SolidJS and how to use them together effecitvely.',
     author: 'Iniubong Obonguko',
     author_url: 'https://blog.logrocket.com/author/iniubongobonguko/',
     keywords: ['tailwind', 'ui', 'styling', 'ui'],
