@@ -740,16 +740,28 @@ const articles: Array<Resource> = [
     published_at: 1636730779000,
   },
   {
-    link: 'https://www.infoworld.com/article/3643331/hands-on-with-solidjs.html',
-    title: 'Hands-on with SolidJS',
+    link: 'https://dev.to/pabloabc/felte-an-extensible-form-library-for-solid-4cde?signin=true',
+    title: 'Felte: An extensible form library for Solid',
     description:
-      'Get a first-hand look at the simple and powerful approach to reactive front-end JavaScript that is fast making Solid a favorite.',
-    author: 'Matthew Tyson',
-    author_url: 'https://www.infoworld.com/author/Matthew-Tyson/',
-    keywords: ['started', 'solid', 'intro', 'growing'],
+      'Arguably one of the most common problems front-end developers need to solve is form handling. Discusses Felte + Solid',
+    author: 'Pablo Berganza',
+    author_url: 'https://dev.to/pabloabc',
+    keywords: ['forms', 'felte', 'form', 'input'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1638475200000,
+    published_at: 1639018743000,
+  },
+  {
+    link: 'https://blog.logrocket.com/styling-solidjs-applications-using-tailwind-css/',
+    title: 'Styling SolidJS applications using Tailwind CSS',
+    description:
+      'Learn about Tailwind CSS and SolidJS and how to use them together effecitvely.',
+    author: 'Iniubong Obonguko',
+    author_url: 'https://blog.logrocket.com/author/iniubongobonguko/',
+    keywords: ['tailwind', 'ui', 'styling', 'ui'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1639018743000,
   },
 ];
 
