@@ -958,7 +958,7 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.BuildUtilities],
     published_at: 1638514856000,
-  },,
+  },
   {
     link: 'https://github.com/git-ced/solid-plyr',
     title: 'solid-plyr',
@@ -970,6 +970,18 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins],
     published_at: 1638915904000,
+  },
+  {
+    link: 'https://github.com/aminya/solid-simple-table',
+    title: 'solid-simple-table',
+    description: 'Solid SimpleTable is a blazing fast reactive table component that gives you freedom.',
+    author: 'Amin Yahyaabadi (aminya)',
+    author_url: 'https://github.com/aminya',
+    keywords: ['table', 'simple'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1639091168000,
   },
 ];
 
