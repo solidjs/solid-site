@@ -1,5 +1,5 @@
-<p align="center">
-  <img width="75px" src="./src/assets/logo.png" alt="Solid logo">
+<p>
+  <img width="100%" src="https://github.com/solidjs/solid-docs/blob/main/banner.png" alt="Solid Docs">
 </p>
 
 # Solid Website
