@@ -35,7 +35,7 @@
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.2",
     "solid-refresh": "^0.2.2",
-    "solid-start": "^0.1.0-alpha.44",
+    "solid-start": "^0.1.0-alpha.45",
     "solid-transition-group": "^0.0.8"
   },
   "devDependencies": {
@@ -66,6 +66,6 @@
     "typescript": "^4.5.2",
     "vite": "^2.6.14",
     "vite-plugin-pwa": "^0.11.8",
-    "vite-plugin-solid": "^2.1.2"
+    "vite-plugin-solid": "^2.1.4"
   }
 }
