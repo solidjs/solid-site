@@ -285,7 +285,7 @@ const videos: Array<Resource> = [
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
     type: ResourceType.Video,
-    categories: [ResourceCategory.Educational, ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.Educational],
     published_at: 1636779600000,
   },
   {
@@ -299,6 +299,42 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1638507600000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Hdc5QqPfFH8&t=21s',
+    title: 'Streaming SolidJS - Concurrent Rendering without a Virtual DOM',
+    description:
+      "I'm no stranger to skeptics. But today I hope to lay to rest the myth that the VDOM is the only game in town.",
+    keywords: ['streaming', 'concurrent', 'rendering', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1637367008000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=WE5rIOX12gs',
+    title: 'Introduction to SolidJS - SolidJS vs ReactJS',
+    description:
+      'This video is a small introduction to Solid JS framework with a help of a small todo App.',
+    keywords: ['intro', 'react'],
+    author: 'dotJS',
+    author_url: 'https://www.youtube.com/channel/UCcSeQUrdrNObZqyqMD-913g',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1637810770000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=wre8TPir36s',
+    title: 'Reactive Primitives in Solid JS',
+    description:
+      'This video is about different SolidJS reactive primitives. How to use them in a an application.',
+    keywords: ['intro', 'primitives'],
+    author: 'dotJS',
+    author_url: 'https://www.youtube.com/channel/UCcSeQUrdrNObZqyqMD-913g',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational, ResourceCategory.Primitives],
+    published_at: 1637810770000,
   },
   {
     link: 'https://www.youtube.com/watch?v=Off4L7NJgA0&t=29534s',

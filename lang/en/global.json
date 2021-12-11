@@ -4,8 +4,30 @@
   "locale": "en-US",
   "nav": [
     {
-      "title": "Get Started",
-      "path": "/guide"
+      "title": "Guides",
+      "path": "/guide",
+      "children": [
+        {
+          "title": "Try Solid",
+          "description": "Get started with SolidJS in practice",
+          "path": "/guides/try-solid"
+        },
+        {
+          "title": "Testing Solid",
+          "description": "Setup a proper testing pattern",
+          "path": "/guides/testing-solid"
+        },
+        {
+          "title": "Comparing other Libraries",
+          "description": "Compare Solid to other popular libraries",
+          "path": "/guides/testing-solid"
+        },
+        {
+          "title": "Rendering",
+          "description": "A guide on rendering an application",
+          "path": "/guides/rendering"
+        }
+      ]
     },
     {
       "title": "Docs",
@@ -33,8 +55,20 @@
       "path": "/blog"
     },
     {
-      "title": "Media",
-      "path": "/media"
+      "title": "About",
+      "path": "/contributors",
+      "children": [
+        {
+          "title": "Contributors",
+          "description": "Solid team members and supporters",
+          "path": "/contributors"
+        },
+        {
+          "title": "Media",
+          "description": "Brand elements for media use",
+          "path": "/media"
+        }
+      ]
     }
   ],
   "404": {

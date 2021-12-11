@@ -252,6 +252,11 @@
     animation: move-down 200ms ease-out forwards;
   }
 }
+
+.doc-bg {
+  background: linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%);
+}
+
 /* END OF TOOLTIP STYLES */
 
 .reveal-delay {

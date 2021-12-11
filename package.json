@@ -22,6 +22,8 @@
     "@solid-primitives/clipboard": "^1.0.8",
     "@solid-primitives/cookies-store": "^1.1.11",
     "@solid-primitives/countdown": "^0.0.100",
+    "@solid-primitives/debounce": "^1.0.8",
+    "@solid-primitives/event-listener": "^1.2.6",
     "@solid-primitives/i18n": "^1.0.7",
     "@solid-primitives/intersection-observer": "^1.1.1",
     "@solid-primitives/throttle": "^1.0.7",
