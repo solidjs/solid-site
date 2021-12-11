@@ -17,7 +17,7 @@ interface RowData {
   score: number;
 }
 
-const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
+const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string }> = (props) => {
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
     props.rows
@@ -50,7 +50,9 @@ const Chart: Component<{ rows: Array<RowData>; scale: string }> = (props) => {
                       }}
                       style={{
                         width: row.width,
-                        transform: `translateX(${isVisible() ? '0%' : '-100%'})`,
+                        transform: `translateX(${
+                          isVisible() ? '0%' : props.direction === 'right' ? '-100%' : '100%'
+                        })`,
                       }}
                     >
                       {row.score ? (
@@ -88,17 +90,19 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
   const [t] = useI18n();
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
-  const chevron = createMemo(() =>
-    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right',
-  );
+  const direction = createMemo(() => (t('global.dir', {}, 'ltr') == 'rtl' ? 'left' : 'right'));
   return (
     <>
-      <Chart scale={props.list[current()].scale} rows={props.list[current()].data} />
+      <Chart
+        scale={props.list[current()].scale}
+        rows={props.list[current()].data}
+        direction={direction()}
+      />
       <Show
         when={expanded()}
         fallback={
           <button
-            class={`py-3 text-sm chevron button text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
+            class={`py-3 text-sm chevron button text-solid-default font-semibold hover:text-gray-500 chevron-${direction()}`}
             onClick={() => setExpanded(true)}
           >
             {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}
