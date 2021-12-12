@@ -38,7 +38,7 @@ const Sidebar: Component<{
   current: Accessor<string | null>;
   hash: string | undefined;
 }> = (props) => (
-  <ul class="pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
+  <ul class="lg:pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
     <For each={props.items}>
       {(firstLevel: Section) =>
         firstLevel.children?.length ? (
@@ -150,8 +150,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
   return (
     <div dir="ltr" class="doc-bg flex min-h-screen flex-auto relative">
       <Show when={data.doc}>
-        <div class="flex container relative">
-          <div class="w-3/12 bg-gray-100 rounded-br-lg relative">
+        <div class="flex container">
+          <div class="absolute left-0 h-full lg:static lg:w-3/12 bg-gray-100 rounded-br-lg">
             <button
               class={
                 'fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 ' +
@@ -167,21 +167,21 @@ const Docs: Component<{ hash?: string }> = (props) => {
             </button>
             <Dismiss
               show
-              class="col-span-4 lg:col-span-3 lg:sticky lg:top-[4rem]"
+              class="w-0 lg:w-auto lg:col-span-3 sticky top-[4rem]"
               menuButton={menuButton}
               open={toggleSections}
               setOpen={setToggleSections}
             >
               <div
                 class={
-                  'rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 ' +
-                  'dark:bg-solid-gray fixed left-0 top-14 lg:translate-x-0 lg:duration-0 transition-transform ' +
-                  'duration-300 max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
+                  'w-[85vw] rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 bg-white border-gray-100 ' +
+                  'dark:bg-solid-gray fixed left-0 top-14 lg:bg-transparent lg:translate-x-0 lg:duration-0 transition-transform ' +
+                  'duration-300 max-w-md lg:w-auto lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
                   'relative lg:flex'
                 }
                 classList={{
-                  '-translate-x-full': !toggleSections(),
-                  'translate-x-0': toggleSections(),
+                  '-translate-x-full shadow-none': !toggleSections(),
+                  'translate-x-0 shadow-2xl': toggleSections(),
                 }}
                 style={{ height: 'calc(100vh - 4rem)', top: 0 }}
               >
@@ -189,7 +189,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
               </div>
             </Dismiss>
           </div>
-          <div class="w-9/12 p-10 bg-white">
+          <div class="w-full lg:w-9/12 p-10 bg-white">
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={data.loading}>Loading documentation...</Match>
               <Match when={data.doc}>
@@ -208,7 +208,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
                   </div>
                 </Show>
                 <div
-                  class="prose dark:text-white px-8 prose-solid max-w-full"
+                  class="prose dark:text-white lg:px-8 prose-solid max-w-full"
                   innerHTML={data.doc.content}
                 />
               </Match>
