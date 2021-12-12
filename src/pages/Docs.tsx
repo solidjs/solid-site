@@ -148,7 +148,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   useRouteReadyState();
 
   return (
-    <div dir="ltr" class="doc-bg flex min-h-screen flex-auto relative">
+    <div dir="ltr" class="lg:bg-doc flex min-h-screen flex-auto relative">
       <Show when={data.doc}>
         <div class="flex container">
           <div class="absolute left-0 h-full lg:static lg:w-3/12 bg-gray-100 rounded-br-lg">

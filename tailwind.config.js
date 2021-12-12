@@ -80,6 +80,7 @@ module.exports = {
         'blocks-one': "url('/src/assets/shapes/blocks1.svg')",
         'blocks-two': "url('/src/assets/shapes/blocks2.svg')",
         'blocks-three': "url('/src/assets/shapes/blocks3.svg')",
+        doc: 'linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%)',
       }),
       container: {
         center: true,
