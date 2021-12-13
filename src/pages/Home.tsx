@@ -163,13 +163,18 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               {(copy: string) => <p class="mt-9 leading-7">{copy}</p>}
             </For>
              */}
-             <p class="mt-9 leading-7">
-              Solid provides an incredibly accessible developer experience. If you happen to know React, Vue or 
-              Svelte then you would find Solid's tooling and API refreshing and satisfying. It has no restrictive
-              hook rules, no virtual DOM and no radical and unfamiliar syntax to describe its templates.
+            <p class="mt-9 leading-7">
+              Solid provides an incredibly accessible developer experience. If you happen to know
+              React, Vue or Svelte then you would find Solid's tooling and API refreshing and
+              satisfying. It has no restrictive hook rules, no virtual DOM and no radical and
+              unfamiliar syntax to describe its templates.
             </p>
             <p class="mt-9 leading-7">
-              It stands on the shoulders of giants, particularly React and Knockout. If you've developed with React Hooks before, Solid should seem very natural. In fact, more natural as Solid's model is much simpler with no Hook rules. Every Component executes once and it is the Hooks and bindings that execute many times as their dependencies update.
+              It stands on the shoulders of giants, particularly React and Knockout. If you've
+              developed with React Hooks before, Solid should seem very natural. In fact, more
+              natural as Solid's model is much simpler with no Hook rules. Every Component executes
+              once and it is the Hooks and bindings that execute many times as their dependencies
+              update.
             </p>
             <Link
               class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
@@ -188,14 +193,15 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               Primitives <b>not</b> frameworks!
             </h2>
             <p class="mb-3 leading-7">
-              The world may not need another framework so we designed Solid with the most minimal yet efficient
-              reactive runtime and exposed it via extremely well designed yet simple building blocks. Think of it as reactive sugar between the DOM.
-              Four easy hooks (Primary Primitives) start you on modelling simple and complex apps. As your
-              needs grow leverage its extended Secondary Primitives let you do even more.
+              The world may not need another framework so we designed Solid with the most minimal
+              yet efficient reactive runtime and exposed it via extremely well designed yet simple
+              building blocks. Think of it as reactive sugar between the DOM. Four easy hooks
+              (Primary Primitives) start you on modelling simple and complex apps. As your needs
+              grow leverage its extended Secondary Primitives let you do even more.
             </p>
             <p class="leading-7">
-              No complex DSLs to learn, no Virtual DOM, no overstated or involved and tedious patterns...just
-              clean and concise JSX with full Typescript support.
+              No complex DSLs to learn, no Virtual DOM, no overstated or involved and tedious
+              patterns...just clean and concise JSX with full Typescript support.
             </p>
             <a
               class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
