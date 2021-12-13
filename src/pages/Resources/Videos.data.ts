@@ -348,7 +348,7 @@ const videos: Array<Resource> = [
     published_at: 1638521693000,
   },
   {
-    link: 'https://www.youtube.com/watch?v=CQm52h3Ukng',
+    link: 'https://www.youtube.com/watch?v=FB_kBYO_vIw',
     title: 'Compilation in JavaScript Frameworks',
     description: 'Ryan covers the topic of JavaScript compilers.',
     keywords: ['compilers', 'js', 'ryanstreams'],
@@ -357,7 +357,7 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1639126493000,
-  },  
+  },
 ];
 
 export default videos;
