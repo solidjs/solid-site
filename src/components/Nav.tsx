@@ -196,32 +196,32 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   });
   observer;
   const showLogo = createMemo(() => props.showLogo || !locked());
-  const navList = createMemo(on(() => [locale, t('global.nav')], () => {
-    return (t('global.nav') || [])
-      .reduce((memo: any, item: any) => {
-        let itm = { ...item };
-        // Inject guides if available
-        if (item.path == '/guide') {
-          const list = getSupported('guides', 'en');
-          if (Array.isArray(list)) {
-            itm.children = list.map(
-              (name: string) => ({
-                "title": name,
-                "description": "Get started with SolidJS in practice",
-                "path": `/guide/${name}`
-              })
-            )
-          };
-        }
-        // Ignore blog
-        if (itm.path !== '/blog') {
-          memo.push(itm);
-        }
-        return memo;
+  const navList = createMemo(
+    on(
+      () => [locale, t('global.nav')],
+      () => {
+        return (t('global.nav') || []).reduce((memo: any, item: any) => {
+          let itm = { ...item };
+          // Inject guides if available
+          if (item.path == '/guide') {
+            const list = getSupported('guides', 'en');
+            if (Array.isArray(list)) {
+              itm.children = list.map((name: string) => ({
+                title: name,
+                description: 'Get started with SolidJS in practice',
+                path: `/guide/${name}`,
+              }));
+            }
+          }
+          // Ignore blog
+          if (itm.path !== '/blog') {
+            memo.push(itm);
+          }
+          return memo;
+        }, []);
       },
-      []
-    )
-  }));
+    ),
+  );
 
   createComputed(
     on(

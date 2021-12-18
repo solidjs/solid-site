@@ -209,7 +209,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
                 </Show>
                 <div
                   class="prose dark:text-white lg:px-8 prose-solid max-w-full"
-                  innerHTML={data.doc.content}
+                  innerHTML={data.doc.html || data.doc.content}
                 />
               </Match>
             </Switch>

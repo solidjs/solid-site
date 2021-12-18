@@ -71,7 +71,7 @@ export const TutorialData: RouteDataFunc = (props) => {
   const [, { locale }] = useI18n();
   const paramList = () => {
     let lang = locale();
-    if (!getSupported("tutorials/introduction_basics", lang)) {
+    if (!getSupported('tutorials/introduction_basics', lang)) {
       lang = 'en';
     }
     return { lang, id: props.params.id || 'introduction_basics' };
