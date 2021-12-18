@@ -1,10 +1,8 @@
 import { useI18n } from '@solid-primitives/i18n';
 import { RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
-import { getTutorial, supportedTutorials, getTutorialDirectory } from '@solid.js/docs';
+import { getTutorial, getSupported, getTutorialDirectory } from '@solid.js/docs';
 import { LessonLookup } from '@solid.js/docs/dist/src/types';
-
-const supportedLanguages = supportedTutorials;
 
 export interface Step {
   md: string;
@@ -73,7 +71,7 @@ export const TutorialData: RouteDataFunc = (props) => {
   const [, { locale }] = useI18n();
   const paramList = () => {
     let lang = locale();
-    if (!supportedLanguages.includes(lang)) {
+    if (!getSupported("tutorials/introduction_basics", lang)) {
       lang = 'en';
     }
     return { lang, id: props.params.id || 'introduction_basics' };

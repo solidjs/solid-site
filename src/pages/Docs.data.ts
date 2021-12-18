@@ -1,7 +1,7 @@
 import { useParams, useLocation, RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
-import { getDoc, supportedDocs } from '@solid.js/docs';
+import { getDoc, getSupported } from '@solid.js/docs';
 
 export type DataParams = {
   version: string;
@@ -10,7 +10,6 @@ export type DataParams = {
 };
 
 const currentVersion = '1.0.0';
-const availableLangs = supportedDocs;
 
 function docFetcher({ lang, resource }: DataParams) {
   return getDoc(lang, resource);
@@ -27,7 +26,7 @@ export const DocsData: RouteDataFunc = () => {
     const resource = location.pathname.includes('/guide') ? 'guide' : 'api';
     return {
       version,
-      lang: availableLangs.includes(lang) ? lang : 'en',
+      lang: getSupported('api', lang) ? lang : 'en',
       resource,
     };
   };
@@ -35,7 +34,7 @@ export const DocsData: RouteDataFunc = () => {
   return {
     get langAvailable() {
       const lang = location.query.locale ? (location.query.locale as string) : locale();
-      return !availableLangs.includes(lang);
+      return !getSupported('api', lang);
     },
     get doc() {
       return doc();
