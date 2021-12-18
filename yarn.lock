@@ -1068,10 +1068,10 @@
   dependencies:
     solid-js "^1.0.3"
 
-"@solid.js/docs@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.6.tgz#60d88b39bab956b8572fe5c8e14b22513c16af9a"
-  integrity sha512-WLyA0wkYpJowcByxCzrdBychwCcIZpsG6ZvANT3QkAM0aZ/pKv9N73Vzc7xPiorHA30vXSTQ/jPW6SXsYftO2Q==
+"@solid.js/docs@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.7.tgz#77e6edd02982e86baff726de079d96742867242c"
+  integrity sha512-CfN24U+yl1N02PFIdFOf/nbGLrvq0xlZVOxh/k2DJAU6kKlbhBY1/gkcBWR6/wT8zn75c0OLrRct3BqObES2lQ==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
@@ -5319,10 +5319,10 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-solid-app-router@^0.1.11:
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.11.tgz#43228fda5325936f102d4a3a037e30a3ac289607"
-  integrity sha512-O0Gp2MhsqMJCDFzMNEH1rjpKFIFXO+0pX12AwTDYXQVnGwscbjD0ysAtyvjgXZAcj2udbYEL4uR5IgnJfI3YKw==
+solid-app-router@^0.1.14:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.1.14.tgz#2ffb1bfbb7db7d9d1cd81be5aec1eb786b961573"
+  integrity sha512-fnX+jCB5sDMbjq3od9qGtQNdlvHP2c6DG5STvMHVXyNuSEN+MdO7WJtZ58OpVpq6zWS4FYeYAh7NMEa7C2CcOA==
 
 solid-dismiss@^1.0.22:
   version "1.0.22"
@@ -5345,6 +5345,11 @@ solid-js@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.5.tgz#26175228ae562c95e92f476c73db744b6b36fc2c"
   integrity sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==
+
+solid-js@^1.3.0-beta.7:
+  version "1.3.0-beta.7"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.0-beta.7.tgz#cdac4dd5cb572e91d8f9eb79b3c9ece2d14882dd"
+  integrity sha512-3lF+RSDAxW62ERA5lVxNadDeeWBqlpy4Ze5Mlhn63hK8vKF75XWkIMwgD2OK2uFxWwOlRdVBAXdxRmEIJENajQ==
 
 solid-markdown@^1.1.0:
   version "1.1.0"

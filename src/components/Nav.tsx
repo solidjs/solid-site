@@ -14,6 +14,7 @@ import {
   Setter,
   batch,
 } from 'solid-js';
+import { getSupported } from '@solid.js/docs';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
@@ -195,6 +196,32 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   });
   observer;
   const showLogo = createMemo(() => props.showLogo || !locked());
+  const navList = createMemo(on(() => [locale, t('global.nav')], () => {
+    return (t('global.nav') || [])
+      .reduce((memo: any, item: any) => {
+        let itm = { ...item };
+        // Inject guides if available
+        if (item.path == '/guide') {
+          const list = getSupported('guides', 'en');
+          if (Array.isArray(list)) {
+            itm.children = list.map(
+              (name: string) => ({
+                "title": name,
+                "description": "Get started with SolidJS in practice",
+                "path": `/guide/${name}`
+              })
+            )
+          };
+        }
+        // Ignore blog
+        if (itm.path !== '/blog') {
+          memo.push(itm);
+        }
+        return memo;
+      },
+      []
+    )
+  }));
 
   createComputed(
     on(
@@ -266,13 +293,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               initShadowSize={true}
             >
               <ul class="relative flex items-center overflow-auto no-scrollbar">
-                {/* Temporarily hide the blog */}
-                <For
-                  each={(t('global.nav') || []).filter(
-                    (nav: { path: string }) => nav.path !== '/blog',
-                  )}
-                  children={MenuLink}
-                />
+                <For each={navList()} children={MenuLink} />
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>
