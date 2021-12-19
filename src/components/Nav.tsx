@@ -12,9 +12,9 @@ import {
   useContext,
   Accessor,
   Setter,
-  batch,
+  batch, Resource,
 } from 'solid-js';
-import { getSupported } from '@solid.js/docs';
+import { ResourceMetadata } from '@solid.js/docs';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
@@ -27,6 +27,7 @@ import Dismiss from 'solid-dismiss';
 import { reflow } from '../utils';
 import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
+import { useData } from 'solid-app-router';
 
 const langs = {
   en: 'English',
@@ -170,6 +171,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
+  const data = useData<{guides: ResourceMetadata[] | undefined}>();
+
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
   let langBtnDesktop!: HTMLButtonElement;
@@ -204,12 +207,11 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           let itm = { ...item };
           // Inject guides if available
           if (item.path == '/guide') {
-            const list = getSupported('guides', 'en');
-            if (Array.isArray(list)) {
-              itm.children = list.map((name: string) => ({
-                title: name,
-                description: 'Get started with SolidJS in practice',
-                path: `/guide/${name}`,
+            if (data.guides?.length) {
+              itm.children = data.guides.map( ({title, description, resource}) => ({
+                title,
+                description,
+                path: `/${resource}`
               }));
             }
           }

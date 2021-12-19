@@ -1069,9 +1069,9 @@
     solid-js "^1.0.3"
 
 "@solid.js/docs@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.7.tgz#77e6edd02982e86baff726de079d96742867242c"
-  integrity sha512-CfN24U+yl1N02PFIdFOf/nbGLrvq0xlZVOxh/k2DJAU6kKlbhBY1/gkcBWR6/wT8zn75c0OLrRct3BqObES2lQ==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.9.tgz#32a4ae7fedfe5c02e19f9eb4456df65c708904c8"
+  integrity sha512-U5y+9gF/Xu5dNtAZ1W7FiuYjowgN1az1LdKV4BoPZDSxJfhejG18FLnDM9Lxs78Dm6YChmdmtjUAx6+nP9UApg==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
