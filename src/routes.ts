@@ -19,12 +19,12 @@ export const routes: RouteDefinition[] = [
     }),
   },
   {
-    path: '/guide/:id',
+    path: '/guides/:id',
     component: lazy(() => import('./pages/Docs')),
     data: GuideData,
   },
   {
-    path: '/guide',
+    path: '/guides',
     component: lazy(() => import('./pages/Docs')),
     data: GuideData,
   },
