@@ -1068,10 +1068,10 @@
   dependencies:
     solid-js "^1.0.3"
 
-"@solid.js/docs@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.10.tgz#26f22583a414a6184decf2838388adec9bc954cc"
-  integrity sha512-rdeiYP1blrKA9pqSa+zxpwWdmk7Vm8pdXd/oRg4xlmXJCC6AQOgWigWZK8i48n3JuK90/vtUdgakgWoiEwfksA==
+"@solid.js/docs@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.11.tgz#945f07395497df31f8223955047c6b6c36725595"
+  integrity sha512-8YrMg/nK2hVCkqhIqhd4JCzPjoN5/MMKVqvXle9tn61DxZRQUT6OTM3TGi1sjB/uPZRBjQf+Jvy513+V0gjEzw==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"

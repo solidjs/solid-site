@@ -204,7 +204,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         return (t('global.nav') || []).reduce((memo: any, item: any) => {
           let itm = { ...item };
           // Inject guides if available
-          if (item.path == '/guide') {
+          if (item.path == '/guides') {
             if (data.guides?.length) {
               itm.children = data.guides.map( ({title, description, resource}) => ({
                 title,
