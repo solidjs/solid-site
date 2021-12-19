@@ -37,7 +37,7 @@
       "path": "/contributors",
       "children": [
         {
-          "title": "Contributors",
+          "title": "Team & Contributions",
           "description": "Solid team members and supporters",
           "path": "/contributors"
         },
@@ -45,6 +45,11 @@
           "title": "Media",
           "description": "Brand elements for media use",
           "path": "/media"
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Support us with a donation and help us continue our activities",
+          "path": "https://opencollective.com/solid"
         }
       ]
     }
