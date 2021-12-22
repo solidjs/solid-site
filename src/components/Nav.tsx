@@ -12,7 +12,7 @@ import {
   useContext,
   Accessor,
   Setter,
-  batch, Resource,
+  batch,
 } from 'solid-js';
 import { ResourceMetadata } from '@solid.js/docs';
 import { Link, NavLink } from 'solid-app-router';
@@ -106,10 +106,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
       window.scrollTo({ top: 0 });
       return;
     }
-
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
-
     reflow();
     setRouteReadyState((prev) => ({
       ...prev,
@@ -206,7 +204,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         return (t('global.nav') || []).reduce((memo: any, item: any) => {
           let itm = { ...item };
           // Inject guides if available
-          if (item.path == '/guide') {
+          if (item.path == '/guides') {
             if (data.guides?.length) {
               itm.children = data.guides.map( ({title, description, resource}) => ({
                 title,
@@ -340,19 +338,23 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             use:createEventListener={['mouseenter', clearSubnavClose]}
             use:createEventListener={['mouseleave', closeSubnav]}
             ref={subnavEl}
-            class="absolute left-50 bg-gray-200 shadow-xl transition duration-750"
+            class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
           >
-            <ul class="px-5 py-4">
+            <ul class="divide-x flex flex-col">
               <For each={subnav()}>
                 {(link) => (
-                  <li class="hover:text-solid-medium transition duration-300">
-                    <a class="px-6 py-4 w-full block" href={link.path}>
+                  <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300">
+                    <NavLink
+                      onClick={() => setSubnav([])}
+                      class="px-6 py-5 w-full block"
+                      href={link.path}
+                    >
                       {link.title}
                       <Show when={link.description}>
                         <span class="block text-sm text-gray-400">{link.description}</span>
                       </Show>
-                    </a>
+                    </NavLink>
                   </li>
                 )}
               </For>

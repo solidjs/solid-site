@@ -19,13 +19,13 @@ export const routes: RouteDefinition[] = [
     }),
   },
   {
-    path: '/guide/:id',
+    path: '/guides/:id',
     component: lazy(() => import('./pages/Docs')),
     data: GuideData,
   },
   {
-    path: '/guide',
-    component: lazy(() => import('./pages/Docs')),
+    path: '/guides',
+    component: () => Navigate({ href: '/guides/getting-started' }),
     data: GuideData,
   },
   {
