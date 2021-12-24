@@ -66,8 +66,8 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021/12/02, 9:00pm',
-                  version: '1.2.5',
+                  date: '2021/12/24, 9:00pm',
+                  version: '1.3.0',
                 })}
               </p>
               {/* <button class="flex text-gray-600" onClick={() => data.isDark = !!data.isDark}>
