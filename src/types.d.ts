@@ -35,6 +35,8 @@ interface Release {
   body: string;
 }
 
+type MDXComponent = Component<{ components: any }>;
+
 type BlogInfo = {
   id?: string;
   img: string;
@@ -43,7 +45,7 @@ type BlogInfo = {
   author: string;
   author_url: string;
   date: number;
-  body: () => Promise<any>;
+  body: MDXComponent;
 };
 
 interface DocumentationRelease {
