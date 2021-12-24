@@ -41,12 +41,12 @@ const Sidebar: Component<{
   <ul class="lg:pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
     <For each={props.items}>
       {(firstLevel: Section) =>
-        firstLevel.children?.length ? (
+        (
           <SectionButton
             title={firstLevel.title}
             class={
               `text-left w-full dark:text-white border-b border-gray-300 hover:text-gray-400 transition ` +
-              `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-4 mb-8`
+              `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
             }
             classList={{
               'font-semibold text-solid-medium': props.current() == firstLevel.slug,
@@ -55,13 +55,14 @@ const Sidebar: Component<{
           >
             <ul>
               <For each={firstLevel.children!}>
-                {(secondLevel) => (
+                {(secondLevel, index) => (
                   <SectionButton
                     title={secondLevel.title}
                     class="block pl-2 text-gray-500 py-1 text-md font-semibold my-2 break-words"
                     classList={{
                       'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
                       'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                      'pb-2': index() == firstLevel.children!.length - 1,
                     }}
                     href={`#${secondLevel.slug}`}
                   >
@@ -88,20 +89,6 @@ const Sidebar: Component<{
               </For>
             </ul>
           </SectionButton>
-        ) : (
-          <SectionButton
-            class={
-              `text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400` +
-              `transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4`
-            }
-            classList={{
-              'font-semibold': props.current() == firstLevel.slug,
-              'text-solid hover:text-solid-dark': `#${firstLevel.slug}` === props.hash,
-              'hover:text-gray-400': `#${firstLevel.slug}` !== props.hash,
-            }}
-            href={`#${firstLevel.slug}`}
-            title={firstLevel.title}
-          />
         )
       }
     </For>
@@ -114,18 +101,25 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const [toggleSections, setToggleSections] = createSignal(false);
   const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
 
+  const sections = () => {
+    if (data.doc.sections.length == 1) {
+      return data.doc.sections[0].children;
+    }
+    return data.doc.sections;
+  }
+
   // Determine the section based on title positions
   const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {
     if (entry.intersectionRatio == 0) {
       return;
     }
-    let prev = data.doc.sections[0];
-    for (let i in data.doc.sections) {
-      const el = document.getElementById(data.doc.sections[i].slug)!;
+    let prev = sections()[0];
+    for (let i in sections()) {
+      const el = document.getElementById(sections()[i].slug)!;
       if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
         break;
       }
-      prev = data.doc.sections[i];
+      prev = sections()[i];
     }
     setCurrent(prev.slug);
   }, 75);
@@ -134,7 +128,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   // Upon loading finish bind observers
   createEffect(() => {
     if (!data.loading) {
-      data.doc.sections.forEach((section) => {
+      sections().forEach((section) => {
         observeInteraction(document.getElementById(section.slug)!, determineSection);
       });
       if (globalThis.location.hash !== '') {
@@ -185,7 +179,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
                 }}
                 style={{ height: 'calc(100vh - 4rem)', top: 0 }}
               >
-                <Sidebar items={data.doc.sections} current={current} hash={props.hash} />
+                <Sidebar items={sections()} current={current} hash={props.hash} />
               </div>
             </Dismiss>
           </div>
