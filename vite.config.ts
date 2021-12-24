@@ -65,9 +65,7 @@ export default defineConfig({
   plugins: [
     mdx({
       jsxImportSource: 'solid-jsx',
-      remarkPlugins: [
-        remarkGfm
-      ]
+      remarkPlugins: [remarkGfm],
     }),
     solid(),
     VitePWA(pwaOptions),

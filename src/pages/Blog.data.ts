@@ -1,6 +1,6 @@
 import { RouteDataFunc } from 'solid-app-router';
 
-export const list = {
+export const list: { [key: string]: BlogInfo } = {
   'state-of-solid-september-2021': {
     img: '/img/blog/state-of-solid-september-2021/header.png',
     title: 'The State of Solid: September 2021',
