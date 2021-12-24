@@ -24,13 +24,13 @@ const Twitter: Component<{ id: string }> = (props) => {
   return <div ref={divRef} class="text-center p-4" />;
 };
 
-const YouTube: Component<{ src: string }> = (props) => {
+const YouTube: Component<{ id: string }> = (props) => {
   return (
     <iframe
-      class="mx-auto"
+      class="mx-auto my-5"
       width="560"
       height="315"
-      src={props.src}
+      src={`https://www.youtube.com/embed/${props.id}`}
       frame-border="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
