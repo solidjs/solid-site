@@ -196,10 +196,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   observer;
+  // createEffect(() => {
+  //   console.log(data);
+  //   console.log(data.guides);
+  // })
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo(
     on(
-      () => [locale, t('global.nav')],
+      () => [locale, t('global.nav'), data.guides],
       () => {
         return (t('global.nav') || []).reduce((memo: any, item: any) => {
           let itm = { ...item };
