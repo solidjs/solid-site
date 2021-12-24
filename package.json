@@ -33,6 +33,7 @@
     "fuse.js": "^6.4.6",
     "monaco-editor": "^0.30.1",
     "remark-gfm": "^3.0.1",
+    "remark-oembed": "^1.2.2",
     "scroll-behavior-polyfill": "^2.0.13",
     "solid-app-router": "^0.1.14",
     "solid-dismiss": "^1.0.22",

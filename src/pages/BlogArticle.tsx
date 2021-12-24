@@ -5,15 +5,18 @@ import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 
+type VideoProps = {
+  embedId: string;
+}
+
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
   const data = useData<{
-    article: string;
     loading: boolean;
     slug: string;
     details: BlogInfo;
     archive: boolean;
-    body: Component;
+    article: Component;
     articles: { [id: string]: BlogInfo };
   }>();
   useRouteReadyState();
@@ -42,7 +45,9 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <Dynamic component={data.body} />
+                  <Dynamic
+                    component={data.article}
+                  />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">
