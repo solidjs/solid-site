@@ -29,13 +29,14 @@
       "external": true
     },
     {
-      "title": "Blog",
-      "path": "/blog"
-    },
-    {
       "title": "About",
       "path": "/contributors",
       "children": [
+        {
+          "title": "Blog",
+          "description": "News and updates from our community",
+          "path": "/blog"
+        },
         {
           "title": "Team & Contributions",
           "description": "Solid team members and supporters",

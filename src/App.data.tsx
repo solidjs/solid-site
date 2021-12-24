@@ -2,7 +2,7 @@ import { createEffect, createResource } from 'solid-js';
 import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
-import { getGuides} from '@solid.js/docs';
+import { getGuides } from '@solid.js/docs';
 
 const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
@@ -54,7 +54,7 @@ export const AppData: RouteDataFunc = (props) => {
     return { locale, page };
   };
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
-  const [guidesList] = createResource(params, ({locale }) => getGuides(locale));
+  const [guidesList] = createResource(params, ({ locale }) => getGuides(locale));
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {

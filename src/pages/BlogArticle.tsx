@@ -1,8 +1,8 @@
 import { Component, Show, createMemo } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import SolidMarkdown from 'solid-markdown';
 import { BlogInfo } from './Blog.data';
 import Footer from '../components/Footer';
 
@@ -11,8 +11,10 @@ export const BlogArticle: Component = () => {
   const data = useData<{
     article: string;
     loading: boolean;
+    slug: string;
     details: BlogInfo;
     archive: boolean;
+    body: Component;
     articles: { [id: string]: BlogInfo };
   }>();
   useRouteReadyState();
@@ -41,7 +43,7 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <SolidMarkdown children={data.article} />
+                  <Dynamic component={data.body} />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">

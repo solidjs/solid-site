@@ -169,7 +169,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
-  const data = useData<{guides: ResourceMetadata[] | undefined}>();
+  const data = useData<{ guides: ResourceMetadata[] | undefined }>();
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -206,17 +206,17 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           // Inject guides if available
           if (item.path == '/guides') {
             if (data.guides?.length) {
-              itm.children = data.guides.map( ({title, description, resource}) => ({
+              itm.children = data.guides.map(({ title, description, resource }) => ({
                 title,
                 description,
-                path: `/${resource}`
+                path: `/${resource}`,
               }));
             }
           }
           // Ignore blog
-          if (itm.path !== '/blog') {
-            memo.push(itm);
-          }
+          // if (itm.path !== '/blog') {
+          memo.push(itm);
+          // }
           return memo;
         }, []);
       },

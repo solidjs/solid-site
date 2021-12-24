@@ -2,11 +2,15 @@ import { createResource } from 'solid-js';
 import { RouteDataFunc } from 'solid-app-router';
 import { list } from './Blog.data';
 
-const fetchBlogMarkdown = async (slug: string) => (await fetch(`/articles/${slug}.md`)).text();
-
 export const BlogArticleData: RouteDataFunc = (props) => {
-  const [article] = createResource(() => props.params.slug, fetchBlogMarkdown);
+  const [article] = createResource(async () => {
+    const val = await list[props.params.slug].body();
+    return val.default;
+  });
   return {
+    get slug() {
+      return props.params.slug;
+    },
     get loading() {
       return article.loading;
     },
