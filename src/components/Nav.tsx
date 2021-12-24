@@ -213,10 +213,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               }));
             }
           }
-          // Ignore blog
-          // if (itm.path !== '/blog') {
           memo.push(itm);
-          // }
           return memo;
         }, []);
       },

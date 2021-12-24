@@ -3,7 +3,6 @@ import { Dynamic } from 'solid-js/web';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import { BlogInfo } from './Blog.data';
 import Footer from '../components/Footer';
 
 export const BlogArticle: Component = () => {
@@ -37,7 +36,7 @@ export const BlogArticle: Component = () => {
                     {data.details.title}
                   </h1>
                   <div class="text-md">
-                    Posted by <a href="https://github.com/davedbase">{data.details.author}</a> on{' '}
+                    Posted by <a href={data.details.author_url}>{data.details.author}</a> on{' '}
                     {new Date(data.details.date).toDateString()}
                   </div>
                 </div>

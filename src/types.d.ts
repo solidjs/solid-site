@@ -35,6 +35,17 @@ interface Release {
   body: string;
 }
 
+type BlogInfo = {
+  id?: string;
+  img: string;
+  title: string;
+  description: string;
+  author: string;
+  author_url: string;
+  date: number;
+  body: () => Promise<any>;
+};
+
 interface DocumentationRelease {
   version: string;
   isLatest: boolean;

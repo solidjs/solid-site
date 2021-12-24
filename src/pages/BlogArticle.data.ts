@@ -1,6 +1,6 @@
 import { createResource } from 'solid-js';
 import { RouteDataFunc } from 'solid-app-router';
-import { list } from './Blog.data';
+import { list } from './Articles/articles';
 
 export const BlogArticleData: RouteDataFunc = (props) => {
   const [article] = createResource(async () => {
