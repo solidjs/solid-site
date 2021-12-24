@@ -29,7 +29,7 @@
     "@solid-primitives/i18n": "^1.0.7",
     "@solid-primitives/intersection-observer": "^1.1.1",
     "@solid-primitives/throttle": "^1.0.7",
-    "@solid.js/docs": "^1.0.11",
+    "@solid.js/docs": "^1.0.12",
     "fuse.js": "^6.4.6",
     "monaco-editor": "^0.30.1",
     "remark-gfm": "^3.0.1",
