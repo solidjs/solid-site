@@ -9,7 +9,7 @@ export const list = {
     author: 'Ryan Carniato',
     author_url: 'https://www.github.com/ryansolid',
     date: 1632960565000,
-    body: async () => await import('./Articles/state-of-solid-september-2021.md'),
+    body: async () => await import('./Articles/state-of-solid-september-2021.mdx'),
   },
   'welcome-to-the-solid-blog': {
     img: '/img/blog/welcome-to-the-solid-blog/header.png',
@@ -19,7 +19,7 @@ export const list = {
     author: 'David Di Biase',
     author_url: 'https://www.github.com/davedbase',
     date: 1635797366000,
-    body: async () => await import('./Articles/state-of-solid-september-2021.md'),
+    body: async () => await import('./Articles/state-of-solid-september-2021.mdx'),
   },
 };
 

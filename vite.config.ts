@@ -5,6 +5,7 @@ import manifest from './src/assets/manifest.json';
 import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
 import remarkOembed from 'remark-oembed';
+import remarkHtml from 'remark-html';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
@@ -65,8 +66,7 @@ export default defineConfig({
     mdx({
       jsxImportSource: 'solid-jsx',
       remarkPlugins: [
-        remarkGfm,
-        remarkOembed
+        remarkGfm
       ]
     }),
     solid(),

@@ -1,13 +1,42 @@
-import { Component, Show, createMemo } from 'solid-js';
-import { Dynamic } from 'solid-js/web';
+import { Component, Show, createMemo, onMount } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { createScriptLoader } from '@solid-primitives/script-loader';
 import Footer from '../components/Footer';
 
-type VideoProps = {
-  embedId: string;
-}
+const Twitter: Component<{ id: string }> = (props) => {
+  let divRef: HTMLDivElement;
+  const displayTweet = () => {
+    window.twttr.widgets.createTweet(props.id, divRef, { align: 'center',  });
+  };
+  onMount(() => {
+    if (! window.twttr) {
+      console.log('loading');
+      createScriptLoader({
+        src: 'https://platform.twitter.com/widgets.js',
+        onload: displayTweet
+      });
+    } else {
+      displayTweet();
+    }
+  })
+  return <div ref={divRef} class="text-center p-4" />;
+};
+
+const YouTube: Component<{ src: string }> = (props) => {
+  return (
+    <iframe
+      class="mx-auto"
+      width="560"
+      height="315"
+      src={props.src}
+      frame-border="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
+  );
+};
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
@@ -39,14 +68,24 @@ export const BlogArticle: Component = () => {
                     {data.details.title}
                   </h1>
                   <div class="text-md">
-                    Posted by <a href={data.details.author_url}>{data.details.author}</a> on{' '}
+                    Posted by{' '}
+                    <a
+                      target="_blank"
+                      rel="noopener"
+                      href={data.details.author_url}
+                      >
+                        {data.details.author}
+                    </a> on{' '}
                     {new Date(data.details.date).toDateString()}
                   </div>
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <Dynamic
-                    component={data.article}
+                  <data.article
+                    components={{
+                      Twitter,
+                      YouTube
+                    }}
                   />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
