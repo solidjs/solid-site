@@ -14,6 +14,15 @@ interface DocData {
   };
 }
 
+type NavContextType = {
+  subnav: Accessor<MenuLinkProps[]>;
+  setSubnav: Setter<MenuLinkProps[]>;
+  closeSubnav: () => void;
+  clearSubnavClose: () => void;
+  subnavPosition: Accessor<number>;
+  setSubnavPosition: Setter<number>;
+}
+
 interface Release {
   url: string;
   assets_url: string;

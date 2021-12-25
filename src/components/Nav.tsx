@@ -9,8 +9,6 @@ import {
   createContext,
   createComputed,
   useContext,
-  Accessor,
-  Setter,
   batch,
 } from 'solid-js';
 import { useData } from 'solid-app-router';
@@ -52,14 +50,7 @@ type MenuLinkProps = {
   children: MenuLinkProps[];
 };
 
-export const NavContext = createContext<{
-  subnav: Accessor<MenuLinkProps[]>;
-  setSubnav: Setter<MenuLinkProps[]>;
-  closeSubnav: () => void;
-  clearSubnavClose: () => void;
-  subnavPosition: Accessor<number>;
-  setSubnavPosition: Setter<number>;
-}>();
+export const NavContext = createContext<NavContextType>();
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
   const { setSubnav, closeSubnav, clearSubnavClose, setSubnavPosition } = useContext(NavContext)!;
@@ -67,7 +58,6 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
 
   onMount(() => {
     if (props.children) {
-      console.log('LOAD')
       createEventListener(linkEl, 'mouseenter', () => {
         clearSubnavClose();
         batch(() => {
@@ -94,7 +84,6 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         clearClick();
       };
     });
-
     if (!window.location.pathname.startsWith(props.path)) return;
 
     // @ts-ignore
@@ -170,6 +159,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
   const data = useData<{ guides: ResourceMetadata[] | undefined }>();
+  eventListenerMap;
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -196,7 +186,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   observer;
-  eventListenerMap;
+  
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo(
     on(

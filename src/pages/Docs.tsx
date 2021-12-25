@@ -111,15 +111,16 @@ const Docs: Component<{ hash?: string }> = (props) => {
   // Determine the section based on title positions
   const [determineSection] = createThrottle((position: number) => {
     let prev = sections()![0];
+    const pos = position + 500;
     for (let i in sections()) {
       const el = document.getElementById(sections()![i].slug)!;
-      if (position < el.getBoundingClientRect().top) {
+      if (pos < (el.offsetTop + el.clientHeight)) {
         break;
       }
       prev = sections()![i];
     }
     setCurrent(prev.slug);
-  }, 100);
+  }, 250);
   let menuButton!: HTMLButtonElement;
 
   createEffect(() => determineSection(scrollPosition() || 0));
