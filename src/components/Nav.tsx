@@ -7,27 +7,26 @@ import {
   onMount,
   on,
   createContext,
-  createEffect,
   createComputed,
   useContext,
   Accessor,
   Setter,
   batch,
 } from 'solid-js';
-import { ResourceMetadata } from '@solid.js/docs';
+import { useData } from 'solid-app-router';
 import { Link, NavLink } from 'solid-app-router';
+import { ResourceMetadata } from '@solid.js/docs';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
-import createEventListener from '@solid-primitives/event-listener';
+import { createEventListener, eventListenerMap } from '@solid-primitives/event-listener';
 import createDebounce from '@solid-primitives/debounce';
+import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
-import Dismiss from 'solid-dismiss';
 import { reflow } from '../utils';
 import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
-import { useData } from 'solid-app-router';
 
 const langs = {
   en: 'English',
@@ -68,6 +67,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
 
   onMount(() => {
     if (props.children) {
+      console.log('LOAD')
       createEventListener(linkEl, 'mouseenter', () => {
         clearSubnavClose();
         batch(() => {
@@ -81,17 +81,17 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
       reflow();
-      const [, removeMouse] = createEventListener(linkEl, 'mouseleave', () => {
+      const clearLeave = createEventListener(linkEl, 'mouseleave', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
       });
-      const [, removeClick] = createEventListener(linkEl, 'click', () => {
+      const clearClick = createEventListener(linkEl, 'click', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
       });
       const removeEvents = () => {
-        removeMouse(linkEl);
-        removeClick(linkEl);
+        clearLeave();
+        clearClick();
       };
     });
 
@@ -196,10 +196,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   observer;
-  // createEffect(() => {
-  //   console.log(data);
-  //   console.log(data.guides);
-  // })
+  eventListenerMap;
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo(
     on(
@@ -249,12 +246,6 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       showPageLoadingBar: true,
     }));
   };
-  createEffect(() => {
-    if (subnavEl) {
-      createEventListener(subnavEl, 'mouseenter', clearSubnavClose);
-      createEventListener(subnavEl, 'mouseleave', close);
-    }
-  });
 
   return (
     <NavContext.Provider
@@ -336,8 +327,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
         <Show when={subnav().length !== 0}>
           <div
-            use:createEventListener={['mouseenter', clearSubnavClose]}
-            use:createEventListener={['mouseleave', closeSubnav]}
+            use:eventListenerMap={{
+              mouseenter: clearSubnavClose,
+              mouseleave: closeSubnav
+            }}
             ref={subnavEl}
             class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}

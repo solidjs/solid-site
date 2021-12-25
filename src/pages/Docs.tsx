@@ -9,10 +9,10 @@ import {
   Accessor,
 } from 'solid-js';
 import { useData } from 'solid-app-router';
-import { chevronRight } from 'solid-heroicons/solid';
-import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import { Icon } from 'solid-heroicons';
 import createThrottle from '@solid-primitives/throttle';
+import createScrollPosition from '@solid-primitives/scroll';
+import { chevronRight } from 'solid-heroicons/solid';
+import { Icon } from 'solid-heroicons';
 import Dismiss from 'solid-dismiss';
 
 import Footer from '../components/Footer';
@@ -34,7 +34,7 @@ const SectionButton: Component<{
 );
 
 const Sidebar: Component<{
-  items: Section[];
+  items: Section[] | undefined;
   current: Accessor<string | null>;
   hash: string | undefined;
 }> = (props) => (
@@ -45,7 +45,7 @@ const Sidebar: Component<{
           <SectionButton
             title={firstLevel.title}
             class={
-              `text-left w-full dark:text-white border-b border-gray-300 hover:text-gray-400 transition ` +
+              `text-left w-full dark:text-white border-b border-gray-200 hover:text-gray-400 transition ` +
               `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
             }
             classList={{
@@ -99,7 +99,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const data = useData<DocData>();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [toggleSections, setToggleSections] = createSignal(false);
-  const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
+  const scrollPosition = createScrollPosition();
 
   const sections = () => {
     if (data.doc.sections.length == 1) {
@@ -109,31 +109,26 @@ const Docs: Component<{ hash?: string }> = (props) => {
   }
 
   // Determine the section based on title positions
-  const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {
-    if (entry.intersectionRatio == 0) {
-      return;
-    }
-    let prev = sections()[0];
+  const [determineSection] = createThrottle((position: number) => {
+    let prev = sections()![0];
     for (let i in sections()) {
-      const el = document.getElementById(sections()[i].slug)!;
-      if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
+      const el = document.getElementById(sections()![i].slug)!;
+      if (position < el.getBoundingClientRect().top) {
         break;
       }
-      prev = sections()[i];
+      prev = sections()![i];
     }
     setCurrent(prev.slug);
-  }, 75);
+  }, 100);
   let menuButton!: HTMLButtonElement;
+
+  createEffect(() => determineSection(scrollPosition() || 0));
 
   // Upon loading finish bind observers
   createEffect(() => {
     if (!data.loading) {
-      sections().forEach((section) => {
-        observeInteraction(document.getElementById(section.slug)!, determineSection);
-      });
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
-
         anchor && anchor!.scrollIntoView(true);
       }
     }

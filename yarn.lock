@@ -1075,20 +1075,17 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/debounce/-/debounce-1.0.8.tgz#50bfab8fc54818f4a355238680c1df2882aa5d29"
   integrity sha512-QrcQBEex7LUTCslgC1DtIF76f+MYlw8N9NGpvgeusDF9Gnd7JT0ugmOG4duB83Zvae+YDLV7mtawDRvz/uYLLQ==
 
-"@solid-primitives/event-listener@^1.2.6":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/event-listener/-/event-listener-1.2.6.tgz#4efd118e2049780792f1c72c202166843fa5936e"
-  integrity sha512-RUHpEEi5Ld3YfDNjbhXrOvrcKoah7NN4KNeUH2Y029ec1gj4Be2B3jVCPx2iNGce8/DyUo5Jlg22MIO41d6ojg==
+"@solid-primitives/event-listener@^1.3.8":
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/event-listener/-/event-listener-1.3.8.tgz#a95e950d8be59f2de0244d1d52810f066855eb3f"
+  integrity sha512-XxxCIcSvuIFKulpPl6mojET+xBEuaxMAfRYImJF7ESfUlaTG0XNSfDa/b8Inm/KtwFOcspzcEnsY72a+CmSa2g==
+  dependencies:
+    "@solid-primitives/utils" "^0.0.260"
 
 "@solid-primitives/i18n@^1.0.8":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.8.tgz#aa030a91177b5d1af16c3d2656e9788b79db3f08"
   integrity sha512-MK5eiPJo7LnPB0bAXk7mFTqy5PNO55wqs8qj0d0gIc+v2ks3d+yt/oYJPM3lJrJF9Vgm5KURlfXlJGAQ3SK+cA==
-
-"@solid-primitives/intersection-observer@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.1.tgz#6b8203e19abc6bcd28a5fdbb1907ee1dbd388476"
-  integrity sha512-vrje+ssxJAwbkTqqAX43FoTvHCiT0BMYx/n1msWyPI+FYu5b4u+rq1mJZn+2wCYizJuSsr7nbs2H4SaTqiWALg==
 
 "@solid-primitives/intersection-observer@^1.2.0":
   version "1.2.0"
@@ -1102,12 +1099,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-1.1.4.tgz#426214b9ca4b97050df57f6e04c42694f4e041aa"
   integrity sha512-sjje0IdTNZ4bKN9c16Rw03QOAbgkk2UVYcqyvyP52xyORvN9VSWXQxUY9nxnxlJR7GCn5VfDZWfXMrqexnix1Q==
 
-"@solid-primitives/script-loader@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/script-loader/-/script-loader-1.0.2.tgz#cca9e8ebd300e8f71c66af6e067cb462be6e3574"
-  integrity sha512-DLzNF891RI/OU+IRHCm1+Fi/+9sMfMmuUrFju3YfUuF6YD6YpMK+WwTwaTqTFhyucbyIh2SzTAIab14695g4CQ==
-  dependencies:
-    solid-js "^1.2.5"
+"@solid-primitives/scroll@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/scroll/-/scroll-1.0.4.tgz#902e9438eb0dbb4a3c461ac3d061a14f6cdf7dff"
+  integrity sha512-hau1W4Rgvr0EM7Dbj5GpqW7LyMBIUh4g4Qi0PeuwKqCQbeqzLrRYAJ2ETXuxa3JVSpYZcImT/D+/FN9uY+byxw==
 
 "@solid-primitives/throttle@^1.0.8":
   version "1.0.8"
@@ -1123,6 +1118,11 @@
   version "0.0.255"
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.0.255.tgz#1b464b940d64eeb33080f12f0e82db2149e449e8"
   integrity sha512-O1X3Ax2oIEHa6be3hbyuawlWgzzQaA6Douez150e8gmqCsTFqEc+MMZod5hWcP8fKKt/cfs94sJf3MDBqbvhsQ==
+
+"@solid-primitives/utils@^0.0.260":
+  version "0.0.260"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.0.260.tgz#5669b8e1aff7b0d361c878e74885f725d230ded3"
+  integrity sha512-Rn9sgwKxTfCw2zmTFLY/27XDSwaUbDOFB+65IofH0eUcCUkGhxfa/+y+RjDfRrRsKLDJr6OE7vSi3MAUffSfwA==
 
 "@solid.js/docs@^1.0.14":
   version "1.0.14"
@@ -6112,10 +6112,10 @@ solid-repl@^0.18.0:
     solid-dismiss "^1.0.22"
     solid-js "1.2.3"
 
-solid-social@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.2.1.tgz#09865d424d3b961677e168c151585b04f8ca4222"
-  integrity sha512-LuGteD0exDFxiLBHkDwWmvbm2tAVfHHpHRgj2AbMkb/CHT3cJZyDNKeN9XFK5gT9ayWey/ss2Eup1hASZtDfhQ==
+solid-social@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.3.0.tgz#7973a6f823f5c2b99f5407f93a2a1422bfdc6403"
+  integrity sha512-aTpgV3JWvTyq1+bXihu8tlMCiprb1gXu3UE/cCwOh2iix3NBLZewpgpRWEaN7teTaFKHPSxoIgtg/rOVgrOtJg==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.0"
     solid-js "^1.2.6"
