@@ -1090,6 +1090,13 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.1.1.tgz#6b8203e19abc6bcd28a5fdbb1907ee1dbd388476"
   integrity sha512-vrje+ssxJAwbkTqqAX43FoTvHCiT0BMYx/n1msWyPI+FYu5b4u+rq1mJZn+2wCYizJuSsr7nbs2H4SaTqiWALg==
 
+"@solid-primitives/intersection-observer@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.2.0.tgz#8eeb27c0442571223cc6d9bdbe312a6be72b1697"
+  integrity sha512-IloeeqMHy1zP1HpDC5KjLGIekcWN86FUZuHeCyUDUKI6DmHo4o45wiybz+v/CyYnx/vSK2AnD+gcJCym/ypiMA==
+  dependencies:
+    "@solid-primitives/utils" "^0.0.255"
+
 "@solid-primitives/local-store@^1.1.2":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-1.1.4.tgz#426214b9ca4b97050df57f6e04c42694f4e041aa"
@@ -1111,6 +1118,11 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@solid-primitives/timer/-/timer-1.0.3.tgz#deeda8d6559e91e8ea245af06256f9335f346536"
   integrity sha512-XDknRz91x0VVJnGemyW5tNdUixJuSSi5QQlLRH74TedmU48MQmhhD3kLghcHCO5mcewRF84sm9jAh5Y6NpRIAw==
+
+"@solid-primitives/utils@^0.0.255":
+  version "0.0.255"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.0.255.tgz#1b464b940d64eeb33080f12f0e82db2149e449e8"
+  integrity sha512-O1X3Ax2oIEHa6be3hbyuawlWgzzQaA6Douez150e8gmqCsTFqEc+MMZod5hWcP8fKKt/cfs94sJf3MDBqbvhsQ==
 
 "@solid.js/docs@^1.0.14":
   version "1.0.14"
@@ -6036,6 +6048,11 @@ solid-js@^1.2.5:
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.5.tgz#26175228ae562c95e92f476c73db744b6b36fc2c"
   integrity sha512-XcPEULgqd/XbBu8LwtGWs5RGowvIpq88/ZNI/xgJ9PaxRJWwbVlSNsS+ywUWncxRdKsPoVe8vdcIsH4gBJjh3Q==
 
+solid-js@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.6.tgz#54e91ecb78bb6cc78efea2f05f979f6aa71b25ef"
+  integrity sha512-NvPHJ5Vj5f+ZJWIioickrC55seovSkDtm5NzSpnoUk3z4tATv0STpy5iuGNEn51ZORUcwpZzrMAtOCGziXU1XA==
+
 solid-js@^1.3.0-beta.10:
   version "1.3.0-beta.10"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.0-beta.10.tgz#577ce52a639d35d510e486efc40c911dcbb18907"
@@ -6094,6 +6111,14 @@ solid-repl@^0.18.0:
     rollup "^2.60.0"
     solid-dismiss "^1.0.22"
     solid-js "1.2.3"
+
+solid-social@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.2.1.tgz#09865d424d3b961677e168c151585b04f8ca4222"
+  integrity sha512-LuGteD0exDFxiLBHkDwWmvbm2tAVfHHpHRgj2AbMkb/CHT3cJZyDNKeN9XFK5gT9ayWey/ss2Eup1hASZtDfhQ==
+  dependencies:
+    "@solid-primitives/intersection-observer" "^1.2.0"
+    solid-js "^1.2.6"
 
 solid-transition-group@^0.0.8:
   version "0.0.8"

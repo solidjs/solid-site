@@ -1,42 +1,9 @@
-import { Component, Show, createMemo, onMount } from 'solid-js';
+import { Component, Show, createMemo } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import { createScriptLoader } from '@solid-primitives/script-loader';
 import Footer from '../components/Footer';
-
-const Twitter: Component<{ id: string }> = (props) => {
-  let divRef: HTMLDivElement;
-  const displayTweet = () => {
-    window.twttr.widgets.createTweet(props.id, divRef, { align: 'center' });
-  };
-  onMount(() => {
-    if (!window.twttr) {
-      console.log('loading');
-      createScriptLoader({
-        src: 'https://platform.twitter.com/widgets.js',
-        onload: displayTweet,
-      });
-    } else {
-      displayTweet();
-    }
-  });
-  return <div ref={divRef} class="text-center p-4" />;
-};
-
-const YouTube: Component<{ id: string }> = (props) => {
-  return (
-    <iframe
-      class="mx-auto my-5"
-      width="560"
-      height="315"
-      src={`https://www.youtube.com/embed/${props.id}`}
-      frame-border="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
-  );
-};
+import { YouTube, Tweet } from 'solid-social';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
@@ -77,7 +44,7 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <data.article components={{ Twitter, YouTube }} />
+                  <data.article components={{ Tweet, YouTube }} />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">

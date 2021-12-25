@@ -28,7 +28,6 @@
     "@solid-primitives/event-listener": "^1.2.6",
     "@solid-primitives/i18n": "^1.0.8",
     "@solid-primitives/intersection-observer": "^1.1.1",
-    "@solid-primitives/script-loader": "^1.0.2",
     "@solid-primitives/throttle": "^1.0.8",
     "@solid.js/docs": "^1.0.14",
     "fuse.js": "^6.4.6",
@@ -45,6 +44,7 @@
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.2",
     "solid-repl": "^0.18.0",
+    "solid-social": "^0.2.1",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"
   },
