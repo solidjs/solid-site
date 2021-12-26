@@ -40,57 +40,55 @@ const Sidebar: Component<{
 }> = (props) => (
   <ul class="lg:pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
     <For each={props.items}>
-      {(firstLevel: Section) =>
-        (
-          <SectionButton
-            title={firstLevel.title}
-            class={
-              `text-left w-full dark:text-white border-b border-gray-200 hover:text-gray-400 transition ` +
-              `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
-            }
-            classList={{
-              'font-semibold text-solid-medium': props.current() == firstLevel.slug,
-            }}
-            href={`#${firstLevel.slug}`}
-          >
-            <ul>
-              <For each={firstLevel.children!}>
-                {(secondLevel, index) => (
-                  <SectionButton
-                    title={secondLevel.title}
-                    class="block pl-2 text-gray-500 py-1 text-md font-semibold my-2 break-words"
-                    classList={{
-                      'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
-                      'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
-                      'pb-2': index() == firstLevel.children!.length - 1,
-                    }}
-                    href={`#${secondLevel.slug}`}
-                  >
-                    <Show when={secondLevel.children && secondLevel.children.length !== 0}>
-                      <ul class="my-5">
-                        <For each={secondLevel.children!}>
-                          {(thirdLevel) => (
-                            <SectionButton
-                              href={`#${thirdLevel.slug}`}
-                              title={thirdLevel.title}
-                              class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
-                              classList={{
-                                'text-solid hover:text-solid-dark':
-                                  `#${thirdLevel.slug}` === props.hash,
-                                'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
-                              }}
-                            />
-                          )}
-                        </For>
-                      </ul>
-                    </Show>
-                  </SectionButton>
-                )}
-              </For>
-            </ul>
-          </SectionButton>
-        )
-      }
+      {(firstLevel: Section) => (
+        <SectionButton
+          title={firstLevel.title}
+          class={
+            `text-left w-full dark:text-white border-b border-gray-200 hover:text-gray-400 transition ` +
+            `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
+          }
+          classList={{
+            'font-semibold text-solid-medium': props.current() == firstLevel.slug,
+          }}
+          href={`#${firstLevel.slug}`}
+        >
+          <ul>
+            <For each={firstLevel.children!}>
+              {(secondLevel, index) => (
+                <SectionButton
+                  title={secondLevel.title}
+                  class="block pl-2 text-gray-500 py-1 text-md font-semibold my-2 break-words"
+                  classList={{
+                    'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
+                    'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                    'pb-2': index() == firstLevel.children!.length - 1,
+                  }}
+                  href={`#${secondLevel.slug}`}
+                >
+                  <Show when={secondLevel.children && secondLevel.children.length !== 0}>
+                    <ul class="my-5">
+                      <For each={secondLevel.children!}>
+                        {(thirdLevel) => (
+                          <SectionButton
+                            href={`#${thirdLevel.slug}`}
+                            title={thirdLevel.title}
+                            class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
+                            classList={{
+                              'text-solid hover:text-solid-dark':
+                                `#${thirdLevel.slug}` === props.hash,
+                              'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
+                            }}
+                          />
+                        )}
+                      </For>
+                    </ul>
+                  </Show>
+                </SectionButton>
+              )}
+            </For>
+          </ul>
+        </SectionButton>
+      )}
     </For>
   </ul>
 );
@@ -101,20 +99,20 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const [toggleSections, setToggleSections] = createSignal(false);
   const scrollPosition = createScrollPosition();
 
-  const sections = () => {
+  const sections: () => Section[] | undefined = () => {
     if (data.doc.sections.length == 1) {
       return data.doc.sections[0].children;
     }
     return data.doc.sections;
-  }
+  };
 
   // Determine the section based on title positions
   const [determineSection] = createThrottle((position: number) => {
     let prev = sections()![0];
     const pos = position + 500;
-    for (let i in sections()) {
+    for (let i = 0; i > sections()!.length; i += 1) {
       const el = document.getElementById(sections()![i].slug)!;
-      if (pos < (el.offsetTop + el.clientHeight)) {
+      if (pos < el.offsetTop + el.clientHeight) {
         break;
       }
       prev = sections()![i];
@@ -122,8 +120,6 @@ const Docs: Component<{ hash?: string }> = (props) => {
     setCurrent(prev.slug);
   }, 250);
   let menuButton!: HTMLButtonElement;
-
-  createEffect(() => determineSection(scrollPosition() || 0));
 
   // Upon loading finish bind observers
   createEffect(() => {
@@ -134,6 +130,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
       }
     }
   });
+  createEffect(() => determineSection(scrollPosition() || 0));
 
   useRouteReadyState();
 

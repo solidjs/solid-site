@@ -186,7 +186,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   observer;
-  
+
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo(
     on(
@@ -319,7 +319,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           <div
             use:eventListenerMap={{
               mouseenter: clearSubnavClose,
-              mouseleave: closeSubnav
+              mouseleave: closeSubnav,
             }}
             ref={subnavEl}
             class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"

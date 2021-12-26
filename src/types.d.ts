@@ -11,6 +11,7 @@ interface DocData {
   doc: {
     sections: Section[];
     content: string;
+    html: string;
   };
 }
 
@@ -21,7 +22,7 @@ type NavContextType = {
   clearSubnavClose: () => void;
   subnavPosition: Accessor<number>;
   setSubnavPosition: Setter<number>;
-}
+};
 
 interface Release {
   url: string;

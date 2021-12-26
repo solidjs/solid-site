@@ -24,6 +24,10 @@ export const routes: RouteDefinition[] = [
     data: GuideData,
   },
   {
+    path: '/hack',
+    component: lazy(() => import('./pages/Hack')),
+  },
+  {
     path: '/guides',
     component: () => Navigate({ href: '/guides/getting-started' }),
     data: GuideData,
