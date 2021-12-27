@@ -7,7 +7,12 @@ const NewsletterState = {
   ERROR: 3
 };
 
-export const Newsletter: Component = () => {
+type NewsletterProps = {
+  title: string;
+  className?: string;
+}
+
+export const Newsletter: Component<NewsletterProps> = (props) => {
   let emailRef: HTMLInputElement;
   const [state, setState] = createSignal(NewsletterState.IDLE);
   const submit = async (evt: Event) => {
@@ -21,6 +26,7 @@ export const Newsletter: Component = () => {
         },
         body: JSON.stringify({ email: emailRef.value })
       });
+      emailRef.value = '';
       setState(NewsletterState.SENT);
     } catch(err) {
       setState(NewsletterState.ERROR);
@@ -29,10 +35,12 @@ export const Newsletter: Component = () => {
   };
   return (
     <form
-      class="mb-10 py-3 bg-solid flex w-full items-center space-x-4"
+      class={
+        `bg-solid flex w-full items-center space-x-4 ${props.className}`
+      }
       onSubmit={submit}
     >
-      <div class="font-semibold text-md">Sign up for Solid News</div>
+      <div class="font-semibold text-md">{props.title}</div>
       <div class="w-3/6">
         <div class="flex space-x-2">
           <input
@@ -44,7 +52,8 @@ export const Newsletter: Component = () => {
             placeholder="Email address"
           />
           <button
-            class="bg-solid-medium py-3 px-5 text-white rounded-md"
+            disabled={state() === NewsletterState.SENDING}
+            class="bg-solid-medium py-3 px-5 text-white rounded-md hover:bg-solid-dark transition duration-300"
             type="submit"
           >
             <Show fallback="Sending..." when={state() !== NewsletterState.SENDING}>Register</Show>
@@ -52,7 +61,7 @@ export const Newsletter: Component = () => {
         </div>
         <Show when={state() === NewsletterState.SENT}>
           <div class="mt-3">
-            You were successfully registered!
+            You are successfully registered!
           </div>
         </Show>
         <Show when={state() === NewsletterState.ERROR}>
