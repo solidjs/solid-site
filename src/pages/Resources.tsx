@@ -216,7 +216,7 @@ const Resources: Component = () => {
   return (
     <div class="flex flex-col relative">
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
-        <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[82vh]">
+        <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[calc(100vh-80px)]">
           <div class="text-xs bg-gray-100 p-4 rounded" innerHTML={t('resources.cta')}></div>
           <div class="hidden md:block">
             <input
