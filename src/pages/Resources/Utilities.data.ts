@@ -961,7 +961,6 @@ const utilities: Array<Resource> = [
     published_at: 1638514856000,
   },
   {
-<<<<<<< HEAD
     link: 'https://github.com/git-ced/solid-plyr',
     title: 'solid-plyr',
     description: 'A simple HTML5, YouTube and Vimeo player (Plyr) for SolidJS.',
@@ -985,19 +984,19 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1639091168000,
-=======
-    link: 'https://github.com/high1/solid-social',
-    title: 'solid-social',
+  },
+  {
+    link: 'https://github.com/aminya/solid-simple-table',
+    title: 'solid-simple-table',
     description:
-      'Social components for solid-js. These components are a port of MDX Embed, but can be used in other contexts, hence solid-social.',
-    author: 'high1',
-    author_url: 'https://github.com/high1',
-    keywords: ['social', 'twitter', 'instagram', 'codesandbox', 'codepen', 'youtube'],
+      'Solid SimpleTable is a blazing fast reactive table component that gives you freedom.',
+    author: 'Amin Yahyaabadi (aminya)',
+    author_url: 'https://github.com/aminya',
+    keywords: ['table', 'simple'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.Plugins],
-    published_at: 1640457408000,
->>>>>>> origin/dev
+    categories: [ResourceCategory.UI],
+    published_at: 1639091168000,
   },
 ];
 
