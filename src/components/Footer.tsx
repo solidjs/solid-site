@@ -22,8 +22,8 @@ const Footer: Component = () => {
           <img class="w-52" src={wordmark} alt="Solid logo" />
           <div class="text-sm max-w-5xl">
             <Newsletter
-              title="Sign up for Solid News"
-              className="mb-10 py-3"
+              title={t('global.footer.newsletter.title', {}, 'Sign up for Solid News')}
+              className="mb-7 py-3"
             />
             <p
               innerHTML={t('global.footer.declaration', {

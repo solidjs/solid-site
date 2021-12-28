@@ -1,6 +1,7 @@
 import { Component } from 'solid-js';
 import builder from '../assets/supporters/builder-colour.png';
 import stytch from '../assets/supporters/stytch.png';
+import FourOhTwo from '../assets/supporters/402.png';
 import Newsletter from '../components/Newsletter';
 
 const Hack: Component = () => {
@@ -30,12 +31,15 @@ const Hack: Component = () => {
             and developing SolidJS-built applications and utilities. The event
             is sponsored and supported by corporate allies of SolidJS and the OSS
             ecosystem overall.
-            <div class="mt-3 space-x-5 bg-white/20 p-4 px-7 rounded-xl">
+            <div class="mt-3 space-x-8 bg-white/20 p-4 px-7 rounded-xl">
               <a target="_blank" class="hover:opacity-70 transition duration-300" rel="noopener" href="https://www.stytch.com">
                 <img class="inline-block w-24" src={stytch} />
               </a>
               <a target="_blank" class="hover:opacity-70 transition duration-300" rel="noopener" href="https://www.builder.io">
                 <img class="inline-block w-24" src={builder} />
+              </a>
+              <a target="_blank" class="hover:opacity-70 transition duration-300" rel="noopener" href="#">
+                <img class="inline-block w-24" src={FourOhTwo} />
               </a>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Component, createSignal, Show } from 'solid-js';
+import { useI18n } from '@solid-primitives/i18n';
 
 const NewsletterState = {
   IDLE: 0,
@@ -14,6 +15,7 @@ type NewsletterProps = {
 
 export const Newsletter: Component<NewsletterProps> = (props) => {
   let emailRef: HTMLInputElement;
+  const [t] = useI18n();
   const [state, setState] = createSignal(NewsletterState.IDLE);
   const submit = async (evt: Event) => {
     evt.preventDefault();
@@ -49,7 +51,7 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
             required={true}
             ref={emailRef}
             disabled={state() === NewsletterState.SENDING}
-            placeholder="Email address"
+            placeholder={t('global.footer.newsletter.email', {}, 'Email address')}
           />
           <button
             disabled={state() === NewsletterState.SENDING}
@@ -61,11 +63,12 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
         </div>
         <Show when={state() === NewsletterState.SENT}>
           <div class="mt-3">
-            You are successfully registered!
+            {t('global.footer.newsletter.success', {}, 'You are successfully registered!')}
           </div>
         </Show>
         <Show when={state() === NewsletterState.ERROR}>
           <div class="mt-3 text-red-500">
+            {t('global.footer.newsletter.error', {}, 'Registration could not be completed')}
             Registration could not be completed.
           </div>
         </Show>
