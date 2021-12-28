@@ -22,7 +22,7 @@ const Footer: Component = () => {
           <img class="w-52" src={wordmark} alt="Solid logo" />
           <div class="text-sm max-w-5xl">
             <Newsletter
-              title={t('global.footer.newsletter.title', {}, 'Sign up for Solid News')}
+              title={t('global.newsletter.title', {}, 'Sign up for Solid News')}
               className="mb-7 py-3"
             />
             <p
