@@ -16,22 +16,22 @@ const Hack: Component = () => {
     >
       <div class="mt-20 lg:mt-40">
         <img class="w-6/6 md:w-5/6 lg:w-4/6 xl:w-3/6 2xl:w-2/6 mx-auto" src="/img/hack.svg" />
-        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <div class="text-3xl font-semibold mb-5">What</div>
           <div>
-            <b>SolidHack</b> is a public hackathon presented by the SolidJS Core Team and corporate
-            sponsors. Prizes in the amount of US$9,000 will be awarded to projects that capture the
-            imagination and interest of our developer community. Winners will be selected by public
-            vote in three distinct categories.
+            <b>SolidHack</b> is a public hackathon presented by the Solid Team and corporate
+            sponsors. We've got US$9,000 to give away to the best projects across three categories.
+            It's free to enter, you've got three months to build your project, and winners will be selected by public vote.
           </div>
         </div>
-        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <div class="text-3xl font-semibold mb-5">Who</div>
           <div>
-            The hackathon is available to coders who are interested in learning and developing
-            SolidJS-built applications and utilities. The event is sponsored and supported by
-            corporate allies of SolidJS and the OSS ecosystem overall.
-            <div class="flex justify-center items-center space-y-5 flex-col md:space-y-0 md:flex-row mt-3 md:space-x-8 bg-white/20 p-4 px-7 rounded-xl">
+            The hackathon is open to anyone: experienced Solid users and newcomers alike. You'll use your GitHub account to verify
+            your identity when you submit your project and when you cast your vote.
+            The event is sponsored by
+            corporate supporters of Solid and the open-source ecosystem.
+            <div class="flex items-center space-y-5 flex-col md:space-y-0 md:flex-row mt-3 md:space-x-8 bg-white/20 p-4 px-7 rounded-xl">
               <a
                 target="_blank"
                 class="hover:opacity-70 transition duration-300"
@@ -63,34 +63,36 @@ const Hack: Component = () => {
             </small>
           </div>
         </div>
-        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <div class="text-3xl font-semibold mb-5">Why</div>
           <div>
-            To encourage growth and experimentation of SolidJS. Being a very new front-end solution,
-            opportunities to work with Solid aren't easy to come by. SolidHack gives you a reason to
-            give in, learn and potentially win prizes.
+            Solid has made its mark on the JavaScript ecosystem. It's a flourishing community
+            and we want you to be a part of it.
+
+            We know that this kind of initiative is new for the open-source world, and we're
+            looking to push the boundaries of what a hackathon can be and what open-source projects can do. Ultimately, we want to give you an opportunity to give Solid a try.
           </div>
         </div>
-        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="md:flex md:space-x-8 bg-white/20 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <div class="text-3xl font-semibold mb-5">When</div>
           <div>
-            The event will run from January to the end of March 2022. The exact start day as well as
-            official rules and regulations are to be announced via Solid News! Register below to
-            receive updates.
+            The event begins January 7th and you can start building then.
+            The submissions portal will open in mid February, but you'll have until April 7th to submit.
+            More details on categories and official rules and regulations
+            will be announced via Solid News before the start date. Sign up below or join the <a href="https://discord.com/invite/solidjs" class="underline">Solid Discord</a> to make sure you're up-to-date!
           </div>
         </div>
-        <div class="bg-white/50 bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-5 mb-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
-          <div class="mb-8">
-            More information will available over the coming weeks as we continue to grow our sponsor
-            list and details regarding how to participate.
+        <div class="bg-white/50 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+          <div class="mb-5">
+            Stay up-to-date on SolidHack, major Solid releases, and community updates.
           </div>
-          <Newsletter title="Sign up for announcements" />
+          <Newsletter title="Sign up for Solid News" />
         </div>
-        <div class="bg-opacity-50 text-black max-w-3xl mx-auto mt-5 mb-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="bg-opacity-50 text-black max-w-3xl mx-auto mt-2 mb-20 p-10 rounded-xl">
           <small>
-            SolidHack is a joint effort operated by volunteers and funded by corporate sponsors. The
-            SolidHack Committee is responsible for coordinating Rules and Regulations in a fair and
-            responsible manner. Questions and concerns relating to the competition may be directed
+            SolidHack is operated by volunteers and funded by corporate sponsors. The
+            SolidHack Planning Committee is responsible for coordinating Rules and Regulations.
+            Questions and concerns relating to the competition may be directed
             to community@solidjs.com. The Planning Committee maintains the right to enforce, adapt
             or cancel terms of the competition in the spirit of fairness.
           </small>
