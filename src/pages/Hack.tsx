@@ -20,7 +20,7 @@ const Hack: Component = () => {
           <div class="text-3xl font-semibold mb-5">What</div>
           <div>
             <b>SolidHack</b> is a public hackathon presented by the SolidJS Core Team and corporate
-            sponsors. Prizes in the amounts of US$9,000 will be awarded to projects that capture the
+            sponsors. Prizes in the amount of US$9,000 will be awarded to projects that capture the
             imagination and interest of our developer community. Winners will be selected by public
             vote in three distinct categories.
           </div>
