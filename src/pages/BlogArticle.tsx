@@ -2,17 +2,17 @@ import { Component, Show, createMemo } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import SolidMarkdown from 'solid-markdown';
-import { BlogInfo } from './Blog.data';
 import Footer from '../components/Footer';
+import { YouTube, Tweet } from 'solid-social';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
   const data = useData<{
-    article: string;
     loading: boolean;
+    slug: string;
     details: BlogInfo;
     archive: boolean;
+    article: MDXComponent;
     articles: { [id: string]: BlogInfo };
   }>();
   useRouteReadyState();
@@ -35,13 +35,16 @@ export const BlogArticle: Component = () => {
                     {data.details.title}
                   </h1>
                   <div class="text-md">
-                    Posted by <a href="https://github.com/davedbase">{data.details.author}</a> on{' '}
-                    {new Date(data.details.date).toDateString()}
+                    Posted by{' '}
+                    <a target="_blank" rel="noopener" href={data.details.author_url}>
+                      {data.details.author}
+                    </a>{' '}
+                    on {new Date(data.details.date).toDateString()}
                   </div>
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <SolidMarkdown children={data.article} />
+                  <data.article components={{ Tweet, YouTube }} />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">

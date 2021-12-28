@@ -1,13 +1,23 @@
-import { Component, Switch, Match, Show, on, createEffect, createSignal } from 'solid-js';
+import {
+  Component,
+  Switch,
+  Match,
+  Show,
+  on,
+  createEffect,
+  createSignal,
+  createMemo,
+} from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation } from 'solid-app-router';
+import { useData, useLocation } from 'solid-app-router';
 import Nav from './Nav';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
+import { ResourceMetadata } from '@solid.js/docs';
 
 const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();
@@ -18,6 +28,16 @@ const Header: Component<{ title?: string }> = () => {
   const [showHeaderSmall, setShowHeaderSmall] = createSignal(noSmallHeader);
   const [showHeaderSplash, setShowHeaderSplash] = createSignal(isHome);
 
+  const data = useData<{ guides: ResourceMetadata[] | undefined }>();
+
+  const guideName = createMemo(() => {
+    if (data?.guides) {
+      const resource = location.pathname.slice(1);
+      return data?.guides.find((metadata) => metadata.resource == resource)?.title;
+    }
+  });
+
+  createEffect(() => {});
   createEffect(
     on(
       routeReadyState,
@@ -67,7 +87,7 @@ const Header: Component<{ title?: string }> = () => {
       <Nav showLogo={showLogo()} />
       <div>
         <Transition onEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
-          <Show when={showHeaderSmall()}>
+          <Show when={showHeaderSmall() && !location.pathname.includes('/hack')}>
             <header class="overflow-hidden">
               <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right">
                 <div class="px-3 lg:px-12 container">
@@ -84,7 +104,11 @@ const Header: Component<{ title?: string }> = () => {
                           <Title>{t('global.blog.title', {}, 'Blog')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/guide')}>
-                          <Title>{t('guides.title', {}, 'Guides')}</Title>
+                          <Title>
+                            {t('guides.title', {}, 'Guides')}
+                            {guideName() && ':'}
+                            <span class="pl-2">{guideName()}</span>
+                          </Title>
                         </Match>
                         <Match when={location.pathname.includes('/docs')}>
                           <Title>{t('docs.title', {}, 'Guides')}</Title>
