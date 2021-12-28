@@ -86,7 +86,7 @@ const Hack: Component = () => {
           </div>
           <Newsletter title="Sign up for announcements" />
         </div>
-        <div class="bg-opacity-50 text-gray-500 max-w-3xl mx-auto mt-5 mb-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="bg-opacity-50 text-black max-w-3xl mx-auto mt-5 mb-20 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <small>
             SolidHack is a joint effort operated by volunteers and funded by corporate sponsors. The
             SolidHack Committee is responsible for coordinating Rules and Regulations in a fair and
