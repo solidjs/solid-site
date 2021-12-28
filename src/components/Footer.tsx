@@ -1,5 +1,6 @@
 import type { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
+import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
@@ -20,6 +21,10 @@ const Footer: Component = () => {
         <div class="px-7 md:px-0 py-10 lg:px-12 container flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-20">
           <img class="w-52" src={wordmark} alt="Solid logo" />
           <div class="text-sm max-w-5xl">
+            <Newsletter
+              title={t('global.newsletter.title', {}, 'Sign up for Solid News')}
+              className="mb-7 py-3"
+            />
             <p
               innerHTML={t('global.footer.declaration', {
                 license: t('global.footer.license'),
@@ -66,8 +71,8 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600">
                 {t('global.footer.updated', {
-                  date: '2021/12/12, 11:00pm',
-                  version: '1.2.5',
+                  date: '2021/12/27, 6:00pm',
+                  version: '1.3.0',
                 })}
               </p>
               {/* <button class="flex text-gray-600" onClick={() => data.isDark = !!data.isDark}>
