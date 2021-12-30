@@ -2,10 +2,12 @@
 # yarn lockfile v1
 
 
-"@aminya/minijson@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.6.0.tgz#65fec48609f0197133a3dbe64a130ab3018d20e1"
-  integrity sha512-tedItYKbOqs4UUhco1vjQ/EbL5M2zz8RSGxs50ZiJzyvHiJY92QjOc6vOUFB2KsUIRijK6XBQu1cYOihpOPiTA==
+"@aminya/minijson@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.6.1.tgz#c869524e189881682741bf5b6e0ee687725b36cf"
+  integrity sha512-rTkJ39VsLBZIBIFLoy6yM2DuWq5cEEOZQYPHe4u9HG1aDramTRiVjoau0MUCNQztBxMNLKl5ylE3yxLq/MGrmQ==
+  dependencies:
+    jsonminify "^0.4.2"
 
 "@amoutonbrady/lz-string@^0.0.1":
   version "0.0.1"
@@ -3885,6 +3887,11 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+jsonminify@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/jsonminify/-/jsonminify-0.4.2.tgz#fe6fb09391227e856f8c7c0761ff11b497b61fe8"
+  integrity sha512-mEtP5ECD0293D+s45JhDutqF5mFCkWY8ClrPFxjSFR2KUoantofky7noSzyKnAnD9Gd8pXHZSUd5bgzLDUBbfA==
 
 jsonpointer@^5.0.0:
   version "5.0.0"
