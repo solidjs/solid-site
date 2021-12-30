@@ -48,7 +48,7 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 - [Yite](http://vitejs.dev/) - For the bundler / dev server
 - [Yarn](https://yarnpkg.com/) - The package manager
 - [Shiki](https://github.com/shikijs/shiki) - For the code highlight
-- [Vite PWA](vite-plugin-pwa) - For PWA functionality
+- [Vite PWA](https://vite-plugin-pwa.netlify.app/) - For PWA functionality
 
 ## Contributions
 

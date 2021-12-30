@@ -11,8 +11,18 @@ interface DocData {
   doc: {
     sections: Section[];
     content: string;
+    html: string;
   };
 }
+
+type NavContextType = {
+  subnav: Accessor<MenuLinkProps[]>;
+  setSubnav: Setter<MenuLinkProps[]>;
+  closeSubnav: () => void;
+  clearSubnavClose: () => void;
+  subnavPosition: Accessor<number>;
+  setSubnavPosition: Setter<number>;
+};
 
 interface Release {
   url: string;
@@ -34,6 +44,19 @@ interface Release {
   zipball_url: string;
   body: string;
 }
+
+type MDXComponent = Component<{ components: any }>;
+
+type BlogInfo = {
+  id?: string;
+  img: string;
+  title: string;
+  description: string;
+  author: string;
+  author_url: string;
+  date: number;
+  body: MDXComponent;
+};
 
 interface DocumentationRelease {
   version: string;

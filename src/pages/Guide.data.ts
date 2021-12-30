@@ -1,49 +1,42 @@
-import { useParams, useLocation, RouteDataFunc } from 'solid-app-router';
+import { useLocation, RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { getDoc, getSupported } from '@solid.js/docs';
 
 export type DataParams = {
-  version: string;
   lang: string;
   resource: string;
 };
 
-const currentVersion = '1.0.0';
-
-function docFetcher({ lang, resource }: DataParams) {
+function guideFetcher({ lang, resource }: DataParams) {
   return getDoc(lang, resource);
 }
 
-export const DocsData: RouteDataFunc = () => {
-  const params = useParams();
+export const GuideData: RouteDataFunc = (props) => {
   const location = useLocation();
   const [, { locale }] = useI18n();
   const paramList = (): DataParams => {
-    const version =
-      params.version && params.version !== 'latest' ? params.version! : currentVersion;
     const lang = location.query.locale ? (location.query.locale as string) : locale();
-    const resource = location.pathname.includes('/guide') ? 'guide' : 'api';
+    const resource = `guides/${props.params.id}`;
     return {
-      version,
-      lang: getSupported('api', lang) ? lang : 'en',
+      lang: getSupported(resource, lang) ? lang : 'en',
       resource,
     };
   };
-  const [doc] = createResource(paramList, docFetcher);
+  const [guide] = createResource(paramList, guideFetcher);
   return {
     get langAvailable() {
       const lang = location.query.locale ? (location.query.locale as string) : locale();
-      return !getSupported('api', lang);
+      return !getSupported(`guides/${props.params.id}`, lang);
     },
     get doc() {
-      return doc();
+      return guide();
     },
     get loading() {
-      return doc.loading;
+      return guide.loading;
     },
     get version() {
-      return paramList().version;
+      return '';
     },
     get params() {
       return paramList;

@@ -6,15 +6,22 @@ import {
   Show,
   onMount,
   on,
+  createContext,
   createComputed,
+  useContext,
+  batch,
 } from 'solid-js';
+import { useData } from 'solid-app-router';
 import { Link, NavLink } from 'solid-app-router';
+import { ResourceMetadata } from '@solid.js/docs';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { createEventListener, eventListenerMap } from '@solid-primitives/event-listener';
+import createDebounce from '@solid-primitives/debounce';
+import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
-import Dismiss from 'solid-dismiss';
 import { reflow } from '../utils';
 import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
@@ -32,36 +39,51 @@ const langs = {
   he: 'עִברִית',
   fa: 'فارسی',
   tr: 'Türkçe',
-  tl: 'Tagalog (Filipino)',
+  tl: 'Filipino',
 };
 
-type MenuLinkProps = { path: string; external?: boolean; title: string };
+type MenuLinkProps = {
+  title: string;
+  description: string;
+  path: string;
+  external?: boolean;
+  children: MenuLinkProps[];
+};
+
+export const NavContext = createContext<NavContextType>();
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
+  const { setSubnav, closeSubnav, clearSubnavClose, setSubnavPosition } = useContext(NavContext)!;
   let linkEl!: HTMLAnchorElement;
 
   onMount(() => {
-    // necessary in order for page loading bar to render in Safari
-    linkEl.addEventListener('mousedown', () => {
+    if (props.children) {
+      createEventListener(linkEl, 'mouseenter', () => {
+        clearSubnavClose();
+        batch(() => {
+          setSubnav(props.children);
+          setSubnavPosition(linkEl.getBoundingClientRect().left);
+        });
+      });
+      createEventListener(linkEl, 'mouseleave', () => closeSubnav());
+    }
+    createEventListener(linkEl, 'mousedown', () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
       reflow();
-
-      const onMouseLeave = () => {
+      const clearLeave = createEventListener(linkEl, 'mouseleave', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
-      };
-      const onClick = () => {
+      });
+      const clearClick = createEventListener(linkEl, 'click', () => {
+        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
-      };
+      });
       const removeEvents = () => {
-        linkEl.removeEventListener('mouseleave', onMouseLeave);
-        linkEl.removeEventListener('click', onClick);
+        clearLeave();
+        clearClick();
       };
-      linkEl.addEventListener('mouseleave', onMouseLeave);
-      linkEl.addEventListener('click', onClick);
     });
-
     if (!window.location.pathname.startsWith(props.path)) return;
 
     // @ts-ignore
@@ -73,10 +95,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
       window.scrollTo({ top: 0 });
       return;
     }
-
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
-
     reflow();
     setRouteReadyState((prev) => ({
       ...prev,
@@ -133,12 +153,19 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
+  const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
+  const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
+  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
   const [t, { locale }] = useI18n();
+  const data = useData<{ guides: ResourceMetadata[] | undefined }>();
+  eventListenerMap;
+
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
   let langBtnDesktop!: HTMLButtonElement;
   let logoEl!: HTMLDivElement;
+  let subnavEl!: HTMLDivElement;
 
   const logoPosition = () =>
     t('global.dir', {}, 'ltr') === 'rtl' ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5';
@@ -159,7 +186,30 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     setLocked(entry.isIntersecting);
   });
   observer;
+
   const showLogo = createMemo(() => props.showLogo || !locked());
+  const navList = createMemo(
+    on(
+      () => [locale, t('global.nav'), data.guides],
+      () => {
+        return (t('global.nav') || []).reduce((memo: any, item: any) => {
+          let itm = { ...item };
+          // Inject guides if available
+          if (item.path == '/guides') {
+            if (data.guides?.length) {
+              itm.children = data.guides.map(({ title, description, resource }) => ({
+                title,
+                description,
+                path: `/${resource}`,
+              }));
+            }
+          }
+          memo.push(itm);
+          return memo;
+        }, []);
+      },
+    ),
+  );
 
   createComputed(
     on(
@@ -188,7 +238,16 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   };
 
   return (
-    <>
+    <NavContext.Provider
+      value={{
+        subnav,
+        setSubnav,
+        closeSubnav,
+        subnavPosition,
+        clearSubnavClose,
+        setSubnavPosition,
+      }}
+    >
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
@@ -216,13 +275,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               initShadowSize={true}
             >
               <ul class="relative flex items-center overflow-auto no-scrollbar">
-                {/* Temporarily hide the blog */}
-                <For
-                  each={(t('global.nav') || []).filter(
-                    (nav: { path: string }) => nav.path !== '/blog',
-                  )}
-                  children={MenuLink}
-                />
+                <For each={navList()} children={MenuLink} />
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>
@@ -262,8 +315,38 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             </For>
           </div>
         </Dismiss>
+        <Show when={subnav().length !== 0}>
+          <div
+            use:eventListenerMap={{
+              mouseenter: clearSubnavClose,
+              mouseleave: closeSubnav,
+            }}
+            ref={subnavEl}
+            class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"
+            style={{ left: `${subnavPosition()}px` }}
+          >
+            <ul class="divide-x flex flex-col">
+              <For each={subnav()}>
+                {(link) => (
+                  <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300">
+                    <NavLink
+                      onClick={() => setSubnav([])}
+                      class="px-6 py-5 w-full block"
+                      href={link.path}
+                    >
+                      {link.title}
+                      <Show when={link.description}>
+                        <span class="block text-sm text-gray-400">{link.description}</span>
+                      </Show>
+                    </NavLink>
+                  </li>
+                )}
+              </For>
+            </ul>
+          </div>
+        </Show>
       </div>
-    </>
+    </NavContext.Provider>
   );
 };
 
@@ -284,12 +367,11 @@ const onEnterLogo = (el: Element, isRTL: boolean) => {
   elements.forEach((el) => {
     el.style.transition = `transform ${logoTransition}ms`;
   });
-
-  logoEl.addEventListener(
-    'transitionend',
+  createEventListener(
+    logoEl,
+    'transitioned',
     (e) => {
       if (e.target !== e.currentTarget) return;
-
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';
@@ -324,14 +406,13 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
     el.style.backfaceVisibility = 'hidden';
   });
 
-  logoEl.addEventListener(
+  createEventListener(
+    logoEl,
     'transitionend',
     (e) => {
       if (e.target !== e.currentTarget) return;
-
       navList.style.marginLeft = '';
       navList.style.marginRight = '';
-
       elements.forEach((el) => {
         el.style.transition = '';
         el.style.transform = '';

@@ -3,6 +3,7 @@ import { RouteDefinition, Navigate } from 'solid-app-router';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
+import { GuideData } from './pages/Guide.data';
 import { TutorialData } from './pages/Tutorial.data';
 import { ResourceData } from './pages/Resources.data';
 import { ExamplesData } from './pages/Examples.data';
@@ -18,9 +19,18 @@ export const routes: RouteDefinition[] = [
     }),
   },
   {
-    path: '/guide',
+    path: '/guides/:id',
     component: lazy(() => import('./pages/Docs')),
-    data: DocsData,
+    data: GuideData,
+  },
+  {
+    path: '/hack',
+    component: lazy(() => import('./pages/Hack')),
+  },
+  {
+    path: '/guides',
+    component: () => Navigate({ href: '/guides/getting-started' }),
+    data: GuideData,
   },
   {
     path: '/blog/:slug',

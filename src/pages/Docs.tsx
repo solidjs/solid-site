@@ -9,10 +9,10 @@ import {
   Accessor,
 } from 'solid-js';
 import { useData } from 'solid-app-router';
-import { chevronRight } from 'solid-heroicons/solid';
-import { createViewportObserver } from '@solid-primitives/intersection-observer';
-import { Icon } from 'solid-heroicons';
 import createThrottle from '@solid-primitives/throttle';
+import createScrollPosition from '@solid-primitives/scroll';
+import { chevronRight } from 'solid-heroicons/solid';
+import { Icon } from 'solid-heroicons';
 import Dismiss from 'solid-dismiss';
 
 import Footer from '../components/Footer';
@@ -33,77 +33,62 @@ const SectionButton: Component<{
   </li>
 );
 
-const Sections: Component<{
-  items: Section[];
+const Sidebar: Component<{
+  items: Section[] | undefined;
   current: Accessor<string | null>;
   hash: string | undefined;
 }> = (props) => (
-  <ul class="pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
+  <ul class="lg:pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
     <For each={props.items}>
-      {(firstLevel: Section) =>
-        firstLevel.children?.length ? (
-          <SectionButton
-            title={firstLevel.title}
-            class={
-              `text-left w-full dark:text-white border-b border-gray-300 hover:text-gray-400 transition ` +
-              `flex flex-wrap content-center justify-between space-x-2 text-2xl p-2 py-6 mb-8`
-            }
-            classList={{
-              'font-semibold text-solid-medium': props.current() == firstLevel.slug,
-            }}
-            href={`#${firstLevel.slug}`}
-          >
-            <ul>
-              <For each={firstLevel.children!}>
-                {(secondLevel) => (
-                  <SectionButton
-                    title={secondLevel.title}
-                    class="block pl-2 text-gray-500 py-2 text-lg font-semibold my-2 break-words"
-                    classList={{
-                      'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
-                      'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
-                    }}
-                    href={`#${secondLevel.slug}`}
-                  >
-                    <Show when={secondLevel.children}>
-                      <ul>
-                        <For each={secondLevel.children!}>
-                          {(thirdLevel) => (
-                            <SectionButton
-                              href={`#${thirdLevel.slug}`}
-                              title={thirdLevel.title}
-                              class="block ml-8 font-semibold text-gray-400 pb-2 my-4 break-words"
-                              classList={{
-                                'text-solid hover:text-solid-dark':
-                                  `#${thirdLevel.slug}` === props.hash,
-                                'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
-                              }}
-                            />
-                          )}
-                        </For>
-                      </ul>
-                    </Show>
-                  </SectionButton>
-                )}
-              </For>
-            </ul>
-          </SectionButton>
-        ) : (
-          <SectionButton
-            class={
-              `text-left w-full dark:text-white text-solid-medium border-b hover:text-gray-400` +
-              `transition flex flex-wrap content-center justify-between space-x-2 text-sm p-2 py-4`
-            }
-            classList={{
-              'font-semibold': props.current() == firstLevel.slug,
-              'text-solid hover:text-solid-dark': `#${firstLevel.slug}` === props.hash,
-              'hover:text-gray-400': `#${firstLevel.slug}` !== props.hash,
-            }}
-            href={`#${firstLevel.slug}`}
-            title={firstLevel.title}
-          />
-        )
-      }
+      {(firstLevel: Section) => (
+        <SectionButton
+          title={firstLevel.title}
+          class={
+            `text-left w-full dark:text-white border-b border-gray-200 hover:text-gray-400 transition ` +
+            `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
+          }
+          classList={{
+            'font-semibold text-solid-medium': props.current() == firstLevel.slug,
+          }}
+          href={`#${firstLevel.slug}`}
+        >
+          <ul>
+            <For each={firstLevel.children!}>
+              {(secondLevel, index) => (
+                <SectionButton
+                  title={secondLevel.title}
+                  class="block pl-2 text-gray-500 py-1 text-md font-semibold my-2 break-words"
+                  classList={{
+                    'text-solid hover:text-solid-dark': `#${secondLevel.slug}` === props.hash,
+                    'hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                    'pb-2': index() == firstLevel.children!.length - 1,
+                  }}
+                  href={`#${secondLevel.slug}`}
+                >
+                  <Show when={secondLevel.children && secondLevel.children.length !== 0}>
+                    <ul class="my-5">
+                      <For each={secondLevel.children!}>
+                        {(thirdLevel) => (
+                          <SectionButton
+                            href={`#${thirdLevel.slug}`}
+                            title={thirdLevel.title}
+                            class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
+                            classList={{
+                              'text-solid hover:text-solid-dark':
+                                `#${thirdLevel.slug}` === props.hash,
+                              'hover:text-gray-400': `#${thirdLevel.slug}` !== props.hash,
+                            }}
+                          />
+                        )}
+                      </For>
+                    </ul>
+                  </Show>
+                </SectionButton>
+              )}
+            </For>
+          </ul>
+        </SectionButton>
+      )}
     </For>
   </ul>
 );
@@ -112,46 +97,48 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const data = useData<DocData>();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [toggleSections, setToggleSections] = createSignal(false);
-  const [observeInteraction] = createViewportObserver({ threshold: 0.5 });
+  const scrollPosition = createScrollPosition();
+
+  const sections: () => Section[] | undefined = () => {
+    if (data.doc.sections.length == 1) {
+      return data.doc.sections[0].children;
+    }
+    return data.doc.sections;
+  };
 
   // Determine the section based on title positions
-  const [determineSection] = createThrottle((entry: IntersectionObserverEntry) => {
-    if (entry.intersectionRatio == 0) {
-      return;
-    }
-    let prev = data.doc.sections[0];
-    for (let i in data.doc.sections) {
-      const el = document.getElementById(data.doc.sections[i].slug)!;
-      if (entry.boundingClientRect.top < el.getBoundingClientRect().top) {
+  const [determineSection] = createThrottle((position: number) => {
+    let prev = sections()![0];
+    const pos = position + 500;
+    for (let i = 0; i > sections()!.length; i += 1) {
+      const el = document.getElementById(sections()![i].slug)!;
+      if (pos < el.offsetTop + el.clientHeight) {
         break;
       }
-      prev = data.doc.sections[i];
+      prev = sections()![i];
     }
     setCurrent(prev.slug);
-  }, 75);
+  }, 250);
   let menuButton!: HTMLButtonElement;
 
   // Upon loading finish bind observers
   createEffect(() => {
     if (!data.loading) {
-      data.doc.sections.forEach((section) => {
-        observeInteraction(document.getElementById(section.slug)!, determineSection);
-      });
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
-
         anchor && anchor!.scrollIntoView(true);
       }
     }
   });
+  createEffect(() => determineSection(scrollPosition() || 0));
 
   useRouteReadyState();
 
   return (
-    <div dir="ltr" class="doc-bg flex min-h-screen flex-auto relative">
+    <div dir="ltr" class="lg:bg-doc flex min-h-screen flex-auto relative">
       <Show when={data.doc}>
-        <div class="flex container relative">
-          <div class="w-3/12 bg-gray-100 rounded-br-lg relative">
+        <div class="flex container">
+          <div class="absolute left-0 h-full lg:static lg:w-3/12 bg-gray-100 rounded-br-lg">
             <button
               class={
                 'fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 ' +
@@ -167,29 +154,29 @@ const Docs: Component<{ hash?: string }> = (props) => {
             </button>
             <Dismiss
               show
-              class="col-span-4 lg:col-span-3 relative"
+              class="w-0 lg:w-auto lg:col-span-3 sticky top-[4rem]"
               menuButton={menuButton}
               open={toggleSections}
               setOpen={setToggleSections}
             >
               <div
                 class={
-                  'rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 border-gray-100 ' +
-                  'dark:bg-solid-gray fixed left-0 top-14 lg:translate-x-0 lg:duration-0 transition-transform ' +
-                  'duration-300 max-w-md lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
-                  'lg:sticky lg:flex'
+                  'w-[85vw] rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 bg-white border-gray-100 ' +
+                  'dark:bg-solid-gray fixed left-0 top-14 lg:bg-transparent lg:translate-x-0 lg:duration-0 transition-transform ' +
+                  'duration-300 max-w-md lg:w-auto lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
+                  'relative lg:flex'
                 }
                 classList={{
-                  '-translate-x-full': !toggleSections(),
-                  'translate-x-0': toggleSections(),
+                  '-translate-x-full shadow-none': !toggleSections(),
+                  'translate-x-0 shadow-2xl': toggleSections(),
                 }}
-                style={{ height: 'calc(100vh - 5rem)', top: '4rem' }}
+                style={{ height: 'calc(100vh - 4rem)', top: 0 }}
               >
-                <Sections items={data.doc.sections} current={current} hash={props.hash} />
+                <Sidebar items={sections()} current={current} hash={props.hash} />
               </div>
             </Dismiss>
           </div>
-          <div class="w-9/12 p-10 bg-white">
+          <div class="w-full lg:w-9/12 p-10 bg-white">
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={data.loading}>Loading documentation...</Match>
               <Match when={data.doc}>
@@ -208,8 +195,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
                   </div>
                 </Show>
                 <div
-                  class="prose dark:text-white px-8 prose-solid max-w-full"
-                  innerHTML={data.doc.content}
+                  class="prose dark:text-white lg:px-8 prose-solid max-w-full"
+                  innerHTML={data.doc.html || data.doc.content}
                 />
               </Match>
             </Switch>
