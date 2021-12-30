@@ -45,7 +45,7 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 - [SolidJS](https://github.com/solidjs/solid) - Reactive Javascript UI library
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
 - [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
-- [Yite](http://vitejs.dev/) - For the bundler / dev server
+- [Vite](http://vitejs.dev/) - For the bundler / dev server
 - [Yarn](https://yarnpkg.com/) - The package manager
 - [Shiki](https://github.com/shikijs/shiki) - For the code highlight
 - [Vite PWA](vite-plugin-pwa) - For PWA functionality
