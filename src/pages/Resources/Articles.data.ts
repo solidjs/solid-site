@@ -761,6 +761,17 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1639018743000,
   },
+  {
+    link: 'https://dev.to/johncarroll/awesome-forms-with-solidjs-18gi',
+    title: 'Awesome Forms with Solidjs',
+    description: 'Build a form system with Rx controls package.',
+    author: 'John Carroll',
+    author_url: 'https://dev.to/johncarroll',
+    keywords: ['forms', 'ui'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1619896162000,
+  },
 ];
 
 export default articles;
