@@ -998,6 +998,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1639091168000,
   },
+  {
+    link: 'https://gitlab.com/john.carroll.p/rx-controls',
+    title: 'rx-controls-solid',
+    description:
+      'RxControls provides several javascript FormControl objects to make dealing with forms easier.',
+    author: 'John Carroll',
+    author_url: 'https://gitlab.com/john.carroll.p',
+    keywords: ['forms', 'rx'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1640895137000,
+  },
 ];
 
 export default utilities;
