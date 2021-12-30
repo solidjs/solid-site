@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aminya/minijson@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.6.1.tgz#c869524e189881682741bf5b6e0ee687725b36cf"
-  integrity sha512-rTkJ39VsLBZIBIFLoy6yM2DuWq5cEEOZQYPHe4u9HG1aDramTRiVjoau0MUCNQztBxMNLKl5ylE3yxLq/MGrmQ==
+"@aminya/minijson@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@aminya/minijson/-/minijson-0.6.2.tgz#e78b9dee904d08af1e0e179258ed210f277094f9"
+  integrity sha512-6qcgamFpKp9fwpo06dfx4jUehb4UETKfgGGa/u/wybmmnZ2BNTluy9iW1lwPNCb2mVBCx9pRnKh2OqDZrfLvlw==
   dependencies:
     jsonminify "^0.4.2"
 
