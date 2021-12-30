@@ -9,7 +9,7 @@ type BoxProps = {
 }
 
 const Box: Component<BoxProps> = (props) => (
-  <div class="md:grid md:grid-cols-12 md:space-x-6 bg-white/20 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+  <div class="md:grid md:grid-cols-12 md:space-x-6 bg-white/50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
     <div class="text-3xl col-span-2 font-semibold mb-5">{props.title}</div>
     <div class="col-span-10">
       {props.children}
@@ -85,7 +85,7 @@ const Hack: Component = () => {
           More details on categories and official rules and regulations
           will be announced via Solid News before the start date. Sign up below or join the <a href="https://discord.com/invite/solidjs" class="underline">Solid Discord</a> to make sure you're up-to-date!
         </Box>
-        <div class="bg-white/50 bg-opacity-50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
+        <div class="bg-white/50 text-gray-700 max-w-3xl mx-auto mt-5 p-10 rounded-xl shadow-xl backdrop-blur-md">
           <div class="mb-5">
             Stay up-to-date on SolidHack, major Solid releases, and community updates.
           </div>
