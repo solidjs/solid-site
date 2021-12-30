@@ -12,17 +12,6 @@ export const list: { [key: string]: BlogInfo } = {
     // @ts-ignore
     body: async () => await import('./Articles/state-of-solid-september-2021.mdx'),
   },
-  'welcome-to-the-solid-blog': {
-    img: '/img/blog/welcome-to-the-solid-blog/header.png',
-    title: 'Welcome to the Solid blog!',
-    description:
-      'A new Solid based blog with lots of information and helpful details for you to view.',
-    author: 'David Di Biase',
-    author_url: 'https://www.github.com/davedbase',
-    date: 1635797366000,
-    // @ts-ignore
-    body: async () => await import('./Articles/state-of-solid-september-2021.mdx'),
-  },
 };
 
 export const BlogData: RouteDataFunc = () => {

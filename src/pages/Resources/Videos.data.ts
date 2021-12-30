@@ -348,6 +348,52 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1638576320000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=s_Fs4AXsTnA',
+    title: 'Micro-Frontends in Just 10 Minutes',
+    description:
+      'Take ten minutes to create three applications using Module Federation to create and share a Micro-Frontend between SolidJS and React.',
+    keywords: ['micro', 'front-end', 'react', 'module', 'federation'],
+    author: 'JSConf India',
+    author_url: 'https://www.jsconf.in/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1634192389000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=70w-UoEu3Ss',
+    title: 'SolidJS with Ryan Carniato',
+    description:
+      'Ryan Carniato tells us all about SolidJS, a declarative, efficient, and flexible JavaScript library for building user interfaces.',
+    keywords: ['logrocket', 'solid', 'react', 'module', 'federation'],
+    author: 'LogRocket',
+    author_url: 'https://www.youtube.com/channel/UCktI_HQAkbr-tJbdWnQ_osw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1630482701000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=CQm52h3Ukng',
+    title: 'A First Look at Remix',
+    description: 'Ryan takes a deep dive into Remix.',
+    keywords: ['remix', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1638521693000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=FB_kBYO_vIw',
+    title: 'Compilation in JavaScript Frameworks',
+    description: 'Ryan covers the topic of JavaScript compilers.',
+    keywords: ['compilers', 'js', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/channel/UCLLVlcmcCP4CUe7xSqVEnxw',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1639126493000,
+  },
 ];
 
 export default videos;
