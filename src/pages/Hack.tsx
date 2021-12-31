@@ -17,7 +17,7 @@ const Box: Component<BoxProps> = (props) => (
 );
 
 const Countdown: Component = () => {
-  const startDate = new Date(1641531600000);
+  const startDate = new Date(1641574800000);
   const endDate = new Date(1649390400000);
   const countdownValues = createCountdown(
     new Date().getTime() < startDate.getTime() ? startDate : endDate,
