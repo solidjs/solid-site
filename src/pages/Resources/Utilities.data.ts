@@ -1011,6 +1011,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1640895137000,
   },
+  {
+    link: 'https://github.com/high1/solid-social#readme',
+    title: 'solid-social',
+    description:
+      'Social components for solid-js. These components are a port of MDX Embed, but can be used in other contexts, hence solid-social.',
+    author: 'high1',
+    author_url: 'https://github.com/high1',
+    keywords: ['twitter', 'twitch', 'youtube', 'social', 'social media', 'soundcloud', 'codepen', 'flickr', 'gifma', 'vimeo'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1640895137000,
+  },
 ];
 
 export default utilities;
