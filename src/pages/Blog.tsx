@@ -13,9 +13,9 @@ const Blog: Component = () => {
   }>();
   useRouteReadyState();
 
-  const sortedArticles =
-    Object.entries(data.articles)
-      .sort( (entry1, entry2) => entry2[1].date - entry1[1].date)
+  const sortedArticles = Object.entries(data.articles).sort(
+    (entry1, entry2) => entry2[1].date - entry1[1].date,
+  );
 
   return (
     <div class="flex flex-col">
