@@ -17,7 +17,7 @@ const Box: Component<BoxProps> = (props) => (
 );
 
 const Countdown: Component = () => {
-  const startDate = new Date(1641531600000);
+  const startDate = new Date(1641574800000);
   const endDate = new Date(1649390400000);
   const countdownValues = createCountdown(
     new Date().getTime() < startDate.getTime() ? startDate : endDate,
@@ -63,8 +63,8 @@ const Hack: Component = () => {
       <div>
         <Box title="What">
           <b>SolidHack</b> is a public hackathon presented by the Solid Team and corporate sponsors.
-          We've got US$9,000 to give away to the best projects across three categories. It's free to
-          enter, you've got three months to build your project, and winners will be selected by
+          We've got US$10,000 to give away to the best projects across three categories. It's free
+          to enter, you've got three months to build your project, and winners will be selected by
           public vote.
         </Box>
         <Box title="When">
@@ -111,6 +111,16 @@ const Hack: Component = () => {
           <small class="mt-3 block">
             To participate as a sponsor contact{' '}
             <a href="mailto:community@solidjs.com">community@solidjs.com</a>.
+            <br />
+            <br />A special thanks to others who have submitted personal donations including:{' '}
+            <a target="_blank" href="https://github.com/Brendan-csel">
+              Brendan-csel
+            </a>{' '}
+            and{' '}
+            <a target="_blank" href="https://github.com/davedbase">
+              davedbase
+            </a>
+            .
           </small>
         </Box>
         <Box title="Why">

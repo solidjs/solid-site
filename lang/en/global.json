@@ -31,7 +31,13 @@
     {
       "title": "About",
       "path": "/contributors",
-      "children": [
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "Learn about our 2022 public hackathon.",
+          "path": "https://www.solidjs.com/hack",
+          "external": true
+        },
         {
           "title": "Blog",
           "description": "News and updates from our community",

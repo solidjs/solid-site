@@ -68,7 +68,7 @@ export default defineConfig({
       remarkPlugins: [remarkGfm],
     }),
     solid(),
-    VitePWA(pwaOptions),
+    // VitePWA(pwaOptions),
   ],
   optimizeDeps: {
     include: [],

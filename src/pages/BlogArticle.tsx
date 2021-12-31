@@ -3,7 +3,7 @@ import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
-import { YouTube, Tweet } from 'solid-social';
+import { YouTube, Tweet, Twitch } from 'solid-social';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
@@ -44,7 +44,7 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose mx-auto">
-                  <data.article components={{ Tweet, YouTube }} />
+                  <data.article components={{ Tweet, YouTube, Twitch }} />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">

@@ -12,12 +12,17 @@ const Blog: Component = () => {
     articles: { [id: string]: BlogInfo };
   }>();
   useRouteReadyState();
+
+  const sortedArticles = Object.entries(data.articles).sort(
+    (entry1, entry2) => entry2[1].date - entry1[1].date,
+  );
+
   return (
     <div class="flex flex-col">
       <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 lg:flex justify-center">
           <div class="space-y-10">
-            <For each={Object.entries(data.articles)}>
+            <For each={sortedArticles}>
               {([id, article]: [string, BlogInfo]) => (
                 <NavLink
                   href={`/blog/${id}`}

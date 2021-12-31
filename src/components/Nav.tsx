@@ -6,9 +6,7 @@ import {
   Show,
   onMount,
   on,
-  createContext,
   createComputed,
-  useContext,
   batch,
 } from 'solid-js';
 import { useData } from 'solid-app-router';
@@ -16,7 +14,7 @@ import { Link, NavLink } from 'solid-app-router';
 import { ResourceMetadata } from '@solid.js/docs';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
-import { createEventListener, eventListenerMap } from '@solid-primitives/event-listener';
+import { createEventListener } from '@solid-primitives/event-listener';
 import createDebounce from '@solid-primitives/debounce';
 import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
@@ -47,26 +45,30 @@ type MenuLinkProps = {
   description: string;
   path: string;
   external?: boolean;
-  children: MenuLinkProps[];
+  setSubnav: (children: MenuLinkProps[]) => void;
+  setSubnavPosition: (position: number) => void;
+  closeSubnav: () => void;
+  clearSubnavClose: () => void;
+  links: MenuLinkProps[];
 };
 
-export const NavContext = createContext<NavContextType>();
-
 const MenuLink: Component<MenuLinkProps> = (props) => {
-  const { setSubnav, closeSubnav, clearSubnavClose, setSubnavPosition } = useContext(NavContext)!;
   let linkEl!: HTMLAnchorElement;
 
-  onMount(() => {
-    if (props.children) {
+  // Only rerender event listener when children change
+  if (props.links) {
+    onMount(() => {
       createEventListener(linkEl, 'mouseenter', () => {
-        clearSubnavClose();
+        props.clearSubnavClose();
         batch(() => {
-          setSubnav(props.children);
-          setSubnavPosition(linkEl.getBoundingClientRect().left);
+          props.setSubnav(props.links as MenuLinkProps[]);
+          props.setSubnavPosition(linkEl.getBoundingClientRect().left);
         });
       });
-      createEventListener(linkEl, 'mouseleave', () => closeSubnav());
-    }
+      createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
+    });
+  }
+  onMount(() => {
     createEventListener(linkEl, 'mousedown', () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
@@ -119,7 +121,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         <span>{props.title}</span>
         <Show when={props.external}>
           <svg
-            class="h-5 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
+            class="h-5 z-50 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -156,10 +158,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 350);
+  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
   const data = useData<{ guides: ResourceMetadata[] | undefined }>();
-  eventListenerMap;
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -188,7 +189,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   observer;
 
   const showLogo = createMemo(() => props.showLogo || !locked());
-  const navList = createMemo(
+  const navList = createMemo<MenuLinkProps[]>(
     on(
       () => [locale, t('global.nav'), data.guides],
       () => {
@@ -197,7 +198,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           // Inject guides if available
           if (item.path == '/guides') {
             if (data.guides?.length) {
-              itm.children = data.guides.map(({ title, description, resource }) => ({
+              itm.links = data.guides.map(({ title, description, resource }) => ({
                 title,
                 description,
                 path: `/${resource}`,
@@ -238,16 +239,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   };
 
   return (
-    <NavContext.Provider
-      value={{
-        subnav,
-        setSubnav,
-        closeSubnav,
-        subnavPosition,
-        clearSubnavClose,
-        setSubnavPosition,
-      }}
-    >
+    <>
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
@@ -275,7 +267,18 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               initShadowSize={true}
             >
               <ul class="relative flex items-center overflow-auto no-scrollbar">
-                <For each={navList()} children={MenuLink} />
+                <For each={navList()}>
+                  {(item) => (
+                    <MenuLink
+                      {...item}
+                      setSubnav={setSubnav}
+                      closeSubnav={closeSubnav}
+                      clearSubnavClose={clearSubnavClose}
+                      setSubnavPosition={setSubnavPosition}
+                      links={item.links}
+                    />
+                  )}
+                </For>
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>
@@ -317,10 +320,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
         <Show when={subnav().length !== 0}>
           <div
-            use:eventListenerMap={{
-              mouseenter: clearSubnavClose,
-              mouseleave: closeSubnav,
-            }}
+            onmouseenter={clearSubnavClose}
+            onmouseleave={closeSubnav}
             ref={subnavEl}
             class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
@@ -346,7 +347,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           </div>
         </Show>
       </div>
-    </NavContext.Provider>
+    </>
   );
 };
 
