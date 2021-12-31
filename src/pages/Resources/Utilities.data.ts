@@ -1022,7 +1022,20 @@ const utilities: Array<Resource> = [
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
-    published_at: 1640895137000,
+    published_at: 1640995937000,
+  },
+  {
+    link: 'https://github.com/high1/solid-jsx',
+    title: 'solid-jsx',
+    description:
+      'Use Solid components with MDX. Enabled Vite and Rollup in general to parse MDX components into Solid.',
+    author: 'high1',
+    author_url: 'https://github.com/high1',
+    keywords: ['mdx'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1640995937000,
   },
 ];
 
