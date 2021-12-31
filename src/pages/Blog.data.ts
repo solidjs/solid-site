@@ -12,6 +12,17 @@ export const list: { [key: string]: BlogInfo } = {
     // @ts-ignore
     body: async () => await import('./Articles/state-of-solid-september-2021.mdx'),
   },
+  'state-of-solid-december-2021': {
+    img: '/img/blog/state-of-solid-december-2021/header.png',
+    title: 'The State of Solid: December 2021',
+    description:
+      'Second edition of a quarterly update on SolidJS including announcements about SolidHack.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1640993009000,
+    // @ts-ignore
+    body: async () => await import('./Articles/state-of-solid-december-2021.mdx'),
+  },
 };
 
 export const BlogData: RouteDataFunc = () => {

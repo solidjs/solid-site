@@ -45,7 +45,7 @@
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.2",
     "solid-repl": "^0.18.0",
-    "solid-social": "^0.3.0",
+    "solid-social": "^0.4.0",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"
   },

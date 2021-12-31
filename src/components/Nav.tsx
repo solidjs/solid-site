@@ -3,7 +3,6 @@ import {
   For,
   createMemo,
   createSignal,
-  createEffect,
   Show,
   onMount,
   on,
@@ -57,8 +56,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
 
   // Only rerender event listener when children change
-  createEffect(() => {
-    if (props.links) {
+  if (props.links) {
+    onMount(() => {
       createEventListener(linkEl, 'mouseenter', () => {
         props.clearSubnavClose();
         batch(() => {
@@ -67,8 +66,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         });
       });
       createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
-    }
-  });
+    });
+  }
   onMount(() => {
     createEventListener(linkEl, 'mousedown', () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
@@ -122,7 +121,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         <span>{props.title}</span>
         <Show when={props.external}>
           <svg
-            class="h-5 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
+            class="h-5 z-50 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
