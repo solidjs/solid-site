@@ -772,6 +772,20 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1619896162000,
   },
+
+  {
+    link: 'https://sabe.io/tutorials/getting-started-with-solid',
+    title: 'Getting Started With Solid',
+    description:
+      'In this tutorial, you will learn more about Solid, how to get started with a basic app, and learn about the basics of how it works.',
+    author: 'Alan Morel',
+    author_url: 'https://sabe.io/alanmorel',
+    keywords: ['started', 'learning'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1640938154000,
+  },
 ];
 
 export default articles;
