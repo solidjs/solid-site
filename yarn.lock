@@ -6119,10 +6119,10 @@ solid-repl@^0.18.0:
     solid-dismiss "^1.0.22"
     solid-js "1.2.3"
 
-solid-social@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.4.0.tgz#883171441eb6aae00d47ed341f934be4549dfc3b"
-  integrity sha512-92WHym1VHeRUgjSoJ1LJm7m4J0nlYPm/IePHSPOA20hmP56+pZ53xsHjbrL6quQ6hvOBXIxS3v8S8WjZzgsBsw==
+solid-social@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.0.tgz#42d4537c70e4c22361d56d5e34b3146762cf628f"
+  integrity sha512-dVAfQgpDb5ZeojxqUVJwHpwRgYj5e78nMkuF/bPXSxtXrie0BMRxiZGphC55/XEjRUF/1p00YU0C/FB80ChioA==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.0"
     solid-js "^1.2.6"
