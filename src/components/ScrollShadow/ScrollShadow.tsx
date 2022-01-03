@@ -64,7 +64,6 @@ const ScrollShadow: Component<
       init = false;
     });
 
-    console.log(scrollableContainer, shadowFirstEl, shadowLastEl);
     scrollableContainer.addEventListener('wheel', scrollHorizontally);
     sentinelShadowState.set(sentinelFirstEl, { el: shadowFirstEl, visible: false });
     sentinelShadowState.set(sentinelLastEl, { el: shadowLastEl, visible: false });
