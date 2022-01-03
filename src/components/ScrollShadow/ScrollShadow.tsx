@@ -8,10 +8,6 @@ type TShared = {
   initShadowSize?: boolean;
 };
 
-/**
- *
- * child scrollable container should have already have overflow property and should have `position: relative;` in order to make Intersection Observer to work.
- */
 const ScrollShadow: Component<
   {
     class: string;
@@ -22,20 +18,12 @@ const ScrollShadow: Component<
   const sentinelShadowState = new Map<HTMLElement, { el: HTMLElement; visible: boolean }>();
   let shadowFirstEl!: HTMLElement;
   let shadowLastEl!: HTMLElement;
-  let sentinelFirstEl = (
-    <Sentinel child="first" direction={direction} rtl={props.rtl} />
-  ) as HTMLElement;
-  let sentinelLastEl = (
-    <Sentinel child="last" direction={direction} rtl={props.rtl} />
-  ) as HTMLElement;
+  let sentinelFirstEl!: HTMLDivElement;
+  let sentinelLastEl!: HTMLDivElement;
+  let scrollableContainer!: HTMLDivElement;
   let init = true;
   let initResetSize = false;
   let isScrollable = false;
-
-  // Won't work for SSR
-  const scrollableContainer = props.children as HTMLElement;
-  scrollableContainer.appendChild(sentinelFirstEl);
-  scrollableContainer.appendChild(sentinelLastEl);
 
   const scrollHorizontally = (e: WheelEvent) => {
     if (!isScrollable) return;
@@ -68,18 +56,15 @@ const ScrollShadow: Component<
       entries.forEach((entry) => {
         const target = entry.target as HTMLElement;
         const { el: shadowEl } = sentinelShadowState.get(target)!;
-        let isVisible = false;
-        if (entry.isIntersecting) {
-          isVisible = true;
-        }
-        shadowEl!.style.opacity = isVisible ? '0' : '1';
-        sentinelShadowState.set(target, { el: shadowEl, visible: isVisible });
+        shadowEl!.style.opacity = entry.isIntersecting ? '0' : '1';
+        sentinelShadowState.set(target, { el: shadowEl, visible: entry.isIntersecting });
         resetInitShadowSize();
       });
       isScrollable = ![...sentinelShadowState].every(([_, { visible }]) => visible === true);
       init = false;
     });
 
+    console.log(scrollableContainer, shadowFirstEl, shadowLastEl);
     scrollableContainer.addEventListener('wheel', scrollHorizontally);
     sentinelShadowState.set(sentinelFirstEl, { el: shadowFirstEl, visible: false });
     sentinelShadowState.set(sentinelLastEl, { el: shadowLastEl, visible: false });
@@ -104,12 +89,18 @@ const ScrollShadow: Component<
         rtl={props.rtl}
         ref={shadowLastEl}
       />
-      {scrollableContainer}
+      <div class="relative flex items-center overflow-auto no-scrollbar" ref={scrollableContainer}>
+        {props.children}
+        <Sentinel child="first" direction={direction} rtl={props.rtl} ref={sentinelFirstEl} />
+        <Sentinel child="last" direction={direction} rtl={props.rtl} ref={sentinelLastEl} />
+      </div>
     </div>
   );
 };
 
-const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = (props) => {
+const Sentinel: Component<
+  Omit<TShared, 'shadowSize' | 'initShadowSize'> & { ref: HTMLDivElement }
+> = (props) => {
   const { direction, child } = props;
 
   const setPosition = () => {
@@ -129,7 +120,7 @@ const Sentinel: Component<Omit<TShared, 'shadowSize' | 'initShadowSize'>> = (pro
     }: 0; height: 1px; width: 100%`;
   };
   const style = () => `pointer-events: none; ${setPosition()}; `;
-  return <div aria-hidden="true" style={style()}></div>;
+  return <div aria-hidden="true" style={style()} ref={props.ref}></div>;
 };
 
 const Shadow: Component<{ ref: any } & TShared> = (props) => {
