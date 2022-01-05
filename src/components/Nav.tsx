@@ -266,7 +266,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               shadowSize="25%"
               initShadowSize={true}
             >
-              <ul class="relative flex items-center overflow-auto no-scrollbar">
+              <ul class="flex items-center">
                 <For each={navList()}>
                   {(item) => (
                     <MenuLink
