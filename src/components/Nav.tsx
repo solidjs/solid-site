@@ -334,7 +334,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               <For each={subnav()}>
                 {(link) => (
                   <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
-                      style={{direction: link.direction, 'text-align': link.direction === 'ltr' ? 'left' : 'right'}}
+                      style={link.direction && {direction: link.direction, 'text-align': link.direction === 'ltr' ? 'left' : 'right'}}
                   >
                     <NavLink
                       onClick={() => setSubnav([])}
