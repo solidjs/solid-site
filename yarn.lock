@@ -5752,10 +5752,10 @@ solid-repl@^0.18.0:
     solid-dismiss "^1.0.22"
     solid-js "1.2.3"
 
-solid-social@^0.5.1-rc.2:
-  version "0.5.1-rc.2"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.1-rc.2.tgz#7c0e6b71c1c503ef58fb30d1f83a284c5e139c89"
-  integrity sha512-ROsENZT4HAafEenTr4mP4uk4Dopbe/2tkflvHPFw/QSZE11zreAzqDMNwg+l7gL6qei3jAkXxDJA/s9qp1Y30g==
+solid-social@^0.5.2-rc.1:
+  version "0.5.2-rc.1"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.1.tgz#616fd4d2f13d2df6f98de9a1e0fb87d660ceee59"
+  integrity sha512-D+zOe68RwI/m5AhFuzgYBSMzFcbLI9p/BQQy3Bbj43hrb4KkjtvO2LxaUvSXAB9DAdmPYDZH39YqnwzmMRX2Vw==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.0"
     "@solid-primitives/script-loader" "^1.0.2"
