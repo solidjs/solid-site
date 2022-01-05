@@ -4,8 +4,6 @@ import { VitePWA, Options as VitePWAOptions } from 'vite-plugin-pwa';
 import manifest from './src/assets/manifest.json';
 import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
-import remarkOembed from 'remark-oembed';
-import remarkHtml from 'remark-html';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   registerType: 'autoUpdate',
@@ -63,11 +61,16 @@ const pwaOptions: Partial<VitePWAOptions> = {
 
 export default defineConfig({
   plugins: [
-    mdx({
-      jsxImportSource: 'solid-jsx',
-      remarkPlugins: [remarkGfm],
-    }),
-    solid(),
+    {
+      ...mdx({
+        jsx: true,
+        jsxImportSource: 'solid-js',
+        providerImportSource: 'solid-mdx',
+        remarkPlugins: [remarkGfm],
+      }),
+      enforce: 'pre',
+    },
+    solid({ extensions: ['.md', '.mdx'] }),
     // VitePWA(pwaOptions),
   ],
   optimizeDeps: {
