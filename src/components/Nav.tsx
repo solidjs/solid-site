@@ -50,6 +50,7 @@ type MenuLinkProps = {
   closeSubnav: () => void;
   clearSubnavClose: () => void;
   links: MenuLinkProps[];
+  direction: "ltr" | "rtl",
 };
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
@@ -160,7 +161,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
-  const data = useData<{ guides: ResourceMetadata[] | undefined }>();
+  const data = useData<{ guides: ResourceMetadata[] | undefined, guidesSupported: boolean }>();
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -198,11 +199,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           // Inject guides if available
           if (item.path == '/guides') {
             if (data.guides?.length) {
+              const direction = data.guidesSupported ? t('global.dir', {}, 'ltr') : 'ltr';
               itm.links = data.guides.map(({ title, description, resource }) => ({
                 title,
                 description,
+                direction,
                 path: `/${resource}`,
               }));
+              itm.direction = direction;
             }
           }
           memo.push(itm);
@@ -329,7 +333,9 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <ul class="divide-x flex flex-col">
               <For each={subnav()}>
                 {(link) => (
-                  <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300">
+                  <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
+                      style={{direction: link.direction, 'text-align': link.direction === 'ltr' ? 'left' : 'right'}}
+                  >
                     <NavLink
                       onClick={() => setSubnav([])}
                       class="px-6 py-5 w-full block"
