@@ -50,7 +50,7 @@ type MenuLinkProps = {
   closeSubnav: () => void;
   clearSubnavClose: () => void;
   links: MenuLinkProps[];
-  direction: "ltr" | "rtl",
+  direction: 'ltr' | 'rtl';
 };
 
 const MenuLink: Component<MenuLinkProps> = (props) => {
@@ -161,7 +161,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
-  const data = useData<{ guides: ResourceMetadata[] | undefined, guidesSupported: boolean }>();
+  const data = useData<{ guides: ResourceMetadata[] | undefined; guidesSupported: boolean }>();
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -333,8 +333,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <ul class="divide-x flex flex-col">
               <For each={subnav()}>
                 {(link) => (
-                  <li class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
-                      style={link.direction && {direction: link.direction, 'text-align': link.direction === 'ltr' ? 'left' : 'right'}}
+                  <li
+                    class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
+                    style={
+                      link.direction && {
+                        direction: link.direction,
+                        'text-align': link.direction === 'ltr' ? 'left' : 'right',
+                      }
+                    }
                   >
                     <NavLink
                       onClick={() => setSubnav([])}

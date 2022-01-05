@@ -80,7 +80,7 @@ export const AppData: RouteDataFunc = (props) => {
       Note that guides() will return the english guides metadata in this case.
      */
     get guidesSupported() {
-      const supported = getSupported("guides", params().locale);
+      const supported = getSupported('guides', params().locale);
       return Array.isArray(supported) && supported.length > 0;
     },
     get guides() {
