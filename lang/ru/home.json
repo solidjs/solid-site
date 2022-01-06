@@ -61,8 +61,8 @@
     "link": "https://www.solidjs.com/docs/latest#component-apis"
   },
   "reactivity": {
-    "headline": "Мелкозернистая реактивность означает, что вы делаете больше с меньшими затратами.",
-    "subheadline": "Solid построен с использованием эффективных реактивных примитивов от вашего пользовательского кода до ваших представлений JSX.",
+    "headline": "Мелкозернистая реактивность означает, что Вы делаете больше с меньшими затратами.",
+    "subheadline": "Solid построен с использованием эффективных реактивных примитивов от Вашего пользовательского кода до Ваших представлений JSX.",
     "copy": "Это открывает полный контроль над тем, что обновляеть и когда, даже на уровне привязки к DOM. Без виртуального DOM или обширных различий фреймворк никогда не выполнит больше работы, чем Вы хотите.",
     "link_label": "Посмотреть в действии",
     "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
@@ -72,7 +72,7 @@
       "Ориентирован на производительность",
       "как на клиенте, так и на сервере"
     ],
-    "copy": "Сила мелкозернистой реактивности как подхода сияет во всех заметных бенчмарках. Даже если производительность не является вашей целью, то она достигается практически без усилий и опыта разработки. Воспринимайте прирост производительности Solid как халявную победу. Solid - это возможность быть быстрым без усилий",
+    "copy": "Сила мелкозернистой реактивности как подхода сияет во всех заметных бенчмарках. Даже если производительность не является Вашей целью, то она достигается практически без усилий и опыта разработки. Воспринимайте прирост производительности Solid как халявную победу. Solid - это возможность быть быстрым без усилий",
     "link_label": "Читать полную статью",
     "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
   },
