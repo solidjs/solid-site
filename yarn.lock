@@ -1106,6 +1106,13 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-1.1.4.tgz#426214b9ca4b97050df57f6e04c42694f4e041aa"
   integrity sha512-sjje0IdTNZ4bKN9c16Rw03QOAbgkk2UVYcqyvyP52xyORvN9VSWXQxUY9nxnxlJR7GCn5VfDZWfXMrqexnix1Q==
 
+"@solid-primitives/script-loader@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/script-loader/-/script-loader-1.0.2.tgz#cca9e8ebd300e8f71c66af6e067cb462be6e3574"
+  integrity sha512-DLzNF891RI/OU+IRHCm1+Fi/+9sMfMmuUrFju3YfUuF6YD6YpMK+WwTwaTqTFhyucbyIh2SzTAIab14695g4CQ==
+  dependencies:
+    solid-js "^1.2.5"
+
 "@solid-primitives/scroll@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@solid-primitives/scroll/-/scroll-1.0.4.tgz#902e9438eb0dbb4a3c461ac3d061a14f6cdf7dff"
@@ -5708,13 +5715,14 @@ solid-repl@^0.20.0:
     solid-heroicons "^1.1.1"
     solid-js "1.2.6"
 
-solid-social@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.0.tgz#42d4537c70e4c22361d56d5e34b3146762cf628f"
-  integrity sha512-dVAfQgpDb5ZeojxqUVJwHpwRgYj5e78nMkuF/bPXSxtXrie0BMRxiZGphC55/XEjRUF/1p00YU0C/FB80ChioA==
+solid-social@^0.5.2-rc.1:
+  version "0.5.2-rc.1"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.1.tgz#616fd4d2f13d2df6f98de9a1e0fb87d660ceee59"
+  integrity sha512-D+zOe68RwI/m5AhFuzgYBSMzFcbLI9p/BQQy3Bbj43hrb4KkjtvO2LxaUvSXAB9DAdmPYDZH39YqnwzmMRX2Vw==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.0"
-    solid-js "^1.2.6"
+    "@solid-primitives/script-loader" "^1.0.2"
+    solid-js "^1.3.0-rc.4"
 
 solid-transition-group@^0.0.8:
   version "0.0.8"
