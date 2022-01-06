@@ -24,7 +24,7 @@
       "path": "/examples"
     },
     {
-      "title": "Плэйграунд",
+      "title": "Песочница",
       "path": "https://playground.solidjs.com",
       "external": true
     },
