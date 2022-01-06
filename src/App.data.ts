@@ -2,7 +2,7 @@ import { createEffect, createResource } from 'solid-js';
 import { RouteDataFunc } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
-import { getGuides } from '@solid.js/docs';
+import { getGuides, getSupported } from '@solid.js/docs';
 
 const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
@@ -53,8 +53,9 @@ export const AppData: RouteDataFunc = (props) => {
     }
     return { locale, page };
   };
+
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
-  const [guidesList] = createResource(params, ({ locale }) => getGuides(locale));
+  const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
@@ -73,6 +74,14 @@ export const AppData: RouteDataFunc = (props) => {
     },
     get loading() {
       return lang.loading;
+    },
+    /*
+      Returns true if there are any guides in the current locale's translation.
+      Note that guides() will return the english guides metadata in this case.
+     */
+    get guidesSupported() {
+      const supported = getSupported('guides', params().locale);
+      return Array.isArray(supported) && supported.length > 0;
     },
     get guides() {
       return guidesList();
