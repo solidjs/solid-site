@@ -5644,7 +5644,7 @@ solid-heroicons@^1.1.1:
   dependencies:
     solid-js "^1.2.6"
 
-solid-js@1.2.6, solid-js@^1.0.7, solid-js@^1.2.6:
+solid-js@1.2.6, solid-js@^1.0.7, solid-js@^1.2.5, solid-js@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.2.6.tgz#54e91ecb78bb6cc78efea2f05f979f6aa71b25ef"
   integrity sha512-NvPHJ5Vj5f+ZJWIioickrC55seovSkDtm5NzSpnoUk3z4tATv0STpy5iuGNEn51ZORUcwpZzrMAtOCGziXU1XA==
@@ -5716,9 +5716,9 @@ solid-repl@^0.20.0:
     solid-js "1.2.6"
 
 solid-social@^0.5.2-rc.1:
-  version "0.5.2-rc.1"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.1.tgz#616fd4d2f13d2df6f98de9a1e0fb87d660ceee59"
-  integrity sha512-D+zOe68RwI/m5AhFuzgYBSMzFcbLI9p/BQQy3Bbj43hrb4KkjtvO2LxaUvSXAB9DAdmPYDZH39YqnwzmMRX2Vw==
+  version "0.5.2-rc.3"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.3.tgz#3f422c82746b9055caf2e2a0a2de3e26102794ea"
+  integrity sha512-LjNQwli2quVFNPe8g2kxKSsfpp+2uwu0mnoyIE73DERpxBkLotLe9pAeUzYTXZkQ5ol4lpXMxx++u7eULDprkA==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.0"
     "@solid-primitives/script-loader" "^1.0.2"
