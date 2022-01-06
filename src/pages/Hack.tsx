@@ -3,7 +3,7 @@ import builder from '../assets/supporters/builder-colour.png';
 import stytch from '../assets/supporters/stytch.png';
 import FourOhTwo from '../assets/supporters/402.png';
 import Newsletter from '../components/Newsletter';
-import createCountdown from '@solid-primitives/countdown';
+import { createCountdown } from '@solid-primitives/date';
 
 type BoxProps = {
   title: string;
@@ -20,6 +20,7 @@ const Countdown: Component = () => {
   const startDate = new Date(1641574800000);
   const endDate = new Date(1649390400000);
   const countdownValues = createCountdown(
+    new Date(),
     new Date().getTime() < startDate.getTime() ? startDate : endDate,
   );
 
