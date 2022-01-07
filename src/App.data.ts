@@ -64,7 +64,7 @@ export const AppData: RouteDataFunc = (props) => {
 
   return {
     set isDark(value) {
-      settings.dark = value === true ? 'true' : 'false';
+      set('dark', value === true ? 'true' : 'false');
     },
     get isDark() {
       return settings.dark === 'true' ? true : false;
