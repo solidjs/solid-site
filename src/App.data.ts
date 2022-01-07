@@ -61,6 +61,12 @@ export const AppData: RouteDataFunc = (props) => {
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
+  createEffect(() => {
+    if (settings.dark === 'true')
+      document.documentElement.classList.add('dark');
+    else
+      document.documentElement.classList.remove('dark');
+  });
 
   return {
     set isDark(value) {
