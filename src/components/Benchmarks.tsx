@@ -46,7 +46,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string 
                       class="transition-transform -translate-x-full duration-700 w-full h-full rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                       classList={{
                         'bg-solid-light text-white font-semibold': row.active,
-                        'bg-gray-100': !row.active,
+                        'bg-gray-100 dark:bg-gray-800': !row.active,
                       }}
                       style={{
                         width: row.width,
@@ -102,7 +102,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         when={expanded()}
         fallback={
           <button
-            class={`py-3 text-sm chevron button text-solid-default font-semibold hover:text-gray-500 chevron-${direction()}`}
+            class={`py-3 text-sm chevron button text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 chevron-${direction()}`}
             onClick={() => setExpanded(true)}
           >
             {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}

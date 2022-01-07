@@ -43,7 +43,7 @@ const Lang: Component = (props) => {
       <div
         dir={t('global.dir', {}, 'ltr')}
       >
-        <div class="dark:bg-solid-gray dark:text-white">{props.children}</div>
+        {props.children}
       </div>
     </I18nContext.Provider>
   );

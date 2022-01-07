@@ -74,7 +74,7 @@ const Contributors: Component<{}> = () => {
       <div class="px-3 lg:px-12 container my-10">
         <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
           <div class="col-span-6 flex flex-col space-y-4">
-            <h2 class="text-3xl font-semibold text-solid-default">
+            <h2 class="text-3xl font-semibold text-solid-default dark:text-solid-darkdefault">
               {t('contributors.core_team', {}, 'Core Team')}
             </h2>
             <ul class="space-y-10">
@@ -82,7 +82,7 @@ const Contributors: Component<{}> = () => {
             </ul>
           </div>
           <div class="col-span-6 flex flex-col space-y-10">
-            <h2 class="text-2xl font-semibold text-solid-default">
+            <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
               {t('contributors.acknowledgments', {}, 'Acknowledgements')}
             </h2>
             <p>
@@ -95,21 +95,21 @@ const Contributors: Component<{}> = () => {
             <ul class="flex flex-col space-y-3">
               <For each={data.contributors} children={Contributor} />
             </ul>
-            <h2 class="text-2xl font-semibold text-solid-default">
+            <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
               {t('contributors.ecosystem_team', {}, 'Ecosystem Team')}
             </h2>
             <ul class="flex flex-col space-y-3">
               <For each={data.ecosystem} children={Contributor} />
             </ul>
             <div class="flex mb-5 flex-col space-y-3">
-              <h2 class="text-2xl mb-5 font-semibold text-solid-default">
+              <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">
                 {t('contributors.contributors', {}, 'Contributors')}
               </h2>
               <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors">
                 <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
               </a>
             </div>
-            <h2 class="text-2xl font-semibold text-solid-default">
+            <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
               {t('contributors.internationalization', {}, 'Internationalization')}
             </h2>
             <div class="mt-0">
@@ -131,7 +131,7 @@ const Contributors: Component<{}> = () => {
               </ul>
             </div>
             <div>
-              <h2 class="text-2xl mb-5 font-semibold text-solid-default">Open Collective</h2>
+              <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">Open Collective</h2>
               <div class="inline-block mb-10">
                 {t(
                   'contributors.support_copy',
@@ -140,7 +140,7 @@ const Contributors: Component<{}> = () => {
                 )}{' '}
                 <a
                   target="_blank"
-                  class="text-solid-default "
+                  class="text-solid-default dark:text-solid-darkdefault "
                   href="https://opencollective.com/solid"
                 >
                   Contribute today &raquo;

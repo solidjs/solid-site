@@ -145,7 +145,7 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
     <button
       aria-label="Select Language"
       ref={props.ref}
-      class="dark:bg-solid-gray focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{
         'background-image': 'url(/img/icons/translate2.svg)',
         'background-size': '24px',
@@ -246,14 +246,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
     <>
       <div use:observer class="h-0" />
       <div
-        class="sticky top-0 z-50 dark:bg-solid-gray bg-white"
+        class="sticky top-0 z-50 bg-white dark:bg-black"
         classList={{ 'shadow-md': showLogo() }}
       >
         <div class="flex justify-center w-full overflow-hidden">
           <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
             <div
-              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg dark:bg-solid-gray ${
+              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg ${
                 showLogo() ? 'scale-100' : 'scale-0'
               }`}
               ref={logoEl}
@@ -305,11 +305,11 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             exitToClass: 'opacity-0 -translate-y-4',
           }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 transition-composite bg-white shadow-md">
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 transition-composite bg-white dark:bg-black shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
-                  class="first:rounded-t hover:bg-solid-lightgray last:rounded-b text-left p-3 text-sm border-b w-full"
+                  class="first:rounded-t hover:bg-solid-lightgray hover:bg-solid-gray last:rounded-b text-left p-3 text-sm border-b w-full"
                   classList={{
                     'bg-solid-medium text-white': lang == locale(),
                     'hover:bg-solid-light': lang == locale(),
@@ -327,7 +327,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             onmouseenter={clearSubnavClose}
             onmouseleave={closeSubnav}
             ref={subnavEl}
-            class="absolute left-50 bg-gray-200 shadow-xl max-w-sm transition duration-750"
+            class="absolute left-50 bg-gray-200 dark:bg-gray-800 shadow-xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
           >
             <ul class="divide-x flex flex-col">

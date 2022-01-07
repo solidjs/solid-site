@@ -1,10 +1,12 @@
 import { Component, createSignal, ErrorBoundary } from 'solid-js';
+import { useData } from 'solid-app-router';
 import { createTabList, Repl, Tab } from 'solid-repl';
 import { compiler, formatter } from './setupRepl';
 
 let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   count++;
+  const data = useData<{ isDark: true }>(-1);
   const initialTabs = props.tabs || [
     {
       name: 'main',
@@ -28,7 +30,7 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
         interactive={true}
         actionBar={true}
         editableTabs={true}
-        dark={false}
+        dark={data.isDark}
         tabs={tabs()}
         setTabs={setTabs}
         current={current()}

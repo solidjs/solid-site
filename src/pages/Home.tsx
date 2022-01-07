@@ -60,20 +60,20 @@ const Home: Component<{}> = () => {
   });
 
   return (
-    <div class="dark:bg-solid-gray flex flex-col md:pt-8">
+    <div class="flex flex-col md:pt-8">
       <div
         class="flex flex-col space-y-5 md:space-y-0 md:flex-row w-11/12 justify-center z-10 text-sm items-center container rounded-xl py-10 border-8 border-gray-100 my-5 px-7 md:space-x-5 cursor-pointer"
         onClick={() => window.open('/hack', '_blank')}
       >
         <div class="text-xl">On January 7th get ready for </div>
-        <img class="w-96" src="/img/hack.svg" alt="SolidHack Announcement" />
+        <img class="w-96 dark:brightness-150" src="/img/hack.svg" alt="SolidHack Announcement" />
       </div>
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
               <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
-                <img class="w-12 mb-5" src={strength_icons[strength.icon]} alt={strength.label} />
+                <img class="w-12 mb-5 dark:brightness-150" src={strength_icons[strength.icon]} alt={strength.label} />
                 <h3 class="text-xl mb-2 font-semibold">{strength.label}</h3>
                 <p class="text-base">{strength.description}</p>
               </div>
@@ -82,7 +82,7 @@ const Home: Component<{}> = () => {
         </section>
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="border-2 m-5 lg:m-0 border-gray-200 text-black flex rounded-lg defer">
+        <section class="border-2 m-5 lg:m-0 border-gray-200 rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
               {(fact: { label: string; detail: string; link: string }) => {
@@ -169,16 +169,16 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               {(copy: string) => <p class="mt-9 leading-7">{copy}</p>}
             </For>
             <Link
-              class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
+              class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
               href={t('home.example.link')}
             >
               {t('home.example.link_label')}
             </Link>
           </div>
         </section>
-        <section class="dark:bg-gray-500 bg-gray-50 py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
+        <section class="dark:bg-solid-darkgray bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div
-            class="px-9 py-4 bg-gray-50 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
+            class="px-9 py-4 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
             classList={{ 'xl:bg-opacity-0': t('global.dir', {}, 'ltr') === 'ltr' }}
           >
             <img class="w-16" src={sandbox} alt="" />
@@ -188,7 +188,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             <p class="text-2xl mt-2">{t('home.reactivity.subheadline')}</p>
             <p class="mt-6 leading-7">{t('home.reactivity.copy')}</p>
             <a
-              class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
+              class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
               href={t('home.reactivity.link')}
             >
               {t('home.reactivity.link_label')}
@@ -209,17 +209,17 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </h2>
             <p class="leading-7 mt-9">{t('home.performance.copy')}</p>
             <a
-              class={`button inline-block mt-8 text-solid-default font-semibold hover:text-gray-500 ${chevron()}`}
+              class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
               href={t('home.performance.link')}
             >
               {t('home.performance.link_label')}
             </a>
           </div>
         </section>
-        <section class="dark:bg-gray-500 bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
+        <section class="dark:bg-solid-darkgray bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
-              <img class="w-10 mb-5 block" src={flag} alt="" />
+              <img class="w-10 mb-5 block dark:invert" src={flag} alt="" />
               {t('home.features.headline')}
             </h2>
             <p class="text-xl mt-4">{t('home.features.copy')}</p>
@@ -227,7 +227,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <ul class="flex flex-wrap">
             <For each={t('home.features.list')}>
               {(feature: string) => (
-                <li class="feature-block border-gray-300 w-full md:w-auto mr-3 mt-3 px-5 py-3">
+                <li class="feature-block border-gray-300 dark:border-gray-700 w-full md:w-auto mr-3 mt-3 px-5 py-3">
                   <span class="block text-sm">{feature}</span>
                 </li>
               )}
