@@ -17,7 +17,7 @@ import {
   filter,
 } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
-import createCountdown from '@solid-primitives/countdown';
+import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
@@ -66,7 +66,7 @@ const Resource: Component<Resource> = (props) => {
   const now = new Date();
   const published = new Date(0);
   published.setTime(props.published_at || 0);
-  const { days, hours } = createCountdown(now, () => published, -1);
+  const { days, hours } = createCountdown(published, now);
   const publish_detail = () => {
     if (days! > 1) {
       return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago');
