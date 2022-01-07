@@ -25,7 +25,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/hack',
-    component: lazy(() => import('./pages/Hack')),
+    component: () => Navigate({ href: 'https://hack.solidjs.com' }),
   },
   {
     path: '/guide',

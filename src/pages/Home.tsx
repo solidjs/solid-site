@@ -61,9 +61,9 @@ const Home: Component<{}> = () => {
 
   return (
     <div class="dark:bg-solid-gray flex flex-col md:pt-8">
-      <a target="_blank" href="/hack">
+      <a target="_blank" href="https://hack.solidjs.com">
         <div class="flex flex-col space-y-5 md:space-y-0 md:flex-row w-11/12 justify-center z-10 text-sm items-center container rounded-xl py-10 border-8 border-gray-100 my-5 px-7 md:space-x-5">
-          <div class="text-xl">On January 7th get ready for </div>
+          <div class="text-xl">Three categories. $12k in prizes. 3 months! </div>
           <img class="w-96" src="/img/hack.svg" alt="SolidHack Announcement" />
         </div>
       </a>
