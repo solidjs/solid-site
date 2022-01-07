@@ -145,7 +145,7 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
     <button
       aria-label="Select Language"
       ref={props.ref}
-      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-dark px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{
         'background-image': 'url(/img/icons/translate2.svg)',
         'background-size': '24px',
