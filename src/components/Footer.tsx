@@ -3,6 +3,7 @@ import { Portal } from 'solid-js/web';
 import { useData } from 'solid-app-router';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
+import darkLight from '../assets/icons/dark-light.svg';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
@@ -76,8 +77,8 @@ const Footer: Component = () => {
                   version: '1.3.0',
                 })}
               </p>
-              <button class="flex text-gray-600" onClick={() => data.isDark = !data.isDark}>
-                <img class="w-5" src="/img/icons/dark-light.svg" />&nbsp;
+              <button class="flex text-gray-600 dark:text-gray-300" onClick={() => data.isDark = !data.isDark}>
+                <img class="w-5 dark:invert" src={darkLight} />&nbsp;
                 {data.isDark ? 'Disable dark mode' : 'Enable dark mode'}
               </button>
             </div>
