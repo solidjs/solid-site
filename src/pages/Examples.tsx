@@ -9,6 +9,7 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 
 const Examples: Component = () => {
   const data = useData<ExamplesDataRoute>();
+  const rootData = useData<{isDark: true}>(-1);
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createTabList([
@@ -50,7 +51,7 @@ const Examples: Component = () => {
             <For each={Object.entries(data.list)}>
               {([name, examples]) => (
                 <>
-                  <h3 class="text-xl text-solid-default border-b font-semibold border-solid pb-2">
+                  <h3 class="text-xl text-solid-default dark:text-solid-darkdefault border-b font-semibold border-solid pb-2">
                     {t(`examples.${name.toLowerCase()}`, {}, name)}
                   </h3>
                   <div class="mb-10">
@@ -60,11 +61,11 @@ const Examples: Component = () => {
                           dir="ltr"
                           href={`/examples/${example.id}`}
                           class="block my-4 text-sm py-3 pl-2 border-b hover:opacity-60"
-                          activeClass="text-solid-light"
+                          activeClass="text-solid-light dark:text-solid-darkdefault"
                         >
                           <span>{example.name}</span>
                           <span>{example.id === params.id}</span>
-                          <span class="block text-gray-500 text-md">{example.description}</span>
+                          <span class="block text-gray-500 dark:text-gray-300 text-md">{example.description}</span>
                         </NavLink>
                       )}
                     </For>
@@ -92,7 +93,7 @@ const Examples: Component = () => {
                 interactive={true}
                 actionBar={true}
                 editableTabs={true}
-                dark={false}
+                dark={rootData.isDark}
                 tabs={tabs()}
                 setTabs={setTabs}
                 current={current()}

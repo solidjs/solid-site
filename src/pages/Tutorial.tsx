@@ -80,7 +80,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
   return (
     <div class="z-10 relative">
-      <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white">
+      <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
         <button
           class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
           ref={menuButton}
@@ -100,7 +100,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
-          class="shadow absolute bg-white w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          class="shadow absolute bg-white dark:bg-black w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
           classList={{ hidden: !showDirectory() }}
         >
           <li class="sticky top-0">
@@ -127,14 +127,14 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                     {(entry, entryIndex) => (
                       <li>
                         <NavLink
-                          activeClass="js-active bg-blue-50"
-                          class="hover:bg-blue-100 py-3 px-4 block"
+                          activeClass="js-active bg-blue-50 dark:bg-blue-900"
+                          class="hover:bg-blue-100 dark:hover:bg-blue-800 py-3 px-4 block"
                           href={`/tutorial/${entry.internalName}`}
                         >
-                          <p class="text-sm font-medium text-gray-900">
+                          <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
                           </p>
-                          <p class="text-sm text-gray-500">{entry.description}</p>
+                          <p class="text-sm text-gray-500 dark:text-gray-400">{entry.description}</p>
                         </NavLink>
                       </li>
                     )}
@@ -151,6 +151,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useData<TutorialRouteData>();
+  const rootData = useData<{isDark: true}>(-1);
   const [t] = useI18n();
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
@@ -191,12 +192,12 @@ const Tutorial: Component = () => {
         class="md:grid"
         style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
       >
-        <div class="flex flex-col bg-gray-50 h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
+        <div class="flex flex-col bg-gray-50 dark:bg-black h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
           <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
           <Show when={data.markdown} fallback={''}>
             {(markdown) => (
-              <div ref={markDownRef} class="p-10 prose flex-1 max-w-full overflow-auto">
+              <div ref={markDownRef} class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto">
                 <SolidMarkdown>{markdown}</SolidMarkdown>
               </div>
             )}
@@ -257,7 +258,7 @@ const Tutorial: Component = () => {
             interactive={true}
             actionBar={true}
             editableTabs={true}
-            dark={false}
+            dark={rootData.isDark}
             tabs={tabs()}
             setTabs={setTabs}
             current={current()}

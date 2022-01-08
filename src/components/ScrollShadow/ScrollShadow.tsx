@@ -1,4 +1,5 @@
 import { Component, onCleanup, onMount } from 'solid-js';
+import { useData } from 'solid-app-router';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
@@ -124,6 +125,7 @@ const Sentinel: Component<
 
 const Shadow: Component<{ ref: any } & TShared> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
+  const data = useData<{ isDark: true }>(-1);
   const refCb = (el: HTMLElement) => {
     ref(el);
     divEl = el;
@@ -135,17 +137,18 @@ const Shadow: Component<{ ref: any } & TShared> = (props) => {
     const rtl = props.rtl;
     const left = rtl ? 'right' : 'left';
     const right = rtl ? 'left' : 'right';
+    const rgb = (data.isDark ? '0, 0, 0' : '255, 255, 255');
 
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
         isFirst ? right : left
-      }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 100%; ${
+      }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 100%; ${
         divEl ? `opacity: ${divEl.style.opacity};` : ''
       }`;
     }
     return `left: 0; ${isFirst ? 'top' : 'bottom'}: 0; background: linear-gradient(to ${
       isFirst ? 'top' : 'bottom'
-    }, rgba(255, 255, 255, 1), 50%, rgba(255, 255, 255, 0)); width: ${size}; height: 28%; ${
+    }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 28%; ${
       divEl ? `opacity: ${divEl.style.opacity};` : ''
     }`;
   };

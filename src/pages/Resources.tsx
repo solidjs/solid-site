@@ -75,7 +75,7 @@ const Resource: Component<Resource> = (props) => {
   };
 
   return (
-    <li class="py-6 border-b text-left hover:bg-gray-50 duration-100">
+    <li class="py-6 border-b text-left hover:bg-gray-50 dark:hover:bg-gray-700 duration-100">
       <a
         class="relative grid grid-cols-10 md:grid-cols-12 grid-flow-col gap-2 text-solid"
         target="_blank"
@@ -83,18 +83,18 @@ const Resource: Component<Resource> = (props) => {
         rel="nofollow"
       >
         <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
-          <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium rounded-full text-white">
-            <Icon class="text-solid-medium w-5/6" path={ResourceTypeIcons[props.type]} />
+          <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium dark:border-solid-darkdefault rounded-full text-white">
+            <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[props.type]} />
           </figure>
         </div>
         <div class="col-start-3 col-end-[-1] md:col-span-7 lg:col-span-10 items-center">
           <div dir="ltr">
             <div class="text-lg">{props.title}</div>
             <Show when={props.description != ''}>
-              <div class="text-xs mt-2 text-black mb-3 block">{props.description}</div>
+              <div class="text-xs mt-2 text-black dark:text-white mb-3 block">{props.description}</div>
             </Show>
             <Show when={props.author && !props.author_url}>
-              <div class="text-xs mt-3 text-gray-500 block">
+              <div class="text-xs mt-3 text-gray-500 dark:text-gray-300 block">
                 {t('resources.by')} {props.author}
               </div>
             </Show>
@@ -105,7 +105,7 @@ const Resource: Component<Resource> = (props) => {
                 rel="noopener"
                 href={props.author_url}
                 target="_blank"
-                class="text-xs text-gray-500 inline hover:text-solid-medium"
+                class="text-xs text-gray-500 dark:text-gray-300 inline hover:text-solid-medium"
               >
                 {t('resources.by')} {props.author}
               </a>
@@ -217,7 +217,7 @@ const Resources: Component = () => {
     <div class="flex flex-col relative">
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[calc(100vh-80px)]">
-          <div class="text-xs bg-gray-100 p-4 rounded" innerHTML={t('resources.cta')}></div>
+          <div class="text-xs bg-gray-100 dark:bg-gray-700 p-4 rounded" innerHTML={t('resources.cta')}></div>
           <div class="hidden md:block">
             <input
               class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-50 placeholder-gray-500"
@@ -226,7 +226,7 @@ const Resources: Component = () => {
               onInput={(evt) => setKeyword(evt.currentTarget!.value)}
               type="text"
             />
-            <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">
+            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault border-b mb-4 font-semibold border-solid pb-2">
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
@@ -250,13 +250,13 @@ const Resources: Component = () => {
                     classList={{
                       'opacity-30 cursor-default': !filtered.counts[type],
                       'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1,
+                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
                     }}
                     class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                       <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon class="text-solid-medium w-5/6" path={ResourceTypeIcons[type]} />
+                        <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[type]} />
                       </figure>
                     </div>
                     <div class="col-span-3 rtl:text-right lg:col-span-3">
@@ -271,7 +271,7 @@ const Resources: Component = () => {
                 )}
               </For>
             </div>
-            <h3 class="text-xl mt-8 text-solid-default border-b font-semibold border-solid pb-2">
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b font-semibold border-solid pb-2">
               {t('resources.categories')}
             </h3>
 
@@ -296,7 +296,7 @@ const Resources: Component = () => {
                     classList={{
                       'opacity-20 cursor-default': !exists,
                       'hover:opacity-60': exists,
-                      'bg-gray-50': filtered.enabledCategories.indexOf(id) !== -1,
+                      'bg-gray-50 dark:bg-gray-700': filtered.enabledCategories.indexOf(id) !== -1,
                     }}
                     class="block w-full text-sm py-4 pl-4 ltr:text-left rtl:text-right border-b"
                   >
@@ -326,7 +326,7 @@ const Resources: Component = () => {
               type="text"
             />
             <button
-              class="lg:hidden h-full w-[45px] flex-shrink-0 border-gray-300 border rounded-lg flex justify-center items-center text-solid-medium"
+              class="lg:hidden h-full w-[45px] flex-shrink-0 border-gray-300 border rounded-lg flex justify-center items-center text-solid-medium dark:text-solid-darkdefault"
               onClick={onClickFiltersBtn}
               ref={menuButton}
             >
@@ -353,7 +353,7 @@ const Resources: Component = () => {
             }
             style={{ height: 'calc(100vh - 8rem)', top: '8rem' }}
           >
-            <h3 class="text-xl text-solid-default border-b mb-4 font-semibold border-solid pb-2">
+            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault border-b mb-4 font-semibold border-solid pb-2">
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
@@ -377,13 +377,13 @@ const Resources: Component = () => {
                     classList={{
                       'opacity-30 cursor-default': !filtered.counts[type],
                       'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100': filtered.enabledTypes.indexOf(type) !== -1,
+                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
                     }}
                     class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                       <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon class="text-solid-medium w-5/6" path={ResourceTypeIcons[type]} />
+                        <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[type]} />
                       </figure>
                     </div>
                     <div class="col-span-3 rtl:text-right lg:col-span-3">
@@ -398,7 +398,7 @@ const Resources: Component = () => {
                 )}
               </For>
             </div>
-            <h3 class="text-xl mt-8 text-solid-default border-b font-semibold border-solid pb-2">
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b font-semibold border-solid pb-2">
               {t('resources.categories')}
             </h3>
 
