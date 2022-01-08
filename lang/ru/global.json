@@ -24,25 +24,57 @@
       "path": "/examples"
     },
     {
-      "title": "Плэйграунд",
+      "title": "Песочница",
       "path": "https://playground.solidjs.com",
       "external": true
     },
     {
-      "title": "блог",
-      "path": "/blog"
-    },
-    {
-      "title": "Медиа",
-      "path": "/media"
+      "title": "О сайте",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "Узнайте о нашем публичном хакатоне 2022 года.",
+          "path": "https://www.solidjs.com/hack",
+          "external": true
+        },
+        {
+          "title": "Блог",
+          "description": "Новости и обновления от нашего сообщества",
+          "path": "/blog"
+        },
+        {
+          "title": "Команда и Контрибьюторы",
+          "description": "Члены команды Solid и помощники",
+          "path": "/contributors"
+        },
+        {
+          "title": "Медиа",
+          "description": "Элементы бренда для использования в СМИ",
+          "path": "/media"
+        },
+        {
+          "title": "Открытый Коллектив",
+          "description": "Поддержите нас пожертвованием и помогите нам продолжить нашу деятельность",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
     }
   ],
   "404": {
-    "header": "Упс! Четыреста четыре.",
-    "body": "Этой страницы точно не существует."
+    "header": "Упс. Четыреста четыре.",
+    "body": "этой страницы точно не существует."
+  },
+  "newsletter": {
+    "title": "Подписаться на новости Solid",
+    "email": "Адрес электронной почты",
+    "success": "Вы успешно подписались!",
+    "error": "Подписка не может быть завершена",
+    "register": "Подписаться",
+    "sending": "Отправка"
   },
   "footer": {
-    "declaration": "Solid - это проект с открытым исходным кодом, поддерживаемый командой публичных участников. Распространяется под <a class=\"underline hover:text-gray-500\" href=\"{license}\">лицензией MIT</a>. Эта библиотека и сообщество стали возможными благодаря <a class=\"underline hover:text-gray-500\" href=\"{contributors}\">основной команде и преданным участникам</a>.",
+    "declaration": "Solid - это проект с открытым исходным кодом, поддерживаемый командой публичных участников. Распространяется под <a class=\"underline hover:text-gray-500\" href=\"{{license}}\">лицензией MIT</a>. Эта библиотека и сообщество стали возможными благодаря <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">основной команде и преданным участникам</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Спонсоры",
