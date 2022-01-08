@@ -34,6 +34,7 @@ type DataParams = {
 
 export const AppData: RouteDataFunc = (props) => {
   const [settings, set] = createCookieStore<{ dark: string; locale: string }>();
+  const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
   const browserLang = navigator.language.slice(0, 2);
   if (props.location.query.locale) {
     set('locale', props.location.query.locale);
@@ -56,13 +57,17 @@ export const AppData: RouteDataFunc = (props) => {
 
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
   const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
+  const isDark = () =>
+    settings.dark === 'true' ? true :
+    settings.dark === 'false' ? false :
+    userMedia.matches;
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
   createEffect(() => {
-    if (settings.dark === 'true')
+    if (isDark())
       document.documentElement.classList.add('dark');
     else
       document.documentElement.classList.remove('dark');
@@ -73,7 +78,7 @@ export const AppData: RouteDataFunc = (props) => {
       set('dark', value === true ? 'true' : 'false');
     },
     get isDark() {
-      return settings.dark === 'true' ? true : false;
+      return isDark();
     },
     get i18n() {
       return i18n;
