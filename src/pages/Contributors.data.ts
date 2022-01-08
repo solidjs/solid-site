@@ -116,6 +116,12 @@ const translators = [
     flag: '🇷🇺',
     link: 'https://github.com/norskeld',
   },
+  {
+    name: 'Lechuck Roh',
+    language: 'ko-kr',
+    flag: '🇰🇷',
+    link: 'https://github.com/lechuckroh',
+  },
 ];
 
 const contributors = [

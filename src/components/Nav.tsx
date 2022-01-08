@@ -26,6 +26,7 @@ import PageLoadingBar from './LoadingBar/PageLoadingBar';
 
 const langs = {
   en: 'English',
+  'ko-kr': '한국어',
   'zh-cn': '简体中文',
   ja: '日本語',
   it: 'Italiano',
