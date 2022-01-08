@@ -96,11 +96,7 @@
 }
 .dark .feature-block {
   box-shadow: -2px 2px 10px 0 rgba(255, 255, 255, 0.3);
-  background-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.02) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
   border-radius: 3px;
 }
 .chevron::after {

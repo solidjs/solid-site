@@ -134,7 +134,9 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                           <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
                           </p>
-                          <p class="text-sm text-gray-500 dark:text-gray-400">{entry.description}</p>
+                          <p class="text-sm text-gray-500 dark:text-gray-400">
+                            {entry.description}
+                          </p>
                         </NavLink>
                       </li>
                     )}
@@ -151,7 +153,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useData<TutorialRouteData>();
-  const rootData = useData<{isDark: true}>(-1);
+  const rootData = useData<{ isDark: true }>(-1);
   const [t] = useI18n();
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
@@ -197,7 +199,10 @@ const Tutorial: Component = () => {
 
           <Show when={data.markdown} fallback={''}>
             {(markdown) => (
-              <div ref={markDownRef} class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto">
+              <div
+                ref={markDownRef}
+                class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
+              >
                 <SolidMarkdown>{markdown}</SolidMarkdown>
               </div>
             )}

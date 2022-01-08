@@ -58,19 +58,15 @@ export const AppData: RouteDataFunc = (props) => {
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
   const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
   const isDark = () =>
-    settings.dark === 'true' ? true :
-    settings.dark === 'false' ? false :
-    userMedia.matches;
+    settings.dark === 'true' ? true : settings.dark === 'false' ? false : userMedia.matches;
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
   createEffect(() => {
-    if (isDark())
-      document.documentElement.classList.add('dark');
-    else
-      document.documentElement.classList.remove('dark');
+    if (isDark()) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
   });
 
   return {

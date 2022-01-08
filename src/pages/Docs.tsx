@@ -48,7 +48,8 @@ const Sidebar: Component<{
             `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
           }
           classList={{
-            'font-semibold text-solid-medium dark:text-solid-darkdefault': props.current() == firstLevel.slug,
+            'font-semibold text-solid-medium dark:text-solid-darkdefault':
+              props.current() == firstLevel.slug,
           }}
           href={`#${firstLevel.slug}`}
         >
@@ -59,8 +60,10 @@ const Sidebar: Component<{
                   title={secondLevel.title}
                   class="block pl-2 text-gray-500 dark:text-gray-300 py-1 text-md font-semibold my-2 break-words"
                   classList={{
-                    'text-solid hover:text-solid-dark dark:hover:text-solid-light': `#${secondLevel.slug}` === props.hash,
-                    'hover:text-gray-400 dark:hover:text-gray-400': `#${secondLevel.slug}` !== props.hash,
+                    'text-solid hover:text-solid-dark dark:hover:text-solid-light':
+                      `#${secondLevel.slug}` === props.hash,
+                    'hover:text-gray-400 dark:hover:text-gray-400':
+                      `#${secondLevel.slug}` !== props.hash,
                     'pb-2': index() == firstLevel.children!.length - 1,
                   }}
                   href={`#${secondLevel.slug}`}
@@ -76,7 +79,8 @@ const Sidebar: Component<{
                             classList={{
                               'text-solid hover:text-solid-dark dark:hover:text-solid-dark':
                                 `#${thirdLevel.slug}` === props.hash,
-                              'hover:text-gray-500 dark:hover:text-gray-300': `#${thirdLevel.slug}` !== props.hash,
+                              'hover:text-gray-500 dark:hover:text-gray-300':
+                                `#${thirdLevel.slug}` !== props.hash,
                             }}
                           />
                         )}

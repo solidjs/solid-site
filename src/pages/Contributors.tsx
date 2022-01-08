@@ -131,7 +131,9 @@ const Contributors: Component<{}> = () => {
               </ul>
             </div>
             <div>
-              <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">Open Collective</h2>
+              <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">
+                Open Collective
+              </h2>
               <div class="inline-block mb-10">
                 {t(
                   'contributors.support_copy',

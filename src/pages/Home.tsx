@@ -73,7 +73,11 @@ const Home: Component<{}> = () => {
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
               <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
-                <img class="w-12 mb-5 dark:brightness-150" src={strength_icons[strength.icon]} alt={strength.label} />
+                <img
+                  class="w-12 mb-5 dark:brightness-150"
+                  src={strength_icons[strength.icon]}
+                  alt={strength.label}
+                />
                 <h3 class="text-xl mb-2 font-semibold">{strength.label}</h3>
                 <p class="text-base">{strength.description}</p>
               </div>

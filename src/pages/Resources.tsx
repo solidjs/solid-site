@@ -84,14 +84,19 @@ const Resource: Component<Resource> = (props) => {
       >
         <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
           <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium dark:border-solid-darkdefault rounded-full text-white">
-            <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[props.type]} />
+            <Icon
+              class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+              path={ResourceTypeIcons[props.type]}
+            />
           </figure>
         </div>
         <div class="col-start-3 col-end-[-1] md:col-span-7 lg:col-span-10 items-center">
           <div dir="ltr">
             <div class="text-lg">{props.title}</div>
             <Show when={props.description != ''}>
-              <div class="text-xs mt-2 text-black dark:text-white mb-3 block">{props.description}</div>
+              <div class="text-xs mt-2 text-black dark:text-white mb-3 block">
+                {props.description}
+              </div>
             </Show>
             <Show when={props.author && !props.author_url}>
               <div class="text-xs mt-3 text-gray-500 dark:text-gray-300 block">
@@ -217,7 +222,10 @@ const Resources: Component = () => {
     <div class="flex flex-col relative">
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[calc(100vh-80px)]">
-          <div class="text-xs bg-gray-100 dark:bg-gray-700 p-4 rounded" innerHTML={t('resources.cta')}></div>
+          <div
+            class="text-xs bg-gray-100 dark:bg-gray-700 p-4 rounded"
+            innerHTML={t('resources.cta')}
+          ></div>
           <div class="hidden md:block">
             <input
               class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-50 placeholder-gray-500"
@@ -256,7 +264,10 @@ const Resources: Component = () => {
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                       <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[type]} />
+                        <Icon
+                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+                          path={ResourceTypeIcons[type]}
+                        />
                       </figure>
                     </div>
                     <div class="col-span-3 rtl:text-right lg:col-span-3">
@@ -383,7 +394,10 @@ const Resources: Component = () => {
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                       <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon class="text-solid-medium dark:text-solid-darkdefault w-5/6" path={ResourceTypeIcons[type]} />
+                        <Icon
+                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+                          path={ResourceTypeIcons[type]}
+                        />
                       </figure>
                     </div>
                     <div class="col-span-3 rtl:text-right lg:col-span-3">

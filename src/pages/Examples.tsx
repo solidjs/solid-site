@@ -9,7 +9,7 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 
 const Examples: Component = () => {
   const data = useData<ExamplesDataRoute>();
-  const rootData = useData<{isDark: true}>(-1);
+  const rootData = useData<{ isDark: true }>(-1);
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createTabList([
@@ -65,7 +65,9 @@ const Examples: Component = () => {
                         >
                           <span>{example.name}</span>
                           <span>{example.id === params.id}</span>
-                          <span class="block text-gray-500 dark:text-gray-300 text-md">{example.description}</span>
+                          <span class="block text-gray-500 dark:text-gray-300 text-md">
+                            {example.description}
+                          </span>
                         </NavLink>
                       )}
                     </For>

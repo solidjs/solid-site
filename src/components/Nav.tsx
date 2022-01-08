@@ -245,10 +245,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   return (
     <>
       <div use:observer class="h-0" />
-      <div
-        class="sticky top-0 z-50 bg-white dark:bg-black"
-        classList={{ 'shadow-md': showLogo() }}
-      >
+      <div class="sticky top-0 z-50 bg-white dark:bg-black" classList={{ 'shadow-md': showLogo() }}>
         <div class="flex justify-center w-full overflow-hidden">
           <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">

@@ -40,11 +40,7 @@ const Lang: Component = (props) => {
     <I18nContext.Provider value={data.i18n}>
       <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
       <Meta name="lang" content={locale()} />
-      <div
-        dir={t('global.dir', {}, 'ltr')}
-      >
-        {props.children}
-      </div>
+      <div dir={t('global.dir', {}, 'ltr')}>{props.children}</div>
     </I18nContext.Provider>
   );
 };
