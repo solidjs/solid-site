@@ -20,6 +20,7 @@ const Examples: Component = () => {
     },
   ]);
   const [current, setCurrent] = createSignal(`main.tsx`);
+  const [version, setVersion] = createSignal<string | undefined>();
 
   useRouteReadyState();
 
@@ -40,9 +41,11 @@ const Examples: Component = () => {
         );
         setTabs(newTabs);
         setCurrent(`${newTabs[0].name}.tsx`);
+        setVersion(exampleData.version);
       });
     });
   });
+
   return (
     <div class="flex flex-col relative">
       <div class="container my-10 w-[98vw] mx-auto">
@@ -98,6 +101,7 @@ const Examples: Component = () => {
                 setTabs={setTabs}
                 current={current()}
                 setCurrent={setCurrent}
+                version={version()}
                 id="examples"
               />
             </ErrorBoundary>
