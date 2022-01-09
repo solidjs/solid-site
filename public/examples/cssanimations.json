@@ -9,5 +9,6 @@
       "type": "css",
       "content": ".container {\n  position: relative;\n}\n\n.fade-enter-active,\n.fade-exit-active {\n  transition: opacity 0.5s;\n}\n.fade-enter,\n.fade-exit-to {\n  opacity: 0;\n}\n\n.slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n.slide-fade-exit-active {\n  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter,\n.slide-fade-exit-to {\n  transform: translateX(10px);\n  opacity: 0;\n}\n\n.bounce-enter-active {\n  animation: bounce-in 0.5s;\n}\n.bounce-exit-active {\n  animation: bounce-in 0.5s reverse;\n}\n@keyframes bounce-in {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    transform: scale(1.5);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n\n.list-item {\n  transition: all 0.5s;\n  display: inline-block;\n  margin-right: 10px;\n}\n\n.list-item-enter,\n.list-item-exit-to {\n  opacity: 0;\n  transform: translateY(30px);\n}\n.list-item-exit-active {\n  position: absolute;\n}\n"
     }
-  ]
+  ],
+  "version": "1.2.4"
 }
