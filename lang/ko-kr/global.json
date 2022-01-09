@@ -1,0 +1,83 @@
+{
+  "name": "한국어",
+  "title": "SolidJS · 리액티브 자바스크립트 라이브러리",
+  "locale": "ko-KR",
+  "nav": [
+    {
+      "title": "가이드",
+      "path": "/guides"
+    },
+    {
+      "title": "API 문서",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "리소스",
+      "path": "/resources"
+    },
+    {
+      "title": "튜토리얼",
+      "path": "/tutorial"
+    },
+    {
+      "title": "예제",
+      "path": "/examples"
+    },
+    {
+      "title": "플레이그라운드",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "정보",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "2022 공개 해커톤에 대해서 알아보세요.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "블로그",
+          "description": "커뮤니티 뉴스와 업데이트",
+          "path": "/blog"
+        },
+        {
+          "title": "팀과 컨트리뷰터",
+          "description": "Solid 팀 멤버와 서포터",
+          "path": "/contributors"
+        },
+        {
+          "title": "미디어",
+          "description": "미디어 사용을 위한 브랜드 요소",
+          "path": "/media"
+        },
+        {
+          "title": "OpenCollective",
+          "description": "지속적인 개발 활동을 위해 기부로 도움을 주세요",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "헉!",
+    "body": "생각에 이런 페이지는 없는 것 같은데요."
+  },
+  "newsletter": {
+    "title": "Solid 뉴스를 받으려면 신청하세요",
+    "email": "이메일 주소",
+    "success": "성공적으로 등록되었습니다!",
+    "error": "등록하는데 실패했습니다",
+    "register": "등록",
+    "sending": "전송중"
+  },
+  "footer": {
+    "declaration": "Solid는 공개 기여자 팀이 지원하는 오픈 소스 프로젝트이며, <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT 라이선스</a>에 따라 배포됩니다. 이 라이브러리와 커뮤니티는 <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">핵심 팀과 헌신적인 컨트리뷰터들</a>에 의해 가능합니다.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "후원",
+    "updated": "Solid v{{version}} 기반으로 {{date}} 에 최종 업데이트되었습니다."
+  }
+}
