@@ -1,0 +1,18 @@
+{
+  "title": "미디어 자료",
+  "copy": "다음은 Solid 브랜드를 나타내는 자료입니다. 모든 자료들은 오픈 소스 컨트리뷰션으로 간주되며, 공개 표준 및 라이선스 규칙에 따라 사용해야 합니다. 브랜드 조정과 관련된 추가 자료나 질문이 있는 경우, 지원 및 안내를 위해 언제든지 Discord에 가입하세요.",
+  "brand_font": "브랜드 폰트",
+  "primary": "Primary Color",
+  "secondary": "Secondary Color",
+  "light": "Light Color",
+  "accent": "Accent Color",
+  "copy_hex": "16진수 값을 복사하려면 컬러를 클릭하세요.",
+  "resources": {
+    "with_wordmark": "워드마크 포함",
+    "without_wordmark": "워드마크 없음",
+    "only_wordmark": "워드마크만",
+    "dark_with_wordmark": "다크모드 워드마크 포함",
+    "dark_without_wordmark": "다크모드 워드마크 없음",
+    "dark_only_wordmark": "다크모드 워드마크만"
+  }
+}
