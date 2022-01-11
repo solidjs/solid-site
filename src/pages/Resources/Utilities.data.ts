@@ -1035,6 +1035,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1640995937000,
   },
+  {
+    link: 'https://github.com/jherr/chrome-extension-boilerplate-solid',
+    title: 'chrome-extension-boilerplate-solid',
+    description:
+      'Chrome Extensions boilerplate with SolidJS',
+    author: 'hjerr',
+    author_url: 'https://github.com/jherr',
+    keywords: ['chrome', 'extension', 'plugin'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1641869878000,
+  },
 ];
 
 export default utilities;
