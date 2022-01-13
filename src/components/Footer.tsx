@@ -77,14 +77,14 @@ const Footer: Component = () => {
                   version: '1.3.0',
                 })}
               </p>
-              <button
+              {/* <button
                 class="flex text-gray-600 dark:text-gray-300"
                 onClick={() => (data.isDark = !data.isDark)}
               >
                 <img class="w-5 dark:invert" src={darkLight} />
                 &nbsp;
                 {data.isDark ? 'Disable dark mode' : 'Enable dark mode'}
-              </button>
+              </button> */}
             </div>
             <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
               <Social />
