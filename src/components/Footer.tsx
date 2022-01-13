@@ -1,9 +1,9 @@
 import type { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import { useData } from 'solid-app-router';
+// import { useData } from 'solid-app-router';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
-import darkLight from '../assets/icons/dark-light.svg';
+// import darkLight from '../assets/icons/dark-light.svg';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
@@ -13,7 +13,7 @@ import Social from './Social';
 
 const Footer: Component = () => {
   const [t] = useI18n();
-  const data = useData<{ isDark: true }>(-1);
+  // const data = useData<{ isDark: true }>(-1);
   return (
     <Portal mount={document.getElementById('footer')!}>
       <div
@@ -77,14 +77,14 @@ const Footer: Component = () => {
                   version: '1.3.1',
                 })}
               </p>
-              <button
+              {/* <button
                 class="flex text-gray-600 dark:text-gray-300"
                 onClick={() => (data.isDark = !data.isDark)}
               >
                 <img class="w-5 dark:invert" src={darkLight} />
                 &nbsp;
                 {data.isDark ? 'Disable dark mode' : 'Enable dark mode'}
-              </button>
+              </button> */}
             </div>
             <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
               <Social />
