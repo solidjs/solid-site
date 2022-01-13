@@ -100,7 +100,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
-          class="shadow absolute bg-white dark:bg-black w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          class="shadow absolute bg-white dark:bg-solid-darkbg w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
           classList={{ hidden: !showDirectory() }}
         >
           <li class="sticky top-0">
@@ -194,7 +194,7 @@ const Tutorial: Component = () => {
         class="md:grid"
         style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
       >
-        <div class="flex flex-col bg-gray-50 dark:bg-black h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
+        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
           <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
 
           <Show when={data.markdown} fallback={''}>
