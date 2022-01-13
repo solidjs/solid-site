@@ -1,9 +1,9 @@
 import type { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import { useData } from 'solid-app-router';
+// import { useData } from 'solid-app-router';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
-import darkLight from '../assets/icons/dark-light.svg';
+// import darkLight from '../assets/icons/dark-light.svg';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
@@ -13,7 +13,7 @@ import Social from './Social';
 
 const Footer: Component = () => {
   const [t] = useI18n();
-  const data = useData<{ isDark: true }>(-1);
+  // const data = useData<{ isDark: true }>(-1);
   return (
     <Portal mount={document.getElementById('footer')!}>
       <div
