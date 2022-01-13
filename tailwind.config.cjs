@@ -31,6 +31,7 @@ module.exports = {
         primary: '#4483c1',
         solid: {
           default: '#2c4f7c',
+          darkbg: '#3e3e3e',
           darkdefault: '#b8d7ff', //'#87b1e6',
           darkgray: '#252525',
           gray: '#414042',

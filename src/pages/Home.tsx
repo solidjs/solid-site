@@ -61,13 +61,14 @@ const Home: Component<{}> = () => {
 
   return (
     <div class="flex flex-col md:pt-8">
-      <div
+      <a
+        target="_blank"
+        href="https://hack.solidjs.com"
         class="flex flex-col space-y-5 md:space-y-0 md:flex-row w-11/12 justify-center z-10 text-sm items-center container rounded-xl py-10 border-8 border-gray-100 my-5 px-7 md:space-x-5 cursor-pointer"
-        onClick={() => window.open('/hack', '_blank')}
       >
-        <div class="text-xl">On January 7th get ready for </div>
+        <div class="text-xl">Three categories. $12k in prizes. 3 months! </div>
         <img class="w-96 dark:brightness-150" src="/img/hack.svg" alt="SolidHack Announcement" />
-      </div>
+      </a>
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>

@@ -25,7 +25,10 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/hack',
-    component: () => Navigate({ href: 'https://hack.solidjs.com' }),
+    component: () => {
+      typeof window !== 'undefined' && (window.location.href = 'https://hack.solidjs.com');
+      return null;
+    },
   },
   {
     path: '/guide',
