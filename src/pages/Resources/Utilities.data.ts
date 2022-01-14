@@ -1035,6 +1035,32 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1640995937000,
   },
+  {
+    link: 'https://github.com/jherr/chrome-extension-boilerplate-solid',
+    title: 'chrome-extension-boilerplate-solid',
+    description:
+      'Chrome Extensions boilerplate with SolidJS',
+    author: 'hjerr',
+    author_url: 'https://github.com/jherr',
+    keywords: ['chrome', 'extension', 'plugin'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1641869878000,
+  },
+  {
+    link: 'https://github.com/LXSMNSYC/solid-marked',
+    title: 'solid-marked',
+    description:
+      'MDX/Markdown compiler for SolidJS including Github-flavored markdown',
+    author: 'LXSMNSYC',
+    author_url: 'https://github.com/LXSMNSYC',
+    keywords: ['mdx', 'marked', 'markdown', 'mdast'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1642189449000000,
+  },
 ];
 
 export default utilities;
