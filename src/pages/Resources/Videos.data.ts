@@ -397,7 +397,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.twitch.tv/videos/1269975874',
     title: 'SolidJS - a Reactive Framework w/ Author Ryan Carniato',
-    description: 'Ryan talks about the start of Solid and walks us through why it\s so special.',
+    description: 'Ryan talks about the start of Solid and walks us through why its so special.',
     keywords: ['coderpad', 'reactivity'],
     author: 'CoderPad',
     author_url: 'https://www.twitch.tv/coderpad',
@@ -408,7 +408,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=6CnjpXSZXXk',
     title: 'SolidJS loops are better than React',
-    description: 'A video that compares React Array.map with Solid\'s <For> component.',
+    description: "A video that compares React Array.map with Solid's <For> component.",
     keywords: ['for', 'loop', 'reactivity'],
     author: 'Basarat Codes',
     author_url: 'https://www.youtube.com/channel/UCGD_0i6L48hucTiiyhb5QzQ',
