@@ -394,6 +394,28 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1639126493000,
   },
+  {
+    link: 'https://www.twitch.tv/videos/1269975874',
+    title: 'SolidJS - a Reactive Framework w/ Author Ryan Carniato',
+    description: 'Ryan talks about the start of Solid and walks us through why it\s so special.',
+    keywords: ['coderpad', 'reactivity'],
+    author: 'CoderPad',
+    author_url: 'https://www.twitch.tv/coderpad',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1642791417000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=6CnjpXSZXXk',
+    title: 'SolidJS loops are better than React',
+    description: 'A video that compares React Array.map with Solid\'s <For> component.',
+    keywords: ['for', 'loop', 'reactivity'],
+    author: 'Basarat Codes',
+    author_url: 'https://www.youtube.com/channel/UCGD_0i6L48hucTiiyhb5QzQ',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1642791417000,
+  },
 ];
 
 export default videos;
