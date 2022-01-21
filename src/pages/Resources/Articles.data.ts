@@ -772,7 +772,6 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1619896162000,
   },
-
   {
     link: 'https://sabe.io/tutorials/getting-started-with-solid',
     title: 'Getting Started With Solid',
@@ -785,6 +784,19 @@ const articles: Array<Resource> = [
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
     published_at: 1640938154000,
+  },
+  {
+    link: 'https://blog.logrocket.com/solidjs-vs-react/',
+    title: 'SolidJS vs. React: Comparing declarative UI libraries',
+    description:
+      'Uncovers the similarities and differences between React/Solid to enable you to decide which one works best for your use case.',
+    author: 'Atharva Deosthale',
+    author_url: 'https://blog.logrocket.com/author/atharvadeosthale/',
+    keywords: ['declarative', 'ui', 'choice'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1642791979000,
   },
 ];
 
