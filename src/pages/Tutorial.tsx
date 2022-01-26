@@ -229,6 +229,7 @@ const Tutorial: Component = () => {
                 <NavLink
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                   href={`/tutorial/${data.id}?solved`}
+                  onClick={() => setOpen(true)}
                 >
                   {t('tutorial.solve')}
                 </NavLink>
@@ -237,6 +238,7 @@ const Tutorial: Component = () => {
               <NavLink
                 class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                 href={`/tutorial/${data.id}`}
+                onClick={() => setOpen(true)}
               >
                 {t('tutorial.reset')}
               </NavLink>
