@@ -13,7 +13,13 @@ import {
 import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
 import { Icon } from 'solid-heroicons';
-import { arrowLeft, arrowRight, chevronDown } from 'solid-heroicons/solid';
+import {
+  arrowLeft,
+  arrowRight,
+  chevronDown,
+  chevronDoubleLeft,
+  chevronDoubleRight,
+} from 'solid-heroicons/solid';
 
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
@@ -79,24 +85,22 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   });
 
   return (
-    <div class="z-10 relative">
-      <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
-        <button
-          class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
-          ref={menuButton}
-        >
-          <div class="flex-grow inline-flex flex-col items-baseline">
-            <h3 class="text-xl text-solid leading-none">{props.current?.lessonName}</h3>
-            <p class="block text-gray-500 text-md">{props.current?.description}</p>
-          </div>
+    <>
+      <button
+        class="py-2 px-10 flex items-center focus:outline-none space-x-1 group"
+        ref={menuButton}
+      >
+        <div class="flex-grow inline-flex flex-col items-baseline">
+          <h3 class="text-xl text-solid leading-none">{props.current?.lessonName}</h3>
+          <p class="block text-gray-500 text-md">{props.current?.description}</p>
+        </div>
 
-          <Icon
-            path={chevronDown}
-            class="h-8 -mb-1 transform transition group-hover:translate-y-0.5 duration-300"
-            classList={{ 'translate-y-0.5': showDirectory() }}
-          />
-        </button>
-      </div>
+        <Icon
+          path={chevronDown}
+          class="h-8 -mb-1 transform transition group-hover:translate-y-0.5 duration-300"
+          classList={{ 'translate-y-0.5': showDirectory() }}
+        />
+      </button>
       <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
@@ -147,7 +151,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
           </For>
         </ol>
       </Dismiss>
-    </div>
+    </>
   );
 };
 
@@ -164,6 +168,7 @@ const Tutorial: Component = () => {
     },
   ]);
   const [current, setCurrent] = createSignal('main.tsx');
+  const [open, setOpen] = createSignal(true);
   let markDownRef!: HTMLDivElement;
 
   useRouteReadyState();
@@ -192,11 +197,20 @@ const Tutorial: Component = () => {
       <div
         dir="ltr"
         class="md:grid"
-        style="height: calc(100vh - 64px); grid-template-columns: minmax(40%, 600px) auto"
+        style={`height: calc(100vh - 64px); grid-template-columns: minmax(${
+          open() ? '40%' : '100%'
+        }, 600px) auto`}
       >
-        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0">
-          <DirectoryMenu current={data.tutorialDirectoryEntry} directory={data.tutorialDirectory} />
-
+        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0 ">
+          <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
+            <button type="button" class="mr-5 mt-1 float-right" onClick={() => setOpen(!open())}>
+              <Icon path={open() ? chevronDoubleRight : chevronDoubleLeft} class="h-6 opacity-50" />
+            </button>
+            <DirectoryMenu
+              current={data.tutorialDirectoryEntry}
+              directory={data.tutorialDirectory}
+            />
+          </div>
           <Show when={data.markdown} fallback={''}>
             {(markdown) => (
               <div
@@ -248,29 +262,31 @@ const Tutorial: Component = () => {
             </div>
           </div>
         </div>
-        <ErrorBoundary
-          fallback={
-            <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-          }
-        >
-          <Repl
-            onEditorReady={(editor) => {
-              replEditor = editor;
-            }}
-            compiler={compiler}
-            formatter={formatter}
-            isHorizontal={true}
-            interactive={true}
-            actionBar={true}
-            editableTabs={true}
-            dark={rootData.isDark}
-            tabs={tabs()}
-            setTabs={setTabs}
-            current={current()}
-            setCurrent={setCurrent}
-            id="tutorial"
-          />
-        </ErrorBoundary>
+        <Show when={open()}>
+          <ErrorBoundary
+            fallback={
+              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
+            }
+          >
+            <Repl
+              onEditorReady={(editor) => {
+                replEditor = editor;
+              }}
+              compiler={compiler}
+              formatter={formatter}
+              isHorizontal={true}
+              interactive={true}
+              actionBar={true}
+              editableTabs={true}
+              dark={rootData.isDark}
+              tabs={tabs()}
+              setTabs={setTabs}
+              current={current()}
+              setCurrent={setCurrent}
+              id="tutorial"
+            />
+          </ErrorBoundary>
+        </Show>
       </div>
     </Suspense>
   );
