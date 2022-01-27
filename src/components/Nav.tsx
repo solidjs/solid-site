@@ -310,7 +310,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
-                  class="first:rounded-t hover:bg-solid-gray last:rounded-b text-left p-3 text-sm border-b w-full"
+                  class="first:rounded-t hover:bg-solid-gray hover:text-white last:rounded-b text-left p-3 text-sm border-b w-full"
                   classList={{
                     'bg-solid-medium text-white': lang == locale(),
                     'hover:bg-solid-light': lang == locale(),

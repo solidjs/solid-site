@@ -1038,7 +1038,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/jherr/chrome-extension-boilerplate-solid',
     title: 'chrome-extension-boilerplate-solid',
-    description: 'Chrome Extensions boilerplate with SolidJS',
+    description:
+      'Chrome Extensions boilerplate with SolidJS',
     author: 'hjerr',
     author_url: 'https://github.com/jherr',
     keywords: ['chrome', 'extension', 'plugin'],
