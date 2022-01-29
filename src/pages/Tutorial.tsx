@@ -17,7 +17,6 @@ import {
   arrowLeft,
   arrowRight,
   chevronDown,
-  chevronDoubleLeft,
   chevronDoubleRight,
 } from 'solid-heroicons/solid';
 
@@ -196,15 +195,16 @@ const Tutorial: Component = () => {
     <Suspense fallback={<p>Loading...</p>}>
       <div
         dir="ltr"
-        class="md:grid"
-        style={`height: calc(100vh - 64px); grid-template-columns: minmax(${
-          open() ? '40%' : '100%'
-        }, 600px) auto`}
+        class='md:grid transition-[grid-template-columns] duration-500 h-[calc(100vh-64px)]'
+        classList={{
+          'grid-cols-[minmax(40%,_600px)_auto]': open(),
+          'grid-cols-[minmax(100%,_600px)_auto]': !open(),
+        }}
       >
         <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0 ">
           <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
-            <button type="button" class="mr-5 mt-1 float-right" onClick={() => setOpen(!open())}>
-              <Icon path={open() ? chevronDoubleRight : chevronDoubleLeft} class="h-6 opacity-50" />
+          <button type="button" class="hidden md:block mr-5 mt-1 float-right" onClick={() => setOpen(!open())}>
+              <Icon path={chevronDoubleRight} class="h-6 opacity-50 transition-all duration-500" classList={{'-rotate-180': !open()}} />
             </button>
             <DirectoryMenu
               current={data.tutorialDirectoryEntry}
