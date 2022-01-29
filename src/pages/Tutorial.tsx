@@ -195,7 +195,7 @@ const Tutorial: Component = () => {
     <Suspense fallback={<p>Loading...</p>}>
       <div
         dir="ltr"
-        class='md:grid transition-[grid-template-columns] duration-500 h-[calc(100vh-64px)]'
+        class='md:grid transition-[grid-template-columns] duration-300 h-[calc(100vh-64px)]'
         classList={{
           'grid-cols-[minmax(40%,_600px)_auto]': open(),
           'grid-cols-[minmax(100%,_600px)_auto]': !open(),
