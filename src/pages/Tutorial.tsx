@@ -204,7 +204,7 @@ const Tutorial: Component = () => {
         <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0 ">
           <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
           <button type="button" class="hidden md:block mr-5 mt-1 float-right" onClick={() => setOpen(!open())}>
-              <Icon path={chevronDoubleRight} class="h-6 opacity-50 transition-all duration-500" classList={{'-rotate-180': !open()}} />
+              <Icon path={chevronDoubleRight} class="h-6 opacity-50 transition-all duration-300" classList={{'-rotate-180': !open()}} />
             </button>
             <DirectoryMenu
               current={data.tutorialDirectoryEntry}
