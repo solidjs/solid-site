@@ -33,6 +33,9 @@ const Footer: Component = () => {
                 contributors: '/contributors',
               })}
             />
+            <p class="text-gray-400 mt-2">
+              SolidJS and logo are trademarks of the SolidJS project and Core Team.
+            </p>
             <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white dark:bg-black rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
               <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 dark:text-gray-400 md:text-sm md:static md:text-left md:my-4 md:ml-5 md:mr-2">
                 {t('global.footer.sponsored_by')}
@@ -73,8 +76,8 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
-                  date: '2022/01/27, 9:00am',
-                  version: '1.3.3',
+                  date: '2022/02/01, 5:50pm',
+                  version: '1.3.5',
                 })}
               </p>
               {/* <button
