@@ -26,6 +26,7 @@ import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import SolidMarkdown from 'solid-markdown';
+import { useAppContext } from '../AppContext';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -156,7 +157,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useData<TutorialRouteData>();
-  const rootData = useData<{ isDark: true }>(-1);
+  const context = useAppContext();
   const [t] = useI18n();
   let replEditor: any;
   const [tabs, setTabs] = createTabList([
@@ -280,7 +281,7 @@ const Tutorial: Component = () => {
               interactive={true}
               actionBar={true}
               editableTabs={true}
-              dark={rootData.isDark}
+              dark={context.isDark}
               tabs={tabs()}
               setTabs={setTabs}
               current={current()}

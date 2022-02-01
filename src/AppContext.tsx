@@ -1,8 +1,24 @@
-import { createEffect, createResource } from 'solid-js';
-import { RouteDataFunc } from 'solid-app-router';
+import { Component, createContext, createEffect, createResource, useContext } from 'solid-js';
+import { useLocation } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
 import { createI18nContext } from '@solid-primitives/i18n';
-import { getGuides, getSupported } from '@solid.js/docs';
+import { getGuides, getSupported, ResourceMetadata } from '@solid.js/docs';
+
+interface AppContextInterface {
+  isDark: boolean,
+  loading: boolean,
+  guidesSupported: boolean,
+  guides: ResourceMetadata[] | undefined,
+  i18n: ReturnType<typeof createI18nContext>,
+}
+
+const AppContext = createContext<AppContextInterface>({
+  isDark: false,
+  loading: true,
+  guidesSupported: false,
+  guides: undefined,
+  i18n: undefined as unknown as ReturnType<typeof createI18nContext>,
+});
 
 const langs: { [lang: string]: any } = {
   en: async () => (await import('../lang/en/en')).default(),
@@ -33,15 +49,15 @@ type DataParams = {
   page: string;
 };
 
-export const AppData: RouteDataFunc = (props) => {
+export const AppContextProvider: Component<{}> = (props) => {
   const now = new Date();
   const [settings, set] = createCookieStore<{ dark: string; locale: string }>(undefined, {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
   });
-  // const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
   const browserLang = navigator.language.slice(0, 2);
-  if (props.location.query.locale) {
-    set('locale', props.location.query.locale);
+  const location = useLocation();
+  if (location.query.locale) {
+    set('locale', location.query.locale);
   } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
@@ -49,7 +65,7 @@ export const AppData: RouteDataFunc = (props) => {
   const [, { add }] = i18n;
   const params = (): DataParams => {
     const locale = i18n[1].locale();
-    let page = props.location.pathname.slice(1);
+    let page = location.pathname.slice(1);
     if (page == '') {
       page = 'home';
     }
@@ -61,7 +77,10 @@ export const AppData: RouteDataFunc = (props) => {
 
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
   const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
-  const isDark = () => false; //settings.dark === 'true' ? true : settings.dark === 'false' ? false : userMedia.matches;
+  const isDark = () =>
+    settings.dark === 'true' ? true :
+    settings.dark === 'false' ? false :
+    window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
@@ -72,7 +91,7 @@ export const AppData: RouteDataFunc = (props) => {
     else document.documentElement.classList.remove('dark');
   });
 
-  return {
+  const store = {
     set isDark(value) {
       set('dark', value === true ? 'true' : 'false');
     },
@@ -97,4 +116,12 @@ export const AppData: RouteDataFunc = (props) => {
       return guidesList();
     },
   };
+
+  return (
+    <AppContext.Provider value={store}>
+      {props.children}
+    </AppContext.Provider>
+  );
 };
+
+export const useAppContext = () => useContext(AppContext);

@@ -6,10 +6,11 @@ import { ExamplesDataRoute } from './Examples.data';
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { useAppContext } from '../AppContext';
 
 const Examples: Component = () => {
   const data = useData<ExamplesDataRoute>();
-  const rootData = useData<{ isDark: true }>(-1);
+  const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createTabList([
@@ -98,7 +99,7 @@ const Examples: Component = () => {
                 interactive={true}
                 actionBar={true}
                 editableTabs={true}
-                dark={rootData.isDark}
+                dark={context.isDark}
                 tabs={tabs()}
                 setTabs={setTabs}
                 current={current()}

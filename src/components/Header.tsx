@@ -10,14 +10,14 @@ import {
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useData, useLocation } from 'solid-app-router';
+import { useLocation } from 'solid-app-router';
 import Nav from './Nav';
+import { useAppContext } from '../AppContext';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
-import { ResourceMetadata } from '@solid.js/docs';
 
 const Header: Component<{ title?: string }> = () => {
   const [t] = useI18n();
@@ -28,12 +28,12 @@ const Header: Component<{ title?: string }> = () => {
   const [showHeaderSmall, setShowHeaderSmall] = createSignal(noSmallHeader);
   const [showHeaderSplash, setShowHeaderSplash] = createSignal(isHome);
 
-  const data = useData<{ guides: ResourceMetadata[] | undefined }>();
+  const context = useAppContext();
 
   const guideName = createMemo(() => {
-    if (data?.guides) {
+    if (context.guides) {
       const resource = location.pathname.slice(1);
-      return data?.guides.find((metadata) => metadata.resource == resource)?.title;
+      return context.guides.find((metadata) => metadata.resource == resource)?.title;
     }
   });
 
