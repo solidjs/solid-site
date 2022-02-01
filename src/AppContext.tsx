@@ -1,7 +1,8 @@
 import { Component, createContext, createEffect, createResource, useContext } from 'solid-js';
+import { Meta, Title } from 'solid-meta';
 import { useLocation } from 'solid-app-router';
 import createCookieStore from '@solid-primitives/cookies-store';
-import { createI18nContext } from '@solid-primitives/i18n';
+import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
 import { getGuides, getSupported, ResourceMetadata } from '@solid.js/docs';
 
 interface AppContextInterface {
@@ -9,7 +10,6 @@ interface AppContextInterface {
   loading: boolean,
   guidesSupported: boolean,
   guides: ResourceMetadata[] | undefined,
-  i18n: ReturnType<typeof createI18nContext>,
 }
 
 const AppContext = createContext<AppContextInterface>({
@@ -17,7 +17,6 @@ const AppContext = createContext<AppContextInterface>({
   loading: true,
   guidesSupported: false,
   guides: undefined,
-  i18n: undefined as unknown as ReturnType<typeof createI18nContext>,
 });
 
 const langs: { [lang: string]: any } = {
@@ -62,7 +61,7 @@ export const AppContextProvider: Component<{}> = (props) => {
     set('locale', browserLang);
   }
   const i18n = createI18nContext({}, settings.locale || 'en');
-  const [, { add }] = i18n;
+  const [t, { add, locale }] = i18n;
   const params = (): DataParams => {
     const locale = i18n[1].locale();
     let page = location.pathname.slice(1);
@@ -98,9 +97,6 @@ export const AppContextProvider: Component<{}> = (props) => {
     get isDark() {
       return isDark();
     },
-    get i18n() {
-      return i18n;
-    },
     get loading() {
       return lang.loading;
     },
@@ -119,7 +115,13 @@ export const AppContextProvider: Component<{}> = (props) => {
 
   return (
     <AppContext.Provider value={store}>
-      {props.children}
+      <I18nContext.Provider value={i18n}>
+        <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
+        <Meta name="lang" content={locale()} />
+        <div dir={t('global.dir', {}, 'ltr')}>
+          {props.children}
+        </div>
+      </I18nContext.Provider>
     </AppContext.Provider>
   );
 };
