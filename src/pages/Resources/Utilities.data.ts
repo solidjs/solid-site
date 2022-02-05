@@ -1059,6 +1059,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1642189449000000,
   },
+  {
+    link: 'https://github.com/thisbeyond/solid-select',
+    title: 'solid-select',
+    description: 'A Select component for Solid.',
+    author: 'thisbeyond',
+    author_url: 'https://github.com/thisbeyond',
+    keywords: ['select', 'dropdown', 'component', 'ui'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1644103436000,
+  },
 ];
 
 export default utilities;
