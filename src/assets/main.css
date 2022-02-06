@@ -54,10 +54,6 @@
   padding: 1.15rem !important;
   border-radius: 7.5px;
 }
-.dark .shiki {
-  filter: invert(1) hue-rotate(180deg);
-  border: 1px solid #aaa;
-}
 .prose h2 code {
   color: #777 !important;
 }
@@ -76,6 +72,13 @@
   background-position: 0 1.1em;
   padding-bottom: 0.4em;
   transition: background-size 300ms;
+}
+.dark .prose a:not(.header-anchor) {
+  color: #ccc;
+}
+.dark .prose a:not(.header-anchor):hover {
+  color: #ddd;
+  background-image: linear-gradient(#ddd, #ddd);
 }
 
 .prose a:not(.header-anchor):hover {
