@@ -1,5 +1,5 @@
 import { Component, onCleanup, onMount } from 'solid-js';
-import { useData } from 'solid-app-router';
+import { useAppContext } from '../../AppContext';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
@@ -125,7 +125,7 @@ const Sentinel: Component<
 
 const Shadow: Component<{ ref: any } & TShared> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
-  const data = useData<{ isDark: true }>(-1);
+  const context = useAppContext();
   const refCb = (el: HTMLElement) => {
     ref(el);
     divEl = el;
@@ -137,7 +137,7 @@ const Shadow: Component<{ ref: any } & TShared> = (props) => {
     const rtl = props.rtl;
     const left = rtl ? 'right' : 'left';
     const right = rtl ? 'left' : 'right';
-    const rgb = data.isDark ? '0, 0, 0' : '255, 255, 255';
+    const rgb = context.isDark ? '0, 0, 0' : '255, 255, 255';
 
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${

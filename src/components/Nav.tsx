@@ -9,9 +9,7 @@ import {
   createComputed,
   batch,
 } from 'solid-js';
-import { useData } from 'solid-app-router';
 import { Link, NavLink } from 'solid-app-router';
-import { ResourceMetadata } from '@solid.js/docs';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { createEventListener } from '@solid-primitives/event-listener';
@@ -20,6 +18,7 @@ import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
+import { useAppContext } from '../AppContext';
 import { reflow } from '../utils';
 import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
@@ -162,7 +161,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
-  const data = useData<{ guides: ResourceMetadata[] | undefined; guidesSupported: boolean }>();
+  const context = useAppContext();
 
   let firstLoad = true;
   let langBtnTablet!: HTMLButtonElement;
@@ -193,15 +192,15 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo<MenuLinkProps[]>(
     on(
-      () => [locale, t('global.nav'), data.guides],
+      () => [locale, t('global.nav'), context.guides],
       () => {
         return (t('global.nav') || []).reduce((memo: any, item: any) => {
           let itm = { ...item };
           // Inject guides if available
           if (item.path == '/guides') {
-            if (data.guides?.length) {
-              const direction = data.guidesSupported ? t('global.dir', {}, 'ltr') : 'ltr';
-              itm.links = data.guides.map(({ title, description, resource }) => ({
+            if (context.guides?.length) {
+              const direction = context.guidesSupported ? t('global.dir', {}, 'ltr') : 'ltr';
+              itm.links = context.guides.map(({ title, description, resource }) => ({
                 title,
                 description,
                 direction,
