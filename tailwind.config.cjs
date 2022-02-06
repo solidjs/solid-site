@@ -32,6 +32,7 @@ module.exports = {
         solid: {
           default: '#2c4f7c',
           darkbg: '#3e3e3e',
+          darkLighterBg: '#595959',
           darkdefault: '#b8d7ff', //'#87b1e6',
           darkgray: '#252525',
           gray: '#414042',
@@ -85,10 +86,11 @@ module.exports = {
       backgroundImage: (theme) => ({
         hero: "url('/src/assets/shapes/header.svg')",
         'blocks-one': "url('/src/assets/shapes/blocks1.svg')",
+        'blocks-one-dark': "url('/src/assets/shapes/blocks1-dark.svg')",
         'blocks-two': "url('/src/assets/shapes/blocks2.svg')",
         'blocks-three': "url('/src/assets/shapes/blocks3.svg')",
         doc: 'linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%)',
-        darkDoc: 'linear-gradient(to left, #000, #000 50%, rgba(20, 20, 20) 10%)',
+        darkDoc: 'linear-gradient(to left, #3e3e3e, #3e3e3e 50%, #595959 10%)',
       }),
       container: {
         center: true,

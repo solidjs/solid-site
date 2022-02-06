@@ -64,16 +64,16 @@ const Home: Component<{}> = () => {
       <a
         target="_blank"
         href="https://hack.solidjs.com"
-        class="flex flex-col space-y-5 md:space-y-0 md:flex-row w-11/12 justify-center z-10 text-sm items-center container rounded-xl py-10 border-8 border-gray-100 my-5 px-7 md:space-x-5 cursor-pointer"
+        class="flex flex-col space-y-5 md:space-y-0 md:flex-row w-11/12 justify-center z-10 text-sm items-center container rounded-xl py-10 border-8 border-gray-100 dark:border-solid-darkLighterBg my-5 px-7 md:space-x-5 cursor-pointer"
       >
         <div class="text-xl">Three categories. $12k in prizes. 3 months! </div>
         <img class="w-96 dark:brightness-150" src="/img/hack.svg" alt="SolidHack Announcement" />
       </a>
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top dark:bg-blocks-one-dark">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
-              <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
+              <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 dark:border-solid-darkLighterBg md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
                 <img
                   class="w-12 mb-5 dark:brightness-150"
                   src={strength_icons[strength.icon]}
@@ -87,7 +87,7 @@ const Home: Component<{}> = () => {
         </section>
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
-        <section class="border-2 m-5 lg:m-0 border-gray-200 rounded-lg defer">
+        <section class="border-2 m-5 lg:m-0 border-gray-200 dark:border-solid-darkLighterBg rounded-lg defer">
           <ul class="flex flex-col md:flex-row justify-center w-full">
             <For each={t('home.facts')}>
               {(fact: { label: string; detail: string; link: string }) => {
@@ -99,7 +99,7 @@ const Home: Component<{}> = () => {
                 );
                 return (
                   <li
-                    class="transition border-gray-100 border-r"
+                    class="transition border-gray-100 dark:border-solid-darkLighterBg border-r"
                     classList={{
                       'hover:bg-solid-dark': !!fact.link,
                       'hover:text-white': !!fact.link,
@@ -181,7 +181,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </Link>
           </div>
         </section>
-        <section class="dark:bg-solid-darkgray bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
+        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div
             class="px-9 py-4 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
             classList={{ 'xl:bg-opacity-0': t('global.dir', {}, 'ltr') === 'ltr' }}
@@ -221,7 +221,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="dark:bg-solid-darkgray bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
+        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block dark:invert" src={flag} alt="" />

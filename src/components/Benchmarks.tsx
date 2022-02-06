@@ -46,7 +46,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string 
                       class="transition-transform -translate-x-full duration-700 w-full h-full rounded-3xl ltr:text-right rtl:text-left text-xxs py-1"
                       classList={{
                         'bg-solid-light text-white font-semibold': row.active,
-                        'bg-gray-100 dark:bg-gray-800': !row.active,
+                        'bg-gray-100 dark:bg-solid-darkLighterBg': !row.active,
                       }}
                       style={{
                         width: row.width,

@@ -247,7 +247,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       <div use:observer class="h-0" />
       <div
         class="sticky top-0 z-50 bg-white dark:bg-solid-darkbg"
-        classList={{ 'shadow-md': showLogo() }}
+        classList={{ 'shadow-md dark:bg-solid-medium': showLogo() }}
       >
         <div class="flex justify-center w-full overflow-hidden">
           <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
@@ -305,11 +305,11 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             exitToClass: 'opacity-0 -translate-y-4',
           }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border rounded-md w-40 transition-composite bg-white dark:bg-solid-darkbg shadow-md">
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkLighterBg rounded-md w-40 transition-composite bg-white dark:bg-solid-darkbg shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
-                  class="first:rounded-t hover:bg-solid-gray hover:text-white last:rounded-b text-left p-3 text-sm border-b w-full"
+                  class="first:rounded-t hover:bg-solid-gray hover:text-white last:rounded-b text-left p-3 text-sm border-b dark:border-solid-darkLighterBg w-full"
                   classList={{
                     'bg-solid-medium text-white': lang == locale(),
                     'hover:bg-solid-light': lang == locale(),
@@ -327,10 +327,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             onmouseenter={clearSubnavClose}
             onmouseleave={closeSubnav}
             ref={subnavEl}
-            class="absolute left-50 bg-gray-200 dark:bg-gray-800 shadow-xl max-w-sm transition duration-750"
+            class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
           >
-            <ul class="divide-x flex flex-col">
+            <ul class="divide-x divide-transparent flex flex-col">
               <For each={subnav()}>
                 {(link) => (
                   <li

@@ -75,7 +75,7 @@ const Resource: Component<Resource> = (props) => {
   };
 
   return (
-    <li class="py-6 border-b text-left hover:bg-gray-50 dark:hover:bg-gray-700 duration-100">
+    <li class="py-6 border-b text-left dark:border-solid-darkLighterBg hover:bg-gray-50 dark:hover:bg-gray-700 duration-100">
       <a
         class="relative grid grid-cols-10 md:grid-cols-12 grid-flow-col gap-2 text-solid"
         target="_blank"
@@ -223,18 +223,18 @@ const Resources: Component = () => {
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[calc(100vh-80px)]">
           <div
-            class="text-xs bg-gray-100 dark:bg-gray-700 p-4 rounded"
+            class="text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
             innerHTML={t('resources.cta')}
           ></div>
           <div class="hidden md:block">
             <input
-              class="my-5 rounded border-solid w-full border-gray-200 placeholder-opacity-50 placeholder-gray-500"
+              class="my-5 rounded border-solid w-full border-gray-400 border bg-transparent p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
               placeholder={t('resources.search')}
               value={keyword()}
               onInput={(evt) => setKeyword(evt.currentTarget!.value)}
               type="text"
             />
-            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault border-b mb-4 font-semibold border-solid pb-2">
+            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b mb-4 font-semibold border-solid pb-2">
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
@@ -260,7 +260,7 @@ const Resources: Component = () => {
                       'hover:opacity-60': !!filtered.counts[type],
                       'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
                     }}
-                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
+                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
                       <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
@@ -282,7 +282,7 @@ const Resources: Component = () => {
                 )}
               </For>
             </div>
-            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b font-semibold border-solid pb-2">
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2">
               {t('resources.categories')}
             </h3>
 
@@ -309,7 +309,7 @@ const Resources: Component = () => {
                       'hover:opacity-60': exists,
                       'bg-gray-50 dark:bg-gray-700': filtered.enabledCategories.indexOf(id) !== -1,
                     }}
-                    class="block w-full text-sm py-4 pl-4 ltr:text-left rtl:text-right border-b"
+                    class="block w-full text-sm py-4 pl-4 dark:border-solid-darkLighterBg ltr:text-left rtl:text-right border-b"
                   >
                     <span>{t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}</span>
                   </button>

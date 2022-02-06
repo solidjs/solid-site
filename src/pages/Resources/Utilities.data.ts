@@ -1057,7 +1057,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.BuildUtilities],
-    published_at: 1642189449000000,
+    published_at: 1642189449000,
   },
   {
     link: 'https://github.com/thisbeyond/solid-select',

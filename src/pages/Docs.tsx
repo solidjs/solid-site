@@ -154,7 +154,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
               }}
               ref={menuButton}
             >
-              <Icon class="h-7 w-7" path={chevronRight} />
+              <Icon class="h-7 w-7" path={chevronRight} />f
             </button>
             <Dismiss
               show
@@ -165,8 +165,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
             >
               <div
                 class={
-                  'w-[85vw] rounded-r-lg rounded-br-lg overflow-auto z-20 p-10 shadow-2xl border-2 bg-white dark:bg-solid-darkbg border-gray-100 ' +
-                  'dark:bg-solid-gray fixed left-0 top-14 lg:bg-transparent lg:translate-x-0 lg:duration-0 transition-transform ' +
+                  'w-[85vw] overflow-auto z-20 p-10 shadow-2xl border-2 bg-white dark:bg-solid-darkbg border-gray-100 ' +
+                  'dark:bg-solid-darkLighterBg fixed left-0 top-14 lg:bg-transparent lg:translate-x-0 lg:duration-0 transition-transform ' +
                   'duration-300 max-w-md lg:w-auto lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
                   'relative lg:flex'
                 }

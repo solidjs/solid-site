@@ -8,7 +8,7 @@ import createClipboard, { copyToClipboard } from '@solid-primitives/clipboard';
 const assets = [
   {
     title: 'With Wordmark',
-    background: 'bg-white',
+    background: 'bg-white dark:border-solid-darkLighterBg',
     example: '/img/logo/with-wordmark/logo.svg',
     assets: {
       SVG: '/img/logo/with-wordmark/logo.svg',
@@ -52,7 +52,7 @@ const assets = [
   },
   {
     title: 'Only Wordmark',
-    background: 'bg-white',
+    background: 'bg-white dark:border-solid-darkLighterBg',
     example: '/img/logo/wordmark/logo.svg',
     assets: {
       SVG: '/img/logo/wordmark/logo.svg',
@@ -84,14 +84,16 @@ const AssetPanel: Component<{
   const slug = title.replaceAll(' ', '_').toLowerCase();
   return (
     <div class="shadow-md">
-      <div class="p-5 border-b">{t(`media.resources.${slug}`, {}, title)}</div>
+      <div class="p-5 dark:border-solid-darkLighterBg border-b">
+        {t(`media.resources.${slug}`, {}, title)}
+      </div>
       <div class={`py-8 h-56 flex px-10 items-center justify-center ${background}`}>
         <img class="max-h-20" src={example} alt={title} />
       </div>
-      <div class="border-b border-t grid grid-cols-4 text-sm text-solid">
+      <div class="border-b dark:border-solid-darkLighterBg border-t grid grid-cols-4 text-sm text-solid">
         {Object.entries(assets).map(([name, path]) => (
           <a
-            class="flex p-3 justify-center border-r transition hover:opacity-50"
+            class="flex p-3 justify-center border-r dark:border-solid-darkLighterBg transition hover:opacity-50"
             download={path.split('/').pop()}
             href={path}
           >
@@ -117,7 +119,7 @@ const Media: Component = () => {
         <div class="mb-10 md:grid md:grid-cols-6 gap-10">
           <div class="col-span-2">
             <div class="mb-8">{t('media.copy')}</div>
-            <div class="flex p-4 border-2 justify-between border-b-0">
+            <div class="flex p-4 border-2 dark:border-solid-darkLighterBg justify-between border-b-0">
               <div class="w-5/12 inline-block">{t('media.brand_font', {}, 'Brand Font')}</div>{' '}
               <div class="text-md">Gordita</div>
             </div>

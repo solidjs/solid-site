@@ -36,7 +36,7 @@ const Footer: Component = () => {
             <p class="text-gray-400 mt-2">
               SolidJS and logo are trademarks of the SolidJS project and Core Team.
             </p>
-            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white dark:bg-black rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
+            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white dark:bg-solid-darkbg rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
               <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 dark:text-gray-400 md:text-sm md:static md:text-left md:my-4 md:ml-5 md:mr-2">
                 {t('global.footer.sponsored_by')}
               </div>
@@ -80,14 +80,16 @@ const Footer: Component = () => {
                   version: '1.3.5',
                 })}
               </p>
-              {<button
-                class="flex text-gray-600 dark:text-gray-300"
-                onClick={() => (context.isDark = !context.isDark)}
-              >
-                <img class="w-5 dark:invert" src={darkLight} />
-                &nbsp;
-                {context.isDark ? 'Disable dark mode' : 'Enable dark mode'}
-              </button>}
+              {
+                <button
+                  class="flex text-gray-600 dark:text-gray-300"
+                  onClick={() => (context.isDark = !context.isDark)}
+                >
+                  <img class="w-5 dark:invert" src={darkLight} />
+                  &nbsp;
+                  {context.isDark ? 'Disable dark mode' : 'Enable dark mode'}
+                </button>
+              }
             </div>
             <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
               <Social />

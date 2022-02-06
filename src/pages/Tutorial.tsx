@@ -13,12 +13,7 @@ import {
 import { Repl, createTabList } from 'solid-repl';
 import { useData, NavLink } from 'solid-app-router';
 import { Icon } from 'solid-heroicons';
-import {
-  arrowLeft,
-  arrowRight,
-  chevronDown,
-  chevronDoubleRight,
-} from 'solid-heroicons/solid';
+import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
 
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
@@ -104,7 +99,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
-          class="shadow absolute bg-white dark:bg-solid-darkbg w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          class="shadow-lg rounded-br-lg rounded-bl-lg absolute bg-white dark:bg-solid-darkLighterBg w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
           classList={{ hidden: !showDirectory() }}
         >
           <li class="sticky top-0">
@@ -121,19 +116,19 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
           </li>
           <For each={filteredDirectory()}>
             {([section, entries], sectionIndex) => (
-              <li class="js-section-title">
+              <li class="js-section-title bg-3">
                 <p class="inline-block px-3 py-1 font-semibold">
                   {sectionIndex() + 1}. {section}
                 </p>
 
-                <ul class="divide-y box-border">
+                <ul class="divide-y divide-gray-500 box-border">
                   <For each={entries}>
                     {(entry, entryIndex) => (
                       <li>
                         <NavLink
-                          activeClass="js-active bg-blue-50 dark:bg-blue-900"
-                          class="hover:bg-blue-100 dark:hover:bg-blue-800 py-3 px-4 block"
+                          activeClass="js-active bg-blue-50 dark:bg-solid-darkbg"
                           href={`/tutorial/${entry.internalName}`}
+                          class="hover:bg-blue-100 dark:hover:bg-solid-medium py-3 px-5 block"
                         >
                           <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
@@ -196,16 +191,24 @@ const Tutorial: Component = () => {
     <Suspense fallback={<p>Loading...</p>}>
       <div
         dir="ltr"
-        class='md:grid transition-[grid-template-columns] duration-300 h-[calc(100vh-64px)]'
+        class="md:grid transition-[grid-template-columns] duration-300 h-[calc(100vh-64px)]"
         classList={{
           'grid-cols-[minmax(40%,_600px)_auto]': open(),
           'grid-cols-[minmax(100%,_600px)_auto]': !open(),
         }}
       >
-        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 border-grey mb-10 md:mb-0 ">
-          <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-gray-800">
-          <button type="button" class="hidden md:block mr-5 mt-1 float-right" onClick={() => setOpen(!open())}>
-              <Icon path={chevronDoubleRight} class="h-6 opacity-50 transition-all duration-300" classList={{'-rotate-180': !open()}} />
+        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 dark:border-solid-darkLighterBg border-grey mb-10 md:mb-0 ">
+          <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-solid-darkLighterBg dark:border-solid-darkLighterBg">
+            <button
+              type="button"
+              class="hidden md:block mr-5 mt-1 float-right"
+              onClick={() => setOpen(!open())}
+            >
+              <Icon
+                path={chevronDoubleRight}
+                class="h-6 opacity-50 transition-all duration-300"
+                classList={{ '-rotate-180': !open() }}
+              />
             </button>
             <DirectoryMenu
               current={data.tutorialDirectoryEntry}
@@ -223,7 +226,7 @@ const Tutorial: Component = () => {
             )}
           </Show>
 
-          <div class="py-4 px-10 flex items-center justify-between border-t-2">
+          <div class="py-4 px-10 flex items-center justify-between border-t-2 dark:border-solid-darkLighterBg">
             <Show
               when={data.solved}
               fallback={

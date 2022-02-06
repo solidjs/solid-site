@@ -62,7 +62,7 @@ const Header: Component<{ title?: string }> = () => {
         <Show when={showHeaderSplash()}>
           <header
             id="header"
-            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white overflow-hidden z-[1]"
+            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default dark:from-solid-light/70 dark:via-solid-medium/50 dark:to-solid-default/50 text-white overflow-hidden z-[1]"
           >
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
@@ -89,7 +89,7 @@ const Header: Component<{ title?: string }> = () => {
         <Transition onEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
           <Show when={showHeaderSmall() && !location.pathname.includes('/hack')}>
             <header class="overflow-hidden">
-              <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default text-white text-center md:text-left rtl:text-right">
+              <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default dark:from-solid-light/40 dark:via-solid-medium/40 dark:to-solid-default/40 text-white text-center md:text-left rtl:text-right">
                 <div class="px-3 lg:px-12 container">
                   <h1 class="py-8 text-3xl">
                     <Transition
