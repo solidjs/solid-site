@@ -39,6 +39,7 @@ const langs = {
   fa: 'فارسی',
   tr: 'Türkçe',
   tl: 'Filipino',
+  es: 'Español',
 };
 
 type MenuLinkProps = {
