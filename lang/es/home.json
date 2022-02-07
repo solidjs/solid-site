@@ -69,7 +69,7 @@
   },
   "performance": {
     "headline": ["Enfocado en el desempeño", "en ambos, cliente y servidor"],
-    "copy": "La fuerza de la Reactividad finamente detallada como planteamiento brilla en todos los benchmarks notables. Incluso si tu enfoque no es el desempeño, es virtualmente libre de esfuerzo y sin una experiencia de desarrollo complicada. Piensa en las mejoras en desempeño como una victoria extra. Solid es sobre ser rápidos sin intentarlo.",
+    "copy": "La fuerza de la Reactividad finamente detallada como planteamiento brilla en todos los benchmarks importantes. Incluso si tu enfoque no es el desempeño, es virtualmente libre de esfuerzo y una experiencia de desarrollo nada complicada. Piensa en las mejoras en desempeño como una victoria extra. Solid es sobre ser rápidos sin intentarlo.",
     "link_label": "Lee el artículo completo",
     "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
   },
@@ -77,15 +77,15 @@
     "headline": "Cargado de funcionalidades.",
     "copy": "Solid soporta todas las características que esperarías, además incluye aspectos para mejorar la experiencia de desarrollo.",
     "list": [
-      "Fragmentos",
-      "Portales",
-      "Contexto",
-      "Suspenso",
-      "Límites de Error",
+      "Fragments",
+      "Portals",
+      "Context",
+      "Suspense",
+      "ErrorBoundary",
       "Components Lazy",
       "Renderizado Asíncrono y Concurrente",
       "Delegación Implícita",
-      "SSR e Hydration",
+      "SSR e Hidratación",
       "Directivas"
     ]
   },
