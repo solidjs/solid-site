@@ -1,0 +1,18 @@
+{
+  "title": "Recursos Multimedia",
+  "copy": "Los siguientes son recursos que representan la marca Solid. Todos los recursos son considerados contribuciones open-source y deberían ser usados de acuerdo a los estándares y reglas de la licencia. Para recursos adicionales o preguntas relacionadas con lineamientos de la marca, siéntete libre de unirte a nuestro Discord para guía y soporte.",
+  "brand_font": "Fuente de la Marca",
+  "primary": "Color Primario",
+  "secondary": "Color Secundario",
+  "light": "Color claro",
+  "accent": "Color énfasis",
+  "copy_hex": "Para copiar el Hex, da click en el mismo.",
+  "resources": {
+    "with_wordmark": "Imagotipo",
+    "without_wordmark": "Isotipo",
+    "only_wordmark": "Logotipo",
+    "dark_with_wordmark": "Imagotipo Obscuro",
+    "dark_without_wordmark": "Isotipo Obscuro",
+    "dark_only_wordmark": "Logotipo Obscuro"
+  }
+}
