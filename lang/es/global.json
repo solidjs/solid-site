@@ -1,0 +1,83 @@
+{
+  "name": "Español",
+  "title": "SolidJS · Librería Reactiva de Javascript",
+  "locale": "es-MX",
+  "nav": [
+    {
+      "title": "Guías",
+      "path": "/guides"
+    },
+    {
+      "title": "Documentación",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Recursos",
+      "path": "/resources"
+    },
+    {
+      "title": "Tutorial",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Ejemplos",
+      "path": "/examples"
+    },
+    {
+      "title": "Área de juego",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Nosotros",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "Conoce nuestro hackathon 2022.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Blog",
+          "description": "Noticias y actualizaciones de nuestra comunidad",
+          "path": "/blog"
+        },
+        {
+          "title": "Equipo y Contribuciones",
+          "description": "Miembros del equipo Solid y contribuyentes",
+          "path": "/contributors"
+        },
+        {
+          "title": "Media",
+          "description": "Material de la marca para uso mediático",
+          "path": "/media"
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Apóyanos con una donación y ayuda a que continuemos nuestras actividades",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "Oops. Cuatro Oh Cuatro.",
+    "body": "cree que esta página definitivamente no existe."
+  },
+  "newsletter": {
+    "title": "Regístrate para recibir noticias",
+    "email": "Correo electrónico",
+    "success": "Registro efectuado exitosamente!",
+    "error": "El registro no pudo ser completado",
+    "register": "Registrarse",
+    "sending": "Enviando"
+  },
+  "footer": {
+    "declaration": "Solid es un proyecto open-source con soporte de un equipo de contribuyentes publico. Es distribuido mediante una <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\"> licencia MIT</a>. Esta librería y comunidad son posibles gracias al esfuerzo del <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">equipo principal y contribuyentes</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Patrocinado por",
+    "updated": "Última actualización {{date}} en Solid v{{version}}"
+  }
+}
