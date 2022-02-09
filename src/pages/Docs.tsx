@@ -145,7 +145,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
           <div class="absolute left-0 h-full lg:static lg:w-3/12 bg-gray-100 dark:bg-gray-900 rounded-br-lg">
             <button
               class={
-                'fixed lg:hidden top-20 right-3 text-white rounded-lg pl-1 pt-1 transition duration-500 ' +
+                'fixed lg:hidden top-20 right-3 text-white rounded-lg transition duration-500 ' +
                 'bg-solid-medium reveal-delay'
               }
               classList={{
@@ -154,7 +154,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
               }}
               ref={menuButton}
             >
-              <Icon class="h-7 w-7" path={chevronRight} />f
+              <Icon class="h-7 w-7" path={chevronRight} />
             </button>
             <Dismiss
               show
