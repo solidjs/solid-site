@@ -19,6 +19,7 @@ const langs: { [lang: string]: any } = {
   tl: async () => (await import('../lang/tl/tl')).default(),
   'ko-kr': async () => (await import('../lang/ko-kr/ko-kr')).default(),
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
+  es: async () => (await import('../lang/es/es')).default(),
 };
 
 // Some browsers does not map correctly to some locale code
