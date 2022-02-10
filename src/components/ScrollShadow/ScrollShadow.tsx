@@ -137,7 +137,7 @@ const Shadow: Component<{ ref: any } & TShared> = (props) => {
     const rtl = props.rtl;
     const left = rtl ? 'right' : 'left';
     const right = rtl ? 'left' : 'right';
-    const rgb = context.isDark ? '0, 0, 0' : '255, 255, 255';
+    const rgb = !context.isDark ? '255, 255, 255' : props.isSticky ? '68, 107, 158' : '62, 62, 62' ;
 
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
