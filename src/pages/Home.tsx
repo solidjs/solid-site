@@ -69,7 +69,7 @@ const Home: Component<{}> = () => {
         <div class="text-xl">Three categories. $12k in prizes. 3 months! </div>
         <img class="w-96 dark:brightness-150" src="/img/hack.svg" alt="SolidHack Announcement" />
       </a>
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 bg-blocks-one bg-contain bg-no-repeat bg-left-top dark:bg-blocks-one-dark">
+      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 md:bg-blocks-one bg-contain bg-no-repeat bg-left-top md:dark:bg-blocks-one-dark">
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (

@@ -113,8 +113,8 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     <li>
       <NavLink
         href={props.path}
-        class="inline-flex items-center transition text-[15px] sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
-        activeClass="bg-solid-medium text-white pointer-fine:group-hover:bg-solid-default"
+        class="inline-flex items-center transition text-[15px] dark:hover:bg-solid-darkLighterBg sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
+        activeClass="bg-solid-medium dark:bg-solid-light text-white"
         onClick={onClick}
         noScroll
         ref={linkEl}
@@ -324,10 +324,10 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         </Dismiss>
         <Show when={subnav().length !== 0}>
           <div
+            ref={subnavEl}
             onmouseenter={clearSubnavClose}
             onmouseleave={closeSubnav}
-            ref={subnavEl}
-            class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-xl max-w-sm transition duration-750"
+            class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm transition duration-750"
             style={{ left: `${subnavPosition()}px` }}
           >
             <ul class="divide-x divide-transparent flex flex-col">

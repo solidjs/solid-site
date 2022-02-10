@@ -24,7 +24,7 @@ const Footer: Component = () => {
           <img class="w-52 dark:invert" src={wordmark} alt="Solid logo" />
           <div class="text-sm max-w-5xl">
             <Newsletter
-              title={t('global.newsletter.title', {}, 'Sign up for Solid News')}
+              title={t('global.newsletter.title', {}, 'Sign up for SolidJS News')}
               className="mb-7 py-3"
             />
             <p
@@ -33,7 +33,7 @@ const Footer: Component = () => {
                 contributors: '/contributors',
               })}
             />
-            <p class="text-gray-400 mt-2">
+            <p class="mt-2">
               SolidJS and logo are trademarks of the SolidJS project and Core Team.
             </p>
             <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white dark:bg-solid-darkbg rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
@@ -76,7 +76,7 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
-                  date: '2022/02/06, 11:20am',
+                  date: '2022/02/09, 11:00pm',
                   version: '1.3.3',
                 })}
               </p>
