@@ -306,11 +306,11 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             exitToClass: 'opacity-0 -translate-y-4',
           }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkLighterBg rounded-md w-40 transition-composite bg-white dark:bg-solid-darkbg shadow-md">
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkLighterBg rounded-md w-96 transition-composite bg-white dark:bg-solid-darkbg shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
-                  class="first:rounded-t hover:bg-solid-gray hover:text-white last:rounded-b text-left p-3 text-sm border-b dark:border-solid-darkLighterBg w-full"
+                  class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkLighterBg w-3/6"
                   classList={{
                     'bg-solid-medium text-white': lang == locale(),
                     'hover:bg-solid-light': lang == locale(),

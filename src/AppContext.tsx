@@ -6,10 +6,10 @@ import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
 import { getGuides, getSupported, ResourceMetadata } from '@solid.js/docs';
 
 interface AppContextInterface {
-  isDark: boolean,
-  loading: boolean,
-  guidesSupported: boolean,
-  guides: ResourceMetadata[] | undefined,
+  isDark: boolean;
+  loading: boolean;
+  guidesSupported: boolean;
+  guides: ResourceMetadata[] | undefined;
 }
 
 const AppContext = createContext<AppContextInterface>({
@@ -78,9 +78,11 @@ export const AppContextProvider: Component<{}> = (props) => {
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
   const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
   const isDark = () =>
-    settings.dark === 'true' ? true :
-    settings.dark === 'false' ? false :
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
+    settings.dark === 'true'
+      ? true
+      : settings.dark === 'false'
+      ? false
+      : window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   createEffect(() => set('locale', i18n[1].locale()));
   createEffect(() => {
@@ -119,9 +121,7 @@ export const AppContextProvider: Component<{}> = (props) => {
       <I18nContext.Provider value={i18n}>
         <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
         <Meta name="lang" content={locale()} />
-        <div dir={t('global.dir', {}, 'ltr')}>
-          {props.children}
-        </div>
+        <div dir={t('global.dir', {}, 'ltr')}>{props.children}</div>
       </I18nContext.Provider>
     </AppContext.Provider>
   );
