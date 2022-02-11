@@ -395,7 +395,7 @@ const videos: Array<Resource> = [
     published_at: 1639126493000,
   },
   {
-    link: 'https://www.twitch.tv/videos/1269975874',
+    link: 'https://www.twitch.tv/videos/1275982315',
     title: 'SolidJS - a Reactive Framework w/ Author Ryan Carniato',
     description: 'Ryan talks about the start of Solid and walks us through why its so special.',
     keywords: ['coderpad', 'reactivity'],
