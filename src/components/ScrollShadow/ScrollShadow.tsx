@@ -13,6 +13,7 @@ const ScrollShadow: Component<
   {
     class: string;
     classList?: { [key: string]: boolean };
+    locked: boolean;
   } & Omit<TShared, 'child'>
 > = (props) => {
   const { direction, shadowSize, initShadowSize } = props;
@@ -81,6 +82,7 @@ const ScrollShadow: Component<
         shadowSize={shadowSize}
         rtl={props.rtl}
         ref={shadowFirstEl}
+        locked={props.locked}
       />
       <Shadow
         child="last"
@@ -88,6 +90,7 @@ const ScrollShadow: Component<
         shadowSize={shadowSize}
         rtl={props.rtl}
         ref={shadowLastEl}
+        locked={props.locked}
       />
       <div class="relative flex items-center overflow-auto no-scrollbar" ref={scrollableContainer}>
         {props.children}
@@ -123,7 +126,7 @@ const Sentinel: Component<
   return <div aria-hidden="true" style={style()} ref={props.ref}></div>;
 };
 
-const Shadow: Component<{ ref: any } & TShared> = (props) => {
+const Shadow: Component<{ ref: any; locked: boolean } & TShared> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
   const context = useAppContext();
   const refCb = (el: HTMLElement) => {
@@ -137,7 +140,7 @@ const Shadow: Component<{ ref: any } & TShared> = (props) => {
     const rtl = props.rtl;
     const left = rtl ? 'right' : 'left';
     const right = rtl ? 'left' : 'right';
-    const rgb = context.isDark ? '0, 0, 0' : '255, 255, 255';
+    const rgb = !context.isDark ? '255, 255, 255' : props.locked ? '68, 107, 158' : '62, 62,62';
 
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
