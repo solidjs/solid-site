@@ -52,6 +52,11 @@
   border: 1px solid #aaa;
   z-index: 10;
 }
+.dark code.hljs {
+  filter: invert(0.8) hue-rotate(180deg);
+  border: 1px solid #aaa;
+  z-index: 10;
+}
 .prose pre {
   font-size: inherit;
 }
