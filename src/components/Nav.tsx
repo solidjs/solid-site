@@ -300,17 +300,17 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
           class="container mx-auto left-0 right-0 bottom-0 absolute flex -mt-4 justify-end"
           animation={{
             appendToElement: 'menuPopup',
-            enterClass: 'opacity-0 -translate-y-4',
+            enterClass: 'opacity-0 -translate-y-5',
             enterToClass: 'opacity-1 translate-y-0',
             exitClass: 'opacity-1 translate-y-0',
             exitToClass: 'opacity-0 -translate-y-4',
           }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkLighterBg rounded-md w-96 transition-composite bg-white dark:bg-solid-darkbg shadow-md">
+          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkbg rounded-md w-96 transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
-                  class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkLighterBg w-3/6"
+                  class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg w-3/6"
                   classList={{
                     'bg-solid-medium text-white': lang == locale(),
                     'hover:bg-solid-light': lang == locale(),

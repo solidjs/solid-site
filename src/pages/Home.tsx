@@ -221,7 +221,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray rounded-lg grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
+        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray rounded-3xl grid md:grid-cols-2 py-20 px-10 lg:px-20 md:space-x-12">
           <div class="gridflex flex-wrap content-center">
             <h2 class="text-2xl font-semibold">
               <img class="w-10 mb-5 block dark:invert" src={flag} alt="" />

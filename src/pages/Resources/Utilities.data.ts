@@ -1074,7 +1074,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/orenelbaum/babel-plugin-reactivars-solid',
     title: 'babel-plugin-reactivars-solid',
-    description: 'A Babel plugin that lets you use a Svelte like syntax with Solid (a React version is a WIP).',
+    description:
+      'A Babel plugin that lets you use a Svelte like syntax with Solid (a React version is a WIP).',
     author: 'orenelbaum',
     author_url: 'https://github.com/orenelbaum',
     keywords: ['svelte', 'reactive', 'vars'],
@@ -1082,7 +1083,7 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1644609963000,
-  }
+  },
 ];
 
 export default utilities;
