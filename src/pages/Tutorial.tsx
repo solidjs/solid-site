@@ -22,6 +22,7 @@ import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import SolidMarkdown from 'solid-markdown';
 import { useAppContext } from '../AppContext';
+import rehypeHighlight from 'rehype-highlight';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -221,7 +222,18 @@ const Tutorial: Component = () => {
                 ref={markDownRef}
                 class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
               >
-                <SolidMarkdown>{markdown}</SolidMarkdown>
+                <SolidMarkdown
+                  rehypePlugins={[rehypeHighlight]}
+                  components={{
+                    pre: ({ children, node, ...props }) => (
+                      <div className="not-prose">
+                        <pre {...props}>{children}</pre>
+                      </div>
+                    ),
+                  }}
+                >
+                  {markdown}
+                </SolidMarkdown>
               </div>
             )}
           </Show>

@@ -1,4 +1,5 @@
 @import url('solid-repl/lib/style.css');
+@import url('highlight.js/styles/github.css');
 
 @font-face {
   font-family: 'Gordita';
@@ -54,7 +55,8 @@
 .prose pre {
   font-size: inherit;
 }
-.shiki {
+.shiki,
+pre code.hljs {
   border: 1px solid #dddddd;
   padding: 1.15rem !important;
   border-radius: 7.5px;
