@@ -270,6 +270,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               rtl={t('global.dir', {}, 'ltr') === 'rtl'}
               shadowSize="25%"
               initShadowSize={true}
+              locked={showLogo()}
             >
               <ul class="flex items-center">
                 <For each={navList()}>

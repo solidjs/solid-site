@@ -80,7 +80,7 @@ const Footer: Component = () => {
                 </button>
               }
             </div>
-            <ul class="lg:hidden flex justify-center items-center pt-12 space-x-3">
+            <ul class="lg:hidden flex justify-center items-center pt-12">
               <Social />
             </ul>
           </div>

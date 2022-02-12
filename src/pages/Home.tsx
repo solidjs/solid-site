@@ -200,11 +200,11 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </a>
           </div>
         </section>
-        <section class="py-20 px-10 lg:px-10 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-32 rtl:space-x-0">
+        <section class="py-20 px-10 lg:px-10 flex flex-col gap-x-32 space-y-10 lg:space-y-0 lg:flex-row">
           <div class="flex flex-wrap items-center flex-1 rtl:ml-10">
             <Benchmarks list={data.benchmarks} />
           </div>
-          <div class="flex flex-col justify-center flex-1 bg-no-repeat">
+          <div class="flex flex-col justify-around flex-1 bg-no-repeat">
             <img class="w-20" src={iconBlocks2} alt="" />
             <h2 class="mt-6 text-3xl font-semibold text-solid">
               {t('home.performance.headline')[0]}
@@ -214,7 +214,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </h2>
             <p class="leading-7 mt-9">{t('home.performance.copy')}</p>
             <a
-              class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
+              class={`button inline-block py-3 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
               href={t('home.performance.link')}
             >
               {t('home.performance.link_label')}
