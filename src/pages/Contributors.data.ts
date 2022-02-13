@@ -224,6 +224,12 @@ const ecosystem = [
     link: 'https://github.com/orenelbaum',
     detail: 'Developer and active ecosystem contributor.',
   },
+  {
+    name: 'high1',
+    company: '',
+    link: 'https://github.com/high1',
+    detail: 'Active community contributor and starter maintainer.',
+  },
 ] as const;
 
 export const ContributorsData = () => ({
