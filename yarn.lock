@@ -922,11 +922,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-<<<<<<< Updated upstream
 "@babel/standalone@^7.17.2":
-=======
-"@babel/standalone@^7.16.12":
->>>>>>> Stashed changes
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.2.tgz#4c55936b181f230d0ba7c5c38e66b68713cdb114"
   integrity sha512-Adjbjnlk0IBuBEldyuicdIeq1P/YI5nfm7HnOVd8blGDRetPW2NllESjlrItMKORWVuILWqKe10D+b8yEybeBA==
@@ -956,17 +952,10 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-<<<<<<< Updated upstream
-"@babel/types@^7.16.0", "@babel/types@^7.16.7", "@babel/types@^7.16.8", "@babel/types@^7.4.4":
-  version "7.16.8"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.16.8.tgz#0ba5da91dd71e0a4e7781a30f22770831062e3c1"
-  integrity sha512-smN2DQc5s4M7fntyjGtyIPbRJv6wW4rU/94fmYJ7PKQuZkC0qGMHXJbg6sNGt12JmVr4k5YaptI/XtiLJBnmIg==
-=======
 "@babel/types@^7.16.0", "@babel/types@^7.16.7", "@babel/types@^7.16.8", "@babel/types@^7.17.0", "@babel/types@^7.4.4":
   version "7.17.0"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.17.0.tgz#a826e368bccb6b3d84acd76acad5c0d87342390b"
   integrity sha512-TmKSNO4D5rzhL5bjWFcVHHLETzfQ/AmbKpKPOSjlP0WoHZ6L911fgoOKY4Alp/emzG4cHJdyN49zpgkbXFEHHw==
->>>>>>> Stashed changes
   dependencies:
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
@@ -1169,17 +1158,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.1.3.tgz#e44bd5f8f55ce4b9c5eb8a5de31d73c8ef4719f4"
   integrity sha512-qtWzbvdksnYFyO/NpvmYkYEHo8mFB20CpSlpLCijERCXLA1E+HzKdYs08YbcCF4C5yKi3hdSWWc7Jcw1iyEnTw==
 
-<<<<<<< Updated upstream
-"@solid.js/docs@^1.0.24":
-  version "1.0.24"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.24.tgz#7cc5c2c24ff073437c3d13ec440d8c35c67d5311"
-  integrity sha512-4H2qhq+cJBJiG4rsUwXfU1hsaRaPUYxBtXO9HEEqCzBcXDv9EieHsuvs3ietG4Z4iBkompkmAsQojYWiUgLLRQ==
-=======
-"@solid.js/docs@^1.0.21":
+"@solid.js/docs@^1.0.25":
   version "1.0.25"
   resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.25.tgz#22ba9a33f6027822a10cd9bbac25d4e49f707c7e"
   integrity sha512-gPXF1UK43xXRDg4hVEcAkMx6tXJDy2hb7EcDDbBVtxjk+8KJWoMR6YIGBWEAAz+m7BUqek+rXscgAiAdSHWGDA==
->>>>>>> Stashed changes
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
@@ -1586,33 +1568,6 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-<<<<<<< Updated upstream
-babel-plugin-jsx-dom-expressions@^0.31.9:
-  version "0.31.9"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.31.9.tgz#206b6f73c661113e7d09b96fa3c80119d43dd9c4"
-  integrity sha512-PY86Hesr0D3HxzKSsg0jk/oxRsFyw9jW9ejR+CSsBHpOCTilrOUDOXct3LevnG+dU5cKfm6D1V7fs2F3TyBf8A==
-=======
-babel-plugin-jsx-dom-expressions@^0.31.12:
-  version "0.31.12"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.31.12.tgz#1ae33896843622004bfbcd6f2a43f3b5de2db4a0"
-  integrity sha512-XQCCy4RZtlqUvkB5zxgYG0TEazc30LN4LLEN//gO9tb7fDSoKCnU3SFsDafZ6yk82QaM95ml/GYxqCzc7qpIxA==
-  dependencies:
-    "@babel/helper-module-imports" "7.16.0"
-    "@babel/plugin-syntax-jsx" "^7.16.5"
-    "@babel/types" "^7.16.0"
-    html-entities "2.3.2"
-
-babel-plugin-jsx-dom-expressions@^0.32.0:
-  version "0.32.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.32.0.tgz#bcca91ee0bf2b4ecc8587478984f2c98a4380d77"
-  integrity sha512-Tv5mKTCEB3LFEPpFSEFhdRShF5LU6+OuoGPXWZZPakmo5h2bru10e0SvGQTAHFpr+MvFWtXFDx1StC+qR6XR+Q==
->>>>>>> Stashed changes
-  dependencies:
-    "@babel/helper-module-imports" "7.16.0"
-    "@babel/plugin-syntax-jsx" "^7.16.5"
-    "@babel/types" "^7.16.0"
-    html-entities "2.3.2"
-
 babel-plugin-jsx-dom-expressions@^0.32.0:
   version "0.32.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.32.0.tgz#bcca91ee0bf2b4ecc8587478984f2c98a4380d77"
@@ -1647,23 +1602,7 @@ babel-plugin-polyfill-regenerator@^0.3.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
 
-<<<<<<< Updated upstream
-babel-preset-solid@1.3.6:
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.6.tgz#5de458ff12459178415e736bdc25cc38776d4835"
-  integrity sha512-UTSrdMpDnJjeFZBHQ7FU8c43LiT6RmIa5oM2IzMhhVmRjKw6PXbw3oG0NGMOYzMLxZ6CQ+Q/xu0hEZOIP1Ivaw==
-  dependencies:
-    babel-plugin-jsx-dom-expressions "^0.32.0"
-=======
-babel-preset-solid@1.3.5:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.5.tgz#0a912e712145e8408680ad1d6be41b724a15aff6"
-  integrity sha512-0BM3SKlDeDGiKPGpkQH0WrhZoO/ssT8zzw9sKovhWVPDJUyLoSI32IEcIw05AyBWyPYZC2VOQ1yXJKBXhRBq0A==
-  dependencies:
-    babel-plugin-jsx-dom-expressions "^0.31.12"
->>>>>>> Stashed changes
-
-babel-preset-solid@^1.3.0:
+babel-preset-solid@1.3.6, babel-preset-solid@^1.3.0:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.6.tgz#5de458ff12459178415e736bdc25cc38776d4835"
   integrity sha512-UTSrdMpDnJjeFZBHQ7FU8c43LiT6RmIa5oM2IzMhhVmRjKw6PXbw3oG0NGMOYzMLxZ6CQ+Q/xu0hEZOIP1Ivaw==
@@ -5666,21 +5605,7 @@ rollup-plugin-terser@^7.0.0:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
-<<<<<<< Updated upstream
-rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2:
-  version "2.63.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.63.0.tgz#fe2f7fec2133f3fab9e022b9ac245628d817c6bb"
-  integrity sha512-nps0idjmD+NXl6OREfyYXMn/dar3WGcyKn+KBzPdaLecub3x/LrId0wUcthcr8oZUAcZAR8NKcfGGFlNgGL1kQ==
-=======
-rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2, rollup@^2.66.1:
-  version "2.67.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.67.2.tgz#d95e15f60932ad21e05a870bd0aa0b235d056f04"
-  integrity sha512-hoEiBWwZtf1QdK3jZIq59L0FJj4Fiv4RplCO4pvCRC86qsoFurWB4hKQIjoRf3WvJmk5UZ9b0y5ton+62fC7Tw==
->>>>>>> Stashed changes
-  optionalDependencies:
-    fsevents "~2.3.2"
-
-rollup@^2.67.2:
+rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2, rollup@^2.67.2:
   version "2.67.2"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.67.2.tgz#d95e15f60932ad21e05a870bd0aa0b235d056f04"
   integrity sha512-hoEiBWwZtf1QdK3jZIq59L0FJj4Fiv4RplCO4pvCRC86qsoFurWB4hKQIjoRf3WvJmk5UZ9b0y5ton+62fC7Tw==
@@ -5863,17 +5788,10 @@ solid-heroicons@^1.1.1:
   dependencies:
     solid-js "^1.2.6"
 
-<<<<<<< Updated upstream
-solid-js@1.3.3, solid-js@1.3.7, solid-js@^1.0.7, solid-js@^1.2.6, solid-js@^1.3.0, solid-js@^1.3.0-rc.4:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.3.tgz#e60a6c5ed29f216e0484673967788f4f174c5f89"
-  integrity sha512-0pyHpLZIgQDI1Z+MgxXQRPY10dhXfKJdptb4UCJQ9ArQOLq2gtFA1acEsvSAtPMVdqQ8bqj68FOTXLpz6hm2Mg==
-=======
-solid-js@1.3.5, solid-js@^1.0.7, solid-js@^1.2.6, solid-js@^1.3.0-rc.4, solid-js@^1.3.3:
+solid-js@1.3.7, solid-js@^1.0.7, solid-js@^1.2.6, solid-js@^1.3.0-rc.4, solid-js@^1.3.3, solid-js@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.7.tgz#4d9568544143ddee2fc4a18fb69e110571012d83"
   integrity sha512-YAz0NQhIZ8yCR2VZK8aMjNrWMU4gnmCgzqy7EpMF7WsyWV3PSoO3HvDs3kR75Ejk/a4ohfxQNiLhC9TOQltXSA==
->>>>>>> Stashed changes
 
 solid-markdown@^1.1.0:
   version "1.1.0"
@@ -5913,7 +5831,6 @@ solid-refresh@^0.4.0:
     "@babel/helper-module-imports" "^7.16.0"
     "@babel/types" "^7.16.0"
 
-<<<<<<< Updated upstream
 solid-repl@^0.21.4:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.21.4.tgz#f315389364844512ac87e6e1f326aa5cbeb820b9"
@@ -5924,18 +5841,6 @@ solid-repl@^0.21.4:
     "@babel/standalone" "^7.17.2"
     "@tailwindcss/forms" "^0.4.0"
     babel-preset-solid "1.3.6"
-=======
-solid-repl@^0.20.0:
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.20.2.tgz#4c1af8fbb256ef5b5658726a157268026b7c63d7"
-  integrity sha512-9J7SjxE8bqNLt5oAPrf1OUiib9tfrdgE13WifpgNcN23FrWIgJd4D8ZHFfJnXCwLsXeOASoH8UYLDoeCXUTLWw==
-  dependencies:
-    "@amoutonbrady/lz-string" "^0.0.1"
-    "@babel/preset-typescript" "^7.16.7"
-    "@babel/standalone" "^7.16.12"
-    "@tailwindcss/forms" "^0.4.0"
-    babel-preset-solid "1.3.5"
->>>>>>> Stashed changes
     dedent "^0.7.0"
     jszip "^3.7.1"
     mitt "^3.0.0"
@@ -5944,19 +5849,12 @@ solid-repl@^0.20.0:
     onigasm "^2.2.5"
     prettier "^2.5.1"
     register-service-worker "^1.7.2"
-<<<<<<< Updated upstream
     rollup "^2.67.2"
     solid-dismiss "^1.0.27"
     solid-heroicons "^1.1.1"
     solid-js "1.3.7"
-=======
-    rollup "^2.66.1"
-    solid-dismiss "^1.0.27"
-    solid-heroicons "^1.1.1"
-    solid-js "1.3.5"
->>>>>>> Stashed changes
 
-solid-social@^0.5.2-rc.3:
+solid-social@^0.5.2-rc.1:
   version "0.5.2-rc.3"
   resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.3.tgz#3f422c82746b9055caf2e2a0a2de3e26102794ea"
   integrity sha512-LjNQwli2quVFNPe8g2kxKSsfpp+2uwu0mnoyIE73DERpxBkLotLe9pAeUzYTXZkQ5ol4lpXMxx++u7eULDprkA==
