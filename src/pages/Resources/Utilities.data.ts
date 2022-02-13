@@ -1105,7 +1105,7 @@ const utilities: Array<Resource> = [
     keywords: ['meteor'],
     official: false,
     type: ResourceType.Package,
-    categories: [ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.Data],
     published_at: 1644771355777,
   },
 ];
