@@ -1126,7 +1126,7 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.9.tgz#5738449849595e13e89f6dba1cc65f5cd62438d2"
   integrity sha512-ypfLfSSzCjjGtUGyqOtpm/RIkaeDSDBLXIFaFNhAm0tLkAVlTt71nd0ScFfa/tJ+q0SsGphdm7yIDU1c4zWpdg==
 
-"@solid-primitives/intersection-observer@^1.2.0", "@solid-primitives/intersection-observer@^1.2.1":
+"@solid-primitives/intersection-observer@1.2.2", "@solid-primitives/intersection-observer@^1.2.1":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.2.2.tgz#d4ac68e95e0c3dc58e2d4e1da30c5467592f5847"
   integrity sha512-am/Pb5wF8sBSgIFE388iZAG2MA6F7U0PyqiqwjVfBuZUjUxigvgDeeej9Izn9ygJgLNqYBv3ZuX1Mz1Q24wVdA==
@@ -1138,10 +1138,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/local-store/-/local-store-1.1.4.tgz#426214b9ca4b97050df57f6e04c42694f4e041aa"
   integrity sha512-sjje0IdTNZ4bKN9c16Rw03QOAbgkk2UVYcqyvyP52xyORvN9VSWXQxUY9nxnxlJR7GCn5VfDZWfXMrqexnix1Q==
 
-"@solid-primitives/script-loader@^1.0.2":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/script-loader/-/script-loader-1.0.3.tgz#3f43bb08af6a0c193b69da9278c8b1f7a0c881fd"
-  integrity sha512-zBrJXl6nnADQuaj6Uvl51w5OO1LtstmzK3VUMoehdqwUus4Wii3lZQZROiCjFtswNwoIuom4YtsCg88fAiuubQ==
+"@solid-primitives/script-loader@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/script-loader/-/script-loader-1.0.4.tgz#20efc7aca11041d0fb26f060c61f020d0d77453b"
+  integrity sha512-y5Zbdmg8MOgsMUrsCdafx8TrTpytyBUfgHcMGJU/PrBtI43+/G8Yh61exSrGHItH0s+RWWo6FeoRr1J8LrVOjw==
 
 "@solid-primitives/scroll@^1.0.5":
   version "1.0.5"
@@ -5788,7 +5788,7 @@ solid-heroicons@^1.1.1:
   dependencies:
     solid-js "^1.2.6"
 
-solid-js@1.3.7, solid-js@^1.0.7, solid-js@^1.2.6, solid-js@^1.3.0-rc.4, solid-js@^1.3.3, solid-js@^1.3.7:
+solid-js@1.3.7, solid-js@^1.0.7, solid-js@^1.2.6, solid-js@^1.3.0, solid-js@^1.3.3, solid-js@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.7.tgz#4d9568544143ddee2fc4a18fb69e110571012d83"
   integrity sha512-YAz0NQhIZ8yCR2VZK8aMjNrWMU4gnmCgzqy7EpMF7WsyWV3PSoO3HvDs3kR75Ejk/a4ohfxQNiLhC9TOQltXSA==
@@ -5854,14 +5854,14 @@ solid-repl@^0.21.4:
     solid-heroicons "^1.1.1"
     solid-js "1.3.7"
 
-solid-social@^0.5.2-rc.1:
-  version "0.5.2-rc.3"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.5.2-rc.3.tgz#3f422c82746b9055caf2e2a0a2de3e26102794ea"
-  integrity sha512-LjNQwli2quVFNPe8g2kxKSsfpp+2uwu0mnoyIE73DERpxBkLotLe9pAeUzYTXZkQ5ol4lpXMxx++u7eULDprkA==
+solid-social@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.6.0.tgz#4a5e806a9eea60187203026ae7af40af90e4b572"
+  integrity sha512-F84WudfOpeIfn4w4udGnmy9G9wgZ7R+bjFQgBaslcfdG0dte0ZLlgFF0q8Nc7Jgafjyf7yrpsR0efe6nkuf7cA==
   dependencies:
-    "@solid-primitives/intersection-observer" "^1.2.0"
-    "@solid-primitives/script-loader" "^1.0.2"
-    solid-js "^1.3.0-rc.4"
+    "@solid-primitives/intersection-observer" "1.2.2"
+    "@solid-primitives/script-loader" "1.0.4"
+    solid-js "^1.3.0"
 
 solid-transition-group@^0.0.8:
   version "0.0.8"

@@ -49,11 +49,11 @@ interface ContributorProps {
 
 const Contributor: Component<ContributorProps> = (props) => {
   return (
-    <li class="shadow-lg p-8">
+    <li class="shadow-lg p-7">
       <p class="text-bold text-lg text-solid inline-flex space-x-2">
         <span>{props.name}</span>
         <Show when={props.company}>
-          <a href={props.link} class="text-black hover:underline">
+          <a href={props.link} class="text-black dark:text-gray-400 hover:underline">
             ({props.company})
           </a>
         </Show>
@@ -73,12 +73,18 @@ const Contributors: Component<{}> = () => {
     <div class="flex flex-col relative">
       <div class="px-3 lg:px-12 container my-10">
         <div class="lg:grid my-8 lg:grid-cols-12 space-y-10 gap-20">
-          <div class="col-span-6 flex flex-col space-y-4">
+          <div class="col-span-6 flex flex-col space-y-10">
             <h2 class="text-3xl font-semibold text-solid-default dark:text-solid-darkdefault">
               {t('contributors.core_team', {}, 'Core Team')}
             </h2>
             <ul class="space-y-10">
               <For each={data.core} children={CoreMember} />
+            </ul>
+            <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
+              {t('contributors.ecosystem_team', {}, 'Ecosystem Team')}
+            </h2>
+            <ul class="flex flex-col space-y-3">
+              <For each={data.ecosystem} children={Contributor} />
             </ul>
           </div>
           <div class="col-span-6 flex flex-col space-y-10">
@@ -94,12 +100,6 @@ const Contributors: Component<{}> = () => {
             </p>
             <ul class="flex flex-col space-y-3">
               <For each={data.contributors} children={Contributor} />
-            </ul>
-            <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
-              {t('contributors.ecosystem_team', {}, 'Ecosystem Team')}
-            </h2>
-            <ul class="flex flex-col space-y-3">
-              <For each={data.ecosystem} children={Contributor} />
             </ul>
             <div class="flex mb-5 flex-col space-y-3">
               <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">

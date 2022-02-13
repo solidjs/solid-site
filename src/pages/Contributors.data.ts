@@ -122,6 +122,12 @@ const translators = [
     flag: '🇰🇷',
     link: 'https://github.com/lechuckroh',
   },
+  {
+    name: 'Adrián Curiel',
+    language: 'es',
+    flag: '🇪🇸',
+    link: 'https://github.com/havc-dev',
+  },
 ];
 
 const contributors = [
@@ -148,6 +154,18 @@ const contributors = [
     company: '',
     link: 'https://github.com/userquin',
     detail: 'Provided extreme guidance and support for PWA integration of our website.',
+  },
+  {
+    name: 'Erik Demaine',
+    company: '',
+    link: 'https://github.com/edemaine',
+    detail: 'Provided excellent documentation support and a major contributor to enabling Dark Mode on Solid Site.',
+  },
+  {
+    name: 'Évelyne Lachance',
+    company: '',
+    link: 'https://github.com/eslachance',
+    detail: 'Lead Advocate and head moderator of Solid\'s Discord community.',
   },
 ] as const;
 
@@ -193,6 +211,18 @@ const ecosystem = [
     company: '',
     link: 'https://github.com/aquaductape',
     detail: 'Front-End Developer',
+  },
+  {
+    name: 'Shaun Regenbaum',
+    company: '402 Media',
+    link: 'https://github.com/Shaun-Regenbaum',
+    detail: 'Front-end developer and general Solid supporter',
+  },
+  {
+    name: 'Oren Elbaum',
+    company: '',
+    link: 'https://github.com/orenelbaum',
+    detail: 'Developer and active ecosystem contributor.',
   },
 ] as const;
 
