@@ -167,6 +167,12 @@ const contributors = [
     link: 'https://github.com/eslachance',
     detail: 'Lead Advocate and head moderator of Solid\'s Discord community.',
   },
+  {
+    name: 'Ali Sal',
+    company: '',
+    link: 'https://github.com/AlidotSal',
+    detail: 'Exceptional support with testing, design and maintaining Solid Site.',
+  },
 ] as const;
 
 const ecosystem = [
@@ -228,7 +234,7 @@ const ecosystem = [
     name: 'high1',
     company: '',
     link: 'https://github.com/high1',
-    detail: 'Active community contributor and starter maintainer.',
+    detail: 'Active community contributor and starter maintainerter.',
   },
 ] as const;
 
