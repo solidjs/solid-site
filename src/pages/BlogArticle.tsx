@@ -1,6 +1,7 @@
-import { Component, Show, createMemo } from 'solid-js';
+import { Component, Show, createMemo, createSignal, PropsWithChildren } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useData, NavLink } from 'solid-app-router';
+import { createEventListener } from '@solid-primitives/event-listener';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 import { ListenNotesEpisode, YouTube, Tweet, Twitch } from 'solid-social';
@@ -19,6 +20,15 @@ export const BlogArticle: Component = () => {
   const chevron = createMemo(() =>
     t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-right' : 'chevron-left',
   );
+  const [darkMode, setDarkMode] = createSignal(
+    matchMedia?.('(prefers-color-scheme: dark)').matches,
+  );
+  createEventListener(
+    matchMedia?.('(prefers-color-scheme: dark)'),
+    'change',
+    (e: MediaQueryListEvent) => setDarkMode(e.matches),
+  );
+
   return (
     <div class="flex flex-col">
       <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
@@ -44,7 +54,18 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose dark:prose-invert mx-auto">
-                  <data.article components={{ ListenNotesEpisode, Tweet, YouTube, Twitch }} />
+                  <data.article
+                    components={{
+                      ListenNotesEpisode,
+                      Tweet: (props: PropsWithChildren) => (
+                        <Tweet {...props} theme={darkMode() ? 'dark' : 'light'}>
+                          {props.children}
+                        </Tweet>
+                      ),
+                      YouTube,
+                      Twitch,
+                    }}
+                  />
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">
