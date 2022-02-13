@@ -236,12 +236,13 @@ pre code.hljs {
   [data-tooltip]::after {
     content: attr(data-tooltip);
     font-family: inherit;
+    font-weight: 600;
     text-align: center;
     max-width: 20em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.8ch 1ch;
+    padding: 0.9ch 1.1ch 1ch;
     border-radius: 0.3ch;
     background: #333;
     color: #fff;
@@ -259,7 +260,7 @@ pre code.hljs {
 
   [data-tooltip]:not([flow])::before,
   [data-tooltip][flow^='up']::before {
-    bottom: 100%;
+    bottom: calc(100% + 5px);
     border-bottom-width: 0;
     border-top-color: #333;
   }
@@ -269,7 +270,7 @@ pre code.hljs {
   }
   [data-tooltip]:not([flow])::after,
   [data-tooltip][flow^='up']::after {
-    bottom: calc(100% + 5px);
+    bottom: calc(100% + 10px);
   }
   [data-tooltip]:not([flow])::before,
   [data-tooltip]:not([flow])::after,

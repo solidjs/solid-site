@@ -105,7 +105,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       <Dismiss menuButton={menuButton} open={showDirectory} setOpen={setShowDirectory}>
         <ol
           ref={listContainer}
-          class="shadow-lg rounded-br-lg rounded-bl-lg absolute bg-white dark:bg-solid-darkLighterBg w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3"
+          class="shadow-lg rounded-br-lg rounded-bl-lg absolute bg-white dark:bg-solid-darkLighterBg w-64 max-h-[50vh] left-8 overflow-auto rounded-b space-y-3 z-10"
           classList={{ hidden: !showDirectory() }}
         >
           <li class="sticky top-0">
