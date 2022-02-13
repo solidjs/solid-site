@@ -48,12 +48,12 @@
   scroll-margin-top: 80px;
 }
 .dark .shiki {
-  filter: invert(0.8) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg) brightness(1.1);
   border: 1px solid #aaa;
   z-index: 10;
 }
 .dark code.hljs {
-  filter: invert(0.8) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg) brightness(1.1);
   border: 1px solid #aaa;
   z-index: 10;
 }
@@ -87,10 +87,11 @@ pre code.hljs {
 }
 .dark .prose a:not(.header-anchor) {
   color: #ccc;
+  background-image: linear-gradient(#666, #666);
 }
 .dark .prose a:not(.header-anchor):hover {
   color: #ddd;
-  background-image: linear-gradient(#ddd, #ddd);
+  background-image: linear-gradient(#888, #888);
 }
 
 .prose a:not(.header-anchor):hover {

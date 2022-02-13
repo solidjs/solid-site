@@ -31,8 +31,8 @@ module.exports = {
         primary: '#4483c1',
         solid: {
           default: '#2c4f7c',
-          darkbg: '#3e3e3e',
-          darkLighterBg: '#595959',
+          darkbg: '#222222',
+          darkLighterBg: '#444444',
           darkdefault: '#b8d7ff', //'#87b1e6',
           darkgray: '#252525',
           gray: '#414042',
@@ -49,7 +49,7 @@ module.exports = {
         DEFAULT: {
           css: {
             '--tw-prose-body': '#333',
-            '--tw-prose-invert-body': '#ccc',
+            '--tw-prose-invert-body': '#fff',
             '--tw-prose-headings': theme('colors.solid.default'),
             '--tw-prose-invert-headings': theme('colors.solid.darkdefault'),
             color: 'var(--tw-prose-body)',
@@ -90,7 +90,7 @@ module.exports = {
         'blocks-two': "url('/src/assets/shapes/blocks2.svg')",
         'blocks-three': "url('/src/assets/shapes/blocks3.svg')",
         doc: 'linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%)',
-        darkDoc: 'linear-gradient(to left, #3e3e3e, #3e3e3e 50%, #595959 10%)',
+        darkDoc: 'linear-gradient(to left, #222222, #222222 50%, #444444 10%)',
       }),
       container: {
         center: true,
