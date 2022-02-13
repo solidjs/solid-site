@@ -48,9 +48,9 @@ export interface Resource {
   author_url?: string;
   description?: string;
   type: ResourceType;
-  categories: Array<ResourceCategory>;
+  categories: readonly ResourceCategory[];
   official?: boolean; // If the resource is an official Solid resource
-  keywords?: Array<string>;
+  keywords?: readonly string[];
   published_at?: number;
 }
 const ResourceTypeIcons = {

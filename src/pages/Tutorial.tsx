@@ -23,6 +23,11 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 import SolidMarkdown from 'solid-markdown';
 import { useAppContext } from '../AppContext';
 import rehypeHighlight from 'rehype-highlight';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import xml from 'highlight.js/lib/languages/xml';
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('xml', xml);
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -192,7 +197,7 @@ const Tutorial: Component = () => {
     <Suspense fallback={<p>Loading...</p>}>
       <div
         dir="ltr"
-        class="md:grid transition-[grid-template-columns] duration-300 h-[calc(100vh-64px)]"
+        class="md:grid transition-all duration-300 h-[calc(100vh-64px)]"
         classList={{
           'grid-cols-[minmax(40%,_600px)_auto]': open(),
           'grid-cols-[minmax(100%,_600px)_auto]': !open(),
