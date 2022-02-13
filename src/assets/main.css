@@ -59,6 +59,7 @@
 }
 .prose pre {
   font-size: inherit;
+  max-width: fit-content;
 }
 .shiki,
 pre code.hljs {
@@ -114,7 +115,7 @@ pre code.hljs {
 .dark .feature-block {
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.35);
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0) 20%);
-  background-color: rgb(75, 76, 78);
+  background-color: rgb(54, 55, 56);
   border-radius: 3px;
 }
 .chevron::after {
@@ -246,6 +247,10 @@ pre code.hljs {
     color: #fff;
     z-index: 5;
   }
+  .dark [data-tooltip]::after {
+    color: #000;
+    background: #dcdcdc;
+  }
 
   [data-tooltip]:hover::before,
   [data-tooltip]:hover::after {
@@ -257,6 +262,10 @@ pre code.hljs {
     bottom: 100%;
     border-bottom-width: 0;
     border-top-color: #333;
+  }
+  .dark [data-tooltip]:not([flow])::before,
+  .dark [data-tooltip][flow^='up']::before {
+    border-top-color: #dcdcdc;
   }
   [data-tooltip]:not([flow])::after,
   [data-tooltip][flow^='up']::after {
