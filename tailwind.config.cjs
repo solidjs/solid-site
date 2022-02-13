@@ -52,6 +52,7 @@ module.exports = {
             '--tw-prose-invert-body': '#fff',
             '--tw-prose-headings': theme('colors.solid.default'),
             '--tw-prose-invert-headings': theme('colors.solid.darkdefault'),
+            '--tw-prose-invert-quote-borders': theme('colors.solid.mediumgray'),
             color: 'var(--tw-prose-body)',
             fontFamily: 'Gordita',
             'blockquote p:first-of-type::before': { content: 'none' },
