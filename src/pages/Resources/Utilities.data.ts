@@ -1084,6 +1084,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1644609963000,
   },
+  {
+    link: 'https://github.com/edemaine/meteor-solid',
+    title: 'meteor-solid',
+    description: 'A Meteor plugin for the SolidJS compiler. Also solid-meteor-data provides tools for combining Meteor and Solid reactivity.',
+    author: 'edemaine',
+    author_url: 'https://github.com/edemaine/',
+    keywords: ['meteor'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+    published_at: 1644771355777,
+  },
 ];
 
 export default utilities;
