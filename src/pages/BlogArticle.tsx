@@ -51,7 +51,7 @@ export const BlogArticle: Component = () => {
                     components={{
                       ListenNotesEpisode,
                       Tweet: (props: PropsWithChildren) => (
-                        <Tweet {...props} theme={context.isDark? 'dark' : 'light'}>
+                        <Tweet {...props} theme={context.isDark ? 'dark' : 'light'}>
                           {props.children}
                         </Tweet>
                       ),
