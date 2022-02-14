@@ -57,6 +57,12 @@
   border: 1px solid #aaa;
   z-index: 10;
 }
+.shiki,
+.hljs,
+pre {
+  min-width: 100%;
+  background: transparent;
+}
 .prose pre {
   font-size: inherit;
   max-width: fit-content;
