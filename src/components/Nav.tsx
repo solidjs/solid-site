@@ -305,7 +305,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                     />
                   )}
                 </For>
-                <span class="md:hidden">
+                <span class="flex lg:hidden">
                   <Toggle />
                 </span>
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
@@ -331,7 +331,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             exitToClass: 'opacity-0 -translate-y-4',
           }}
         >
-          <div class="absolute mt-2 ltr:mr-5 rtl:ml-12 border dark:border-solid-darkbg rounded-md w-96 transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
+          <div class="absolute w-full md:w-96 mt-2 md:ml-12 md:mr-5 border dark:border-solid-darkbg rounded-md transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
             <For each={Object.entries(langs)}>
               {([lang, label]) => (
                 <button
@@ -354,7 +354,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             onmouseenter={clearSubnavClose}
             onmouseleave={closeSubnav}
             class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm transition duration-750"
-            style={{ left: `${subnavPosition()}px` }}
+            style={{ left: `${screen.width > 768 ? subnavPosition() : 0}px` }}
           >
             <ul class="divide-x divide-transparent flex flex-col">
               <For each={subnav()}>
