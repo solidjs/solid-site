@@ -1099,7 +1099,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/edemaine/solid-meteor-data',
     title: 'solid-meteor-data',
-    description: 'Integration between Solid and Meteor reactivity, including helpers for managing Meteor data in Solid components.',
+    description:
+      'Integration between Solid and Meteor reactivity, including helpers for managing Meteor data in Solid components.',
     author: 'edemaine',
     author_url: 'https://github.com/edemaine/',
     keywords: ['meteor'],

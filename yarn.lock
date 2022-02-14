@@ -5831,10 +5831,10 @@ solid-refresh@^0.4.0:
     "@babel/helper-module-imports" "^7.16.0"
     "@babel/types" "^7.16.0"
 
-solid-repl@^0.21.4:
-  version "0.21.4"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.21.4.tgz#f315389364844512ac87e6e1f326aa5cbeb820b9"
-  integrity sha512-vRkmCMEuOlz9efGltkDfvcwfbFe/0GNMTzh49vmCxiVqHlRPAUj11OyOyqeGfFo5NacIeanhgIBX8l6cxG8DNQ==
+solid-repl@^0.21.9:
+  version "0.21.9"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.21.9.tgz#f5f41fd45e2bf904d3945f134b5c7feb47c11595"
+  integrity sha512-iopnbIqoff4w//2j7yPNQC7iruTDjB6Hw9qz2K+cSszxNkJ1NZUr3NKe9rs0X8QtHqaRqHBCUWboIIQCQDoeyw==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@babel/preset-typescript" "^7.16.7"

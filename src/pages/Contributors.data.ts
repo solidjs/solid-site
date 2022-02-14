@@ -159,13 +159,14 @@ const contributors = [
     name: 'Erik Demaine',
     company: '',
     link: 'https://github.com/edemaine',
-    detail: 'Provided excellent documentation support and a major contributor to enabling Dark Mode on Solid Site.',
+    detail:
+      'Provided excellent documentation support and a major contributor to enabling Dark Mode on Solid Site.',
   },
   {
     name: 'Évelyne Lachance',
     company: '',
     link: 'https://github.com/eslachance',
-    detail: 'Lead Advocate and head moderator of Solid\'s Discord community.',
+    detail: "Lead Advocate and head moderator of Solid's Discord community.",
   },
   {
     name: 'Ali Sal',
