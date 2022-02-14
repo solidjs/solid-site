@@ -1109,6 +1109,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
     published_at: 1644771355777,
   },
+  {
+    link: 'https://github.com/wobsoriano/solid-firebase',
+    title: 'solid-firebase',
+    description:
+      'A range of useful Solid hooks for Firebase.',
+    author: 'wobsoriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['firebase', 'database', 'hooks'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Data],
+    published_at: 1644771355777,
+  },
 ];
 
 export default utilities;

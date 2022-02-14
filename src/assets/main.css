@@ -65,7 +65,6 @@ pre {
 }
 .prose pre {
   font-size: inherit;
-  max-width: fit-content;
 }
 .shiki,
 pre code.hljs {
