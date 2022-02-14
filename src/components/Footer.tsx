@@ -2,8 +2,6 @@ import { Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
-import { useAppContext } from '../AppContext';
-import darkLight from '../assets/icons/dark-light.svg';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.png';
 import sauce from '../assets/supporters/saucelabs.png';
@@ -29,7 +27,6 @@ const Supporter: Component<{
 
 const Footer: Component = () => {
   const [t] = useI18n();
-  const context = useAppContext();
   return (
     <Portal mount={document.getElementById('footer')!}>
       <div
@@ -69,16 +66,6 @@ const Footer: Component = () => {
                   version: '1.3.7',
                 })}
               </p>
-              {
-                <button
-                  class="flex text-gray-600 dark:text-gray-300"
-                  onClick={() => (context.isDark = !context.isDark)}
-                >
-                  <img class="w-5 dark:invert" src={darkLight} />
-                  &nbsp;
-                  {context.isDark ? 'Disable dark mode' : 'Enable dark mode'}
-                </button>
-              }
             </div>
             <ul class="lg:hidden flex justify-center items-center pt-12">
               <Social />

@@ -13,6 +13,8 @@ import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { createEventListener } from '@solid-primitives/event-listener';
+import { moon, sun } from 'solid-heroicons/outline';
+import { Icon } from 'solid-heroicons';
 import createDebounce from '@solid-primitives/debounce';
 import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
@@ -147,7 +149,7 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = 
     <button
       aria-label="Select Language"
       ref={props.ref}
-      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-5 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
       style={{
         'background-image': 'url(/img/icons/translate2.svg)',
         'background-size': '24px',
@@ -243,6 +245,23 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
       showPageLoadingBar: true,
     }));
   };
+  const Toggle = () => (
+    <button
+      type="button"
+      onClick={() => (context.isDark = !context.isDark)}
+      class="text-solid-medium dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-3 ml-2 rounded-md h-10 border border-solid-100"
+      classList={{
+        'hover:bg-gray-300 dark:hover:text-black focus:outline-none focus:highlight-none active:highlight-none focus:ring-0 active:outline-none':
+          context.isDark,
+      }}
+      title="Toggle dark mode"
+    >
+      <Show when={context.isDark} fallback={<Icon path={moon} class="h-6" />}>
+        <Icon path={sun} class="h-6" />
+      </Show>
+      <span class="text-xs sr-only">{context.isDark ? 'Light' : 'Dark'} mode</span>
+    </button>
+  );
 
   return (
     <>
@@ -286,11 +305,15 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                     />
                   )}
                 </For>
+                <span class="md:hidden">
+                  <Toggle />
+                </span>
                 <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
               </ul>
             </ScrollShadow>
             <ul class="hidden lg:flex items-center">
               <Social />
+              <Toggle />
               <LanguageSelector ref={langBtnDesktop} />
             </ul>
           </nav>
