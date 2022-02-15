@@ -3,7 +3,9 @@
   "core_team": "コアチーム",
   "acknowledgments": "謝辞",
   "ecosystem_team": "エコシステムチーム",
+  "copy": "Solid wouldn't be possible without the help of other talented individuals. As we grow we hope others will find ways to give their time either in the form of bug reporting, pull requests, design suggestions, writing and many other ways.",
   "translators_copy": "以下の方々は、Solid の国際化のために時間と労力を惜しみなく提供してくださいました:",
   "contributors": "コントリビューター",
-  "open_collective": "Open Collective"
+  "open_collective": "Open Collective",
+  "support_copy": "Support us with a donation and help us continue our activities:"
 }

@@ -1,6 +1,6 @@
 {
-    "hero": "ユーザーインターフェースを構築するための、宣言的で効率的かつ柔軟な JavaScript ライブラリ",
-    "info": "Solid は、純粋にリアクティブなライブラリです。リアクティブなコアを使って一から設計されています。これまでのライブラリで開発されたリアクティブな原理に影響を受けています。",
+    "hero": "ユーザーインターフェースを構築するための、シンプルでパフォーマンスのよいリアクティビティ",
+    "info": "<span class=\"font-semibold\">Solid は、純粋にリアクティブなライブラリです。</span>リアクティブなコアを使って一から設計されています。これまでのライブラリで開発されたリアクティブな原理に影響を受けています。",
     "strengths": [
       {
         "icon": "performant",
@@ -47,23 +47,22 @@
         "detail": "のパフォーマンス"
       },
       {
-        "label": "Astro",
-        "detail": "サポート",
-        "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
+        "label": "Astro & Vite",
+        "detail": "サポート"
       }
     ],
     "example": {
       "headline": "おなじみでモダン",
       "copy": [
         "Solid は、特に React と Knockout という巨人の肩の上に立っています。もしあなたが React Hooks を使って開発したことがあるなら、Solid はとても自然に感じられるはずです。実際、Solid のモデルは Hook のルールを持たない、よりシンプルなものになっています。すべてのコンポーネントは一度だけ実行され、依存関係が更新されるたびに何度も実行されるのは、フックとバインディングです。",
-        "Solid は、一方向性のデータフロー、リード/ライトの分離、不変のインターフェースなど、React と同じ哲学を持っています。ただ、仮想 DOM を使わないなど、実装が全く異なります。"
+        "Solid は、一方向性のデータフロー、リード/ライトの分離、不変のインターフェースなど、React と同じ哲学を持っています。しかし、仮想 DOM を使わない、全く異なる実装になっています。"
       ],
       "link_label": "ドキュメントを見る",
       "link": "https://www.solidjs.com/docs/latest#component-apis"
     },
     "reactivity": {
       "headline": "きめ細かいリアクティビティにより、少ない労力でより多くのことを実現します。",
-      "subheadline": "Solid の各部分は、JSX ビュー内の JavaScript 式に対するシンプルなプリミティブに基づいて構築されています。",
+      "subheadline": "Solid は、ユーザーランドのコードから JSX ビューへの効率的なリアクティブプリミティブで構築されています。",
       "copy": "これにより、DOM バインディングレベルでも、何をいつ更新するかを完全に制御できます。コストのかかる仮想 DOM を超えて、Solid は必要以上の作業を行いません。",
       "link_label": "実際の使用例",
       "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
@@ -73,7 +72,7 @@
         "パフォーマンス重視",
         "クライアントとサーバーの両方とも"
       ],
-      "copy": "きめ細かいリアクティビティのアプローチの強みは、注目すべきベンチマークのすべてで発揮されています。パフォーマンスはあなたの関心事ではないかもしれませんが、エンドユーザーの体験は常に懸念事項です。Solid のパフォーマンス向上は、余計な開発の手間をかけずに得られるものだと考えてください。頑張らなくても速くなるということです。",
+      "copy": "きめ細かいリアクティビティのアプローチの強みは、注目すべきベンチマークのすべてで発揮されています。パフォーマンスを重視しない場合でも、複雑な DX のコストは必要ありません。Solid のパフォーマンス向上は、タダで手に入るものと考えてください。頑張らなくても速くなるということです。",
       "link_label": "記事全文を読む",
       "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
     },
@@ -94,8 +93,10 @@
       ]
     },
     "benchmarks": {
-      "time": "時間",
-      "link_label": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。",
+      "time": "Time",
+      "view": "View the benchmark",
+      "show_more": "Show more client + server benchmarks",
+      "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
         "description": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。"
