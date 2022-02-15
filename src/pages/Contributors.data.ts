@@ -51,7 +51,7 @@ const translators = [
     link: 'https://github.com/Gavin-Gong',
   },
   {
-    name: 'Jun Shindo',
+    name: 'Jun Shindo (jay-es)',
     language: 'jp',
     flag: '🇯🇵',
     link: 'https://github.com/jay-es',

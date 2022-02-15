@@ -6,7 +6,7 @@
   "secondary": "Secondary Color",
   "light": "Light Color",
   "accent": "Accent Color",
-  "copy_hex": "Click the color to copy the hex.",
+  "copy_hex": "色をクリックすると、16進数をコピーできます。",
   "resources": {
     "with_wordmark": "文字商標あり",
     "without_wordmark": "文字商標なし",

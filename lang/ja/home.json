@@ -93,10 +93,10 @@
       ]
     },
     "benchmarks": {
-      "time": "Time",
-      "view": "View the benchmark",
-      "show_more": "Show more client + server benchmarks",
-      "link_label": "The JS Framework Benchmark compares browser performance across a wide range of tests. Lower is better.",
+      "time": "時間",
+      "view": "ベンチマークを見る",
+      "show_more": "クライアント + サーバーのベンチマークをもっと見る",
+      "link_label": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。",
       "js_benchmark": {
         "title": "JS Framework Benchmark",
         "description": "JS Framework Benchmark は、様々なテストでブラウザのパフォーマンスを比較します。低いほど良いです。"

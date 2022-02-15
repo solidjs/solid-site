@@ -34,28 +34,28 @@
       "links": [
         {
           "title": "SolidHack",
-          "description": "Learn about our 2022 public hackathon.",
+          "description": "2022年の公開ハッカソンについて",
           "path": "https://hack.solidjs.com",
           "external": true
         },
         {
           "title": "Blog",
-          "description": "News and updates from our community",
+          "description": "コミュニティからのニュースや最新情報",
           "path": "/blog"
         },
         {
           "title": "Team & Contributions",
-          "description": "Solid team members and supporters",
+          "description": "Solid のチームメンバーとサポーターの方々",
           "path": "/contributors"
         },
         {
-          "title": "メディア",
-          "description": "Brand elements for media use",
+          "title": "Media",
+          "description": "メディアで使用するためのブランド素材",
           "path": "/media"
         },
         {
           "title": "OpenCollective",
-          "description": "Support us with a donation and help us continue our activities",
+          "description": "寄付で支援して、私たちの活動の継続を支えてください",
           "path": "https://opencollective.com/solid"
         }
       ]
@@ -63,13 +63,13 @@
   ],
   "404": {
     "header": "Oops. Four oh four.",
-    "body": "believes this page definitely doesn't exist."
+    "body": "このページは間違いなく存在しないと確信しています"
   },
   "newsletter": {
-    "title": "Sign up for Solid News",
+    "title": "Solid News への登録",
     "email": "Email address",
-    "success": "You are successfully registered!",
-    "error": "Registration could not be completed",
+    "success": "登録に成功しました！",
+    "error": "登録が完了しませんでした",
     "register": "Register",
     "sending": "Sending"
   },
