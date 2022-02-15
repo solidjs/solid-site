@@ -104,13 +104,12 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
     reflow();
-
-      setRouteReadyState((prev) => ({
-        ...prev,
-        loadingBar: true,
-        loading: true,
-        routeChanged: true,
-      }));
+    setRouteReadyState((prev) => ({
+      ...prev,
+      loadingBar: true,
+      loading: true,
+      routeChanged: true,
+    }));
   };
 
   return (
