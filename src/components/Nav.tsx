@@ -104,12 +104,13 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     const pageEl = document.body;
     pageEl.style.minHeight = document.body.scrollHeight + 'px';
     reflow();
-    setRouteReadyState((prev) => ({
-      ...prev,
-      loadingBar: true,
-      loading: true,
-      routeChanged: true,
-    }));
+
+      setRouteReadyState((prev) => ({
+        ...prev,
+        loadingBar: true,
+        loading: true,
+        routeChanged: true,
+      }));
   };
 
   return (
@@ -119,7 +120,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
         target={props.external ? '_blank' : '_self'}
         class="inline-flex items-center transition text-[15px] dark:hover:bg-solid-darkLighterBg sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
         activeClass="bg-solid-medium dark:bg-solid-light text-white"
-        onClick={onClick}
+        onClick={() => !props.external && onClick()}
         noScroll
         ref={linkEl}
       >
