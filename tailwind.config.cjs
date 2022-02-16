@@ -92,7 +92,11 @@ module.exports = {
         'blocks-three': "url('/src/assets/shapes/blocks3.svg')",
         doc: 'linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%)',
         darkDoc: 'linear-gradient(to left, #222222, #222222 50%, #444444 10%)',
+        translate: "url(/img/icons/translate2.svg)",
       }),
+      backgroundSize: {
+        24: '1.5rem',
+      },
       container: {
         center: true,
       },
