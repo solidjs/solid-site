@@ -1,6 +1,6 @@
 {
-  "solve": "Solve",
-  "reset": "Reset",
+  "solve": "解答する",
+  "reset": "リセットする",
   "playground": {
     "result": "Result",
     "output": "Output",
