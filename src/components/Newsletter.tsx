@@ -45,7 +45,7 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
         <div class="flex space-x-2">
           <input
             type="email"
-            class="w-full rounded-md py-2 px-4 border-gray-300 dark:bg-solid-darkbg dark:placeholder:text-gray-200"
+            class="w-full rounded-md py-2 px-4 border border-gray-300 dark:bg-solid-darkbg dark:placeholder:text-gray-200"
             required={true}
             ref={(ref) => (emailRef = ref)}
             disabled={state() === NewsletterState.SENDING}

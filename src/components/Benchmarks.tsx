@@ -114,10 +114,10 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
             return (
               <button
                 onClick={() => setCurrent(index)}
-                class="text-xs lg:mr-1 p-3 rounded hover:bg-gray-400 transition duration-150 hover:text-white"
+                class="text-xs lg:mr-1 p-3 rounded md:hover:bg-gray-400 dark:md:hover:bg-gray-400 transition duration-150 hover:text-white"
                 classList={{
                   'active text-white bg-solid-light': current() === index,
-                  'bg-gray-100': current() !== index,
+                  'bg-gray-100 dark:bg-gray-500': current() !== index,
                 }}
               >
                 {item.name}
@@ -130,7 +130,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
           <Show when={props.list[current()].link}>
             <a
               target="_blank"
-              class="button text-xs block mt-3 text-solid-default chevron chevron-right font-semibold hover:text-gray-500"
+              class="button text-xs block mt-3 text-solid-default dark:text-solid-darkdefault chevron chevron-right font-semibold hover:text-gray-500 dark:hover:text-gray-300"
               rel="noopener noreferrer"
               href={props.list[current()].link}
             >

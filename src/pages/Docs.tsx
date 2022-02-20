@@ -180,7 +180,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
               </div>
             </Dismiss>
           </div>
-          <div class="w-full lg:w-9/12 p-10 bg-white dark:bg-solid-darkbg">
+          <div class="w-full lg:w-9/12 p-5 md:p-10 bg-white dark:bg-solid-darkbg">
             <Switch fallback={'Failed to load markdown...'}>
               <Match when={data.loading}>Loading documentation...</Match>
               <Match when={data.doc}>

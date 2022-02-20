@@ -326,11 +326,11 @@ const Resources: Component = () => {
               'shadow-md': stickyBarActive(),
             }}
           ></div>
-          <div class="absolute w-full h-full top-0 left-0 bg-white z-negative"></div>
+          <div class="absolute w-full h-full top-0 left-0 bg-white dark:bg-neutral-600 z-negative"></div>
           <div class="h-[45px] px-5 flex justify-between gap-1">
             <div use:observer class="absolute top-[-62px] h-0" />
             <input
-              class="rounded border-solid h-full w-full border-gray-200 placeholder-opacity-50 placeholder-gray-500"
+              class="rounded border border-solid h-full w-full border-gray-400 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
               placeholder={t('resources.search')}
               value={keyword()}
               onInput={(evt) => setKeyword(evt.currentTarget!.value)}
