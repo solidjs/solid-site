@@ -1122,6 +1122,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
     published_at: 1644771355777,
   },
+  {
+    link: 'https://github.com/titoBouzout/solid-windowed',
+    title: 'solid-windowed',
+    description:
+      'Given a list of items, only render what\'s visible on the screen while allowing scrolling the whole list.',
+    author: 'titoBouzout',
+    author_url: 'https://github.com/titoBouzout',
+    keywords: ['scroll', 'visibility', 'virtual', 'windowed'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Data],
+    published_at: 1644897397000,
+  },
 ];
 
 export default utilities;

@@ -4,7 +4,7 @@
   "locale": "ja-JP",
   "nav": [
     {
-      "title": "入門",
+      "title": "ガイド",
       "path": "/guides"
     },
     {
@@ -29,16 +29,55 @@
       "external": true
     },
     {
-      "title": "Blog",
-      "path": "/blog"
-    },
-    {
-      "title": "メディア",
-      "path": "/media"
+      "title": "About",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "2022年の公開ハッカソンについて",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Blog",
+          "description": "コミュニティからのニュースや最新情報",
+          "path": "/blog"
+        },
+        {
+          "title": "Team & Contributions",
+          "description": "Solid のチームメンバーとサポーターの方々",
+          "path": "/contributors"
+        },
+        {
+          "title": "Media",
+          "description": "メディアで使用するためのブランド素材",
+          "path": "/media"
+        },
+        {
+          "title": "OpenCollective",
+          "description": "寄付で支援して、私たちの活動の継続を支えてください",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
     }
   ],
+  "404": {
+    "header": "Oops. Four oh four.",
+    "body": "このページは間違いなく存在しないと確信しています"
+  },
+  "newsletter": {
+    "title": "Solid News への登録",
+    "email": "Email address",
+    "success": "登録に成功しました！",
+    "error": "登録が完了しませんでした",
+    "register": "Register",
+    "sending": "Sending"
+  },
   "footer": {
-    "declaration": "Solid は、一般の貢献者からなるチームによってサポートされているオープンソースプロジェクトです。MIT ライセンスの下で配布されています。このライブラリとコミュニティは、コアチームと献身的な貢献者によって実現されています。",
+    "declaration": "Solid は、一般の貢献者からなるチームによってサポートされているオープンソースプロジェクトです。<a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT ライセンス</a>の下で配布されています。このライブラリとコミュニティは、<a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">コアチームと献身的な貢献者</a>によって実現されています。",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsored by",
     "updated": "最終更新日 {{date}} Solid v{{version}}"
   }
 }

@@ -2,15 +2,18 @@
   "title": "資料",
   "cta": "あなたのSolidJS関連プロジェクトをここに掲載したい場合は、<a href=\"https://discord.com/invite/solidjs\">Discord</a> でご連絡ください。",
   "search": "Search resources",
-  "types": "Types",
+  "types": "タイプ",
   "types_list": {
     "article": "Article",
     "video": "Video",
     "library": "Library",
     "package": "Package"
   },
-  "categories": "Categories",
-  "translations": "Translations",
+  "published": "公開日",
+  "days_ago": "{{amount}} 日前",
+  "hours_ago": "{{amount}} 時間前",
+  "categories": "カテゴリー",
+  "translations": "翻訳",
   "categories_list": {
     "primitive": "Primitives",
     "router": "Routers",
@@ -23,6 +26,6 @@
     "testing": "Testing",
     "educational": "Educational"
   },
-  "official": "Official",
+  "official": "公式",
   "by": "By {{author}}"
 }
