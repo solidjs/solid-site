@@ -8,6 +8,7 @@ import sauce from '../assets/supporters/saucelabs.png';
 import cloudflare from '../assets/supporters/cloudflare.png';
 import netlify from '../assets/supporters/netlify.png';
 import divriots from '../assets/supporters/divriots.png';
+import vercel from '../assets/supporters/vercel.png';
 import Social from './Social';
 
 const Supporter: Component<{
@@ -58,11 +59,12 @@ const Footer: Component = () => {
               <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
               <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
               <Supporter alt="<div>riots>" href="https://divriots.com/" img={divriots} />
+              <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
             </div>
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
-                  date: '2022/02/23, 8:30am',
+                  date: '2022/02/26, 10:00pm',
                   version: '1.3.7',
                 })}
               </p>
