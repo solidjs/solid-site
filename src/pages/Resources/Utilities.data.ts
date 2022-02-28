@@ -1135,6 +1135,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
     published_at: 1644897397000,
   },
+  {
+    link: 'https://github.com/tanvesh01/motion-signals',
+    title: 'motion-signals',
+    description:
+      'A wrapper over Motion One, An animation library, built on the Web Animations API for the smallest filesize and the fastest performance.',
+    author: 'tanvesh01',
+    author_url: 'https://github.com/tanvesh01',
+    keywords: ['motionone', 'motion', 'animation', 'windowed'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1646088393000,
+  },
 ];
 
 export default utilities;
