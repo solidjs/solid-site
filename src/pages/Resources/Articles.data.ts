@@ -811,6 +811,32 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1645984025000,
   },
+  {
+    link: 'https://www.cbsofyalioglu.com/code/solidjs-and-reactive-primitives/',
+    title: 'Exploring SolidJS - Reactive Primitives',
+    description:
+      'SolidJS is a true reactive library that allows you to use JSX for your frontend projects.',
+    author: 'Can Burak Sofyalıoğlu',
+    author_url: 'https://www.cbsofyalioglu.com/',
+    keywords: ['adonis', 'back-end', 'framework'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1646175016000,
+  },
+  {
+    link: 'https://www.cbsofyalioglu.com/code/adonisjs-solidjs/',
+    title: 'SolidJS Setup in AdonisJS',
+    description:
+      'This blog post shows how to integrate SolidJS frontend library with AdonisJS backend framework.',
+    author: 'Can Burak Sofyalıoğlu',
+    author_url: 'https://www.cbsofyalioglu.com/',
+    keywords: ['adonis', 'back-end', 'framework'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1646175016000,
+  },
 ];
 
 export default articles;
