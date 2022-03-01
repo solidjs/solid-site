@@ -1112,8 +1112,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/wobsoriano/solid-firebase',
     title: 'solid-firebase',
-    description:
-      'A range of useful Solid hooks for Firebase.',
+    description: 'A range of useful Solid hooks for Firebase.',
     author: 'wobsoriano',
     author_url: 'https://github.com/wobsoriano',
     keywords: ['firebase', 'database', 'hooks'],
@@ -1126,7 +1125,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/titoBouzout/solid-windowed',
     title: 'solid-windowed',
     description:
-      'Given a list of items, only render what\'s visible on the screen while allowing scrolling the whole list.',
+      "Given a list of items, only render what's visible on the screen while allowing scrolling the whole list.",
     author: 'titoBouzout',
     author_url: 'https://github.com/titoBouzout',
     keywords: ['scroll', 'visibility', 'virtual', 'windowed'],
