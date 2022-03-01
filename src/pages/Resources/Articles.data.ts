@@ -798,6 +798,19 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1642791979000,
   },
+  {
+    link: 'https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/',
+    title: 'Solid.js feels like what I always wanted React to be',
+    description:
+      'Nick describes what makes Solid.js special to him and compares it to his React experience.',
+    author: 'Nick Scialli',
+    author_url: 'https://typeofnan.dev/',
+    keywords: ['react', 'compare'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1645984025000,
+  },
 ];
 
 export default articles;
