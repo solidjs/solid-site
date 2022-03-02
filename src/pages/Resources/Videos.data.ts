@@ -416,6 +416,17 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1642791417000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Jn5e1NYFfN4',
+    title: 'Regaining JavaScript Performance in your Website',
+    description: "PurrfectDev has Ryan Carniato on to talk about SolidJS and performance on your website.",
+    keywords: ['for', 'loop', 'reactivity'],
+    author: 'PurrfectDev',
+    author_url: 'https://codingcat.dev/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1646203243000,
+  },
 ];
 
 export default videos;
