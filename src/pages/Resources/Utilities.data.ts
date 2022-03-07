@@ -16,7 +16,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/solidjs/solid-app-router',
     title: 'solid-app-router',
     description:
-      "Universal router for SolidJS, combining paradigms of React Router and Ember Router. Supports JSX routing, file-system routing, and nested routes. Part of Solid Start, making it the official router.",
+      "Universal router for SolidJS, combining paradigms of React Router and Ember Router. Supports JSX or JSON routing, and nested routes. Part of Solid Start, making it the official router.",
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['router'],
