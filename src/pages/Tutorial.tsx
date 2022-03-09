@@ -117,7 +117,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
               name="search"
               type="search"
               placeholder="Search..."
-              class="py-2 px-3 block w-full"
+              class="py-2 px-3 block w-full text-black"
             />
           </li>
           <For each={filteredDirectory()}>
@@ -231,7 +231,7 @@ const Tutorial: Component = () => {
                   rehypePlugins={[rehypeHighlight]}
                   components={{
                     pre: ({ children, node, ...props }) => (
-                      <div className="not-prose">
+                      <div class="not-prose">
                         <pre {...props}>{children}</pre>
                       </div>
                     ),
