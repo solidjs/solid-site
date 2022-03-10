@@ -66,11 +66,11 @@
     "body": "uważa, że ta strona nie istnieje."
   },
   "newsletter": {
-    "title": "Zapisz się na newsy ze świata Solid",
+    "title": "Zapisz się na newsy o SolidJS",
     "email": "Adres e-mail",
     "success": "Zapisano pomyślnie!",
     "error": "Wystąpił błąd podczas zapisu",
-    "register": "Zapisz się",
+    "register": "Dołącz",
     "sending": "Wysyłanie"
   },
   "footer": {
