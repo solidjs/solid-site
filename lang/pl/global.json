@@ -1,83 +1,83 @@
 {
-  "name": "English",
-  "title": "SolidJS · Reactive Javascript Library",
-  "locale": "en-US",
+  "name": "Polish",
+  "title": "SolidJS · Reaktywna biblioteka javascriptowa",
+  "locale": "pl-PL",
   "nav": [
     {
-      "title": "Guides",
+      "title": "Poradniki",
       "path": "/guides"
     },
     {
-      "title": "Docs",
+      "title": "Dokumentacja",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Resources",
+      "title": "Materiały",
       "path": "/resources"
     },
     {
-      "title": "Tutorial",
+      "title": "Samouczek",
       "path": "/tutorial"
     },
     {
-      "title": "Examples",
+      "title": "Przykłady",
       "path": "/examples"
     },
     {
-      "title": "Playground",
+      "title": "Piaskownica",
       "path": "https://playground.solidjs.com",
       "external": true
     },
     {
-      "title": "About",
+      "title": "Informacje",
       "path": "/contributors",
       "links": [
         {
           "title": "SolidHack",
-          "description": "Learn about our 2022 public hackathon.",
+          "description": "Sprawdź nasz otwarty hackathon 2022",
           "path": "https://hack.solidjs.com",
           "external": true
         },
         {
           "title": "Blog",
-          "description": "News and updates from our community",
+          "description": "Informacje i aktualizacje od naszej społeczności",
           "path": "/blog"
         },
         {
-          "title": "Team & Contributions",
-          "description": "Solid team members and supporters",
+          "title": "Zespół i wsparcie",
+          "description": "Członkowie zespołu Solid oraz wspierający",
           "path": "/contributors"
         },
         {
-          "title": "Media",
-          "description": "Brand elements for media use",
+          "title": "Dla mediów",
+          "description": "Elementy marki do użytku medialnego",
           "path": "/media"
         },
         {
           "title": "OpenCollective",
-          "description": "Support us with a donation and help us continue our activities",
+          "description": "Wesprzyj nas i pomóż nam kontynuować nasze działania.",
           "path": "https://opencollective.com/solid"
         }
       ]
     }
   ],
   "404": {
-    "header": "Oops. Four oh four.",
-    "body": "believes this page definitely doesn't exist."
+    "header": "Uups. Cztery zero cztery.",
+    "body": "uważa, że ta strona nie istnieje."
   },
   "newsletter": {
-    "title": "Sign up for Solid News",
-    "email": "Email address",
-    "success": "You are successfully registered!",
-    "error": "Registration could not be completed",
-    "register": "Register",
-    "sending": "Sending"
+    "title": "Zapisz się na newsy ze świata Solid",
+    "email": "Adres e-mail",
+    "success": "Zapisano pomyślnie!",
+    "error": "Wystąpił błąd podczas zapisu",
+    "register": "Zapisz się",
+    "sending": "Wysyłanie"
   },
   "footer": {
-    "declaration": "Solid is an open-source project supported by a team of public contributors. It's distributed under <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">an MIT license</a>. This library and community are made possible by a <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">core team and dedicated contributors</a>.",
+    "declaration": "Solid to otwarto-źródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencjją MIT</a>. Ta biblioteka i społeczność wokół możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">zespołowi, a także współtwórcom</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
-    "sponsored_by": "Sponsored by",
-    "updated": "Last updated {{date}} on Solid v{{version}}"
+    "sponsored_by": "Sponsorzy",
+    "updated": "Ostatnia aktualizacja {{date}}, przy użyciu Solid v{{version}}"
   }
 }
