@@ -128,6 +128,12 @@ const translators = [
     flag: '🇪🇸',
     link: 'https://github.com/havc-dev',
   },
+  {
+    name: 'Paweł Błaszczyk',
+    language: 'pl',
+    flag: '🇵🇱',
+    link: 'https://github.com/pawelblaszczyk5',
+  },
 ];
 
 const contributors = [
