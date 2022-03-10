@@ -74,7 +74,7 @@
     "sending": "Wysyłanie"
   },
   "footer": {
-    "declaration": "Solid to otwarto-źródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencjją MIT</a>. Ta biblioteka i społeczność wokół możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">zespołowi, a także współtwórcom</a>.",
+    "declaration": "Solid to otwartoźródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencjją MIT</a>. Ta biblioteka i społeczność wokół możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">zespołowi, a także współtwórcom</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Sponsorzy",
