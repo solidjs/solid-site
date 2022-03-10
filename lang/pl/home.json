@@ -14,12 +14,12 @@
     {
       "icon": "pragmatic",
       "label": "Pragmatyczny",
-      "description": "API dopięte na ostatni guzik, aby tworzenie było proste i przyjemne."
+      "description": "API dopięte na ostatni guzik, tak aby tworzenie było proste i przyjemne."
     },
     {
       "icon": "productive",
       "label": "Produktywny",
-      "description": "Dzięki praktycznym i znajomym schematom, proste, a także skomplikowane projekty są błahostką."
+      "description": "Dzięki praktycznym i znajomym schematom, zarówno proste, jak i skomplikowane projekty są błahostką."
     }
   ],
   "facts": [
@@ -62,13 +62,13 @@
   "reactivity": {
     "headline": "Cząsteczkowa reaktywność sprawia, że mniej znaczy więcej.",
     "subheadline": "Solid oparty jest o reaktywne cząsteczki w każdym calu. Od kodu wykonywanego po stronie użytkownika, aż do widoków w JSX.",
-    "copy": "Umożliwia to kompletną kontrolę nad tym, co i kiedy zostanie zaktualizowane, co do pojedynczego elementu DOM. Pozbywając się wirtualnego modelu DOM oraz rozbudowanego różnicowania, framework nigdy nie wykona zbędnej dla ciebie pracy.",
+    "copy": "Dzięki temu masz kontrolę nad każdą aktualizacją w twojej aplikacji, co do najmniejszego elementu. Bez wirtualnego modelu DOM i rozbudowanego różnicowania framework nie musi wykonywać pracy, której nie chcesz.",
     "link_label": "Przekonaj się sam",
     "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
   },
   "performance": {
     "headline": ["Skupiony na wydajności", "zarówno w przeglądarce jak i na serwerze"],
-    "copy": "Cząsteczkowa reaktywność wiedzie prym we wszystkich znacznych benchmarkach. Nawet jeśli wydajność nie jest dla ciebie kluczowa — to bezkompromisowe i nic nie kosztuje. Pomyśl o wydajności Solida jak o czystym zysku. Nie musisz nawet się starać, aby twoje aplikacje były szybkie.",
+    "copy": "Cząsteczkowa reaktywność wiedzie prym we wszystkich najpouplarniejszych benchmarkach. Nawet jeśli wydajność nie jest dla Ciebie najważniejsza — korzystanie z SolidJS sprawia, że nie musisz nic poświęcać, żeby ją mieć. Wszystko obraca się wokół bycia szybkim bez dodatkowych starań.",
     "link_label": "Przeczytaj cały artykuł",
     "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
   },
@@ -81,10 +81,10 @@
       "Kontekst",
       "Suspense",
       "Granice błędów",
-      "Dynamicznie importowane komponenty",
-      "Asynchroniczne i zbieżne renderowanie",
-      "Domyślne delegowanie zdarzeń",
-      "SSR i hydracja",
+      "Lazy Components",
+      "Async & Concurrent Rendering",
+      "Implicit delegation",
+      "SSR & Hydration",
       "Dyrektywy"
     ]
   },
