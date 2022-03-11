@@ -67,7 +67,7 @@ const Footer: Component = () => {
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
                   date: '2022/03/11, 10:00am',
-                  version: '1.3.7',
+                  version: '1.3.12',
                 })}
               </p>
             </div>
