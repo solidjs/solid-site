@@ -22,7 +22,7 @@ const Supporter: Component<{
     rel="noopener"
     href={props.href}
   >
-    <img class="w-32" src={props.img} alt={props.alt} />
+    <img class="w-40" src={props.img} alt={props.alt} />
   </a>
 );
 
@@ -50,21 +50,23 @@ const Footer: Component = () => {
             <p class="mt-2">
               SolidJS and logo are trademarks of the SolidJS project and Core Team.
             </p>
-            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white dark:bg-solid-darkbg rounded-3xl md:mb-5 md:mt-7 md:rounded-full md:justify-start md:flex md:gap-0 items-center">
-              <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 dark:text-white md:text-sm md:static md:text-left md:my-4 md:ml-5 md:mr-2">
+            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white/30 dark:bg-solid-darkbg/20 md:mb-5 md:mt-7 md:rounded-3xl md:justify-start md:flex md:gap-0 items-center">
+              <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 dark:text-white md:text-lg md:static md:text-left md:my-4 md:ml-5 md:mr-2 w-1/6">
                 {t('global.footer.sponsored_by')}
               </div>
-              <Supporter alt="Cloudflare" href="https://www.cloudflare.com/" img={cloudflare} />
-              <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
-              <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
-              <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
-              <Supporter alt="<div>riots>" href="https://divriots.com/" img={divriots} />
-              <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
+              <div class="grid grid-cols-3 gap-8 w-full p-7">
+                <Supporter alt="Cloudflare" href="https://www.cloudflare.com/" img={cloudflare} />
+                <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
+                <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
+                <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
+                <Supporter alt="<div>riots>" href="https://divriots.com/" img={divriots} />
+                <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
+              </div>
             </div>
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
-                  date: '2022/03/01, 10:00am',
+                  date: '2022/03/11, 10:00am',
                   version: '1.3.7',
                 })}
               </p>

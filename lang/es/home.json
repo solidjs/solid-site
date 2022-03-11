@@ -30,7 +30,7 @@
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "13k+",
+      "label": "15k+",
       "detail": "Estrellas GitHub",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
@@ -86,7 +86,8 @@
       "Renderizado Asíncrono y Concurrente",
       "Delegación Implícita",
       "SSR e Hidratación",
-      "Directivas"
+      "Directivas",
+      "Streaming"
     ]
   },
   "benchmarks": {

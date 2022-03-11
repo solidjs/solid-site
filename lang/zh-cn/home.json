@@ -30,7 +30,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "13k+",
+        "label": "15k+",
         "detail": "Github 收藏",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
@@ -90,7 +90,8 @@
         "异步和并发渲染",
         "隐式事件委托",
         "服务端渲染和注水",
-        "指令"
+        "指令",
+        "Streaming"
       ]
     },
     "benchmarks": {

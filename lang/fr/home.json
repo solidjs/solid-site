@@ -30,7 +30,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "13k+",
+        "label": "15k+",
         "detail": "Stars sur GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
@@ -90,7 +90,8 @@
         "Async & Concurrent Rendering",
         "Implicit Delegation",
         "SSR & Hydration",
-        "Directives"
+        "Directives",
+        "Streaming"
       ]
     },
     "benchmarks": {
