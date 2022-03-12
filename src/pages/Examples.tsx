@@ -1,5 +1,5 @@
 import { createTabList, Repl } from 'solid-repl';
-import { NavLink, useData, useParams } from 'solid-app-router';
+import { NavLink, useRouteData, useParams } from 'solid-app-router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
@@ -9,7 +9,7 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppContext } from '../AppContext';
 
 const Examples: Component = () => {
-  const data = useData<ExamplesDataRoute>();
+  const data = useRouteData<ExamplesDataRoute>();
   const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();

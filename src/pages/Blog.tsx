@@ -1,10 +1,10 @@
 import { Component, For } from 'solid-js';
 import Footer from '../components/Footer';
-import { useData, NavLink } from 'solid-app-router';
+import { useRouteData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 
 const Blog: Component = () => {
-  const data = useData<{
+  const data = useRouteData<{
     article: string;
     loading: boolean;
     details: BlogInfo;

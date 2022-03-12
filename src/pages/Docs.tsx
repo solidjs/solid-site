@@ -8,7 +8,7 @@ import {
   createSignal,
   Accessor,
 } from 'solid-js';
-import { useData } from 'solid-app-router';
+import { useRouteData } from 'solid-app-router';
 import createThrottle from '@solid-primitives/throttle';
 import createScrollPosition from '@solid-primitives/scroll';
 import { chevronRight } from 'solid-heroicons/solid';
@@ -98,7 +98,7 @@ const Sidebar: Component<{
 );
 
 const Docs: Component<{ hash?: string }> = (props) => {
-  const data = useData<DocData>();
+  const data = useRouteData<DocData>();
   const [current, setCurrent] = createSignal<string | null>(null);
   const [toggleSections, setToggleSections] = createSignal(false);
   const scrollPosition = createScrollPosition();
