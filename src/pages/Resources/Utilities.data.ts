@@ -1136,6 +1136,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1646088393000,
   },
+  {
+    link: 'https://hope-ui.com/',
+    title: '@hope-ui/solid',
+    description: 'The hoped component library for your SolidJS applications.',
+    author: 'Fabien MARIE-LOUISE',
+    author_url: 'https://github.com/fabien-ml',
+    keywords: ['hope', 'chakra', 'design', 'ui', 'components'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1647104517182,
+  },
 ];
 
 export default utilities;
