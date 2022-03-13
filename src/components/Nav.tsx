@@ -116,7 +116,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
     <li>
       <NavLink
         href={props.path}
-        target={props.external ? '_blank' : '_self'}
+        target={props.external ? '_blank' : undefined}
         class="inline-flex items-center transition text-[15px] dark:hover:bg-solid-darkLighterBg sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
         activeClass="bg-solid-medium dark:bg-solid-light text-white"
         onClick={() => !props.external && onClick()}

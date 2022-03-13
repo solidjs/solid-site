@@ -3,8 +3,8 @@ import { createStore } from 'solid-js/store';
 import Footer from '../components/Footer';
 import { useRouteData } from 'solid-app-router';
 import { ResourcesDataProps } from './Resources.data';
-import { Icon } from 'solid-heroicons';
 import Fuse from 'fuse.js';
+import { Icon } from 'solid-heroicons';
 import {
   code,
   videoCamera,
