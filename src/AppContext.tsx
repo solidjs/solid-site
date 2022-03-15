@@ -62,7 +62,7 @@ export const AppContextProvider: Component<{}> = (props) => {
   } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
-  const i18n = createI18nContext({}, settings.locale || 'en');
+  const i18n = createI18nContext({}, (settings.locale || 'en') as string);
   const [t, { add, locale }] = i18n;
   const params = (): DataParams => {
     const locale = i18n[1].locale();
