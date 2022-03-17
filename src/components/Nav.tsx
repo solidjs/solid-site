@@ -18,6 +18,7 @@ import { Icon } from 'solid-heroicons';
 import createDebounce from '@solid-primitives/debounce';
 import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
+import ukraine from '../assets/for-ukraine.png';
 import ScrollShadow from './ScrollShadow/ScrollShadow';
 import Social from './Social';
 import { useAppContext } from '../AppContext';
@@ -277,7 +278,8 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
             >
               <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
                 <span class="sr-only">Navigate to the home page</span>
-                <img class="w-full h-auto" src={logo} alt="Solid logo" />
+                <img class="w-full h-auto z-10" src={logo} alt="Solid logo" />
+                <img class="w-8 absolute h-5 ml-5 mt-3" src={ukraine} alt="Solid logo" />
               </Link>
             </div>
             <ScrollShadow

@@ -26,7 +26,7 @@ const SectionButton: Component<{
   classList: { [k: string]: boolean | undefined };
 }> = (props) => (
   <li>
-    <a class={props.class} classList={props.classList} href={props.href}>
+    <a class={props.class} classList={props.classList} href={props.href} target="_self">
       {props.title}
     </a>
     {props.children}
