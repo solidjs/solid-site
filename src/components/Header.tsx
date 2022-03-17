@@ -70,8 +70,10 @@ const Header: Component<{ title?: string }> = () => {
               href="https://www.stopputin.net/"
               class="absolute w-full font-semibold text-center p-3 bg-solid-medium/30"
             >
-              <span class="text-yellow-500">We stand with Ukraine.</span> Petition your leaders.
-              Show your support.
+              <span class="text-yellow-500">
+                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+              </span>{' '}
+              {t('home.ukraine.petition', {}, 'Petition your leaders and show your support.')}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
