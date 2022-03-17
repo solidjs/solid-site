@@ -67,7 +67,7 @@ const Header: Component<{ title?: string }> = () => {
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <a
               target="_blank"
-              href={t('home.ukraine.link', {}, 'We https://crisisrelief.un.org/ukraine-crisis')}
+              href={t('home.ukraine.link', {}, 'https://crisisrelief.un.org/ukraine-crisis')}
               class="absolute w-full font-semibold text-center p-3 bg-solid-medium/30"
             >
               <span class="text-yellow-500">
@@ -102,7 +102,6 @@ const Header: Component<{ title?: string }> = () => {
               <div class="bg-gradient-to-r from-solid-light via-solid-medium to-yellow-500 dark:from-solid-light/70 dark:via-solid-medium/70 dark:to-yellow-500 text-white text-center md:text-left rtl:text-right">
                 <div class="px-3 lg:px-12 container">
                   <h1 class="py-8 text-3xl">
-                    f
                     <Transition
                       enterClass="translate-x-5 opacity-0"
                       enterToClass="translate-x-0 opacity-100"
