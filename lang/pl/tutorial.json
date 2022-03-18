@@ -1,0 +1,23 @@
+{
+  "solve": "Pokaż rozwiązanie",
+  "reset": "Zresetuj",
+  "playground": {
+    "result": "Rezultat",
+    "output": "Skompilowany kod",
+    "clear": "Wyczyść",
+    "add_tab": "Dodaj nową kartę",
+    "refresh": "Odśwież stronę",
+    "format": "Sformatuj kod źródłowy",
+    "copy": "Skopiuj kod źródłowy",
+    "mode": "Tryb kompilacji",
+    "client_render": "Renderowanie w przeglądarce",
+    "server_render": "Renderowanie na serwerze",
+    "client_hydration_render": "Hydracja w przeglądarce",
+    "dark_mode": "Przełącz tryb ciemny",
+    "import_json": "Importuj JSON",
+    "export_json": "Eksportuj JSON",
+    "export_codesandbox": "Eksportuj do Codesandbox",
+    "share": "Udostępnij skrócony link",
+    "scale": "Powiększ lub pomniejsz tekst"
+  }
+}

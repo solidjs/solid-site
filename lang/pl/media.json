@@ -1,0 +1,19 @@
+{
+  "title": "Zasoby dla mediów",
+  "copy": "Poniższe zasoby reprezentują markę Solid. Wszystkie zasoby są otwartoźródłowym wkładem i powinny być używane zgodnie z licencją i standardami. Po więcej informacji lub zasobów dołącz na naszego Discorda, gdzie uzyskasz wsparcie.",
+  "brand_font": "Firmowa czcionka",
+  "primary": "Główny kolor",
+  "secondary": "Poboczny kolor",
+  "light": "Delikatny kolor",
+  "accent": "Kolor akcentowy",
+  "second_accent": "Poboczny kolor akcentowy",
+  "copy_hex": "Naciśnij kolor, aby skopiować kod hex.",
+  "resources": {
+    "with_wordmark": "Z logotypem",
+    "without_wordmark": "Bez logotypu",
+    "only_wordmark": "Sam logotyp",
+    "dark_with_wordmark": "Z logotypem - wersja ciemna",
+    "dark_without_wordmark": "Bez logotypu - wersja ciemna",
+    "dark_only_wordmark": "Sam logotyp - wersja ciemna"
+  }
+}

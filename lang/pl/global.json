@@ -1,0 +1,83 @@
+{
+  "name": "Polish",
+  "title": "SolidJS · Reaktywna biblioteka JavaScript",
+  "locale": "pl-PL",
+  "nav": [
+    {
+      "title": "Poradniki",
+      "path": "/guides"
+    },
+    {
+      "title": "Dokumentacja",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Materiały",
+      "path": "/resources"
+    },
+    {
+      "title": "Samouczek",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Przykłady",
+      "path": "/examples"
+    },
+    {
+      "title": "Piaskownica",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Informacje",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "SolidHack",
+          "description": "Sprawdź nasz otwarty hackathon 2022",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Blog",
+          "description": "Informacje i aktualizacje od naszej społeczności",
+          "path": "/blog"
+        },
+        {
+          "title": "Zespół i wsparcie",
+          "description": "Członkowie zespołu Solid oraz wspierający",
+          "path": "/contributors"
+        },
+        {
+          "title": "Dla mediów",
+          "description": "Elementy marki do użytku medialnego",
+          "path": "/media"
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Wesprzyj nas i pomóż nam kontynuować nasze działania.",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "Uups. Cztery zero cztery.",
+    "body": "uważa, że ta strona nie istnieje."
+  },
+  "newsletter": {
+    "title": "Zapisz się na newsy o SolidJS",
+    "email": "Adres e-mail",
+    "success": "Zapisano pomyślnie!",
+    "error": "Wystąpił błąd podczas zapisu",
+    "register": "Dołącz",
+    "sending": "Wysyłanie"
+  },
+  "footer": {
+    "declaration": "Solid to otwartoźródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencjją MIT</a>. Ta biblioteka i społeczność wokół możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">zespołowi, a także współtwórcom</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsorzy",
+    "updated": "Ostatnia aktualizacja {{date}}, przy użyciu Solid v{{version}}"
+  }
+}
