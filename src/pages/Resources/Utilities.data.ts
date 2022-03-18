@@ -16,7 +16,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/solidjs/solid-app-router',
     title: 'solid-app-router',
     description:
-      "Universal router for SolidJS, combining paradigms of React Router and Ember Router. Supports JSX or JSON routing, and nested routes. Part of Solid Start, making it the official router.",
+      'Universal router for SolidJS, combining paradigms of React Router and Ember Router. Supports JSX or JSON routing, and nested routes. Part of Solid Start, making it the official router.',
     author: 'Ryan Carniato',
     author_url: 'https://github.com/ryansolid',
     keywords: ['router'],
@@ -1147,6 +1147,19 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1647104517182,
+  },
+  {
+    link: 'https://github.com/ionic-team/capacitor-solidjs-templates',
+    title: 'capacitor-solidjs-templates',
+    description:
+      'This repository holds production ready Capacitor templates for building native mobile applications using SolidJS + vite.',
+    author: 'ionic-team',
+    author_url: 'https://github.com/ionic-team',
+    keywords: ['capacitor', 'ionic', 'vite'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1647496275000,
   },
 ];
 

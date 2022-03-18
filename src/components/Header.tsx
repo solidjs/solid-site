@@ -62,9 +62,19 @@ const Header: Component<{ title?: string }> = () => {
         <Show when={showHeaderSplash()}>
           <header
             id="header"
-            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-solid-default dark:from-solid-light/70 dark:via-solid-medium/50 dark:to-solid-default/50 text-white overflow-hidden z-[1]"
+            class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium to-yellow-500 dark:from-solid-light/70 dark:via-solid-medium/50 dark:to-yellow-500 text-white overflow-hidden z-[1]"
           >
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
+            <a
+              target="_blank"
+              href={t('home.ukraine.link', {}, 'https://crisisrelief.un.org/ukraine-crisis')}
+              class="absolute w-full font-semibold text-center p-3 bg-solid-medium/30"
+            >
+              <span class="text-yellow-500">
+                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+              </span>{' '}
+              {t('home.ukraine.petition', {}, 'Help provide humanitarian aid.')}
+            </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">
@@ -89,7 +99,7 @@ const Header: Component<{ title?: string }> = () => {
         <Transition onEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
           <Show when={showHeaderSmall() && !location.pathname.includes('/hack')}>
             <header class="overflow-hidden">
-              <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-default dark:from-solid-light/40 dark:via-solid-medium/40 dark:to-solid-default/40 text-white text-center md:text-left rtl:text-right">
+              <div class="bg-gradient-to-r from-solid-light via-solid-medium to-yellow-500 dark:from-solid-light/70 dark:via-solid-medium/70 dark:to-yellow-500 text-white text-center md:text-left rtl:text-right">
                 <div class="px-3 lg:px-12 container">
                   <h1 class="py-8 text-3xl">
                     <Transition

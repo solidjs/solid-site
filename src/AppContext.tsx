@@ -1,7 +1,7 @@
 import { Component, createContext, createEffect, createResource, useContext } from 'solid-js';
 import { Meta, Title } from 'solid-meta';
 import { useLocation } from 'solid-app-router';
-import createCookieStore from '@solid-primitives/cookies-store';
+import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
 import { getGuides, getSupported, ResourceMetadata } from '@solid.js/docs';
 
@@ -51,17 +51,18 @@ type DataParams = {
 
 export const AppContextProvider: Component<{}> = (props) => {
   const now = new Date();
-  const [settings, set] = createCookieStore<{ dark: string; locale: string }>(undefined, {
+  const cookieOptions = {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
-  });
+  };
+  const [settings, set] = createCookieStorage();
   const browserLang = navigator.language.slice(0, 2);
   const location = useLocation();
   if (location.query.locale) {
-    set('locale', location.query.locale);
+    set('locale', location.query.locale, cookieOptions);
   } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
     set('locale', browserLang);
   }
-  const i18n = createI18nContext({}, settings.locale || 'en');
+  const i18n = createI18nContext({}, (settings.locale || 'en') as string);
   const [t, { add, locale }] = i18n;
   const params = (): DataParams => {
     const locale = i18n[1].locale();
@@ -84,7 +85,7 @@ export const AppContextProvider: Component<{}> = (props) => {
       ? false
       : window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  createEffect(() => set('locale', i18n[1].locale()));
+  createEffect(() => set('locale', i18n[1].locale()), cookieOptions);
   createEffect(() => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
@@ -95,7 +96,7 @@ export const AppContextProvider: Component<{}> = (props) => {
 
   const store = {
     set isDark(value) {
-      set('dark', value === true ? 'true' : 'false');
+      set('dark', value === true ? 'true' : 'false', cookieOptions);
     },
     get isDark() {
       return isDark();

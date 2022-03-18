@@ -9,7 +9,7 @@ import {
   createMemo,
   createEffect,
 } from 'solid-js';
-import { Link, useData, useIsRouting } from 'solid-app-router';
+import { Link, useRouteData, useIsRouting } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
@@ -35,7 +35,7 @@ const strength_icons: { [key: string]: string } = {
 
 const Home: Component<{}> = () => {
   const isRouting = useIsRouting();
-  const data = useData<{ benchmarks: Array<GraphData> }>();
+  const data = useRouteData<{ benchmarks: Array<GraphData> }>();
   const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver({ threshold: 0.4 });

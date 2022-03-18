@@ -1,6 +1,6 @@
 import { Component, Show, createMemo, PropsWithChildren } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
-import { useData, NavLink } from 'solid-app-router';
+import { useRouteData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 import { useAppContext } from '../AppContext';
@@ -8,7 +8,7 @@ import { ListenNotesEpisode, YouTube, Tweet, Twitch } from 'solid-social';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
-  const data = useData<{
+  const data = useRouteData<{
     loading: boolean;
     slug: string;
     details: BlogInfo;

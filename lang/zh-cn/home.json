@@ -1,6 +1,10 @@
 {
     "hero": "一个声明式、高效且灵活用于构建用户界面的 JavaScript 库。",
     "info": "Solid 是一个纯的响应式库。它从 0 开始设计出一套响应机制。Solid 深受到现有库的响应式原则影响。",
+    "ukraine": {
+      "support": "我们与乌克兰站在一起。",
+      "petition": "请愿你的领导人并表示你的支持。"
+    },
     "strengths": [
       {
         "icon": "performant",

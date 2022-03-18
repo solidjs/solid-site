@@ -1,5 +1,10 @@
 {
     "hero": "Una libreria JavaScript dichiarativa, efficiente e flessibile per la creazione di interfacce utente.",
+    "ukraine": {
+      "support": "Siamo con l'Ucraina.",
+      "petition": "Aiutaci a fornire aiuti umanitari.",
+      "link": "https://www.stopputin.net/"
+    },
     "info": "Solid è una libreria puramente reattiva. È stato progettato da zero con un nucleo reattivo. È influenzato da principi reattivi sviluppati da precedenti librerie.",
     "strengths": [
       {

@@ -419,7 +419,8 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=Jn5e1NYFfN4',
     title: 'Regaining JavaScript Performance in your Website',
-    description: "PurrfectDev has Ryan Carniato on to talk about SolidJS and performance on your website.",
+    description:
+      'PurrfectDev has Ryan Carniato on to talk about SolidJS and performance on your website.',
     keywords: ['for', 'loop', 'reactivity'],
     author: 'PurrfectDev',
     author_url: 'https://codingcat.dev/',
