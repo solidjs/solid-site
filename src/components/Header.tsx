@@ -77,7 +77,7 @@ const Header: Component<{ title?: string }> = () => {
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
-                <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">
+                <div class="flex items-center mt-10 w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4 lg:mt-0">
                   <img
                     class="w-[6rem] h-30 lg:w-48"
                     style="filter: drop-shadow(-10px 4px 8px rgb(0 22 100 / 10%))"
