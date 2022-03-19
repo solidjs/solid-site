@@ -17,12 +17,12 @@ const Supporter: Component<{
   href: string;
 }> = (props) => (
   <a
-    class="mx-4 hover:opacity-50 dark:brightness-150 transition"
+    class="mx-4 hover:opacity-50 dark:brightness-150 transition grid"
     target="_blank"
     rel="noopener"
     href={props.href}
   >
-    <img class="w-40" src={props.img} alt={props.alt} />
+    <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} />
   </a>
 );
 
@@ -50,11 +50,11 @@ const Footer: Component = () => {
             <p class="mt-2">
               SolidJS and logo are trademarks of the SolidJS project and Core Team.
             </p>
-            <div class="relative justify-center justify-items-center mb-8 mt-12 grid gap-2 grid-cols-2 p-2 bg-white/30 dark:bg-solid-darkbg/20 md:mb-5 md:mt-7 md:rounded-3xl md:justify-start md:flex md:gap-0 items-center">
-              <div class="text-xs m-0 text-center absolute -top-5 left-0 font-semibold text-gray-600 dark:text-white md:text-lg md:static md:text-left md:my-4 md:ml-5 md:mr-2 w-1/6">
+            <div class="relative flex flex-col md:flex-row justify-center justify-items-center mb-8 mt-12 gap-12 p-7 bg-white/30 dark:bg-solid-darkbg/20 md:mb-5 md:mt-7 md:rounded-3xl md:justify-start items-center">
+              <span class="text-center font-semibold text-gray-600 dark:text-white text-lg md:static md:text-left md:w-1/6">
                 {t('global.footer.sponsored_by')}
-              </div>
-              <div class="grid grid-cols-3 gap-8 w-full p-7">
+              </span>
+              <div class="grid grid-cols-1 gap-8 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 md:auto-rows-auto w-full">
                 <Supporter alt="Cloudflare" href="https://www.cloudflare.com/" img={cloudflare} />
                 <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
                 <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />

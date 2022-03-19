@@ -70,10 +70,10 @@ const Home: Component<{}> = () => {
         <img class="w-96 dark:brightness-150" src="/img/hack.svg" alt="SolidHack Announcement" />
       </a>
       <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 md:bg-blocks-one bg-contain bg-no-repeat bg-left-top md:dark:bg-blocks-one-dark">
-        <section class="grid sm:grid-cols-2 lg:grid-cols-4 m-5 lg:m-0 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
+        <section class="grid sm:grid-cols-2 lg:grid-cols-4 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
-              <div class="px-8 py-4 mt-4 md:py-10 border-b border-0 dark:border-solid-darkLighterBg md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
+              <div class="px-10 py-4 mt-4 md:py-10 border-b border-0 dark:border-solid-darkLighterBg md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
                 <img
                   class="w-12 mb-5 dark:brightness-150"
                   src={strength_icons[strength.icon]}
@@ -181,9 +181,9 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </Link>
           </div>
         </section>
-        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
+        <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 md:px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div
-            class="px-9 py-4 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
+            class="px-10 py-4 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
             classList={{ 'xl:bg-opacity-0': t('global.dir', {}, 'ltr') === 'ltr' }}
           >
             <img class="w-16" src={sandbox} alt="" />
