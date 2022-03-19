@@ -1,0 +1,31 @@
+{
+  "title": "Materiały",
+  "cta": "Jeśli chcesz, żeby twój projekt związany z SolidJS znalazł się tutaj, skontaktuj się z nami na <a href=\"https://discord.com/invite/solidjs\">Discordzie</a>.",
+  "search": "Szukaj",
+  "types": "Rodzaj",
+  "types_list": {
+    "article": "Artykuł",
+    "video": "Wideo",
+    "library": "Biblioteka",
+    "package": "Paczka"
+  },
+  "published": "Opublikowane",
+  "days_ago": "{{amount}} dni temu",
+  "hours_ago": "{{amount}} godzin temu",
+  "categories": "Kategorie",
+  "translations": "Translations",
+  "categories_list": {
+    "primitive": "Cząsteczki",
+    "router": "Routery",
+    "data": "Dane",
+    "ui": "UI",
+    "plugin": "Pluginy",
+    "starters": "Startery",
+    "build_utility": "Narzędzia do budowania",
+    "add_on": "Dodatki",
+    "testing": "Testowanie",
+    "educational": "Edukacyjne"
+  },
+  "official": "Oficjalne",
+  "by": "Stworzone przez {{author}}"
+}

@@ -1137,6 +1137,18 @@ const utilities: Array<Resource> = [
     published_at: 1646088393000,
   },
   {
+    link: 'https://hope-ui.com/',
+    title: '@hope-ui/solid',
+    description: 'The hoped component library for your SolidJS applications.',
+    author: 'Fabien MARIE-LOUISE',
+    author_url: 'https://github.com/fabien-ml',
+    keywords: ['hope', 'chakra', 'design', 'ui', 'components'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1647104517182,
+  },
+  {
     link: 'https://github.com/ionic-team/capacitor-solidjs-templates',
     title: 'capacitor-solidjs-templates',
     description:
@@ -1148,6 +1160,19 @@ const utilities: Array<Resource> = [
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1647496275000,
+  },
+  {
+    link: 'https://github.com/DigiChanges/solid-multiselect',
+    title: 'solid-multiselect',
+    description:
+      'A multi-select dropdown implementation for SolidJS.',
+    author: 'DigiChanges',
+    author_url: 'https://github.com/DigiChanges',
+    keywords: ['component', 'multiselect', 'ui', 'dropdown', 'searchable'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1642085029000,
   },
 ];
 
