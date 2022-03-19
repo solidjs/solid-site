@@ -1164,8 +1164,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/DigiChanges/solid-multiselect',
     title: 'solid-multiselect',
-    description:
-      'A multi-select dropdown implementation for SolidJS.',
+    description: 'A multi-select dropdown implementation for SolidJS.',
     author: 'DigiChanges',
     author_url: 'https://github.com/DigiChanges',
     keywords: ['component', 'multiselect', 'ui', 'dropdown', 'searchable'],
