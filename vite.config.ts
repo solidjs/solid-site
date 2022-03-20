@@ -17,7 +17,7 @@ export default defineConfig({
     },
     solid({ 
       extensions: ['.md', '.mdx'], 
-      // adapter: cloudflare(), 
+      adapter: cloudflare(), 
       hot: false,
     }),
   ],
@@ -31,7 +31,7 @@ export default defineConfig({
   },
   ssr: {
     noExternal: ["solid-dismiss", "solid-heroicons", "solid-app-router"],
-    external: ["solid-js", "solid-repl", "monaco-editor", "solid-markdown"],
+    external: ["solid-repl", "monaco-editor", "solid-markdown"],
   },
   build: {
     polyfillDynamicImport: false,
