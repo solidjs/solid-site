@@ -1139,7 +1139,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://hope-ui.com/',
     title: '@hope-ui/solid',
-    description: 'The hoped component library for your SolidJS applications.',
+    description: "The SolidJS component library you've hoped for.",
     author: 'Fabien MARIE-LOUISE',
     author_url: 'https://github.com/fabien-ml',
     keywords: ['hope', 'chakra', 'design', 'ui', 'components'],
