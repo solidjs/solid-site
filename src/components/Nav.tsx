@@ -161,7 +161,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
+  const closeSubnav = createDebounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
   const context = useAppContext();
 
@@ -304,7 +304,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                       {...item}
                       setSubnav={setSubnav}
                       closeSubnav={closeSubnav}
-                      clearSubnavClose={clearSubnavClose}
+                      clearSubnavClose={closeSubnav.clear}
                       setSubnavPosition={setSubnavPosition}
                       links={item.links}
                     />
@@ -356,7 +356,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         <Show when={subnav().length !== 0}>
           <div
             ref={subnavEl}
-            onmouseenter={clearSubnavClose}
+            onmouseenter={closeSubnav.clear}
             onmouseleave={closeSubnav}
             class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm transition duration-750"
             style={{ left: `${screen.width > 768 ? subnavPosition() : 0}px` }}
