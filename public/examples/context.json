@@ -1,0 +1,14 @@
+{
+    "files": [
+        {
+            "name": "main",
+            "type": "tsx",
+            "content": "import { render } from \"solid-js/web\";\nimport { ThemeProvider, useTheme } from \"./theme\";\n\nfunction App() {\n  const [theme, { changeColor }] = useTheme();\n\n  return (\n    <>\n      <h1\n        style={{\n          color: theme.color,\n        }}\n      >\n        {theme.title}\n      </h1>\n      <input\n        type=\"color\"\n        name=\"color\"\n        value={theme.color}\n        onInput={(e) => changeColor(e.currentTarget.value)}\n      />\n      <label for=\"color\">Change color theme</label>\n    </>\n  );\n}\n\nrender(\n  () => (\n    <ThemeProvider color=\"#335d92\" title=\"Context Example\">\n      <App />\n    </ThemeProvider>\n  ),\n  document.getElementById(\"app\")\n);\n"
+        },
+        {
+            "name": "theme",
+            "type": "tsx",
+            "content": "import { createContext, useContext, Component } from \"solid-js\";\nimport { createStore, Store } from \"solid-js/store\";\n\nexport type ThemeContextState = Store<{\n  color: string;\n  title: string;\n}>;\nexport type ThemeContextValue = [\n  state: ThemeContextState,\n  actions: {\n    changeColor: (color: string) => void;\n  }\n];\n\nconst defaultState = {\n  color: \"#66e6ac\",\n  title: \"Fallback Title\",\n};\n\nconst ThemeContext = createContext<ThemeContextValue>([\n  defaultState,\n  {\n    changeColor: () => undefined,\n  },\n]);\n\nexport const ThemeProvider: Component<{\n  color?: string;\n  title?: string;\n}> = (props) => {\n  const [state, setState] = createStore({\n    ...defaultState,\n    ...props,\n  });\n\n  const changeColor = (color: string) => setState(\"color\", color);\n\n  return (\n    <ThemeContext.Provider value={[state, { changeColor }]}>\n      {props.children}\n    </ThemeContext.Provider>\n  );\n};\n\nexport const useTheme = () => useContext(ThemeContext);\n"
+        }
+    ]
+}
