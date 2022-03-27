@@ -837,6 +837,19 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1646175016000,
   },
+  {
+    link: 'https://hackernoon.com/meet-solid-a-lightweight-javascript-ui-library-that-is-gaining-in-popularity',
+    title: 'Meet Solid: A Lightweight JavaScript UI Library that is Gaining in Popularity',
+    description:
+      'SolidJS has been gaining traction as a UI library for building web applications that are extremely fast and small.',
+    author: 'Phong Nguyen',
+    author_url: 'https://hackernoon.com/u/phongnn',
+    keywords: ['solid', 'learn', 'framework'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1648409350000,
+  },
 ];
 
 export default articles;
