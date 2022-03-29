@@ -59,18 +59,6 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1636741458000,
   },
-  {
-    title: 'SolidJS with Ryan Carniato',
-    link: 'https://podrocket.logrocket.com/solidjs',
-    description:
-      'Ryan Carniato tells us all about SolidJS, a declarative, efficient, and flexible JavaScript library for building user interfaces.',
-    author: 'PodRocket',
-    author_url: 'https://podrocket.logrocket.com/',
-    keywords: ['podrocket', 'logrocket', 'reactivity', 'framework'],
-    type: ResourceType.Podcast,
-    categories: [ResourceCategory.Educational],
-    published_at: 1630525352000,
-  },
 ];
 
 export default podcasts;
