@@ -1173,6 +1173,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1642085029000,
   },
+  {
+    link: 'https://suid.io',
+    title: 'SUID - Material UI',
+    description: 'A port of MUI built with SolidJS.',
+    author: 'Juanra GM',
+    author_url: 'https://github.com/juanrgm',
+    keywords: ['components', 'material', 'mui', 'styled-component', 'icons', 'ui', 'design'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    published_at: 1648751735000,
+  },
 ];
 
 export default utilities;
