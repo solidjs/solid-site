@@ -21,6 +21,7 @@ import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { parseKeyword } from '../utils/parseKeyword';
 
 export enum ResourceType {
   Article = 'article',
@@ -147,7 +148,7 @@ const Resources: Component = () => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [keyword, setKeyword] = createSignal(globalThis.location.hash.replace('#', ''));
+  const [keyword, setKeyword] = createSignal(parseKeyword(globalThis.location.hash));
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
