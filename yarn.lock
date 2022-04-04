@@ -1090,10 +1090,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.6.0.tgz#3c7c9c46e678feefe7a2e5bb609d3dbd665ffb3f"
   integrity sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==
 
-"@solid-primitives/clipboard@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.2.8.tgz#9b3741bdb796ac3cbb26899c3fa14ff41dfbda97"
-  integrity sha512-qsY6FNNmqgI29mXJEnLDxxcn2oJDRFhjqb1f30eD6PpbHJuW7FuTK1MLCMa0R/mtQcJZVLve8Uh7qBo95IJBMA==
+"@solid-primitives/clipboard@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/clipboard/-/clipboard-1.2.9.tgz#66442e5bee592e9bd25b840baec44706e8ac8510"
+  integrity sha512-NOxE+uQCqcPb9oHHDXZThOoLAo2MEPisbsykBP5WBUOO5zid+D5+JkXGHo8+qRDqW8KfsZgRNLiiq/FkmZzeMA==
 
 "@solid-primitives/date@^1.1.0":
   version "1.1.0"

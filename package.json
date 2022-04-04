@@ -20,7 +20,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@solid-primitives/clipboard": "^1.2.8",
+    "@solid-primitives/clipboard": "^1.2.9",
     "@solid-primitives/date": "^1.1.0",
     "@solid-primitives/debounce": "^1.1.2",
     "@solid-primitives/event-listener": "^1.5.0",
