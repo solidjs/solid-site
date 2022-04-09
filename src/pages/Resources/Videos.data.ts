@@ -428,6 +428,53 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1646203243000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Bwjm4asSAMo',
+    title: 'SolidJS with ArcGIS API for JavaScript',
+    description: 'Looks at how easy it is to use with the ArcGIS API for JavaScript',
+    keywords: ['arcgis', 'rene rubalcave'],
+    author: 'Rene Rubalcava',
+    author_url: 'https://www.youtube.com/channel/UCo7tc3KZgH4GMUcqcSFBLOQ',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1649400779000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=tcwe85p7M9c',
+    title: "Petite Solid?! Let's build a Micro View Library",
+    description:
+      'The question of this functionality in Solid has come up a few times and I thought it would be fun to explore. What this really is, is a throwback to the early days of frontend frameworks.',
+    keywords: ['petitsolid', 'small', 'petit', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9/videos',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1641542174000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=lsWXyyEsw7E&t=1838s',
+    title: 'Solid Three, Custom Renderers, and SolidStart w/ Nikhil Saraf',
+    description:
+      "Tonight I'm excited to be joined by the creator of a few really cool projects in the Solid ecosystem and one of main contributors to upcoming SolidStart Metaframework.",
+    keywords: ['three', 'three.js', 'custom renderer', 'renderer', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9/videos',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1643356574000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=ZVKHxm1-g3E',
+    title: 'SolidScript?! Using Compilation for Syntax',
+    description:
+      'Everyone seems to have their own preferences when it comes to syntax. Some like it explicit. Some implicit. Fortunately, with the right primitives, it is easy to tailor it to what you want.',
+    keywords: ['solidscript', 'compilation', 'syntax', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9/videos',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1647586574000,
+  },
 ];
 
 export default videos;
