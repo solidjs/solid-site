@@ -180,6 +180,12 @@ const contributors = [
     link: 'https://github.com/AlidotSal',
     detail: 'Exceptional support with testing, design and maintaining Solid Site.',
   },
+  {
+    name: 'David Peter',
+    company: '',
+    link: 'https://github.com/sarenji',
+    detail: 'Thank for you for transferring ownership of the `solid` NPM package to our project.',
+  },
 ] as const;
 
 const ecosystem = [
