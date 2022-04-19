@@ -30,7 +30,7 @@ const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (prop
   <li class="mx-2">
     <a href={props.href} rel="noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
-      <svg viewBox="0 0 24 24" class="h-8 transition hover:opacity-50 opacity-60">
+      <svg viewBox="0 0 24 24" class="h-7 transition hover:opacity-50 opacity-60">
         <path fill="currentColor" d={props.icon} />
       </svg>
     </a>

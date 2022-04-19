@@ -14,6 +14,8 @@ module.exports = {
       },
       boxShadow: {
         'top-2xl': '0 -25px 50px -12px rgba(0, 0, 0, 0.25)',
+        'right': '18px 3px 28px -17px rgba(0,0,0,0.39)',
+        'left': '-11px 1px 17px -6px rgba(0,0,0,0.17)',
       },
       transitionDuration: {
         0: '0ms',

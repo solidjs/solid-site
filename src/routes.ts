@@ -36,6 +36,10 @@ export const routes: RouteDefinition[] = [
     data: GuideData,
   },
   {
+    path: '/newnav',
+    component: lazy(() => import('./pages/NewNav')),
+  },
+  {
     path: '/guides',
     component: () => Navigate({ href: '/guides/getting-started' }),
     data: GuideData,
