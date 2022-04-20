@@ -1164,10 +1164,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.2.2.tgz#bda0751a5d08d90cf2bc014c9f8eb7fae00e3863"
   integrity sha512-XcAN/WP1R/dEvt4vpobUFYxajhak2mV/jyALyzIrBl6N2v/8Y07E+AUr7xXKp8s3/h0eJl+4eB/IuT8uxDL69Q==
 
-"@solid.js/docs@^1.0.31":
-  version "1.0.31"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.31.tgz#fb5014f32dcd926b27f664e44d003de2da4de6a4"
-  integrity sha512-l/5/wLpRrCWE6KmTE3NInqLt/DFLi8W9m171o/eJALOxVSMpdO3iTqBEQyBWZCqL0PK/VlNRw4Bnp3ufWFiPpw==
+"@solid.js/docs@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.32.tgz#bbd32f84db386e0d26a89fa5ec01a5902688f0e3"
+  integrity sha512-oMRDQFItHdXCA1JyXmSgMVQxDYInQ1hAO3wf/Ch6Vg06Ep/b1vAujNxx11G7GhFFqR9kE8ZRob+uwt1eaGU6xg==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
@@ -5731,10 +5731,15 @@ solid-heroicons@^2.0.3:
   dependencies:
     solid-js "^1.3.10"
 
-solid-js@1.3.13, solid-js@^1.3.0, solid-js@^1.3.10, solid-js@^1.3.13, solid-js@^1.3.3:
+solid-js@1.3.13, solid-js@^1.3.0, solid-js@^1.3.10, solid-js@^1.3.3:
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.13.tgz#7e1a0f52e5b22b4c21ac2ac5196dfd2176ee3a46"
   integrity sha512-1EBEIW9u2yqT5QNjFdvz/tMAoKsDdaRA2Jbgykd2Dt13Ia0D4mV+BFvPkOaseSyu7DsMKS23+ZZofV8BVKmpuQ==
+
+solid-js@^1.3.15:
+  version "1.3.15"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.15.tgz#1d79d377fd2cbb810be1bb45b9d57157842f63e0"
+  integrity sha512-tghvvwstKQWC3RIkIT1xf70gQx7+oxYeQ2BR/Y0MrCF4+icen/xBwy3nJ0fUNuP58QCbFmszK6TmMturD/sNrA==
 
 solid-markdown@^1.1.0:
   version "1.2.0"
