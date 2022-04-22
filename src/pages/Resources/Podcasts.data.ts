@@ -59,6 +59,18 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1636741458000,
   },
+  {
+    title: 'SolidJS with Ryan Carniato - JSJ 528',
+    link: 'https://fsjam.org/episodes/episode-53-solid-with-ryan-carniato',
+    description:
+      'SolidJS is a web development framework that focuses on using reactivity and carries forward several ideas from Knockout.js.',
+    author: 'JavascriptJabber',
+    author_url: 'https://javascriptjabber.com/',
+    keywords: ['javascript', 'jabber', 'knockout', 'reactivity'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650646766000,
+  },
 ];
 
 export default podcasts;
