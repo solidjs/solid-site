@@ -844,11 +844,37 @@ const articles: Array<Resource> = [
       'SolidJS has been gaining traction as a UI library for building web applications that are extremely fast and small.',
     author: 'Phong Nguyen',
     author_url: 'https://hackernoon.com/u/phongnn',
-    keywords: ['solid', 'learn', 'framework'],
+    keywords: ['solid', 'learn', 'framework', 'hackernoon'],
     official: false,
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
     published_at: 1648409350000,
+  },
+  {
+    link: 'https://hackernoon.com/state-management-in-solidjs-applications',
+    title: 'State Management in SolidJS Applications',
+    description:
+      'State management is usually one of the most important problems that you need to tackle when developing a frontend application.',
+    author: 'Phong Nguyen',
+    author_url: 'https://hackernoon.com/u/phongnn',
+    keywords: ['solid', 'state management', 'state', 'hackernoon'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650697301000,
+  },
+  {
+    link: 'https://dev.to/taw/open-source-adventures-episode-43-solidjs-1f32',
+    title: 'Open Source Adventures: Episode 43: SolidJS',
+    description:
+      'Tomasz delves into SolidJS basics. Part of a series of SolidJS entries that delve into less trivial examples.',
+    author: 'Tomasz Wegrzanowski',
+    author_url: 'https://dev.to/taw',
+    keywords: ['solid', 'learning', 'beginner'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650610823000,
   },
 ];
 
