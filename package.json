@@ -29,7 +29,7 @@
     "@solid-primitives/scroll": "^1.0.5",
     "@solid-primitives/storage": "^1.1.1",
     "@solid-primitives/throttle": "^1.1.2",
-    "@solid.js/docs": "^1.0.32",
+    "@solid.js/docs": "^1.0.33",
     "fuse.js": "^6.5.3",
     "highlight.js": "^11.5.0",
     "monaco-editor": "0.31.1",
@@ -42,7 +42,7 @@
     "solid-js": "^1.3.16",
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.3",
-    "solid-repl": "^0.23.5",
+    "solid-repl": "^0.23.6",
     "solid-social": "^0.6.2",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"

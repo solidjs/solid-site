@@ -922,10 +922,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.17.8":
-  version "7.17.8"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.8.tgz#517064e5b21015476d4dc9c6518b47bf2ec4d094"
-  integrity sha512-tr3SDpVnxR/fzrxyG+HZPAyEA9eTHZIAjy4eqrc7m+KBwsdo1YvTbUfJ6teWHQ177mk6GmdmltsIiOYCcvRPWA==
+"@babel/standalone@^7.17.9":
+  version "7.17.9"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.9.tgz#208298055c70531a81759435e443586754d693f9"
+  integrity sha512-9wL9AtDlga8avxUrBvQJmhUtJWrelsUL0uV+TcP+49Sb6Pj8/bNIzQzU4dDp0NAPOvnZR/7msFIKsKoCl/W1/w==
 
 "@babel/template@^7.16.7":
   version "7.16.7"
@@ -1164,10 +1164,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.2.2.tgz#bda0751a5d08d90cf2bc014c9f8eb7fae00e3863"
   integrity sha512-XcAN/WP1R/dEvt4vpobUFYxajhak2mV/jyALyzIrBl6N2v/8Y07E+AUr7xXKp8s3/h0eJl+4eB/IuT8uxDL69Q==
 
-"@solid.js/docs@^1.0.32":
-  version "1.0.32"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.32.tgz#bbd32f84db386e0d26a89fa5ec01a5902688f0e3"
-  integrity sha512-oMRDQFItHdXCA1JyXmSgMVQxDYInQ1hAO3wf/Ch6Vg06Ep/b1vAujNxx11G7GhFFqR9kE8ZRob+uwt1eaGU6xg==
+"@solid.js/docs@^1.0.33":
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.33.tgz#6c4d6531e22ad9029f6f4b1f9cedd73782c4a4bc"
+  integrity sha512-Th1TP9v0Jk8EFGyvXp0jtDldZ9EQWDE/Uqkh8KXNysZRsLUGiLvvt5VNFmdvZCq3RVf2ZXTF5Ipr0mJzz1wiBA==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
@@ -1570,6 +1570,16 @@ babel-plugin-jsx-dom-expressions@^0.32.11:
     "@babel/types" "^7.16.0"
     html-entities "2.3.2"
 
+babel-plugin-jsx-dom-expressions@^0.32.16:
+  version "0.32.17"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.32.17.tgz#9dbc72f472393137c9559796f9d488fc0de21058"
+  integrity sha512-S3VLVh4zBsyWqNhMQq/Kof/sxULKZXaIhiNEy8Iy7XlpMXY4rpJ6XYtRVFtN/2+OnH+tyGDpZRWflvwqbuZxmA==
+  dependencies:
+    "@babel/helper-module-imports" "7.16.0"
+    "@babel/plugin-syntax-jsx" "^7.16.5"
+    "@babel/types" "^7.16.0"
+    html-entities "2.3.2"
+
 babel-plugin-polyfill-corejs2@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs2/-/babel-plugin-polyfill-corejs2-0.3.1.tgz#440f1b70ccfaabc6b676d196239b138f8a2cfba5"
@@ -1594,7 +1604,14 @@ babel-plugin-polyfill-regenerator@^0.3.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
 
-babel-preset-solid@1.3.13, babel-preset-solid@^1.3.0:
+babel-preset-solid@1.3.16:
+  version "1.3.16"
+  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.16.tgz#b4e586d6c0b7a56ab8a5045b4c4e629c935470c0"
+  integrity sha512-2EvhAh9GK4O8OWsYIQVZIapcA5cjQDHFFDDMSDjnFo8sY+RCUfT6hMg+tnJpJJlwSle4mtE933pxgMsMtVeD5w==
+  dependencies:
+    babel-plugin-jsx-dom-expressions "^0.32.16"
+
+babel-preset-solid@^1.3.0:
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.13.tgz#312373712a0492ff9e561ecb7a97aa7079aa018b"
   integrity sha512-MZnmsceI9yiHlwwFCSALTJhadk2eea/+2UP4ec4jkPZFR+XRKTLoIwRkrBh7uLtvHF+3lHGyUaXtZukOmmUwhA==
@@ -3658,10 +3675,10 @@ jsprim@^1.2.2:
     json-schema "0.4.0"
     verror "1.10.0"
 
-jszip@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.7.1.tgz#bd63401221c15625a1228c556ca8a68da6fda3d9"
-  integrity sha512-ghL0tz1XG9ZEmRMcEN2vt7xabrDdqHHeykgARpmZ0BiIctWxM47Vt63ZO2dnp4QYt/xJVLLy5Zv1l/xRdh2byg==
+jszip@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.9.1.tgz#784e87f328450d1e8151003a9c67733e2b901051"
+  integrity sha512-H9A60xPqJ1CuC4Ka6qxzXZeU8aNmgOeP5IFqwJbQQwtu2EUYxota3LdsiZWplF7Wgd9tkAd0mdu36nceSaPuYw==
   dependencies:
     lie "~3.3.0"
     pako "~1.0.2"
@@ -5185,10 +5202,15 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier@^2.5.1, prettier@^2.6.0:
+prettier@^2.5.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.1.tgz#d472797e0d7461605c1609808e27b80c0f9cfe17"
   integrity sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==
+
+prettier@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
+  integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.6.0:
   version "5.6.0"
@@ -5548,10 +5570,17 @@ rollup-plugin-terser@^7.0.0:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
-rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2, rollup@^2.70.1:
+rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2:
   version "2.70.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.70.1.tgz#824b1f1f879ea396db30b0fc3ae8d2fead93523e"
   integrity sha512-CRYsI5EuzLbXdxC6RnYhOuRdtz4bhejPMSWjsFLfVM/7w/85n2szZv6yExqUXsBdz5KT8eoubeyDUDjhLHEslA==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+rollup@^2.70.2:
+  version "2.70.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.70.2.tgz#808d206a8851628a065097b7ba2053bd83ba0c0d"
+  integrity sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5724,6 +5753,11 @@ solid-dismiss@^1.0.27:
   resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.27.tgz#4e9720a81f7758edf0605a1ed2adc0c5ce33e068"
   integrity sha512-y9g7SeoiXADA2UwFtqpTr3m8BsQNEoQESHO/jpjHDZMSCN1T2cq0XmbsMEsih0YUbkdW3pwhyrfq55DUtKaSFg==
 
+solid-dismiss@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.1.0.tgz#36885b07373c4a3e8b1be7c4784140017ceb12ab"
+  integrity sha512-UnlNbtOqoRTsEhb/YOfiGkqKoz09ULFwFNE9TU9kqFqdZESxyVfjjut6+jNuJ4war9RkGz2ASbq8ersxk7WmDA==
+
 solid-heroicons@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/solid-heroicons/-/solid-heroicons-2.0.3.tgz#f442413f0d1ff0b77e0c0bc275a2e1eb2afd1e53"
@@ -5731,15 +5765,15 @@ solid-heroicons@^2.0.3:
   dependencies:
     solid-js "^1.3.10"
 
-solid-js@1.3.13, solid-js@^1.3.0, solid-js@^1.3.10, solid-js@^1.3.3:
-  version "1.3.13"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.13.tgz#7e1a0f52e5b22b4c21ac2ac5196dfd2176ee3a46"
-  integrity sha512-1EBEIW9u2yqT5QNjFdvz/tMAoKsDdaRA2Jbgykd2Dt13Ia0D4mV+BFvPkOaseSyu7DsMKS23+ZZofV8BVKmpuQ==
-
-solid-js@^1.3.16:
+solid-js@1.3.16, solid-js@^1.3.16:
   version "1.3.16"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.16.tgz#b4c410a4de73464a0fd5d97ca5d17a5f92a9c1e7"
   integrity sha512-ks9wrUFLx2vzXnR+yXLtL/qO++lixueYsPb9baN0jMNpe1nzAdZn8AbodCmDu9yLPrA7oEFt5CYnzN6/MwtswA==
+
+solid-js@^1.3.0, solid-js@^1.3.10, solid-js@^1.3.3:
+  version "1.3.13"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.13.tgz#7e1a0f52e5b22b4c21ac2ac5196dfd2176ee3a46"
+  integrity sha512-1EBEIW9u2yqT5QNjFdvz/tMAoKsDdaRA2Jbgykd2Dt13Ia0D4mV+BFvPkOaseSyu7DsMKS23+ZZofV8BVKmpuQ==
 
 solid-markdown@^1.1.0:
   version "1.2.0"
@@ -5779,26 +5813,26 @@ solid-refresh@^0.4.0:
     "@babel/helper-module-imports" "^7.16.0"
     "@babel/types" "^7.16.0"
 
-solid-repl@^0.23.5:
-  version "0.23.5"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.23.5.tgz#b9d3eafbf6d77dbd9144e5e755e21a0ff93d4f4e"
-  integrity sha512-daQ9+h50l9GLn2+PbMERxZ8TbAY9Nhusv+7eEMTb+t7QQb33lm265OGVn9l4IY77bHD1wVBNy5spvZdrSdpIYA==
+solid-repl@^0.23.6:
+  version "0.23.6"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.23.6.tgz#7a7c1a4f7f61b253685a647645d79c5341f2c9fe"
+  integrity sha512-6booOhPP5wdBGLTbkjmlVhMcXtbiwf3uVpEjiybe+iT052AnwDfdw14zCJhJscdnVBIZxjtE2QP8/uQaIPNywQ==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@babel/preset-typescript" "^7.16.7"
-    "@babel/standalone" "^7.17.8"
-    babel-preset-solid "1.3.13"
+    "@babel/standalone" "^7.17.9"
+    babel-preset-solid "1.3.16"
     dedent "^0.7.0"
-    jszip "^3.7.1"
+    jszip "^3.9.1"
     mitt "^3.0.0"
     monaco-editor-textmate "^3.0.0"
     monaco-textmate "^3.0.1"
     onigasm "^2.2.5"
-    prettier "^2.6.0"
-    rollup "^2.70.1"
-    solid-dismiss "^1.0.27"
+    prettier "^2.6.2"
+    rollup "^2.70.2"
+    solid-dismiss "^1.1.0"
     solid-heroicons "^2.0.3"
-    solid-js "1.3.13"
+    solid-js "1.3.16"
 
 solid-social@^0.6.2:
   version "0.6.2"
