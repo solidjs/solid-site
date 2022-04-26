@@ -138,6 +138,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/x64Bits/solid-icons',
+    title: 'solid-icons',
+    description: 'The simplest way to use icons in SolidJS',
+    author: 'Ignacio Zsabo',
+    author_url: 'https://github.com/x64Bits',
+    keywords: ['icons', 'svg', 'iconpack'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/amoutonbrady/esbuild-plugin-solid',
     title: 'esbuild-plugin-solid',
     description: 'Plugin to compile solid-js jsx components with esbuild.',
