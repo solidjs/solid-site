@@ -43,13 +43,13 @@
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.3",
     "solid-repl": "^0.23.6",
-    "solid-social": "^0.6.2",
+    "solid-social": "^0.7.0",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"
   },
   "devDependencies": {
     "@aminya/minijson": "^0.6.2",
-    "@mdx-js/rollup": "^2.0.0-rc.2",
+    "@mdx-js/rollup": "^2.1.1",
     "@tailwindcss/typography": "^0.5.0",
     "@types/markdown-it": "^12.2.3",
     "autoprefixer": "^10.4.2",
