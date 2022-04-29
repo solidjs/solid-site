@@ -1196,6 +1196,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI, ResourceCategory.AddOn],
     published_at: 1648751735000,
   },
+  {
+    link: 'https://github.com/jaoaustero/solid-tawk-messenger',
+    title: 'Tawk.to Messenger',
+    description: 'Tawk messenger chat for SolidJS',
+    author: 'Jao AUstero',
+    author_url: 'https://github.com/jaoaustero',
+    keywords: ['tawk', 'tawkto', 'live-chat', 'chat-plugin', 'chat-widget', 'kb', 'knowledge-base', 'message'],
+    official: false,
+    type: ResourceType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.AddOn],
+    published_at: 1651083453,
+  },
 ];
 
 export default utilities;
