@@ -475,6 +475,29 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1647586574000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=REXtIuAJ3dE',
+    title: 'Breaking Down the Web /w Dan Jutan',
+    description:
+      'Dan Jutan, Solid Core Team member in charge of Documentation, joins Ryan to help give context for a lot of the topics he covers on stream.',
+    keywords: ['breaking down', 'hydration', 'ssr', 'web', 'streaming', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9/videos',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650670987000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=iR5T2HefqKk',
+    title: 'Breaking Down Hydration w/Dan Jutan',
+    description: 'Want to know what Partial, Progressive, and Resumable means?',
+    keywords: ['breaking down', 'hydration', 'ssr', 'web', 'streaming', 'ryanstreams'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9/videos',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1651290187000,
+  },
 ];
 
 export default videos;

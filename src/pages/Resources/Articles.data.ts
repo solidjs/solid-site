@@ -876,6 +876,19 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1650610823000,
   },
+  {
+    link: 'https://dev.to/this-is-learning/marko-for-sites-solid-for-apps-2c7d',
+    title: 'Marko for Sites, Solid for Apps',
+    description:
+      'Ryan discusses SPAs and MPAs and delves into the balance between Solid and Marko.',
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.to/ryansolid',
+    keywords: ['solid', 'learning', 'marko', 'spa', 'mpa'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650930187000,
+  },
 ];
 
 export default articles;
