@@ -5834,10 +5834,10 @@ solid-repl@^0.23.6:
     solid-heroicons "^2.0.3"
     solid-js "1.3.16"
 
-solid-social@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.7.0.tgz#e9ef9e4af69bfacd962f7b455eb06ddf046d9731"
-  integrity sha512-Wgl14jMnkX2AbKCEqpylSKlSpZqtvpd/v7FW1o3LL/uizsnS2IJKI05UAz0kPiE+k5Fi+2aPw/hzgjR9U7szKw==
+solid-social@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/solid-social/-/solid-social-0.7.2.tgz#49189e7b5f7c8b533a1f8cc40fd4d691b700a5de"
+  integrity sha512-uqNJqsaFn4+2LJqY+SvF4bmNb3t4HYPMsXRZBjXzkDbW86FJzrviBAmiK0prokIXHCiKgt2YhfQrt/0Dfy6rmw==
   dependencies:
     "@solid-primitives/intersection-observer" "^1.2.2"
     "@solid-primitives/script-loader" "^1.1.0"
