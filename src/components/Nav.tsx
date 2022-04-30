@@ -146,14 +146,12 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   );
 };
 
-const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = (props) => (
-  <li class={props.class || ''}>
-    <button
-      aria-label="Select Language"
-      ref={props.ref}
-      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center bg-translate bg-24 hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
-    />
-  </li>
+const LanguageSelector: Component<{ ref: HTMLButtonElement }> = (props) => (
+  <button
+    aria-label="Select Language"
+    ref={props.ref}
+    class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center bg-translate bg-24 hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+  />
 );
 
 const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
@@ -310,10 +308,14 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                     />
                   )}
                 </For>
-                <span class="flex lg:hidden">
-                  <Toggle />
-                </span>
-                <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
+                <li>
+                  <span class="flex lg:hidden">
+                    <Toggle />
+                  </span>
+                </li>
+                <li class="flex lg:hidden">
+                  <LanguageSelector ref={langBtnTablet} />
+                </li>
               </ul>
             </ScrollShadow>
             <ul class="hidden lg:flex items-center">
