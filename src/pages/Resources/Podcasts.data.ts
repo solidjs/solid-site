@@ -61,7 +61,7 @@ const podcasts: Array<Resource> = [
   },
   {
     title: 'SolidJS with Ryan Carniato - JSJ 528',
-    link: 'https://fsjam.org/episodes/episode-53-solid-with-ryan-carniato',
+    link: 'https://javascriptjabber.com/solidjs-with-ryan-carniato-jsj-528',
     description:
       'SolidJS is a web development framework that focuses on using reactivity and carries forward several ideas from Knockout.js.',
     author: 'JavascriptJabber',
