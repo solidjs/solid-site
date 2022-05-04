@@ -1200,7 +1200,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/jaoaustero/solid-tawk-messenger',
     title: 'Tawk.to Messenger',
     description: 'Tawk messenger chat for SolidJS',
-    author: 'Jao AUstero',
+    author: 'Jao Austero',
     author_url: 'https://github.com/jaoaustero',
     keywords: [
       'tawk',
@@ -1215,7 +1215,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.AddOn],
-    published_at: 1651083453,
+    published_at: 1651083453000,
   },
 ];
 
