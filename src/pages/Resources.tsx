@@ -84,7 +84,7 @@ const Resource: Component<Resource> = (props) => {
         rel="nofollow"
       >
         <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
-          <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium dark:border-solid-darkdefault rounded-full text-white">
+          <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium dark:border-solid-darkdefault rounded-full text-white flex-shrink-0">
             <Icon
               class="text-solid-medium dark:text-solid-darkdefault w-5/6"
               path={ResourceTypeIcons[props.type]}
@@ -264,7 +264,7 @@ const Resources: Component = () => {
                     class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
                   >
                     <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
+                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
                         <Icon
                           class="text-solid-medium dark:text-solid-darkdefault w-5/6"
                           path={ResourceTypeIcons[type]}
