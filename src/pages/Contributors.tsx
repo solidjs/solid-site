@@ -26,9 +26,9 @@ const CoreMember: Component<CoreMemberProps> = (props) => {
         />
       </div>
 
-      <div class="space-y-4 col-span-2 flex flex-col">
+      <div class="space-y-4 col-span-2 flex flex-col items-start">
         <span class="text-bold text-xl block text-solid">{props.name}</span>
-        <hr />
+        <hr class="self-stretch" />
         <small>{props.role}</small>
         <p class="block">{props.bio}</p>
         <a target="_blank" rel="noopener" href={`https://github.com/${props.github}`}>
@@ -49,7 +49,7 @@ interface ContributorProps {
 
 const Contributor: Component<ContributorProps> = (props) => {
   return (
-    <li class="shadow-lg p-7">
+    <li class="shadow-even-md-light p-7 rounded dark:shadow-even-md-dark">
       <p class="text-bold text-lg text-solid inline-flex space-x-2">
         <span>{props.name}</span>
         <Show when={props.company}>

@@ -144,10 +144,9 @@ const Docs: Component<{ hash?: string }> = (props) => {
         <div class="flex container">
           <div class="absolute z-20 left-0 h-full lg:static lg:w-3/12 bg-gray-100 dark:bg-gray-900 rounded-br-lg">
             <button
-              class={
-                'fixed lg:hidden top-20 right-3 text-white rounded-lg transition duration-500 ' +
-                'bg-solid-medium reveal-delay'
-              }
+              class={`fixed lg:hidden top-20 right-3 text-white rounded-lg transition duration-500 bg-solid-medium reveal-delay ${
+                !sections()!.length ? 'hidden' : ''
+              }`}
               classList={{
                 'rotate-90': toggleSections(),
                 'opacity-0': routeReadyState().routeChanged,

@@ -184,7 +184,7 @@ const contributors = [
     name: 'David Peter',
     company: '',
     link: 'https://github.com/sarenji',
-    detail: 'Thank for you for transferring ownership of the `solid` NPM package to our project.',
+    detail: 'Thank you for transferring ownership of the `solid` NPM package to our project.',
   },
 ] as const;
 
