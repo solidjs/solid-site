@@ -99,7 +99,7 @@ const Home: Component<{}> = () => {
                 );
                 return (
                   <li
-                    class="transition border-gray-100 dark:border-solid-darkLighterBg border-r"
+                    class="transition border-gray-100 dark:border-solid-darkLighterBg border-r last:border-r-0"
                     classList={{
                       'hover:bg-solid-dark': !!fact.link,
                       'hover:text-white': !!fact.link,
