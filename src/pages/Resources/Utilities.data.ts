@@ -1223,13 +1223,7 @@ const utilities: Array<Resource> = [
     description: 'Lightweight asynchronous data management for solid.',
     author: 'Erik C. Forés',
     author_url: 'https://github.com/StudioLambda',
-    keywords: [
-      'cache',
-      'turbo',
-      'data',
-      'async',
-      'solidhack'
-    ],
+    keywords: ['cache', 'turbo', 'data', 'async', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1241,12 +1235,7 @@ const utilities: Array<Resource> = [
     description: 'Fast, simple, and efficient state management for Solid.',
     author: 'dimensionhq',
     author_url: 'https://github.com/dimensionhq',
-    keywords: [
-      'state',
-      'management',
-      'live-chat',
-      'solidhack'
-    ],
+    keywords: ['state', 'management', 'live-chat', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1255,14 +1244,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/Aslemammad/solid-spring',
     title: 'solid-spring',
-    description: 'solid-spring is a spring-physics first animation library for SolidJS based on react-spring/core.',
+    description:
+      'solid-spring is a spring-physics first animation library for SolidJS based on react-spring/core.',
     author: 'M. Bagher Abiat',
     author_url: 'https://github.com/Aslemammad',
-    keywords: [
-      'spring',
-      'animation',
-      'solidhack'
-    ],
+    keywords: ['spring', 'animation', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1274,12 +1260,7 @@ const utilities: Array<Resource> = [
     description: 'Preview.js lets you preview Solid components instantly in your IDE.',
     author: 'François Wouts',
     author_url: 'https://github.com/fwouts',
-    keywords: [
-      'preview',
-      'components',
-      'previewjs',
-      'solidhack'
-    ],
+    keywords: ['preview', 'components', 'previewjs', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1291,11 +1272,7 @@ const utilities: Array<Resource> = [
     description: 'Design System UI Kit for busy designers',
     author: 'specialdoom',
     author_url: 'https://github.com/specialdoom',
-    keywords: [
-      'components',
-      'ui',
-      'revkit'
-    ],
+    keywords: ['components', 'ui', 'revkit'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1304,14 +1281,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/lume/classy-solid',
     title: 'classy-solid',
-    description: 'Tools for class-based reactivity powered by Solid.js, and for using classes as Solid components (f.e. in a JSX template).',
+    description:
+      'Tools for class-based reactivity powered by Solid.js, and for using classes as Solid components (f.e. in a JSX template).',
     author: 'Joe Pea',
     author_url: 'https://github.com/lume',
-    keywords: [
-      'class',
-      'classes',
-      'solidhack'
-    ],
+    keywords: ['class', 'classes', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1320,13 +1294,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/CompendiumDevTools/library',
     title: 'CompendiumDevTools',
-    description: 'A library for connecting frameworks and state management libraries to Compendium DevTools.',
+    description:
+      'A library for connecting frameworks and state management libraries to Compendium DevTools.',
     author: 'CompendiumDevTools',
     author_url: 'https://github.com/CompendiumDevTools',
-    keywords: [
-      'devtools',
-      'compendium',
-    ],
+    keywords: ['devtools', 'compendium'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1335,15 +1307,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/AdityaSetyadi/form-gear',
     title: 'form-gear',
-    description: 'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
+    description:
+      'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
     author: 'CompendiumDevTools',
     author_url: 'https://github.com/AdityaSetyadi',
-    keywords: [
-      'form',
-      'formgear',
-      'gear',
-      'solidhack'
-    ],
+    keywords: ['form', 'formgear', 'gear', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1352,14 +1320,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/AdityaSetyadi/form-gear',
     title: 'form-gear',
-    description: 'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
+    description:
+      'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
     author: 'CompendiumDevTools',
     author_url: 'https://github.com/AdityaSetyadi',
-    keywords: [
-      'form',
-      'formgear',
-      'gear',
-    ],
+    keywords: ['form', 'formgear', 'gear'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1371,10 +1336,7 @@ const utilities: Array<Resource> = [
     description: 'GStatem is a small, simple and fast state-management tool.',
     author: 'gstatem',
     author_url: 'https://github.com/gstatem',
-    keywords: [
-      'state',
-      'solidhack'
-    ],
+    keywords: ['state', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1383,15 +1345,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/L1lith/Melon-Solid',
     title: 'melon-solid',
-    description: 'This project fuses the awesome frameworks Melon.js (for game development) and Solid.js.',
+    description:
+      'This project fuses the awesome frameworks Melon.js (for game development) and Solid.js.',
     author: 'L1lith',
     author_url: 'https://github.com/L1lith',
-    keywords: [
-      'game',
-      'engine',
-      'melon',
-      'solidhack'
-    ],
+    keywords: ['game', 'engine', 'melon', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1400,14 +1358,10 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/kajetansw/solar-forms',
     title: 'solar-forms',
-    description: 'Form library for SolidJS inspired by Angular\'s reactive forms.',
+    description: "Form library for SolidJS inspired by Angular's reactive forms.",
     author: 'L1lith',
     author_url: 'https://github.com/L1lith',
-    keywords: [
-      'solar',
-      'forms',
-      'solidhack'
-    ],
+    keywords: ['solar', 'forms', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1419,12 +1373,7 @@ const utilities: Array<Resource> = [
     description: 'The Lodash of Web Layouts, a collection of utility components.',
     author: 'Travis Waith-Mair',
     author_url: 'https://github.com/Jarvis1010',
-    keywords: [
-      'bedrock',
-      'components',
-      'layout',
-      'solidhack'
-    ],
+    keywords: ['bedrock', 'components', 'layout', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1436,12 +1385,7 @@ const utilities: Array<Resource> = [
     description: 'A utility to track the bounds of html-elements in SolidJS.',
     author: 'Erik Verweij',
     author_url: 'https://github.com/everweij',
-    keywords: [
-      'boundaries',
-      'elements',
-      'html',
-      'solidhack'
-    ],
+    keywords: ['boundaries', 'elements', 'html', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1453,12 +1397,7 @@ const utilities: Array<Resource> = [
     description: 'Create a solid resource attached to a cached state by a unique key.',
     author: 'Yonatan Bendahan',
     author_url: 'https://github.com/Jarvis1010',
-    keywords: [
-      'cache',
-      'resources',
-      'createsResource',
-      'solidhack'
-    ],
+    keywords: ['cache', 'resources', 'createsResource', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1470,11 +1409,7 @@ const utilities: Array<Resource> = [
     description: 'Add a command palette to your Solid.js app.',
     author: 'Aditya Agarwal',
     author_url: 'https://devadi.netlify.app/',
-    keywords: [
-      'command',
-      'palette',
-      'solidhack'
-    ],
+    keywords: ['command', 'palette', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1486,13 +1421,7 @@ const utilities: Array<Resource> = [
     description: 'Solid Component Library for Mapbox GL JS.',
     author: 'Kai Huebner',
     author_url: 'https://github.com/GIShub4',
-    keywords: [
-      'mapbox',
-      'webgl',
-      'geography',
-      'map',
-      'solidhack'
-    ],
+    keywords: ['mapbox', 'webgl', 'geography', 'map', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1501,14 +1430,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/tjjfvi/solid-native',
     title: 'solid-native',
-    description: 'Solid Native expands the Solid ecosystem to include development of native mobile applications.',
+    description:
+      'Solid Native expands the Solid ecosystem to include development of native mobile applications.',
     author: 'T6',
     author_url: 'https://github.com/tjjfvi',
-    keywords: [
-      'native',
-      'applications',
-      'solidhack'
-    ],
+    keywords: ['native', 'applications', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1517,14 +1443,10 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/Exelord/solid-proxies',
     title: 'solid-proxies',
-    description: 'This package provides signaled versions of Javascript\'s built-in objects.',
+    description: "This package provides signaled versions of Javascript's built-in objects.",
     author: 'Exelord',
     author_url: 'https://github.com/Exelord',
-    keywords: [
-      'primitives',
-      'proxies',
-      'solidhack'
-    ],
+    keywords: ['primitives', 'proxies', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1533,14 +1455,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/Exelord/solid-services',
     title: 'solid-proxies',
-    description: 'Services are "global" objects useful for features that require shared state or persistent connections.',
+    description:
+      'Services are "global" objects useful for features that require shared state or persistent connections.',
     author: 'Exelord',
     author_url: 'https://github.com/Exelord',
-    keywords: [
-      'service',
-      'angular',
-      'solidhack'
-    ],
+    keywords: ['service', 'angular', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1552,13 +1471,7 @@ const utilities: Array<Resource> = [
     description: 'A compiler to ease the move from React to SolidJS.',
     author: 'Cain Atkinson',
     author_url: 'https://github.com/yellowsink',
-    keywords: [
-      'react',
-      'solid',
-      'compiler',
-      'codemod',
-      'solidhack'
-    ],
+    keywords: ['react', 'solid', 'compiler', 'codemod', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.BuildUtilities],
@@ -1567,14 +1480,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/pheggeseth/solid-ui',
     title: 'solid-ui',
-    description: 'Reactive primitives and hooks for building declarative, accessible, composable UI components with SolidJS.',
+    description:
+      'Reactive primitives and hooks for building declarative, accessible, composable UI components with SolidJS.',
     author: 'pheggeseth',
     author_url: 'https://github.com/pheggeseth',
-    keywords: [
-      'components',
-      'ui',
-      'solidhack'
-    ],
+    keywords: ['components', 'ui', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
@@ -1583,15 +1493,11 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/TiagoCavalcante/solidjs-div-100vh',
     title: 'solidjs-div-100vh',
-    description: 'This is a workaround for iOS Safari and other mobile browsers forked from react-div-100vh by mvasin.',
+    description:
+      'This is a workaround for iOS Safari and other mobile browsers forked from react-div-100vh by mvasin.',
     author: 'TiagoCavalcante',
     author_url: 'https://github.com/TiagoCavalcante',
-    keywords: [
-      'react-div-100vh',
-      'safari',
-      'height',
-      'solidhack'
-    ],
+    keywords: ['react-div-100vh', 'safari', 'height', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -1603,12 +1509,7 @@ const utilities: Array<Resource> = [
     description: 'SolidGraph lets you build applications with SolidJs and WunderGraph.',
     author: 'Hervé Verdavaine',
     author_url: 'https://github.com/verdavaine',
-    keywords: [
-      'wundergraph',
-      'graph',
-      'visual',
-      'solidhack'
-    ],
+    keywords: ['wundergraph', 'graph', 'visual', 'solidhack'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
