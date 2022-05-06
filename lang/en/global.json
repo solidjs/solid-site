@@ -33,12 +33,6 @@
       "path": "/contributors",
       "links": [
         {
-          "title": "SolidHack",
-          "description": "Learn about our 2022 public hackathon.",
-          "path": "https://hack.solidjs.com",
-          "external": true
-        },
-        {
           "title": "Blog",
           "description": "News and updates from our community",
           "path": "/blog"
@@ -52,6 +46,12 @@
           "title": "Media",
           "description": "Brand elements for media use",
           "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "Learn about our 2022 public hackathon.",
+          "path": "https://hack.solidjs.com",
+          "external": true
         },
         {
           "title": "OpenCollective",
