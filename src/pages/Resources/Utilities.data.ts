@@ -1237,7 +1237,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/dimensionhq/blitz',
-    title: 'dimensionhq/blitz',
+    title: '@dimensionhq/blitz',
     description: 'Fast, simple, and efficient state management for Solid.',
     author: 'dimensionhq',
     author_url: 'https://github.com/dimensionhq',
