@@ -1,5 +1,7 @@
 {
   "hero": "Eine deklarative, effiziente und flexible JavaScript-Library zum Bauen von Benutzeroberflächen.",
+  "get_started": "Loslegen",
+  "intro_video": "Einstieg in Solid in 10 Minuten",
   "info": "Solid ist eine vollkommen reaktive Library. Sie wurde von Grund auf mit einem reaktiven Kern entworfen und von den reaktiven Prinzipien vorangegangener Libraries beeinflusst.",
   "strengths": [
     {

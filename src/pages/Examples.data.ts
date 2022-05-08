@@ -34,6 +34,11 @@ const list: Record<string, Example[]> = {
   ],
   Complex: [
     {
+      id: 'clock',
+      name: 'Clock',
+      description: 'Demonstrates Solid reactivity with a real-time clock example.',
+    },
+    {
       id: 'ethasketch',
       name: 'Etch A Sketch',
       description: 'Uses Index and createMemo to create a grid graphic.',

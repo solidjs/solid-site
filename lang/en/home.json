@@ -1,5 +1,7 @@
 {
     "hero": "Simple and performant reactivity for building user interfaces.",
+    "get_started": "Get Started",
+    "intro_video": "Intro to Solid in 10 minutes",
     "info": "<span class=\"font-semibold\">Solid is a purely reactive library.</span> It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
     "strengths": [
       {
