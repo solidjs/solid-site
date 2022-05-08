@@ -1518,15 +1518,14 @@ const utilities: Array<Resource> = [
   {
     link: 'https://motion.dev/solid/quick-start',
     title: '@motionone/solid',
-    description:
-      'Offical Motion One adapter, a hardware accelerated animations library, adopted by the great @davidbase & @thetarnav who hopefully will edit this description & published_at sometime soon ;).',
-    author: 'davidbase & thetarnav',
-    author_url: 'https://github.com/davedbase',
+    description: 'Offical Motion One library for hardware accelerated animations in Solid.',
+    author: 'davedbase & thetarnav',
+    author_url: 'https://motion.dev/',
     keywords: ['motionone', 'motion', 'animation', 'official'],
     official: false,
     type: ResourceType.Package,
     categories: [ResourceCategory.UI],
-    published_at: 1646088393000,
+    published_at: 1652052027000,
   },
 ];
 
