@@ -10,11 +10,13 @@ import {
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation } from 'solid-app-router';
+import { useLocation, Link } from 'solid-app-router';
 import Nav from './Nav';
 import { useAppContext } from '../AppContext';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
+import { chevronRight, play } from 'solid-heroicons/outline';
+import { Icon } from 'solid-heroicons';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
@@ -89,6 +91,23 @@ const Header: Component<{ title?: string }> = () => {
                 <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-3xl">
                   {t('home.hero')}
                 </h2>
+                <div class="flex space-x-2">
+                  <Link
+                    href="/guides/getting-started"
+                    class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
+                  >
+                    {t('home.get_started', {}, 'Get Started')}
+                    <Icon stroke-width="3" class="w-5" path={chevronRight} />
+                  </Link>
+                  <Link
+                    target="_blank"
+                    href="https://www.youtube.com/watch?v=J70HXl1KhWE"
+                    class="bg-solid-light flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
+                  >
+                    <Icon stroke-width="2" class="w-6 mr-2" path={play} />
+                    {t('home.intro_video', {}, 'Intro to Solid in 10 minutes')}
+                  </Link>
+                </div>
               </section>
             </div>
           </header>
