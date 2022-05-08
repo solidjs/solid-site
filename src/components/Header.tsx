@@ -91,7 +91,7 @@ const Header: Component<{ title?: string }> = () => {
                 <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-3xl">
                   {t('home.hero')}
                 </h2>
-                <div class="flex space-x-2">
+                <div class="space-y-2 md:flex md:space-y-0 md:space-x-2">
                   <Link
                     href="/guides/getting-started"
                     class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
