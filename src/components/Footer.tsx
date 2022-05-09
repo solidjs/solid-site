@@ -3,12 +3,12 @@ import { Portal } from 'solid-js/web';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
 import wordmark from '../assets/wordmark-dark.svg';
-import builder from '../assets/supporters/builder.png';
-import sauce from '../assets/supporters/saucelabs.png';
-import cloudflare from '../assets/supporters/cloudflare.png';
-import netlify from '../assets/supporters/netlify.png';
-import divriots from '../assets/supporters/divriots.png';
-import vercel from '../assets/supporters/vercel.png';
+import builder from '../assets/supporters/builder.webp';
+import sauce from '../assets/supporters/saucelabs.webp';
+import cloudflare from '../assets/supporters/cloudflare.webp';
+import netlify from '../assets/supporters/netlify.webp';
+import divriots from '../assets/supporters/divriots.webp';
+import vercel from '../assets/supporters/vercel.webp';
 import Social from './Social';
 
 const Supporter: Component<{
@@ -22,7 +22,7 @@ const Supporter: Component<{
     rel="noopener"
     href={props.href}
   >
-    <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} />
+    <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} loading="lazy" />
   </a>
 );
 

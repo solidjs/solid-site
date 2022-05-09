@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useRouteData } from 'solid-app-router';
 import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
+import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import {
   code,
@@ -149,6 +150,7 @@ const Resources: Component = () => {
     threshold: 0.3,
   });
   const [keyword, setKeyword] = createSignal(parseKeyword(globalThis.location.hash));
+  const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
@@ -232,7 +234,8 @@ const Resources: Component = () => {
               class="my-5 rounded border-solid w-full border-gray-400 border bg-transparent p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
               placeholder={t('resources.search')}
               value={keyword()}
-              onInput={(evt) => setKeyword(evt.currentTarget!.value)}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
               type="text"
             />
             <h3 class="text-xl text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b mb-4 font-semibold border-solid pb-2">
@@ -334,7 +337,8 @@ const Resources: Component = () => {
               class="rounded border border-solid h-full w-full border-gray-400 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
               placeholder={t('resources.search')}
               value={keyword()}
-              onInput={(evt) => setKeyword(evt.currentTarget!.value)}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
               type="text"
             />
             <button
