@@ -498,6 +498,17 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1651290187000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=iR5T2HefqKk',
+    title: 'SolidJS - Why Doesn\'t React Just Work like This',
+    description: 'Want to know what Partial, Progressive, and Resumable means?',
+    keywords: ['learning', 'starter', 'reactivity', 'planet'],
+    author: 'Planet of the Web',
+    author_url: 'https://www.youtube.com/channel/UCnd308ZWP--wV2-_j3LZU9A',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1652280016000,
+  },
 ];
 
 export default videos;
