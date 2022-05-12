@@ -140,16 +140,16 @@ const Header: Component<{ title?: string }> = () => {
                           </Title>
                         </Match>
                         <Match when={location.pathname.includes('/docs')}>
-                          <Title>{t('docs.title', {}, 'Guides')}</Title>
+                          <Title>{t('docs.title', {}, 'Docs')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/resources')}>
-                          <Title>{t('resources.title', {}, 'Guides')}</Title>
+                          <Title>{t('resources.title', {}, 'Resources')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/examples')}>
-                          <Title>{t('examples.title', {}, 'Guides')}</Title>
+                          <Title>{t('examples.title', {}, 'Examples')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/media')}>
-                          <Title>{t('media.title', {}, 'Guides')}</Title>
+                          <Title>{t('media.title', {}, 'Media Assets')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/blog')}>
                           <Title>{t('blog.title', {}, 'Blog')}</Title>
