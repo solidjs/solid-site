@@ -39,10 +39,10 @@
     "solid-app-router": "^0.3.1",
     "solid-dismiss": "^1.0.27",
     "solid-heroicons": "^2.0.3",
-    "solid-js": "^1.4.0",
+    "solid-js": "^1.4.1",
     "solid-markdown": "^1.1.0",
     "solid-meta": "^0.27.3",
-    "solid-repl": "^0.23.6",
+    "solid-repl": "^0.23.10",
     "solid-social": "^0.7.4",
     "solid-transition-group": "^0.0.8",
     "solid-utils": "^0.8.1"

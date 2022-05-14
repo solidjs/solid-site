@@ -922,10 +922,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.17.9":
-  version "7.17.9"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.9.tgz#208298055c70531a81759435e443586754d693f9"
-  integrity sha512-9wL9AtDlga8avxUrBvQJmhUtJWrelsUL0uV+TcP+49Sb6Pj8/bNIzQzU4dDp0NAPOvnZR/7msFIKsKoCl/W1/w==
+"@babel/standalone@^7.17.11":
+  version "7.17.11"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.17.11.tgz#9cc17674da762332b2e40d469ce37725a6136487"
+  integrity sha512-47wVYBeTktYHwtzlFuK7qqV/H5X6mU4MUNqpQ9iiJOqnP8rWL0eX0GWLKRsv8D8suYzhuS1K/dtwgGr+26U7Gg==
 
 "@babel/template@^7.16.7":
   version "7.16.7"
@@ -1570,7 +1570,7 @@ babel-plugin-jsx-dom-expressions@^0.32.11:
     "@babel/types" "^7.16.0"
     html-entities "2.3.2"
 
-babel-plugin-jsx-dom-expressions@^0.32.16:
+babel-plugin-jsx-dom-expressions@^0.32.17:
   version "0.32.17"
   resolved "https://registry.yarnpkg.com/babel-plugin-jsx-dom-expressions/-/babel-plugin-jsx-dom-expressions-0.32.17.tgz#9dbc72f472393137c9559796f9d488fc0de21058"
   integrity sha512-S3VLVh4zBsyWqNhMQq/Kof/sxULKZXaIhiNEy8Iy7XlpMXY4rpJ6XYtRVFtN/2+OnH+tyGDpZRWflvwqbuZxmA==
@@ -1604,12 +1604,12 @@ babel-plugin-polyfill-regenerator@^0.3.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
 
-babel-preset-solid@1.3.16:
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.16.tgz#b4e586d6c0b7a56ab8a5045b4c4e629c935470c0"
-  integrity sha512-2EvhAh9GK4O8OWsYIQVZIapcA5cjQDHFFDDMSDjnFo8sY+RCUfT6hMg+tnJpJJlwSle4mtE933pxgMsMtVeD5w==
+babel-preset-solid@1.3.17:
+  version "1.3.17"
+  resolved "https://registry.yarnpkg.com/babel-preset-solid/-/babel-preset-solid-1.3.17.tgz#fa35d90ebedd0c4e27a5da795879c7991cf2a7da"
+  integrity sha512-3lBNUtDj9SkEuO+sJCUlSkW7s8U/yhPJIxmRlXauSMOcGHgeOMu3omx//C9Fnz0DajG3fgSBeQLl7nhy5tS+dA==
   dependencies:
-    babel-plugin-jsx-dom-expressions "^0.32.16"
+    babel-plugin-jsx-dom-expressions "^0.32.17"
 
 babel-preset-solid@^1.3.0:
   version "1.3.13"
@@ -5591,10 +5591,10 @@ rollup@^2.43.1, rollup@^2.59.0, rollup@^2.60.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^2.70.2:
-  version "2.70.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.70.2.tgz#808d206a8851628a065097b7ba2053bd83ba0c0d"
-  integrity sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg==
+rollup@^2.72.0:
+  version "2.73.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.73.0.tgz#128fef4b333fd92d02d6929afbb6ee38d7feb32d"
+  integrity sha512-h/UngC3S4Zt28mB3g0+2YCMegT5yoftnQplwzPqGZcKvlld5e+kT/QRmJiL+qxGyZKOYpgirWGdLyEO1b0dpLQ==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5779,20 +5779,15 @@ solid-heroicons@^2.0.3:
   dependencies:
     solid-js "^1.3.10"
 
-solid-js@1.3.16:
-  version "1.3.16"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.16.tgz#b4c410a4de73464a0fd5d97ca5d17a5f92a9c1e7"
-  integrity sha512-ks9wrUFLx2vzXnR+yXLtL/qO++lixueYsPb9baN0jMNpe1nzAdZn8AbodCmDu9yLPrA7oEFt5CYnzN6/MwtswA==
+solid-js@1.4.1, solid-js@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.4.1.tgz#8714838a59e31695e7e6ecfe69494b1428d2dfb3"
+  integrity sha512-ts480PccmUW9WAludSXET2dbBevjv+l6XMmN/OyG/a/xA8ZQoX4hNBN3gGhW785ZZv90fowbUSuSQUwOISm3YA==
 
 solid-js@^1.3.10, solid-js@^1.3.3:
   version "1.3.13"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.3.13.tgz#7e1a0f52e5b22b4c21ac2ac5196dfd2176ee3a46"
   integrity sha512-1EBEIW9u2yqT5QNjFdvz/tMAoKsDdaRA2Jbgykd2Dt13Ia0D4mV+BFvPkOaseSyu7DsMKS23+ZZofV8BVKmpuQ==
-
-solid-js@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.4.0.tgz#2753a91851bae46ec83fe654000001380ca38bc7"
-  integrity sha512-VV4d0JnXyBxrWntA18hYoutUNGfv/mufcJZoSUOi0+sKXES0XE2kG4f1LlnnhSU1jMAwRy9cWl/HlBv4O9odyg==
 
 solid-markdown@^1.1.0:
   version "1.2.0"
@@ -5832,15 +5827,15 @@ solid-refresh@^0.4.0:
     "@babel/helper-module-imports" "^7.16.0"
     "@babel/types" "^7.16.0"
 
-solid-repl@^0.23.6:
-  version "0.23.6"
-  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.23.6.tgz#7a7c1a4f7f61b253685a647645d79c5341f2c9fe"
-  integrity sha512-6booOhPP5wdBGLTbkjmlVhMcXtbiwf3uVpEjiybe+iT052AnwDfdw14zCJhJscdnVBIZxjtE2QP8/uQaIPNywQ==
+solid-repl@^0.23.10:
+  version "0.23.10"
+  resolved "https://registry.yarnpkg.com/solid-repl/-/solid-repl-0.23.10.tgz#59d6c02273f056d236b2b55f337e6059ab66475e"
+  integrity sha512-rVqqYP3B5VNbAd3gcO2yNa2p0bS9sC1RjyMyKlD6St1KXTVoTxykYDiOmwuD+wI000KZdy6hdW8FELGasgY+Hg==
   dependencies:
     "@amoutonbrady/lz-string" "^0.0.1"
     "@babel/preset-typescript" "^7.16.7"
-    "@babel/standalone" "^7.17.9"
-    babel-preset-solid "1.3.16"
+    "@babel/standalone" "^7.17.11"
+    babel-preset-solid "1.3.17"
     dedent "^0.7.0"
     jszip "^3.9.1"
     mitt "^3.0.0"
@@ -5848,10 +5843,10 @@ solid-repl@^0.23.6:
     monaco-textmate "^3.0.1"
     onigasm "^2.2.5"
     prettier "^2.6.2"
-    rollup "^2.70.2"
+    rollup "^2.72.0"
     solid-dismiss "^1.1.0"
     solid-heroicons "^2.0.3"
-    solid-js "1.3.16"
+    solid-js "1.4.1"
 
 solid-social@^0.7.4:
   version "0.7.4"

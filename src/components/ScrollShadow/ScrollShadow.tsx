@@ -1,4 +1,4 @@
-import { Component, onCleanup, onMount } from 'solid-js';
+import { ParentComponent, onCleanup, onMount } from 'solid-js';
 import { useAppContext } from '../../AppContext';
 
 type TShared = {
@@ -9,7 +9,7 @@ type TShared = {
   initShadowSize?: boolean;
 };
 
-const ScrollShadow: Component<
+const ScrollShadow: ParentComponent<
   {
     class: string;
     classList?: { [key: string]: boolean };
@@ -101,7 +101,7 @@ const ScrollShadow: Component<
   );
 };
 
-const Sentinel: Component<
+const Sentinel: ParentComponent<
   Omit<TShared, 'shadowSize' | 'initShadowSize'> & { ref: HTMLDivElement }
 > = (props) => {
   const { direction, child } = props;
@@ -126,7 +126,7 @@ const Sentinel: Component<
   return <div aria-hidden="true" style={style()} ref={props.ref}></div>;
 };
 
-const Shadow: Component<{ ref: any; locked: boolean } & TShared> = (props) => {
+const Shadow: ParentComponent<{ ref: any; locked: boolean } & TShared> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
   const context = useAppContext();
   const refCb = (el: HTMLElement) => {

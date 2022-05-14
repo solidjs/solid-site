@@ -1,5 +1,5 @@
 import {
-  Component,
+  ParentComponent,
   Switch,
   Match,
   Show,
@@ -21,7 +21,7 @@ import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
 
-const Header: Component<{ title?: string }> = () => {
+const Header: ParentComponent<{ title?: string }> = () => {
   const [t] = useI18n();
   const location = useLocation();
   const isHome = location.pathname === '/';
@@ -55,7 +55,7 @@ const Header: Component<{ title?: string }> = () => {
       { defer: true },
     ),
   );
-  const Title: Component = (props) => (
+  const Title: ParentComponent = (props) => (
     <span class="inline-block transition-all duration-200">{props.children}</span>
   );
   return (

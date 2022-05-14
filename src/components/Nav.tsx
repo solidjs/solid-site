@@ -1,5 +1,5 @@
 import {
-  Component,
+  ParentComponent,
   For,
   createMemo,
   createSignal,
@@ -58,7 +58,7 @@ type MenuLinkProps = {
   direction: 'ltr' | 'rtl';
 };
 
-const MenuLink: Component<MenuLinkProps> = (props) => {
+const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
 
   // Only rerender event listener when children change
@@ -146,7 +146,7 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   );
 };
 
-const LanguageSelector: Component<{ ref: HTMLButtonElement }> = (props) => (
+const LanguageSelector: ParentComponent<{ ref: HTMLButtonElement }> = (props) => (
   <button
     aria-label="Select Language"
     ref={props.ref}
@@ -154,7 +154,7 @@ const LanguageSelector: Component<{ ref: HTMLButtonElement }> = (props) => (
   />
 );
 
-const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
+const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);

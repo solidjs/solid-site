@@ -1,4 +1,4 @@
-import { Component, createContext, createEffect, createResource, useContext } from 'solid-js';
+import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
 import { Meta, Title } from 'solid-meta';
 import { useLocation } from 'solid-app-router';
 import { createCookieStorage } from '@solid-primitives/storage';
@@ -50,7 +50,7 @@ type DataParams = {
   page: string;
 };
 
-export const AppContextProvider: Component<{}> = (props) => {
+export const AppContextProvider: ParentComponent = (props) => {
   const now = new Date();
   const cookieOptions = {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
