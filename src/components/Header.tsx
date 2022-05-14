@@ -105,7 +105,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                     class="bg-solid-light flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                   >
                     <Icon stroke-width="2" class="w-6 mr-2" path={play} />
-                    {t('home.intro_video', {}, 'Intro to Solid in 10 minutes')}
+                    {t('home.intro_video', {}, 'Learn Solid reactivity in 10 minutes')}
                   </Link>
                 </div>
               </section>
