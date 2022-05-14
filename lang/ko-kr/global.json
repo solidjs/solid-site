@@ -33,12 +33,6 @@
       "path": "/contributors",
       "links": [
         {
-          "title": "SolidHack",
-          "description": "2022 공개 해커톤에 대해서 알아보세요.",
-          "path": "https://hack.solidjs.com",
-          "external": true
-        },
-        {
           "title": "블로그",
           "description": "커뮤니티 뉴스와 업데이트",
           "path": "/blog"
@@ -52,6 +46,12 @@
           "title": "미디어",
           "description": "미디어 사용을 위한 브랜드 요소",
           "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "2022 공개 해커톤에 대해서 알아보세요.",
+          "path": "https://hack.solidjs.com",
+          "external": true
         },
         {
           "title": "OpenCollective",
