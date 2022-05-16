@@ -8,16 +8,16 @@
       "path": "/guides"
     },
     {
-      "title": "Документация",
+      "title": "Туториалы",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Ресурсы",
-      "path": "/resources"
-    },
-    {
-      "title": "Туториалы",
-      "path": "/tutorial"
+      "title": "Экосистема",
+      "path": "/ecosystem"
     },
     {
       "title": "Примеры",
