@@ -5767,6 +5767,11 @@ solid-dismiss@^1.1.0:
   resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.1.0.tgz#36885b07373c4a3e8b1be7c4784140017ceb12ab"
   integrity sha512-UnlNbtOqoRTsEhb/YOfiGkqKoz09ULFwFNE9TU9kqFqdZESxyVfjjut6+jNuJ4war9RkGz2ASbq8ersxk7WmDA==
 
+solid-dismiss@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.2.1.tgz#bcd7084c5b87538002d322b15eeaae1889d2a571"
+  integrity sha512-/2DKasY3/4ECnqxHueC2hq6bYxZ1Yyn/TtbeKDKV57Sox0HhHm8rPJLzqwn/9KxY3VhizJbmTABTZiKG0l7pNw==
+
 solid-heroicons@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/solid-heroicons/-/solid-heroicons-2.0.3.tgz#f442413f0d1ff0b77e0c0bc275a2e1eb2afd1e53"

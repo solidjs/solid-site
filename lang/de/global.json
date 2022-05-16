@@ -7,16 +7,16 @@
       "path": "/guides"
     },
     {
-      "title": "Dokumentation",
+      "title": "Anleitung",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Ressourcen",
-      "path": "/resources"
-    },
-    {
-      "title": "Anleitung",
-      "path": "/tutorial"
+      "title": "Ökosystem",
+      "path": "/ecosystem"
     },
     {
       "title": "Beispiele",
