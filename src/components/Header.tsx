@@ -88,7 +88,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                     width="166"
                     height="155.3"
                   />
-                  <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" with="306.42" height="70.7" />
+                  <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" width="306.42" height="70.7" />
                 </div>
                 <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-3xl">
                   {t('home.hero')}
