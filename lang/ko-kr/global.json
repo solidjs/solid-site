@@ -8,16 +8,16 @@
       "path": "/guides"
     },
     {
+      "title": "튜토리얼",
+      "path": "/tutorial"
+    },
+    {
       "title": "API 문서",
       "path": "/docs/latest/api"
     },
     {
-      "title": "리소스",
-      "path": "/resources"
-    },
-    {
-      "title": "튜토리얼",
-      "path": "/tutorial"
+      "title": "에코시스템",
+      "path": "/ecosystem"
     },
     {
       "title": "예제",
