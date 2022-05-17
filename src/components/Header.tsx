@@ -92,21 +92,33 @@ const Header: ParentComponent<{ title?: string }> = () => {
                   {t('home.hero')}
                 </h2>
                 <div class="space-y-2 md:flex md:space-y-0 md:space-x-2">
-                  <Link
-                    href="/guides/getting-started"
-                    class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
-                  >
-                    {t('home.get_started', {}, 'Get Started')}
-                    <Icon stroke-width="3" class="w-5" path={chevronRight} />
-                  </Link>
-                  <Link
-                    target="_blank"
-                    href="https://www.youtube.com/watch?v=J70HXl1KhWE"
-                    class="bg-solid-light flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
-                  >
-                    <Icon stroke-width="2" class="w-6 mr-2" path={play} />
-                    {t('home.intro_video', {}, 'Intro to Solid in 10 minutes')}
-                  </Link>
+                  <div>
+                    <Link
+                      href="/guides/getting-started"
+                      class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
+                    >
+                      {t('home.get_started', {}, 'Get Started')}
+                      <Icon stroke-width="3" class="w-5" path={chevronRight} />
+                    </Link>
+                  </div>
+                  <div class="flex flex-col space-y-1">
+                    <Link
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=hw3Bx5vxKl0"
+                      class="bg-solid-light flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
+                    >
+                      <Icon stroke-width="2" class="w-6 mr-2" path={play} />
+                      {t('home.intro_video', {}, 'Intro to Solid (100 seconds)')}
+                    </Link>
+                    <Link
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=J70HXl1KhWE"
+                      class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
+                    >
+                      <Icon stroke-width="2" class="w-6 mr-2" path={play} />
+                      {t('home.intro_video_advanced', {}, 'Advanced intro (10 minutes)')}
+                    </Link>
+                  </div>
                 </div>
               </section>
             </div>
@@ -142,8 +154,8 @@ const Header: ParentComponent<{ title?: string }> = () => {
                         <Match when={location.pathname.includes('/docs')}>
                           <Title>{t('docs.title', {}, 'Docs')}</Title>
                         </Match>
-                        <Match when={location.pathname.includes('/resources')}>
-                          <Title>{t('resources.title', {}, 'Resources')}</Title>
+                        <Match when={location.pathname.includes('/ecosystem')}>
+                          <Title>{t('resources.title', {}, 'Ecosystem')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/examples')}>
                           <Title>{t('examples.title', {}, 'Examples')}</Title>

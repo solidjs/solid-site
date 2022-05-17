@@ -90,6 +90,11 @@ export const routes: RouteDefinition[] = [
     data: ContributorsData,
   },
   {
+    path: '/ecosystem',
+    component: lazy(() => import('./pages/Resources')),
+    data: ResourceData,
+  },
+  {
     path: '/resources',
     component: lazy(() => import('./pages/Resources')),
     data: ResourceData,

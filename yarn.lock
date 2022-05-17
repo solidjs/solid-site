@@ -1164,10 +1164,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.2.2.tgz#bda0751a5d08d90cf2bc014c9f8eb7fae00e3863"
   integrity sha512-XcAN/WP1R/dEvt4vpobUFYxajhak2mV/jyALyzIrBl6N2v/8Y07E+AUr7xXKp8s3/h0eJl+4eB/IuT8uxDL69Q==
 
-"@solid.js/docs@^1.0.36":
-  version "1.0.36"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.36.tgz#4e0184fc0ebb81d620ddf31a45b73b33e9f68b79"
-  integrity sha512-cPMS51J4fspQql61oOUviS1u2TAo+2j6lsFVhqX++0mNi+2ytds3ftYrjsaiiC9ujllzNNOTFDrbsXovMvLS9A==
+"@solid.js/docs@^1.0.37":
+  version "1.0.37"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.37.tgz#964fbffaad098228d157065bb75ae7f6c7a43d03"
+  integrity sha512-xOVPSY2Y//a6cGK6V1kyt1NQFzvPn7pxAEOKZTpzdn2syBoO3knzd+0Rfoaz9UqkI5lf9Ihl2b5hC27sgO0CWw==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
@@ -5762,15 +5762,15 @@ solid-app-router@^0.3.1:
   resolved "https://registry.yarnpkg.com/solid-app-router/-/solid-app-router-0.3.2.tgz#87c687262d2cc6267fd5f5025a6c5b12ae564bc7"
   integrity sha512-zh6Ui87xy23JUxrH0z1xAROJPpiuxa3JRx9jP2qqjr07q2EKQOjn9BrmTFvQd/azQWzLjSMU+hN2fy6kLh5Bdw==
 
-solid-dismiss@^1.0.27:
-  version "1.0.27"
-  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.0.27.tgz#4e9720a81f7758edf0605a1ed2adc0c5ce33e068"
-  integrity sha512-y9g7SeoiXADA2UwFtqpTr3m8BsQNEoQESHO/jpjHDZMSCN1T2cq0XmbsMEsih0YUbkdW3pwhyrfq55DUtKaSFg==
-
 solid-dismiss@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.1.0.tgz#36885b07373c4a3e8b1be7c4784140017ceb12ab"
   integrity sha512-UnlNbtOqoRTsEhb/YOfiGkqKoz09ULFwFNE9TU9kqFqdZESxyVfjjut6+jNuJ4war9RkGz2ASbq8ersxk7WmDA==
+
+solid-dismiss@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/solid-dismiss/-/solid-dismiss-1.2.1.tgz#bcd7084c5b87538002d322b15eeaae1889d2a571"
+  integrity sha512-/2DKasY3/4ECnqxHueC2hq6bYxZ1Yyn/TtbeKDKV57Sox0HhHm8rPJLzqwn/9KxY3VhizJbmTABTZiKG0l7pNw==
 
 solid-heroicons@^2.0.3:
   version "2.0.3"

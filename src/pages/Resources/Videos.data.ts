@@ -499,7 +499,7 @@ const videos: Array<Resource> = [
     published_at: 1651290187000,
   },
   {
-    link: 'https://www.youtube.com/watch?v=iR5T2HefqKk',
+    link: 'https://www.youtube.com/watch?v=WSvmEG7HPyE',
     title: "SolidJS - Why Doesn't React Just Work like This",
     description: 'Want to know what Partial, Progressive, and Resumable means?',
     keywords: ['learning', 'starter', 'reactivity', 'planet'],

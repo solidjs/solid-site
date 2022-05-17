@@ -2,22 +2,23 @@
   "name": "Português",
   "title": "SolidJS · Biblioteca de Javascript reativa",
   "locale": "pt-PT",
+  
   "nav": [
     {
       "title": "Inicie",
       "path": "/guides"
     },
     {
-      "title": "Documentação",
+      "title": "Tutorial",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Recursos",
-      "path": "/resources"
-    },
-    {
-      "title": "Tutorial",
-      "path": "/tutorial"
+      "title": "Ecossistema",
+      "path": "/ecosystem"
     },
     {
       "title": "Exemplos",
