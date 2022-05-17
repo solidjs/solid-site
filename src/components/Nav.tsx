@@ -43,6 +43,7 @@ const langs = {
   tl: 'Filipino',
   es: 'Español',
   pl: 'Polski',
+  uk: 'Українська',
 };
 
 type MenuLinkProps = {
