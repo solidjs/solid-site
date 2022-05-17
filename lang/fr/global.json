@@ -8,16 +8,16 @@
       "path": "/guides"
     },
     {
-      "title": "Documentation",
+      "title": "Tutoriel",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Ressources",
-      "path": "/resources"
-    },
-    {
-      "title": "Tutoriel",
-      "path": "/tutorial"
+      "title": "Écosystème",
+      "path": "/ecosystem"
     },
     {
       "title": "Exemples",

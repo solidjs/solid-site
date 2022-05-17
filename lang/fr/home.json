@@ -1,7 +1,8 @@
 {
     "hero": "Une bibliothèque JavaScript déclarative, efficace et flexible pour la création d'interfaces utilisateur.",
     "get_started": "Premiers pas",
-    "intro_video": "Introduction à Solid en 10min",
+    "intro_video": "Introduction à SolidJS (100 secondes)",
+    "intro_video_advanced": "Introduction avancée (10 minutes)",
     "info": "Solid est une bibliothèque purement réactive conçue dès le départ avec un noyau réactif et influencée par les principes réactifs développés par les bibliothèques précédentes.",
     "strengths": [
       {
