@@ -6,14 +6,14 @@
     { "title": "Iniziare", "path": "/guides" },
     { "title": "Esercitazione", "path": "/tutorial" },
     { "title": "API", "path": "/docs/latest/api" },
-    { "title": "Ecosistema", "path": "/ecoststem" },
+    { "title": "Ecosistema", "path": "/ecosystem" },
     { "title": "Esempi", "path": "/examples" },
     { "title": "Playground", "path": "https://playground.solidjs.com", "external": true },
     { "title": "Blog", "path": "/blog" },
     { "title": "Media", "path": "/media" }
   ],
   "404": {
-    "header": "Merda! Quattro-zero-quattro.",
+    "header": "Ops! Quattro-zero-quattro.",
     "body": "crede che questa pagina sicuramente non esista."
   },
   "newsletter": {
