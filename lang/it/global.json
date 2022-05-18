@@ -13,7 +13,7 @@
     { "title": "Media", "path": "/media" }
   ],
   "404": {
-    "header": "Merda! Quattro-zero-quattro.",
+    "header": "Ops! Quattro-zero-quattro.",
     "body": "crede che questa pagina sicuramente non esista."
   },
   "newsletter": {
