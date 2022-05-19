@@ -889,6 +889,19 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1650930187000,
   },
+  {
+    link: 'https://non-traditional.dev/an-intro-to-solidjs-for-react-developers',
+    title: 'An Intro to Solid.js for React Developers',
+    description:
+      'A quick introduction of the similarities, differences, and gotchas of solid.js for React developers',
+    author: 'Travis Waith-Mair',
+    author_url: 'https://hashnode.com/@nontraditionaldev',
+    keywords: ['solid', 'learning', 'react', 'beginner'],
+    official: false,
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1652436704000,
+  },
 ];
 
 export default articles;
