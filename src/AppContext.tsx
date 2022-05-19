@@ -92,6 +92,9 @@ export const AppContextProvider: ParentComponent = (props) => {
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
   createEffect(() => {
+    document.documentElement.lang = locale();
+  });
+  createEffect(() => {
     if (isDark()) document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
   });
