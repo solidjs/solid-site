@@ -1,8 +1,7 @@
 import { Component, For, Show, createSignal, createMemo } from 'solid-js';
-import { createStore } from 'solid-js/store';
 import Footer from '../components/Footer';
 import { useRouteData } from 'solid-app-router';
-import { ResourcesDataProps } from './Resources.data';
+import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
@@ -45,6 +44,9 @@ export enum ResourceCategory {
   Testing = 'testing',
   Educational = 'educational',
 }
+export const ResourceCategoryName = Object.fromEntries(
+  Object.entries(ResourceCategory).map(([key, value]) => [value, key])
+);
 export interface Resource {
   title: string;
   link: string;
@@ -144,46 +146,36 @@ const Resource: Component<Resource> = (props) => {
   );
 };
 
-const Resources: Component = () => {
+const Packages: Component = () => {
   const [t] = useI18n();
-  const data = useRouteData<ResourcesDataProps>();
+  const data = useRouteData<PackagesDataProps>();
   const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
   const [keyword, setKeyword] = createSignal(parseKeyword(globalThis.location.hash));
   const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
-  const [filtered, setFiltered] = createStore({
-    // Produces a base set of filtered results
-    resources: createMemo(() => {
-      if (keyword() == '') {
-        return data.list;
-      }
-      return fs.search(keyword()).map((result) => result.item);
-    }),
-    // Currently user enabled filters
-    enabledTypes: [] as (ResourceType | PackageType)[],
-    // Final list produces that applies enabled types and categories
-    get list(): Array<Resource> {
-      let resources = this.resources().filter((item) => {
-        if (this.enabledTypes.length !== 0) {
-          return this.enabledTypes.indexOf(item.type) !== -1;
+  // Produces a base set of filtered results
+  const resources = createMemo<Resource[]>(() => {
+    if (keyword() == '') {
+      return data.list;
+    }
+    return fs.search(keyword()).map((result) => result.item);
+  });
+  // Retrieve a map from categories to array of resources
+  const byCategory = createMemo(() => {
+    const map: Partial<Record<ResourceCategory, Resource[]>> = {};
+    for (const resource of resources()) {
+      for (const category of resource.categories) {
+        const cat = map[category];
+        if (cat) {
+          cat.push(resource);
+        } else {
+          map[category] = [resource];
         }
-        return true;
-      });
-      resources.sort((b, a) => (a.published_at || 0) - (b.published_at || 0));
-      return resources;
-    },
-    // Retrieve a list of type counts
-    get counts() {
-      return (this.resources() as Resource[]).reduce<{ [key: string]: number }>(
-        (memo, resource) => ({
-          ...memo,
-          [resource.type]: memo[resource.type] ? memo[resource.type] + 1 : 1,
-        }),
-        {},
-      );
-    },
+      }
+    }
+    return map;
   });
   const [toggleFilters, setToggleFilters] = createSignal(false);
   const [stickyBarActive, setStickyBarActive] = createSignal(false);
@@ -202,15 +194,16 @@ const Resources: Component = () => {
   });
   observer;
 
+  let categoryRef: Partial<Record<ResourceCategory, HTMLHeadingElement>> = {};
+  const scrollToCategory = (category: ResourceCategory) => {
+    const ref = categoryRef[category];
+    if (!ref) return;
+    window.scrollTo({top: ref.offsetTop});
+  };
+
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;
     window.scrollTo({ top: floatingPosScrollY });
-  };
-
-  const filtersClickScrollToTop = () => {
-    const top = toggleFilters() ? floatingPosScrollY : 0;
-    // @ts-ignore
-    window.scrollTo({ top, behavior: 'instant' });
   };
 
   return (
@@ -230,54 +223,29 @@ const Resources: Component = () => {
               onChange={(evt) => setKeyword(evt.currentTarget!.value)}
               type="text"
             />
-            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b mb-4 font-semibold border-solid pb-2">
-              {t('resources.types')}
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2">
+              {t('resources.categories')}
             </h3>
-            <div class="flex flex-col space-y-2">
-              <For each={Object.entries(ResourceType)}>
-                {([name, type]) => (
-                  <button
-                    disabled={!filtered.counts[type]}
-                    onClick={() => {
-                      filtersClickScrollToTop();
-                      setFiltered('enabledTypes', (arr) => {
-                        const pos = arr.indexOf(type);
-                        if (pos === -1) {
-                          return [...arr, type];
-                        } else {
-                          let newArray = arr.slice();
-                          newArray.splice(pos, 1);
-                          return newArray;
-                        }
-                      });
-                    }}
-                    classList={{
-                      'opacity-30 cursor-default': !filtered.counts[type],
-                      'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
-                    }}
-                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
-                  >
-                    <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
-                        <Icon
-                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
-                          path={ResourceTypeIcons[type]}
-                        />
-                      </figure>
-                    </div>
-                    <div class="col-span-3 rtl:text-right lg:col-span-3">
-                      {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
-                    </div>
-                    <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
-                      <Show when={filtered.counts[type]} fallback={0}>
-                        {filtered.counts[type]}
-                      </Show>
-                    </div>
-                  </button>
-                )}
-              </For>
-            </div>
+
+            <For each={Object.entries(ResourceCategory).sort()}>
+              {([name, id]) =>
+                <button
+                  onClick={[scrollToCategory, id]}
+                  classList={{
+                    'opacity-20 cursor-default': !byCategory()[id],
+                    'hover:opacity-60': !!byCategory()[id],
+                  }}
+                  class="grid grid-cols-5 items-center w-full text-sm pl-4 py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
+                >
+                  <div class="col-span-4">
+                    {t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}
+                  </div>
+                  <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
+                    {(byCategory()[id] || []).length}
+                  </div>
+                </button>
+              }
+            </For>
           </div>
         </div>
 
@@ -327,65 +295,47 @@ const Resources: Component = () => {
             }
             style={{ height: 'calc(100vh - 8rem)', top: '8rem' }}
           >
-            <h3 class="text-xl text-solid-default dark:text-solid-darkdefault border-b mb-4 font-semibold border-solid pb-2">
-              {t('resources.types')}
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b font-semibold border-solid pb-2">
+              {t('resources.categories')}
             </h3>
-            <div class="flex flex-col space-y-2">
-              <For each={Object.entries(ResourceType)}>
-                {([name, type]) => (
+
+            <For each={Object.entries(ResourceCategory).sort()}>
+              {([name, id]) => {
+                const exists = !!byCategory()[id]
+                return (
                   <button
-                    disabled={!filtered.counts[type]}
-                    onClick={() => {
-                      filtersClickScrollToTop();
-                      setFiltered('enabledTypes', (arr) => {
-                        const pos = arr.indexOf(type);
-                        if (pos === -1) {
-                          return [...arr, type];
-                        } else {
-                          let newArray = arr.slice();
-                          newArray.splice(pos, 1);
-                          return newArray;
-                        }
-                      });
-                    }}
+                    onClick={[scrollToCategory, id]}
                     classList={{
-                      'opacity-30 cursor-default': !filtered.counts[type],
-                      'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
+                      'opacity-20 cursor-default': !exists,
+                      'hover:opacity-60': exists,
                     }}
-                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
+                    class="block w-full text-sm py-4 pl-4 ltr:text-left rtl:text-right border-b"
                   >
-                    <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon
-                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
-                          path={ResourceTypeIcons[type]}
-                        />
-                      </figure>
-                    </div>
-                    <div class="col-span-3 rtl:text-right lg:col-span-3">
-                      {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
-                    </div>
-                    <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
-                      <Show when={filtered.counts[type]} fallback={0}>
-                        {filtered.counts[type]}
-                      </Show>
-                    </div>
+                    <span>{t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}</span>
                   </button>
-                )}
-              </For>
-            </div>
+                );
+              }}
+            </For>
           </div>
         </Dismiss>
 
         <div class="md:col-span-7 lg:col-span-9">
           <Show
-            when={filtered.list.length !== 0}
+            when={resources().length}
             fallback={<div class="p-10 text-center">No resources found.</div>}
           >
-            <ul>
-              <For each={filtered.list}>{(resource) => <Resource {...resource} />}</For>
-            </ul>
+            <For each={Object.entries(byCategory()).sort()}>
+              {([category, resources]) => <>
+                <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" ref={categoryRef[category as ResourceCategory]!}>
+                  {ResourceCategoryName[category]}
+                </h3>
+                <ul>
+                  <For each={resources}>
+                    {(resource) => <Resource {...resource} />}
+                  </For>
+                </ul>
+              </>}
+            </For>
           </Show>
         </div>
       </div>
@@ -394,4 +344,4 @@ const Resources: Component = () => {
   );
 };
 
-export default Resources;
+export default Packages;
