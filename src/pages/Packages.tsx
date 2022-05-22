@@ -6,11 +6,6 @@ import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import {
-  code,
-  videoCamera,
-  bookOpen,
-  microphone,
-  terminal,
   chevronRight,
   chevronLeft,
   shieldCheck,
@@ -20,55 +15,12 @@ import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import Dismiss from 'solid-dismiss';
+import { Resource, ResourceCategory, ResourceCategoryName, ResourceTypeIcons } from './Resources/Ecosystem';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 
-export enum ResourceType {
-  Article = 'article',
-  Video = 'video',
-  Podcast = 'podcast',
-}
-export enum PackageType {
-  Library = 'library',
-  Package = 'package',
-}
-export enum ResourceCategory {
-  Primitives = 'primitive',
-  Routers = 'router',
-  Data = 'data',
-  UI = 'ui',
-  Plugins = 'plugin',
-  Starters = 'starters',
-  BuildUtilities = 'build_utility',
-  AddOn = 'add_on',
-  Testing = 'testing',
-  Educational = 'educational',
-}
-export const ResourceCategoryName = Object.fromEntries(
-  Object.entries(ResourceCategory).map(([key, value]) => [value, key])
-);
-export interface Resource {
-  title: string;
-  link: string;
-  author?: string;
-  author_url?: string;
-  description?: string;
-  type: ResourceType | PackageType;
-  categories: readonly ResourceCategory[];
-  official?: boolean; // If the resource is an official Solid resource
-  keywords?: readonly string[];
-  published_at?: number;
-}
-const ResourceTypeIcons = {
-  article: bookOpen,
-  podcast: microphone,
-  video: videoCamera,
-  library: code,
-  package: terminal,
-};
-
-const Resource: Component<Resource> = (props) => {
+const Package: Component<Resource> = (props) => {
   const [t] = useI18n();
   const now = new Date();
   const published = new Date(0);
@@ -343,7 +295,7 @@ const Packages: Component = () => {
                 </h3>
                 <ul>
                   <For each={resources}>
-                    {(resource) => <Resource {...resource} />}
+                    {(resource) => <Package {...resource} />}
                   </For>
                 </ul>
               </>}

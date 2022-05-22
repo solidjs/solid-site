@@ -1,17 +1,13 @@
-import { Component, For, Show, createEffect, createSignal, createMemo } from 'solid-js';
+import { Component, For, Show, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import Footer from '../components/Footer';
-import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
+import { useRouteData, useSearchParams } from 'solid-app-router';
+import { Resource, ResourceType, ResourceTypeIcons, PackageType } from './Resources/Ecosystem';
 import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import {
-  code,
-  videoCamera,
-  bookOpen,
-  microphone,
-  terminal,
   chevronRight,
   chevronLeft,
   shieldCheck,
@@ -25,48 +21,7 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 
-export enum ResourceType {
-  Article = 'article',
-  Video = 'video',
-  Podcast = 'podcast',
-}
-export enum PackageType {
-  Library = 'library',
-  Package = 'package',
-}
-export enum ResourceCategory {
-  Primitives = 'primitive',
-  Routers = 'router',
-  Data = 'data',
-  UI = 'ui',
-  Plugins = 'plugin',
-  Starters = 'starters',
-  BuildUtilities = 'build_utility',
-  AddOn = 'add_on',
-  Testing = 'testing',
-  Educational = 'educational',
-}
-export interface Resource {
-  title: string;
-  link: string;
-  author?: string;
-  author_url?: string;
-  description?: string;
-  type: ResourceType | PackageType;
-  categories: readonly ResourceCategory[];
-  official?: boolean; // If the resource is an official Solid resource
-  keywords?: readonly string[];
-  published_at?: number;
-}
-const ResourceTypeIcons = {
-  article: bookOpen,
-  podcast: microphone,
-  video: videoCamera,
-  library: code,
-  package: terminal,
-};
-
-const Resource: Component<Resource> = (props) => {
+const AResource: Component<Resource> = (props) => {
   const [t] = useI18n();
   const now = new Date();
   const published = new Date(0);
@@ -387,7 +342,7 @@ const Resources: Component = () => {
             fallback={<div class="p-10 text-center">No resources found.</div>}
           >
             <ul>
-              <For each={filtered.list}>{(resource) => <Resource {...resource} />}</For>
+              <For each={filtered.list}>{(resource) => <AResource {...resource} />}</For>
             </ul>
           </Show>
         </div>

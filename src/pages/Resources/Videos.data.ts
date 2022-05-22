@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../Resources';
+import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const videos: Array<Resource> = [
   {
