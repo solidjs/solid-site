@@ -5,7 +5,8 @@ import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
 import { GuideData } from './pages/Guide.data';
 import { TutorialData } from './pages/Tutorial.data';
-import { ResourceData } from './pages/Resources.data';
+import { PackagesData } from './pages/Packages.data';
+import { ResourcesData } from './pages/Resources.data';
 import { ExamplesData } from './pages/Examples.data';
 import { BlogData } from './pages/Blog.data';
 import { BlogArticleData } from './pages/BlogArticle.data';
@@ -91,13 +92,13 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/ecosystem',
-    component: lazy(() => import('./pages/Resources')),
-    data: ResourceData,
+    component: lazy(() => import('./pages/Packages')),
+    data: PackagesData,
   },
   {
     path: '/resources',
     component: lazy(() => import('./pages/Resources')),
-    data: ResourceData,
+    data: ResourcesData,
   },
   {
     path: '/media',

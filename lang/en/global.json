@@ -17,7 +17,19 @@
     },
     {
       "title": "Ecosystem",
-      "path": "/ecosystem"
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "Packages",
+          "description": "Software libraries for SolidJS",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "Resources",
+          "description": "Articles, videos, and podcasts about SolidJS",
+          "path": "/resources"
+        }
+      ]
     },
     {
       "title": "Examples",
