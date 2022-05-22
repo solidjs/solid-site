@@ -1,6 +1,6 @@
-import { Component, For, Show, createSignal, createMemo } from 'solid-js';
+import { Component, For, Show, createSignal, createMemo, onMount } from 'solid-js';
 import Footer from '../components/Footer';
-import { useRouteData } from 'solid-app-router';
+import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
 import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
@@ -22,6 +22,7 @@ import { createIntersectionObserver } from '@solid-primitives/intersection-obser
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
+import { rememberSearch } from '../utils/rememberSearch';
 
 export enum ResourceType {
   Article = 'article',
@@ -153,8 +154,10 @@ const Packages: Component = () => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [keyword, setKeyword] = createSignal(parseKeyword(globalThis.location.hash));
+  const [searchParams] = useSearchParams();
+  const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
   const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  rememberSearch(keyword);
   // Produces a base set of filtered results
   const resources = createMemo<Resource[]>(() => {
     if (keyword() == '') {
@@ -194,16 +197,21 @@ const Packages: Component = () => {
   });
   observer;
 
-  let categoryRef: Partial<Record<ResourceCategory, HTMLHeadingElement>> = {};
+  const navigate = useNavigate();
   const scrollToCategory = (category: ResourceCategory) => {
-    const ref = categoryRef[category];
-    if (!ref) return;
-    window.scrollTo({top: ref.offsetTop});
+    const url = globalThis.location;
+    navigate(`${url.pathname}${url.search}#${category}`, { scroll: false });
+    document.getElementById(category)?.scrollIntoView(true);
   };
   const closeAndScrollToCategory = (category: ResourceCategory) => {
     setToggleFilters(false);
     setTimeout(() => scrollToCategory(category), 0);
   };
+  onMount(() => {
+    const hash = globalThis.location.hash.replace(/^#/, '');
+    if (!hash) return;
+    document.getElementById(hash)?.scrollIntoView(true);
+  });
 
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;
@@ -330,7 +338,7 @@ const Packages: Component = () => {
           >
             <For each={Object.entries(byCategory()).sort()}>
               {([category, resources]) => <>
-                <h3 class="text-2xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" ref={categoryRef[category as ResourceCategory]!}>
+                <h3 class="text-2xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" id={category}>
                   {t(`resources.categories_list.${category.toLowerCase()}`, {}, ResourceCategoryName[category])}
                 </h3>
                 <ul>

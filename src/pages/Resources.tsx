@@ -1,7 +1,7 @@
-import { Component, For, Show, createSignal, createMemo } from 'solid-js';
+import { Component, For, Show, createEffect, createSignal, createMemo } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import Footer from '../components/Footer';
-import { useRouteData } from 'solid-app-router';
+import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
 import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
@@ -23,6 +23,7 @@ import { createIntersectionObserver } from '@solid-primitives/intersection-obser
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
+import { rememberSearch } from '../utils/rememberSearch';
 
 export enum ResourceType {
   Article = 'article',
@@ -151,8 +152,10 @@ const Resources: Component = () => {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,
   });
-  const [keyword, setKeyword] = createSignal(parseKeyword(globalThis.location.hash));
+  const [searchParams] = useSearchParams();
+  const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
   const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  rememberSearch(keyword);
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
     resources: createMemo(() => {
