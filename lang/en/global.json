@@ -54,6 +54,12 @@
           "external": true
         },
         {
+          "title": "Code of Conduct",
+          "description": "Our comunity and contributor rules.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
           "title": "OpenCollective",
           "description": "Support us with a donation and help us continue our activities",
           "path": "https://opencollective.com/solid"
