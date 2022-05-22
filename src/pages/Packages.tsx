@@ -200,6 +200,10 @@ const Packages: Component = () => {
     if (!ref) return;
     window.scrollTo({top: ref.offsetTop});
   };
+  const closeAndScrollToCategory = (category: ResourceCategory) => {
+    setToggleFilters(false);
+    setTimeout(() => scrollToCategory(category), 0);
+  };
 
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;
@@ -235,10 +239,10 @@ const Packages: Component = () => {
                     'opacity-20 cursor-default': !byCategory()[id],
                     'hover:opacity-60': !!byCategory()[id],
                   }}
-                  class="grid grid-cols-5 items-center w-full text-sm pl-4 py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
+                  class="grid grid-cols-5 items-center w-full text-sm pl-4 py-4 text-left border rounded-md dark:border-solid-darkLighterBg"
                 >
                   <div class="col-span-4">
-                    {t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}
+                    {t(`resources.categories_list.${id.toLowerCase()}`, {}, name)}
                   </div>
                   <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
                     {(byCategory()[id] || []).length}
@@ -304,14 +308,14 @@ const Packages: Component = () => {
                 const exists = !!byCategory()[id]
                 return (
                   <button
-                    onClick={[scrollToCategory, id]}
+                    onClick={[closeAndScrollToCategory, id]}
                     classList={{
                       'opacity-20 cursor-default': !exists,
                       'hover:opacity-60': exists,
                     }}
                     class="block w-full text-sm py-4 pl-4 ltr:text-left rtl:text-right border-b"
                   >
-                    <span>{t(`resources.categories_list.${name.toLowerCase()}`, {}, name)}</span>
+                    <span>{t(`resources.categories_list.${id.toLowerCase()}`, {}, name)}</span>
                   </button>
                 );
               }}
@@ -326,8 +330,8 @@ const Packages: Component = () => {
           >
             <For each={Object.entries(byCategory()).sort()}>
               {([category, resources]) => <>
-                <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" ref={categoryRef[category as ResourceCategory]!}>
-                  {ResourceCategoryName[category]}
+                <h3 class="text-2xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" ref={categoryRef[category as ResourceCategory]!}>
+                  {t(`resources.categories_list.${category.toLowerCase()}`, {}, ResourceCategoryName[category])}
                 </h3>
                 <ul>
                   <For each={resources}>
