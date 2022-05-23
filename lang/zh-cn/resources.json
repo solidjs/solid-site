@@ -1,7 +1,7 @@
 {
-  "title": "资料",
+  "title": "生态系统",
   "cta": "要展示你的 SolidJS 项目可以通过 <a href=\"https://discord.com/invite/solidjs\">Discord</a> 联系我们。",
-  "search": "搜索资料",
+  "search": "搜索",
   "types": "分类",
   "types_list": {
     "article": "文章",
@@ -9,7 +9,10 @@
     "library": "库",
     "package": "包"
   },
-  "categories": "类目",
+  "published": "Published",
+  "days_ago": "{{amount}} 天前",
+  "hours_ago": "{{amount}} 小时前",
+  "categories": "类别",
   "translations": "翻译",
   "categories_list": {
     "primitive": "Primitive",

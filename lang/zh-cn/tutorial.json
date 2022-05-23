@@ -13,7 +13,7 @@
     "client_render": "客户端渲染",
     "server_render": "服务端渲染",
     "client_hydration_render": "客户端渲染注水",
-    "dark_mode": "打开暗黑模式",
+    "dark_mode": "打开深色模式",
     "import_json": "导入 JSON",
     "export_json": "导出 JSON",
     "export_codesandbox": "导出到 CodeSandBox",
