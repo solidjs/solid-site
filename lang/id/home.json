@@ -1,5 +1,8 @@
 {
     "hero": "Reaktivitas sederhana dan performan untuk membangun tampilan bagi pengguna.",
+    "get_started": "Memulai",
+    "intro_video": "Perkenalan Solid (100 detik)",
+    "intro_video_advanced": "Perkenalan lebih lanjut (10 menit)",
     "info": "Solid adalah library reaktif yang murni. Ia didesain dari bawah ke atas dengan inti reaktif. Ia dipengaruhi oleh prinsip-prinsip yang dikembangkan oleh library-library sebelumnya.",
     "strengths": [
       {
@@ -47,13 +50,13 @@
         "detail": "Pada Performa"
       },
       {
-        "label": "Astro",
+        "label": "Astro & Vite",
         "detail": "Support",
         "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
       }
     ],
     "example": {
-      "headline": "familiar dan modern",
+      "headline": "Familiar dan modern",
       "copy": [
         "Solid berdiri di antara para raksasa, khususnya React dan Knockout. Jika kamu pernah menggunakan React Hooks sebelumnya, Solid seharusnya terlihat sangat alami. Bahkan, model Solid lebih alami karena jauh lebih sederhana tanpa aturan-aturan Hook. Setiap Komponen dijalankan sekali dan Hooks dan bindinglah yang dijalankan berkali-kali saat dependensinya diperbarui.",
         "Solid mengikuti filosofi yang sama dengan React dengan 'unidirectional data flow', pemisahan baca/tulis, dan antarmuka yang tidak dapat diubah. Hanya saja ia memiliki implementasi yang sama sekali berbeda yang tidak menggunakan Virtual DOM."
@@ -96,6 +99,8 @@
     },
     "benchmarks": {
       "time": "Waktu",
+      "view": "Lihat benchmark",
+      "show_more": "Lihat lebih banyak benchmark client + server",
       "link_label": "Benchmark Framework JS membandingkan performa browser pada berbagai test-test. Lebih rendah lebih baik.",
       "js_benchmark": {
         "title": "Benchmark Framework JS",

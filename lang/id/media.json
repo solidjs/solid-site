@@ -6,6 +6,7 @@
   "secondary": "Warna Sekunder",
   "light": "Warna Terang",
   "accent": "Aksen Warna",
+  "copy_hex": "Klik warna untuk menyalin kode hex.",
   "resources": {
     "with_wordmark": "Dengan Wordmark",
     "without_wordmark": "Tanpa Wordmark",

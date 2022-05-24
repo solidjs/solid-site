@@ -1,23 +1,35 @@
 {
   "name": "Indonesia",
-  "title": "SolidJS · Reactive Javascript Library",
+  "title": "SolidJS · Library Reaktif Javascript",
   "locale": "id-ID",
   "nav": [
     {
-      "title": "Memulai",
+      "title": "Panduan",
       "path": "/guides"
-    },
-    {
-      "title": "Dokumentasi",
-      "path": "/docs/latest/api"
-    },
-    {
-      "title": "Ekosistem",
-      "path": "/ecosystem"
     },
     {
       "title": "Tutorial",
       "path": "/tutorial"
+    },
+    {
+      "title": "API",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Ekosistem",
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "Paket",
+          "description": "Library untuk SolidJS",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "Sumber Daya",
+          "description": "Artikel, video, dan podcast tentang SolidJS",
+          "path": "/resources"
+        }
+      ]
     },
     {
       "title": "Contoh",
@@ -29,14 +41,56 @@
       "external": true
     },
     {
-      "title": "Blog",
-      "path": "/blog"
-    },
-    {
-      "title": "Media",
-      "path": "/media"
+      "title": "Tentang",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "Blog",
+          "description": "Berita dan update dari komunitas kami",
+          "path": "/blog"
+        },
+        {
+          "title": "Tim & Kontribusi",
+          "description": "Member tim Solid dan pendukung",
+          "path": "/contributors"
+        },
+        {
+          "title": "Media",
+          "description": "Elemen Brand untuk penggunaan media",
+          "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "Pelajari tentang hackaton publik tahun 2022 kami.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Kode Etik",
+          "description": "Aturan mengenai komunitas dan kontributor kami.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Bantu kami dengan donasi untuk melanjutkan aktivitas kami",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
     }
   ],
+  "404": {
+    "header": "Upsi, 404.",
+    "body": "Sepertinya halaman ini tidak ada."
+  },
+  "newsletter": {
+    "title": "Daftar untuk Solid News",
+    "email": "Alamat email",
+    "success": "Anda berhasil registrasi!",
+    "error": "Registrasi anda tidak berhasil",
+    "register": "Daftar",
+    "sending": "Mengirim"
+  },
   "footer": {
     "declaration": "Solid adalah projek open-source yang didukung oleh sebuah tim dari kontributor-kontributor publik. Di distribusikan dibawah lisensi MIT. Library ini dan komunitasnya terbentuk berkat tim inti dan kontributor-kontributor yang berdedikasi.",
     "updated": "Terakhir diperbarui {{date}} pada Solid v{{version}}"
