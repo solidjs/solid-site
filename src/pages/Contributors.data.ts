@@ -134,6 +134,12 @@ const translators = [
     flag: '🇵🇱',
     link: 'https://github.com/pawelblaszczyk5',
   },
+  {
+    name: 'Ivan Teplov',
+    language: 'uk',
+    flag: '🇺🇦',
+    link: 'https://github.com/ivteplo',
+  },
 ];
 
 const contributors = [
