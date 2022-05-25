@@ -1,0 +1,31 @@
+{
+  "title": "生態系統",
+  "cta": "要展示你的 SolidJS 項目可以通過 <a href=\"https://discord.com/invite/solidjs\">Discord</a> 聯絡我們。",
+  "search": "搜尋",
+  "types": "分類",
+  "types_list": {
+    "article": "文章",
+    "video": "影片",
+    "library": "程式庫",
+    "package": "套件"
+  },
+  "published": "已發佈",
+  "days_ago": "{{amount}} 天前",
+  "hours_ago": "{{amount}} 小時前",
+  "categories": "類別",
+  "translations": "翻譯",
+  "categories_list": {
+    "primitive": "基本",
+    "router": "路由",
+    "data": "數據",
+    "ui": "UI",
+    "plugin": "插件",
+    "starters": "腳手架",
+    "build_utility": "構建工具",
+    "add_on": "擴展",
+    "testing": "測試",
+    "educational": "教學"
+  },
+  "official": "官方",
+  "by": "作者 {{author}}"
+}

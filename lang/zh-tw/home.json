@@ -1,0 +1,110 @@
+{
+  "hero": "簡單高效作出反應，建構用戶界面。",
+  "get_started": "馬上開始",
+  "intro_video": "100秒 介紹",
+  "intro_video_advanced": "10分鐘 詳細介紹",
+  "info": "<span class=\"font-semibold\">Solid 是一个純粹的反應式庫。</span>它從 0 開始設計出一套響應機制。Solid 深受到現有程式庫的響應式原則影響。",
+  "strengths": [
+    {
+      "icon": "performant",
+      "label": "性能",
+      "description": "始終在UI速度和内存利用率基准測試中名列前茅。"
+    },
+    {
+      "icon": "powerful",
+      "label": "強大",
+      "description": "可組合的響應式原語言與 JSX 的靈活性相結合。"
+    },
+    {
+      "icon": "pragmatic",
+      "label": "實用",
+      "description": "合理且量身定制的 API 令開發變得有趣而簡單。"
+    },
+    {
+      "icon": "productive",
+      "label": "生產力",
+      "description": "人體工學和熟悉的設計使得建構簡單或複雜的事物變得輕而易舉。"
+    }
+  ],
+  "facts": [
+    {
+      "label": "7kb",
+      "detail": "壓縮 + Gzip",
+      "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+    },
+    {
+      "label": "18k+",
+      "detail": "Github stars",
+      "link": "https://star-history.t9t.io/#solidjs/solid"
+    },
+    {
+      "label": "5+ 年",
+      "detail": "持續開發"
+    },
+    {
+      "label": "TypeScript",
+      "detail": "支持"
+    },
+    {
+      "label": "評分最高",
+      "detail": "在性能上"
+    },
+    {
+      "label": "Astro & Vite",
+      "detail": "支持"
+    }
+  ],
+  "example": {
+    "headline": "它既讓你感到熟悉又現代",
+    "copy": [
+      "Solid 站在 React, Knockout 等巨人的肩膀上。如果你之前用 React Hooks 開發過，Solid 應該看起来很自然。事實上，Solid 模型更簡單，沒有 Hook 規則。每个組建執行一次，随着依賴項目的更新，鉤子和綁定會多次執行。",
+      "Solid 遵從 React 相同的理念，具有單向數據流、讀寫隔離和不可變接口。但是放棄了使用虛擬 DOM，使用了完全不同的實現。"
+    ],
+    "link_label": "查看文檔",
+    "link": "https://www.solidjs.com/docs/latest#component-apis"
+  },
+  "reactivity": {
+    "headline": "細粒度的響應性意味着你可以事半功倍。",
+    "subheadline": "Solid 每個部分都建立在 JSX 視圖中 JavaScript 表達式簡單的 primitive 之上。",
+    "copy": "Solid 解鎖了對更新内容和時間的完全控制，即使在 DOM 綁定級別也是如此。没有虛擬 DOM 或廣泛的差異對比，框架永遠不會做額外工作。",
+    "link_label": "查看示例",
+    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+  },
+  "performance": {
+    "headline": ["專注於效能”", "無論是客戶端還是服務端"],
+    "copy": "細粒度響應式這一策略在所有顯眼的基准測試中大放異彩。雖然性能可能不是你的關注點，但最终會影響到用户體驗。Solid 無須額外的開發複雜度就可以獲得很好的性能。即使無特意調整亦可高速運行",
+    "link_label": "閱讀全文",
+    "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+  },
+  "features": {
+    "headline": "滿載所有功能。",
+    "copy": "Solid 支持所有常見的和預期的程式庫功能，並在各个方面進行擴展以增強開發體驗。",
+    "list": [
+      "Fragments",
+      "Portals",
+      "Context",
+      "Suspense",
+      "Error Boundaries",
+      "Lazy Components",
+      "Async & Concurrent Rendering",
+      "Implicit Delegation",
+      "SSR & Hydration",
+      "Directives",
+      "Streaming"
+    ]
+  },
+  "benchmarks": {
+    "time": "時間",
+    "view": "查看基準測試",
+    "show_more": "顯示更多 client + server 基準測試",
+    "link_label": "JS 框架基準測試比較了各種測試下的瀏覽器性能。值越低越好。",
+    "js_benchmark": {
+      "title": "JS 框架基準測試",
+      "description": "JS 框架基準測試比較了各種測試下的瀏覽器性能。值越低越好。"
+    },
+    "isomorophic_benchmark": {
+      "title": "同構 UI 基準測試（搜尋結果爲例）",
+      "description": "該基准測試測試原生服務器渲染速度。值越高越好。"
+    }
+  }
+}
