@@ -1,10 +1,4 @@
-import {
-  code,
-  videoCamera,
-  bookOpen,
-  microphone,
-  terminal,
-} from 'solid-heroicons/outline';
+import { code, videoCamera, bookOpen, microphone, terminal } from 'solid-heroicons/outline';
 
 export enum ResourceType {
   Article = 'article',
@@ -28,7 +22,7 @@ export enum ResourceCategory {
   Educational = 'educational',
 }
 export const ResourceCategoryName = Object.fromEntries(
-  Object.entries(ResourceCategory).map(([key, value]) => [value, key])
+  Object.entries(ResourceCategory).map(([key, value]) => [value, key]),
 );
 export interface Resource {
   title: string;

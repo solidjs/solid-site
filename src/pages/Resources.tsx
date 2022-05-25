@@ -7,12 +7,7 @@ import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
-import {
-  chevronRight,
-  chevronLeft,
-  shieldCheck,
-  filter,
-} from 'solid-heroicons/outline';
+import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
