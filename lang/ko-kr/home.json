@@ -28,12 +28,12 @@
     ],
     "facts": [
       {
-        "label": "6.4kb",
+        "label": "7kb",
         "detail": "코드 경량화 + Gzip 압축",
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "15k+",
+        "label": "18k++",
         "detail": "깃헙 스타",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },

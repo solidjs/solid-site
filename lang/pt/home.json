@@ -28,12 +28,12 @@
     ],
     "facts": [
       {
-        "label": "6.4kb",
+        "label": "7kb",
         "detail": "Minimizado + Gzip",
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "15k+",
+        "label": "18k++",
         "detail": "Estrelas no Github",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
