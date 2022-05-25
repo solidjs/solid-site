@@ -1164,10 +1164,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.2.2.tgz#bda0751a5d08d90cf2bc014c9f8eb7fae00e3863"
   integrity sha512-XcAN/WP1R/dEvt4vpobUFYxajhak2mV/jyALyzIrBl6N2v/8Y07E+AUr7xXKp8s3/h0eJl+4eB/IuT8uxDL69Q==
 
-"@solid.js/docs@^1.0.38":
-  version "1.0.38"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.38.tgz#d713712536dbf82716285bb85f2a6132e240d6dc"
-  integrity sha512-O07mxPNb1yeQUNlCqlP2yiaQ3603AoU13A3zAE3tCTT2630Lij1VJ3nqac4pzsAN1+7fSFCmbZI/5QKFS29K9Q==
+"@solid.js/docs@^1.0.42":
+  version "1.0.42"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.42.tgz#2883fda0ff5c2ea6733a424a005dcbd5deaed24e"
+  integrity sha512-Mephs2Rx6uLf5gar+UNTo1y8urhxekgKUrs3mlD06qQWALvNID2J3JE4aK8QfAKCvve9kQHf/qrXYLk85OGHrA==
   dependencies:
     "@types/markdown-it" "^12.2.3"
     node-watch "^0.7.2"
