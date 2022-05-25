@@ -5,17 +5,17 @@ import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
-import {
-  chevronRight,
-  chevronLeft,
-  shieldCheck,
-  filter,
-} from 'solid-heroicons/outline';
+import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import Dismiss from 'solid-dismiss';
-import { Resource, ResourceCategory, ResourceCategoryName, ResourceTypeIcons } from './Resources/Ecosystem';
+import {
+  Resource,
+  ResourceCategory,
+  ResourceCategoryName,
+  ResourceTypeIcons,
+} from './Resources/Ecosystem';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
@@ -190,26 +190,27 @@ const Packages: Component = () => {
             <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2">
               {t('resources.categories')}
             </h3>
-
-            <For each={Object.entries(ResourceCategory).sort()}>
-              {([name, id]) =>
-                <button
-                  onClick={[scrollToCategory, id]}
-                  classList={{
-                    'opacity-20 cursor-default': !byCategory()[id],
-                    'hover:opacity-60': !!byCategory()[id],
-                  }}
-                  class="grid grid-cols-5 items-center w-full text-sm pl-4 py-4 text-left border rounded-md dark:border-solid-darkLighterBg"
-                >
-                  <div class="col-span-4">
-                    {t(`resources.categories_list.${id.toLowerCase()}`, {}, name)}
-                  </div>
-                  <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
-                    {(byCategory()[id] || []).length}
-                  </div>
-                </button>
-              }
-            </For>
+            <div class="mt-3 space-y-2">
+              <For each={Object.entries(ResourceCategory).sort()}>
+                {([name, id]) => (
+                  <button
+                    onClick={[scrollToCategory, id]}
+                    classList={{
+                      'opacity-20 cursor-default': !byCategory()[id],
+                      'hover:opacity-60': !!byCategory()[id],
+                    }}
+                    class="grid grid-cols-5 items-center w-full text-sm pl-4 py-4 text-left border rounded-md dark:border-solid-darkLighterBg"
+                  >
+                    <div class="col-span-4">
+                      {t(`resources.categories_list.${id.toLowerCase()}`, {}, name)}
+                    </div>
+                    <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
+                      {(byCategory()[id] || []).length}
+                    </div>
+                  </button>
+                )}
+              </For>
+            </div>
           </div>
         </div>
 
@@ -265,7 +266,7 @@ const Packages: Component = () => {
 
             <For each={Object.entries(ResourceCategory).sort()}>
               {([name, id]) => {
-                const exists = !!byCategory()[id]
+                const exists = !!byCategory()[id];
                 return (
                   <button
                     onClick={[closeAndScrollToCategory, id]}
@@ -289,16 +290,23 @@ const Packages: Component = () => {
             fallback={<div class="p-10 text-center">No resources found.</div>}
           >
             <For each={Object.entries(byCategory()).sort()}>
-              {([category, resources]) => <>
-                <h3 class="text-2xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2" id={category}>
-                  {t(`resources.categories_list.${category.toLowerCase()}`, {}, ResourceCategoryName[category])}
-                </h3>
-                <ul>
-                  <For each={resources}>
-                    {(resource) => <Package {...resource} />}
-                  </For>
-                </ul>
-              </>}
+              {([category, resources]) => (
+                <>
+                  <h3
+                    class="text-2xl mt-8 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
+                    id={category}
+                  >
+                    {t(
+                      `resources.categories_list.${category.toLowerCase()}`,
+                      {},
+                      ResourceCategoryName[category],
+                    )}
+                  </h3>
+                  <ul>
+                    <For each={resources}>{(resource) => <Package {...resource} />}</For>
+                  </ul>
+                </>
+              )}
             </For>
           </Show>
         </div>
