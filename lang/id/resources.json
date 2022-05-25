@@ -9,6 +9,9 @@
     "library": "Library",
     "package": "Package"
   },
+  "published": "Dipublikasi",
+  "days_ago": "{{amount}} hari yang lalu",
+  "hours_ago": "{{amount}} jam yang lalu",
   "categories": "Kategori",
   "translations": "Terjemahan",
   "categories_list": {
