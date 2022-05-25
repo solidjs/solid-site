@@ -1,0 +1,18 @@
+{
+  "title": "媒體素材",
+  "copy": "以下是代表 Solid 品牌的資料。所有資料都被視爲開源貢獻，應根據開放標準和許可規則使用。關於與品牌對齊的其他資料或問題，請隨時加入我們的 Discord 以獲得支持和指導。",
+  "brand_font": "品牌字體",
+  "primary": "主色",
+  "secondary": "副色",
+  "light": "淺色",
+  "accent": "強調色",
+  "copy_hex": "單擊顏色即可複製",
+  "resources": {
+    "with_wordmark": "帶字標",
+    "without_wordmark": "不帶字標",
+    "only_wordmark": "只有字標",
+    "dark_with_wordmark": "暗色帶字標",
+    "dark_without_wordmark": "暗色無字標",
+    "dark_only_wordmark": "暗色字標"
+  }
+}
