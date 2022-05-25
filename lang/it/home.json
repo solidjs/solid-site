@@ -1,6 +1,6 @@
 {
   "hero": "Una libreria JavaScript dichiarativa, efficiente e flessibile per la creazione di interfacce utente.",
-  "get_started": "Iniziare",
+  "get_started": "Inizia qui",
   "intro_video": "Introduzione a Solid (100 secondi)",
   "intro_video_advanced": "Introduzione avanzata (10 minuti)",
   "ukraine": {
@@ -8,12 +8,12 @@
     "petition": "Aiutaci a fornire aiuti umanitari.",
     "link": "https://www.stopputin.net/"
   },
-  "info": "Solid è una libreria puramente reattiva. È stato progettato da zero con un nucleo reattivo. È influenzato da principi reattivi sviluppati da precedenti librerie.",
+  "info": "Solid è una libreria puramente reattiva. È stata progettata da zero con un nucleo reattivo in mente. È influenzata da principi reattivi sviluppati da precedenti librerie.",
   "strengths": [
     {
       "icon": "performant",
       "label": "Efficiente",
-      "description": "Esegue estremamente bene su tutti i test di prestazione riconosciuti."
+      "description": "Raggiunge constantemente ottimi risultati nei test di velocità e utilizzo della memoria."
     },
     {
       "icon": "powerful",
@@ -23,12 +23,12 @@
     {
       "icon": "pragmatic",
       "label": "Pragmatico",
-      "description": "Un'API sensata e su misura per lo sviluppo in modo semplice ed efficiente."
+      "description": "Un'API fatta su misura per sviluppare, in modo semplice ed efficiente."
     },
     {
       "icon": "productive",
       "label": "Produttivo",
-      "description": "Ergonomia e familiarità intorno alla costruzione semplice e complessa."
+      "description": "Ergonomia e familiarità intorno allo sviluppo di applicazioni web semplici e complesse."
     }
   ],
   "facts": [
@@ -48,7 +48,7 @@
     },
     {
       "label": "TypeScript",
-      "detail": "Supporto"
+      "detail": "Supportato"
     },
     {
       "label": "Top Rated",
@@ -56,7 +56,7 @@
     },
     {
       "label": "Astro",
-      "detail": "Supporto",
+      "detail": "Supportato",
       "link": "https://github.com/snowpackjs/astro/tree/main/examples/framework-solid"
     }
   ],
@@ -72,7 +72,7 @@
   "reactivity": {
     "headline": "Reattività a grana fine significa fare di più con meno.",
     "subheadline": "Solid è costruito con primitive reattive efficienti dal codice della tua area utente alle tue JSX.",
-    "copy": "Questo sblocca il controllo completo su cosa viene aggiornato e quando/Anche a livello di associazione DOM. Senza Virtual DOM o diffing esteso, il framework non funziona mai più di quanto tu voglia.",
+    "copy": "Questo sblocca il controllo completo su cosa viene aggiornato e come, anche  a livello di DOM. Senza Virtual DOM o diffing esteso, Il framework non farà più lavoro di quanto è richiesto.",
     "link_label": "Guardalo in azione",
     "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
   },
@@ -84,7 +84,7 @@
   },
   "features": {
     "headline": "Completamente caricato con tutte le funzionalità.",
-    "copy": "Solid supporta tutte le funzionalità di libreria comuni e previste. Si espande sugli aspetti per aumentare l'esperienza dello sviluppatore.",
+    "copy": "Solid supporta tutte le funzionalità delle librerie più comuni. Si espande su questi aspetti per aumentare l'esperienza dello sviluppatore.",
     "list": [
       "Fragments",
       "Portals",

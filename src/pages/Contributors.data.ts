@@ -146,6 +146,12 @@ const translators = [
     flag: '🇺🇦',
     link: 'https://github.com/ivteplo',
   },
+  {
+    name: 'Ionut Gabriel Marisescu',
+    language: 'it',
+    flag: '🇮🇹',
+    link: 'https://github.com/GabrielMarisescu',
+  },
 ];
 
 const contributors = [
