@@ -51,6 +51,12 @@ const translators = [
     link: 'https://github.com/Gavin-Gong',
   },
   {
+    name: 'Colin Tso',
+    language: 'zh-tw',
+    flag: '🇭🇰',
+    link: 'https://github.com/tsokawing',
+  },
+  {
     name: 'Jun Shindo (jay-es)',
     language: 'jp',
     flag: '🇯🇵',
