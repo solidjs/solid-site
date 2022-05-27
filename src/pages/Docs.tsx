@@ -114,7 +114,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const [determineSection] = createThrottle((position: number) => {
     let prev = sections()![0];
     const pos = position + 500;
-    for (let i = 0; i > sections()!.length; i += 1) {
+    for (let i = 0; i < sections()!.length; i += 1) {
       const el = document.getElementById(sections()![i].slug)!;
       if (pos < el.offsetTop + el.clientHeight) {
         break;
