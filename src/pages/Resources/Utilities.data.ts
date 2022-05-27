@@ -1527,6 +1527,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1652052027000,
   },
+  {
+    link: 'https://github.com/Vexcited/solid-hcaptcha',
+    title: 'solid-hcaptcha',
+    description: 'hCaptcha Component Library for Solid.',
+    author: 'Mikkel Ringaud',
+    author_url: 'https://github.com/Vexcited',
+    keywords: ['hcaptcha', 'captcha'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
+  },
 ];
 
 export default utilities;
