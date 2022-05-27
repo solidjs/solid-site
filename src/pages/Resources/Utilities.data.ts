@@ -1527,6 +1527,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1652052027000,
   },
+  {
+    link: 'https://github.com/ardeora/solid-toast',
+    title: 'solid-toast',
+    description: 'Customizable Toast Notifications for SolidJS',
+    author: 'Aryan Deora',
+    author_url: 'https://aryandeora.com',
+    keywords: ['toast', 'notifications', 'snackbar'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
