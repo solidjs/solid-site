@@ -431,6 +431,16 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.Data],
   },
   {
+    link: 'https://github.com/effector/effector/tree/master/packages/effector-solid',
+    title: 'effector-solid',
+    description: 'A package that adapts effector units for perfect SolidJS performance with updates batching.',
+    author: 'effector',
+    keywords: ['effector', 'state', 'store', 'unit', 'effect', 'manager'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.Data],
+  },
+  {
     link: 'https://github.com/solidjs/solid-styled-components',
     title: 'solid-styled-components',
     description:
