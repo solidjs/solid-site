@@ -1538,6 +1538,17 @@ const utilities: Array<Resource> = [
     published_at: 1652052027000,
   },
   {
+    link: 'https://github.com/Vexcited/solid-hcaptcha',
+    title: 'solid-hcaptcha',
+    description: 'hCaptcha Component Library for Solid.',
+    author: 'Mikkel Ringaud',
+    author_url: 'https://github.com/Vexcited',
+    keywords: ['hcaptcha', 'captcha'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
+  },
+  {
     link: 'https://github.com/gnomical/solid-theme-provider',
     title: 'solid-theme-provider',
     description:
