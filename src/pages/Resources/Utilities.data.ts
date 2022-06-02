@@ -1571,6 +1571,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/SushiWaUmai/pyscript-solid',
+    title: 'pyscript-solid',
+    description: 'Write python code in Solid.js using Pyscript.',
+    author: 'Eugene Matsumura',
+    author_url: 'https://sushiwaumai.github.io/',
+    keywords: ['pyscript', 'python', 'wrapper'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
+  },
 ];
 
 export default utilities;
