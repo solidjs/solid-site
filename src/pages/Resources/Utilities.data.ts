@@ -1537,6 +1537,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     published_at: 1652052027000,
   },
+  {
+    link: 'https://github.com/gnomical/solid-theme-provider',
+    title: 'solid-theme-provider',
+    description:
+      'Lightweight, customizable theme switcher that injects css variables into the :root style element.',
+    author: 'Jacob Kofron',
+    author_url: 'https://github.com/gnomical',
+    keywords: ['themes','dark-mode','css','prefers-color-scheme'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
