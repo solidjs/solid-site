@@ -113,10 +113,9 @@ const Docs: Component<{ hash?: string }> = (props) => {
   // Determine the section based on title positions
   const [determineSection] = createThrottle((position: number) => {
     let prev = sections()![0];
-    const pos = position + 500;
-    for (let i = 0; i > sections()!.length; i += 1) {
+    for (let i = 0; i < sections()!.length; i += 1) {
       const el = document.getElementById(sections()![i].slug)!;
-      if (pos < el.offsetTop + el.clientHeight) {
+      if (position < el.offsetTop + el.clientHeight) {
         break;
       }
       prev = sections()![i];
