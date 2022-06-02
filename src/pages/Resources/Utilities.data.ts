@@ -431,6 +431,16 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.Data],
   },
   {
+    link: 'https://github.com/effector/effector/tree/master/packages/effector-solid',
+    title: 'effector-solid',
+    description: 'A package that adapts effector units for perfect SolidJS performance with updates batching.',
+    author: 'effector',
+    keywords: ['effector', 'state', 'store', 'unit', 'effect', 'manager'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.Data],
+  },
+  {
     link: 'https://github.com/solidjs/solid-styled-components',
     title: 'solid-styled-components',
     description:
@@ -1537,6 +1547,18 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
+  },
+  {
+    link: 'https://github.com/gnomical/solid-theme-provider',
+    title: 'solid-theme-provider',
+    description:
+      'Lightweight, customizable theme switcher that injects css variables into the :root style element.',
+    author: 'Jacob Kofron',
+    author_url: 'https://github.com/gnomical',
+    keywords: ['themes','dark-mode','css','prefers-color-scheme'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
   },
 ];
 
