@@ -509,6 +509,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1652280016000,
   },
+
+  {
+    link: 'https://www.youtube.com/watch?v=O4sgwuMQns0',
+    title: "The story of Solid JS and How its Different",
+    description: 'Ryan joins ThePrimeagen to discuss Solid and where it has come from.',
+    keywords: ['hstory', 'story', 'solid', 'ryan'],
+    author: 'ThePrimaegen',
+    author_url: 'https://www.youtube.com/c/ThePrimeagen',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1654277076000,
+  },
 ];
 
 export default videos;
