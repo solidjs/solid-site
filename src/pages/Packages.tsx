@@ -3,12 +3,12 @@ import Footer from '../components/Footer';
 import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
 import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
-import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import {
   Resource,
@@ -108,7 +108,7 @@ const Packages: Component = () => {
   });
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
-  const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
   rememberSearch(keyword);
   // Produces a base set of filtered results
   const resources = createMemo<Resource[]>(() => {

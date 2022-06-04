@@ -5,12 +5,12 @@ import { useRouteData, useSearchParams } from 'solid-app-router';
 import { Resource, ResourceType, ResourceTypeIcons, PackageType } from './Resources/Ecosystem';
 import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
-import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
@@ -104,7 +104,7 @@ const Resources: Component = () => {
   });
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
-  const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
   rememberSearch(keyword);
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
