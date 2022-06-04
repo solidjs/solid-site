@@ -512,7 +512,7 @@ const videos: Array<Resource> = [
 
   {
     link: 'https://www.youtube.com/watch?v=O4sgwuMQns0',
-    title: "The story of Solid JS and How its Different",
+    title: 'The story of Solid JS and How its Different',
     description: 'Ryan joins ThePrimeagen to discuss Solid and where it has come from.',
     keywords: ['hstory', 'story', 'solid', 'ryan'],
     author: 'ThePrimaegen',
