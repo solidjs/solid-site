@@ -398,17 +398,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
-    link: 'https://github.com/mduclehcm/solid-form',
-    title: 'solid-form',
-    description: 'Build 60fps forms with solid.js.',
-    author: 'Le Minh Duc',
-    author_url: 'https://github.com/mduclehcm',
-    keywords: ['form'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.AddOn],
-  },
-  {
     link: 'https://github.com/storeon/solidjs',
     title: 'reatom-solid',
     description: 'Reatom bindings for Reatom.',
