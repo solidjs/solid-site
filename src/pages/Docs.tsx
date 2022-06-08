@@ -11,12 +11,7 @@ import {
 import { useRouteData } from 'solid-app-router';
 import createThrottle from '@solid-primitives/throttle';
 import createScrollPosition from '@solid-primitives/scroll';
-import { chevronRight } from 'solid-heroicons/solid';
-import { Icon } from 'solid-heroicons';
-import Dismiss from 'solid-dismiss';
-
-import Footer from '../components/Footer';
-import { routeReadyState, useRouteReadyState } from '../utils/routeReadyState';
+import SideContent from '../components/layout/SideContent';
 
 const SectionButton: Component<{
   href: string;
@@ -97,6 +92,34 @@ const Sidebar: Component<{
   </ul>
 );
 
+const Content: Component<{
+  data: DocData
+}> = ({ data }) => (
+  <Switch fallback={'Failed to load markdown...'}>
+    <Match when={data.loading}>Loading documentation...</Match>
+    <Match when={data.doc}>
+      <Show when={data.langAvailable}>
+        <div class="bg-yellow-100 dark:bg-yellow-900 p-5 rounded-lg text-sm">
+          Unfortunately our docs are not currently available in your language. We
+          encourage you to support Solid by{' '}
+          <a
+            class="underline"
+            target="_blank"
+            href="https://github.com/solidjs/solid-docs/blob/main/README.md#support"
+          >
+            helping with on-going translation efforts
+          </a>
+          .
+        </div>
+      </Show>
+      <div
+        class="prose dark:prose-invert lg:px-8 prose-solid max-w-full"
+        innerHTML={data.doc.html || data.doc.content}
+      />
+    </Match>
+  </Switch>
+);
+
 const Docs: Component<{ hash?: string }> = (props) => {
   const data = useRouteData<DocData>();
   const [current, setCurrent] = createSignal<string | null>(null);
@@ -104,6 +127,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const scrollPosition = createScrollPosition();
 
   const sections: () => Section[] | undefined = () => {
+    if (!data.doc) return;
+
     if (data.doc.sections.length == 1) {
       return data.doc.sections[0].children;
     }
@@ -113,16 +138,16 @@ const Docs: Component<{ hash?: string }> = (props) => {
   // Determine the section based on title positions
   const [determineSection] = createThrottle((position: number) => {
     let prev = sections()![0];
-    for (let i = 0; i < sections()!.length; i += 1) {
+    const pos = position + 500;
+    for (let i = 0; i > sections()!.length; i += 1) {
       const el = document.getElementById(sections()![i].slug)!;
-      if (position < el.offsetTop + el.clientHeight) {
+      if (pos < el.offsetTop + el.clientHeight) {
         break;
       }
       prev = sections()![i];
     }
     setCurrent(prev.slug);
   }, 250);
-  let menuButton!: HTMLButtonElement;
 
   // Upon loading finish bind observers
   createEffect(() => {
@@ -135,78 +160,12 @@ const Docs: Component<{ hash?: string }> = (props) => {
   });
   createEffect(() => determineSection(scrollPosition() || 0));
 
-  useRouteReadyState();
-
   return (
-    <div dir="ltr" class="lg:bg-doc dark:lg:bg-darkDoc flex min-h-screen flex-auto relative">
-      <Show when={data.doc}>
-        <div class="flex container">
-          <div class="absolute z-20 left-0 h-full lg:static lg:w-3/12 bg-gray-100 dark:bg-gray-900 rounded-br-lg">
-            <button
-              class={`fixed lg:hidden top-20 right-3 text-white rounded-lg transition duration-500 bg-solid-medium reveal-delay ${
-                !sections()!.length ? 'hidden' : ''
-              }`}
-              classList={{
-                'rotate-90': toggleSections(),
-                'opacity-0': routeReadyState().routeChanged,
-              }}
-              ref={menuButton}
-            >
-              <Icon class="h-7 w-7" path={chevronRight} />
-            </button>
-            <Dismiss
-              show
-              class="w-0 lg:w-auto lg:col-span-3 sticky top-[4rem]"
-              menuButton={menuButton}
-              open={toggleSections}
-              setOpen={setToggleSections}
-            >
-              <div
-                class={
-                  'w-[85vw] overflow-auto p-10 shadow-2xl border-2 bg-white dark:bg-solid-darkbg border-gray-100 ' +
-                  'dark:bg-solid-darkLighterBg fixed left-0 top-14 lg:bg-transparent lg:translate-x-0 lg:duration-0 transition-transform ' +
-                  'duration-300 max-w-md lg:w-auto lg:border-0 lg:shadow-none lg:p-0 lg:flex-col lg:top-12 ' +
-                  'relative lg:flex z-50'
-                }
-                classList={{
-                  '-translate-x-full shadow-none': !toggleSections(),
-                  'translate-x-0 shadow-2xl': toggleSections(),
-                }}
-                style={{ height: 'calc(100vh - 4rem)', top: 0 }}
-              >
-                <Sidebar items={sections()} current={current} hash={props.hash} />
-              </div>
-            </Dismiss>
-          </div>
-          <div class="w-full lg:w-9/12 p-5 md:p-10 bg-white dark:bg-solid-darkbg">
-            <Switch fallback={'Failed to load markdown...'}>
-              <Match when={data.loading}>Loading documentation...</Match>
-              <Match when={data.doc}>
-                <Show when={data.langAvailable}>
-                  <div class="bg-yellow-100 dark:bg-yellow-900 p-5 rounded-lg text-sm">
-                    Unfortunately our docs are not currently available in your language. We
-                    encourage you to support Solid by{' '}
-                    <a
-                      class="underline"
-                      target="_blank"
-                      href="https://github.com/solidjs/solid-docs/blob/main/README.md#support"
-                    >
-                      helping with on-going translation efforts
-                    </a>
-                    .
-                  </div>
-                </Show>
-                <div
-                  class="prose dark:prose-invert lg:px-8 prose-solid max-w-full"
-                  innerHTML={data.doc.html || data.doc.content}
-                />
-              </Match>
-            </Switch>
-          </div>
-        </div>
-      </Show>
-      <Footer />
-    </div>
+    <SideContent
+      toggleVisible={toggleSections}
+      setToggleVisible={setToggleSections}
+      aside={<Sidebar items={sections()} current={current} hash={props.hash} />}
+      content={<Content data={data} />} />
   );
 };
 
