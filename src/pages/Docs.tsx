@@ -9,8 +9,8 @@ import {
   Accessor,
 } from 'solid-js';
 import { useRouteData } from 'solid-app-router';
-import createThrottle from '@solid-primitives/throttle';
 import createScrollPosition from '@solid-primitives/scroll';
+import { throttle } from '@solid-primitives/scheduled';
 import { chevronRight } from 'solid-heroicons/solid';
 import { Icon } from 'solid-heroicons';
 import Dismiss from 'solid-dismiss';
@@ -111,7 +111,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   };
 
   // Determine the section based on title positions
-  const [determineSection] = createThrottle((position: number) => {
+  const determineSection = throttle((position: number) => {
     let prev = sections()![0];
     for (let i = 0; i < sections()!.length; i += 1) {
       const el = document.getElementById(sections()![i].slug)!;

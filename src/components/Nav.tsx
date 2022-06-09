@@ -13,9 +13,9 @@ import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { createEventListener } from '@solid-primitives/event-listener';
+import { debounce } from '@solid-primitives/scheduled';
 import { moon, sun } from 'solid-heroicons/outline';
 import { Icon } from 'solid-heroicons';
-import createDebounce from '@solid-primitives/debounce';
 import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
 import ukraine from '../assets/for-ukraine.png';
@@ -161,7 +161,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const closeSubnav = createDebounce(() => setSubnav([]), 150);
+  const closeSubnav = debounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
   const context = useAppContext();
 

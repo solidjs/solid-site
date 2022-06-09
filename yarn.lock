@@ -1102,11 +1102,6 @@
   dependencies:
     "@solid-primitives/utils" "^0.1.2"
 
-"@solid-primitives/debounce@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/debounce/-/debounce-1.3.0.tgz#74c4e463121ec18ef4d7a42dcbe2c4e8beb74a7a"
-  integrity sha512-Cen4ccCPTuEtQM7o9aEKuOJ0LRlAnzKvN7loEBBOQ+zKdu7/7kYKr7HHE/WS8JAI3QeQr5v2ModYRIZLERw5zw==
-
 "@solid-primitives/event-listener@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@solid-primitives/event-listener/-/event-listener-1.5.0.tgz#d276f5425730f0d1ac8639e4ad4a9bc908dd06bd"
@@ -1134,6 +1129,11 @@
   dependencies:
     "@solid-primitives/utils" "^0.2.1"
 
+"@solid-primitives/scheduled@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/scheduled/-/scheduled-1.0.0.tgz#40e8e408206bc7d97ce058b8bab7e0892bb24492"
+  integrity sha512-FfzYoAkFCRGBuCuXF8G7fU4J4SK9PhKbwxZvzqk+VVBcowPS1eGlLAtlqW/29paSKlUSxuLuhZxq1sPzwmuvoQ==
+
 "@solid-primitives/script-loader@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@solid-primitives/script-loader/-/script-loader-1.1.0.tgz#299f4dcc16e916462f97e36637e50070ae039fcb"
@@ -1148,11 +1148,6 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@solid-primitives/storage/-/storage-1.1.1.tgz#55c3f480fc500cc09046bb2b0b7c6113d2882912"
   integrity sha512-lDPk6whKNjAXjw5XhdYLG2xJHUyGqHS+867bIt/4HFuLGkGPDNxx7p1vOvYzmtIOBcyFBBWKkvqRoceS+F3aoQ==
-
-"@solid-primitives/throttle@^1.1.2":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@solid-primitives/throttle/-/throttle-1.1.3.tgz#3075ec4fb46b8d4550e9b192b91028b9e6247262"
-  integrity sha512-yCw0OKVjEUudC/VEPhlZH0YVedsGlkXdGC7+pLsGdjGyoYhCEQD4HHJMVFS505aaCgUL2mMSXQzWSwhMBJMgfg==
 
 "@solid-primitives/utils@^0.1.2":
   version "0.1.3"
