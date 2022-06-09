@@ -71,6 +71,17 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1650646766000,
   },
+  {
+    title: 'S09E12 Modern Web Podcast- Introduction to SolidJS with Ryan Carniato',
+    link: 'https://modernweb.podbean.com/e/s09e12-modern-web-podcast-introduction-to-solidjs-with-ryan-carniato/',
+    description: `In this episode of the Modern Web podcast, hosts Rob Ocel and Nacho Vazquez sit down with Ryan Carniato to talk about SolidJS.`,
+    author: 'Modern Web Podcast',
+    author_url: 'https://modernweb.podbean.com',
+    keywords: ['solid', 'introduction'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1654635600000,
+  },
 ];
 
 export default podcasts;

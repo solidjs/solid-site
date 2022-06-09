@@ -422,7 +422,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/effector/effector/tree/master/packages/effector-solid',
     title: 'effector-solid',
-    description: 'A package that adapts effector units for perfect SolidJS performance with updates batching.',
+    description:
+      'A package that adapts effector units for perfect SolidJS performance with updates batching.',
     author: 'effector',
     keywords: ['effector', 'state', 'store', 'unit', 'effect', 'manager'],
     official: false,
@@ -1544,7 +1545,7 @@ const utilities: Array<Resource> = [
       'Lightweight, customizable theme switcher that injects css variables into the :root style element.',
     author: 'Jacob Kofron',
     author_url: 'https://github.com/gnomical',
-    keywords: ['themes','dark-mode','css','prefers-color-scheme'],
+    keywords: ['themes', 'dark-mode', 'css', 'prefers-color-scheme'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
@@ -1559,6 +1560,17 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/SushiWaUmai/pyscript-solid',
+    title: 'pyscript-solid',
+    description: 'Write python code in Solid.js using Pyscript.',
+    author: 'Eugene Matsumura',
+    author_url: 'https://sushiwaumai.github.io/',
+    keywords: ['pyscript', 'python', 'wrapper'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
   },
 ];
 

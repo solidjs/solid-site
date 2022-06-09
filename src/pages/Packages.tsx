@@ -2,7 +2,7 @@ import { Component, For, Show, createSignal, createMemo, onMount, JSX } from 'so
 import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
 import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
-import createDebounce from '@solid-primitives/debounce';
+import { debounce } from '@solid-primitives/scheduled';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import {
@@ -26,31 +26,29 @@ const FilterButton: Component<{
   name: string;
   count: number;
   type?: ResourceType;
-}> = (props) => <>
-  <button
-    onClick={props.onClick}
-    classList={{
-      'opacity-20 cursor-default': !props.active,
-      'hover:opacity-60': props.active,
-    }}
-    class="flex items-center w-full text-sm px-4 py-2 min-h-[50px] text-left border border-gray-400 rounded"
-  >
-    <Show when={props.type}>
-      <figure class="flex justify-center content-center -ml-2 mr-2 w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
-        <Icon
-          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
-          path={ResourceTypeIcons[props.type!]}
-        />
-      </figure>
-    </Show>
-    <span>
-      {props.name}
-    </span>
-    <span class="ml-auto text-center flex-end text-gray-400 text-xs">
-      {props.count}
-    </span>
-  </button>
-</>;
+}> = (props) => (
+  <>
+    <button
+      onClick={props.onClick}
+      classList={{
+        'opacity-20 cursor-default': !props.active,
+        'hover:opacity-60': props.active,
+      }}
+      class="flex items-center w-full text-sm px-4 py-2 min-h-[50px] text-left border border-gray-400 rounded"
+    >
+      <Show when={props.type}>
+        <figure class="flex justify-center content-center -ml-2 mr-2 w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
+          <Icon
+            class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+            path={ResourceTypeIcons[props.type!]}
+          />
+        </figure>
+      </Show>
+      <span>{props.name}</span>
+      <span class="ml-auto text-center flex-end text-gray-400 text-xs">{props.count}</span>
+    </button>
+  </>
+);
 
 const ResourceLink: Component<Resource> = (props) => {
   const [t] = useI18n();
@@ -80,7 +78,10 @@ const ResourceLink: Component<Resource> = (props) => {
           />
         </figure>
         <h1 class="pl-3 break-all">{props.title}</h1>
-        <Icon class="min-w-[28px] w-7 self-start ml-auto text-solid-default dark:text-solid-darkdefault" path={externalLink} />
+        <Icon
+          class="min-w-[28px] w-7 self-start ml-auto text-solid-default dark:text-solid-darkdefault"
+          path={externalLink}
+        />
       </div>
       <p class="text-xs py-2">{props.description}</p>
       <div class="mt-auto flex items-center place-content-between">
@@ -113,7 +114,7 @@ const ResourceLink: Component<Resource> = (props) => {
         </Show>
       </div>
     </a>
-  )
+  );
 };
 
 const Packages: Component = () => {
@@ -126,7 +127,7 @@ const Packages: Component = () => {
 
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
-  const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
   rememberSearch(keyword);
 
   // Produces a base set of filtered results
@@ -179,7 +180,6 @@ const Packages: Component = () => {
     if (!hash) return;
   });
 
-
   return (
     <SideContent
       toggleVisible={toggleFilters}
@@ -215,56 +215,57 @@ const Packages: Component = () => {
           </div>
         </div>
       }
-      content={<>
-        <div use:observer class="absolute top-0" />
-        <div
-          class="block lg:hidden text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
-          innerHTML={t('resources.cta')}
-        />
-        <div class="block lg:hidden sticky top-16 bg-white dark:bg-solid-darkbg">
-          <input
-            class="mt-14 sm:mt-5 mb-3 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white mr-3"
-            placeholder={t('resources.search')}
-            value={keyword()}
-            onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
-            onChange={(evt) => setKeyword(evt.currentTarget!.value)}
-            type="text"
-          />
+      content={
+        <>
+          <div use:observer class="absolute top-0" />
           <div
-            class="relative h-2"
-            classList={{
-              'shadow-md': stickyBarActive(),
-            }} />
-        </div>
-        <Show
-          when={resources().length}
-          fallback={<div class="p-10 text-center">No resources found.</div>}
-        >
-          <For each={Object.entries(byCategory()).sort()}>
-            {([category, resources]) => (
-              <>
-                <h3
-                  class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
-                  id={category}
-                >
-                  {t(
-                    `resources.categories_list.${category.toLowerCase()}`,
-                    {},
-                    ResourceCategoryName[category],
-                  )}
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <For each={resources}>{(resource) =>
-                    <ResourceLink {...resource} />}
-                  </For>
-                </div>
-              </>
-            )}
-          </For>
-        </Show>
-      </>}
+            class="block lg:hidden text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
+            innerHTML={t('resources.cta')}
+          />
+          <div class="block lg:hidden sticky top-16 bg-white dark:bg-solid-darkbg">
+            <input
+              class="mt-14 sm:mt-5 mb-3 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white mr-3"
+              placeholder={t('resources.search')}
+              value={keyword()}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
+              type="text"
+            />
+            <div
+              class="relative h-2"
+              classList={{
+                'shadow-md': stickyBarActive(),
+              }}
+            />
+          </div>
+          <Show
+            when={resources().length}
+            fallback={<div class="p-10 text-center">No resources found.</div>}
+          >
+            <For each={Object.entries(byCategory()).sort()}>
+              {([category, resources]) => (
+                <>
+                  <h3
+                    class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
+                    id={category}
+                  >
+                    {t(
+                      `resources.categories_list.${category.toLowerCase()}`,
+                      {},
+                      ResourceCategoryName[category],
+                    )}
+                  </h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <For each={resources}>{(resource) => <ResourceLink {...resource} />}</For>
+                  </div>
+                </>
+              )}
+            </For>
+          </Show>
+        </>
+      }
     />
-  )
-}
+  );
+};
 
 export default Packages;

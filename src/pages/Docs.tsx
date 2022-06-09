@@ -9,8 +9,8 @@ import {
   Accessor,
 } from 'solid-js';
 import { useRouteData } from 'solid-app-router';
-import createThrottle from '@solid-primitives/throttle';
 import createScrollPosition from '@solid-primitives/scroll';
+import { throttle } from '@solid-primitives/scheduled';
 import SideContent from '../components/layout/SideContent';
 
 const SectionButton: Component<{
@@ -93,15 +93,15 @@ const Sidebar: Component<{
 );
 
 const Content: Component<{
-  data: DocData
+  data: DocData;
 }> = ({ data }) => (
   <Switch fallback={'Failed to load markdown...'}>
     <Match when={data.loading}>Loading documentation...</Match>
     <Match when={data.doc}>
       <Show when={data.langAvailable}>
         <div class="bg-yellow-100 dark:bg-yellow-900 p-5 rounded-lg text-sm">
-          Unfortunately our docs are not currently available in your language. We
-          encourage you to support Solid by{' '}
+          Unfortunately our docs are not currently available in your language. We encourage you to
+          support Solid by{' '}
           <a
             class="underline"
             target="_blank"
@@ -136,7 +136,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   };
 
   // Determine the section based on title positions
-  const [determineSection] = createThrottle((position: number) => {
+  const determineSection = throttle((position: number) => {
     let prev = sections()![0];
     const pos = position + 500;
     for (let i = 0; i > sections()!.length; i += 1) {
@@ -165,7 +165,8 @@ const Docs: Component<{ hash?: string }> = (props) => {
       toggleVisible={toggleSections}
       setToggleVisible={setToggleSections}
       aside={<Sidebar items={sections()} current={current} hash={props.hash} />}
-      content={<Content data={data} />} />
+      content={<Content data={data} />}
+    />
   );
 };
 
