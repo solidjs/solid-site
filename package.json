@@ -23,6 +23,7 @@
     "@solid-primitives/clipboard": "^1.2.9",
     "@solid-primitives/date": "^1.1.0",
     "@solid-primitives/event-listener": "^1.5.0",
+    "@solid-primitives/fetch": "^1.2.0",
     "@solid-primitives/i18n": "^1.0.9",
     "@solid-primitives/intersection-observer": "^1.2.2",
     "@solid-primitives/scheduled": "^1.0.0",

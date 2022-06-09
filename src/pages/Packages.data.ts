@@ -1,7 +1,5 @@
-import utilities from './Resources/Utilities.data';
+import { createSolidexQuery } from '../utils/solidex';
 
-export const PackagesData = () => ({
-  list: [...utilities],
-});
+export const PackagesData = () => createSolidexQuery('packages');
 
 export type PackagesDataProps = ReturnType<typeof PackagesData>;

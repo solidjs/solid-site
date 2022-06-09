@@ -1,9 +1,5 @@
-import articles from './Resources/Articles.data';
-import videos from './Resources/Videos.data';
-import podcasts from './Resources/Podcasts.data';
+import { createSolidexQuery } from '../utils/solidex';
 
-export const ResourcesData = () => ({
-  list: [...videos, ...articles, ...podcasts],
-});
+export const ResourcesData = () => createSolidexQuery('resources');
 
 export type ResourcesDataProps = ReturnType<typeof ResourcesData>;

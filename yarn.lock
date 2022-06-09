@@ -1110,6 +1110,11 @@
     "@solid-primitives/rootless" "^0.0.101"
     "@solid-primitives/utils" "^0.2.1"
 
+"@solid-primitives/fetch@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/fetch/-/fetch-1.2.0.tgz#1a80499867298ac27efa8e5a8d248cbe408516bd"
+  integrity sha512-mWCSTaD2ftQx/8HHJCOzr1xF8Ue/rjb3H85NGrYyp+GGWHKeQ7NcmgFtcQgW44e3c0hdeLkmRdKe1ZdrVajoHA==
+
 "@solid-primitives/i18n@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@solid-primitives/i18n/-/i18n-1.0.9.tgz#5738449849595e13e89f6dba1cc65f5cd62438d2"
