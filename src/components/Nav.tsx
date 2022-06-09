@@ -171,22 +171,16 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   let logoEl!: HTMLDivElement;
   let subnavEl!: HTMLDivElement;
 
-  const logoPosition = () =>
-    t('global.dir', {}, 'ltr') === 'rtl' ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5';
+  const isRTL = () => t('global.dir', {}, 'ltr') === 'rtl';
 
-  const navListPosition = () => {
-    const isRTL = t('global.dir', {}, 'ltr') === 'rtl';
-    if (isRTL) {
-      return showLogo() && 'mr-[56px]';
-    }
-    return showLogo() && 'ml-[56px]';
-  };
+  const logoPosition = () => (isRTL() ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5');
 
   const [observer] = createIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
       return;
     }
+    if (entry.intersectionRatio === 0) return;
     setLocked(entry.isIntersecting);
   });
   observer;
@@ -222,9 +216,8 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
     on(
       showLogo,
       (showLogo) => {
-        const isRTL = t('global.dir', {}, 'ltr') === 'rtl';
-        showLogo && onEnterLogo(logoEl, isRTL);
-        !showLogo && onExitLogo(logoEl, isRTL);
+        showLogo && onEnterLogo(logoEl, isRTL());
+        !showLogo && onExitLogo(logoEl, isRTL());
       },
       { defer: true },
     ),
@@ -281,18 +274,17 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 <span class="sr-only">Navigate to the home page</span>
                 <img class="w-full h-auto z-10" src={logo} alt="Solid logo" />
                 <img
-                  class={`w-8 h-5 absolute ${
-                    t('global.dir', {}, 'ltr') === 'rtl' ? 'mr-5 -scale-x-100 mt-2' : 'ml-5 mt-3'
-                  }`}
+                  class={`w-8 h-5 absolute ${isRTL() ? 'mr-5 -scale-x-100 mt-2' : 'ml-5 mt-3'}`}
                   src={ukraine}
                   alt="Solid logo"
                 />
               </Link>
             </div>
             <ScrollShadow
-              class={`group relative nav-items-container ${navListPosition()}`}
+              class="group relative nav-items-container"
+              classList={{ [isRTL() ? 'mr-[56px]' : 'ml-[56px]']: showLogo() }}
               direction="horizontal"
-              rtl={t('global.dir', {}, 'ltr') === 'rtl'}
+              rtl={isRTL()}
               shadowSize="25%"
               initShadowSize={true}
               locked={showLogo()}
@@ -398,59 +390,48 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   );
 };
 
-const logoTransition = 500;
-const onEnterLogo = (el: Element, isRTL: boolean) => {
-  const logoEl = el as HTMLElement;
-  const navList = el.nextElementSibling as HTMLElement;
-  const logoWidth = '56px';
+const logoWidth = '56px';
+const setTransition = (el: HTMLElement) => {
+  el.classList.add('transition-transform', 'duration-500');
+};
+const resetTransform = (el: HTMLElement) => {
+  el.classList.remove('transition-transform', 'duration-500');
+  el.style.transform = '';
+  el.style.transformOrigin = '';
+};
+const onEnterLogo = (logoEl: HTMLElement, isRTL: boolean) => {
+  const navList = logoEl.nextElementSibling as HTMLElement;
   const elements = [logoEl, navList];
 
-  logoEl.style.transform = `scale(0)`;
   logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
   navList.style.transform = `translateX(${isRTL ? '' : '-'}${logoWidth})`;
 
   reflow();
-  logoEl.style.transform = `scale(1)`;
   navList.style.transform = `translateX(0)`;
-  elements.forEach((el) => {
-    el.style.transition = `transform ${logoTransition}ms`;
-  });
+  elements.forEach(setTransition);
   createEventListener(
     logoEl,
     'transitioned',
     (e) => {
       if (e.target !== e.currentTarget) return;
-      elements.forEach((el) => {
-        el.style.transition = '';
-        el.style.transform = '';
-        el.style.transformOrigin = '';
-      });
+      elements.forEach(resetTransform);
     },
     { once: true },
   );
 };
 
-const onExitLogo = (el: Element, isRTL: boolean) => {
-  const logoEl = el as HTMLElement;
-  const navList = el.nextElementSibling as HTMLElement;
-  const logoWidth = '56px';
+const onExitLogo = (logoEl: HTMLElement, isRTL: boolean) => {
+  const navList = logoEl.nextElementSibling as HTMLElement;
   const elements = [logoEl, navList];
 
-  logoEl.style.transform = `scale(1)`;
   navList.style.transform = `translateX(${isRTL ? '-' : ''}${logoWidth})`;
-  if (isRTL) {
-    navList.style.marginRight = '0';
-  } else {
-    navList.style.marginLeft = '0';
-  }
 
   reflow();
-  logoEl.style.transform = `scale(0)`;
   logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
   navList.style.transform = `translateX(0)`;
 
   elements.forEach((el) => {
-    el.style.transition = `transform ${logoTransition}ms`;
+    setTransition(el);
     el.style.backfaceVisibility = 'hidden';
   });
 
@@ -459,13 +440,9 @@ const onExitLogo = (el: Element, isRTL: boolean) => {
     'transitionend',
     (e) => {
       if (e.target !== e.currentTarget) return;
-      navList.style.marginLeft = '';
-      navList.style.marginRight = '';
       elements.forEach((el) => {
-        el.style.transition = '';
-        el.style.transform = '';
+        resetTransform(el);
         el.style.backfaceVisibility = '';
-        el.style.transformOrigin = '';
       });
     },
     { once: true },
