@@ -245,7 +245,7 @@ const Resources: Component = () => {
           <div class="h-[45px] px-5 flex justify-between gap-1">
             <div use:observer class="absolute top-[-62px] h-0" />
             <input
-              class="rounded border border-solid h-full w-full border-gray-400 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
+              class="rounded border border-solid h-full w-full border-gray-400 p-3 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
               placeholder={t('resources.search')}
               value={keyword()}
               onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
