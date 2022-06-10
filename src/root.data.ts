@@ -1,5 +1,5 @@
-import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
-import { Meta, Title } from 'solid-meta';
+import { ParentComponent, createContext, createEffect, createResource,  } from 'solid-js';
+import { createStore } from 'solid-js/store';
 import { isServer } from 'solid-js/web';
 import { useLocation } from 'solid-app-router';
 import { createCookieStorage } from '@solid-primitives/storage';
