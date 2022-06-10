@@ -3,7 +3,9 @@
   "core_team": "核心团队",
   "acknowledgments": "致谢",
   "ecosystem_team": "生态团队",
+  "copy": "如果没有其他优秀的人的帮助，Solid是不可能的。我们希望大家通过 报告bug、pull requests、设计建议、写博客和其他更多的方式来一起共建社区。",
   "translators_copy": "以下人员慷慨地付出了时间和精力来确保 Solid 走向国际：",
   "contributors": "贡献者",
-  "open_collective": "Open Collective"
+  "open_collective": "Open Collective",
+  "support_copy": "通过捐款支持我们，并帮助我们继续我们的活动："
 }

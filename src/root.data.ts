@@ -1,7 +1,6 @@
-import { createEffect, createResource } from 'solid-js';
-import { createStore } from 'solid-js/store';
-import { isServer } from 'solid-js/web';
-import { RouteDataFunc } from 'solid-app-router';
+import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
+import { Meta, Title } from 'solid-meta';
+import { useLocation } from 'solid-app-router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext } from '@solid-primitives/i18n';
 import { getGuides, getSupported } from '@solid.js/docs';
@@ -21,8 +20,10 @@ const langs: { [lang: string]: any } = {
   tl: async () => (await import('../lang/tl/tl')).default(),
   'ko-kr': async () => (await import('../lang/ko-kr/ko-kr')).default(),
   'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
+  'zh-tw': async () => (await import('../lang/zh-tw/zh-tw')).default(),
   es: async () => (await import('../lang/es/es')).default(),
   pl: async () => (await import('../lang/pl/pl')).default(),
+  uk: async () => (await import('../lang/uk/uk')).default(),
 };
 
 // Some browsers does not map correctly to some locale code
@@ -37,7 +38,7 @@ type DataParams = {
   page: string;
 };
 
-const createRootStore = () => {
+export const AppContextProvider: ParentComponent = (props) => {
   const now = new Date();
   const cookieOptions = {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
@@ -87,6 +88,9 @@ const RootData: RouteDataFunc = (props) => {
   createEffect(() => set('locale', locale()));
   createEffect(() => {
     if (!lang.loading) add(locale(), lang());
+  });
+  createEffect(() => {
+    document.documentElement.lang = locale();
   });
   createEffect(() => {
     if (isDark()) document.documentElement.classList.add('dark');

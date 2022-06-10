@@ -1,0 +1,31 @@
+{
+  "title": "Екосистема",
+  "cta": "Аби ваш проект, пов'язаний із SolidJS, був у списку тут, зв'яжіться з нами в <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
+  "search": "Пошук ресурсів",
+  "types": "Типи",
+  "types_list": {
+    "article": "Стаття",
+    "video": "Відео",
+    "library": "Бібліотека",
+    "package": "Пакет"
+  },
+  "published": "Опубліковано",
+  "days_ago": "{{amount}} днів тому",
+  "hours_ago": "{{amount}} годин тому",
+  "categories": "Категорії",
+  "translations": "Переклади",
+  "categories_list": {
+    "primitive": "Примітиви",
+    "router": "Роутери",
+    "data": "Дані",
+    "ui": "UI",
+    "plugin": "Плагіни",
+    "starters": "Стартери",
+    "build_utility": "Утиліти для побудови",
+    "add_on": "Додатки",
+    "testing": "Тестування",
+    "educational": "Освітнє"
+  },
+  "official": "Офіційний",
+  "by": "Від {{author}}"
+}

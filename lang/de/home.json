@@ -1,5 +1,8 @@
 {
   "hero": "Eine deklarative, effiziente und flexible JavaScript-Library zum Bauen von Benutzeroberflächen.",
+  "get_started": "Loslegen",
+  "intro_video": "Einstieg in Solid (100 Sekunden)",
+  "intro_video_advanced": "Fortgeschrittener Einstieg (10 Minuten)",
   "info": "Solid ist eine vollkommen reaktive Library. Sie wurde von Grund auf mit einem reaktiven Kern entworfen und von den reaktiven Prinzipien vorangegangener Libraries beeinflusst.",
   "strengths": [
     {
@@ -25,12 +28,12 @@
   ],
   "facts": [
     {
-      "label": "6.4kb",
+      "label": "7kb",
       "detail": "Minifiziert + Gzipped",
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "15k+",
+      "label": "18k++",
       "detail": "Github-Sterne",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },

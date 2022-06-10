@@ -6,6 +6,7 @@
   "secondary": "辅色",
   "light": "浅色",
   "accent": "强调色",
+  "copy_hex": "单击颜色即可复制",
   "resources": {
     "with_wordmark": "带字标",
     "without_wordmark": "不带字标",

@@ -1,0 +1,101 @@
+{
+  "name": "中文",
+  "title": "SolidJS · 反應式 JavaScript 庫",
+  "locale": "zh-tw",
+  "nav": [
+    {
+      "title": "指南",
+      "path": "/guides"
+    },
+    {
+      "title": "教學",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API文檔",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "生態系統",
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "套件",
+          "description": "爲 SolidJS 而設的套件",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "資源",
+          "description": "有關 SolidJS 的文章、影片和 padcast",
+          "path": "/resources"
+        }
+      ]
+    },
+    {
+      "title": "示例",
+      "path": "/examples"
+    },
+    {
+      "title": "Playground",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "關於",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "Blog",
+          "description": "來自我們社區的新聞",
+          "path": "/blog"
+        },
+        {
+          "title": "團隊與貢獻",
+          "description": "Solid 的團隊成員和支持者",
+          "path": "/contributors"
+        },
+        {
+          "title": "媒體",
+          "description": "供媒體使用的品牌素材",
+          "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "了解我們的2022年 Hackathon",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "行爲守則",
+          "description": "我們的社區和貢獻者規則",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
+          "title": "OpenCollective",
+          "description": "通過捐款支持我們繼續活動",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "哎呀，404。",
+    "body": "這個頁面不存在。"
+  },
+  "newsletter": {
+    "title": "訂閱 Solid News",
+    "email": "電郵地址",
+    "success": "你已成功訂閱！",
+    "error": "訂閱未能完成",
+    "register": "訂閱",
+    "sending": "發送中"
+  },
+  "footer": {
+    "declaration": "Solid 是一個由公共貢獻者團隊支持的開源項目。Solid 在 <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT license</a> 下分發，是一个由公共貢獻者團隊支持的開源項目。Solid 庫和社區由 <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">核心團隊和貢獻者</a> 創作。",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "贊助者",
+    "updated": "最近更新於 {{date}} 基於 Solid v{{version}}"
+  }
+}

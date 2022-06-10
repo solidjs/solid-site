@@ -51,6 +51,12 @@ const translators = [
     link: 'https://github.com/Gavin-Gong',
   },
   {
+    name: 'Colin Tso',
+    language: 'zh-tw',
+    flag: '🇭🇰',
+    link: 'https://github.com/tsokawing',
+  },
+  {
     name: 'Jun Shindo (jay-es)',
     language: 'jp',
     flag: '🇯🇵',
@@ -134,6 +140,18 @@ const translators = [
     flag: '🇵🇱',
     link: 'https://github.com/pawelblaszczyk5',
   },
+  {
+    name: 'Ivan Teplov',
+    language: 'uk',
+    flag: '🇺🇦',
+    link: 'https://github.com/ivteplo',
+  },
+  {
+    name: 'Ionut Gabriel Marisescu',
+    language: 'it',
+    flag: '🇮🇹',
+    link: 'https://github.com/GabrielMarisescu',
+  },
 ];
 
 const contributors = [
@@ -179,6 +197,12 @@ const contributors = [
     company: '',
     link: 'https://github.com/AlidotSal',
     detail: 'Exceptional support with testing, design and maintaining Solid Site.',
+  },
+  {
+    name: 'David Peter',
+    company: '',
+    link: 'https://github.com/sarenji',
+    detail: 'Thank you for transferring ownership of the `solid` NPM package to our project.',
   },
 ] as const;
 

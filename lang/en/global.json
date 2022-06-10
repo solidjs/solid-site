@@ -8,16 +8,28 @@
       "path": "/guides"
     },
     {
-      "title": "Docs",
+      "title": "Tutorial",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
       "path": "/docs/latest/api"
     },
     {
-      "title": "Resources",
-      "path": "/resources"
-    },
-    {
-      "title": "Tutorial",
-      "path": "/tutorial"
+      "title": "Ecosystem",
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "Packages",
+          "description": "Software libraries for SolidJS",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "Resources",
+          "description": "Articles, videos, and podcasts about SolidJS",
+          "path": "/resources"
+        }
+      ]
     },
     {
       "title": "Examples",
@@ -33,12 +45,6 @@
       "path": "/contributors",
       "links": [
         {
-          "title": "SolidHack",
-          "description": "Learn about our 2022 public hackathon.",
-          "path": "https://hack.solidjs.com",
-          "external": true
-        },
-        {
           "title": "Blog",
           "description": "News and updates from our community",
           "path": "/blog"
@@ -52,6 +58,18 @@
           "title": "Media",
           "description": "Brand elements for media use",
           "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "Learn about our 2022 public hackathon.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Code of Conduct",
+          "description": "Our community and contributor rules.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
         },
         {
           "title": "OpenCollective",

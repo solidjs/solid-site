@@ -25,12 +25,12 @@
   ],
   "facts": [
     {
-      "label": "6.4kb",
+      "label": "7kb",
       "detail": "فشرده شده",
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "15k+",
+      "label": "18k++",
       "detail": "ستاره های گیت هاب",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },

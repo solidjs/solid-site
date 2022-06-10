@@ -1,5 +1,8 @@
 {
   "hero": "Szybki i wydajny system reaktywności do tworzenia interfejsów użytkownika.",
+  "get_started": "Rozpocznij",
+  "intro_video": "Wprowadzenie do Solid (100 sekund)",
+  "intro_video_advanced": "Zaawansowane wprowadzenie (10 minut)",
   "strengths": [
     {
       "icon": "performant",
@@ -24,7 +27,7 @@
   ],
   "facts": [
     {
-      "label": "6.4kb",
+      "label": "7kb",
       "detail": "Zminifikowany + zgzipowany",
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },

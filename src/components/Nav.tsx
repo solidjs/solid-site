@@ -1,5 +1,5 @@
 import {
-  Component,
+  ParentComponent,
   For,
   createMemo,
   createSignal,
@@ -13,9 +13,9 @@ import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { createEventListener } from '@solid-primitives/event-listener';
+import { debounce } from '@solid-primitives/scheduled';
 import { moon, sun } from 'solid-heroicons/outline';
 import { Icon } from 'solid-heroicons';
-import createDebounce from '@solid-primitives/debounce';
 import Dismiss from 'solid-dismiss';
 import logo from '../assets/logo.svg';
 import ukraine from '../assets/for-ukraine.png';
@@ -30,6 +30,7 @@ const langs = {
   en: 'English',
   'ko-kr': '한국어',
   'zh-cn': '简体中文',
+  'zh-tw': '繁體中文',
   ja: '日本語',
   it: 'Italiano',
   fr: 'Français',
@@ -43,6 +44,7 @@ const langs = {
   tl: 'Filipino',
   es: 'Español',
   pl: 'Polski',
+  uk: 'Українська',
 };
 
 type MenuLinkProps = {
@@ -58,7 +60,7 @@ type MenuLinkProps = {
   direction: 'ltr' | 'rtl';
 };
 
-const MenuLink: Component<MenuLinkProps> = (props) => {
+const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
 
   // Only rerender event listener when children change
@@ -146,22 +148,20 @@ const MenuLink: Component<MenuLinkProps> = (props) => {
   );
 };
 
-const LanguageSelector: Component<{ ref: HTMLButtonElement; class?: string }> = (props) => (
-  <li class={props.class || ''}>
-    <button
-      aria-label="Select Language"
-      ref={props.ref}
-      class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center bg-translate bg-24 hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
-    />
-  </li>
+const LanguageSelector: ParentComponent<{ ref: HTMLButtonElement }> = (props) => (
+  <button
+    aria-label="Select Language"
+    ref={props.ref}
+    class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center bg-translate bg-24 hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
+  />
 );
 
-const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
+const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
   const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const [closeSubnav, clearSubnavClose] = createDebounce(() => setSubnav([]), 150);
+  const closeSubnav = debounce(() => setSubnav([]), 150);
   const [t, { locale }] = useI18n();
   const context = useAppContext();
 
@@ -280,7 +280,13 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
               <Link href="/" onClick={onClickLogo} noScroll class={`py-3 flex w-9 `}>
                 <span class="sr-only">Navigate to the home page</span>
                 <img class="w-full h-auto z-10" src={logo} alt="Solid logo" />
-                <img class="w-8 absolute h-5 ml-5 mt-3" src={ukraine} alt="Solid logo" />
+                <img
+                  class={`w-8 h-5 absolute ${
+                    t('global.dir', {}, 'ltr') === 'rtl' ? 'mr-5 -scale-x-100 mt-2' : 'ml-5 mt-3'
+                  }`}
+                  src={ukraine}
+                  alt="Solid logo"
+                />
               </Link>
             </div>
             <ScrollShadow
@@ -298,16 +304,20 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
                       {...item}
                       setSubnav={setSubnav}
                       closeSubnav={closeSubnav}
-                      clearSubnavClose={clearSubnavClose}
+                      clearSubnavClose={closeSubnav.clear}
                       setSubnavPosition={setSubnavPosition}
                       links={item.links}
                     />
                   )}
                 </For>
-                <span class="flex lg:hidden">
-                  <Toggle />
-                </span>
-                <LanguageSelector ref={langBtnTablet} class="flex lg:hidden" />
+                <li>
+                  <span class="flex lg:hidden">
+                    <Toggle />
+                  </span>
+                </li>
+                <li class="flex lg:hidden">
+                  <LanguageSelector ref={langBtnTablet} />
+                </li>
               </ul>
             </ScrollShadow>
             <ul class="hidden lg:flex items-center">
@@ -350,7 +360,7 @@ const Nav: Component<{ showLogo?: boolean; filled?: boolean }> = (props) => {
         <Show when={subnav().length !== 0}>
           <div
             ref={subnavEl}
-            onmouseenter={clearSubnavClose}
+            onmouseenter={closeSubnav.clear}
             onmouseleave={closeSubnav}
             class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm transition duration-750"
             style={{ left: `${screen.width > 768 ? subnavPosition() : 0}px` }}

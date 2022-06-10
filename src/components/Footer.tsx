@@ -3,12 +3,12 @@ import { Portal } from 'solid-js/web';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
 import wordmark from '../assets/wordmark-dark.svg';
-import builder from '../assets/supporters/builder.png';
-import sauce from '../assets/supporters/saucelabs.png';
-import cloudflare from '../assets/supporters/cloudflare.png';
-import netlify from '../assets/supporters/netlify.png';
-import divriots from '../assets/supporters/divriots.png';
-import vercel from '../assets/supporters/vercel.png';
+import builder from '../assets/supporters/builder.webp';
+import sauce from '../assets/supporters/saucelabs.webp';
+import cloudflare from '../assets/supporters/cloudflare.webp';
+import netlify from '../assets/supporters/netlify.webp';
+import divriots from '../assets/supporters/divriots.webp';
+import vercel from '../assets/supporters/vercel.webp';
 import Social from './Social';
 
 const Supporter: Component<{
@@ -22,7 +22,7 @@ const Supporter: Component<{
     rel="noopener"
     href={props.href}
   >
-    <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} />
+    <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} loading="lazy" />
   </a>
 );
 
@@ -66,8 +66,8 @@ const Footer: Component = () => {
             <div class="flex justify-between">
               <p class="text-sm text-center text-gray-600 dark:text-gray-300">
                 {t('global.footer.updated', {
-                  date: '2022/03/19, 12:50pm',
-                  version: '1.3.12',
+                  date: '2022/06/09, 3:00pm',
+                  version: '1.4.1',
                 })}
               </p>
             </div>

@@ -55,12 +55,16 @@ export const BlogArticle: Component = () => {
                     components={{
                       ListenNotesEpisode,
                       Tweet: (props: PropsWithChildren) => (
-                        <Tweet {...props} theme={context.isDark ? 'dark' : 'light'}>
-                          {props.children}
-                        </Tweet>
+                        <Tweet
+                          {...props}
+                          theme={context.isDark ? 'dark' : 'light'}
+                          align="center"
+                        />
                       ),
                       YouTube,
-                      Twitch,
+                      Twitch: (props: PropsWithChildren) => (
+                        <Twitch {...props} parent={location.hostname} />
+                      ),
                     }}
                   />
                 </article>

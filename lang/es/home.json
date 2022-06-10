@@ -1,6 +1,9 @@
 {
   "hero": "Reactividad simple y eficaz para construir interfaces de usuario.",
   "info": "<span class=\"font-semibold\">Solid es una librería puramente reactiva.</span> Fue diseñada desde cero con un núcleo reactivo. Influenciada por los principios reactivos desarrollados por librerías previas.",
+  "get_started": "Empieza Ahora",
+  "intro_video": "Introducción a SolidJS (100 segundos)",
+  "intro_video_advanced": "Introducción avanzada (10 minutos)",
   "strengths": [
     {
       "icon": "performant",
@@ -25,12 +28,12 @@
   ],
   "facts": [
     {
-      "label": "6.4kb",
+      "label": "7kb",
       "detail": "Minificado + compresión Gzip",
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "15k+",
+      "label": "18k++",
       "detail": "Estrellas GitHub",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },

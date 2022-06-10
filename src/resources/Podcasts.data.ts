@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from '../routes/Resources';
+import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const podcasts: Array<Resource> = [
   {
@@ -58,6 +58,29 @@ const podcasts: Array<Resource> = [
     type: ResourceType.Podcast,
     categories: [ResourceCategory.Educational],
     published_at: 1636741458000,
+  },
+  {
+    title: 'SolidJS with Ryan Carniato - JSJ 528',
+    link: 'https://javascriptjabber.com/solidjs-with-ryan-carniato-jsj-528',
+    description:
+      'SolidJS is a web development framework that focuses on using reactivity and carries forward several ideas from Knockout.js.',
+    author: 'JavascriptJabber',
+    author_url: 'https://javascriptjabber.com/',
+    keywords: ['javascript', 'jabber', 'knockout', 'reactivity'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1650646766000,
+  },
+  {
+    title: 'S09E12 Modern Web Podcast- Introduction to SolidJS with Ryan Carniato',
+    link: 'https://modernweb.podbean.com/e/s09e12-modern-web-podcast-introduction-to-solidjs-with-ryan-carniato/',
+    description: `In this episode of the Modern Web podcast, hosts Rob Ocel and Nacho Vazquez sit down with Ryan Carniato to talk about SolidJS.`,
+    author: 'Modern Web Podcast',
+    author_url: 'https://modernweb.podbean.com',
+    keywords: ['solid', 'introduction'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1654635600000,
   },
 ];
 

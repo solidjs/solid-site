@@ -1,0 +1,23 @@
+{
+  "solve": "答案",
+  "reset": "重置",
+  "playground": {
+    "result": "結果",
+    "output": "輸出",
+    "clear": "清除",
+    "add_tab": "添加新頁面",
+    "refresh": "重新整理頁面",
+    "format": "格式化代碼",
+    "copy": "複製代碼",
+    "mode": "編譯模式",
+    "client_render": "客户端渲染",
+    "server_render": "服務端渲染",
+    "client_hydration_render": "客户端渲染注水",
+    "dark_mode": "深色模式",
+    "import_json": "導入 JSON",
+    "export_json": "導出 JSON",
+    "export_codesandbox": "導出到 CodeSandBox",
+    "share": "分享",
+    "scale": "縮放編輯器以放大或縮小文本"
+  }
+}

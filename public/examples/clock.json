@@ -1,0 +1,34 @@
+{
+    "files": [
+        {
+            "name": "main",
+            "type": "tsx",
+            "content": "import { render } from 'solid-js/web';\nimport { Clock } from './Clock';\nimport './styles.css';\n\nrender(() => <Clock />, document.querySelector('#app'));"
+        },
+        {
+            "name": "Clock",
+            "type": "tsx",
+            "content": "import { createSignal, onCleanup } from 'solid-js';\nimport { Hand } from './Hand';\nimport { Lines } from './Lines';\nimport { createAnimationLoop } from './utils';\nimport type { Accessor, Component } from 'solid-js';\n\nconst getSecondsSinceMidnight = (): number => (Date.now() - new Date().setHours(0, 0, 0, 0)) / 1000;\n\ntype ClockFaceProps = {\n  hour: Accessor<string>;\n  minute: Accessor<string>;\n  second: Accessor<string>;\n  subsecond: Accessor<string>;\n}\n\nexport const ClockFace: Component<ClockFaceProps> = ({ hour, minute, second, subsecond }) => (\n  <svg viewBox=\"0 0 200 200\" width=\"95vh\">\n    <g transform=\"translate(100, 100)\">\n      {/* static */}\n      <circle class=\"text-neutral-900\" r=\"99\" fill=\"white\" stroke=\"currentColor\"/>\n      <Lines numberOfLines={60} class='subsecond' length={2} width={1} />\n      <Lines numberOfLines={12} class='hour' length={5} width={2} />\n      {/* dynamic */}\n      <Hand rotate={subsecond} class=\"subsecond\" length={85} width={5} />\n      <Hand rotate={hour} class=\"hour\" length={50} width={4} />\n      <Hand rotate={minute} class=\"minute\" length={70} width={3} />\n      <Hand rotate={second} class=\"second\" length={80} width={2} />\n    </g>\n  </svg>\n);\n\nexport const Clock: Component = () => {\n  const [time, setTime] = createSignal<number>(getSecondsSinceMidnight());\n  const dispose = createAnimationLoop(() => setTime(getSecondsSinceMidnight()));\n  onCleanup(dispose);\n\n  const rotate = (rotate: number, fixed: number = 1) => `rotate(${(rotate * 360).toFixed(fixed)})`;\n  const subsecond = () => rotate(time() % 1);\n  const second = () => rotate(time() % 60 / 60);\n  const minute = () => rotate(time() / 60 % 60 / 60);\n  const hour = () => rotate(time() / 60 / 60 % 12 / 12);\n\n  return (\n    <div class=\"clock\">\n      {Array.from({ length: 1 }).map(() => (\n        <ClockFace\n          hour={hour}\n          minute={minute}\n          second={second}\n          subsecond={subsecond}\n        />\n      ))}\n    </div>\n  )\n};\n\n"
+        },
+        {
+            "name": "Lines",
+            "type": "tsx",
+            "content": "import { Hand } from './Hand';\nimport type { Component } from 'solid-js';\n\ntype LinesProps = { numberOfLines: number, class: string, length: number, width: number };\n\nconst rotate = (index: number, length: number) => () => `rotate(${(360 * index) / length})`;\n\nexport const Lines: Component<LinesProps> = ({ numberOfLines, ...rest}) => (\n  Array.from({ length: numberOfLines }).map((_, index) =>\n    <Hand rotate={rotate(index, numberOfLines)} {...rest} fixed />\n  )\n);"
+        },
+        {
+            "name": "Hand",
+            "type": "tsx",
+            "content": "import type { Accessor, Component } from 'solid-js';\n\ntype HandProps = { rotate: Accessor<string>, class: string, length: number, width: number, fixed?: boolean };\n\nexport const Hand: Component<HandProps> = ({ rotate, length, width, fixed, ...rest }) => (\n  <line\n    {...fixed && { y1: length - 95 }}\n    y2={-(fixed ? 95 : length)}\n    stroke=\"currentColor\"\n    stroke-width={width}\n    stroke-linecap=\"round\"\n    transform={rotate()}\n    {...rest}\n  />\n);\n"
+        },
+        {
+            "name": "utils",
+            "type": "tsx",
+            "content": "// ported from voby https://github.com/vobyjs/voby/blob/master/src/hooks/use_scheduler.ts\nimport { Accessor } from \"solid-js\";\n\ntype FN<Arguments extends unknown[], Return extends unknown = void> = ( ...args: Arguments ) => Return;\ntype MaybeAccessor<T = unknown> = Accessor<T> | T;\nconst isFunction = ( value: unknown ): value is (( ...args: unknown[] ) => unknown) => \n    typeof value === 'function';\nconst unwrap = <T,>(maybeValue: MaybeAccessor<T>): T => isFunction(maybeValue) ? maybeValue(): maybeValue;\n\nexport const createScheduler = <T, U> ({ loop, callback, cancel, schedule }: {\n    loop?: MaybeAccessor<boolean>, \n    callback: MaybeAccessor<FN<[U]>>, \n    cancel: FN<[T]>, \n    schedule: (( callback: FN<[U]>) => T),\n}) : () => void => {\n  let tickId: T;\n  const work = (): void => {\n    if (unwrap(loop)) tick ();\n    unwrap(callback);\n  };\n\n  const tick = (): void => {\n    tickId = schedule(work);\n  };\n\n  const dispose = (): void => {\n    cancel (tickId);\n  };\n\n  tick ();\n  return dispose;\n};\n\n\nexport const createAnimationLoop = (callback: FrameRequestCallback) => createScheduler({\n    callback,\n    loop: true,\n    cancel: cancelAnimationFrame,\n    schedule: requestAnimationFrame\n  });"
+        },
+        {
+            "name": "styles",
+            "type": "css",
+            "content": ".clock {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-wrap: wrap;\n    height: 100vh;\n}\n\n.subsecond {\n    color: silver;\n}\n\n.hour, .minute {\n    color: black;\n}\n\n.second {\n    color: tomato;\n}"
+        }
+    ]
+}

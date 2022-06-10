@@ -26,8 +26,23 @@ const list: Record<string, Example[]> = {
       name: 'CSS Animations',
       description: 'Using Solid Transition Group',
     },
+    {
+      id: 'context',
+      name: 'Context',
+      description: 'A simple color picker using Context.',
+    },
   ],
   Complex: [
+    {
+      id: 'clock',
+      name: 'Clock',
+      description: 'Demonstrates Solid reactivity with a real-time clock example.',
+    },
+    {
+      id: 'ethasketch',
+      name: 'Etch A Sketch',
+      description: 'Uses Index and createMemo to create a grid graphic.',
+    },
     {
       id: 'scoreboard',
       name: 'Scoreboard',

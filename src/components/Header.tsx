@@ -1,5 +1,5 @@
 import {
-  Component,
+  ParentComponent,
   Switch,
   Match,
   Show,
@@ -10,16 +10,18 @@ import {
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation } from 'solid-app-router';
+import { useLocation, Link } from 'solid-app-router';
 import Nav from './Nav';
 import { useAppContext } from './AppContext';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
+import { chevronRight, play } from 'solid-heroicons/outline';
+import { Icon } from 'solid-heroicons';
 import { reflow } from '../utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
 
-const Header: Component<{ title?: string }> = () => {
+const Header: ParentComponent<{ title?: string }> = () => {
   const [t] = useI18n();
   const location = useLocation();
   const isHome = location.pathname === '/';
@@ -53,7 +55,7 @@ const Header: Component<{ title?: string }> = () => {
       { defer: true },
     ),
   );
-  const Title: Component = (props) => (
+  const Title: ParentComponent = (props) => (
     <span class="inline-block transition-all duration-200">{props.children}</span>
   );
   return (
@@ -77,18 +79,55 @@ const Header: Component<{ title?: string }> = () => {
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
-                <div class="flex items-center w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4">
+                <div class="flex items-center mt-10 w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4 lg:mt-0">
                   <img
                     class="w-[6rem] h-30 lg:w-48"
                     style="filter: drop-shadow(-10px 4px 8px rgb(0 22 100 / 10%))"
                     src={logo}
                     alt="Solid logo"
+                    width="166"
+                    height="155.3"
                   />
-                  <img class="w-52 min-w-0 h-15 lg:w-80" src={wordmark} alt="Solid wordmark" />
+                  <img
+                    class="w-52 min-w-0 h-15 lg:w-80"
+                    src={wordmark}
+                    alt="Solid wordmark"
+                    width="306.42"
+                    height="70.7"
+                  />
                 </div>
                 <h2 class="lg:font-semibold text-[26px] sm:text-3xl leading-8 lg:text-4xl lg:leading-10 xl:max-w-3xl">
                   {t('home.hero')}
                 </h2>
+                <div class="space-y-2 md:flex md:space-y-0 md:space-x-2">
+                  <div>
+                    <Link
+                      href="/guides/getting-started"
+                      class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
+                    >
+                      <span class="mt-0.5 ">{t('home.get_started', {}, 'Get Started')}</span>
+                      <Icon stroke-width="3" class="w-5" path={chevronRight} />
+                    </Link>
+                  </div>
+                  <div class="flex flex-col space-y-1">
+                    <Link
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=hw3Bx5vxKl0"
+                      class="bg-solid-light flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
+                    >
+                      <Icon stroke-width="2" class="w-6 mr-2" path={play} />
+                      {t('home.intro_video', {}, 'Intro to Solid (100 seconds)')}
+                    </Link>
+                    <Link
+                      target="_blank"
+                      href="https://www.youtube.com/watch?v=J70HXl1KhWE"
+                      class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
+                    >
+                      <Icon stroke-width="2" class="w-6 mr-2" path={play} />
+                      {t('home.intro_video_advanced', {}, 'Advanced intro (10 minutes)')}
+                    </Link>
+                  </div>
+                </div>
               </section>
             </div>
           </header>
@@ -121,16 +160,16 @@ const Header: Component<{ title?: string }> = () => {
                           </Title>
                         </Match>
                         <Match when={location.pathname.includes('/docs')}>
-                          <Title>{t('docs.title', {}, 'Guides')}</Title>
+                          <Title>{t('docs.title', {}, 'Docs')}</Title>
                         </Match>
-                        <Match when={location.pathname.includes('/resources')}>
-                          <Title>{t('resources.title', {}, 'Guides')}</Title>
+                        <Match when={location.pathname.includes('/ecosystem')}>
+                          <Title>{t('resources.title', {}, 'Ecosystem')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/examples')}>
-                          <Title>{t('examples.title', {}, 'Guides')}</Title>
+                          <Title>{t('examples.title', {}, 'Examples')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/media')}>
-                          <Title>{t('media.title', {}, 'Guides')}</Title>
+                          <Title>{t('media.title', {}, 'Media Assets')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/blog')}>
                           <Title>{t('blog.title', {}, 'Blog')}</Title>

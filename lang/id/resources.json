@@ -1,7 +1,7 @@
 {
-  "title": "Sumber daya",
+  "title": "Ekosistem",
   "cta": "Untuk membuat project kamu yang berhubungan dengan SolidJS terdaftar disini, hubung kami di <a href=\"https://discord.com/invite/solidjs\">Discord</a>.",
-  "search": "Pencarian sumber daya",
+  "search": "Pencarian ekosistem",
   "types": "Tipe-tipe",
   "types_list": {
     "article": "Artikel",
@@ -9,6 +9,9 @@
     "library": "Library",
     "package": "Package"
   },
+  "published": "Dipublikasi",
+  "days_ago": "{{amount}} hari yang lalu",
+  "hours_ago": "{{amount}} jam yang lalu",
   "categories": "Kategori",
   "translations": "Terjemahan",
   "categories_list": {

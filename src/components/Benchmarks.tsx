@@ -57,7 +57,7 @@ const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string 
                     >
                       {row.score ? (
                         <figure>
-                          <span class="inline-block p-1 ltr:border-l rtl:border-r border-white px-2 rounded-full">
+                          <span class="inline-block p-1 px-2 rounded-full">
                             {row.score.toLocaleString()}
                           </span>
                         </figure>

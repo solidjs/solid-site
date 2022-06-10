@@ -32,6 +32,8 @@ module.exports = {
       },
       boxShadow: {
         'top-2xl': '0 -25px 50px -12px rgba(0, 0, 0, 0.25)',
+        'even-md-light': '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2)',
+        'even-md-dark': '0 1px 3px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.3)',
       },
       transitionDuration: {
         0: '0ms',

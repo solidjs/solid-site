@@ -1,0 +1,93 @@
+The year has kicked off with a bang for our small but rapidly growing community. It's been incredibly exciting to witness so much interest in what the project has to give. We've been feverishly at work solidifying Solid Start, improving core, managing the hackathon and planning for some new exciting features.
+
+Before we jump in: on behalf of the Core Team, we want to thank every Solid community member for your encouragement, support, and contributions over the past few months. Solid is so much more than a web framework; it's a community of generous, talented and caring developers that have come together to build great things. We couldn't be more grateful.
+
+# Sponsorships
+
+The year brought in some exciting sponsors. Today, we're honored to announce two new financial supporters: `<div>riots` and `Vercel`.
+
+`<div>riots` believes that front-end creation is an art form. Their team builds some of the most exciting and forward-thinking tooling for front-end teams. We're very pleased that they've pledged $100 monthly to our OpenCollective, but they've also launched Solid support for their Backlight project, a futuristic tool for teams to ship great design systems.
+
+<a href="https://www.backlight.dev/" target="_blank">
+  ![Backlight](/img/blog/state-of-solid-march-2022/backlight.png)
+</a>
+
+We're also pleased to welcome `Vercel` into our growing list of supporters offering up a $100 monthly pledge. Vercel's vision is to enable frontend teams to do their best work. Solid and Vercel share a similar vision to shape the future of the web by making that work easy and fast. Having Vercel in our corner along with our other amazing sponsors brings true recognition to the work we're doing in building a web framework that puts both simplicity and performance first.
+
+<a href="https://www.vercel.com/" target="_blank">
+  ![Backlight](/img/blog/state-of-solid-march-2022/vercel.png)
+</a>
+
+To all of our generous sponsors, thank you! Your support recognizes and enables the work we do daily to grow the project and the community.
+
+# Community, Growth and Ecosystem
+
+Community growth this quarter has been remarkable: we're growing at the fastest pace we've seen to date. Our key indicators continuously show week over week across our website, Twitter, Github, and Discord. Website traffic is a major indicator and sees unique visits growing at a constant rate of ~15% week over week. Discord membership has increased 20%, GitHub contributors/interactions by 60% and total Twitter engagements + followers by 453%.
+
+<a href="https://star-history.com/#solidjs/solid&Date" target="_blank">
+  ![Backlight](/img/blog/state-of-solid-march-2022/star-history.png)
+</a>
+
+Solid's Github star count just surpassed 16,000 stars recently, overtaking Inferno.js and climbing towards Alpine.js's 20k stars.
+
+Community growth has been spectacular, bolstered by SolidJS becoming the [top-rated framework in developer satisfaction](https://2021.stateofjs.com/en-US/libraries/front-end-frameworks/) on this year's State of JS survey. This is a testament to the health of the community we've built. We couldn't be more pleased with the result, but we should note that Solid adoption isn't yet widespread: the following chart from State of JS indicates extremely high satisfaction, but with low user count.
+
+<a href="https://2021.stateofjs.com/en-US/libraries/#scatterplot_overview" target="_blank">
+  ![Backlight](/img/blog/state-of-solid-march-2022/state-of-js.png)
+</a>
+
+We're confident as the user base grows that the satisfaction rate will remain competitive alongside our fellow frameworks such as Svelte and Vue. We should, however, admit that the methodology of this survey allows a small project such as Solid to quickly top the charts. We thank everyone who showed their support on the survey and welcome all of our new users that discovered Solid through the results!
+
+The quarter was also quite busy for Ryan, talking and writing on numerous topics in addition to his core development work. Our favorite to date was an awesome interview with CoderPad where Ryan and Corbin give a really fantastic explanation of how the library works. Ryan also had an [opportunity to jump on PurrfectDev](https://www.youtube.com/watch?v=Jn5e1NYFfN4).
+
+<Twitch twitchId="1275982315" />
+
+In the Twittersphere, Solid has been a hot topic of conversation. Here are some fun highlights:
+
+<Tweet tweetLink="mjackson/status/1486468989156937728" />
+<Tweet tweetLink="AdamRackis/status/1499401951447969794" />
+<Tweet tweetLink="tannerlinsley/status/1502116674689925123" />
+<Tweet tweetLink="housecor/status/1502622181859237900" />
+
+Lastly, the articles about Solid keep rolling in. You can find them listed on the website's Resource section but we want to highlight this particularly [exciting piece by Nick Scialli](https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/).
+
+# SolidHack 2022
+
+This January we launched our first SolidHack hackathon. We see the hackathon as an opportunity to bring community members to the forefront of the ecosystem and reward them with cash prizes. We're heading into the final week of the competition and submissions are starting to roll in a lot quicker.
+
+If you're planning on submitting, then you may want to consider finishing testing and deploying your application. Documentation and presentation will be critical to win votes!
+
+We also want to thank our sponsors at Stytch, Builder.io, ClearSpend and 402 for their support throughout this launch, and special thanks to our private donors for pitching in to get us to our US$12K prize money.
+
+Final submissions are April 7th, at which point voting begins. Don't forget to visit [https://hack.solidjs.com](https://hack.solidjs.com) to cast your votes on your favorite projects. We're very eager to see what the community cooks up!
+
+# Docs & Website
+
+We've made a big splash in the JavaScript world, and as our potential user base grows so does the importance of our homepage and onboarding experience. To that end, Core has been discussing a complete rehaul of [solidjs.com](https://www.solidjs.com/), including how we do docs. We've been recruiting a team of talented communicators to form a docs team which will work across Solid Core, Solid Start, and ecosystem projects to develop beginner-friendly guides, comprehensive and readable API docs, and an MDX-based component infrastructure to support it all.
+
+This team includes Nick Scialli working on Guides and Erik Demaine working on API [docs and more](https://www.solidjs.com/guides/typescript). Nikhil Saraf has brought docs to the forefront of the Solid Start effort. They've joined Dan (our core team docs fanatic) who is extremely grateful to not work alone! He's also been working on some Solid walkthrough videos for learning the framework - [check out the latest draft](https://www.youtube.com/watch?v=WW8eFwEb8Nc), inspired by the CoderPad talk, and let us know what you think!
+
+# Solid Start
+
+Solid Start has continued some key development this quarter aided by the contributions of the community. But a lot of credit goes to the amazing work of Nikhil Saraf who has implemented 3 key features that bring us ever closer to a Solid Start Beta:
+Server Functions
+Progressively Enhanced Forms
+Improved CLI
+
+Server Functions allow instant type safe RPC calls to be embedded around your codebase. Simply wrap any existing function with a server function and it will always run on the server, regardless of where it is called.
+
+We've added fully progressive enhanceable forms with optimistic updates that will work when JavaScript has been turned off. Our forms are built on our foundation of using those Server functions so you can declare them anywhere and use them as needed.
+
+Finally, we've made big improvements to the examples and CLI. All examples are available in both JS and TS flavors and can be configured to be client-only or full isomorphic. This makes it easier than ever to get started with Solid Start, as the same setup works for client only apps and makes it easy to transition to server rendered as the need presents itself.
+
+We are stabilizing APIs, writing docs, and polishing a CLI that makes it easy to scaffold a project to fit your needs. Expect a Solid Start beta release to be coming soon!
+
+# Conclusion
+
+Solid has grown an incredible amount in the last year. A year ago this time, our focus was on building the documentation site to finish up the 1.0 release. A year later we are closing up our first Hackathon, and it is amazing to see how much the ecosystem has grown.
+
+A year ago, we had no component libraries and now we have several, ranging from [fully-styled ports of Material UI](https://suid.io/) to [multiple options for headless components](https://hope-ui.com/). We've seen [incredible 3D scenes](https://www.youtube.com/watch?v=lsWXyyEsw7E&t=1836s), compiler plugins offering every flavor of syntax, and even demos that defied expectation of what can be done without a Virtual DOM. We've streamed from the edge, taken over the terminal, and even made [our way to native mobile with CapacitorJS](https://ionicframework.com/blog/new-capacitor-templates-solidjs-vite/).
+
+We've learned a lot and that is going right back into the framework. Over the past few years, innovation on the web has slowed down and everyone has been bundling up experiences, but we are at turning point. To enable what the next generation of web applications need we are returning focus to primitives.
+
+The plans for the next major version of Solid are coming together and the next few minor releases will be about aligning to that vision. We'll be revisiting the rough edges on Resource and Store primitives and look at what other tools are needed to build great patterns around async data. We'll be looking at how we can use reactivity to reduce hydration costs. These learnings will improve the core library while laying the best possible groundwork for Solid Start and the rest of the ecosystem—we can't wait for you to be a part of it.

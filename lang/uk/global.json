@@ -1,0 +1,83 @@
+{
+  "name": "Українська",
+  "title": "SolidJS · Реактивна Javascript Бібліотека",
+  "locale": "uk-UA",
+  "nav": [
+    {
+      "title": "Ґіди",
+      "path": "/guides"
+    },
+    {
+      "title": "Документація",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "Екосистема",
+      "path": "/ecosystem"
+    },
+    {
+      "title": "Підручник",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Приклади",
+      "path": "/examples"
+    },
+    {
+      "title": "Пісочниця",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Інформація",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "Блоґ",
+          "description": "Новини та оновлення від нашої спільноти",
+          "path": "/blog"
+        },
+        {
+          "title": "Команда та внески",
+          "description": "Учасники команди Solid та підтримувальники",
+          "path": "/contributors"
+        },
+        {
+          "title": "Медіа",
+          "description": "Елементи бренду для використання в ЗМІ",
+          "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "Дізнайтеся про наш публічний хакатон 2022 року.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Підтримайте нас донатом та допоможіть продовжувати нашу діяльність",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "Упс. Чотири нуль чотири.",
+    "body": "уважає, що ця сторінка точно не існує."
+  },
+  "newsletter": {
+    "title": "Підпишіться на Solid News",
+    "email": "Email адреса",
+    "success": "Ви успішно зареєстровані!",
+    "error": "Під час реєстрації трапилася помилка",
+    "register": "Доєднатися",
+    "sending": "Надсилається"
+  },
+  "footer": {
+    "declaration": "Solid — це проект із відкритим початковим кодом, підтримуваний командою публічних учасників. Він поширюється під <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">ліцензією MIT</a>. Ця бібліотека та спільнота існують завдяки <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">головній команді та відданим контриб'юторам</a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Спонсори",
+    "updated": "Востаннє оновлено {{date}} до Solid версії {{version}}"
+  }
+}
