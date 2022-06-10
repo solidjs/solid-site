@@ -1,5 +1,6 @@
 import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
 import { Meta, Title } from 'solid-meta';
+import { isServer } from 'solid-js/web';
 import { useLocation } from 'solid-app-router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext } from '@solid-primitives/i18n';
@@ -38,12 +39,14 @@ type DataParams = {
   page: string;
 };
 
-export const AppContextProvider: ParentComponent = (props) => {
+const createRootStore = () => {
   const now = new Date();
   const cookieOptions = {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
   };
-  const [settings, set] = !isServer
+  const [settings, set] = createCookieStorage();
+  const browserLang = !isServer ? navigator.language.slice(0, 2) : "en"
+  const location = useLocation()
     ? createCookieStorage()
     : createStore({ dark: 'false', locale: 'en' });
 

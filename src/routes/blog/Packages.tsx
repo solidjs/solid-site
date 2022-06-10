@@ -11,10 +11,10 @@ import {
   ResourceCategoryName,
   ResourceType,
   ResourceTypeIcons,
-} from './Resources/Ecosystem';
-import { parseKeyword } from '../utils/parseKeyword';
-import { rememberSearch } from '../utils/rememberSearch';
-import SideContent from '../components/layout/SideContent';
+} from '../../resources/Ecosystem';
+import { parseKeyword } from '../../utils/parseKeyword';
+import { rememberSearch } from '../../utils/rememberSearch';
+import SideContent from '../../components/layout/SideContent';
 import { Icon } from 'solid-heroicons';
 import { createCountdown } from '@solid-primitives/date';
 import { shieldCheck } from 'solid-heroicons/solid';

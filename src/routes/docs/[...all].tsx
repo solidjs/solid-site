@@ -11,7 +11,7 @@ import {
 import { useRouteData } from 'solid-app-router';
 import createScrollPosition from '@solid-primitives/scroll';
 import { throttle } from '@solid-primitives/scheduled';
-import SideContent from '../components/layout/SideContent';
+import SideContent from '../../components/layout/SideContent';
 
 const SectionButton: Component<{
   href: string;

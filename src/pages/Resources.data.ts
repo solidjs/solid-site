@@ -1,6 +1,6 @@
-import articles from './Resources/Articles.data';
-import videos from './Resources/Videos.data';
-import podcasts from './Resources/Podcasts.data';
+import articles from '../resources/Articles.data';
+import videos from '../resources/Videos.data';
+import podcasts from '../resources/Podcasts.data';
 
 export const ResourcesData = () => ({
   list: [...videos, ...articles, ...podcasts],

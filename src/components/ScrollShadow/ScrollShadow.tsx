@@ -1,5 +1,5 @@
 import { ParentComponent, onCleanup, onMount } from 'solid-js';
-import { useAppContext } from '../../AppContext';
+import { useAppContext } from '../AppContext';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
