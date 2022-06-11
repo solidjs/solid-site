@@ -97,5 +97,7 @@
     "contributors": "/contributors",
     "sponsored_by": "Sponsored by",
     "updated": "Last updated {{date}} on Solid v{{version}}"
-  }
+  },
+  "dark_mode": "Dark mode",
+  "light_mode": "Light mode"
 }

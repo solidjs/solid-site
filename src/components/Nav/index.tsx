@@ -1,30 +1,20 @@
-import {
-  ParentComponent,
-  For,
-  createMemo,
-  createSignal,
-  Show,
-  onMount,
-  on,
-  createComputed,
-  batch,
-} from 'solid-js';
+import { ParentComponent, For, createMemo, createSignal, Show, on, createComputed } from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
-import { createEventListener } from '@solid-primitives/event-listener';
 import { debounce } from '@solid-primitives/scheduled';
-import { moon, sun } from 'solid-heroicons/outline';
-import { Icon } from 'solid-heroicons';
 import Dismiss from 'solid-dismiss';
-import logo from '../assets/logo.svg';
-import ukraine from '../assets/for-ukraine.png';
-import ScrollShadow from './ScrollShadow/ScrollShadow';
-import Social from './Social';
-import { useAppContext } from '../AppContext';
-import { reflow } from '../utils';
-import { routeReadyState, page, setRouteReadyState } from '../utils/routeReadyState';
-import PageLoadingBar from './LoadingBar/PageLoadingBar';
+import logo from '../../assets/logo.svg';
+import ukraine from '../../assets/for-ukraine.png';
+import ScrollShadow from '../ScrollShadow/ScrollShadow';
+import Social from '../Social';
+import { useAppContext } from '../../AppContext';
+import { onEnterLogo, onExitLogo } from '../../utils';
+import { routeReadyState, page, setRouteReadyState } from '../../utils/routeReadyState';
+import PageLoadingBar from '../LoadingBar/PageLoadingBar';
+import { MenuLink, MenuLinkProps } from './MenuLink';
+import { LanguageSelector } from './LanguageSelector';
+import { ModeToggle } from './ModeToggle';
 
 const langs = {
   en: 'English',
@@ -46,115 +36,6 @@ const langs = {
   pl: 'Polski',
   uk: 'Українська',
 };
-
-type MenuLinkProps = {
-  title: string;
-  description: string;
-  path: string;
-  external?: boolean;
-  setSubnav: (children: MenuLinkProps[]) => void;
-  setSubnavPosition: (position: number) => void;
-  closeSubnav: () => void;
-  clearSubnavClose: () => void;
-  links: MenuLinkProps[];
-  direction: 'ltr' | 'rtl';
-};
-
-const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
-  let linkEl!: HTMLAnchorElement;
-
-  // Only rerender event listener when children change
-  if (props.links) {
-    onMount(() => {
-      createEventListener(linkEl, 'mouseenter', () => {
-        props.clearSubnavClose();
-        batch(() => {
-          props.setSubnav(props.links as MenuLinkProps[]);
-          props.setSubnavPosition(linkEl.getBoundingClientRect().left);
-        });
-      });
-      createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
-    });
-  }
-  onMount(() => {
-    createEventListener(linkEl, 'mousedown', () => {
-      setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
-      page.scrollY = window.scrollY;
-      reflow();
-      const clearLeave = createEventListener(linkEl, 'mouseleave', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      const clearClick = createEventListener(linkEl, 'click', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      const removeEvents = () => {
-        clearLeave();
-        clearClick();
-      };
-    });
-    if (!window.location.pathname.startsWith(props.path)) return;
-
-    // @ts-ignore
-    linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
-  });
-
-  const onClick = () => {
-    if (window.location.pathname.startsWith(props.path)) {
-      window.scrollTo({ top: 0 });
-      return;
-    }
-    const pageEl = document.body;
-    pageEl.style.minHeight = document.body.scrollHeight + 'px';
-    reflow();
-    setRouteReadyState((prev) => ({
-      ...prev,
-      loadingBar: true,
-      loading: true,
-      routeChanged: true,
-    }));
-  };
-
-  return (
-    <li>
-      <NavLink
-        href={props.path}
-        target={props.external ? '_blank' : undefined}
-        class="inline-flex items-center transition text-[15px] dark:hover:bg-solid-darkLighterBg sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
-        activeClass="bg-solid-medium dark:bg-solid-light text-white"
-        onClick={() => !props.external && onClick()}
-        noScroll
-        ref={linkEl}
-      >
-        <span>{props.title}</span>
-        <Show when={props.external}>
-          <svg
-            class="h-5 z-50 -mt-1 ltr:ml-1 rtl:mr-1 opacity-30"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            />
-          </svg>
-        </Show>
-      </NavLink>
-    </li>
-  );
-};
-
-const LanguageSelector: ParentComponent<{ ref: HTMLButtonElement }> = (props) => (
-  <button
-    aria-label="Select Language"
-    ref={props.ref}
-    class="dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center bg-translate bg-24 hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-6 pl-4 ml-2 rounded-md h-10 border border-solid-100 pt-4 text-sm my-3 w-full"
-  />
-);
 
 const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
@@ -236,23 +117,6 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
       showPageLoadingBar: true,
     }));
   };
-  const Toggle = () => (
-    <button
-      type="button"
-      onClick={() => (context.isDark = !context.isDark)}
-      class="text-solid-medium dark:brightness-150 focus:color-red-500 bg-no-repeat bg-center hover:border-gray-500 cursor-pointer dark:border-gray-600 dark:hover:border-gray-500 px-3 ml-2 rounded-md h-10 border border-solid-100"
-      classList={{
-        'hover:bg-gray-300 dark:hover:text-black focus:outline-none focus:highlight-none active:highlight-none focus:ring-0 active:outline-none':
-          context.isDark,
-      }}
-      title="Toggle dark mode"
-    >
-      <Show when={context.isDark} fallback={<Icon path={moon} class="h-6" />}>
-        <Icon path={sun} class="h-6" />
-      </Show>
-      <span class="text-xs sr-only">{context.isDark ? 'Light' : 'Dark'} mode</span>
-    </button>
-  );
 
   return (
     <>
@@ -304,7 +168,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 </For>
                 <li>
                   <span class="flex lg:hidden">
-                    <Toggle />
+                    <ModeToggle />
                   </span>
                 </li>
                 <li class="flex lg:hidden">
@@ -314,7 +178,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
             </ScrollShadow>
             <ul class="hidden lg:flex items-center">
               <Social />
-              <Toggle />
+              <ModeToggle />
               <LanguageSelector ref={langBtnDesktop} />
             </ul>
           </nav>
@@ -387,65 +251,6 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
         </Show>
       </div>
     </>
-  );
-};
-
-const logoWidth = '56px';
-const setTransition = (el: HTMLElement) => {
-  el.classList.add('transition-transform', 'duration-500');
-};
-const resetTransform = (el: HTMLElement) => {
-  el.classList.remove('transition-transform', 'duration-500');
-  el.style.transform = '';
-  el.style.transformOrigin = '';
-};
-const onEnterLogo = (logoEl: HTMLElement, isRTL: boolean) => {
-  const navList = logoEl.nextElementSibling as HTMLElement;
-  const elements = [logoEl, navList];
-
-  logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
-  navList.style.transform = `translateX(${isRTL ? '' : '-'}${logoWidth})`;
-
-  reflow();
-  navList.style.transform = `translateX(0)`;
-  elements.forEach(setTransition);
-  createEventListener(
-    logoEl,
-    'transitioned',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
-      elements.forEach(resetTransform);
-    },
-    { once: true },
-  );
-};
-
-const onExitLogo = (logoEl: HTMLElement, isRTL: boolean) => {
-  const navList = logoEl.nextElementSibling as HTMLElement;
-  const elements = [logoEl, navList];
-
-  navList.style.transform = `translateX(${isRTL ? '-' : ''}${logoWidth})`;
-
-  reflow();
-  logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
-  navList.style.transform = `translateX(0)`;
-
-  elements.forEach((el) => {
-    setTransition(el);
-    el.style.backfaceVisibility = 'hidden';
-  });
-
-  createEventListener(
-    logoEl,
-    'transitionend',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
-      elements.forEach((el) => {
-        resetTransform(el);
-        el.style.backfaceVisibility = '';
-      });
-    },
-    { once: true },
   );
 };
 
