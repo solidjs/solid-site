@@ -86,7 +86,7 @@ const Home: Component<{}> = () => {
                 const d = (
                   <>
                     <strong class="font-semibold mr-1">{fact.label}</strong>
-                    <span class="block text-sm">{fact.detail}</span>
+                    <span class="flex items-center text-sm">{fact.detail}</span>
                   </>
                 );
                 return (
