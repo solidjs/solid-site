@@ -958,6 +958,17 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1653598800000,
   },
+  {
+    link: 'https://supabase.com/docs/guides/with-solidjs',
+    title: `SolidJS + Supabase Quick Start`,
+    description: 'This example provides the steps to build a simple user management app (from scratch!) using Supabase and Solid JS.',
+    author: 'Supabase',
+    author_url: 'https://www.supabase.com',
+    keywords: ['database', 'supabase'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1655186371000,
+  },
 ];
 
 export default articles;
