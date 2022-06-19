@@ -28,7 +28,7 @@
     "@solid-primitives/scheduled": "^1.0.0",
     "@solid-primitives/scroll": "^1.0.5",
     "@solid-primitives/storage": "^1.1.1",
-    "@solid.js/docs": "^1.0.42",
+    "@solid.js/docs": "^1.0.43",
     "fuse.js": "^6.5.3",
     "highlight.js": "^11.5.0",
     "monaco-editor": "0.31.1",
