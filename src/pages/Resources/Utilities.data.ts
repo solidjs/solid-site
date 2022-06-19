@@ -1559,6 +1559,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
   },
+  {
+    link: 'https://github.com/diragb/solid-custom-scrollbars',
+    title: 'solid-custom-scrollbars',
+    description: 'Custom Scrollbars for Solid.',
+    author: 'Dirag Biswas',
+    author_url: 'https://github.com/diragb',
+    keywords: ['scrollbars', 'scrolling', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
