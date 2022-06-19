@@ -1318,19 +1318,6 @@ const utilities: Array<Resource> = [
     published_at: 1651891327000,
   },
   {
-    link: 'https://github.com/AdityaSetyadi/form-gear',
-    title: 'form-gear',
-    description:
-      'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
-    author: 'CompendiumDevTools',
-    author_url: 'https://github.com/AdityaSetyadi',
-    keywords: ['form', 'formgear', 'gear'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
-    published_at: 1651891327000,
-  },
-  {
     link: 'https://github.com/gstatem/gstatem',
     title: 'GStatem',
     description: 'GStatem is a small, simple and fast state-management tool.',
