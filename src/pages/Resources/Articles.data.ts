@@ -961,7 +961,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://supabase.com/docs/guides/with-solidjs',
     title: `SolidJS + Supabase Quick Start`,
-    description: 'This example provides the steps to build a simple user management app (from scratch!) using Supabase and Solid JS.',
+    description:
+      'This example provides the steps to build a simple user management app (from scratch!) using Supabase and Solid JS.',
     author: 'Supabase',
     author_url: 'https://www.supabase.com',
     keywords: ['database', 'supabase'],

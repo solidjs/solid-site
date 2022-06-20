@@ -78,6 +78,12 @@ const Header: ParentComponent<{ title?: string }> = () => {
               {t('home.ukraine.petition', {}, 'Help provide humanitarian aid.')}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
+              <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s">
+                <img
+                  class="hidden md:block absolute md:top-20 lg:top-32 md:right-20 md:w-40 lg:w-72"
+                  src="/img/award-badge.svg"
+                />
+              </a>
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center mt-10 w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4 lg:mt-0">
                   <img
