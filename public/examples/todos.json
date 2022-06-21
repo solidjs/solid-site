@@ -10,7 +10,7 @@
       {
           "name": "utils",
           "type": "tsx",
-          "content": "import { createEffect } from \"solid-js\";\r\nimport { createStore, SetStoreFunction, Store } from \"solid-js/store\";\r\n\r\nexport function createLocalStore<T>(\r\n  name: string,\r\n  init: T\r\n): [Store<T>, SetStoreFunction<T>] {\r\n  const localState = localStorage.getItem(name);\r\n  const [state, setState] = createStore<T>(\r\n    init,\r\n    localState ? JSON.parse(localState) : init\r\n  );\r\n  createEffect(() => localStorage.setItem(name, JSON.stringify(state)));\r\n  return [state, setState];\r\n}\r\n\r\nexport function removeIndex<T>(array: readonly T[], index: number): T[] {\r\n  return [...array.slice(0, index), ...array.slice(index + 1)];\r\n}\r\n"
+          "content": "import { createEffect } from \"solid-js\";\r\nimport { createStore, SetStoreFunction, Store } from \"solid-js/store\";\r\n\r\nexport function createLocalStore<T extends object>(\r\n  name: string,\r\n  init: T\r\n): [Store<T>, SetStoreFunction<T>] {\r\n  const localState = localStorage.getItem(name);\r\n  const [state, setState] = createStore<T>(\r\n    localState ? JSON.parse(localState) : init\r\n  );\r\n  createEffect(() => localStorage.setItem(name, JSON.stringify(state)));\r\n  return [state, setState];\r\n}\r\n\r\nexport function removeIndex<T>(array: readonly T[], index: number): T[] {\r\n  return [...array.slice(0, index), ...array.slice(index + 1)];\r\n}\r\n"
       }
   ]
 }
