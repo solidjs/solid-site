@@ -1570,6 +1570,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/StillScripts/solid-typer',
+    title: 'solid-typer',
+    description: 'Add text-typing animations to Solid.',
+    author: 'Daniel Still',
+    author_url: 'https://github.com/StillScripts',
+    keywords:  ['typing', 'typer', 'typewriter', 'animation', 'text'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
