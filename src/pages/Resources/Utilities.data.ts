@@ -398,9 +398,9 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
-    link: 'https://github.com/storeon/solidjs',
+    link: 'https://github.com/skrylnikov/reatom-solid',
     title: 'reatom-solid',
-    description: 'Reatom bindings for Reatom.',
+    description: 'Solid bindings for Reatom store.',
     author: 'skrylnikov',
     keywords: ['reatom'],
     official: false,
