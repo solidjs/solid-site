@@ -970,6 +970,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1655186371000,
   },
+  {
+    link: 'https://blog.openreplay.com/alternatives-to-react-solid-js',
+    title: `Alternatives to React: Solid JS`,
+    description:
+      'Alternatives to React is a series of articles looking at different JavaScript front-end frameworks.',
+    author: 'Amazing Enyichi Agu',
+    author_url: 'https://blog.openreplay.com/authors/amazing-enyichi-agu',
+    keywords: ['ui', 'alternatives', 'react'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1655872130000,
+  },
 ];
 
 export default articles;
