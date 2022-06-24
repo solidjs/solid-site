@@ -227,17 +227,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
   {
-    link: 'https://github.com/amoutonbrady/parcel2-solid-ts-starter',
-    title: 'parcel2-solid-ts-starter',
-    description: 'Parcel 2 support for SOlid. Great DX + performances out of the box.',
-    author: 'Alexandre Mouton Brady',
-    author_url: 'https://github.com/amoutonbrady',
-    keywords: ['starter', 'typescript', 'parcel2'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://github.com/amoutonbrady/solid-snowpack-starter',
     title: 'solid-snowpack-starter',
     description:
@@ -310,7 +299,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/amoutonbrady/parcel2-solid-ts-starter',
     title: 'parcel2-solid-ts-starter',
     description:
-      'This template is based on yarn 2 pnp resolution (zero-install). It also uses parcel 2 for bundling.',
+      'Minimal Solid starter based on yarn 2 pnp resolution (zero-install) and parcel 2 for bundling.',
     author: 'Alexandre Mouton Brady',
     author_url: 'https://github.com/amoutonbrady',
     keywords: ['parcel2', 'tooling', 'boilerplate'],
@@ -1441,7 +1430,7 @@ const utilities: Array<Resource> = [
   },
   {
     link: 'https://github.com/Exelord/solid-services',
-    title: 'solid-proxies',
+    title: 'solid-services',
     description:
       'Services are "global" objects useful for features that require shared state or persistent connections.',
     author: 'Exelord',
