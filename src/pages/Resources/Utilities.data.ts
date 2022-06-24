@@ -1559,6 +1559,28 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
   },
+  {
+    link: 'https://github.com/diragb/solid-custom-scrollbars',
+    title: 'solid-custom-scrollbars',
+    description: 'Custom Scrollbars for Solid.',
+    author: 'Dirag Biswas',
+    author_url: 'https://github.com/diragb',
+    keywords: ['scrollbars', 'scrolling', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/StillScripts/solid-typer',
+    title: 'solid-typer',
+    description: 'Add text-typing animations to Solid.',
+    author: 'Daniel Still',
+    author_url: 'https://github.com/StillScripts',
+    keywords:  ['typing', 'typer', 'typewriter', 'animation', 'text'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
