@@ -1576,7 +1576,7 @@ const utilities: Array<Resource> = [
     description: 'Add text-typing animations to Solid.',
     author: 'Daniel Still',
     author_url: 'https://github.com/StillScripts',
-    keywords:  ['typing', 'typer', 'typewriter', 'animation', 'text'],
+    keywords: ['typing', 'typer', 'typewriter', 'animation', 'text'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
