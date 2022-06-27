@@ -1570,6 +1570,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/fastify/fastify-dx/tree/main/packages/fastify-dx-solid',
+    title: 'fastify-dx-solid',
+    description: 'Fastify DX for Solid is a renderer adapter for fastify-vite.',
+    author: 'Fastify',
+    author_url: 'https://github.com/fastify',
+    keywords: ['full stack', 'fastify', 'framework', 'server', 'back-end'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
