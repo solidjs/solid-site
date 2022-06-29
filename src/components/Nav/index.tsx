@@ -1,7 +1,7 @@
 import { ParentComponent, For, createMemo, createSignal, Show, on, createComputed } from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
-import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import logo from '../../assets/logo.svg';
@@ -53,10 +53,9 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   let subnavEl!: HTMLDivElement;
 
   const isRTL = () => t('global.dir', {}, 'ltr') === 'rtl';
-
   const logoPosition = () => (isRTL() ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5');
 
-  const [observer] = createIntersectionObserver([], ([entry]) => {
+  const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
       return;
@@ -64,7 +63,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
     if (entry.intersectionRatio === 0) return;
     setLocked(entry.isIntersecting);
   });
-  observer;
+  intersectionObserver;
 
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo<MenuLinkProps[]>(
@@ -120,7 +119,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
 
   return (
     <>
-      <div use:observer class="h-0" />
+      <div use:intersectionObserver class="h-0" />
       <div
         class="sticky top-0 z-50 bg-white dark:bg-solid-darkbg"
         classList={{ 'shadow-md dark:bg-solid-medium': showLogo() }}
@@ -148,7 +147,9 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                   alt=""
                 />
               </Link>
-			  <span id="ukraine-support" hidden>{t('home.ukraine.support', {}, 'We stand with Ukraine.')}</span>
+              <span id="ukraine-support" hidden>
+                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+              </span>
             </div>
             <ScrollShadow
               class="group relative nav-items-container"

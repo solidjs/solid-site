@@ -9,7 +9,7 @@ import { Icon } from 'solid-heroicons';
 import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
-import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
@@ -146,14 +146,14 @@ const Resources: Component = () => {
 
   useRouteReadyState();
 
-  const [observer] = createIntersectionObserver([], ([entry]) => {
+  const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
       return;
     }
     setStickyBarActive(!entry.isIntersecting);
   });
-  observer;
+  intersectionObserver;
 
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;
@@ -243,7 +243,7 @@ const Resources: Component = () => {
           ></div>
           <div class="absolute w-full h-full top-0 left-0 bg-white dark:bg-neutral-600 z-negative"></div>
           <div class="h-[45px] px-5 flex justify-between gap-1">
-            <div use:observer class="absolute top-[-62px] h-0" />
+            <div use:intersectionObserver class="absolute top-[-62px] h-0" />
             <input
               class="rounded border border-solid h-full w-full border-gray-400 p-3 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
               placeholder={t('resources.search')}

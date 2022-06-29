@@ -4,7 +4,7 @@ import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
 import { useI18n } from '@solid-primitives/i18n';
-import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import {
   Resource,
   ResourceCategory,
@@ -158,14 +158,14 @@ const Packages: Component = () => {
   const [stickyBarActive, setStickyBarActive] = createSignal(false);
   let firstLoad = true;
 
-  const [observer] = createIntersectionObserver([], ([entry]) => {
+  const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
       return;
     }
     setStickyBarActive(!entry.isIntersecting);
   });
-  observer;
+  intersectionObserver;
 
   const navigate = useNavigate();
   const scrollToCategory = (category: ResourceCategory) => {
@@ -217,7 +217,7 @@ const Packages: Component = () => {
       }
       content={
         <>
-          <div use:observer class="absolute top-0" />
+          <div use:intersectionObserver class="absolute top-0" />
           <div
             class="block lg:hidden text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
             innerHTML={t('resources.cta')}

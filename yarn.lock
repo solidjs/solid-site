@@ -1122,6 +1122,13 @@
   dependencies:
     "@solid-primitives/utils" "^0.1.2"
 
+"@solid-primitives/intersection-observer@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/intersection-observer/-/intersection-observer-1.4.0.tgz#6c44e909da9d09e3f87e04c173f34cd78f9b8c63"
+  integrity sha512-WNFV4fn3jE/KHh129+gZnyZ4+osUVLk92aN+YCdMJ+LnR4LHWCxmMTlPxYIWe6nb3cK3LUdgg/l5hvzkvuaOdw==
+  dependencies:
+    "@solid-primitives/utils" "^2.1.1"
+
 "@solid-primitives/rootless@^0.0.101":
   version "0.0.101"
   resolved "https://registry.yarnpkg.com/@solid-primitives/rootless/-/rootless-0.0.101.tgz#87017e6d668df8df71e47ba1bb57a781225029b5"
@@ -1158,6 +1165,11 @@
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-0.2.2.tgz#bda0751a5d08d90cf2bc014c9f8eb7fae00e3863"
   integrity sha512-XcAN/WP1R/dEvt4vpobUFYxajhak2mV/jyALyzIrBl6N2v/8Y07E+AUr7xXKp8s3/h0eJl+4eB/IuT8uxDL69Q==
+
+"@solid-primitives/utils@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-2.1.1.tgz#d88bc77806e64635c3c2550337aaa560aa3354c8"
+  integrity sha512-im/WJDgLnJgjuEhB2a46RgDU/ODoc4g+FMySjJ8erPTFrhyTwIe5wv9MSUf7SYsguLe4rfQirNEKLSSyLPETkw==
 
 "@solid.js/docs@^1.0.43":
   version "1.0.43"
