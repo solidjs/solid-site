@@ -60,7 +60,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
       firstLoad = false;
       return;
     }
-    if (entry.intersectionRatio === 0) return;
+    console.log('intersecting');
     setLocked(entry.isIntersecting);
   });
   intersectionObserver;
