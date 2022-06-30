@@ -2,11 +2,8 @@ import { createEventListener } from '@solid-primitives/event-listener';
 import { reflow } from '.';
 
 const logoWidth = '56px';
-const setTransition = (el: HTMLElement) => {
-  el.classList.add('transition-transform', 'duration-500');
-};
+
 const resetTransform = (el: HTMLElement) => {
-  el.classList.remove('transition-transform', 'duration-500');
   el.style.transform = '';
   el.style.transformOrigin = '';
 };
@@ -19,7 +16,6 @@ export const onEnterLogo = (logoEl: HTMLElement, isRTL: boolean) => {
 
   reflow();
   navList.style.transform = `translateX(0)`;
-  elements.forEach(setTransition);
   createEventListener(
     logoEl,
     'transitioned',
@@ -42,7 +38,6 @@ export const onExitLogo = (logoEl: HTMLElement, isRTL: boolean) => {
   navList.style.transform = `translateX(0)`;
 
   elements.forEach((el) => {
-    setTransition(el);
     el.style.backfaceVisibility = 'hidden';
   });
 

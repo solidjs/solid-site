@@ -60,7 +60,6 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
       firstLoad = false;
       return;
     }
-    console.log('intersecting');
     setLocked(entry.isIntersecting);
   });
   intersectionObserver;
@@ -95,10 +94,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   createComputed(
     on(
       showLogo,
-      (showLogo) => {
-        showLogo && onEnterLogo(logoEl, isRTL());
-        !showLogo && onExitLogo(logoEl, isRTL());
-      },
+      (showLogo) => (showLogo ? onEnterLogo(logoEl, isRTL()) : onExitLogo(logoEl, isRTL())),
       { defer: true },
     ),
   );
@@ -128,7 +124,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
           <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
             <div
-              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg ${
+              class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg transition-transform duration-500 ${
                 showLogo() ? 'scale-100' : 'scale-0'
               }`}
               ref={logoEl}
@@ -152,7 +148,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               </span>
             </div>
             <ScrollShadow
-              class="group relative nav-items-container"
+              class="group relative nav-items-container transition-all duration-500"
               classList={{ [isRTL() ? 'mr-[56px]' : 'ml-[56px]']: showLogo() }}
               direction="horizontal"
               rtl={isRTL()}
