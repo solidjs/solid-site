@@ -693,7 +693,8 @@ const videos: Array<Resource> = [
   {
     link: 'https://youtu.be/M5rJxGPPFvY',
     title: 'Supabase with SolidJS - Creating a Realtime Todo List App Live',
-    description: 'Tyler from Supabase invites Dan from SolidJS to build a realtime todo list app together using SolidJS and Supabase.',
+    description:
+      'Tyler from Supabase invites Dan from SolidJS to build a realtime todo list app together using SolidJS and Supabase.',
     keywords: ['supabase', 'solid', 'danstreams', 'collaborations'],
     author: 'Supabase',
     author_url: 'https://www.youtube.com/c/Supabase',
@@ -701,7 +702,6 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1655114560000,
   },
-
 ];
 
 export default videos;
