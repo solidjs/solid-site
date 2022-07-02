@@ -982,6 +982,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1655872130000,
   },
+  {
+    link: 'https://blog.logrocket.com/build-task-tracker-solidjs-typescript',
+    title: `Build a task tracker with SolidJS and TypeScript`,
+    description:
+      'SolidJS is fast becoming the center of attention in the web development community.',
+    author: 'Ebenezer Don',
+    author_url: 'https://blog.logrocket.com/author/ebenezerdon/',
+    keywords: ['state', 'typescript', 'getting-started'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1656525444000,
+  },
 ];
 
 export default articles;
