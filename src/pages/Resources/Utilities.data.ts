@@ -1581,6 +1581,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/tahti-studio/solid-knobs',
+    title: 'solid-knobs',
+    description: 'Primitives for building user-friendly parameter controls.',
+    author: 'maxjvh',
+    author_url: 'https://github.com/maxjvh',
+    keywords: ['control', 'slider', 'knob', 'audio'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  }
 ];
 
 export default utilities;
