@@ -1581,6 +1581,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://swiperjs.com/solid',
+    title: 'swiper/solid',
+    description: 'The most modern mobile touch slider for Solid.',
+    author: 'Swiper',
+    author_url: 'https://swiperjs.com',
+    keywords: ['swiper', 'slider', 'slide', 'ui', 'carousel'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
