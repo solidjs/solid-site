@@ -1595,13 +1595,24 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/faassen/solid-dexie',
     title: 'solid-dexie',
-    description: 'Integrates Dexie queries with Solid. I',
+    description: 'Integrates Dexie queries with Solid.',
     author: 'faassen',
     author_url: 'https://github.com/faassen',
     keywords: ['IndexedDB', 'dexie', 'storage', 'query', 'database'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
+  },
+  {
+    link: 'https://github.com/davedbase/solid-confetti-explosion',
+    title: 'solid-confetti-explosion',
+    description: 'Get the party started with Solid! A confetti Component.',
+    author: 'davedbase',
+    author_url: 'https://github.com/davedbase',
+    keywords: ['confetti', 'explode'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
   },
 ];
 
