@@ -1592,6 +1592,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/faassen/solid-dexie',
+    title: 'solid-dexie',
+    description: 'Integrates Dexie queries with Solid. I',
+    author: 'faassen',
+    author_url: 'https://github.com/faassen',
+    keywords: ['IndexedDB', 'dexie', 'storage', 'query', 'database'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Data],
+  },
 ];
 
 export default utilities;
