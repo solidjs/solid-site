@@ -985,8 +985,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/mbarzeev/testing-a-solidjs-component-using-vitest-2h35',
     title: `Testing a SolidJS Component Using Vitest`,
-    description:
-      'A well detailed article on using Solid and Vitest.',
+    description: 'A well detailed article on using Solid and Vitest.',
     author: 'Matti Bar-Zeev',
     author_url: 'https://dev.to/mbarzeev',
     keywords: ['testing', 'vitest'],
