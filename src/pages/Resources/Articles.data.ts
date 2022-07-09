@@ -982,6 +982,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1656525444000,
   },
+  {
+    link: 'https://dev.to/mbarzeev/testing-a-solidjs-component-using-vitest-2h35',
+    title: `Testing a SolidJS Component Using Vitest`,
+    description:
+      'A well detailed article on using Solid and Vitest.',
+    author: 'Matti Bar-Zeev',
+    author_url: 'https://dev.to/mbarzeev',
+    keywords: ['testing', 'vitest'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1657391036000,
+  },
 ];
 
 export default articles;
