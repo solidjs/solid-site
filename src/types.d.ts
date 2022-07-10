@@ -108,7 +108,6 @@ interface Links {
   html: string;
 }
 
-
-declare module "github-slugger" {
+declare module 'github-slugger' {
   export function slug(str: string): string;
 }

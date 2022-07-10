@@ -1223,10 +1223,10 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-2.2.1.tgz#7df54fb4802ea5988cc881f6ee3c4d27bff0c6f6"
   integrity sha512-vaBO3MGOpjzitbSAVuJkYZnzNPRl6sRrw2do390DEBbfeqMfPpW4fAEb5/tI4b5T13V1xAY+giHoxqvVg2SRhQ==
 
-"@solid.js/docs@^1.0.45":
-  version "1.0.45"
-  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.45.tgz#94cfbce370fbb69e7d2002193242caf6222c63e6"
-  integrity sha512-pALfuHaiPTGsUqg0E3CPuvlY+CM0+iV+9iWlaALiDaBUJXlYqtRj/Cn6S9b/qAvraOLtwSvec7KGdvL8+7urJA==
+"@solid.js/docs@^1.0.46":
+  version "1.0.46"
+  resolved "https://registry.yarnpkg.com/@solid.js/docs/-/docs-1.0.46.tgz#dab70972eddae0c4abba4bea463c97f96a7ce424"
+  integrity sha512-uL4pEfUw0giqgEiJfMDSGYByAnvfed/xQsXCTSf7N7R5x+w0JZogs0RjJ0RBbPpvOJvjkxoVLGbESWKX4Ra+mw==
   dependencies:
     solid-jsx "^0.9.0"
 

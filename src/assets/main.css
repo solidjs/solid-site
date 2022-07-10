@@ -41,7 +41,9 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   scroll-margin-top: 80px;
 }
 .defer {
