@@ -1,5 +1,5 @@
 @import url('solid-repl/lib/bundle.css');
-@import url('highlight.js/styles/github.css');
+@import url('./hljs.css');
 
 @font-face {
   font-family: 'Gordita';
@@ -58,6 +58,11 @@ pre {
 }
 .prose pre {
   font-size: inherit;
+  border: 1px solid #ddd;
+  border-radius: 7.5px;
+}
+.dark .prose pre {
+  border-color: #5d5d5d;
 }
 .prose h2 code {
   color: #777 !important;
