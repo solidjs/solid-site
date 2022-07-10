@@ -2,7 +2,6 @@
 
 .dark pre code {
   --hljs-color: #c9d1d9;
-  --hljs-background-color: #0d1117;
   --hljs-type: #ff7b72;
   --hljs-function: #d2a8ff;
   --hljs-attr: #79c0ff;
@@ -20,7 +19,6 @@
 
 pre code {
   --hljs-color: #24292e;
-  --hljs-background-color: #ffffff;
   --hljs-type: #d73a49;
   --hljs-function: #6f42c1;
   --hljs-attr: #005cc5;
@@ -47,8 +45,7 @@ code.hljs {
 }
 
 .hljs {
-  color: var(--hljs-color);
-  background: #0d1117;
+  color: var(--hljs-color) !important;
 }
 
 .hljs-doctag,
@@ -115,7 +112,7 @@ code.hljs {
 }
 
 .hljs-bullet {
-  color: #f2cc60;
+  color: var(--hljs-bullet);
 }
 
 .hljs-emphasis {
