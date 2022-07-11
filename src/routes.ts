@@ -8,7 +8,7 @@ import { TutorialData } from './pages/Tutorial.data';
 import { PackagesData } from './pages/Packages.data';
 import { ResourcesData } from './pages/Resources.data';
 import { ExamplesData } from './pages/Examples.data';
-import { MerchData } from './pages/Merch.data';
+import { StoreData } from './pages/Store.data';
 import { BlogData } from './pages/Blog.data';
 import { BlogArticleData } from './pages/BlogArticle.data';
 
@@ -106,9 +106,9 @@ export const routes: RouteDefinition[] = [
     component: lazy(() => import('./pages/Media')),
   },
   {
-    path: '/merch',
-    component: lazy(() => import('./pages/Merch')),
-    data: MerchData,
+    path: '/store',
+    component: lazy(() => import('./pages/Store')),
+    data: StoreData,
   },
   {
     path: '/*all',

@@ -8,7 +8,7 @@ const settings = {
   domain: 'solidjs.myshopify.com',
 };
 
-export const MerchData: RouteDataFunc = () => {
+export const StoreData: RouteDataFunc = () => {
   const [collection] = createCollection(() => 'gid://shopify/Collection/287073927346', settings);
   const [cookie, setCookie] = createCookieStorage();
   const id = !cookie.cartId || cookie.cartId == '' ? null : cookie.cartId;

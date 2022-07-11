@@ -1,6 +1,6 @@
-import Client from 'shopify-buy';
-import { createMemo, createResource, createSignal, Resource } from 'solid-js';
+import { createMemo, createResource, createSignal, Resource, Accessor } from 'solid-js';
 import { createStore, Store } from 'solid-js/store';
+import Client from 'shopify-buy';
 
 export interface CartUtilities {
   loading: () => boolean;
@@ -11,7 +11,10 @@ export interface CartUtilities {
     note: string;
     lines: Client.LineItem[];
     total: number;
+    lineItems: Client.LineItem[];
+    totalItems: number;
     subtotal: number;
+    customAttributes: Client.CustomAttribute,
     checkoutURL: string;
     tax: number;
   }>;
@@ -39,13 +42,13 @@ export const createCart = (
   },
 ): CartUtilities => {
   const { checkout } =
-    options.client ||
+    options?.client ||
     Client.buildClient({
-      domain: options.domain,
-      storefrontAccessToken: options.token,
+      domain: options!.domain,
+      storefrontAccessToken: options!.token,
     });
   const [loading, setLoading] = createSignal(false);
-  const [data, setData] = createStore({
+  const [data, setData] = createStore<CartUtilities>({
     cart: {} as Client.Cart,
     get id() {
       return this.cart.id;
@@ -219,7 +222,7 @@ export const createCollectionList = (options: {
   client?: Client.Client;
   language?: 'en-US';
 }): [
-  products: Resource<{
+  collections: Resource<{
     id: string;
     handle: string;
     description: string;
@@ -244,8 +247,10 @@ export const createCollectionList = (options: {
 export type ShopifyProduct = Resource<{
   id: string;
   handle: string;
+  title: string;
   description: string;
   image: string;
+  variants: Client.ProductVariant[];
   products: Client.Product[];
 }>;
 
@@ -260,7 +265,11 @@ export const createProduct = (
     client?: Client.Client;
     language?: 'en-US';
   },
-): ShopifyProduct => {
+): [
+  Resource<Client.Product | null | undefined>,
+  () => Client.Image[],
+  (info?: unknown) => Client.Product | Promise<Client.Product | null | undefined> | null | undefined
+] => {
   const client =
     options.client ||
     Client.buildClient({

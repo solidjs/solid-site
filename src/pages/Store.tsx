@@ -2,13 +2,13 @@ import { Component, createMemo, createSignal, For, Show } from 'solid-js';
 import Footer from '../components/Footer';
 import { useRouteData } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import type { CartUtilities } from '../utils/shopify';
+import type { CartUtilities, ShopifyProduct } from '../utils/shopify';
 import { Icon } from 'solid-heroicons';
 import { shoppingCart } from 'solid-heroicons/solid';
 import { chevronRight } from 'solid-heroicons/outline';
 import Dismiss from 'solid-dismiss';
 
-const Product: Component<CartUtilities> = (props) => {
+const Product: Component<ShopifyProduct & { cart: CartUtilities }> = (props) => {
   const [current, setCurrent] = createSignal(props.variants[0].id);
   const [loading, setLoading] = createSignal(false);
   const variant = createMemo(() => {
@@ -19,10 +19,10 @@ const Product: Component<CartUtilities> = (props) => {
     }
     return null;
   });
-  const quantity = props.variantQuantity(current);
+  const quantity = props.cart.variantQuantity(current);
   const adjustQuantity = async (quantity: number = 1) => {
     setLoading(true);
-    await props.add([
+    await props.cart.add([
       {
         variantId: current(),
         quantity,
@@ -33,7 +33,7 @@ const Product: Component<CartUtilities> = (props) => {
   return (
     <div class="border border-t justify-center text-center relative rounded-lg shadow">
       <div class="absolute top-0 left-0 py-3 px-5 border-b border-r rounded-br-lg rounded-tl-lg bg-white/90 text-gray-500 font-bold">
-        {props.formatTotal(variant().priceV2.amount)}
+        {props.cart.formatTotal(variant().priceV2.amount)}
       </div>
       <img class="rounded-t-lg" src={variant().image.src} />
       <div class="my-7 space-y-2 details">
@@ -43,9 +43,7 @@ const Product: Component<CartUtilities> = (props) => {
         <Show when={props.variants.length > 1}>
           <select
             class="p-4 text-xs w-4/6 rounded-bl-lg bg-transparent"
-            onChange={(evt) => {
-              setCurrent(evt.target.value);
-            }}
+            onChange={(evt) => setCurrent(evt.currentTarget.value)}
           >
             <For each={props.variants}>
               {(variant) => <option value={variant.id}>{variant.title}</option>}
@@ -147,9 +145,10 @@ const Cart: Component<CartUtilities> = (props) => {
   );
 };
 
-const Merch: Component = () => {
+const Store: Component = () => {
   const data = useRouteData<{
-    products: object[];
+    products: ShopifyProduct[];
+    loading: boolean;
     commerce: CartUtilities;
   }>();
   const [showCart, setShowCart] = createSignal(false);
@@ -191,7 +190,7 @@ const Merch: Component = () => {
         <Show fallback="Fetching products..." when={!data.loading}>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 px-5 md:px-0">
             <For each={data.products}>
-              {(product) => <Product {...data.commerce} {...product} />}
+              {(product: ShopifyProduct) => <Product cart={data.commerce} {...product} />}
             </For>
           </div>
         </Show>
@@ -201,4 +200,4 @@ const Merch: Component = () => {
   );
 };
 
-export default Merch;
+export default Store;
