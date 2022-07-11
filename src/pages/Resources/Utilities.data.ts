@@ -1592,7 +1592,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
-  }
+  {
     link: 'https://swiperjs.com/solid',
     title: 'swiper/solid',
     description: 'The most modern mobile touch slider for Solid.',
