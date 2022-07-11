@@ -7,7 +7,7 @@ import { useAppContext } from '../../AppContext';
 export const ModeToggle: VoidComponent = () => {
   const [t] = useI18n();
   const context = useAppContext();
-  const title = () => (context.isDark ? t('global.light_mode') : t('global.dark_mode'));
+  const title = () => (context.isDark ? t('global.light_mode') : t('global.dark_mode')) as string;
 
   return (
     <button

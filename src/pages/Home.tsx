@@ -33,16 +33,15 @@ const strength_icons: { [key: string]: string } = {
   productive,
 };
 
-const Home: Component<{}> = () => {
+const Home: Component = () => {
   const isRouting = useIsRouting();
-  const data = useRouteData<{ benchmarks: Array<GraphData> }>();
+  const data = useRouteData<{ benchmarks: GraphData[] }>();
   const [t] = useI18n();
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver({ threshold: 0.4 });
   let playgroundRef!: HTMLElement;
 
   onMount(() => {
-    // @ts-ignore
     observeInteraction(playgroundRef, (entry) => entry.isIntersecting && setLoadRepl(true));
   });
 
@@ -199,10 +198,10 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
           <div class="flex flex-col justify-around flex-1 bg-no-repeat">
             <img class="w-20" src={iconBlocks2} alt="" />
             <h2 class="mt-6 text-3xl font-semibold text-solid">
-              {t('home.performance.headline')[0]}
+              {t('home.performance.headline.0')}
             </h2>
             <h2 class="m3-6 text-2xl font-semibold text-solid">
-              {t('home.performance.headline')[1]}
+              {t('home.performance.headline.1')}
             </h2>
             <p class="leading-7 mt-9">{t('home.performance.copy')}</p>
             <a

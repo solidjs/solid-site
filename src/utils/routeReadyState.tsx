@@ -31,8 +31,7 @@ export const useRouteReadyState = () => {
           init = false;
           return true;
         }
-        // @ts-ignore
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
         restorePageHeight();
       }
     });
@@ -42,8 +41,7 @@ export const useRouteReadyState = () => {
       init = false;
       return true;
     }
-    // @ts-ignore
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     restorePageHeight();
   }
 };

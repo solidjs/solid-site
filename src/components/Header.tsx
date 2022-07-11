@@ -39,7 +39,6 @@ const Header: ParentComponent<{ title?: string }> = () => {
     }
   });
 
-  createEffect(() => {});
   createEffect(
     on(
       routeReadyState,
@@ -202,12 +201,11 @@ const onEnterBigHeader = (el: Element, done: () => void) => {
   const headerEl = el as HTMLElement;
   const parentEl = headerEl.parentElement!;
   const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
-  const headerHeight = headerEl.clientHeight + 'px';
+  const headerHeight = `${headerEl.clientHeight}px`;
   const bannerEl = headerEl.firstElementChild as HTMLElement;
   const elements = [headerEl, bannerEl, ...mainChildren];
 
-  // @ts-ignore
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   elements.forEach((el) => {
     el.style.transform = `translateY(-${headerHeight})`;
   });
@@ -247,8 +245,7 @@ const onExitBigHeader = (el: Element, done: () => void) => {
 
   if (page.scrollY >= headerHeight) {
     headerEl.style.height = '0px';
-    // @ts-ignore
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     return done();
   }
 
@@ -281,7 +278,7 @@ const onEnterSmallHeader = (el: Element, done: () => void) => {
   const contentEl = bgContainerEl.firstElementChild as HTMLElement;
   const mainContentChild = document.getElementById('main-content')
     ?.firstElementChild as HTMLElement;
-  const headerHeight = bgContainerEl.clientHeight + 'px';
+  const headerHeight = `${bgContainerEl.clientHeight}px`;
   const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
 
   bgContainerEl.style.transform = `translateY(-100%)`;
@@ -322,8 +319,7 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
 
   if (page.scrollY >= headerHeight + navHeight) {
     headerEl.style.height = '0px';
-    // @ts-ignore
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     return done();
   }
 

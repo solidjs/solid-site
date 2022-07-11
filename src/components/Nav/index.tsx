@@ -12,7 +12,7 @@ import { useAppContext } from '../../AppContext';
 import { onEnterLogo, onExitLogo } from '../../utils';
 import { routeReadyState, page, setRouteReadyState } from '../../utils/routeReadyState';
 import PageLoadingBar from '../LoadingBar/PageLoadingBar';
-import { MenuLink, MenuLinkProps } from './MenuLink';
+import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
 
@@ -39,7 +39,7 @@ const langs = {
 
 const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
-  const [subnav, setSubnav] = createSignal<MenuLinkProps[]>([]);
+  const [subnav, setSubnav] = createSignal<LinkTypes[]>([]);
   const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const closeSubnav = debounce(() => setSubnav([]), 150);
@@ -65,17 +65,17 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   intersectionObserver;
 
   const showLogo = createMemo(() => props.showLogo || !locked());
-  const navList = createMemo<MenuLinkProps[]>(
+  const navList = createMemo<LinkTypes[]>(
     on(
-      () => [locale, t('global.nav'), context.guides],
-      () => {
-        return (t('global.nav') || []).reduce((memo: any, item: any) => {
-          let itm = { ...item };
+      () => [(t('global.nav') as LinkTypes[]) || [], context.guides] as const,
+      ([nav, guides]) => {
+        return nav.map<LinkTypes>((item) => {
+          const itm = { ...item };
           // Inject guides if available
           if (item.path == '/guides') {
-            if (context.guides?.length) {
+            if (guides?.length) {
               const direction = t('global.dir', {}, 'ltr');
-              itm.links = context.guides.map(({ title, description, resource }) => ({
+              itm.links = guides.map(({ title, description, resource }) => ({
                 title,
                 description,
                 direction,
@@ -84,8 +84,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               itm.direction = direction;
             }
           }
-          memo.push(itm);
-          return memo;
+          return itm;
         }, []);
       },
     ),

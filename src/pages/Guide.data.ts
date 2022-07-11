@@ -8,7 +8,7 @@ export const GuideData: RouteDataFunc = (props) => {
   const [, { locale }] = useI18n();
 
   const paramList = () => ({
-    lang: location.query.locale ? (location.query.locale as string) : locale(),
+    lang: location.query.locale ? location.query.locale : locale(),
     resource: props.params.id,
   });
   const [resource] = createResource(paramList, async ({ lang, resource }) => {
@@ -24,7 +24,7 @@ export const GuideData: RouteDataFunc = (props) => {
       return resource.loading;
     },
     get fallback() {
-      return resource()?.fallback;
+      return !!resource()?.fallback;
     },
   };
 };

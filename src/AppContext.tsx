@@ -17,7 +17,8 @@ const AppContext = createContext<AppContextInterface>({
   guides: undefined,
 });
 
-const langs: { [lang: string]: any } = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const langs: { [lang: string]: () => Promise<any> } = {
   en: async () => (await import('../lang/en/en')).default(),
   it: async () => (await import('../lang/it/it')).default(),
   de: async () => (await import('../lang/de/de')).default(),
@@ -60,7 +61,7 @@ export const AppContextProvider: ParentComponent = (props) => {
   const location = useLocation();
   if (location.query.locale) {
     set('locale', location.query.locale, cookieOptions);
-  } else if (!settings.locale && langs.hasOwnProperty(browserLang)) {
+  } else if (!settings.locale && browserLang in langs) {
     set('locale', browserLang);
   }
   const i18n = createI18nContext({}, (settings.locale || 'en') as string);
@@ -88,6 +89,7 @@ export const AppContextProvider: ParentComponent = (props) => {
 
   createEffect(() => set('locale', i18n[1].locale()), cookieOptions);
   createEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
   });
   createEffect(() => {
