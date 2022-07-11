@@ -8,7 +8,7 @@ export interface GraphData {
   name: string;
   description: string;
   link: string;
-  data: Array<RowData>;
+  data: RowData[];
   scale: string;
 }
 interface RowData {
@@ -17,7 +17,7 @@ interface RowData {
   score: number;
 }
 
-const Chart: Component<{ rows: Array<RowData>; scale: string; direction: string }> = (props) => {
+const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = (props) => {
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
     props.rows

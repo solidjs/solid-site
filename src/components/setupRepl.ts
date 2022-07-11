@@ -5,7 +5,13 @@ import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
 
-(window as any).MonacoEnvironment = {
+declare global {
+  interface Window {
+    MonacoEnvironment: { getWorker: (_moduleId: unknown, label: string) => Worker };
+  }
+}
+
+window.MonacoEnvironment = {
   getWorker: function (_moduleId: unknown, label: string) {
     switch (label) {
       case 'css':
@@ -19,7 +25,5 @@ import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
   },
 };
 
-// @ts-ignore wrong type in Vite
-export const compiler = CompilerWorker();
-// @ts-ignore wrong type in Vite
-export const formatter = FormatterWorker();
+export const compiler = new CompilerWorker();
+export const formatter = new FormatterWorker();

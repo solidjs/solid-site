@@ -26,9 +26,16 @@ const Examples: Component = () => {
   useRouteReadyState();
 
   createEffect(async () => {
-    const exampleData = await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
+    const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
       r.json(),
-    );
+    )) as {
+      files: {
+        name: string;
+        type: string;
+        content: string | string[];
+      }[];
+      version?: string;
+    };
     batch(() => {
       const newTabs = exampleData.files.map(
         (file: { name: string; type?: string; content: string | string[] }) => {

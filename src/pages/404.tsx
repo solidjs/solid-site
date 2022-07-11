@@ -4,7 +4,7 @@ import { emojiSad } from 'solid-heroicons/outline';
 
 import { useI18n } from '@solid-primitives/i18n';
 
-const FourOhFour: Component<{}> = () => {
+const FourOhFour: Component = () => {
   const [t] = useI18n();
   return (
     <div>

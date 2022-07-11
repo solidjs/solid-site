@@ -58,9 +58,13 @@ const ResourceLink: Component<Resource> = (props) => {
   const { days, hours } = createCountdown(published, now);
   const publish_detail = () => {
     if (days! > 1) {
-      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago');
+      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago') as string;
     }
-    return t('resources.hours_ago', { amount: hours!.toString() }, '{{amount}} hours ago');
+    return t(
+      'resources.hours_ago',
+      { amount: hours!.toString() },
+      '{{amount}} hours ago',
+    ) as string;
   };
 
   return (
@@ -194,8 +198,8 @@ const Packages: Component = () => {
             class="my-5 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
             placeholder={t('resources.search')}
             value={keyword()}
-            onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
-            onChange={(evt) => setKeyword(evt.currentTarget!.value)}
+            onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
+            onChange={(evt) => setKeyword(evt.currentTarget.value)}
             type="text"
           />
           <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
@@ -227,8 +231,8 @@ const Packages: Component = () => {
               class="mt-14 sm:mt-5 mb-3 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white mr-3"
               placeholder={t('resources.search')}
               value={keyword()}
-              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
-              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
             <div

@@ -3,18 +3,20 @@ import { NavLink } from 'solid-app-router';
 import { batch, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
-export type MenuLinkProps = {
+export type LinkTypes = {
   title: string;
   description: string;
   path: string;
   external?: boolean;
-  setSubnav: (children: MenuLinkProps[]) => void;
+  links?: LinkTypes[];
+  direction?: 'ltr' | 'rtl';
+};
+export type MenuLinkProps = {
+  setSubnav: (children: LinkTypes[]) => void;
   setSubnavPosition: (position: number) => void;
   closeSubnav: () => void;
   clearSubnavClose: () => void;
-  links: MenuLinkProps[];
-  direction: 'ltr' | 'rtl';
-};
+} & LinkTypes;
 
 export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
   let linkEl!: HTMLAnchorElement;
@@ -25,7 +27,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
       createEventListener(linkEl, 'mouseenter', () => {
         props.clearSubnavClose();
         batch(() => {
-          props.setSubnav(props.links as MenuLinkProps[]);
+          props.setSubnav(props.links!);
           props.setSubnavPosition(linkEl.getBoundingClientRect().left);
         });
       });
@@ -50,8 +52,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
     });
     if (!window.location.pathname.startsWith(props.path)) return;
 
-    // @ts-ignore
-    linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' });
+    linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' as ScrollBehavior });
   });
 
   const onClick = () => {
@@ -60,7 +61,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
       return;
     }
     const pageEl = document.body;
-    pageEl.style.minHeight = document.body.scrollHeight + 'px';
+    pageEl.style.minHeight = `${document.body.scrollHeight}px`;
     reflow();
     setRouteReadyState((prev) => ({
       ...prev,

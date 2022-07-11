@@ -19,6 +19,6 @@
     "noEmit": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"]
   },
-  "include": ["./src/**/*", "vite.config.js", "./scripts", "src/types.d.ts"],
-  "exclude": ["node_modules/", "Markdown.tsx"]
+  "include": ["./src/**/*", "./vite.config.ts", "./scripts", "src/types.d.ts"],
+  "exclude": ["node_modules/"]
 }

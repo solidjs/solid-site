@@ -2,15 +2,10 @@ import { Component, For } from 'solid-js';
 import Footer from '../components/Footer';
 import { useRouteData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import type { BlogData } from './Blog.data';
 
 const Blog: Component = () => {
-  const data = useRouteData<{
-    article: string;
-    loading: boolean;
-    details: BlogInfo;
-    archive: boolean;
-    articles: { [id: string]: BlogInfo };
-  }>();
+  const data = useRouteData<BlogData>();
   useRouteReadyState();
 
   const sortedArticles = Object.entries(data.articles).sort(
@@ -23,7 +18,7 @@ const Blog: Component = () => {
         <div class="mb-10 lg:flex justify-center">
           <div class="space-y-10">
             <For each={sortedArticles}>
-              {([id, article]: [string, BlogInfo]) => (
+              {([id, article]) => (
                 <NavLink
                   href={`/blog/${id}`}
                   class="block px-3 lg:px-0 text-md mx-auto mb-10 pb-10 text-center"

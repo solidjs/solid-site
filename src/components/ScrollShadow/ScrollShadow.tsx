@@ -58,11 +58,11 @@ const ScrollShadow: ParentComponent<
       entries.forEach((entry) => {
         const target = entry.target as HTMLElement;
         const { el: shadowEl } = sentinelShadowState.get(target)!;
-        shadowEl!.style.opacity = entry.isIntersecting ? '0' : '1';
+        shadowEl.style.opacity = entry.isIntersecting ? '0' : '1';
         sentinelShadowState.set(target, { el: shadowEl, visible: entry.isIntersecting });
         resetInitShadowSize();
       });
-      isScrollable = ![...sentinelShadowState].every(([_, { visible }]) => visible === true);
+      isScrollable = ![...sentinelShadowState].every(([, { visible }]) => visible === true);
       init = false;
     });
 
@@ -126,11 +126,13 @@ const Sentinel: ParentComponent<
   return <div aria-hidden="true" style={style()} ref={props.ref}></div>;
 };
 
-const Shadow: ParentComponent<{ ref: any; locked: boolean } & TShared> = (props) => {
+const Shadow: ParentComponent<
+  { ref: HTMLElement | ((el: HTMLElement) => void); locked: boolean } & TShared
+> = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
   const context = useAppContext();
   const refCb = (el: HTMLElement) => {
-    ref(el);
+    (ref as (el: HTMLElement) => void)(el);
     divEl = el;
   };
   let divEl!: HTMLElement;

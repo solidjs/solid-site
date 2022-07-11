@@ -7,17 +7,19 @@ import {
   createEffect,
   createSignal,
   Accessor,
+  ParentComponent,
 } from 'solid-js';
 import { useRouteData } from 'solid-app-router';
 import { createScrollPosition } from '@solid-primitives/scroll';
 import { throttle } from '@solid-primitives/scheduled';
 import SideContent from '../components/layout/SideContent';
 import { slug } from 'github-slugger';
+import type { DocData } from './Docs.data';
+import { Section } from '@solid.js/docs/dist/types';
 
-const SectionButton: Component<{
+const SectionButton: ParentComponent<{
   href: string;
   title: string;
-  children?: any;
   class: string;
   classList: { [k: string]: boolean | undefined };
 }> = (props) => (
@@ -50,7 +52,7 @@ const Sidebar: Component<{
           href={`#${slug(firstLevel.value)}`}
         >
           <ul>
-            <For each={firstLevel.children!}>
+            <For each={firstLevel.children}>
               {(secondLevel, index) => (
                 <SectionButton
                   title={secondLevel.value}
@@ -66,7 +68,7 @@ const Sidebar: Component<{
                 >
                   <Show when={secondLevel.children && secondLevel.children.length !== 0}>
                     <ul class="my-5">
-                      <For each={secondLevel.children!}>
+                      <For each={secondLevel.children}>
                         {(thirdLevel) => (
                           <SectionButton
                             href={`#${slug(thirdLevel.value)}`}
@@ -113,7 +115,7 @@ const Content: Component<{
           .
         </div>
       </Show>
-      <div class="prose dark:prose-invert lg:px-8 prose-solid max-w-full">{data.doc.default}</div>
+      <div class="prose dark:prose-invert lg:px-8 prose-solid max-w-full">{data.doc?.default}</div>
     </Match>
   </Switch>
 );
@@ -137,7 +139,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const determineSection = throttle((position: number) => {
     let prev = sections()![0];
     const pos = position + 500;
-    for (let i = 0; i > sections()!.length; i += 1) {
+    for (let i = 0; i < sections()!.length; i++) {
       const el = document.getElementById(slug(sections()![i].value))!;
       if (pos < el.offsetTop + el.clientHeight) {
         break;
@@ -152,7 +154,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
     if (!data.loading) {
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
-        anchor && anchor!.scrollIntoView(true);
+        anchor && anchor.scrollIntoView(true);
       }
     }
   });
