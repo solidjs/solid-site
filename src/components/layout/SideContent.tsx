@@ -3,7 +3,6 @@ import { Icon } from 'solid-heroicons';
 import { chevronRight } from 'solid-heroicons/outline';
 import { Accessor, Component, JSX, Setter } from 'solid-js';
 import { routeReadyState, useRouteReadyState } from '../../utils/routeReadyState';
-import Footer from '../Footer';
 
 const SideContent: Component<{
   toggleVisible: Accessor<boolean>;
@@ -57,7 +56,6 @@ const SideContent: Component<{
           {props.content}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

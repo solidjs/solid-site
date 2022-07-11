@@ -9,9 +9,10 @@ import {
   Accessor,
 } from 'solid-js';
 import { useRouteData } from 'solid-app-router';
-import createScrollPosition from '@solid-primitives/scroll';
+import { createScrollPosition } from '@solid-primitives/scroll';
 import { throttle } from '@solid-primitives/scheduled';
 import SideContent from '../components/layout/SideContent';
+import { slug } from 'github-slugger';
 
 const SectionButton: Component<{
   href: string;
@@ -37,45 +38,45 @@ const Sidebar: Component<{
     <For each={props.items}>
       {(firstLevel: Section) => (
         <SectionButton
-          title={firstLevel.title}
+          title={firstLevel.value}
           class={
             `text-left w-full dark:text-white border-b border-gray-200 dark:border-gray-500 hover:text-gray-400 transition ` +
             `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
           }
           classList={{
             'font-semibold text-solid-medium dark:text-solid-darkdefault':
-              props.current() == firstLevel.slug,
+              props.current() == firstLevel.value,
           }}
-          href={`#${firstLevel.slug}`}
+          href={`#${slug(firstLevel.value)}`}
         >
           <ul>
             <For each={firstLevel.children!}>
               {(secondLevel, index) => (
                 <SectionButton
-                  title={secondLevel.title}
+                  title={secondLevel.value}
                   class="block pl-2 text-gray-500 dark:text-gray-300 py-1 text-md font-semibold my-2 break-words"
                   classList={{
                     'text-solid hover:text-solid-dark dark:hover:text-solid-light':
-                      `#${secondLevel.slug}` === props.hash,
+                      `#${slug(secondLevel.value)}` === props.hash,
                     'hover:text-gray-400 dark:hover:text-gray-400':
-                      `#${secondLevel.slug}` !== props.hash,
+                      `#${slug(secondLevel.value)}` !== props.hash,
                     'pb-2': index() == firstLevel.children!.length - 1,
                   }}
-                  href={`#${secondLevel.slug}`}
+                  href={`#${slug(secondLevel.value)}`}
                 >
                   <Show when={secondLevel.children && secondLevel.children.length !== 0}>
                     <ul class="my-5">
                       <For each={secondLevel.children!}>
                         {(thirdLevel) => (
                           <SectionButton
-                            href={`#${thirdLevel.slug}`}
-                            title={thirdLevel.title}
+                            href={`#${slug(thirdLevel.value)}`}
+                            title={thirdLevel.value}
                             class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
                             classList={{
                               'text-solid hover:text-solid-dark dark:hover:text-solid-dark':
-                                `#${thirdLevel.slug}` === props.hash,
+                                `#${slug(thirdLevel.value)}` === props.hash,
                               'hover:text-gray-500 dark:hover:text-gray-300':
-                                `#${thirdLevel.slug}` !== props.hash,
+                                `#${slug(thirdLevel.value)}` !== props.hash,
                             }}
                           />
                         )}
@@ -98,8 +99,8 @@ const Content: Component<{
   <Switch fallback={'Failed to load markdown...'}>
     <Match when={data.loading}>Loading documentation...</Match>
     <Match when={data.doc}>
-      <Show when={data.langAvailable}>
-        <div class="bg-yellow-100 dark:bg-yellow-900 p-5 rounded-lg text-sm">
+      <Show when={data.fallback}>
+        <div class="bg-yellow-100 dark:bg-yellow-900 p-5 rounded-lg text-sm mb-10">
           Unfortunately our docs are not currently available in your language. We encourage you to
           support Solid by{' '}
           <a
@@ -112,10 +113,7 @@ const Content: Component<{
           .
         </div>
       </Show>
-      <div
-        class="prose dark:prose-invert lg:px-8 prose-solid max-w-full"
-        innerHTML={data.doc.html || data.doc.content}
-      />
+      <div class="prose dark:prose-invert lg:px-8 prose-solid max-w-full">{data.doc.default}</div>
     </Match>
   </Switch>
 );
@@ -129,10 +127,10 @@ const Docs: Component<{ hash?: string }> = (props) => {
   const sections: () => Section[] | undefined = () => {
     if (!data.doc) return;
 
-    if (data.doc.sections.length == 1) {
-      return data.doc.sections[0].children;
+    if (data.doc.toc.length == 1) {
+      return data.doc.toc[0].children;
     }
-    return data.doc.sections;
+    return data.doc.toc;
   };
 
   // Determine the section based on title positions
@@ -140,13 +138,13 @@ const Docs: Component<{ hash?: string }> = (props) => {
     let prev = sections()![0];
     const pos = position + 500;
     for (let i = 0; i > sections()!.length; i += 1) {
-      const el = document.getElementById(sections()![i].slug)!;
+      const el = document.getElementById(slug(sections()![i].value))!;
       if (pos < el.offsetTop + el.clientHeight) {
         break;
       }
       prev = sections()![i];
     }
-    setCurrent(prev.slug);
+    setCurrent(slug(prev.value));
   }, 250);
 
   // Upon loading finish bind observers
@@ -158,7 +156,7 @@ const Docs: Component<{ hash?: string }> = (props) => {
       }
     }
   });
-  createEffect(() => determineSection(scrollPosition() || 0));
+  createEffect(() => determineSection(scrollPosition.y || 0));
 
   return (
     <SideContent

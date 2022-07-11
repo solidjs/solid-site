@@ -1,8 +1,8 @@
 diff --git a/node_modules/monaco-editor/esm/vs/basic-languages/monaco.contribution.js b/node_modules/monaco-editor/esm/vs/basic-languages/monaco.contribution.js
-index dd81f34..2c443f5 100644
+index a6b7213..742e723 100644
 --- a/node_modules/monaco-editor/esm/vs/basic-languages/monaco.contribution.js
 +++ b/node_modules/monaco-editor/esm/vs/basic-languages/monaco.contribution.js
-@@ -7,79 +7,7 @@ import '../editor/editor.api.js';
+@@ -7,80 +7,7 @@ import '../editor/editor.api.js';
   *-----------------------------------------------------------------------------*/
  
  // src/basic-languages/monaco.contribution.ts
@@ -24,6 +24,7 @@ index dd81f34..2c443f5 100644
 -import "./elixir/elixir.contribution.js";
 -import "./flow9/flow9.contribution.js";
 -import "./fsharp/fsharp.contribution.js";
+-import "./freemarker2/freemarker2.contribution.js";
 -import "./go/go.contribution.js";
 -import "./graphql/graphql.contribution.js";
 -import "./handlebars/handlebars.contribution.js";

@@ -3,7 +3,7 @@ import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import createClipboard, { copyToClipboard } from '@solid-primitives/clipboard';
+import { copyToClipboard, createClipboard } from '@solid-primitives/clipboard';
 
 const assets = [
   {

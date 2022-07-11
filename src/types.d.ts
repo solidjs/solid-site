@@ -1,17 +1,15 @@
 interface Section {
-  slug: string;
-  title: string;
-  level: number;
+  value: string;
+  depth: number;
   children?: Section[];
 }
 
 interface DocData {
   loading: boolean;
-  langAvailable: boolean;
+  fallback: boolean;
   doc: {
-    sections: Section[];
-    content: string;
-    html: string;
+    toc: Section[];
+    default: JSX.Element;
   };
 }
 
@@ -108,4 +106,8 @@ interface Links {
   self: string;
   git: string;
   html: string;
+}
+
+declare module 'github-slugger' {
+  export function slug(str: string): string;
 }

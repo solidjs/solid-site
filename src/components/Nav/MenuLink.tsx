@@ -1,6 +1,6 @@
 import { createEventListener } from '@solid-primitives/event-listener';
 import { NavLink } from 'solid-app-router';
-import { batch, onMount, ParentComponent, Show } from 'solid-js';
+import { batch, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
 export type MenuLinkProps = {
@@ -37,18 +37,16 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
       reflow();
-      const clearLeave = createEventListener(linkEl, 'mouseleave', () => {
+      const [targets, setTargets] = createSignal([linkEl]);
+      createEventListener(targets, 'mouseleave', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
       });
-      const clearClick = createEventListener(linkEl, 'click', () => {
+      createEventListener(targets, 'click', () => {
         setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
         removeEvents();
       });
-      const removeEvents = () => {
-        clearLeave();
-        clearClick();
-      };
+      const removeEvents = () => setTargets([]);
     });
     if (!window.location.pathname.startsWith(props.path)) return;
 

@@ -20,14 +20,7 @@ import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import SolidMarkdown from 'solid-markdown';
 import { useAppContext } from '../AppContext';
-import rehypeHighlight from 'rehype-highlight';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import xml from 'highlight.js/lib/languages/xml';
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('xml', xml);
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -227,18 +220,7 @@ const Tutorial: Component = () => {
                 ref={markDownRef}
                 class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
               >
-                <SolidMarkdown
-                  rehypePlugins={[rehypeHighlight]}
-                  components={{
-                    pre: ({ children, node, ...props }) => (
-                      <div class="not-prose">
-                        <pre {...props}>{children}</pre>
-                      </div>
-                    ),
-                  }}
-                >
-                  {markdown}
-                </SolidMarkdown>
+                {markdown}
               </div>
             )}
           </Show>

@@ -3,19 +3,17 @@ import { Meta, Title } from 'solid-meta';
 import { useLocation } from 'solid-app-router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
-import { getGuides, getSupported, ResourceMetadata } from '@solid.js/docs';
+import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';
 
 interface AppContextInterface {
   isDark: boolean;
   loading: boolean;
-  guidesSupported: boolean;
   guides: ResourceMetadata[] | undefined;
 }
 
 const AppContext = createContext<AppContextInterface>({
   isDark: false,
   loading: true,
-  guidesSupported: false,
   guides: undefined,
 });
 
@@ -80,7 +78,7 @@ export const AppContextProvider: ParentComponent = (props) => {
   };
 
   const [lang] = createResource(params, ({ locale }) => langs[locale]());
-  const [guidesList] = createResource(params, ({ locale }) => getGuides(locale, true));
+  const [guidesList] = createResource(params, ({ locale }) => getGuideDirectory(locale));
   const isDark = () =>
     settings.dark === 'true'
       ? true
@@ -109,14 +107,6 @@ export const AppContextProvider: ParentComponent = (props) => {
     },
     get loading() {
       return lang.loading;
-    },
-    /*
-      Returns true if there are any guides in the current locale's translation.
-      Note that guides() will return the english guides metadata in this case.
-     */
-    get guidesSupported() {
-      const supported = getSupported('guides', params().locale);
-      return Array.isArray(supported) && supported.length > 0;
     },
     get guides() {
       return guidesList();

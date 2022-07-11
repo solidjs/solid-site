@@ -74,12 +74,12 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           // Inject guides if available
           if (item.path == '/guides') {
             if (context.guides?.length) {
-              const direction = context.guidesSupported ? t('global.dir', {}, 'ltr') : 'ltr';
+              const direction = t('global.dir', {}, 'ltr');
               itm.links = context.guides.map(({ title, description, resource }) => ({
                 title,
                 description,
                 direction,
-                path: `/${resource}`,
+                path: `/guides/${resource}`,
               }));
               itm.direction = direction;
             }
