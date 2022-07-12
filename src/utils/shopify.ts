@@ -1,23 +1,22 @@
 import { createMemo, createResource, createSignal, Resource, Accessor } from 'solid-js';
-import { createStore, Store } from 'solid-js/store';
+import { createStore } from 'solid-js/store';
+import { access } from '@solid-primitives/utils';
 import Client from 'shopify-buy';
 
 export interface CartUtilities {
-  loading: () => boolean;
-  cart: Store<{
-    id: () => string;
+  cart: {
     cart: Client.Cart;
+    id: string | number;
     attributes: Client.CustomAttribute[];
     note: string;
     lines: Client.LineItem[];
-    total: number;
-    lineItems: Client.LineItem[];
     totalItems: number;
-    subtotal: number;
-    customAttributes: Client.CustomAttribute,
-    checkoutURL: string;
     tax: number;
-  }>;
+    checkoutURL: string;
+    subtotal: number;
+    total: number;
+  };
+  loading: Accessor<boolean>;
   retrieve: (checkout_id?: string | number) => void;
   add: (items: Client.LineItemToAdd[]) => void;
   update: (items: Client.AttributeInput[]) => void;
@@ -31,12 +30,31 @@ export interface CartUtilities {
   removeDiscount: (code: string) => void;
 }
 
+export type ShopifyProduct = Resource<{
+  id: string;
+  handle: string;
+  title: string;
+  description: string;
+  image: string;
+  variants: Client.ProductVariant[];
+  products: Client.Product[];
+}>;
+
+export interface ShopifyOptions {
+  token: string;
+  domain: string;
+  client?: Client.Client;
+}
+
+/**
+ * Produces a utility for managing a Shopify cart reactively.
+ * @param checkout_id string Checkout identifier for the cart.
+ * @param options Options for the cart such as token, domain, client, etc.
+ * @returns Cart helpers and utilities.
+ */
 export const createCart = (
   checkout_id?: string | number | undefined | null,
-  options?: {
-    token: string;
-    domain: string;
-    client?: Client.Client;
+  options?: ShopifyOptions & {
     currency: 'USD';
     locale: 'en-US';
   },
@@ -48,7 +66,7 @@ export const createCart = (
       storefrontAccessToken: options!.token,
     });
   const [loading, setLoading] = createSignal(false);
-  const [data, setData] = createStore<CartUtilities>({
+  const [data, setData] = createStore({
     cart: {} as Client.Cart,
     get id() {
       return this.cart.id;
@@ -59,10 +77,10 @@ export const createCart = (
     get note() {
       return this.cart.note;
     },
-    get lines(): Client.LineItem[] {
+    get lines() {
       return this.cart.lineItems;
     },
-    get totalItems(): number {
+    get totalItems() {
       let total = 0;
       if (data.cart.lineItems) {
         for (const line of data.cart.lineItems) {
@@ -72,30 +90,31 @@ export const createCart = (
       return total;
     },
     get tax() {
-      return parseFloat(this.cart.totalTax);
+      return parseFloat(this.cart.totalPriceV2.amount);
     },
     get checkoutURL() {
       return this.cart.webUrl;
     },
     get subtotal() {
-      if (this.cart.subtotalPriceV2) {
-        return parseFloat(this.cart.subtotalPriceV2.amount);
+      if (this.cart.subtotalPrice) {
+        return parseFloat(this.cart.subtotalPrice);
       } else {
         return 0;
       }
     },
     get total() {
-      if (this.cart.subtotalPriceV2) {
-        return parseFloat(this.cart.totalPriceV2.amount);
+      if (this.cart.totalPriceV2.amount) {
+        return parseFloat(this.cart.totalPrice);
       } else {
         return 0;
       }
     },
   });
   const formatTotal = (amount: number | string) => {
-    return parseFloat(amount).toLocaleString(options.locale || 'en-US', {
+    amount = typeof amount === 'string' ? parseFloat(amount) : amount;
+    return amount.toLocaleString(options?.locale || 'en-US', {
       style: 'currency',
-      currency: options.currency || 'USD',
+      currency: options?.currency || 'USD',
     });
   };
   const create = async () => {
@@ -116,10 +135,12 @@ export const createCart = (
     setData('cart', cart);
     setLoading(false);
   };
-  const retrieve = (checkout_id?: string) => {
-    return !data.cart.id && !checkout_id ? create() : fetchCart(checkout_id || data.cart.id);
+  const retrieve = (checkout_id?: string | number) => {
+    return !data.cart.id && !checkout_id
+      ? create()
+      : fetchCart(checkout_id ?? access(data.cart.id));
   };
-  const variantQuantity = (id: Accessor<string>): number => {
+  const variantQuantity = (id: Accessor<string>): Accessor<number> => {
     return createMemo(() => {
       if (data.cart.lineItems) {
         for (const line of data.cart.lineItems) {
@@ -132,24 +153,20 @@ export const createCart = (
     });
   };
   const add = async (items: Client.LineItemToAdd[]) => {
-    setData('cart', await checkout.addLineItems(data.cart.id, items));
+    setData('cart', await checkout.addLineItems(access(data.cart.id), items));
   };
   const update = async (items: Client.AttributeInput[]) => {
-    setData('cart', await checkout.updateLineItems(data.cart.id, items));
+    setData('cart', await checkout.updateLineItems(access(data.cart.id), items));
   };
   const remove = async (items: string[]) => {
-    setData('cart', await checkout.removeLineItems(data.cart.id, items));
+    setData('cart', await checkout.removeLineItems(access(data.cart.id), items));
   };
   const updateAttributes = async (customAttributes: Client.CustomAttribute[]) => {
-    setData(
-      'cart',
-      // @ts-ignore
-      await checkout.updateAttributes(data.cart.id, { customAttributes }),
-    );
+    setData('cart', await checkout.updateAttributes(data.cart.id, { customAttributes }));
   };
   const setAttribute = async (key: string, value: string) => {
     const attrs = data.attributes.reduce(
-      (memo, item) => {
+      (memo: Array<Client.CustomAttribute>, item: Client.CustomAttribute) => {
         memo.push({
           key: item.key,
           value: item.key == key ? value : item.value,
@@ -158,14 +175,12 @@ export const createCart = (
       },
       [{ key, value }],
     );
-    // @ts-ignore
     updateAttributes(attrs);
   };
   const removeAttribute = async (key: string) => {
-    updateAttributes(data.attributes.filter((attr) => attr.key !== key));
+    updateAttributes(data.attributes.filter((attr: Client.CustomAttribute) => attr.key !== key));
   };
   const addDiscount = async (code: string) => {
-    // @ts-ignore
     setData('cart', await checkout.addDiscount(data.cart.id, code));
   };
   const removeDiscount = async (code: string) => {
@@ -194,15 +209,18 @@ export const createCart = (
   };
 };
 
+/**
+ * A reactive primitive to help pull collections from Shopify.
+ * @param collectionId Collection identifier to pull from Shopify.
+ * @param options Options for governing the request to the API such as token and domain.
+ * @returns
+ */
 export const createCollection = (
   collectionId: () => string,
-  options: {
-    token: string;
-    domain: string;
-    client?: Client.Client;
+  options: ShopifyOptions & {
     language?: 'en-US';
   },
-): [products: ShopifyProduct, refetch: () => void] => {
+): [products: Resource<Client.CollectionWithProducts | undefined>, refetch: VoidFunction] => {
   const client =
     options.client ||
     Client.buildClient({
@@ -216,21 +234,16 @@ export const createCollection = (
   return [products, refetch];
 };
 
-export const createCollectionList = (options: {
-  token: string;
-  domain: string;
-  client?: Client.Client;
-  language?: 'en-US';
-}): [
-  collections: Resource<{
-    id: string;
-    handle: string;
-    description: string;
-    image: string;
-    products: Client.Product[];
-  }>,
-  refetch: () => void,
-] => {
+/**
+ * Helps request a list of collections from Shopify.
+ * @param options Standard Shopify API options and the language to fetch in.
+ * @returns A resource to access the collection list.
+ */
+export const createCollectionList = (
+  options: ShopifyOptions & {
+    language?: 'en-US';
+  },
+): [collections: Resource<Client.CollectionWithProducts[] | undefined>, refetch: () => void] => {
   const client =
     options.client ||
     Client.buildClient({
@@ -238,37 +251,32 @@ export const createCollectionList = (options: {
       storefrontAccessToken: options.token,
       language: options.language,
     });
-  const [collections, { refetch }] = createResource(async (id) =>
+  const [collections, { refetch }] = createResource(async () =>
     client.collection.fetchAllWithProducts(),
   );
   return [collections, refetch];
 };
 
-export type ShopifyProduct = Resource<{
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  image: string;
-  variants: Client.ProductVariant[];
-  products: Client.Product[];
-}>;
-
+/**
+ * A helper for fetching and managing information about a store product.
+ * @param identifier The identifier or handle of the product.
+ * @param options
+ * @returns
+ */
 export const createProduct = (
-  identifier: () => {
+  identifier: Accessor<{
     id?: string;
     handle?: string;
-  },
-  options: {
-    token: string;
-    domain: string;
-    client?: Client.Client;
+  }>,
+  options: ShopifyOptions & {
     language?: 'en-US';
   },
 ): [
   Resource<Client.Product | null | undefined>,
-  () => Client.Image[],
-  (info?: unknown) => Client.Product | Promise<Client.Product | null | undefined> | null | undefined
+  Accessor<Client.Image[]>,
+  (
+    info?: unknown,
+  ) => Client.Product | Promise<Client.Product | null | undefined> | null | undefined,
 ] => {
   const client =
     options.client ||
@@ -285,7 +293,11 @@ export const createProduct = (
     }
     return null;
   });
-  const images = () => details().images;
+  const images = () => {
+    const dts = details();
+    if (dts) dts.images;
+    return [];
+  };
   return [details, images, refetch];
 };
 
