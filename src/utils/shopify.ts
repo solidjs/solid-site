@@ -1,11 +1,4 @@
-import {
-  createMemo,
-  createResource,
-  createSignal,
-  Resource,
-  Accessor,
-  onMount,
-} from 'solid-js';
+import { createMemo, createResource, createSignal, Resource, Accessor, onMount } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { access } from '@solid-primitives/utils';
 import Client from 'shopify-buy';
@@ -54,8 +47,8 @@ export interface ShopifyOptions {
 export const createCart = (
   checkout_id?: string | number | undefined | null,
   options?: ShopifyOptions & {
-    currency: 'USD';
-    locale: 'en-US';
+    currency?: 'USD';
+    locale?: 'en-US';
   },
 ): CartUtilities => {
   const { checkout } =

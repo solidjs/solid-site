@@ -11,7 +11,8 @@ const settings = {
 export const StoreData: RouteDataFunc = () => {
   const [collection] = createCollection(() => 'gid://shopify/Collection/287073927346', settings);
   const [cookie, setCookie] = createCookieStorage();
-  const id = !cookie.cartId || cookie.cartId == '' ? null : cookie.cartId;
+  const id: string | null =
+    !cookie.cartId || cookie.cartId == '' ? null : (cookie.cartId as string);
   const commerce = createCart(id, settings);
   createEffect(
     on(
