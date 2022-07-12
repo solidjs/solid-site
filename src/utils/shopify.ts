@@ -1,4 +1,11 @@
-import { createMemo, createResource, createSignal, Resource, Accessor } from 'solid-js';
+import {
+  createMemo,
+  createResource,
+  createSignal,
+  Resource,
+  Accessor,
+  createEffect,
+} from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { access } from '@solid-primitives/utils';
 import Client from 'shopify-buy';
@@ -17,17 +24,17 @@ export interface CartUtilities {
     total: number;
   };
   loading: Accessor<boolean>;
-  retrieve: (checkout_id?: string | number) => void;
-  add: (items: Client.LineItemToAdd[]) => void;
-  update: (items: Client.AttributeInput[]) => void;
-  remove: (items: string[]) => void;
+  retrieve: (checkout_id?: string | number) => Promise<void>;
+  add: (items: Client.LineItemToAdd[]) => Promise<void>;
+  update: (items: Client.AttributeInput[]) => Promise<void>;
+  remove: (items: string[]) => Promise<void>;
   formatTotal: (total: number | string) => string;
-  setAttribute: (key: string, value: string) => void;
-  updateAttributes: (customAttributes: Client.CustomAttribute[]) => void;
-  removeAttribute: (key: string) => void;
-  addDiscount: (code: string) => void;
+  setAttribute: (key: string, value: string) => Promise<void>;
+  updateAttributes: (customAttributes: Client.CustomAttribute[]) => Promise<void>;
+  removeAttribute: (key: string) => Promise<void>;
+  addDiscount: (code: string) => Promise<void>;
+  removeDiscount: (code: string) => Promise<void>;
   variantQuantity: (id: Accessor<string | number>) => Accessor<number>;
-  removeDiscount: (code: string) => void;
 }
 
 export type ShopifyProduct = Client.Product;
@@ -63,7 +70,7 @@ export const createCart = (
     get id() {
       return this.cart.id;
     },
-    get attributes() {
+    get attributes(): Client.CustomAttribute[] {
       return this.cart.customAttributes;
     },
     get note() {
@@ -167,23 +174,27 @@ export const createCart = (
       },
       [{ key, value }],
     );
-    updateAttributes(attrs);
+    await updateAttributes(attrs);
   };
   const removeAttribute = async (key: string) => {
-    updateAttributes(data.attributes.filter((attr: Client.CustomAttribute) => attr.key !== key));
+    await updateAttributes(
+      data.attributes.filter((attr: Client.CustomAttribute) => attr.key !== key),
+    );
   };
   const addDiscount = async (code: string) => {
     setData('cart', await checkout.addDiscount(data.cart.id, code));
   };
-  const removeDiscount = async (code: string) => {
-    // @ts-ignore
-    setData('cart', await checkout.removeDiscount(data.cart.id, code));
+  const removeDiscount = async () => {
+    setData('cart', await checkout.removeDiscount(data.cart.id));
   };
-  if (checkout_id) {
-    retrieve(checkout_id as string);
-  } else if (checkout_id == null) {
-    create();
-  }
+  const init = async () => {
+    if (checkout_id == null) {
+      await create();
+    } else if (checkout_id) {
+      await retrieve(checkout_id as string);
+    }
+  };
+  createEffect(init);
   return {
     loading,
     cart: data,

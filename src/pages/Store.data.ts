@@ -33,7 +33,7 @@ export const StoreData: RouteDataFunc = () => {
       return collection.loading;
     },
     get products() {
-      return collection().products;
+      return collection()?.products;
     },
   };
 };

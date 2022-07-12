@@ -20,7 +20,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
     return null;
   });
   const quantity = props.cart.variantQuantity(current);
-  const adjustQuantity = async (quantity: number = 1) => {
+  const adjustQuantity = async (quantity = 1) => {
     setLoading(true);
     await props.cart.add([
       {
@@ -93,10 +93,10 @@ const Cart: Component<CartUtilities> = (props) => {
           {(item: ShopifyBuy.LineItem) => {
             const remove = async () => {
               setLoading(true);
-              props.remove([item.id.toString()]);
+              await props.remove([item.id.toString()]);
               setLoading(false);
             };
-            const adjustQuantity = async (quantity: number = 1) => {
+            const adjustQuantity = async (quantity = 1) => {
               setLoading(true);
               await props.add([
                 {
