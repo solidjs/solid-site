@@ -20,15 +20,14 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
     return null;
   });
   const quantity = props.cart.variantQuantity(current);
-  const adjustQuantity = async (quantity = 1) => {
+  const adjustQuantity = (quantity = 1) => {
     setLoading(true);
-    await props.cart.add([
+    void props.cart.add([
       {
         variantId: current(),
         quantity,
       },
     ]);
-    setLoading(false);
   };
   return (
     <div class="border border-t justify-center text-center relative rounded-lg shadow">
@@ -96,15 +95,17 @@ const Cart: Component<CartUtilities> = (props) => {
               await props.remove([item.id.toString()]);
               setLoading(false);
             };
-            const adjustQuantity = async (quantity = 1) => {
+            const adjustQuantity = (quantity = 1) => {
               setLoading(true);
-              await props.add([
-                {
-                  variantId: item.variant.id,
-                  quantity,
-                },
-              ]);
-              setLoading(false);
+              props
+                .add([
+                  {
+                    variantId: item.variant.id,
+                    quantity,
+                  },
+                ])
+                .then(() => setLoading(false))
+                .catch((err) => console.error(err));
             };
             return (
               <div class="flex items-center hover:bg-gray-100 transition">
@@ -122,7 +123,7 @@ const Cart: Component<CartUtilities> = (props) => {
                   <button
                     title="Remove item"
                     disabled={loading()}
-                    onClick={() => (item.quantity == 1 ? remove() : adjustQuantity(-1))}
+                    onClick={() => (item.quantity == 1 ? void remove() : adjustQuantity(-1))}
                     class="flex bg-solid-medium rounded-full w-6 h-6 items-center justify-center text-white"
                   >
                     <Show fallback="×" when={item.quantity !== 1}>

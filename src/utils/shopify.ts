@@ -196,8 +196,8 @@ export const createCart = (
   };
   createEffect(init);
   return {
-    loading,
     cart: data,
+    loading,
     retrieve,
     add,
     variantQuantity,
