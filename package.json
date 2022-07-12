@@ -33,6 +33,7 @@
     "github-slugger": "^1.4.0",
     "highlight.js": "^11.5.1",
     "monaco-editor": "0.33.0",
+    "onigasm": "^2.2.5",
     "remark-gfm": "^3.0.1",
     "scroll-behavior-polyfill": "^2.0.13",
     "solid-app-router": "^0.4.1",
