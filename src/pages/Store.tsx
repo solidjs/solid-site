@@ -8,11 +8,11 @@ import { shoppingCart } from 'solid-heroicons/solid';
 import { chevronRight } from 'solid-heroicons/outline';
 import Dismiss from 'solid-dismiss';
 
-const Product: Component<ShopifyProduct & { cart: CartUtilities }> = (props) => {
-  const [current, setCurrent] = createSignal(props.variants[0].id);
+const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (props) => {
+  const [current, setCurrent] = createSignal(props.details.variants[0].id);
   const [loading, setLoading] = createSignal(false);
   const variant = createMemo(() => {
-    for (const variant of props.variants) {
+    for (const variant of props.details.variants) {
       if (variant.id == current()) {
         return variant;
       }
@@ -32,20 +32,22 @@ const Product: Component<ShopifyProduct & { cart: CartUtilities }> = (props) => 
   };
   return (
     <div class="border border-t justify-center text-center relative rounded-lg shadow">
-      <div class="absolute top-0 left-0 py-3 px-5 border-b border-r rounded-br-lg rounded-tl-lg bg-white/90 text-gray-500 font-bold">
-        {props.cart.formatTotal(variant().priceV2.amount)}
-      </div>
-      <img class="rounded-t-lg" src={variant().image.src} />
+      <Show when={variant() !== null}>
+        <div class="absolute top-0 left-0 py-3 px-5 border-b border-r rounded-br-lg rounded-tl-lg bg-white/90 text-gray-500 font-bold">
+          {props.cart.formatTotal(variant()!.priceV2.amount)}
+        </div>
+        <img class="rounded-t-lg" src={variant()!.image.src} />
+      </Show>
       <div class="my-7 space-y-2 details">
-        <div>{props.title}</div>
+        <div>{props.details.title}</div>
       </div>
       <div class="flex bg-white rounded-b border-t divide-white divide-x">
-        <Show when={props.variants.length > 1}>
+        <Show when={props.details.variants.length > 1}>
           <select
             class="p-4 text-xs w-4/6 rounded-bl-lg bg-transparent"
             onChange={(evt) => setCurrent(evt.currentTarget.value)}
           >
-            <For each={props.variants}>
+            <For each={props.details.variants}>
               {(variant) => <option value={variant.id}>{variant.title}</option>}
             </For>
           </select>
@@ -56,8 +58,8 @@ const Product: Component<ShopifyProduct & { cart: CartUtilities }> = (props) => 
           onClick={() => adjustQuantity(-1)}
           class="bg-solid-light hover:bg-solid-medium disabled:opacity-80 transition text-white p-2 font-semibold text-lg"
           classList={{
-            'w-2/6 ': props.variants.length > 1,
-            'rounded-bl-lg w-1/2': props.variants.length == 1,
+            'w-2/6 ': props.details.variants.length > 1,
+            'rounded-bl-lg w-1/2': props.details.variants.length == 1,
           }}
         >
           -
@@ -68,8 +70,8 @@ const Product: Component<ShopifyProduct & { cart: CartUtilities }> = (props) => 
           onClick={() => adjustQuantity(1)}
           class="bg-solid-light hover:bg-solid-medium transition text-white p-2 font-semibold text-lg rounded-br-lg"
           classList={{
-            'rounded-br-lg w-2/6 ': props.variants.length > 1,
-            'w-1/2': props.variants.length == 1,
+            'rounded-br-lg w-2/6 ': props.details.variants.length > 1,
+            'w-1/2': props.details.variants.length == 1,
           }}
         >
           +
@@ -88,10 +90,10 @@ const Cart: Component<CartUtilities> = (props) => {
         when={props.cart.totalItems !== 0}
       >
         <For each={props.cart.lines}>
-          {(item) => {
+          {(item: ShopifyBuy.LineItem) => {
             const remove = async () => {
               setLoading(true);
-              props.remove([item.id]);
+              props.remove([item.id.toString()]);
               setLoading(false);
             };
             const adjustQuantity = async (quantity: number = 1) => {
@@ -110,10 +112,10 @@ const Cart: Component<CartUtilities> = (props) => {
                 <div class="px-3 flex flex-col w-52">
                   <b class="font-semibold">{item.title}</b>
                   <span class="text-xs">{props.formatTotal(item.variant.priceV2.amount)}/ea</span>
-                  {/* <div class="text-xs mt-3">
+                  <div class="text-xs mt-3">
                     <b class="text-semibold">Total</b>:{' '}
-                    {props.formatTotal(item.variant.priceV2.amount * item.quantity)}
-                  </div> */}
+                    {props.formatTotal(parseFloat(item.variant.priceV2.amount) * item.quantity)}
+                  </div>
                 </div>
                 <div class="flex space-x-1 px-5">
                   <div class="pr-2">x {item.quantity}</div>
@@ -190,7 +192,7 @@ const Store: Component = () => {
         <Show fallback="Fetching products..." when={!data.loading}>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 px-5 md:px-0">
             <For each={data.products}>
-              {(product: ShopifyProduct) => <Product cart={data.commerce} {...product} />}
+              {(product: ShopifyProduct) => <Product cart={data.commerce} details={product} />}
             </For>
           </div>
         </Show>

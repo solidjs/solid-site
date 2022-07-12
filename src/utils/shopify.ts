@@ -21,24 +21,16 @@ export interface CartUtilities {
   add: (items: Client.LineItemToAdd[]) => void;
   update: (items: Client.AttributeInput[]) => void;
   remove: (items: string[]) => void;
-  formatTotal: (total: number) => string;
+  formatTotal: (total: number | string) => string;
   setAttribute: (key: string, value: string) => void;
   updateAttributes: (customAttributes: Client.CustomAttribute[]) => void;
   removeAttribute: (key: string) => void;
   addDiscount: (code: string) => void;
-  variantQuantity: (id: Accessor<string>) => Accessor<number>;
+  variantQuantity: (id: Accessor<string | number>) => Accessor<number>;
   removeDiscount: (code: string) => void;
 }
 
-export type ShopifyProduct = Resource<{
-  id: string;
-  handle: string;
-  title: string;
-  description: string;
-  image: string;
-  variants: Client.ProductVariant[];
-  products: Client.Product[];
-}>;
+export type ShopifyProduct = Client.Product;
 
 export interface ShopifyOptions {
   token: string;
@@ -140,7 +132,7 @@ export const createCart = (
       ? create()
       : fetchCart(checkout_id ?? access(data.cart.id));
   };
-  const variantQuantity = (id: Accessor<string>): Accessor<number> => {
+  const variantQuantity = (id: Accessor<string | number>): Accessor<number> => {
     return createMemo(() => {
       if (data.cart.lineItems) {
         for (const line of data.cart.lineItems) {
