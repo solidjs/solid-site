@@ -4,7 +4,7 @@ import {
   createSignal,
   Resource,
   Accessor,
-  createEffect,
+  onMount,
 } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { access } from '@solid-primitives/utils';
@@ -187,14 +187,13 @@ export const createCart = (
   const removeDiscount = async () => {
     setData('cart', await checkout.removeDiscount(data.cart.id));
   };
-  const init = async () => {
+  onMount(() => {
     if (checkout_id == null) {
-      await create();
+      create().catch((err) => console.log(err));
     } else if (checkout_id) {
-      await retrieve(checkout_id as string);
+      retrieve(checkout_id as string).catch((err) => console.log(err));
     }
-  };
-  createEffect(init);
+  });
   return {
     cart: data,
     loading,
