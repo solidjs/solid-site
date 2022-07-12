@@ -1,7 +1,7 @@
 import { Component } from 'solid-js';
 
 const PageLoadingBar: Component<{
-  postion?: 'top' | 'bottom';
+  postion: 'top' | 'bottom';
   active: boolean;
 }> = (props) => {
   const duration = 8000;

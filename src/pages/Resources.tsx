@@ -5,12 +5,12 @@ import { useRouteData, useSearchParams } from 'solid-app-router';
 import { Resource, ResourceType, ResourceTypeIcons, PackageType } from './Resources/Ecosystem';
 import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
-import createDebounce from '@solid-primitives/debounce';
 import { Icon } from 'solid-heroicons';
 import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
 import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
-import { createIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
+import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
@@ -24,9 +24,13 @@ const AResource: Component<Resource> = (props) => {
   const { days, hours } = createCountdown(published, now);
   const publish_detail = () => {
     if (days! > 1) {
-      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago');
+      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago') as string;
     }
-    return t('resources.hours_ago', { amount: hours!.toString() }, '{{amount}} hours ago');
+    return t(
+      'resources.hours_ago',
+      { amount: hours!.toString() },
+      '{{amount}} hours ago',
+    ) as string;
   };
 
   return (
@@ -104,32 +108,33 @@ const Resources: Component = () => {
   });
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
-  const debouncedKeyword = createDebounce((str) => setKeyword(str), 250);
+  const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
   rememberSearch(keyword);
+  const resources = createMemo(() => {
+    if (keyword() == '') {
+      return data.list;
+    }
+    return fs.search(keyword()).map((result) => result.item);
+  });
   const [filtered, setFiltered] = createStore({
     // Produces a base set of filtered results
-    resources: createMemo(() => {
-      if (keyword() == '') {
-        return data.list;
-      }
-      return fs.search(keyword()).map((result) => result.item);
-    }),
+    resources,
     // Currently user enabled filters
     enabledTypes: [] as (ResourceType | PackageType)[],
     // Final list produces that applies enabled types and categories
-    get list(): Array<Resource> {
-      let resources = this.resources().filter((item) => {
+    get list() {
+      const filtered = resources().filter((item) => {
         if (this.enabledTypes.length !== 0) {
           return this.enabledTypes.indexOf(item.type) !== -1;
         }
         return true;
       });
-      resources.sort((b, a) => (a.published_at || 0) - (b.published_at || 0));
-      return resources;
+      filtered.sort((b, a) => (a.published_at || 0) - (b.published_at || 0));
+      return filtered;
     },
     // Retrieve a list of type counts
     get counts() {
-      return (this.resources() as Resource[]).reduce<{ [key: string]: number }>(
+      return resources().reduce<{ [key: string]: number }>(
         (memo, resource) => ({
           ...memo,
           [resource.type]: memo[resource.type] ? memo[resource.type] + 1 : 1,
@@ -146,14 +151,14 @@ const Resources: Component = () => {
 
   useRouteReadyState();
 
-  const [observer] = createIntersectionObserver([], ([entry]) => {
+  const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
     if (firstLoad) {
       firstLoad = false;
       return;
     }
     setStickyBarActive(!entry.isIntersecting);
   });
-  observer;
+  intersectionObserver;
 
   const onClickFiltersBtn = () => {
     if (window.scrollY >= floatingPosScrollY) return;
@@ -162,8 +167,7 @@ const Resources: Component = () => {
 
   const filtersClickScrollToTop = () => {
     const top = toggleFilters() ? floatingPosScrollY : 0;
-    // @ts-ignore
-    window.scrollTo({ top, behavior: 'instant' });
+    window.scrollTo({ top, behavior: 'instant' as ScrollBehavior });
   };
 
   return (
@@ -179,8 +183,8 @@ const Resources: Component = () => {
               class="my-5 rounded border-solid w-full border-gray-400 border bg-transparent p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
               placeholder={t('resources.search')}
               value={keyword()}
-              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
-              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
             <h3 class="text-xl text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b mb-4 font-semibold border-solid pb-2">
@@ -198,7 +202,7 @@ const Resources: Component = () => {
                         if (pos === -1) {
                           return [...arr, type];
                         } else {
-                          let newArray = arr.slice();
+                          const newArray = arr.slice();
                           newArray.splice(pos, 1);
                           return newArray;
                         }
@@ -243,13 +247,13 @@ const Resources: Component = () => {
           ></div>
           <div class="absolute w-full h-full top-0 left-0 bg-white dark:bg-neutral-600 z-negative"></div>
           <div class="h-[45px] px-5 flex justify-between gap-1">
-            <div use:observer class="absolute top-[-62px] h-0" />
+            <div use:intersectionObserver class="absolute top-[-62px] h-0" />
             <input
-              class="rounded border border-solid h-full w-full border-gray-400 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
+              class="rounded border border-solid h-full w-full border-gray-400 p-3 placeholder-opacity-50 placeholder-gray-500 dark:bg-gray-500 dark:placeholder-gray-200"
               placeholder={t('resources.search')}
               value={keyword()}
-              onInput={(evt) => debouncedKeyword(evt.currentTarget!.value)}
-              onChange={(evt) => setKeyword(evt.currentTarget!.value)}
+              onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
+              onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
             <button
@@ -295,7 +299,7 @@ const Resources: Component = () => {
                         if (pos === -1) {
                           return [...arr, type];
                         } else {
-                          let newArray = arr.slice();
+                          const newArray = arr.slice();
                           newArray.splice(pos, 1);
                           return newArray;
                         }

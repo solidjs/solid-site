@@ -10,7 +10,7 @@ const NewsletterState = {
 
 type NewsletterProps = {
   title: string;
-  className?: string;
+  className: string;
 };
 
 export const Newsletter: Component<NewsletterProps> = (props) => {
@@ -33,12 +33,14 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
     } catch (err) {
       setState(NewsletterState.ERROR);
     }
-    return false;
   };
   return (
     <form
       class={`bg-solid flex flex-col md:flex-row w-full items-center space-x-4 ${props.className}`}
-      onSubmit={submit}
+      onSubmit={(e) => {
+        void submit(e);
+        return false;
+      }}
     >
       <div class="font-semibold text-md mb-3 md:mb-0">{props.title}</div>
       <div class="w-full md:w-3/6">

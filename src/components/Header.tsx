@@ -34,12 +34,11 @@ const Header: ParentComponent<{ title?: string }> = () => {
 
   const guideName = createMemo(() => {
     if (context.guides) {
-      const resource = location.pathname.slice(1);
+      const resource = location.pathname.slice('/guides/'.length);
       return context.guides.find((metadata) => metadata.resource == resource)?.title;
     }
   });
 
-  createEffect(() => {});
   createEffect(
     on(
       routeReadyState,
@@ -78,6 +77,12 @@ const Header: ParentComponent<{ title?: string }> = () => {
               {t('home.ukraine.petition', {}, 'Help provide humanitarian aid.')}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
+              <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s">
+                <img
+                  class="hidden md:block absolute md:top-20 lg:top-32 md:right-20 md:w-40 lg:w-72"
+                  src="/img/award-badge.svg"
+                />
+              </a>
               <section class="px-3 lg:px-12 container space-y-10 lg:pb-20 lg:pt-52 py-10">
                 <div class="flex items-center mt-10 w-[calc(100%+40px)] space-y-4 lg:space-y-0 lg:space-x-4 lg:mt-0">
                   <img
@@ -199,12 +204,11 @@ const onEnterBigHeader = (el: Element, done: () => void) => {
   const headerEl = el as HTMLElement;
   const parentEl = headerEl.parentElement!;
   const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
-  const headerHeight = headerEl.clientHeight + 'px';
+  const headerHeight = `${headerEl.clientHeight}px`;
   const bannerEl = headerEl.firstElementChild as HTMLElement;
   const elements = [headerEl, bannerEl, ...mainChildren];
 
-  // @ts-ignore
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   elements.forEach((el) => {
     el.style.transform = `translateY(-${headerHeight})`;
   });
@@ -244,8 +248,7 @@ const onExitBigHeader = (el: Element, done: () => void) => {
 
   if (page.scrollY >= headerHeight) {
     headerEl.style.height = '0px';
-    // @ts-ignore
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     return done();
   }
 
@@ -278,7 +281,7 @@ const onEnterSmallHeader = (el: Element, done: () => void) => {
   const contentEl = bgContainerEl.firstElementChild as HTMLElement;
   const mainContentChild = document.getElementById('main-content')
     ?.firstElementChild as HTMLElement;
-  const headerHeight = bgContainerEl.clientHeight + 'px';
+  const headerHeight = `${bgContainerEl.clientHeight}px`;
   const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
 
   bgContainerEl.style.transform = `translateY(-100%)`;
@@ -319,8 +322,7 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
 
   if (page.scrollY >= headerHeight + navHeight) {
     headerEl.style.height = '0px';
-    // @ts-ignore
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     return done();
   }
 

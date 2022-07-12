@@ -26,24 +26,29 @@ const Examples: Component = () => {
   useRouteReadyState();
 
   createEffect(async () => {
-    createEffect(async () => {
-      const exampleData = await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
-        r.json(),
+    const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
+      r.json(),
+    )) as {
+      files: {
+        name: string;
+        type: string;
+        content: string | string[];
+      }[];
+      version?: string;
+    };
+    batch(() => {
+      const newTabs = exampleData.files.map(
+        (file: { name: string; type?: string; content: string | string[] }) => {
+          return {
+            name: file.name,
+            type: file.type || 'tsx',
+            source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
+          };
+        },
       );
-      batch(() => {
-        const newTabs = exampleData.files.map(
-          (file: { name: string; type?: string; content: string | string[] }) => {
-            return {
-              name: file.name,
-              type: file.type || 'tsx',
-              source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
-            };
-          },
-        );
-        setTabs(newTabs);
-        setCurrent(`${newTabs[0].name}.tsx`);
-        setVersion(exampleData.version);
-      });
+      setTabs(newTabs);
+      setCurrent(`${newTabs[0].name}.tsx`);
+      setVersion(exampleData.version);
     });
   });
 

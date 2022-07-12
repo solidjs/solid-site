@@ -16,24 +16,18 @@ import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
 
 import { compiler, formatter } from '../components/setupRepl';
-import type { TutorialDirectory, TutorialDirectoryItem, TutorialRouteData } from './Tutorial.data';
+import type { TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import SolidMarkdown from 'solid-markdown';
 import { useAppContext } from '../AppContext';
-import rehypeHighlight from 'rehype-highlight';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import xml from 'highlight.js/lib/languages/xml';
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('xml', xml);
-
+import { LessonLookup } from '@solid.js/docs';
+import type { editor } from 'monaco-editor';
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 interface DirectoryMenuProps {
-  directory?: Record<string, TutorialDirectory>;
-  current?: TutorialDirectoryItem;
+  directory?: Record<string, LessonLookup[]>;
+  current?: LessonLookup;
 }
 
 const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
@@ -43,10 +37,10 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   let menuButton!: HTMLButtonElement;
   let search!: HTMLInputElement;
   const directory = createMemo(() => Object.entries(props.directory || {}));
-  const filteredDirectory = createMemo<[string, TutorialDirectory][]>(() => {
+  const filteredDirectory = createMemo<[string, LessonLookup[]][]>(() => {
     return (
       directory()
-        .map<[string, TutorialDirectory]>(([section, entries]) => [
+        .map<[string, LessonLookup[]]>(([section, entries]) => [
           section,
           // TODO: Refactor this to be more easily digesteable (it's not that bad)
           entries.filter((entry) =>
@@ -56,7 +50,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
           ),
         ])
         // Filter out sections that have no entries
-        .filter(([_, entries]) => entries.length > 0)
+        .filter(([, entries]) => entries.length > 0)
     );
   });
 
@@ -93,7 +87,6 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       >
         <div class="flex-grow inline-flex flex-col items-baseline">
           <h3 class="text-xl text-solid leading-none">{props.current?.lessonName}</h3>
-          <p class="block text-gray-500 text-md">{props.current?.description}</p>
         </div>
 
         <Icon
@@ -139,9 +132,6 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                           <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
                           </p>
-                          <p class="text-sm text-gray-500 dark:text-gray-400">
-                            {entry.description}
-                          </p>
                         </NavLink>
                       </li>
                     )}
@@ -160,7 +150,7 @@ const Tutorial: Component = () => {
   const data = useRouteData<TutorialRouteData>();
   const context = useAppContext();
   const [t] = useI18n();
-  let replEditor: any;
+  let replEditor: editor.IStandaloneCodeEditor;
   const [tabs, setTabs] = createTabList([
     {
       name: 'main',
@@ -181,7 +171,7 @@ const Tutorial: Component = () => {
     const files = fileset?.files;
     if (!files) return;
     batch(() => {
-      const newTabs = files.map((file: { name: string; type?: string; content: string }) => {
+      const newTabs = files.map((file) => {
         return {
           name: file.name,
           type: file.type || 'tsx',
@@ -227,18 +217,7 @@ const Tutorial: Component = () => {
                 ref={markDownRef}
                 class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
               >
-                <SolidMarkdown
-                  rehypePlugins={[rehypeHighlight]}
-                  components={{
-                    pre: ({ children, node, ...props }) => (
-                      <div class="not-prose">
-                        <pre {...props}>{children}</pre>
-                      </div>
-                    ),
-                  }}
-                >
-                  {markdown}
-                </SolidMarkdown>
+                {markdown}
               </div>
             )}
           </Show>

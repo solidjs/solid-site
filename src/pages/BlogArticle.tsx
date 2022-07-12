@@ -5,22 +5,18 @@ import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 import { useAppContext } from '../AppContext';
 import { ListenNotesEpisode, YouTube, Tweet, Twitch } from 'solid-social';
+import type { BlogArticleData } from './BlogArticle.data';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
-  const data = useRouteData<{
-    loading: boolean;
-    slug: string;
-    details: BlogInfo;
-    archive: boolean;
-    article: MDXComponent;
-    articles: { [id: string]: BlogInfo };
-  }>();
+  const data = useRouteData<BlogArticleData>();
   useRouteReadyState();
   const chevron = createMemo(() =>
     t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-right' : 'chevron-left',
   );
   const context = useAppContext();
+
+  const Article = data.article!;
 
   return (
     <div class="flex flex-col">
@@ -47,7 +43,7 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose dark:prose-invert mx-auto">
-                  <data.article
+                  <Article
                     components={{
                       ListenNotesEpisode,
                       Tweet: (props: PropsWithChildren) => (

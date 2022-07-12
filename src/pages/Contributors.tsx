@@ -63,7 +63,7 @@ const Contributor: Component<ContributorProps> = (props) => {
   );
 };
 
-const Contributors: Component<{}> = () => {
+const Contributors: Component = () => {
   const [t] = useI18n();
   const data = useRouteData<ContributorsDataProps>();
 
