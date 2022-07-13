@@ -134,8 +134,7 @@ const Home: Component = () => {
                 <Repl
                   tabs={[
                     {
-                      name: 'main',
-                      type: 'tsx',
+                      name: 'main.jsx',
                       source: `import { render } from "solid-js/web";
 import { onCleanup, createSignal } from "solid-js";
 

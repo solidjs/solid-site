@@ -11,7 +11,7 @@
     "newLine": "lf",
     "sourceMap": true,
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
+    "types": ["vite/client", "solid-repl/types/types"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,

@@ -1,4 +1,4 @@
-import { createTabList, Repl } from 'solid-repl';
+import Repl from 'solid-repl/lib/repl';
 import { NavLink, useRouteData, useParams } from 'solid-app-router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
@@ -13,15 +13,13 @@ const Examples: Component = () => {
   const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
-  const [tabs, setTabs] = createTabList([
+  const [tabs, setTabs] = createSignal([
     {
-      name: 'main',
-      type: 'tsx',
+      name: 'main.jsx',
       source: '',
     },
   ]);
-  const [current, setCurrent] = createSignal(`main.tsx`);
-  const [version, setVersion] = createSignal<string | undefined>();
+  const [current, setCurrent] = createSignal(`main.jsx`, { equals: false });
 
   useRouteReadyState();
 
@@ -40,15 +38,13 @@ const Examples: Component = () => {
       const newTabs = exampleData.files.map(
         (file: { name: string; type?: string; content: string | string[] }) => {
           return {
-            name: file.name,
-            type: file.type || 'tsx',
+            name: file.name + (file.type ? `.${file.type}` : '.jsx'),
             source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
           };
         },
       );
       setTabs(newTabs);
-      setCurrent(`${newTabs[0].name}.tsx`);
-      setVersion(exampleData.version);
+      setCurrent(newTabs[0].name);
     });
   });
 
@@ -101,15 +97,11 @@ const Examples: Component = () => {
                 compiler={compiler}
                 formatter={formatter}
                 isHorizontal={true}
-                interactive={true}
-                actionBar={true}
-                editableTabs={true}
                 dark={context.isDark}
                 tabs={tabs()}
                 setTabs={setTabs}
                 current={current()}
                 setCurrent={setCurrent}
-                version={version()}
                 id="examples"
               />
             </ErrorBoundary>

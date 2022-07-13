@@ -10,7 +10,7 @@ import {
   batch,
   ErrorBoundary,
 } from 'solid-js';
-import { Repl, createTabList } from 'solid-repl';
+import Repl from 'solid-repl/lib/repl';
 import { useRouteData, NavLink } from 'solid-app-router';
 import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
@@ -151,14 +151,13 @@ const Tutorial: Component = () => {
   const context = useAppContext();
   const [t] = useI18n();
   let replEditor: editor.IStandaloneCodeEditor;
-  const [tabs, setTabs] = createTabList([
+  const [tabs, setTabs] = createSignal([
     {
-      name: 'main',
-      type: 'tsx',
+      name: 'main.jsx',
       source: '',
     },
   ]);
-  const [current, setCurrent] = createSignal('main.tsx');
+  const [current, setCurrent] = createSignal('main.jsx', { equals: false });
   const [open, setOpen] = createSignal(true);
   let markDownRef!: HTMLDivElement;
 
@@ -173,13 +172,12 @@ const Tutorial: Component = () => {
     batch(() => {
       const newTabs = files.map((file) => {
         return {
-          name: file.name,
-          type: file.type || 'tsx',
+          name: file.name + (file.type ? `.${file.type}` : '.jsx'),
           source: file.content,
         };
       });
       setTabs(newTabs);
-      setCurrent('main.tsx');
+      setCurrent(newTabs[0].name);
     });
   });
 
@@ -277,9 +275,6 @@ const Tutorial: Component = () => {
               compiler={compiler}
               formatter={formatter}
               isHorizontal={true}
-              interactive={true}
-              actionBar={true}
-              editableTabs={true}
               dark={context.isDark}
               tabs={tabs()}
               setTabs={setTabs}

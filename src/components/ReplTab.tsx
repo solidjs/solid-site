@@ -1,5 +1,6 @@
 import { Component, createSignal, ErrorBoundary } from 'solid-js';
-import { createTabList, Repl, Tab } from 'solid-repl';
+import { Tab } from 'solid-repl';
+import Repl from 'solid-repl/lib/repl';
 import { compiler, formatter } from './setupRepl';
 import { useAppContext } from '../AppContext';
 
@@ -9,13 +10,14 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   const context = useAppContext();
   const initialTabs = props.tabs || [
     {
-      name: 'main',
-      type: 'tsx',
+      name: 'main.jsx',
       source: '',
     },
   ];
-  const [tabs, setTabs] = createTabList(initialTabs);
-  const [current, setCurrent] = createSignal(`${initialTabs[0].name || 'main'}.tsx`);
+  const [tabs, setTabs] = createSignal(initialTabs);
+  const [current, setCurrent] = createSignal(initialTabs[0].name, {
+    equals: false,
+  });
   return (
     <ErrorBoundary
       fallback={
@@ -27,9 +29,6 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
         compiler={compiler}
         formatter={formatter}
         isHorizontal={true}
-        interactive={true}
-        actionBar={true}
-        editableTabs={true}
         dark={context.isDark}
         tabs={tabs()}
         setTabs={setTabs}
