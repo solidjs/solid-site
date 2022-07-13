@@ -1298,9 +1298,9 @@ const utilities: Array<Resource> = [
     title: 'form-gear',
     description:
       'FormGear is a framework engine for dynamic form creation and complex form processing and validation for data collection.',
-    author: 'CompendiumDevTools',
+    author: 'Ignatius Aditya Setyadi',
     author_url: 'https://github.com/AdityaSetyadi',
-    keywords: ['form', 'formgear', 'gear', 'solidhack'],
+    keywords: ['form', 'formgear', 'gear', 'solidhack', 'survey', 'data-collection'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
