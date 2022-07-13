@@ -40,7 +40,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
           <Show when={showInfo()}>
             <div
               innerHTML={`<b class="mb-3 block">${props.details.title}</b><div>${props.details.descriptionHtml}</div><div class="mt-5 text-center text-xs">Click to close info</div>`}
-              class="h-full w-full absolute overflow-auto bg-white/87 dark:bg-solid-darkgray/90 rounded-lg pt-20 p-10 z-5 text-md text-left"
+              class="h-full w-full absolute overflow-auto bg-white/90 dark:bg-solid-darkgray/90 rounded-lg pt-20 p-10 z-5 text-md text-left"
             />
           </Show>
           <div class="absolute top-0 left-0 py-3 px-5 border-b border-r dark:border-solid-gray  rounded-br-lg rounded-tl-lg bg-white/90 dark:bg-solid-gray dark:text-gray-400 text-gray-500 font-bold">
