@@ -9,7 +9,7 @@ const settings = {
 };
 
 export const StoreData: RouteDataFunc = () => {
-  const [collection] = createCollection(() => 'gid://shopify/Collection/287073927346', settings);
+  const [collection] = createCollection(() => 'gid://shopify/Collection/285612933298', settings);
   const [cookie, setCookie] = createCookieStorage();
   const id: string | null =
     !cookie.cartId || cookie.cartId == '' ? null : (cookie.cartId as string);

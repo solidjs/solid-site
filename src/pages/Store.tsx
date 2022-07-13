@@ -10,6 +10,7 @@ import Dismiss from 'solid-dismiss';
 
 const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (props) => {
   const [current, setCurrent] = createSignal(props.details.variants[0].id);
+  const [showInfo, setShowInfo] = createSignal(false);
   const [loading, setLoading] = createSignal(false);
   const variant = createMemo(() => {
     for (const variant of props.details.variants) {
@@ -33,16 +34,24 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
       .catch((err) => console.log(err));
   };
   return (
-    <div class="border dark:border-solid-gray border-t justify-center text-center relative rounded-lg shadow">
-      <Show when={variant() !== null}>
-        <div class="absolute top-0 left-0 py-3 px-5 border-b border-r dark:border-solid-gray rounded-br-lg rounded-tl-lg bg-white/90 dark:bg-solid-gray dark:text-gray-400 text-gray-500 font-bold">
-          {props.cart.formatTotal(variant()!.priceV2.amount)}
+    <div class="border dark:border-solid-gray hover:border-solid-medium transition duration-300 border-t justify-center text-center relative rounded-lg">
+      <button class="pointer" onClick={() => setShowInfo(!showInfo())}>
+        <Show when={variant() !== null}>
+          <Show when={showInfo()}>
+            <div
+              innerHTML={`<b class="mb-3 block">${props.details.title}</b><div>${props.details.descriptionHtml}</div><div class="mt-5 text-center text-xs">Click to close info</div>`}
+              class="h-full w-full absolute overflow-auto bg-white/87 dark:bg-solid-darkgray/90 rounded-lg pt-20 p-10 z-5 text-md text-left"
+            />
+          </Show>
+          <div class="absolute top-0 left-0 py-3 px-5 border-b border-r dark:border-solid-gray  rounded-br-lg rounded-tl-lg bg-white/90 dark:bg-solid-gray dark:text-gray-400 text-gray-500 font-bold">
+            {props.cart.formatTotal(variant()!.priceV2.amount)}
+          </div>
+          <img class="rounded-t-lg" src={variant()!.image.src} />
+        </Show>
+        <div class="flex justify-center py-4 details bg-slate-50 dark:bg-solid-gray/20">
+          <div>{props.details.title}</div>
         </div>
-        <img class="rounded-t-lg" src={variant()!.image.src} />
-      </Show>
-      <div class="py-4 details bg-slate-50 dark:bg-solid-gray/20">
-        <div>{props.details.title}</div>
-      </div>
+      </button>
       <div class="flex justify-center rounded-b border-t divide-white dark:border-solid-gray">
         <Show when={props.details.variants.length > 1}>
           <select
@@ -188,13 +197,13 @@ const Store: Component = () => {
   useRouteReadyState();
   return (
     <div class="flex flex-col relative">
-      <div class="sticky top-12 dark:bg-transparent z-10 container mx-auto flex justify-end px-5 md:px-12">
+      <div class="sticky top-[55px] dark:bg-transparent z-10 container mx-auto flex justify-end px-5 md:px-12">
         <div class="mt-3">
           <button
             ref={cartButtonEl}
-            class="flex bg-white dark:bg-solid-medium shadow-xl py-1 justify-center items-center border dark:border-transparent divide divide-red-500 w-40 rounded-md space-x-5"
+            class="flex bg-white dark:bg-solid-medium shadow-xl justify-center items-center border dark:border-transparent divide divide-red-500 w-40 rounded-md space-x-5"
           >
-            <div class="flex h-12 justify-center items-center space-x-3">
+            <div class="flex h-12 justify-center items-center space-x-2">
               <Icon class="w-7 dark:text-white text-solid-medium" path={shoppingCart} />
               <div>Cart</div>
             </div>
@@ -217,7 +226,7 @@ const Store: Component = () => {
           fallback={<div class="flex justify-center p-20">Loading store...</div>}
           when={!data.loading}
         >
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 my-10 px-5 md:px-0">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10 px-5 md:px-0">
             <For each={data.products}>
               {(product: ShopifyProduct) => <Product cart={data.commerce} details={product} />}
             </For>
