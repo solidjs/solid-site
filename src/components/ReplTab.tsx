@@ -10,12 +10,12 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   const context = useAppContext();
   const initialTabs = props.tabs || [
     {
-      name: 'main.tsx',
+      name: 'main.jsx',
       source: '',
     },
   ];
   const [tabs, setTabs] = createSignal(initialTabs);
-  const [current, setCurrent] = createSignal(initialTabs[0].name || 'main.tsx', {
+  const [current, setCurrent] = createSignal(initialTabs[0].name, {
     equals: false,
   });
   return (

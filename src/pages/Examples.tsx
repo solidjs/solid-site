@@ -15,11 +15,11 @@ const Examples: Component = () => {
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createSignal([
     {
-      name: 'main.tsx',
+      name: 'main.jsx',
       source: '',
     },
   ]);
-  const [current, setCurrent] = createSignal(`main.tsx`, { equals: false });
+  const [current, setCurrent] = createSignal(`main.jsx`, { equals: false });
 
   useRouteReadyState();
 
@@ -38,13 +38,13 @@ const Examples: Component = () => {
       const newTabs = exampleData.files.map(
         (file: { name: string; type?: string; content: string | string[] }) => {
           return {
-            name: file.name,
+            name: file.name + (file.type ? `.${file.type}` : '.jsx'),
             source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
           };
         },
       );
       setTabs(newTabs);
-      setCurrent(`${newTabs[0].name}.tsx`);
+      setCurrent(newTabs[0].name);
     });
   });
 

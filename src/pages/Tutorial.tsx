@@ -153,11 +153,11 @@ const Tutorial: Component = () => {
   let replEditor: editor.IStandaloneCodeEditor;
   const [tabs, setTabs] = createSignal([
     {
-      name: 'main.tsx',
+      name: 'main.jsx',
       source: '',
     },
   ]);
-  const [current, setCurrent] = createSignal('main.tsx', { equals: false });
+  const [current, setCurrent] = createSignal('main.jsx', { equals: false });
   const [open, setOpen] = createSignal(true);
   let markDownRef!: HTMLDivElement;
 
@@ -172,12 +172,12 @@ const Tutorial: Component = () => {
     batch(() => {
       const newTabs = files.map((file) => {
         return {
-          name: file.name + (file.type ? `.${file.type}` : '.tsx'),
+          name: file.name + (file.type ? `.${file.type}` : '.jsx'),
           source: file.content,
         };
       });
       setTabs(newTabs);
-      setCurrent('main.tsx');
+      setCurrent('main.jsx');
     });
   });
 
