@@ -45,6 +45,12 @@
       "path": "/contributors",
       "links": [
         {
+          "title": "Store",
+          "description": "Branded shirt, stickers etc.",
+          "path": "/store",
+          "external": false
+        },
+        {
           "title": "Blog",
           "description": "News and updates from our community",
           "path": "/blog"
