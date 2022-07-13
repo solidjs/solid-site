@@ -177,7 +177,7 @@ const Tutorial: Component = () => {
         };
       });
       setTabs(newTabs);
-      setCurrent('main.jsx');
+      setCurrent(newTabs[0].name);
     });
   });
 
