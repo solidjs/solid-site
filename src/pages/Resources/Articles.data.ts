@@ -996,7 +996,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://blog.startifact.com/posts/solidjs-fits-my-brain/',
     title: `SolidJS fits my brain`,
-    description: 'In this article I\'m going to talk about the SolidJS frontend framework, and why I think it\'s cool and fits my brain.',
+    description:
+      "In this article I'm going to talk about the SolidJS frontend framework, and why I think it's cool and fits my brain.",
     author: 'Martijn Faassen',
     author_url: 'https://blog.startifact.com/',
     keywords: ['why', 'solid', 'learning', 'frontend'],
