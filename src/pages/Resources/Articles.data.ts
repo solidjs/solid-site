@@ -993,6 +993,17 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1657391036000,
   },
+  {
+    link: 'https://blog.startifact.com/posts/solidjs-fits-my-brain/',
+    title: `SolidJS fits my brain`,
+    description: 'In this article I\'m going to talk about the SolidJS frontend framework, and why I think it\'s cool and fits my brain.',
+    author: 'Martijn Faassen',
+    author_url: 'https://blog.startifact.com/',
+    keywords: ['why', 'solid', 'learning', 'frontend'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1657831109000,
+  },
 ];
 
 export default articles;
