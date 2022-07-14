@@ -1,5 +1,5 @@
 import { ParentComponent, onCleanup, onMount } from 'solid-js';
-import { useAppContext } from '../../AppContext';
+import { useAppContext } from '../AppContext';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
@@ -72,7 +72,7 @@ const ScrollShadow: ParentComponent<
     observer.observe(sentinelFirstEl);
     observer.observe(sentinelLastEl);
     setInitShadowSize();
-    onCleanup(() => observer && observer.disconnect());
+    onCleanup(() => observer.disconnect());
   });
   return (
     <div class={props.class} classList={props.classList}>
@@ -133,9 +133,7 @@ const Shadow: ParentComponent<
   const context = useAppContext();
   const refCb = (el: HTMLElement) => {
     (ref as (el: HTMLElement) => void)(el);
-    divEl = el;
   };
-  let divEl!: HTMLElement;
 
   const setPosition = () => {
     const isFirst = child === 'first';
@@ -147,15 +145,11 @@ const Shadow: ParentComponent<
     if (direction === 'horizontal') {
       return `top: 0; ${isFirst ? left : right}: 0; background: linear-gradient(to ${
         isFirst ? right : left
-      }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 100%; ${
-        divEl ? `opacity: ${divEl.style.opacity};` : ''
-      }`;
+      }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 100%;`;
     }
     return `left: 0; ${isFirst ? 'top' : 'bottom'}: 0; background: linear-gradient(to ${
       isFirst ? 'top' : 'bottom'
-    }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 28%; ${
-      divEl ? `opacity: ${divEl.style.opacity};` : ''
-    }`;
+    }, rgba(${rgb}, 1), 50%, rgba(${rgb}, 0)); width: ${size}; height: 28%;`;
   };
   const style = () =>
     `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;

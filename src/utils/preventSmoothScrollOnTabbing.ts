@@ -1,4 +1,7 @@
+import { isServer } from 'solid-js/web';
 export const preventSmoothScrollOnTabbing = () => {
+  if (isServer) return;
+
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
 

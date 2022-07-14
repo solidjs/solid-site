@@ -1,8 +1,8 @@
-import { defineConfig, type Plugin } from 'vite';
-import solid from 'vite-plugin-solid';
+import { defineConfig, PluginOption } from 'vite';
 import mdx from '@mdx-js/rollup';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
+import solid from 'solid-start/vite';
 import * as pckg from './package.json';
 
 export default defineConfig({
@@ -22,11 +22,9 @@ export default defineConfig({
       enforce: 'pre',
     } as Plugin,
     solid({ extensions: ['.md', '.mdx'] }),
-    // VitePWA(pwaOptions),
   ],
-  optimizeDeps: {
-    include: [],
-    exclude: ['@solid.js/docs'],
+  ssr: {
+    noExternal: ['solid-dismiss', 'solid-heroicons', 'solid-docs'],
   },
   build: {
     target: 'esnext',

@@ -87,7 +87,7 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
   );
 };
 
-const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
+const Benchmarks: Component<{ list: GraphData[] }> = (props) => {
   const [t] = useI18n();
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
@@ -127,8 +127,8 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
           })}
         </div>
         <div>
-          <div class="pt-5 text-xs block">{props.list[current()].description}</div>
-          <Show when={props.list[current()].link}>
+          <div class="pt-5 text-xs block">{props.list[current()]?.description}</div>
+          <Show when={props.list[current()]?.link}>
             <a
               target="_blank"
               class="button text-xs block mt-3 text-solid-default dark:text-solid-darkdefault chevron chevron-right font-semibold hover:text-gray-500 dark:hover:text-gray-300"
