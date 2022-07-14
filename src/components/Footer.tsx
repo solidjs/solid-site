@@ -1,15 +1,15 @@
 import { Component } from 'solid-js';
 import Newsletter from './Newsletter';
 import { useI18n } from '@solid-primitives/i18n';
-import wordmark from '../assets/wordmark-dark.svg';
-import builder from '../assets/supporters/builder.webp';
-import sauce from '../assets/supporters/saucelabs.webp';
-import cloudflare from '../assets/supporters/cloudflare.webp';
-import netlify from '../assets/supporters/netlify.webp';
-import divriots from '../assets/supporters/divriots.webp';
-import jetbrains from '../assets/supporters/jetbrains.webp';
-import vercel from '../assets/supporters/vercel.webp';
-import stytch from '../assets/supporters/stytch.webp';
+import wordmark from '~/assets/wordmark-dark.svg';
+import builder from '~/assets/supporters/builder.webp';
+import sauce from '~/assets/supporters/saucelabs.webp';
+import cloudflare from '~/assets/supporters/cloudflare.webp';
+import netlify from '~/assets/supporters/netlify.webp';
+import divriots from '~/assets/supporters/divriots.webp';
+import jetbrains from '~/assets/supporters/jetbrains.webp';
+import vercel from '~/assets/supporters/vercel.webp';
+import stytch from '~/assets/supporters/stytch.webp';
 import Social from './Social';
 
 const Supporter: Component<{

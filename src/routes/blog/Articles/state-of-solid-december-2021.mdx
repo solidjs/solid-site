@@ -1,0 +1,89 @@
+Since our last State of Solid article in September, a lot has happened in and around the community. We’re more excited than ever about the trajectory of Solid, and this update comes packed with the latest.
+
+## Community, Growth and Ecosystem
+
+Solid’s growth over the past few months has been remarkable to watch. The metrics we’ve been monitoring since 1.0 show a palpable acceptance of Solid despite deep skepticism related to new JavaScript frameworks. What’s most exciting are all of the new users willing to hop onboard, hack with Solid, and post their honest feedback.
+
+Growth has been exceptional. We hit 13k stars and the numbers keep climbing. Our Discord has exploded with new members, and there are both challenges and opportunities that come along with that. We’ve hosted two live Community Meetings, allowing the community to interact with core and ecosystem team members and share what they’ve been building. We’ve also made improvements to the Solid website with new languages, better documentation formats, and better offline mode.
+
+There have been hundreds if not thousands of new Tweets and content pieces that explain the benefits of Solid and cultivate positivity surrounding its growth. It’s a really exciting time to be at the grassroots of this community hearing comments such as:
+
+> "It has the building blocks needed to build empires and that's how React succeeded and I think that's how Solid is going to succeed too" - [Theo - t3.gg](https://twitter.com/JacobMGEvans/status/1473801127066054659?s=20)
+
+While there’s plenty of excitement, the biggest battle we face is showing why Solid isn’t just another React; it’s a powerful new model for thinking reactively. Ryan has been doing an incredible job of speaking publicly on the topic in the hopes that others have similar “wow” moments, resulting in some truly energizing coding sessions. A favorite one to date was the Learn with Jason session, 90 minutes of “wow” moments for him and the audience.
+
+<YouTube youTubeId="ZZ-a7B761Ds" />
+<br />
+
+Solid has also been on a few other streams and podcasts recently:
+
+<ListenNotesEpisode
+  episodeId="fsjam-podcast/episode-53-solid-with-ryan-wpqxSKz2HcM"
+  height="140px"
+/>
+<br />
+
+<YouTube youTubeId="PRDtEyC5X1U" />
+<br />
+<YouTube youTubeId="LZc2hSghezM" />
+
+Ryan has also started [his own Friday evening streams](https://www.youtube.com/c/RyanCarniato9/videos) that focus on everything from Solid to Marko and JS in general.
+
+SolidJS is still a very early community and ecosystem. It’s a concern we used to hear quite a bit after the 1.0 release, but less so now.
+The concern is no longer whether the ecosystem can get off the ground, but how fast it will.
+There have been a number of new tools and releases and we’re seeing much larger efforts start to mature.
+We expect 2022 to be a year that the Solid ecosystem will 10x in size and richness and we’re looking forward to it!
+
+## Documenting Solid
+
+Documentation is a core concern for Solid. Over the past few months, we’ve overhauled the documentation system to make it as maintainable as possible. The [Solid docs repository](https://github.com/solidjs/solid-docs) now exports the docs in an npm package and has a watcher, allowing you to link the package to [solid-site](https://github.com/solidjs/solid-site) and see your changes as you work on it. We always wanted the docs repository to be separate from the site repository, but now the [integration between the two](https://github.com/solidjs/solid-docs#importing-docs-and-tutorials) is cleaner than ever.
+
+We’re grateful to have such active translators to bring the docs to nine languages, with more to come. It was incredible to see the Russian translation team finish the docs just in time for the HolyJS conference. To make this easier, each language folder in the docs repo now has an [automated README section](https://github.com/solidjs/solid-docs/tree/main/langs/de) that tells the translator what files might be out of date and what files still need to be created. It’s also a place for translators to add notes about their translations and language-specific guides for their team. This is a bit of an experiment and we’d love to hear feedback from translators on how we could make the workflow easier.
+
+Docs infrastructure development is important—and we’ve very recently unlocked a world of new possibilities thanks to [high1’s Solid MDX integration](https://github.com/high1/solid-jsx)—but its purpose is to pave the way for better content. We’ve made small improvements to API docs and tutorials, but with the bulk of the technical work behind us, we’re focusing on streamlining the documentation and improving the beginner experience.
+
+We [split up the guides](https://dev.solidjs.com/guides/getting-started) section, and over the coming months we’ll be reworking them for content and readability and working with the community to develop new guides, like Alex Lohr’s new [testing guide](https://dev.solidjs.com/guides/testing). If you’re curious, [check out the RFC](https://docs.google.com/document/d/1Z25C3LhJF4KGbf1YvnmQo7dOzF5KjEVQtoE0ucy3BJs/edit?usp=sharing) for the new guides structure. We won’t stop until we have a zero-to-hero learning process for Solid that works for all learners.
+
+One more experiment—detailed notes for Ryan’s past two streams. These will eventually be posted on the Solid blog, but for now you can read notes for [Streaming HTML](https://docs.google.com/document/d/11SADvxgGFoVv_k-1VaJRQUF3PX6N2IN_1QkGsC07__k/) and [Introduction to Compilation](https://docs.google.com/document/d/1Q4-GC4bNaLNPJ1V0cxUGhQre0Sa54x5GgBsPvpRdBZY/). These take a lot of work, so please let Dan know (Jutanium on Discord and GitHub) if you think they’d be helpful to continue or if you have any feedback at all about Solid’s documentation!
+
+## Next Minor Release: 1.3
+
+The next minor release brings with it some great features for Server Rendering that have been long overdue.
+
+First and foremost: support for full HTML streaming. So far, Solid has used a combination of streaming data and client-side rendering to achieve streaming. And while that has made for some impressive demos, it always relies on client side-rendering and waiting on the client JavaScript bundle to load. HTML streaming is a step further: the server renders the content, and it comes in as soon as it is available. A parent doesn’t have to wait for a child element to render; we use placeholder elements that are dynamically replaced when the child loads. HTML streaming is a solution that scales across end user networks; we no longer have to wait on the bundle in slower networks, and we can take full advantage of faster networks to display content as soon as it is rendered.
+
+In addition to rendering, it is important to handle errors gracefully. We have now added support for [ErrorBoundaries](https://www.solidjs.com/docs/latest/api#%3Cerrorboundary%3E) on the server. Streaming can make this a challenge as ErrorBoundaries can be sent to the browser while nested Suspense boundaries are still waiting to render. To handle this challenge, we have implemented the first isomorphic ErrorBoundary solution that is able to throw Errors on the server and catch them in the browser.
+
+Have you ever wanted to take your favorite reactive state management library and just have it work in the framework or your choice with no wrappers? Thanks to the work of @3shain we have a [new experimental feature](https://github.com/solidjs/solid/blob/next/CHANGELOG.md#external-sources-experimental) that will allow you to do exactly that.
+
+I’m pretty excited to see these features land, and Solid 1.3.0 RC builds are now available to try out. Expect the official release to land early in the new year.
+
+## Solid Start
+
+Solid Start has also been getting some attention. We’ve been making some great demos using the latest technology available across the major providers like Netlify’s functions, Cloudflare’s Edge Workers, and Vercel’s Edge Functions. We’ve created new adapters for each to make it easier for anyone to deploy to these platforms.
+
+<Tweet tweetLink="RyanCarniato/status/1456551775725441033" />
+<Tweet tweetLink="RyanCarniato/status/1369238224233586691" />
+<Tweet tweetLink="RyanCarniato/status/1453283158149980161" />
+
+Solid Start really has been the beacon that has been guiding a lot of the improvements to SSR in the core (mentioned above) and improvements to developer experience in general. @[lxsmnsyc](https://github.com/LXSMNSYC) has been doing great work to add component-granular Hot Module Replacement to all our Vite projects. That means only components that change reload, rather than the whole module.
+
+There is still a lot of work to be done and pieces to come together. But as each part is put into place, it’s clear that we’re only just starting to tap into the potential of what Solid has to offer.
+
+## SolidHack 2022 is coming
+
+![Tux, the Linux mascot](/img/blog/state-of-solid-december-2021/solidhack.png)
+
+We’re pleased to announce that the Solid Core Team, with the support of new sponsors, will be launching our first public open-source hackathon on January 7th.
+
+The hackathon is designed to provide that extra motivation to dive in and build some cool apps and libraries using Solid. We’ll have three categories to build for (announcing on January 7th), three months to build, and $9000+ to give away. We’ll be using a public voting system, and more details on submission and voting will be announced over the coming months. For now, head over to [solidjs.com/hack](https://www.solidjs.com/hack) for more!
+
+## Conclusion
+
+2021 was about completing a journey that started many years ago. The culmination of 5+ years of tinkering with Solid 1.0, and with 1.3 completing this exploration of streaming SSR that began more than 2 years ago. We’ve learned a lot along the way.
+
+When the project started, we could not have predicted the response; honestly, that so many people would just _get it_. Primitives make sense for longer term development of larger SPAs under the countless changes in technology and best practices we’ve seen the past decade. This focus on primitives fueled Solid’s early years in a time where frontend frameworks were doubling down on class lifecycles, options APIs, and localized compilation.
+
+We’ve demonstrated where we can take Solid now. From the depths of streaming SSR and the extents of WebGL with custom renderers, to places a Virtual DOM-less library was never meant to go like Suspense and concurrent rendering. Now, it’s time to return to the fundamentals to make it easier than ever to build the best experiences, to nurture the growth of libraries that offer powerful primitives, and to even re-examine the core building blocks we provide to make this all possible.
+
+We’ve worked harder than ever in 2021, and with every ending is a new beginning. In 2022, we hit the ground running.

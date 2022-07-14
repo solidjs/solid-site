@@ -2,7 +2,7 @@ import { useI18n } from '@solid-primitives/i18n';
 import { Icon } from 'solid-heroicons';
 import { moon, sun } from 'solid-heroicons/outline';
 import { VoidComponent } from 'solid-js';
-import { useAppContext } from '../../AppContext';
+import { useAppContext } from '../AppContext';
 
 export const ModeToggle: VoidComponent = () => {
   const [t] = useI18n();

@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import solid from 'vite-plugin-solid';
+import { defineConfig, PluginOption } from 'vite';
 import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
+import solid from 'solid-start/vite';
 import { dependencies } from './package.json' assert { type: 'json' };
 
 export default defineConfig({
@@ -18,13 +18,13 @@ export default defineConfig({
         remarkPlugins: [remarkGfm],
       }),
       enforce: 'pre',
-    },
-    solid({ extensions: ['.md', '.mdx'] }),
-    // VitePWA(pwaOptions),
+    } as PluginOption,
+    solid({
+      extensions: ['.md', '.mdx'],
+    }),
   ],
-  optimizeDeps: {
-    include: [],
-    exclude: ['@solid.js/docs'],
+  ssr: {
+    noExternal: ['solid-dismiss', 'solid-heroicons', 'solid-docs'],
   },
   build: {
     target: 'esnext',

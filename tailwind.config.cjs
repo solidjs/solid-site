@@ -1,8 +1,25 @@
 const theme = require('tailwindcss/defaultTheme');
 
+const colors = {
+  primary: '#4483c1',
+  solid: {
+    default: '#2c4f7c',
+    darkbg: '#222222',
+    darkLighterBg: '#444444',
+    darkdefault: '#b8d7ff', //'#87b1e6',
+    darkgray: '#252525',
+    gray: '#414042',
+    mediumgray: '#9d9d9d',
+    lightgray: '#f3f5f7',
+    dark: '#07254A',
+    medium: '#446b9e',
+    light: '#4f88c6',
+    accent: '#0cdc73',
+    secondaccent: '#0dfc85',
+  },
+};
 module.exports = {
   content: ['index.html', 'src/**/*.tsx'],
-  mode: 'jit',
   darkMode: 'class',
   theme: {
     extend: {
@@ -29,32 +46,15 @@ module.exports = {
           raw: '(pointer: fine)',
         },
       },
-      colors: {
-        primary: '#4483c1',
-        solid: {
-          default: '#2c4f7c',
-          darkbg: '#222222',
-          darkLighterBg: '#444444',
-          darkdefault: '#b8d7ff', //'#87b1e6',
-          darkgray: '#252525',
-          gray: '#414042',
-          mediumgray: '#9d9d9d',
-          lightgray: '#f3f5f7',
-          dark: '#07254A',
-          medium: '#446b9e',
-          light: '#4f88c6',
-          accent: '#0cdc73',
-          secondaccent: '#0dfc85',
-        },
-      },
-      typography: ({ theme }) => ({
+      colors,
+      typography: {
         DEFAULT: {
           css: {
             '--tw-prose-body': '#333',
             '--tw-prose-invert-body': '#fff',
-            '--tw-prose-headings': theme('colors.solid.default'),
-            '--tw-prose-invert-headings': theme('colors.solid.darkdefault'),
-            '--tw-prose-invert-quote-borders': theme('colors.solid.mediumgray'),
+            '--tw-prose-headings': colors.solid.default,
+            '--tw-prose-invert-headings': colors.solid.darkdefault,
+            '--tw-prose-invert-quote-borders': colors.solid.mediumgray,
             '--tw-prose-pre-bg': 'transparent',
             color: 'var(--tw-prose-body)',
             fontFamily: 'Gordita',
@@ -88,8 +88,8 @@ module.exports = {
             },
           },
         },
-      }),
-      backgroundImage: (theme) => ({
+      },
+      backgroundImage: {
         hero: "url('/src/assets/shapes/header.svg')",
         'blocks-one': "url('/src/assets/shapes/blocks1.svg')",
         'blocks-one-dark': "url('/src/assets/shapes/blocks1-dark.svg')",
@@ -98,7 +98,7 @@ module.exports = {
         doc: 'linear-gradient(to left, #fff, #fff 50%, rgba(243, 244, 246) 10%)',
         darkDoc: 'linear-gradient(to left, #222222, #222222 50%, #444444 10%)',
         translate: 'url(/img/icons/translate2.svg)',
-      }),
+      },
       backgroundSize: {
         24: '1.5rem',
       },
@@ -113,10 +113,5 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      backgroundColor: ['group-hover'],
-    },
-  },
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-dir')],
+  plugins: [require('@tailwindcss/typography')],
 };

@@ -1,0 +1,31 @@
+diff --git a/bin.cjs b/bin.cjs
+index b0eef4e95068e6bd9846f9fa25d0a634326e904c..442d63cbf869cf4d9bdbb4813fd4041b6bda1e4f 100755
+--- a/bin.cjs
++++ b/bin.cjs
+@@ -89,7 +89,7 @@ prog
+           build: {
+             outDir: routeManifestPath,
+             ssrManifest: true,
+-            minify: process.env.START_MINIFY === "false" ? false : "terser",
++            minify: false,
+             rollupOptions: {
+               input: [
+                 resolve(join(config.root, "node_modules", "solid-start", "islands", "entry-client"))
+@@ -125,7 +125,7 @@ prog
+           build: {
+             outDir: path,
+             ssrManifest: true,
+-            minify: process.env.START_MINIFY === "false" ? false : "terser",
++            minify: false,
+             rollupOptions: {
+               input: [
+                 resolve(join(config.root, config.solidOptions.appRoot, `entry-client`)),
+@@ -204,7 +204,7 @@ prog
+           build: {
+             outDir: path,
+             ssrManifest: true,
+-            minify: process.env.START_MINIFY === "false" ? false : "terser",
++            minify: false,
+             rollupOptions: {
+               input: config.solidOptions.entryClient,
+               output: {

@@ -10,16 +10,16 @@ import {
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation, Link } from 'solid-app-router';
+import { useLocation, Link } from '@solidjs/router';
 import Nav from './Nav';
-import { useAppContext } from '../AppContext';
-import logo from '../assets/logo.svg';
-import wordmark from '../assets/wordmark.svg';
+import { useAppContext } from './AppContext';
+import logo from '~/assets/logo.svg';
+import wordmark from '~/assets/wordmark.svg';
 import { chevronRight, play } from 'solid-heroicons/outline';
 import { Icon } from 'solid-heroicons';
-import { reflow } from '../utils';
+import { reflow } from '~/utils';
 import PageLoadingBar from './LoadingBar/PageLoadingBar';
-import { routeReadyState, page } from '../utils/routeReadyState';
+import { routeReadyState, page } from '~/utils/routeReadyState';
 
 const Header: ParentComponent<{ title?: string }> = () => {
   const [t] = useI18n();

@@ -1,21 +1,17 @@
-import { Component, createSignal, ErrorBoundary } from 'solid-js';
-import { Tab } from 'solid-repl';
-import Repl from 'solid-repl/lib/repl';
-import { compiler, formatter } from './setupRepl';
-import { useAppContext } from '../AppContext';
+import { Component, createSignal, ErrorBoundary, lazy } from 'solid-js';
+import { isServer } from 'solid-js/web';
+import type { Tab } from 'solid-repl';
+import { useAppContext } from './AppContext';
+export const Repl = lazy(() =>
+  !isServer ? import('./setupRepl') : Promise.resolve({ default: () => [] }),
+);
 
 let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   count++;
   const context = useAppContext();
-  const initialTabs = props.tabs || [
-    {
-      name: 'main.jsx',
-      source: '',
-    },
-  ];
-  const [tabs, setTabs] = createSignal(initialTabs);
-  const [current, setCurrent] = createSignal(initialTabs[0].name, {
+  const [tabs, setTabs] = createSignal(props.tabs);
+  const [current, setCurrent] = createSignal(props.tabs[0].name, {
     equals: false,
   });
   return (
@@ -26,8 +22,6 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
     >
       <Repl
         id={`repl-${count}`}
-        compiler={compiler}
-        formatter={formatter}
         isHorizontal={true}
         dark={context.isDark}
         tabs={tabs()}
@@ -38,4 +32,5 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
     </ErrorBoundary>
   );
 };
+
 export default OldRepl;

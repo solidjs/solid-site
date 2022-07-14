@@ -158,7 +158,7 @@ export const createCart = (
   };
   const setAttribute = async (key: string, value: string) => {
     const attrs = data.attributes.reduce(
-      (memo: Array<Client.CustomAttribute>, item: Client.CustomAttribute) => {
+      (memo: Client.CustomAttribute[], item: Client.CustomAttribute) => {
         memo.push({
           key: item.key,
           value: item.key == key ? value : item.value,
