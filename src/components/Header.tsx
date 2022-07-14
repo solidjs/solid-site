@@ -171,7 +171,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                           <Title>{t('resources.title', {}, 'Ecosystem')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/store')}>
-                          <Title>{t('store.title', {}, 'Store Store')}</Title>
+                          <Title>{t('store.title', {}, 'Solid Store')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/examples')}>
                           <Title>{t('examples.title', {}, 'Examples')}</Title>
