@@ -17,7 +17,19 @@
     },
     {
       "title": "에코시스템",
-      "path": "/ecosystem"
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "패키지",
+          "description": "SolidJS 소프트웨어 라이브러리",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "리소스",
+          "description": "SolidJS 관련 아티클, 동영상, 팟캐스트",
+          "path": "/resources"
+        }
+      ]
     },
     {
       "title": "예제",
@@ -32,6 +44,12 @@
       "title": "정보",
       "path": "/contributors",
       "links": [
+        {
+          "title": "스토어",
+          "description": "브랜드 셔츠, 스티커 등등.",
+          "path": "/store",
+          "external": false
+        },
         {
           "title": "블로그",
           "description": "커뮤니티 뉴스와 업데이트",
@@ -51,6 +69,12 @@
           "title": "SolidHack",
           "description": "2022 공개 해커톤에 대해서 알아보세요.",
           "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "행동 강령",
+          "description": "커뮤니티와 컨트리뷰터 규칙.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
           "external": true
         },
         {
@@ -79,5 +103,7 @@
     "contributors": "/contributors",
     "sponsored_by": "후원",
     "updated": "Solid v{{version}} 기반으로 {{date}} 에 최종 업데이트되었습니다."
-  }
+  },
+  "dark_mode": "다크 모드",
+  "light_mode": "라이트 모드"
 }
