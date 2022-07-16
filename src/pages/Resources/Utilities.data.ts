@@ -1625,6 +1625,28 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/diragb/solid-custom-navigation',
+    title: 'solid-custom-navigation',
+    description: 'Custom navigations for Solid, written in Typescript. Implement custom page transition logic and ✨ animations ✨.',
+    author: 'Dirag Biswas',
+    author_url: 'https://github.com/diragb',
+    keywords: ['navigation', 'animation', 'custom navigation', 'ui', 'typescript'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/diragb/solid-outside-click-handler',
+    title: 'solid-outside-click-handler',
+    description: 'Detect and handle clicks outside a Solid component.',
+    author: 'Dirag Biswas',
+    author_url: 'https://github.com/diragb',
+    keywords: ['detect', 'outside', 'click', 'ui', 'typescript'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
