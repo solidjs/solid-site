@@ -1647,6 +1647,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/diragb/solid-copy-to-clipboard',
+    title: 'solid-copy-to-clipboard',
+    description: 'Copy to clipboard for Solid with custom event triggers.',
+    author: 'Dirag Biswas',
+    author_url: 'https://github.com/diragb',
+    keywords: ['copy', 'to', 'clipboard', 'ui', 'typescript'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
