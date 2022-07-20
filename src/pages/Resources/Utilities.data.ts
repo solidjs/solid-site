@@ -1658,6 +1658,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/wobsoriano/solid-apexcharts',
+    title: 'solid-apexcharts',
+    description: 'Build interactive visualizations in Solid. Powered by ApexCharts.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['charts', 'apex', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  }
 ];
 
 export default utilities;
