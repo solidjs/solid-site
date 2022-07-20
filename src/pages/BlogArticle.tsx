@@ -1,4 +1,4 @@
-import { Component, Show, createMemo, PropsWithChildren } from 'solid-js';
+import { Component, Show, createMemo } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
@@ -46,7 +46,7 @@ export const BlogArticle: Component = () => {
                   <Article
                     components={{
                       ListenNotesEpisode,
-                      Tweet: (props: PropsWithChildren) => (
+                      Tweet: (props) => (
                         <Tweet
                           {...props}
                           theme={context.isDark ? 'dark' : 'light'}
@@ -54,9 +54,7 @@ export const BlogArticle: Component = () => {
                         />
                       ),
                       YouTube,
-                      Twitch: (props: PropsWithChildren) => (
-                        <Twitch {...props} parent={location.hostname} />
-                      ),
+                      Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
                     }}
                   />
                 </article>
