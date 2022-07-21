@@ -1256,7 +1256,7 @@
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-1.5.2.tgz#5cccf267b4549002897a5e63fd24858126f9bf7a"
   integrity sha512-dZUHjzasuqS2lDO+PQCY1+jFmtWHlaP3tUvkX1Jr06LI/Ipa2P/ZNVSvuIoqQ0Bg+Ny27LvtrXxflZNeGtptvA==
 
-"@solid-primitives/utils@^2.1.0", "@solid-primitives/utils@^2.1.1":
+"@solid-primitives/utils@^2.1.0", "@solid-primitives/utils@^2.1.1", "@solid-primitives/utils@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@solid-primitives/utils/-/utils-2.2.1.tgz#7df54fb4802ea5988cc881f6ee3c4d27bff0c6f6"
   integrity sha512-vaBO3MGOpjzitbSAVuJkYZnzNPRl6sRrw2do390DEBbfeqMfPpW4fAEb5/tI4b5T13V1xAY+giHoxqvVg2SRhQ==
@@ -1432,6 +1432,11 @@
   integrity sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==
   dependencies:
     "@types/node" "*"
+
+"@types/shopify-buy@npm:@brandboostinggmbh/shopify-buy-types@^2.14.6":
+  version "2.14.6"
+  resolved "https://registry.yarnpkg.com/@brandboostinggmbh/shopify-buy-types/-/shopify-buy-types-2.14.6.tgz#4de69271886c3415b14f77756410942620cc7536"
+  integrity sha512-0u8o+ROzD/inz3ijpChgGvZJmDYJ3wiv6lgyX1xmZQk5MSyQ8djqc3JqMzbPBqaaqSV2b6nICSV98j3w0K/Pgg==
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
@@ -5383,6 +5388,11 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.3.tgz#aa40edac170445b9a431e17bb62c0b881b9c4123"
   integrity sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw==
 
+shopify-buy@^2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.16.1.tgz#d5062813df68fe39a6579a8da07bd6a4fdce5a13"
+  integrity sha512-I+4pmFgYpQ8N3yaqNw/5fWu+e7AuiUIrQdDLPtD0SwEzL1EyB4q2Ge+MSHQmrAaZFiDXKHAkfzpkYExztquaDw==
+
 side-channel@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.4.tgz#efce5c8fdc104ee751b25c58d4290011fa5ea2cf"
@@ -5833,9 +5843,9 @@ terser-config-atomic@^0.1.1:
   integrity sha512-HRAHqjCFq990eFbLpy54joStSsUMZQoD73XMk2/Akquqm7vI0AOggfO9GMvSFGEucRRNZUfLQdDjotGGsZxCtA==
 
 terser@^5.0.0:
-  version "5.14.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.14.1.tgz#7c95eec36436cb11cf1902cc79ac564741d19eca"
-  integrity sha512-+ahUAE+iheqBTDxXhTisdA8hgvbEG1hHOQ9xmNjeUJSoi6DU/gMrKNcfZjHkyY6Alnuyc+ikYJaxxfHkT3+WuQ==
+  version "5.14.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.14.2.tgz#9ac9f22b06994d736174f4091aa368db896f1c10"
+  integrity sha512-oL0rGeM/WFQCUd0y2QrWxYnq7tfSuKBiqTjRPWrRgB46WD/kiwHwF8T23z78H6Q6kGCuuHcPB+KULHRdxvVGQA==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"
