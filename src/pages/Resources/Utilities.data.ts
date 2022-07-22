@@ -1628,7 +1628,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/diragb/solid-custom-navigation',
     title: 'solid-custom-navigation',
-    description: 'Custom navigations for Solid, written in Typescript. Implement custom page transition logic and ✨ animations ✨.',
+    description:
+      'Custom navigations for Solid, written in Typescript. Implement custom page transition logic and ✨ animations ✨.',
     author: 'Dirag Biswas',
     author_url: 'https://github.com/diragb',
     keywords: ['navigation', 'animation', 'custom navigation', 'ui', 'typescript'],
@@ -1668,7 +1669,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
-  }
+  },
 ];
 
 export default utilities;

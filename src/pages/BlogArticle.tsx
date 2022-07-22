@@ -41,7 +41,8 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose dark:prose-invert mx-auto">
-                    {data.article && <data.article
+                  {data.article && (
+                    <data.article
                       components={{
                         ListenNotesEpisode,
                         Tweet: (props) => (
@@ -54,7 +55,8 @@ export const BlogArticle: Component = () => {
                         YouTube,
                         Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
                       }}
-                    />}
+                    />
+                  )}
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">
