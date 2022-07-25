@@ -726,6 +726,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1657918000000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=MgC-ESbahR0',
+    title: 'SolidJS is a game changer',
+    description:
+      'Awesome spends 10 minutes introducing you to introduction Solid concepts.',
+    keywords: ['getting started', 'future', 'intro', 'awesome'],
+    author: 'Awesome',
+    author_url: 'https://www.awesome.club/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1658770100000,
+  },
 ];
 
 export default videos;
