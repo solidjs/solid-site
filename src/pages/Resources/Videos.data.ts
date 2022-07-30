@@ -744,8 +744,8 @@ const videos: Array<Resource> = [
     description:
       'Ryan Carniato presents at the Contax sponsored Real World React.',
     keywords: ['contax', 'reactivity', 'sumner', 'real world', 'world', 'real'],
-    author: 'Awesome',
-    author_url: 'https://www.awesome.club/',
+    author: 'Real World React',
+    author_url: 'https://www.realworldreact.com/',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1659074818000,
