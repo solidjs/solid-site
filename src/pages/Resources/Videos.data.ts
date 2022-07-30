@@ -738,6 +738,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1658770100000,
   },
+  {
+    link: 'https://youtu.be/qpAkYk1LK-U?t=2322',
+    title: 'Ryan Carniato on Solid.js, Jarred Sumner on Bun, & Alex Cole on e2e Reactivity',
+    description:
+      'Ryan Carniato presents at the Contax sponsored Real World React.',
+    keywords: ['contax', 'reactivity', 'sumner', 'real world', 'world', 'real'],
+    author: 'Awesome',
+    author_url: 'https://www.awesome.club/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1659074818000,
+  },
 ];
 
 export default videos;
