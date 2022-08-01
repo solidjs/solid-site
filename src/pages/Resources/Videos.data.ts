@@ -702,6 +702,54 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1655114560000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=sgMdAD8stJg',
+    title: 'Maintaining Open Source Full-time',
+    description:
+      'We will explore what it takes to become an Open Source maintainer full-time and how to achieve it, and the challenges faced.',
+    keywords: ['open-source', 'netlify', 'maintainers', 'solid'],
+    author: 'This Is Tech Talks',
+    author_url: 'https://www.youtube.com/c/ThisisTechTalks',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1655114560000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=-TeXU9UZ_4w',
+    title: 'Nested Routing, Parallelized Data Fetching, and SolidJS w/ Ryan Turnquist',
+    description:
+      'This stream we will focus on all things routing.',
+    keywords: ['ryanstreams', 'ryan', 'routing', 'turnquist'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1657918000000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=MgC-ESbahR0',
+    title: 'SolidJS is a game changer',
+    description:
+      'Awesome spends 10 minutes introducing you to introduction Solid concepts.',
+    keywords: ['getting started', 'future', 'intro', 'awesome'],
+    author: 'Awesome',
+    author_url: 'https://www.awesome.club/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1658770100000,
+  },
+  {
+    link: 'https://youtu.be/qpAkYk1LK-U?t=2322',
+    title: 'Ryan Carniato on Solid.js, Jarred Sumner on Bun, & Alex Cole on e2e Reactivity',
+    description:
+      'Ryan Carniato presents at the Contax sponsored Real World React.',
+    keywords: ['contax', 'reactivity', 'sumner', 'real world', 'world', 'real'],
+    author: 'Real World React',
+    author_url: 'https://www.realworldreact.com/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1659074818000,
+  },
 ];
 
 export default videos;

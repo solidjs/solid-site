@@ -1628,7 +1628,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/diragb/solid-custom-navigation',
     title: 'solid-custom-navigation',
-    description: 'Custom navigations for Solid, written in Typescript. Implement custom page transition logic and ✨ animations ✨.',
+    description:
+      'Custom navigations for Solid, written in Typescript. Implement custom page transition logic and ✨ animations ✨.',
     author: 'Dirag Biswas',
     author_url: 'https://github.com/diragb',
     keywords: ['navigation', 'animation', 'custom navigation', 'ui', 'typescript'],
@@ -1657,6 +1658,28 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/wobsoriano/solid-apexcharts',
+    title: 'solid-apexcharts',
+    description: 'Build interactive visualizations in Solid. Powered by ApexCharts.',
+    author: 'Robert Soriano',
+    author_url: 'https://github.com/wobsoriano',
+    keywords: ['charts', 'apex', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
+    link: 'https://www.locatorjs.com/',
+    title: 'LocateJS',
+    description: 'A React, Preact and Solid-supported dev tool that lets you click on any component in the browser to open its code in your IDE..',
+    author: 'LocateJS',
+    author_url: '',
+    keywords: ['devtool', 'developer tool', 'locate'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI, ResourceCategory.Plugins],
   },
 ];
 

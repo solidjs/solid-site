@@ -16,8 +16,6 @@ export const BlogArticle: Component = () => {
   );
   const context = useAppContext();
 
-  const Article = data.article!;
-
   return (
     <div class="flex flex-col">
       <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
@@ -43,20 +41,22 @@ export const BlogArticle: Component = () => {
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <article class="my-10 prose dark:prose-invert mx-auto">
-                  <Article
-                    components={{
-                      ListenNotesEpisode,
-                      Tweet: (props) => (
-                        <Tweet
-                          {...props}
-                          theme={context.isDark ? 'dark' : 'light'}
-                          align="center"
-                        />
-                      ),
-                      YouTube,
-                      Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
-                    }}
-                  />
+                  {data.article && (
+                    <data.article
+                      components={{
+                        ListenNotesEpisode,
+                        Tweet: (props) => (
+                          <Tweet
+                            {...props}
+                            theme={context.isDark ? 'dark' : 'light'}
+                            align="center"
+                          />
+                        ),
+                        YouTube,
+                        Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
+                      }}
+                    />
+                  )}
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">
