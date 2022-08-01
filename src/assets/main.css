@@ -171,6 +171,10 @@ pre {
   color-scheme: dark;
 }
 
+.twitter-solid-social > .twitter-tweet {
+  color-scheme: normal;
+}
+
 /* START TOOLTIP STYLES */
 @media (hover: hover) {
   [data-tooltip] {
