@@ -717,8 +717,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=-TeXU9UZ_4w',
     title: 'Nested Routing, Parallelized Data Fetching, and SolidJS w/ Ryan Turnquist',
-    description:
-      'This stream we will focus on all things routing.',
+    description: 'This stream we will focus on all things routing.',
     keywords: ['ryanstreams', 'ryan', 'routing', 'turnquist'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/c/RyanCarniato9',
@@ -729,8 +728,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=MgC-ESbahR0',
     title: 'SolidJS is a game changer',
-    description:
-      'Awesome spends 10 minutes introducing you to introduction Solid concepts.',
+    description: 'Awesome spends 10 minutes introducing you to introduction Solid concepts.',
     keywords: ['getting started', 'future', 'intro', 'awesome'],
     author: 'Awesome',
     author_url: 'https://www.awesome.club/',
@@ -741,8 +739,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://youtu.be/qpAkYk1LK-U?t=2322',
     title: 'Ryan Carniato on Solid.js, Jarred Sumner on Bun, & Alex Cole on e2e Reactivity',
-    description:
-      'Ryan Carniato presents at the Contax sponsored Real World React.',
+    description: 'Ryan Carniato presents at the Contax sponsored Real World React.',
     keywords: ['contax', 'reactivity', 'sumner', 'real world', 'world', 'real'],
     author: 'Real World React',
     author_url: 'https://www.realworldreact.com/',

@@ -43,7 +43,6 @@
     "solid-dismiss": "^1.2.1",
     "solid-heroicons": "^2.0.3",
     "solid-js": "1.4.7",
-    "solid-jsx": "^0.9.0",
     "solid-meta": "^0.27.5",
     "solid-repl": "^0.24.0",
     "solid-social": "^0.7.4",
@@ -78,9 +77,9 @@
     "tailwindcss-rtl": "^0.9.0",
     "terser-config-atomic": "^0.1.1",
     "typescript": "^4.7.4",
-    "vite": "^2.9.14",
-    "vite-plugin-pwa": "^0.12.2",
-    "vite-plugin-solid": "^2.2.6"
+    "vite": "^3.0.4",
+    "vite-plugin-pwa": "^0.12.3",
+    "vite-plugin-solid": "^2.3.0"
   },
   "version": "0.0.0"
 }

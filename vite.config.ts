@@ -22,20 +22,6 @@ export default defineConfig({
     exclude: ['@solid.js/docs'],
   },
   build: {
-    polyfillDynamicImport: false,
     target: 'esnext',
-    terserOptions: {
-      compress: {
-        unsafe: true,
-        unsafe_arrows: true,
-        unsafe_Function: true,
-        unsafe_math: true,
-        unsafe_symbols: true,
-        unsafe_methods: true,
-        unsafe_proto: true,
-        unsafe_regexp: true,
-        passes: 3,
-      },
-    },
   },
 });

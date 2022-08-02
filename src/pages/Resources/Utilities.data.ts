@@ -1673,7 +1673,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://www.locatorjs.com/',
     title: 'LocateJS',
-    description: 'A React, Preact and Solid-supported dev tool that lets you click on any component in the browser to open its code in your IDE..',
+    description:
+      'A React, Preact and Solid-supported dev tool that lets you click on any component in the browser to open its code in your IDE..',
     author: 'LocateJS',
     author_url: '',
     keywords: ['devtool', 'developer tool', 'locate'],
