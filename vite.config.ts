@@ -4,6 +4,10 @@ import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
 
 export default defineConfig({
+  define: {
+    updatedAt: JSON.stringify(new Date().toLocaleString()),
+    solidVersion: JSON.stringify('1.4.7')
+  },
   plugins: [
     {
       ...mdx({

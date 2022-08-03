@@ -7,8 +7,15 @@ import sauce from '../assets/supporters/saucelabs.webp';
 import cloudflare from '../assets/supporters/cloudflare.webp';
 import netlify from '../assets/supporters/netlify.webp';
 import divriots from '../assets/supporters/divriots.webp';
+import jetbrains from '../assets/supporters/jetbrains.webp';
 import vercel from '../assets/supporters/vercel.webp';
+import stytch from '../assets/supporters/stytch.webp';
 import Social from './Social';
+
+declare global {
+  const updatedAt: string;
+  const solidVersion: string;
+}
 
 const Supporter: Component<{
   img: string;
@@ -27,6 +34,7 @@ const Supporter: Component<{
 
 const Footer: Component = () => {
   const [t] = useI18n();
+  console.log(import.meta.env);
   return (
     <div
       dir={t('global.dir', {}, 'ltr')}
@@ -57,13 +65,15 @@ const Footer: Component = () => {
               <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
               <Supporter alt="<div>riots>" href="https://divriots.com/" img={divriots} />
               <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
+              <Supporter alt="Jetbrains" href="https://www.jetbrains.com/" img={jetbrains} />
+              <Supporter alt="Stytch" href="https://www.stytch.com/" img={stytch} />
             </div>
           </div>
           <div class="flex justify-between">
             <p class="text-sm text-center text-gray-600 dark:text-gray-300">
               {t('global.footer.updated', {
-                date: '2022/08/01, 3:30pm',
-                version: '1.4.7',
+                date: updatedAt,
+                version: solidVersion,
               })}
             </p>
           </div>
