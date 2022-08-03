@@ -21,21 +21,7 @@ export const useRouteReadyState = () => {
     pageEl.style.minHeight = '';
   };
 
-  try {
-    const data = useRouteData<{ loading: boolean }>();
-
-    createComputed(() => {
-      if (!data.loading) {
-        setRouteReadyState((prev) => ({ ...prev, loading: false, loadingBar: false }));
-        if (init) {
-          init = false;
-          return true;
-        }
-        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-        restorePageHeight();
-      }
-    });
-  } catch (err) {
+  const setRouteReady = (): boolean | void => {
     setRouteReadyState((prev) => ({ ...prev, loading: false, loadingBar: false }));
     if (init) {
       init = false;
@@ -43,5 +29,15 @@ export const useRouteReadyState = () => {
     }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     restorePageHeight();
+  };
+
+  try {
+    const data = useRouteData<{ loading: boolean }>();
+
+    createComputed(() => {
+      if (!data.loading) return setRouteReady();
+    });
+  } catch (err) {
+    return setRouteReady();
   }
 };
