@@ -13,8 +13,8 @@ import stytch from '../assets/supporters/stytch.webp';
 import Social from './Social';
 
 declare global {
-  const updatedAt: string;
-  const solidVersion: string;
+  const __UPDATED_AT__: string;
+  const __SOLID_VERSION__: string;
 }
 
 const Supporter: Component<{
@@ -72,8 +72,8 @@ const Footer: Component = () => {
           <div class="flex justify-between">
             <p class="text-sm text-center text-gray-600 dark:text-gray-300">
               {t('global.footer.updated', {
-                date: updatedAt,
-                version: solidVersion,
+                date: __UPDATED_AT__,
+                version: __SOLID_VERSION__,
               })}
             </p>
           </div>
