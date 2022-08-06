@@ -68,13 +68,12 @@ const Header: ParentComponent<{ title?: string }> = () => {
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <a
               target="_blank"
-              href={t('home.ukraine.link', {}, 'https://crisisrelief.un.org/ukraine-crisis')}
+              href={t('home.ukraine.link', {}, 'https://www.un.org/en/globalceasefire')}
               class="absolute w-full font-semibold text-center p-3 bg-solid-medium/30"
             >
-              <span class="text-yellow-500">
-                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+              <span class="text-white">
+                {t('home.ukraine.support', {}, 'Support Global Ceasefire! End war in Ukraine and all global conflict.')}
               </span>{' '}
-              {t('home.ukraine.petition', {}, 'Help provide humanitarian aid.')}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s">
