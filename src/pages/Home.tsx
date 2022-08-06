@@ -61,8 +61,8 @@ const Home: Component = () => {
   });
 
   return (
-    <div class="flex flex-col md:pt-8">
-      <div class="lg:my-2 px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 md:bg-blocks-one bg-contain bg-no-repeat bg-left-top md:dark:bg-blocks-one-dark">
+    <div class="flex flex-col">
+      <div class="px-0 lg:px-12 container flex flex-col lg:space-y-10 md:pt-10 md:bg-blocks-one bg-contain bg-no-repeat bg-left-top md:dark:bg-blocks-one-dark">
         <a
           href="/store"
           class="flex items-center space-x-3 justify-center text-center text-solid-medium dark:bg-solid-light/40 dark:text-white m-5 md:mx-0 hover:text-solid-dark transition duration-500 bg-slate-200/50 max-width-[300px] rounded-lg p-5 text-lg"
