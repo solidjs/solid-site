@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 import mdx from '@mdx-js/rollup';
 import remarkGfm from 'remark-gfm';
-import { dependencies } from './package.json';
+import { dependencies } from './package.json' assert { type: 'json' };
 
 export default defineConfig({
   define: {

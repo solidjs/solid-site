@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import { useAppContext } from '../AppContext';
 import { ListenNotesEpisode, YouTube, Tweet, Twitch } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
+import type { TweetProperties } from 'solid-social/dist/types/components/twitter/tweet';
+import type { TwitchProperties } from 'solid-social/dist/types/components/twitch/twitch';
 
 export const BlogArticle: Component = () => {
   const [t] = useI18n();
@@ -45,7 +47,7 @@ export const BlogArticle: Component = () => {
                     <data.article
                       components={{
                         ListenNotesEpisode,
-                        Tweet: (props) => (
+                        Tweet: (props: TweetProperties) => (
                           <Tweet
                             {...props}
                             theme={context.isDark ? 'dark' : 'light'}
@@ -53,7 +55,9 @@ export const BlogArticle: Component = () => {
                           />
                         ),
                         YouTube,
-                        Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
+                        Twitch: (props: TwitchProperties) => (
+                          <Twitch {...props} parent={location.hostname} />
+                        ),
                       }}
                     />
                   )}

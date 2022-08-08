@@ -1,7 +1,7 @@
 import { RouteDataFunc } from 'solid-app-router';
 import type { Component } from 'solid-js';
 
-export type MDXComponent = Component<{ components: Record<string, Component> }>;
+export type MDXComponent = Component<{ components: Record<string, unknown> }>;
 
 export type BlogInfo = {
   id?: string;
