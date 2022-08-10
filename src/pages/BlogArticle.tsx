@@ -47,7 +47,7 @@ export const BlogArticle: Component = () => {
                     <data.article
                       components={{
                         ListenNotesEpisode,
-                        Tweet: (props: TweetProperties) => (
+                        Tweet: (props) => (
                           <Tweet
                             {...props}
                             theme={context.isDark ? 'dark' : 'light'}
@@ -55,7 +55,7 @@ export const BlogArticle: Component = () => {
                           />
                         ),
                         YouTube,
-                        Twitch: (props: TwitchProperties) => (
+                        Twitch: (props) => (
                           <Twitch {...props} parent={location.hostname} />
                         ),
                       }}
