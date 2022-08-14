@@ -1682,6 +1682,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI, ResourceCategory.Plugins],
   },
+  {
+    link: 'https://github.com/KarthikeyanRanasthala/solid-bottomsheet',
+    title: 'solid-bottomsheet',
+    description: 'A light-weight Bottomsheet UI component for Solid JS with zero dependencies.',
+    author: 'Karthikeyan Ranasthala',
+    author_url: 'https://github.com/KarthikeyanRanasthala',
+    keywords: ['bottomsheet', 'drawer', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
