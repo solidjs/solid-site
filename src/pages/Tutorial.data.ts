@@ -27,9 +27,17 @@ export const TutorialData: RouteDataFunc<TutorialRouteData> = (props) => {
   const paramList = () => ({ lang: locale(), id: props.params.id || 'introduction_basics' });
   const [directory] = createResource(
     paramList,
-    async ({ lang }) => await getTutorialDirectory(lang),
+    async ({ lang }) => {
+      const requestedLang = await getTutorialDirectory(lang);
+      if (requestedLang) return requestedLang;
+      return await getTutorialDirectory('en');
+    }
   );
-  const [data] = createResource(paramList, async ({ lang, id }) => await getTutorial(lang, id));
+  const [data] = createResource(paramList, async ({ lang, id }) => {
+    const requestedLang = await getTutorial(lang, id);
+    if (requestedLang && requestedLang.lesson) return requestedLang;
+    return await getTutorial('en', id);
+  });
 
   const currentIndex = (data: LessonLookup[]) =>
     data.findIndex((el) => el.internalName === paramList().id);
