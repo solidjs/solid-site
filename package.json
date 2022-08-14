@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0",
+    "pnpm": ">=7.8.0"
   },
   "type": "module",
   "scripts": {
@@ -46,7 +47,7 @@
     "solid-js": "1.4.7",
     "solid-meta": "^0.27.5",
     "solid-repl": "^0.24.0",
-    "solid-social": "^0.7.4",
+    "solid-social": "^0.8.0",
     "solid-transition-group": "^0.0.10",
     "solid-utils": "^0.8.1"
   },
@@ -81,5 +82,6 @@
     "vite": "^3.0.4",
     "vite-plugin-pwa": "^0.12.3",
     "vite-plugin-solid": "^2.3.0"
-  }
+  },
+  "packageManager": "pnpm@7.9.0"
 }
