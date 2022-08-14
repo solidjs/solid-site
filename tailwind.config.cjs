@@ -81,6 +81,7 @@ module.exports = {
             a: {
               color: '#999',
               textDecoration: 'none',
+              fontWeight: '600',
               '&:hover': {
                 color: '#2c4f7c',
               },
