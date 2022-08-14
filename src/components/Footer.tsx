@@ -12,11 +12,6 @@ import vercel from '../assets/supporters/vercel.webp';
 import stytch from '../assets/supporters/stytch.webp';
 import Social from './Social';
 
-declare global {
-  const __UPDATED_AT__: string;
-  const __SOLID_VERSION__: string;
-}
-
 const Supporter: Component<{
   img: string;
   alt: string;
