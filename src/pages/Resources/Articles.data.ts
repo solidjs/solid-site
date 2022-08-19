@@ -1015,7 +1015,7 @@ const articles: Array<Resource> = [
     keywords: ['solid-devtools', 'tooling', 'community'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
-    published_at: 1657831109000,
+    published_at: 1660305240000,
   },
 ];
 
