@@ -258,20 +258,19 @@ const onExitBigHeader = (el: Element, done: () => void) => {
   });
   bannerEl.style.transform = `translateY(${headerHeight}px)`;
 
-  headerEl.addEventListener(
-    'transitionend',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
+  const onTransitionEnd: EventListener = (e) => {
+    if (e.target !== e.currentTarget) return;
+    e.currentTarget?.removeEventListener('transitionend', onTransitionEnd);
 
-      elements.forEach((el) => {
-        el.style.transition = '';
-        el.style.transform = '';
-      });
+    elements.forEach((el) => {
+      el.style.transition = '';
+      el.style.transform = '';
+    });
 
-      done();
-    },
-    { once: true },
-  );
+    done();
+  };
+
+  headerEl.addEventListener('transitionend', onTransitionEnd);
 };
 
 const onEnterSmallHeader = (el: Element, done: () => void) => {
