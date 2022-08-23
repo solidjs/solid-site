@@ -1705,7 +1705,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
   },
     {
-    link: 'https://gitlab.com/olgam4/bat',
+    link: 'https://github.com/olgam4/bat',
     title: 'bat',
     description: 'Opinionated Vite Starter Template',
     author: 'Olivier Gamache',
