@@ -1704,7 +1704,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
-    {
+  {
     link: 'https://github.com/olgam4/bat',
     title: 'bat',
     description: 'Opinionated Vite Starter Template',
