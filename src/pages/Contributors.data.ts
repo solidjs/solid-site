@@ -88,7 +88,7 @@ const translators = [
     link: 'https://github.com/xstevenyung',
   },
   {
-    name: 'Mehdi (MidouWebDev)',
+    name: 'Mehdi Bertul (MidouWebDev)',
     language: 'fr',
     flag: '🇫🇷',
     link: 'https://github.com/MidouWebDev',
