@@ -36,7 +36,7 @@
     "fuse.js": "^6.6.2",
     "github-slugger": "^1.4.0",
     "highlight.js": "^11.6.0",
-    "monaco-editor": "0.34.0",
+    "monaco-editor": "0.33.0",
     "onigasm": "^2.2.5",
     "remark-gfm": "^3.0.1",
     "scroll-behavior-polyfill": "^2.0.13",
