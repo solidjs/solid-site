@@ -1005,6 +1005,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1657831109000,
   },
+  {
+    link: 'https://dev.to/mbarzeev/taking-solidjs-dev-tools-for-a-spin-44m2',
+    title: 'Taking SolidJS Dev-Tools for a Spin',
+    description:
+      'Join me on this week’s post as I take SolidJS’ dev-tools for a spin and find out that even though it...',
+    author: 'Taking SolidJS Dev-Tools for a Spin',
+    author_url: 'https://dev.to/mbarzeev',
+    keywords: ['solid-devtools', 'tooling', 'community'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1660305240000,
+  },
 ];
 
 export default articles;
