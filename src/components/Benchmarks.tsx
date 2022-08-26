@@ -33,7 +33,8 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
         <For each={options()}>
           {(row) => {
             let chartRef: HTMLDivElement;
-            const [isVisible] = createVisibilityObserver(() => chartRef);
+            const useVisibilityObserver = createVisibilityObserver();
+            const isVisible = useVisibilityObserver(() => chartRef);
             return (
               <tr>
                 <td class="w-1/6 text-xs">{row.label}</td>

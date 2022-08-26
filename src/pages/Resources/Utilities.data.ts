@@ -1693,7 +1693,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
-    {
+  {
     link: 'https://github.com/smastrom/solid-collapse',
     title: 'solid-collapse',
     description: 'Tiny and performant collapse component for SolidJS.',
