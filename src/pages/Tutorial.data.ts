@@ -25,14 +25,11 @@ export interface TutorialRouteData {
 export const TutorialData: RouteDataFunc<TutorialRouteData> = (props) => {
   const [, { locale }] = useI18n();
   const paramList = () => ({ lang: locale(), id: props.params.id || 'introduction_basics' });
-  const [directory] = createResource(
-    paramList,
-    async ({ lang }) => {
-      const requestedLang = await getTutorialDirectory(lang);
-      if (requestedLang) return requestedLang;
-      return await getTutorialDirectory('en');
-    }
-  );
+  const [directory] = createResource(paramList, async ({ lang }) => {
+    const requestedLang = await getTutorialDirectory(lang);
+    if (requestedLang) return requestedLang;
+    return await getTutorialDirectory('en');
+  });
   const [data] = createResource(paramList, async ({ lang, id }) => {
     const requestedLang = await getTutorial(lang, id);
     if (requestedLang && requestedLang.lesson) return requestedLang;

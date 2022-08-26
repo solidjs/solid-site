@@ -749,8 +749,9 @@ const videos: Array<Resource> = [
   },
   {
     link: 'https://www.youtube.com/watch?v=XvOGRazkQrg',
-    title: 'Solid JS Introduction (it\'s a really good)',
-    description: 'You are familiar with React or JSX working with solid is going to be really easy to pick up.',
+    title: "Solid JS Introduction (it's a really good)",
+    description:
+      'You are familiar with React or JSX working with solid is going to be really easy to pick up.',
     keywords: ['codewithluke', 'intro', 'lukebabich'],
     author: 'lukebabich',
     author_url: 'https://www.youtube.com/user/lukebabich',
@@ -761,14 +762,15 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=Bubv8wlLIxo',
     title: 'TWF: Zero Framework Overhead with Solid.js',
-    description: 'An introduce you to Solid.js, a JavaScript Framework that boasts best in class performance metrics.',
+    description:
+      'An introduce you to Solid.js, a JavaScript Framework that boasts best in class performance metrics.',
     keywords: ['twf', 'meetup', 'learn', 'solid'],
     author: 'TWF meetup',
     author_url: 'https://www.youtube.com/channel/UCuz1uH7R0PmGbSNf34MegwQ',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1660688143000,
-  }
+  },
 ];
 
 export default videos;

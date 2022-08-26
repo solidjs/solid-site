@@ -210,14 +210,12 @@ const Tutorial: Component = () => {
             />
           </div>
           <Show when={data.markdown} fallback={''}>
-            {(markdown) => (
-              <div
-                ref={markDownRef}
-                class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
-              >
-                {markdown}
-              </div>
-            )}
+            <div
+              ref={markDownRef}
+              class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
+            >
+              {data.markdown}
+            </div>
           </Show>
 
           <div class="py-4 px-10 flex items-center justify-between border-t-2 dark:border-solid-darkLighterBg">
