@@ -1017,6 +1017,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1660305240000,
   },
+  {
+    link: 'https://dev.to/dmnchzl/discover-a-new-framework-solidjs-1nco',
+    title: 'Discover A New Framework: SolidJS',
+    description:
+      'Damien challenges himself to experiment with a new technology: SolidJS',
+    author: 'Damien Chazoule',
+    author_url: 'https://dev.to/dmnchzl',
+    keywords: ['solid-devtools', 'tooling', 'community'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1662153804000,
+  },
 ];
 
 export default articles;
