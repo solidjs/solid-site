@@ -1,78 +1,47 @@
-interface Example {
-  id: string;
-  name: string;
-  description: string;
+import { useLocation, RouteDataFunc } from 'solid-app-router';
+import { createResource } from 'solid-js';
+import { useI18n } from '@solid-primitives/i18n';
+import { Example, getExamplesDirectory } from '@solid.js/docs';
+
+type CategorizedIndexes = Record<string, number[]>;
+
+export interface ExamplesDirectoryData {
+  loading: boolean;
+  fallback: boolean;
+  flatList: Example[];
+  categorizedList: CategorizedIndexes;
 }
 
-const list: Record<string, Example[]> = {
-  Basic: [
-    {
-      id: 'counter',
-      name: 'Counter',
-      description: 'A simple standard counter example',
+export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
+  const location = useLocation();
+  const [, { locale }] = useI18n();
+
+  const lang = () => (location.query.locale ? location.query.locale : locale());
+  const [resource] = createResource(lang, async (lang) => {
+    const requestedLang = await getExamplesDirectory(lang);
+    if (requestedLang) return { list: requestedLang, fallback: false };
+    return { list: await getExamplesDirectory('en'), fallback: true };
+  });
+  return {
+    get loading() {
+      return resource.loading;
     },
-    {
-      id: 'todos',
-      name: 'Simple Todos',
-      description: 'Todos with LocalStorage persistence',
+    get fallback() {
+      return !!resource()?.fallback;
     },
-    {
-      id: 'forms',
-      name: 'Form Validation',
-      description: 'HTML 5 validators with custom async validation',
+    get flatList() {
+      return resource()?.list;
     },
-    {
-      id: 'cssanimations',
-      name: 'CSS Animations',
-      description: 'Using Solid Transition Group',
+    get categorizedList() {
+      const flatList = resource()?.list;
+      if (!flatList) return undefined;
+      const result = flatList.reduce<CategorizedIndexes>((acc, val, index) => {
+        const [category] = val.name.split('/');
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(index);
+        return acc;
+      }, {});
+      return result;
     },
-    {
-      id: 'context',
-      name: 'Context',
-      description: 'A simple color picker using Context.',
-    },
-  ],
-  Complex: [
-    {
-      id: 'clock',
-      name: 'Clock',
-      description: 'Demonstrates Solid reactivity with a real-time clock example.',
-    },
-    {
-      id: 'ethasketch',
-      name: 'Etch A Sketch',
-      description: 'Uses Index and createMemo to create a grid graphic.',
-    },
-    {
-      id: 'scoreboard',
-      name: 'Scoreboard',
-      description: 'Make use of hooks to do simple transitions',
-    },
-    {
-      id: 'asyncresource',
-      name: 'Async Resource',
-      description: 'Ajax requests to SWAPI with Promise cancellation',
-    },
-    {
-      id: 'suspensetabs',
-      name: 'Suspense Transitions',
-      description: 'Defered loading spinners for smooth UX',
-    },
-    {
-      id: 'simpletodos',
-      name: 'Simple Todos Template Literals',
-      description: 'Simple Todos using Lit DOM Expressions',
-    },
-    {
-      id: 'simpletodoshyperscript',
-      name: 'Simple Todos Hyperscript',
-      description: 'Simple Todos using Hyper DOM Expressions',
-    },
-  ],
+  };
 };
-
-export const ExamplesData = () => ({
-  list,
-});
-
-export type ExamplesDataRoute = ReturnType<typeof ExamplesData>;

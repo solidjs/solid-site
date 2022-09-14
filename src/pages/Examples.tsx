@@ -1,15 +1,16 @@
 import Repl from 'solid-repl/lib/repl';
 import { NavLink, useRouteData, useParams } from 'solid-app-router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
-import { ExamplesDataRoute } from './Examples.data';
+import { ExamplesDirectoryData } from './Examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppContext } from '../AppContext';
+import { getExample } from '@solid.js/docs';
 
 const Examples: Component = () => {
-  const data = useRouteData<ExamplesDataRoute>();
+  const data = useRouteData<ExamplesDirectoryData>();
   const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
@@ -24,25 +25,14 @@ const Examples: Component = () => {
   useRouteReadyState();
 
   createEffect(async () => {
-    const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
-      r.json(),
-    )) as {
-      files: {
-        name: string;
-        type: string;
-        content: string | string[];
-      }[];
-      version?: string;
-    };
+    if (data.loading) return;
+    // const example = data.flatList.find(x => x.id === params.id);
+    const example = await getExample('en', params.id);
     batch(() => {
-      const newTabs = exampleData.files.map(
-        (file: { name: string; type?: string; content: string | string[] }) => {
-          return {
-            name: file.name + (file.type ? `.${file.type}` : '.jsx'),
-            source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
-          };
-        },
-      );
+      const newTabs = example.files.map((file) => ({
+        name: `${file.name}.${file.type}`,
+        source: file.content,
+      }));
       setTabs(newTabs);
       setCurrent(newTabs[0].name);
     });
@@ -53,25 +43,25 @@ const Examples: Component = () => {
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
-            <For each={Object.entries(data.list)}>
-              {([name, examples]) => (
+            <For each={Object.entries(data.categorizedList)}>
+              {([name, examplesIndexes]) => (
                 <>
                   <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
                     {t(`examples.${name.toLowerCase()}`, {}, name)}
                   </h3>
                   <div class="mb-10">
-                    <For each={examples}>
-                      {(example) => (
+                    <For each={examplesIndexes}>
+                      {(exampleIndex) => (
                         <NavLink
                           dir="ltr"
-                          href={`/examples/${example.id}`}
+                          href={`/examples/${data.flatList[exampleIndex].id}`}
                           class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
                           activeClass="text-solid-light dark:text-solid-darkdefault"
                         >
-                          <span>{example.name}</span>
-                          <span>{example.id === params.id}</span>
+                          <span>{data.flatList[exampleIndex].name}</span>
+                          <span>{data.flatList[exampleIndex].id === params.id}</span>
                           <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
-                            {example.description}
+                            {data.flatList[exampleIndex].description}
                           </span>
                         </NavLink>
                       )}
