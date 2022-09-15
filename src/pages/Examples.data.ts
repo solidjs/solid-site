@@ -3,13 +3,11 @@ import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
 import { Example, getExamplesDirectory } from '@solid.js/docs';
 
-type CategorizedIndexes = Record<string, number[]>;
-
 export interface ExamplesDirectoryData {
   loading: boolean;
   fallback: boolean;
-  flatList: Example[];
-  categorizedList: CategorizedIndexes;
+  flatList?: Example[];
+  categorizedList?: [string, number[]][];
 }
 
 export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
@@ -35,13 +33,13 @@ export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
     get categorizedList() {
       const flatList = resource()?.list;
       if (!flatList) return undefined;
-      const result = flatList.reduce<CategorizedIndexes>((acc, val, index) => {
+      const result = flatList.reduce<Record<string, number[]>>((acc, val, index) => {
         const [category] = val.name.split('/');
         if (!acc[category]) acc[category] = [];
         acc[category].push(index);
         return acc;
       }, {});
-      return result;
+      return Object.entries(result);
     },
   };
 };

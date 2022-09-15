@@ -7,7 +7,7 @@ import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppContext } from '../AppContext';
-import { getExample } from '@solid.js/docs';
+import { Example, getExample } from '@solid.js/docs';
 
 const Examples: Component = () => {
   const data = useRouteData<ExamplesDirectoryData>();
@@ -29,10 +29,10 @@ const Examples: Component = () => {
     // const example = data.flatList.find(x => x.id === params.id);
     const example = await getExample('en', params.id);
     batch(() => {
-      const newTabs = example.files.map((file) => ({
+      const newTabs = example?.files?.map((file) => ({
         name: `${file.name}.${file.type}`,
         source: file.content,
-      }));
+      })) || [];
       setTabs(newTabs);
       setCurrent(newTabs[0].name);
     });
@@ -43,28 +43,31 @@ const Examples: Component = () => {
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
-            <For each={Object.entries(data.categorizedList)}>
-              {([name, examplesIndexes]) => (
+            <For each={data.categorizedList}>
+              {([name, examplesIndexes]: [string, number[]]) => (
                 <>
                   <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
                     {t(`examples.${name.toLowerCase()}`, {}, name)}
                   </h3>
                   <div class="mb-10">
                     <For each={examplesIndexes}>
-                      {(exampleIndex) => (
-                        <NavLink
-                          dir="ltr"
-                          href={`/examples/${data.flatList[exampleIndex].id}`}
-                          class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
-                          activeClass="text-solid-light dark:text-solid-darkdefault"
-                        >
-                          <span>{data.flatList[exampleIndex].name}</span>
-                          <span>{data.flatList[exampleIndex].id === params.id}</span>
-                          <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
-                            {data.flatList[exampleIndex].description}
-                          </span>
-                        </NavLink>
-                      )}
+                      {(exampleIndex) => {
+                        const example: Example = (data.flatList || [])[exampleIndex];
+                        return (
+                          <NavLink
+                            dir="ltr"
+                            href={`/examples/${example.id}`}
+                            class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
+                            activeClass="text-solid-light dark:text-solid-darkdefault"
+                          >
+                            <span>{example.name}</span>
+                            <span>{example.id === params.id}</span>
+                            <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
+                              {example.description}
+                            </span>
+                          </NavLink>
+                        );
+                      }}
                     </For>
                   </div>
                 </>
