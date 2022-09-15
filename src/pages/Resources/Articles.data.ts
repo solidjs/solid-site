@@ -1029,6 +1029,30 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1662153804000,
   },
+  {
+    link: 'https://dev.to/fatihpense/solid-component-in-react-app-using-web-components-329p',
+    title: 'Solid Component in React App using Web Components',
+    description:
+      'Use a Solid element inside a React app. In the end, be pleasantly surprised how smooth everything goes.',
+    author: 'Fatih Pense',
+    author_url: 'https://dev.to/fatihpense',
+    keywords: ['wc', 'components', 'web components'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1625163738000,
+  },
+  {
+    link: 'https://giancarlobuomprisco.com/solid/building-widgets-solidjs-web-components',
+    title: 'Building Widgets with Solid.js Web Components',
+    description:
+      'Solid.js is a small, familiar and super-fast library for building User Interfaces. In this post, we build a lightweight third-party widget as a Web Component using Solid and TailwindCSS.',
+    author: 'Giancarlo Buomprisco',
+    author_url: 'https://giancarlobuomprisco.com/',
+    keywords: ['wc', 'components', 'web components'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1654021338000,
+  },
 ];
 
 export default articles;
