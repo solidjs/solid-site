@@ -12,27 +12,27 @@ The website is built with [Solid](https://github.com/solidjs/solid). In order to
 
 ### Prerequisites
 
-- [yarn](https://yarnpkg.com/getting-started/install)
+- [pnpm](https://pnpm.io/installation)
 
 ### Install
 
 1. Clone the project locally: `git clone https://github.com/solidjs/solid-site`
 2. Change directory into your local copy: `cd solid-site`
-3. Install the dependencies: `yarn install`
+3. Install the dependencies: `pnpm i`
 
 ### Available commands
 
-- `yarn install`: Install the dependencies
-- `yarn dev`: Start the dev server
-- `yarn build`: Build the project
-- `yarn build:sitemap`: Generate the `sitemap.xml` file
-- `yarn format`: Format the whole project with prettier
-- `yarn deploy:dev`: Helper method to deploy to dev
-- `yarn deploy:prod`: Helper method to deploy to prod
+- `pnpm i`: Install the dependencies
+- `pnpm dev`: Start the dev server
+- `pnpm build`: Build the project
+- `pnpm build:sitemap`: Generate the `sitemap.xml` file
+- `pnpm format`: Format the whole project with prettier
+- `pnpm deploy:dev`: Helper method to deploy to dev
+- `pnpm deploy:prod`: Helper method to deploy to prod
 
 ### PWA Testing
 
-Solid Site supports PWA and worker auto updating powered by Vite PWA Plugin. When testing `run yarn https-preview`. Running it the first time will ask to install the certificate if not yet done. Then open your Chrome and press F12 > Network Tab > browse to https://localhost. Wait until the network requests with gears at the begining stops downloading the SW precache, then on the same Network Tab just change `No throttling` option to `Offline`. All pages should work by pressing F5 (do not do a hard refresh Crtl + F5 as it will force the browser to go to the server and the Chrome Dinosaur will appear).
+Solid Site supports PWA and worker auto updating powered by Vite PWA Plugin. When testing `run pnpm https-preview`. Running it the first time will ask to install the certificate if not yet done. Then open your Chrome and press <kbd>F12</kbd> > Network Tab > browse to https://localhost. Wait until the network requests with gears at the begining stops downloading the SW precache, then on the same Network Tab just change `No throttling` option to `Offline`. All pages should work by pressing <kbd>F5</kbd> (do not do a hard refresh <kbd>Ctrl</kbd> + <kbd>F5</kbd> as it will force the browser to go to the server and the Chrome Dinosaur will appear).
 
 ## Additional information
 
@@ -46,7 +46,7 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 - [TailwindCSS](https://tailwindcss.com/) - For all the styles
 - [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
 - [Vite](http://vitejs.dev/) - For the bundler / dev server
-- [Yarn](https://yarnpkg.com/) - The package manager
+- [pnpm](https://pnpm.io) - The package manager
 - [Shiki](https://github.com/shikijs/shiki) - For the code highlight
 - [Vite PWA](https://vite-plugin-pwa.netlify.app/) - For PWA functionality
 
