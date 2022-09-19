@@ -60,11 +60,21 @@ export const list: { [key: string]: BlogInfo } = {
     img: '/img/blog/state-of-solid-july-2022/header.png',
     title: 'The State of Solid: July 2022',
     description:
-      'First quarter updates about Solid including core, SolidHack and community growth updates.',
+      'Second quarter updates about Solid including core.',
     author: 'SolidJS Core',
     author_url: 'https://www.solidjs.com',
     date: 1659299281000,
     body: async () => await import('./Articles/state-of-solid-july-2022.mdx'),
+  },
+  'solid-fellowships-announcement': {
+    img: '/img/blog/solid-fellowships-announcement/header.png',
+    title: 'Announcing SolidJS Fellowships',
+    description:
+      'An exciting new program sponsored by SolidJS and supported by OpenCollective sponsors.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1663596000000,
+    body: async () => await import('./Articles/solid-fellowships-announcement.mdx'),
   },
 };
 

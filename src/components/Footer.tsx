@@ -29,7 +29,6 @@ const Supporter: Component<{
 
 const Footer: Component = () => {
   const [t] = useI18n();
-  console.log(import.meta.env);
   return (
     <div
       dir={t('global.dir', {}, 'ltr')}
