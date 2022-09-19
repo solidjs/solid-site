@@ -73,7 +73,12 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
       document.documentElement.style.scrollBehavior = 'auto';
       document.body.clientWidth; // reflow
 
-      listContainer.querySelector('.js-active')?.scrollIntoView();
+      const activeItem = listContainer.querySelector('.js-active');
+      if (activeItem) {
+        activeItem.scrollIntoView();
+        listContainer.scroll({ top: listContainer.scrollTop - search.offsetHeight }); // reflow
+      }
+
       window.scrollTo({ top: 0 });
       document.documentElement.style.scrollBehavior = 'smooth';
     }
@@ -110,6 +115,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
               name="search"
               type="search"
               placeholder="Search..."
+              autocomplete="off"
               class="py-2 px-3 block w-full text-black"
             />
           </li>
