@@ -1,41 +1,45 @@
-import { useLocation, RouteDataFunc } from 'solid-app-router';
+import { RouteDataFunc } from 'solid-app-router';
 import { createResource } from 'solid-js';
 import { useI18n } from '@solid-primitives/i18n';
-import { Example, getExamplesDirectory } from '@solid.js/docs';
+import { Example, getExamplesDirectory, getExample } from '@solid.js/docs';
 
-export interface ExamplesDirectoryData {
+export interface ExamplesRouteData {
   loading: boolean;
-  fallback: boolean;
   list?: [string, Example[]][];
+  current?: Example;
 }
 
-export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
-  const location = useLocation();
+export const ExamplesData: RouteDataFunc<ExamplesRouteData> = (props) => {
   const [, { locale }] = useI18n();
-
-  const lang = () => (location.query.locale ? location.query.locale : locale());
-  const [resource] = createResource(lang, async (lang) => {
+  const paramList = () => ({ lang: locale(), id: props.params.id });
+  const [examplesDirectoryResource] = createResource(paramList, async ({ lang }) => {
     const requestedLang = await getExamplesDirectory(lang);
-    if (requestedLang) return { list: requestedLang, fallback: false };
-    return { list: await getExamplesDirectory('en'), fallback: true };
+    if (requestedLang) return requestedLang;
+    return await getExamplesDirectory('en');
   });
+  const [exampleResource] = createResource(paramList, async ({ lang, id }) => {
+    const requestedLang = await getExample(lang, id);
+    if (requestedLang) return requestedLang;
+    return await getExample('en', id);
+  });
+
   return {
     get loading() {
-      return resource.loading;
-    },
-    get fallback() {
-      return !!resource()?.fallback;
+      return examplesDirectoryResource.loading || exampleResource.loading;
     },
     get list() {
-      const flatList = resource()?.list;
-      if (!flatList) return undefined;
-      const result = flatList.reduce<Record<string, Example[]>>((acc, val) => {
+      const examplesDirectory = examplesDirectoryResource();
+      if (!examplesDirectory) return undefined;
+      const result = examplesDirectory.reduce<Record<string, Example[]>>((acc, val) => {
         const [category] = val.name.split('/');
         if (!acc[category]) acc[category] = [];
         acc[category].push(val);
         return acc;
       }, {});
       return Object.entries(result);
+    },
+    get current() {
+      return exampleResource();
     },
   };
 };

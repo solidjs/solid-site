@@ -1,16 +1,16 @@
 import Repl from 'solid-repl/lib/repl';
 import { NavLink, useRouteData, useParams } from 'solid-app-router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
-import { ExamplesDirectoryData } from './Examples.data';
+import { ExamplesRouteData } from './Examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppContext } from '../AppContext';
-import { Example, getExample } from '@solid.js/docs';
+import { Example } from '@solid.js/docs';
 
 const Examples: Component = () => {
-  const data = useRouteData<ExamplesDirectoryData>();
+  const data = useRouteData<ExamplesRouteData>();
   const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
@@ -24,11 +24,10 @@ const Examples: Component = () => {
 
   useRouteReadyState();
 
-  createEffect(async () => {
+  createEffect(() => {
     if (data.loading) return;
-    const example = await getExample('en', params.id);
     batch(() => {
-      const newTabs = example?.files?.map((file) => ({
+      const newTabs = data.current?.files?.map((file) => ({
         name: `${file.name}.${file.type}`,
         source: file.content,
       })) || [];
