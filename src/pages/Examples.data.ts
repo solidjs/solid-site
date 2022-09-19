@@ -6,8 +6,7 @@ import { Example, getExamplesDirectory } from '@solid.js/docs';
 export interface ExamplesDirectoryData {
   loading: boolean;
   fallback: boolean;
-  flatList?: Example[];
-  categorizedList?: [string, number[]][];
+  list?: [string, Example[]][];
 }
 
 export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
@@ -27,16 +26,13 @@ export const ExamplesData: RouteDataFunc<ExamplesDirectoryData> = () => {
     get fallback() {
       return !!resource()?.fallback;
     },
-    get flatList() {
-      return resource()?.list;
-    },
-    get categorizedList() {
+    get list() {
       const flatList = resource()?.list;
       if (!flatList) return undefined;
-      const result = flatList.reduce<Record<string, number[]>>((acc, val, index) => {
+      const result = flatList.reduce<Record<string, Example[]>>((acc, val) => {
         const [category] = val.name.split('/');
         if (!acc[category]) acc[category] = [];
-        acc[category].push(index);
+        acc[category].push(val);
         return acc;
       }, {});
       return Object.entries(result);

@@ -26,7 +26,6 @@ const Examples: Component = () => {
 
   createEffect(async () => {
     if (data.loading) return;
-    // const example = data.flatList.find(x => x.id === params.id);
     const example = await getExample('en', params.id);
     batch(() => {
       const newTabs = example?.files?.map((file) => ({
@@ -43,16 +42,15 @@ const Examples: Component = () => {
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
-            <For each={data.categorizedList}>
-              {([name, examplesIndexes]: [string, number[]]) => (
+            <For each={data.list}>
+              {([category, examples]: [string, Example[]]) => (
                 <>
                   <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
-                    {t(`examples.${name.toLowerCase()}`, {}, name)}
+                    {t(`examples.${category.toLowerCase()}`, {}, category)}
                   </h3>
                   <div class="mb-10">
-                    <For each={examplesIndexes}>
-                      {(exampleIndex) => {
-                        const example: Example = (data.flatList || [])[exampleIndex];
+                    <For each={examples}>
+                      {(example) => {
                         return (
                           <NavLink
                             dir="ltr"
