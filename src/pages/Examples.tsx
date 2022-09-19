@@ -51,19 +51,19 @@ const Examples: Component = () => {
                   <div class="mb-10">
                     <For each={examples}>
                       {(example) => (
-                          <NavLink
-                            dir="ltr"
-                            href={`/examples/${example.id}`}
-                            class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
-                            activeClass="text-solid-light dark:text-solid-darkdefault"
-                          >
-                            <span>{example.name}</span>
-                            <span>{example.id === params.id}</span>
-                            <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
-                              {example.description}
-                            </span>
-                          </NavLink>
-                        )}
+                        <NavLink
+                          dir="ltr"
+                          href={`/examples/${example.id}`}
+                          class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
+                          activeClass="text-solid-light dark:text-solid-darkdefault"
+                        >
+                          <span>{example.name}</span>
+                          <span>{example.id === params.id}</span>
+                          <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
+                            {example.description}
+                          </span>
+                        </NavLink>
+                      )}
                     </For>
                   </div>
                 </>
