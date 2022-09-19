@@ -782,6 +782,18 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1661710047000,
+  },
+  {
+    link: 'https://youtu.be/zE8PDM_7xoQ?t=5253',
+    title: 'React Finland - The World Beyond Components',
+    description:
+      'Ryan gives a really basic introduction to the world beyond components at React Finland.',
+    keywords: ['learn', 'components', 'intro', 'solid'],
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.events/conferences/react-finland-helsinki-8-2022',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1663291020000,
   }
 ];
 
