@@ -50,8 +50,7 @@ const Examples: Component = () => {
                   </h3>
                   <div class="mb-10">
                     <For each={examples}>
-                      {(example) => {
-                        return (
+                      {(example) => (
                           <NavLink
                             dir="ltr"
                             href={`/examples/${example.id}`}
@@ -64,8 +63,7 @@ const Examples: Component = () => {
                               {example.description}
                             </span>
                           </NavLink>
-                        );
-                      }}
+                        )}
                     </For>
                   </div>
                 </>
