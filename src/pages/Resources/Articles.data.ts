@@ -1020,8 +1020,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://dev.to/dmnchzl/discover-a-new-framework-solidjs-1nco',
     title: 'Discover A New Framework: SolidJS',
-    description:
-      'Damien challenges himself to experiment with a new technology: SolidJS',
+    description: 'Damien challenges himself to experiment with a new technology: SolidJS',
     author: 'Damien Chazoule',
     author_url: 'https://dev.to/dmnchzl',
     keywords: ['solid-devtools', 'tooling', 'community'],
