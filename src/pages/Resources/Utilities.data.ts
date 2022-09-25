@@ -1715,6 +1715,28 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://www.npmjs.com/package/solid-mdx/v/0.0.6',
+    title: 'solid-mdx',
+    description: 'Easily use Markdown files for content and documentation in your solid-js apps.',
+    author: 'Nikhil Saraf',
+    author_url: 'https://gitlab.com/nksaraf',
+    keywords: ['mdx', 'plugin'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+  },
+  {
+    link: 'https://www.npmjs.com/package/solid-mdx/v/0.0.6',
+    title: 'solid-mdx',
+    description: 'Easily use Markdown files for content and documentation in your solid-js apps.',
+    author: 'Nikhil Saraf',
+    author_url: 'https://gitlab.com/nksaraf',
+    keywords: ['mdx', 'plugin'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+  },
 ];
 
 export default utilities;
