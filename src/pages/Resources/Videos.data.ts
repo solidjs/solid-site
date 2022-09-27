@@ -774,8 +774,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=ZW6Oow5WEnQ',
     title: 'Solid JS is the FUTURE?s',
-    description:
-      'A video that explores Solid and its features.',
+    description: 'A video that explores Solid and its features.',
     keywords: ['learn', 'future', 'solid'],
     author: 'WhiteSponge',
     author_url: 'https://www.youtube.com/channel/UCD3wnAEFELG64nLmuAEtPrQ',
@@ -794,7 +793,7 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1663291020000,
-  }
+  },
 ];
 
 export default videos;
