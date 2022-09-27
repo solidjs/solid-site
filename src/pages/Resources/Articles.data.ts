@@ -1053,6 +1053,18 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1654021338000,
   },
+  {
+    link: 'https://michaelsoriano.com/lets-build-a-shopping-cart-website-with-solidjs-and-bootstrap-part-1/',
+    title: 'Let’s build a Shopping Cart website with SolidJS and Bootstrap – Part 1',
+    description:
+      'Michael uses Solid to build a small e-commerce store demonstration.',
+    author: 'Michael Soriano',
+    author_url: 'https://michaelsoriano.com/',
+    keywords: ['ecommerce', 'demonstration', 'demo', 'state'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1664303085000,
+  },
 ];
 
 export default articles;
