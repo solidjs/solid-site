@@ -116,6 +116,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
   },
   {
+    link: 'https://github.com/thetarnav/solid-devtools',
+    title: 'Solid Developer Tools',
+    description: 'Library of developer tools, reactivity debugger & Devtools Chrome extension for visualizing SolidJS reactivity graph.',
+    author: 'Damian Tarnawski',
+    author_url: 'https://github.com/thetarnav/solid-devtools',
+    keywords: ['debug', 'devtools'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.BuildUtilities],
+  },
+  {
     link: 'https://github.com/solidjs/solid-playground',
     title: 'solid-playground',
     description: 'A playground and REPL for Solid.',
