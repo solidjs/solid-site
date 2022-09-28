@@ -1748,6 +1748,26 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://github.com/chris-czopp/solid-test-recorder',
+    title: 'solid-test-recorder',
+    description: 'Chrome extension to generate UI unit/integration tests.',
+    author: 'Chris Czopp',
+    author_url: 'https://github.com/chris-czopp',
+    keywords: [
+      'testing',
+      'unit',
+      'integration',
+      'mock',
+      'vitest',
+      'chrome',
+      'extension',
+      'automation',
+    ],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn],
+  },
 ];
 
 export default utilities;
