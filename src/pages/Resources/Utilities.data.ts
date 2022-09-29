@@ -1748,6 +1748,19 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://solid-form-handler.com',
+    title: 'solid-form-handler',
+    description:
+      'SolidJS library for building form components and validating forms with them. It can be integrated with vanilla form components or any SolidJS UI library.',
+    author: 'Mauricio Rivera',
+    author_url: 'https://github.com/webblocksapp',
+    keywords: ['forms', 'validations', 'form components', 'handler'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    published_at: 1664413200000,
+  },
 ];
 
 export default utilities;
