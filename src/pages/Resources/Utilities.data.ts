@@ -1781,6 +1781,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Routers],
   },
+  {
+    link: 'https://github.com/miguelsalesvieira/solid-flow',
+    title: 'solid-flow',
+    description:
+      'A simple component for building interactive node-based diagrams and editors.',
+    author: 'Miguel Vieira',
+    author_url: 'https://github.com/miguelsalesvieira',
+    keywords: ['ui', 'drag', 'flow'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
