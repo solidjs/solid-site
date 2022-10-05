@@ -1724,7 +1724,7 @@ const utilities: Array<Resource> = [
     keywords: ['starter', 'typescript', 'vite', 'tailwind', 'vitesse', 'pwa'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.BuildUtilities],
   },
   {
     link: 'https://www.npmjs.com/package/solid-mdx/v/0.0.6',
@@ -1735,7 +1735,7 @@ const utilities: Array<Resource> = [
     keywords: ['mdx', 'plugin'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.BuildUtilities],
   },
   {
     link: 'https://www.npmjs.com/package/solid-mdx/v/0.0.6',
@@ -1746,7 +1746,29 @@ const utilities: Array<Resource> = [
     keywords: ['mdx', 'plugin'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.BuildUtilities],
+  },
+  {
+    link: 'https://tanstack.com/query/v4/docs/adapters/solid-query',
+    title: '@tanstack/solid-query',
+    description: 'Provides package provides a 1st-class API for using TanStack Query with SolidJS.',
+    author: 'Tanstack',
+    author_url: 'https://www.tanstack.com/',
+    keywords: ['tanstack', 'query'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Data],
+  },
+  {
+    link: 'https://ag-grid.com/react-data-grid/solidjs/',
+    title: 'ag-grid-solid',
+    description: 'All of the grid\'s core rendering (headers, rows, cells etc) is rendered using Solid.',
+    author: 'AG Grid',
+    author_url: 'https://ag-grid.com/',
+    keywords: ['grid', 'ag grid', 'ag-grid'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
   },
 ];
 
