@@ -105,17 +105,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Testing],
   },
   {
-    link: 'https://github.com/amoutonbrady/solid-debug',
-    title: 'solid-debug',
-    description: 'A very simple visual debugger for Solid.',
-    author: 'Alexandre Mouton Brady',
-    author_url: 'https://github.com/amoutonbrady',
-    keywords: ['debug'],
-    official: true,
-    type: PackageType.Package,
-    categories: [ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://github.com/thetarnav/solid-devtools',
     title: 'Solid Developer Tools',
     description: 'Library of developer tools, reactivity debugger & Devtools Chrome extension for visualizing SolidJS reactivity graph.',
