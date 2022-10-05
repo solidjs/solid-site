@@ -1770,6 +1770,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/Supertigerr/solid-named-router',
+    title: 'Solid Named Router',
+    description: 'Easy to use named router for solid-js. Inspired by Vue Router.',
+    author: 'Supertiger',
+    author_url: 'https://github.com/Supertigerr',
+    keywords: ['named', 'router'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Routers],
+  },
 ];
 
 export default utilities;
