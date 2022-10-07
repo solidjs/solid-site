@@ -1837,6 +1837,21 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn],
   },
+  {
+    link: 'https://papanasi.js.org/',
+    title: 'Papanasi: The Universal UI Library',
+    description: 'Papanasi (pronunced pɑpənæʃ or papanash) is a UI library to use cross Frameworks.',
+    author: 'Quique Fdez Guerra',
+    author_url: '',
+    keywords: [
+      'ui',
+      'components',
+      'universal',
+    ],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
