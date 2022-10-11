@@ -43,7 +43,7 @@ const Sidebar: Component<{
           title={firstLevel.value}
           class={
             `text-left w-full dark:text-white border-b border-gray-200 dark:border-gray-500 hover:text-gray-400 transition ` +
-            `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mb-8`
+            `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mt-2 mb-6`
           }
           classList={{
             'font-semibold text-solid-medium dark:text-solid-darkdefault':
@@ -56,7 +56,7 @@ const Sidebar: Component<{
               {(secondLevel, index) => (
                 <SectionButton
                   title={secondLevel.value}
-                  class="block pl-2 text-gray-500 dark:text-gray-300 py-1 text-md font-semibold my-2 break-words"
+                  class="block pl-2 text-gray-500 dark:text-gray-300 py-1 text-md font-semibold break-words"
                   classList={{
                     'text-solid hover:text-solid-dark dark:hover:text-solid-light':
                       `#${slug(secondLevel.value)}` === props.hash,
@@ -67,13 +67,13 @@ const Sidebar: Component<{
                   href={`#${slug(secondLevel.value)}`}
                 >
                   <Show when={secondLevel.children && secondLevel.children.length !== 0}>
-                    <ul class="my-5">
+                    <ul class="my-1">
                       <For each={secondLevel.children}>
                         {(thirdLevel) => (
                           <SectionButton
                             href={`#${slug(thirdLevel.value)}`}
                             title={thirdLevel.value}
-                            class="block ml-6 font-semibold text-gray-400 pb-2 text-sm my-2 break-words"
+                            class="block ml-6 text-gray-400 pb-2 text-sm my-2 break-words"
                             classList={{
                               'text-solid hover:text-solid-dark dark:hover:text-solid-dark':
                                 `#${slug(thirdLevel.value)}` === props.hash,
