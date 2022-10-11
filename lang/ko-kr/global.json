@@ -16,6 +16,11 @@
       "path": "/docs/latest/api"
     },
     {
+      "title": "SolidStart",
+      "path": "https://start.solidjs.com",
+      "external": true
+    },
+    {
       "title": "에코시스템",
       "path": "/ecosystem",
       "links": [
