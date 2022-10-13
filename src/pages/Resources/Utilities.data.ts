@@ -1852,6 +1852,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    title: "solid-formlet",
+    description: "Functional combinators for building reactive forms with SolidJS",
+    link: "https://github.com/functorism/solid-formlet",
+    author: "functorism",
+    author_url: "https://github.com/functorism",
+    keywords: ["form", "combinators"],
+    official: false,
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+    published_at: 1665676502786,
+  },
 ];
 
 export default utilities;
