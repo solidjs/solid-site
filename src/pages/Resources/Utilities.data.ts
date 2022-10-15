@@ -1864,6 +1864,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
     published_at: 1665676502786,
   },
+  {
+    link: 'https://github.com/vanillacode314/solid-start-trpc-turborepo',
+    title: 'solid-start-trpc-turborepo',
+    description: 'Solid Start tRPC turborepo starter template',
+    author: 'Raqueebuddin Aziz',
+    author_url: 'https://raqueebuddinaziz.com/',
+    keywords: ['solid-start', 'trpc', 'turborepo', 'monorepo'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Starters],
+  },
 ];
 
 export default utilities;
