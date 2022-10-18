@@ -59,7 +59,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
   );
   return (
     <>
-      <Transition onEnter={onEnterBigHeader} onExit={onExitBigHeader}>
+      <Transition onBeforeEnter={onEnterBigHeader} onExit={onExitBigHeader}>
         <Show when={showHeaderSplash()}>
           <header
             id="header"
@@ -140,7 +140,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
       </Transition>
       <Nav showLogo={showLogo()} />
       <div>
-        <Transition onEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
+        <Transition onBeforeEnter={onEnterSmallHeader} onExit={onExitSmallHeader}>
           <Show when={showHeaderSmall() && !location.pathname.includes('/hack')}>
             <header class="overflow-hidden">
               <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-medium/80 dark:from-solid-light/70 dark:via-solid-medium/70 dark:to-solid-medium/40 text-white text-center md:text-left rtl:text-right">
@@ -200,42 +200,42 @@ const Header: ParentComponent<{ title?: string }> = () => {
 
 const pageTransitionDuration = 500;
 
-const onEnterBigHeader = (el: Element, done: () => void) => {
-  const headerEl = el as HTMLElement;
-  const parentEl = headerEl.parentElement!;
-  const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
-  const headerHeight = `${headerEl.clientHeight}px`;
-  const bannerEl = headerEl.firstElementChild as HTMLElement;
-  const elements = [headerEl, bannerEl, ...mainChildren];
+const onEnterBigHeader = (el: Element) => {
+  requestAnimationFrame(() => {
+    const headerEl = el as HTMLElement;
+    const parentEl = headerEl.parentElement!;
+    const mainChildren = [...parentEl.children].filter((_, idx) => idx) as HTMLElement[];
+    const headerHeight = `${headerEl.clientHeight}px`;
+    const bannerEl = headerEl.firstElementChild as HTMLElement;
+    const elements = [headerEl, bannerEl, ...mainChildren];
 
-  window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  elements.forEach((el) => {
-    el.style.transform = `translateY(-${headerHeight})`;
-  });
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    elements.forEach((el) => {
+      el.style.transform = `translateY(-${headerHeight})`;
+    });
 
-  bannerEl.style.transform = `translateY(${headerHeight})`;
+    bannerEl.style.transform = `translateY(${headerHeight})`;
 
-  reflow();
-
-  elements.forEach((el) => {
-    el.style.transform = '';
-    el.style.transition = `transform ${pageTransitionDuration}ms`;
-  });
-
-  headerEl.addEventListener(
-    'transitionend',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
-
+    requestAnimationFrame(() => {
       elements.forEach((el) => {
-        el.style.transition = '';
         el.style.transform = '';
+        el.style.transition = `transform ${pageTransitionDuration}ms`;
       });
 
-      done();
-    },
-    { once: true },
-  );
+      headerEl.addEventListener(
+        'transitionend',
+        (e) => {
+          if (e.target !== e.currentTarget) return;
+
+          elements.forEach((el) => {
+            el.style.transition = '';
+            el.style.transform = '';
+          });
+        },
+        { once: true },
+      );
+    });
+  });
 };
 
 const onExitBigHeader = (el: Element, done: () => void) => {
@@ -273,40 +273,41 @@ const onExitBigHeader = (el: Element, done: () => void) => {
   headerEl.addEventListener('transitionend', onTransitionEnd);
 };
 
-const onEnterSmallHeader = (el: Element, done: () => void) => {
-  const headerEl = el as HTMLElement;
-  const bgContainerEl = el.firstElementChild as HTMLElement;
+const onEnterSmallHeader = (el: Element) => {
+  requestAnimationFrame(() => {
+    const headerEl = el as HTMLElement;
+    const bgContainerEl = el.firstElementChild as HTMLElement;
 
-  const contentEl = bgContainerEl.firstElementChild as HTMLElement;
-  const mainContentChild = document.getElementById('main-content')
-    ?.firstElementChild as HTMLElement;
-  const headerHeight = `${bgContainerEl.clientHeight}px`;
-  const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
+    const contentEl = bgContainerEl.firstElementChild as HTMLElement;
+    const mainContentChild = document.getElementById('main-content')
+      ?.firstElementChild as HTMLElement;
+    const headerHeight = `${bgContainerEl.clientHeight}px`;
+    const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
 
-  bgContainerEl.style.transform = `translateY(-100%)`;
-  contentEl.style.transform = `translateY(100%)`;
-  mainContentChild.style.transform = `translateY(-${headerHeight})`;
+    bgContainerEl.style.transform = `translateY(-100%)`;
+    contentEl.style.transform = `translateY(100%)`;
+    mainContentChild.style.transform = `translateY(-${headerHeight})`;
 
-  reflow();
-  elements.forEach((el) => {
-    el.style.transform = 'translateY(0)';
-    el.style.transition = `transform ${pageTransitionDuration}ms`;
-  });
-
-  bgContainerEl.addEventListener(
-    'transitionend',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
-
+    requestAnimationFrame(() => {
       elements.forEach((el) => {
-        el.style.transition = '';
-        el.style.transform = '';
+        el.style.transform = 'translateY(0)';
+        el.style.transition = `transform ${pageTransitionDuration}ms`;
       });
 
-      done();
-    },
-    { once: true },
-  );
+      bgContainerEl.addEventListener(
+        'transitionend',
+        (e) => {
+          if (e.target !== e.currentTarget) return;
+
+          elements.forEach((el) => {
+            el.style.transition = '';
+            el.style.transform = '';
+          });
+        },
+        { once: true },
+      );
+    });
+  });
 };
 
 const onExitSmallHeader = (el: Element, done: () => void) => {
@@ -322,7 +323,8 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
   if (page.scrollY >= headerHeight + navHeight) {
     headerEl.style.height = '0px';
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-    return done();
+    done();
+    return;
   }
 
   bgContainerEl.style.transform = `translateY(-100%)`;
@@ -332,19 +334,20 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
     el.style.transition = `transform ${pageTransitionDuration}ms`;
   });
 
-  bgContainerEl.addEventListener(
-    'transitionend',
-    (e) => {
-      if (e.target !== e.currentTarget) return;
+  requestAnimationFrame(() => {
+    bgContainerEl.addEventListener(
+      'transitionend',
+      (e) => {
+        if (e.target !== e.currentTarget) return;
 
-      elements.forEach((el) => {
-        el.style.transition = '';
-        el.style.transform = '';
-      });
-
-      done();
-    },
-    { once: true },
-  );
+        elements.forEach((el) => {
+          el.style.transition = '';
+          el.style.transform = '';
+        });
+        done();
+      },
+      { once: true },
+    );
+  });
 };
 export default Header;
