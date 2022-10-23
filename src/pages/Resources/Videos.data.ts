@@ -794,6 +794,42 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1663291020000,
   },
+  {
+    link: 'https://viteconf.org/2022/replay/solid',
+    title: 'SolidJS: Getting Started',
+    description:
+      'Ryan introduces the new Solid meta-framework called SolidStart.',
+    keywords: ['solidstart', 'starting', 'start', 'solid'],
+    author: 'Ryan Carniato via ViteConf',
+    author_url: 'https://viteconf.org/',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1665529613000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=adXqweWZcNA&t=8337s',
+    title: 'Building Solid 1.6',
+    description:
+      'Ryan explores what went into developing the 1.6 features, and discuss the future of partial hydration and islands.',
+    keywords: ['1.6', 'solid', 'building', 'solid'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1666393613000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=QRtrS_SvR4w&t=13509s',
+    title: 'AGGrid: High-Performance DOM Updates w/ Niall Crosby',
+    description:
+      'Ryan talks to Niall Crosby about adding SolidJS support to AGGrid and explores other performance focused details.',
+    keywords: ['ag grid', 'aggrid', 'performance', 'grid'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/c/RyanCarniato9',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1665184013000,
+  },
 ];
 
 export default videos;
