@@ -1864,6 +1864,24 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
     published_at: 1665676502786,
   },
+  {
+    title: 'Modular Forms',
+    link: 'https://modularforms.dev/',
+    author: 'Fabian Hiller',
+    author_url: 'https://github.com/fabian-hiller',
+    description: 'Modular Forms is a JavaScript library that is build on top of SolidJS to validate and handle various types of forms. It is fast by default and the bundle size is small due to a modular design.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: [
+      "form",
+      "field",
+      "validation",
+      "input",
+      "ui"
+    ],
+    published_at: 1666197287705,
+  }
 ];
 
 export default utilities;
