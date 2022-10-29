@@ -13,14 +13,14 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Routers],
   },
   {
-    link: 'https://github.com/solidjs/solid-app-router',
-    title: 'solid-app-router',
+    link: 'https://github.com/solidjs/solid-router',
+    title: 'solid-router',
     description:
       'Universal router for SolidJS, combining paradigms of React Router and Ember Router. Supports JSX or JSON routing, and nested routes. Part of Solid Start, making it the official router.',
-    author: 'Ryan Carniato',
+    author: 'Ryan Carniato and Ryan Turnquist',
     author_url: 'https://github.com/ryansolid',
     keywords: ['router'],
-    official: false,
+    official: true,
     type: PackageType.Package,
     categories: [ResourceCategory.Routers],
   },
