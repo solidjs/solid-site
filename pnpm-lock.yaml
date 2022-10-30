@@ -15,7 +15,7 @@ specifiers:
   '@solid-primitives/scroll': ^2.0.4
   '@solid-primitives/storage': ^1.3.2
   '@solid-primitives/utils': ^3.0.2
-  '@solid.js/docs': ^1.0.48
+  '@solid.js/docs': ^1.0.49
   '@tailwindcss/typography': ^0.5.4
   '@types/markdown-it': ^12.2.3
   '@types/shopify-buy': npm:@brandboostinggmbh/shopify-buy-types@^2.14.6
@@ -73,7 +73,7 @@ dependencies:
   '@solid-primitives/scroll': 2.0.4_solid-js@1.5.1
   '@solid-primitives/storage': 1.3.2_solid-js@1.5.1
   '@solid-primitives/utils': 3.0.2_solid-js@1.5.1
-  '@solid.js/docs': 1.0.48_solid-js@1.5.1
+  '@solid.js/docs': 1.0.49_solid-js@1.5.1
   '@types/shopify-buy': /@brandboostinggmbh/shopify-buy-types/2.14.6
   fuse.js: 6.6.2
   github-slugger: 1.4.0
@@ -1757,10 +1757,10 @@ packages:
       solid-js: 1.5.1
     dev: false
 
-  /@solid.js/docs/1.0.48_solid-js@1.5.1:
-    resolution: {integrity: sha512-vjjae/lR0eUdQ40rar8IW8jA0vtBIcpEbM3COxQof1udXmimyLBk+TBBQFLjJ07Pt1cEvwT3mZdp4eS1gg0FEQ==}
+  /@solid.js/docs/1.0.49_solid-js@1.5.1:
+    resolution: {integrity: sha512-vdvzNnFRo0uzGys12Wotd7mTHxfOU+i4TlcKhx3551KQ8yRAyj8hcwrZ09sf4Vw25cqHKxMkxwCMyuMvd1D+5A==}
     dependencies:
-      solid-jsx: 0.9.0_solid-js@1.5.1
+      solid-jsx: 0.9.1_solid-js@1.5.1
     transitivePeerDependencies:
       - solid-js
     dev: false
@@ -5964,8 +5964,8 @@ packages:
     dependencies:
       csstype: 3.1.0
 
-  /solid-jsx/0.9.0_solid-js@1.5.1:
-    resolution: {integrity: sha512-8T2GHsZBu1vG070/B1DHqAthEAkaHg1ZWalYVsJjZKfEwa4s13Rz4bo7UWISt46LqC5qSNAxUYxGRIizFm+XoQ==}
+  /solid-jsx/0.9.1_solid-js@1.5.1:
+    resolution: {integrity: sha512-HHTx58rx3tqg5LMGuQnaE1vqZjpl+RMP0jYQnBkTY0xKIASVNSLZJCZoPFrpKH8wWWYyTLHdepgzs8u/e6yz5Q==}
     engines: {node: '>=10'}
     peerDependencies:
       solid-js: ^1.4.0
