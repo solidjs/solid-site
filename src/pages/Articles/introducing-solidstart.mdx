@@ -16,13 +16,13 @@ That's right. SolidStart is built on [Vite](https://vitejs.dev). This gives us a
 
 With SolidStart you can boot up a project template that can be in JavaScript or TypeScript, Client-rendered or Server-rendered, and deployable to [Netlify](https://www.netlify.com/), [Vercel](https://vercel.com/), [Cloudflare](https://www.cloudflare.com/), [Deno Deploy](https://deno.com/deploy) server-less and edge functions as simply as swapping an adapter.
 
-Although let's face it. I'm describing every modern Web framework. Use of the browser Request/Response model with ability to add custom middleware. Platform agnostic Sessions(Thank you [Remix](https://remix.run/)). Hot Module Reloading. This wouldn't be a Solid project if we weren't building on what we've learned across the whole frontend ecosystem.
+Although let's face it. I'm describing every modern Web framework. Use of the browser Request/Response model with ability to add custom middleware. Platform agnostic Sessions (Thank you [Remix](https://remix.run/)). Hot Module Reloading. This wouldn't be a Solid project if we weren't building on what we've learned across the whole frontend ecosystem.
 
 ## Nested FileSystem Routing
 
 Solid's [router](https://github.com/solidjs/solid-router) has always been pretty powerful. Nested Routing with parallelized data-fetching that works isomorphically and ties into Solid's Suspense and Transitions automatically. If you've used Solid in the past 3 years you know what I'm talking about.
 
-So all we needed to do was add a convention for Filesystem routing to make it easier to get started. We adopted patterns of folder shadowing for nesting (from [Nuxt](https://nuxtjs.org/docs/features/file-system-routing/#nested-routes)) and combined it with [] for parameterized routes and () for grouping. We also realized that the () was kind of perfect for index.tsx routes as well. So you never need to name a single file in your project the same name.
+So all we needed to do was add a convention for Filesystem routing to make it easier to get started. We adopted patterns of folder shadowing for nesting (from [Nuxt](https://nuxtjs.org/docs/features/file-system-routing/#nested-routes)) and combined it with `[]` for parameterized routes and `()` for grouping. We also realized that the `()` was kind of perfect for `index.tsx` routes as well. So you never need to name a single file in your project the same name.
 
 ![Routes list example](/img/blog/introducing-solidstart/routes.jpeg)
 
@@ -37,7 +37,7 @@ Filesystem routing is incredibly convenient but sometimes it is limiting so we e
 
 ## Server Functions
 
-While Solid offers API routes by using named exports with capitalized HTTP verbs like `GET`, `POST`, and `DELETE` (Thank you [SvelteKit](https://kit.svelte.dev/docs/routing#server)), the core method of doing browser to server communication in SolidStart is by RPC(Remote Procedure Call).
+While Solid offers API routes by using named exports with capitalized HTTP verbs like `GET`, `POST`, and `DELETE` (Thank you [SvelteKit](https://kit.svelte.dev/docs/routing#server)), the core method of doing browser to server communication in SolidStart is by RPC (Remote Procedure Call).
 
 What is great about inline RPC calls is that they are fairly easy to automate types.
 
@@ -58,7 +58,7 @@ And you can define these in any of your files and use them wherever you want.
 
 ## RouteData and RouteActions
 
-One thing that became obvious after unleashing the raw power of server functions is that you could pretty much do anything but people needed a prescribed option. Since Solid's router already supports routeData functions we didn't need to do any work to support solutions like [Turbo Query](https://github.com/StudioLambda/TurboSolid) or [Tanstack Query](https://tanstack.com/query/v4/docs/adapters/solid-query). Or to even augment their fetching with Server Functions. Or allow multiple different resources per route section each with its own invalidation.
+One thing that became obvious after unleashing the raw power of server functions is that you could pretty much do anything but people needed a prescribed option. Since Solid's router already supports `routeData` functions we didn't need to do any work to support solutions like [Turbo Query](https://github.com/StudioLambda/TurboSolid) or [Tanstack Query](https://tanstack.com/query/v4/docs/adapters/solid-query). Or to even augment their fetching with Server Functions. Or allow multiple different resources per route section each with its own invalidation.
 
 ```ts filename="index.js"
 export const routeData = ({ params }) => {
@@ -70,7 +70,7 @@ export const routeData = ({ params }) => {
 };
 ```
 
-But we also wanted to provide a solution that was more streamlined for simple cases. And for that we took a bit of inspiration from [Remix](https://remix.run/) and [Tanstack Query](https://tanstack.com/query/v4/docs/adapters/solid-query) and blended them into something that was uniquely Solid. We created createRouteData and its server-only companion createServerData$ built on top of our resources. While not the simplicity of a single async function we get granular invalidation.
+But we also wanted to provide a solution that was more streamlined for simple cases. And for that we took a bit of inspiration from [Remix](https://remix.run/) and [Tanstack Query](https://tanstack.com/query/v4/docs/adapters/solid-query) and blended them into something that was uniquely Solid. We created `createRouteData` and its server-only companion `createServerData$` built on top of our resources. While not the simplicity of a single async function we get granular invalidation.
 
 ```ts filename="index.js"
 export const routeData = ({ params }) => {
