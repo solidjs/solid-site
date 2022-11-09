@@ -76,6 +76,16 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1663596000000,
     body: async () => await import('./Articles/solid-fellowships-announcement.mdx'),
   },
+  'introducing-solidstart': {
+    img: '/img/blog/introducing-solidstart/header.png',
+    title: 'Introducing SolidStart: The SolidJS Framework',
+    description:
+      'The official Beta release announcement for the new meta-framework.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1668014954000,
+    body: async () => await import('./Articles/introducing-solidstart.mdx'),
+  },
 };
 
 export interface BlogData {
