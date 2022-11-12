@@ -28,6 +28,7 @@ const langs = {
   pt: 'Português',
   ru: 'Русский',
   id: 'Bahasa Indonesia',
+  ar: 'عربي',
   he: 'עִברִית',
   fa: 'فارسی',
   tr: 'Türkçe',
