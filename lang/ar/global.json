@@ -1,0 +1,115 @@
+{
+  "dir": "rtl",
+  "name": "Arabic",
+  "title": "SolidJS · مكتبة جافا سكريبت تفاعلية",
+  "locale": "ar-SY",
+  "nav": [
+    {
+      "title": "خطوط الإرشاد",
+      "path": "/guides"
+    },
+    {
+      "title": "التعليميات",
+      "path": "/tutorial"
+    },
+    {
+      "title": "API",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "SolidStart",
+      "path": "https://start.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "النظام البيئي",
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "الحزم",
+          "description": "مكتبات برامج لـ SolidJS",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "الموارد",
+          "description": "المقالات ومقاطع الفيديو والبودكاست حول SolidJS",
+          "path": "/resources"
+        }
+      ]
+    },
+    {
+      "title": "الأمثلة",
+      "path": "/examples"
+    },
+    {
+      "title": "الملعب",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "من نحن",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "المتجر",
+          "description": "قميص ذو علامة تجارية ، ملصقات ، إلخ.",
+          "path": "/store",
+          "external": false
+        },
+        {
+          "title": "المدونة",
+          "description": "الأخبار والتحديثات من مجتمعنا",
+          "path": "/blog"
+        },
+        {
+          "title": "الفريق والمساهمات",
+          "description": "أعضاء الفريق والداعمين الأقوياء",
+          "path": "/contributors"
+        },
+        {
+          "title": "وسائل الإعلام",
+          "description": "عناصر العلامة التجارية لاستخدام الوسائط",
+          "path": "/media"
+        },
+        {
+          "title": "هاكاثون Solid",
+          "description": "تعرف على المزيد حول هاكاثون 2022 العام.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "القواعد السلوكية",
+          "description": "قواعد مجتمعنا والمساهمين.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
+          "title": "الجماعية المفتوحة",
+          "description": "ادعمنا بالتبرع وساعدنا على مواصلة أنشطتنا",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "أُووبس. أربعة واه أربعة.",
+    "body": "يعتقد أن هذه الصفحة غير موجودة بالتأكيد."
+  },
+  "newsletter": {
+    "title": "اشترك في أخبار Solid ",
+    "email": "البريد الإلكتروني",
+    "success": "لقد تم تسجيلك بنجاح!",
+    "error": "لا يمكن إكمال التسجيل",
+    "register": "التسجيل",
+    "sending": "يتم الإرسال"
+  },
+  "footer": {
+    "declaration": "Solid هو مشروع مفتوح المصدر يدعمه فريق من المساهمين العامين. يتم توزيعه بموجب <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\"> ترخيص MIT </a>. تم توفير هذه المكتبة والمنتدى بواسطة <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\"> الفريق الأساسي والمساهمين المتفانين </a>.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "برعاية",
+    "updated": "آخر تحديث {{date}} على Solid إصدار {{version}}"
+  },
+  "dark_mode": "الوضع المظلم",
+  "light_mode": "الوضع الفاتح"
+}
