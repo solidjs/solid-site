@@ -1064,6 +1064,66 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1664303085000,
   },
+  {
+    link: 'https://dev.to/this-is-learning/client-side-routing-without-the-javascript-3k1i',
+    title: 'Client-side Routing without the JavaScript',
+    description:
+      'Ryan discusses some new Solid improvements and client-side routing.',
+    author: 'Ryan Carniato',
+    author_url: 'https://dev.to/ryansolid',
+    keywords: ['client', 'routing', 'solid'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1667936109000,
+  },
+  {
+    link: 'https://www.solidjs.com/blog/introducing-solidstart',
+    title: 'Introducing SolidStart: The SolidJS Framework',
+    description:
+      'The official SolidStart release announcement from the core tea.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.co/blog',
+    keywords: ['solidstart', 'release', 'announcement'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1667936109000,
+  },
+  {
+    link: 'https://www.solidjs.com/blog/introducing-solidstart',
+    title: 'Introducing SolidStart: The SolidJS Framework',
+    description:
+      'The official SolidStart release announcement from the core tea.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.co/blog',
+    keywords: ['solidstart', 'release', 'announcement'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1667936109000,
+  },
+  {
+    link: 'https://devm.io/javascript/solidstart-meta-framework',
+    title: 'SolidStart Meta-framework Now in Beta',
+    description:
+      'The meta-framework boasts features such as advanced data fetching, file based routing, and many others.',
+    author: 'Sanja Gregic',
+    author_url: 'https://devm.io/',
+    keywords: ['solidstart', 'release', 'announcement'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1668454509000,
+  },
+  {
+    link: 'https://tahazsh.com/blog/building-a-solidjs-app-from-scratch/',
+    title: 'Building a SolidJS App With SolidStart From Scratch',
+    description:
+      'So you\'ve learned SolidJS and built a bunch of demos, but you haven\'t created a real-world application with it yet. This article will help you through that.',
+    author: 'Taha Shashtari',
+    author_url: 'https://tahazsh.com/',
+    keywords: ['solidstart', 'learn', 'beginner'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1668454509000,
+  }
 ];
 
 export default articles;
