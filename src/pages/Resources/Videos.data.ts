@@ -847,7 +847,7 @@ const videos: Array<Resource> = [
     title: 'Another JavaScript Framework',
     description:
       'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
-    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins'],
     author: 'The Open Sauced Podcast',
     author_url: 'https://www.youtube.com/@OpenSauced',
     type: ResourceType.Video,
@@ -859,7 +859,7 @@ const videos: Array<Resource> = [
     title: 'Understanding Reactivity and SolidJS ',
     description:
       'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
-    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins'],
     author: 'Kelvin Omereshone',
     author_url: 'https://www.youtube.com/@dominuskelvin',
     type: ResourceType.Video,
@@ -871,7 +871,7 @@ const videos: Array<Resource> = [
     title: 'Understanding Reactivity and SolidJS',
     description:
       'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
-    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins'],
     author: 'Kelvin Omereshone',
     author_url: 'https://www.youtube.com/@dominuskelvin',
     type: ResourceType.Video,
@@ -924,7 +924,7 @@ const videos: Array<Resource> = [
     author_url: 'https://www.youtube.com/@JetBrainsTV',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
-    published_at: 1668886509000,
+    published_at: 1668545043000,
   }
 ];
 
