@@ -914,6 +914,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1668713709000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=-CrsHsBZFg4',
+    title: 'The World Beyond Components with JetBrains',
+    description:
+      'In this talk, Ryan, author of SolidJS, will look at what comes after the component model. Driven by the need for more granularity, and empowered by compilation, reactivity is becoming the universal language of user interfaces.',
+    keywords: ['vitaly bragilevsky', 'beyond components', 'paul everitt'],
+    author: 'JetBrainsTV',
+    author_url: 'https://www.youtube.com/@JetBrainsTV',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1668886509000,
+  }
 ];
 
 export default videos;
