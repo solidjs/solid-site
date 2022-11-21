@@ -830,6 +830,90 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1665184013000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=hSECorasSK8&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=24',
+    title: 'Solid Start shipped!!! Chat W/ Ryan Carniato',
+    description:
+      'Ryan and Theo talk about SolidStart.',
+    keywords: ['theo', 'ping', 'start', 'solidstart', 't3dotgg'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/@t3dotgg',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1668108909000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Om3QAZitHvw&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=22',
+    title: 'Another JavaScript Framework',
+    description:
+      'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    author: 'The Open Sauced Podcast',
+    author_url: 'https://www.youtube.com/@OpenSauced',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1667849709000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=N-Y32BqhoYQ&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=21',
+    title: 'Understanding Reactivity and SolidJS ',
+    description:
+      'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    author: 'Kelvin Omereshone',
+    author_url: 'https://www.youtube.com/@dominuskelvin',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1666377309000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=N-Y32BqhoYQ&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=21',
+    title: 'Understanding Reactivity and SolidJS',
+    description:
+      'The Secret Sauce chats with Ryan and takes us on a journey from playing in a band to becoming who he is today.',
+    keywords: ['sauce', 'secret sauce', 'solid', 'history', 'origins;],
+    author: 'Kelvin Omereshone',
+    author_url: 'https://www.youtube.com/@dominuskelvin',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1666377309000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=NS0thFGqu0E&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=18',
+    title: 'Why Build A New Framework?',
+    description:
+      'In this stream we\'ll be joined by Ryan Carniato, creator of SolidJS, to talk about backing new frameworks in a world dominated by React. Is it worth trying? What are the challenges?',
+    keywords: ['framework', 'steve', 'manu', 'history', 'origins'],
+    author: 'Builder.io',
+    author_url: 'https://www.youtube.com/@Builderio',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1658428509000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=sgMdAD8stJg&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=18',
+    title: 'Maintaining Open Source Full-time',
+    description:
+      'In this episode, Santosh and friends talk with Ryan Carniato and explore what it takes to become an Open Source maintainer full-time and how to achieve it, and the challenges faced.',
+    keywords: ['solid', 'open source', 'tech talks'],
+    author: 'ThisisTechTalks',
+    author_url: 'https://www.youtube.com/@ThisisTechTalks',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1663785309000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=qB5jK-KeXOs',
+    title: 'Simplifying reactivity with SolidJS',
+    description:
+      'In this talk, we explore Solid\'s unique approach to reactivity and how it can help you write better components quicker - even if you don\'t use Solid.',
+    keywords: ['solid', 'reactivity', 'brussels'],
+    author: 'React Brussels',
+    author_url: 'https://www.youtube.com/@BeJScommunity',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1668713709000,
+  },
 ];
 
 export default videos;
