@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import solid from 'vite-plugin-solid';
 import mdx from '@mdx-js/rollup';
 import rehypeHighlight from 'rehype-highlight';
@@ -20,7 +20,7 @@ export default defineConfig({
         rehypePlugins: [rehypeHighlight]
       }),
       enforce: 'pre',
-    },
+    } as Plugin,
     solid({ extensions: ['.md', '.mdx'] }),
     // VitePWA(pwaOptions),
   ],

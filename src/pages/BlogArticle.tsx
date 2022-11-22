@@ -4,7 +4,7 @@ import { useRouteData, NavLink } from 'solid-app-router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 import { useAppContext } from '../AppContext';
-import { ListenNotesEpisode, YouTube, Tweet, Twitch } from 'solid-social';
+import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 
 export const BlogArticle: Component = () => {
@@ -44,7 +44,6 @@ export const BlogArticle: Component = () => {
                   {data.article && (
                     <data.article
                       components={{
-                        ListenNotesEpisode,
                         Tweet: (props) => (
                           <Tweet
                             {...props}
@@ -54,6 +53,9 @@ export const BlogArticle: Component = () => {
                         ),
                         YouTube,
                         Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
+                        Spotify: (props) => (
+                          <Spotify {...props} theme={context.isDark ? 'dark' : undefined} />
+                        ),
                       }}
                     />
                   )}
