@@ -1,4 +1,13 @@
-import { ParentComponent, For, createMemo, createSignal, Show, on, createComputed } from 'solid-js';
+import {
+  ParentComponent,
+  For,
+  createMemo,
+  createSignal,
+  Show,
+  on,
+  createComputed,
+  onMount,
+} from 'solid-js';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
@@ -16,7 +25,7 @@ import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
 
-const langs = {
+const langs: Record<string, string> = {
   en: 'English',
   'ko-kr': '한국어',
   'zh-cn': '简体中文',
@@ -89,6 +98,18 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
       },
     ),
   );
+
+  onMount(() => {
+    let localLanguage = navigator.language.toLowerCase();
+    const specialLang = new Set<string>(['zh', 'ko']);
+    const langPrefix = localLanguage.slice(0, 2);
+
+    if (langs[localLanguage])
+      localLanguage = specialLang.has(langPrefix) ? localLanguage : langPrefix;
+    else localLanguage = 'en';
+
+    locale(localLanguage);
+  });
 
   createComputed(
     on(
