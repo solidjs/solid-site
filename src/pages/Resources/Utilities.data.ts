@@ -869,6 +869,18 @@ const utilities: Array<Resource> = [
     published_at: 1635095541000,
   },
   {
+    link: 'https://github.com/microsoft/playwright',
+    title: '@playwright/experimental-ct-solid',
+    description: 'Fast and reliable component testing in a real browser simular to solid-testing-library',
+    author: 'Microsoft',
+    author_url: 'https://github.com/Microsoft',
+    keywords: ['runner', 'testing'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Testing],
+    published_at: 1669633548145,
+  },
+  {
     link: 'https://github.com/merged-js/solid-apollo',
     title: 'solid-apollo',
     description: 'An Apollo client for Solid.',
