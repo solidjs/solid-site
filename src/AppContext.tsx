@@ -59,11 +59,20 @@ export const AppContextProvider: ParentComponent = (props) => {
   const [settings, set] = createCookieStorage();
   const browserLang = navigator.language.slice(0, 2);
   const location = useLocation();
+  const specialLangs = { zh: true, ko: true };
+
   if (location.query.locale) {
     set('locale', location.query.locale, cookieOptions);
   } else if (!settings.locale && browserLang in langs) {
     set('locale', browserLang);
+  } else if (
+    !settings.locale &&
+    browserLang in specialLangs &&
+    navigator.language.toLowerCase() in langs
+  ) {
+    set('locale', navigator.language.toLocaleLowerCase());
   }
+
   const i18n = createI18nContext({}, (settings.locale || 'en') as string);
   const [t, { add, locale }] = i18n;
   const params = (): DataParams => {
