@@ -16,7 +16,7 @@ import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
 
-const langs: Record<string, string> = {
+const langs = {
   en: 'English',
   'ko-kr': '한국어',
   'zh-cn': '简体中文',
