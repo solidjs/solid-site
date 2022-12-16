@@ -1,0 +1,31 @@
+{
+  "title": "Ekosistem",
+  "cta": "SolidJS ilə əlaqəli layihənizin burada sadalanması üçün <a href=\"https://discord.com/invite/solidjs\">Discord-da</a> bizimlə əlaqə saxlayın.",
+  "search": "Axtarış",
+  "types": "Növlər",
+  "types_list": {
+    "article": "Məqalə",
+    "video": "Video",
+    "library": "Kitabxana",
+    "package": "Paket"
+  },
+  "published": "Published",
+  "days_ago": "{{amount}} gün əvvəl",
+  "hours_ago": "{{amount}} saat əvvəl",
+  "categories": "Kategoriyalar",
+  "translations": "Tərcümələr",
+  "categories_list": {
+    "primitive": "Primitivlər",
+    "router": "Marşrutlaşdırıcılar",
+    "data": "Məlumat",
+    "ui": "İnterfeys",
+    "plugin": "Plaginlər",
+    "starters": "Starterlər",
+    "build_utility": "Quraşdırma",
+    "add_on": "Əlavələr",
+    "testing": "Testləşdirmə",
+    "educational": "Təhsil"
+  },
+  "official": "Rəsmi",
+  "by": "By {{author}}"
+}
