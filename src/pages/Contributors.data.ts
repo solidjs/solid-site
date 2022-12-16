@@ -107,8 +107,8 @@ const translators = [
   },
   {
     name: 'Pheianox',
-    language: 'ru',
-    flag: '🇷🇺',
+    language: 'az ru',
+    flag: '🇦🇿 🇷🇺',
     link: 'https://github.com/pheianox',
   },
   {
