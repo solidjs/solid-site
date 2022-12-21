@@ -96,7 +96,7 @@ export const createCart = (
     },
     get total() {
       if (this.cart.totalPriceV2.amount) {
-        return parseFloat(this.cart.totalPrice);
+        return parseFloat(this.cart.totalPriceV2.amount);
       } else {
         return 0;
       }
