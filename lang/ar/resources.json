@@ -1,0 +1,31 @@
+{
+  "title": "النظام البيئي",
+  "cta": "لإدراج مشروعك المتعلق بـ SolidJS هنا ، تواصل معنا على <a href=\"https://discord.com/invite/solidjs\"> Discord </a>.",
+  "search": "موارد البحث",
+  "types": "الأنواع",
+  "types_list": {
+    "article": "مقالة",
+    "video": "فيديو",
+    "library": "مكتبة",
+    "package": "باقة"
+  },
+  "published": "نشرت في",
+  "days_ago": "{{amount}} أيام مضت",
+  "hours_ago": "{{amount}} ساعات مضت",
+  "categories": "التصنيفات",
+  "translations": "الترجمات",
+  "categories_list": {
+    "primitive": "الأساسيات (Primitives)",
+    "router": "الراوتات (Routers)",
+    "data": "البيانات (Data)",
+    "ui": "الواجهات (UI)",
+    "plugin": "الإضافات (Plugins)",
+    "starters": "البدائيات (Starters)",
+    "build_utility": "خدمات البناء (Build Utilities)",
+    "add_on": "الإضافات (Add On)",
+    "testing": "الاختبارات (Testing)",
+    "educational": "التعليميات (Educational)"
+  },
+  "official": "رسمية",
+  "by": "بواسطة {{author}}"
+}

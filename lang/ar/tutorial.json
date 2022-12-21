@@ -1,0 +1,23 @@
+{
+  "solve": "حل",
+  "reset": "إعادة ضبط",
+  "playground": {
+    "result": "النتيجة",
+    "output": "الناتج",
+    "clear": "تفريغ",
+    "add_tab": "إضافة تبويبة جديدة",
+    "refresh": "تحديث الصفحة",
+    "format": "تنسيق التعليمات البرمجية",
+    "copy": "نسخ كود المصدر",
+    "mode": "وضع الترجمة",
+    "client_render": "التصيير من جانب العميل",
+    "server_render": "التصيير من جانب الخادم",
+    "client_hydration_render": "التصيير من جانب العميل مع الترطيب",
+    "dark_mode": "تبديل الوضع الداكن",
+    "import_json": "استيراد JSON",
+    "export_json": "تصدير JSON",
+    "export_codesandbox": "تصدير إلى CodeSandBox",
+    "share": "شارك برابط مصغر",
+    "scale": "محرر مقياس لجعل النص أكبر أو أصغر"
+  }
+}

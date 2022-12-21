@@ -869,6 +869,18 @@ const utilities: Array<Resource> = [
     published_at: 1635095541000,
   },
   {
+    link: 'https://github.com/microsoft/playwright',
+    title: '@playwright/experimental-ct-solid',
+    description: 'Fast and reliable component testing in a real browser simular to solid-testing-library',
+    author: 'Microsoft',
+    author_url: 'https://github.com/Microsoft',
+    keywords: ['runner', 'testing'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Testing],
+    published_at: 1669633548145,
+  },
+  {
     link: 'https://github.com/merged-js/solid-apollo',
     title: 'solid-apollo',
     description: 'An Apollo client for Solid.',
@@ -1935,6 +1947,18 @@ const utilities: Array<Resource> = [
     ],
     published_at: 1671097420678,
   },
+  {
+    title: 'lucide-solid',
+    link: 'https://lucide.dev/',
+    author: 'Eric Fennis',
+    author_url: 'https://github.com/ericfennis',
+    description: 'Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['components', 'lucide', 'icons', 'ui', 'design', 'svg', 'feather-icons'],
+    published_at: 1640969643000,
+  }
 ];
 
 export default utilities;
