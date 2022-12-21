@@ -1,16 +1,13 @@
 import { RouteDataFunc } from 'solid-app-router';
 import type { Component } from 'solid-js';
-import { ListenNotesEpisodeProperties } from 'solid-social/dist/types/components/listennotes/listennotes-episode';
-import { TwitchProperties } from 'solid-social/dist/types/components/twitch/twitch';
-import { TweetProperties } from 'solid-social/dist/types/components/twitter/tweet';
-import { YouTubeProperties } from 'solid-social/dist/types/components/youtube/youtube';
+import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 
 export type MDXComponent = Component<{
   components: {
-    ListenNotesEpisode?: Component<ListenNotesEpisodeProperties>;
-    Tweet?: Component<TweetProperties>;
-    Twitch?: Component<TwitchProperties>;
-    YouTube?: Component<YouTubeProperties>;
+    Tweet?: Component<TweetProps>;
+    Twitch?: Component<TwitchProps>;
+    YouTube?: Component<YouTubeProps>;
+    Spotify?: Component<SpotifyProps>;
   };
 }>;
 
