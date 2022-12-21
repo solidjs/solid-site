@@ -1892,6 +1892,18 @@ const utilities: Array<Resource> = [
       "ui"
     ],
     published_at: 1666197287705,
+  },
+  {
+    title: 'lucide-solid',
+    link: 'https://lucide.dev/',
+    author: 'Eric Fennis',
+    author_url: 'https://github.com/ericfennis',
+    description: 'Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['components', 'lucide', 'icons', 'ui', 'design', 'svg', 'feather-icons'],
+    published_at: 1640969643000,
   }
 ];
 
