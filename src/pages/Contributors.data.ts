@@ -159,6 +159,12 @@ const translators = [
     flag: '🇮🇹',
     link: 'https://github.com/GabrielMarisescu',
   },
+  {
+    name: 'Mohamed Kawsara',
+    language: 'ar',
+    flag: '🇸🇦',
+    link: 'https://github.com/mkwsra',
+  },
 ];
 
 const contributors = [

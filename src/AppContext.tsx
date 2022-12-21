@@ -29,6 +29,7 @@ const langs: { [lang: string]: () => Promise<any> } = {
   id: async () => (await import('../lang/id/id')).default(),
   he: async () => (await import('../lang/he/he')).default(),
   ru: async () => (await import('../lang/ru/ru')).default(),
+  ar: async () => (await import('../lang/ar/ar')).default(),
   fa: async () => (await import('../lang/fa/fa')).default(),
   tr: async () => (await import('../lang/tr/tr')).default(),
   tl: async () => (await import('../lang/tl/tl')).default(),
