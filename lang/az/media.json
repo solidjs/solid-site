@@ -1,0 +1,18 @@
+{
+  "title": "Brend",
+  "copy": "Aşağıdakılar Solid brendini təmsil edən atributlardır. Bütün atributlar açıq mənbəli töhfələr hesab olunur və açıq standartlara və lisenziyalaşdırma qaydalarına uyğun olaraq istifadə edilməlidir. Brend uyğunlaşması ilə bağlı əlavə aktivlər və ya sual, dəstək və rəhbərlik üçün Discordumuza qoşula bilərsiz.",
+  "brand_font": "Brend Şrifti",
+  "primary": "Əsas Rəng",
+  "secondary": "İkinci Rəng",
+  "light": "Açıq Rəng",
+  "accent": "Vurğu Rəngi",
+  "copy_hex": "Hex üçün rəngə klikləyin",
+  "resources": {
+    "with_wordmark": "Yazı ilə",
+    "dark_with_wordmark": "Yazı ilə (tünd)",
+    "without_wordmark": "Yazısız",
+    "dark_without_wordmark": "Yazısız (tünd)",
+    "only_wordmark": "Sadəcə yazı",
+    "dark_only_wordmark": "Sadəcə yazı (tünd)"
+  }
+}

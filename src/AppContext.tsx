@@ -20,6 +20,7 @@ const AppContext = createContext<AppContextInterface>({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const langs: { [lang: string]: () => Promise<any> } = {
   en: async () => (await import('../lang/en/en')).default(),
+  az: async () => (await import('../lang/az/az')).default(),
   it: async () => (await import('../lang/it/it')).default(),
   de: async () => (await import('../lang/de/de')).default(),
   pt: async () => (await import('../lang/pt/pt')).default(),
