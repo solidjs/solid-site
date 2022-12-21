@@ -50,13 +50,14 @@ const FilterButton: Component<{
   </>
 );
 
-
 const FilterOfficial: Component<{
   onChange: JSX.EventHandlerUnion<HTMLInputElement, Event>;
   active: boolean;
-}> = (props) => (<>
-  <input type="checkbox" checked={props.active} onChange={props.onChange} /> Official Filter
-</>)
+}> = (props) => (
+  <>
+    <input type="checkbox" checked={props.active} onChange={props.onChange} /> Official Filter
+  </>
+);
 
 const ResourceLink: Component<Resource> = (props) => {
   const [t] = useI18n();
@@ -137,9 +138,9 @@ const Packages: Component = () => {
     threshold: 0.3,
   });
 
-  let [check, setCheck] = createSignal(false)
-  let toggleOfficial = ({target}:Event)=>setCheck((target as HTMLInputElement).checked)
-  let official = data.list.filter(item=>item.official)
+  let [check, setCheck] = createSignal(false);
+  let toggleOfficial = ({ target }: Event) => setCheck((target as HTMLInputElement).checked);
+  let official = data.list.filter((item) => item.official);
 
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
@@ -151,8 +152,8 @@ const Packages: Component = () => {
     if (keyword() == '') {
       return check() ? official : data.list;
     }
-    let search = fs.search(keyword()).map((result) => result.item)
-    return check() ? search.filter(item=>item.official) : search
+    let search = fs.search(keyword()).map((result) => result.item);
+    return check() ? search.filter((item) => item.official) : search;
   });
 
   // Retrieve a map from categories to array of resources
@@ -216,7 +217,7 @@ const Packages: Component = () => {
             type="text"
           />
 
-          <FilterOfficial active={check()} onChange={toggleOfficial}/>
+          <FilterOfficial active={check()} onChange={toggleOfficial} />
 
           <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
             {t('resources.categories')}
@@ -251,7 +252,7 @@ const Packages: Component = () => {
               onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
-            <FilterOfficial active={check()} onChange={toggleOfficial}/>
+            <FilterOfficial active={check()} onChange={toggleOfficial} />
             <div
               class="relative h-2"
               classList={{

@@ -56,8 +56,7 @@ export const list: { [key: string]: BlogInfo } = {
   'state-of-solid-july-2022': {
     img: '/img/blog/state-of-solid-july-2022/header.png',
     title: 'The State of Solid: July 2022',
-    description:
-      'Second quarter updates about Solid including core.',
+    description: 'Second quarter updates about Solid including core.',
     author: 'SolidJS Core',
     author_url: 'https://www.solidjs.com',
     date: 1659299281000,
@@ -76,8 +75,7 @@ export const list: { [key: string]: BlogInfo } = {
   'introducing-solidstart': {
     img: '/img/blog/introducing-solidstart/header.png',
     title: 'Introducing SolidStart: The SolidJS Framework',
-    description:
-      'The official Beta release announcement for the new meta-framework.',
+    description: 'The official Beta release announcement for the new meta-framework.',
     author: 'SolidJS Core',
     author_url: 'https://www.solidjs.com',
     date: 1668014954000,

@@ -797,8 +797,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://viteconf.org/2022/replay/solid',
     title: 'SolidJS: Getting Started',
-    description:
-      'Ryan introduces the new Solid meta-framework called SolidStart.',
+    description: 'Ryan introduces the new Solid meta-framework called SolidStart.',
     keywords: ['solidstart', 'starting', 'start', 'solid'],
     author: 'Ryan Carniato via ViteConf',
     author_url: 'https://viteconf.org/',
@@ -833,8 +832,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=hSECorasSK8&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=24',
     title: 'Solid Start shipped!!! Chat W/ Ryan Carniato',
-    description:
-      'Ryan and Theo talk about SolidStart.',
+    description: 'Ryan and Theo talk about SolidStart.',
     keywords: ['theo', 'ping', 'start', 'solidstart', 't3dotgg'],
     author: 'Ryan Carniato',
     author_url: 'https://www.youtube.com/@t3dotgg',
@@ -882,7 +880,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=NS0thFGqu0E&list=PL16vUvov3c5BwMzWerzRZc0sxCp1o0KFW&index=18',
     title: 'Why Build A New Framework?',
     description:
-      'In this stream we\'ll be joined by Ryan Carniato, creator of SolidJS, to talk about backing new frameworks in a world dominated by React. Is it worth trying? What are the challenges?',
+      "In this stream we'll be joined by Ryan Carniato, creator of SolidJS, to talk about backing new frameworks in a world dominated by React. Is it worth trying? What are the challenges?",
     keywords: ['framework', 'steve', 'manu', 'history', 'origins'],
     author: 'Builder.io',
     author_url: 'https://www.youtube.com/@Builderio',
@@ -906,7 +904,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=qB5jK-KeXOs',
     title: 'Simplifying reactivity with SolidJS',
     description:
-      'In this talk, we explore Solid\'s unique approach to reactivity and how it can help you write better components quicker - even if you don\'t use Solid.',
+      "In this talk, we explore Solid's unique approach to reactivity and how it can help you write better components quicker - even if you don't use Solid.",
     keywords: ['solid', 'reactivity', 'brussels'],
     author: 'React Brussels',
     author_url: 'https://www.youtube.com/@BeJScommunity',
@@ -925,7 +923,7 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1668545043000,
-  }
+  },
 ];
 
 export default videos;

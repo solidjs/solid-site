@@ -3,7 +3,7 @@ import solid from 'vite-plugin-solid';
 import mdx from '@mdx-js/rollup';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
-import { dependencies } from './package.json' assert { type: 'json' };
+import dependencies from './package.json' assert { type: 'json' };
 
 export default defineConfig({
   define: {
@@ -17,7 +17,7 @@ export default defineConfig({
         jsxImportSource: 'solid-js',
         providerImportSource: 'solid-mdx',
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight]
+        rehypePlugins: [rehypeHighlight],
       }),
       enforce: 'pre',
     } as Plugin,

@@ -107,7 +107,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/thetarnav/solid-devtools',
     title: 'Solid Developer Tools',
-    description: 'Library of developer tools, reactivity debugger & Devtools Chrome extension for visualizing SolidJS reactivity graph.',
+    description:
+      'Library of developer tools, reactivity debugger & Devtools Chrome extension for visualizing SolidJS reactivity graph.',
     author: 'Damian Tarnawski',
     author_url: 'https://github.com/thetarnav/solid-devtools',
     keywords: ['debug', 'devtools'],
@@ -871,7 +872,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/microsoft/playwright',
     title: '@playwright/experimental-ct-solid',
-    description: 'Fast and reliable component testing in a real browser simular to solid-testing-library',
+    description:
+      'Fast and reliable component testing in a real browser simular to solid-testing-library',
     author: 'Microsoft',
     author_url: 'https://github.com/Microsoft',
     keywords: ['runner', 'testing'],
@@ -1785,7 +1787,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://ag-grid.com/react-data-grid/solidjs/',
     title: 'ag-grid-solid',
-    description: 'All of the grid\'s core rendering (headers, rows, cells etc) is rendered using Solid.',
+    description:
+      "All of the grid's core rendering (headers, rows, cells etc) is rendered using Solid.",
     author: 'AG Grid',
     author_url: 'https://ag-grid.com/',
     keywords: ['grid', 'ag grid', 'ag-grid'],
@@ -1807,8 +1810,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/miguelsalesvieira/solid-flow',
     title: 'solid-flow',
-    description:
-      'A simple component for building interactive node-based diagrams and editors.',
+    description: 'A simple component for building interactive node-based diagrams and editors.',
     author: 'Miguel Vieira',
     author_url: 'https://github.com/miguelsalesvieira',
     keywords: ['ui', 'drag', 'flow'],
@@ -1852,25 +1854,22 @@ const utilities: Array<Resource> = [
   {
     link: 'https://papanasi.js.org/',
     title: 'Papanasi: The Universal UI Library',
-    description: 'Papanasi (pronunced pɑpənæʃ or papanash) is a UI library to use cross Frameworks.',
+    description:
+      'Papanasi (pronunced pɑpənæʃ or papanash) is a UI library to use cross Frameworks.',
     author: 'Quique Fdez Guerra',
     author_url: '',
-    keywords: [
-      'ui',
-      'components',
-      'universal',
-    ],
+    keywords: ['ui', 'components', 'universal'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
   {
-    title: "solid-formlet",
-    description: "Functional combinators for building reactive forms with SolidJS",
-    link: "https://github.com/functorism/solid-formlet",
-    author: "functorism",
-    author_url: "https://github.com/functorism",
-    keywords: ["form", "combinators"],
+    title: 'solid-formlet',
+    description: 'Functional combinators for building reactive forms with SolidJS',
+    link: 'https://github.com/functorism/solid-formlet',
+    author: 'functorism',
+    author_url: 'https://github.com/functorism',
+    keywords: ['form', 'combinators'],
     official: false,
     type: PackageType.Library,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
@@ -1892,17 +1891,12 @@ const utilities: Array<Resource> = [
     link: 'https://modularforms.dev/',
     author: 'Fabian Hiller',
     author_url: 'https://github.com/fabian-hiller',
-    description: 'Modular Forms is a JavaScript library that is build on top of SolidJS to validate and handle various types of forms. It is fast by default and the bundle size is small due to a modular design.',
+    description:
+      'Modular Forms is a JavaScript library that is build on top of SolidJS to validate and handle various types of forms. It is fast by default and the bundle size is small due to a modular design.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
     official: false,
-    keywords: [
-      "form",
-      "field",
-      "validation",
-      "input",
-      "ui"
-    ],
+    keywords: ['form', 'field', 'validation', 'input', 'ui'],
     published_at: 1666197287705,
   },
   {
@@ -1912,15 +1906,9 @@ const utilities: Array<Resource> = [
     author: 'Kevin Chen',
     description: 'Compile Markdown to Solid component.',
     type: PackageType.Package,
-    categories:  [ResourceCategory.BuildUtilities, ResourceCategory.Plugins, ResourceCategory.UI],
+    categories: [ResourceCategory.BuildUtilities, ResourceCategory.Plugins, ResourceCategory.UI],
     official: false,
-    keywords: [
-      "markdown",
-      "vite",
-      "plugin",
-      "mdx",
-      "solid-markdown"
-    ],
+    keywords: ['markdown', 'vite', 'plugin', 'mdx', 'solid-markdown'],
     published_at: 1671096940743,
   },
   {
@@ -1928,22 +1916,23 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/xbmlz/vitesse-solid',
     author_url: 'https://github.com/xbmlz',
     author: 'Kevin Chen',
-    description: 'Vitesse Solid is a template for building Solid apps with Vite. includes TypeScript, ESLint, Prettier, I18n, Markdown, UnoCSS, HopeUI and more.',
+    description:
+      'Vitesse Solid is a template for building Solid apps with Vite. includes TypeScript, ESLint, Prettier, I18n, Markdown, UnoCSS, HopeUI and more.',
     type: PackageType.Package,
-    categories:  [ResourceCategory.Starters, ResourceCategory.UI, ResourceCategory.BuildUtilities],
+    categories: [ResourceCategory.Starters, ResourceCategory.UI, ResourceCategory.BuildUtilities],
     official: false,
     keywords: [
-      "starter",
-      "vite",
-      "template",
-      "boilerplate",
-      "typescript",
-      "eslint",
-      "prettier",
-      "unocss",
-      "i18n",
-      "darkmode",
-      "pwa"
+      'starter',
+      'vite',
+      'template',
+      'boilerplate',
+      'typescript',
+      'eslint',
+      'prettier',
+      'unocss',
+      'i18n',
+      'darkmode',
+      'pwa',
     ],
     published_at: 1671097420678,
   },
@@ -1952,13 +1941,14 @@ const utilities: Array<Resource> = [
     link: 'https://lucide.dev/',
     author: 'Eric Fennis',
     author_url: 'https://github.com/ericfennis',
-    description: 'Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons.',
+    description:
+      'Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather Icons.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
     official: false,
     keywords: ['components', 'lucide', 'icons', 'ui', 'design', 'svg', 'feather-icons'],
     published_at: 1640969643000,
-  }
+  },
 ];
 
 export default utilities;
