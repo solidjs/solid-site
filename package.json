@@ -81,8 +81,8 @@
     "terser-config-atomic": "^0.1.1",
     "typescript": "^4.8.4",
     "vite": "^4.0.3",
-    "vite-plugin-pwa": "^0.13.3",
-    "vite-plugin-solid": "^2.4.0"
+    "vite-plugin-pwa": "^0.14.0",
+    "vite-plugin-solid": "^2.5.0"
   },
   "resolutions": {
     "solid-js": "1.5.1"
