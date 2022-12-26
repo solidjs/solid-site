@@ -47,7 +47,13 @@ const Footer: Component = () => {
               contributors: '/contributors',
             })}
           />
-          <p class="mt-2">SolidJS and logo are trademarks of the SolidJS project and Core Team.</p>
+          <p class="mt-2">
+            {t(
+              'global.newsletter.trademark',
+              {},
+              'SolidJS and logo are trademarks of the SolidJS project and Core Team. Gordita font copyright and licensed non-commercially from typeatelier.com.',
+            )}
+          </p>
           <div class="relative flex flex-col md:flex-row justify-center justify-items-center mb-8 mt-12 gap-12 p-7 bg-white/30 dark:bg-solid-darkbg/20 md:mb-5 md:mt-7 md:rounded-3xl md:justify-start items-center">
             <span class="text-center font-semibold text-gray-600 dark:text-white text-lg md:static md:text-left md:w-1/6">
               {t('global.footer.sponsored_by')}
