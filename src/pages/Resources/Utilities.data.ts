@@ -1949,6 +1949,18 @@ const utilities: Array<Resource> = [
     keywords: ['components', 'lucide', 'icons', 'ui', 'design', 'svg', 'feather-icons'],
     published_at: 1640969643000,
   },
+  {
+    title: '@klass/solid',
+    link: 'https://github.com/flamrdevs/klass',
+    author: 'flamrdevs',
+    author_url: 'https://github.com/flamrdevs',
+    description: 'A class variant utility library.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+    official: false,
+    keywords: ['class', 'css', 'styled', ''],
+    published_at: 1672135531594,
+  },
 ];
 
 export default utilities;
