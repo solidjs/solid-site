@@ -1949,6 +1949,18 @@ const utilities: Array<Resource> = [
     keywords: ['components', 'lucide', 'icons', 'ui', 'design', 'svg', 'feather-icons'],
     published_at: 1640969643000,
   },
+  {
+    link: 'https://kobalte.dev/',
+    title: 'kobalte',
+    description: "A library of unstyled components for building accessible web apps and design systems with SolidJS.",
+    author: 'Fabien Marie-Louise',
+    author_url: 'https://github.com/fabien-ml',
+    keywords: ['kobalte', 'headless', 'unstyled', 'aria', 'components'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1672867714000,
+  },
 ];
 
 export default utilities;
