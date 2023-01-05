@@ -1120,6 +1120,17 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1668454509000,
   },
+  {
+    link: 'https://blog.knappi.org/0018-solid-js/',
+    title: 'Solid.js, the best of Vue and React',
+    description: "",
+    author: 'Nils Knappmeier ',
+    author_url: 'https://blog.knappi.org/',
+    keywords: ['solid', 'react', 'vue'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1672946982000,
+  },
 ];
 
 export default articles;

@@ -1950,6 +1950,18 @@ const utilities: Array<Resource> = [
     published_at: 1640969643000,
   },
   {
+    link: 'https://kobalte.dev/',
+    title: 'kobalte',
+    description: "A library of unstyled components for building accessible web apps and design systems with SolidJS.",
+    author: 'Fabien Marie-Louise',
+    author_url: 'https://github.com/fabien-ml',
+    keywords: ['kobalte', 'headless', 'unstyled', 'aria', 'components'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1672867714000
+  },
+  {
     title: '@klass/solid',
     link: 'https://github.com/flamrdevs/klass',
     author: 'flamrdevs',
@@ -1960,7 +1972,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['class', 'css', 'styled', ''],
     published_at: 1672135531594,
-  },
+  }
 ];
 
 export default utilities;
