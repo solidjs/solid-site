@@ -1959,8 +1959,20 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
-    published_at: 1672867714000,
+    published_at: 1672867714000
   },
+  {
+    title: '@klass/solid',
+    link: 'https://github.com/flamrdevs/klass',
+    author: 'flamrdevs',
+    author_url: 'https://github.com/flamrdevs',
+    description: 'A class variant utility library.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+    official: false,
+    keywords: ['class', 'css', 'styled', ''],
+    published_at: 1672135531594,
+  }
 ];
 
 export default utilities;
