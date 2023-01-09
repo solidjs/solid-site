@@ -1974,6 +1974,19 @@ const utilities: Array<Resource> = [
     keywords: ['class', 'css', 'styled', ''],
     published_at: 1672135531594,
   },
+  {
+    title: 'solid-textarea-autosize',
+    link: 'https://github.com/bigmistqke/solid-textarea-autosize',
+    author: 'bigmistqke',
+    author_url: 'https://github.com/bigmistqke',
+    description:
+      '<textarea /> component for Solid which grows with content. A port of react-textarea-autosize.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['textarea', 'autosize', 'unstyled'],
+    published_at: 1673290661528,
+  },
 ];
 
 export default utilities;
