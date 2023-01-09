@@ -1123,7 +1123,7 @@ const articles: Array<Resource> = [
   {
     link: 'https://blog.knappi.org/0018-solid-js/',
     title: 'Solid.js, the best of Vue and React',
-    description: "",
+    description: '',
     author: 'Nils Knappmeier ',
     author_url: 'https://blog.knappi.org/',
     keywords: ['solid', 'react', 'vue'],
