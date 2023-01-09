@@ -3,7 +3,7 @@ import solid from 'vite-plugin-solid';
 import mdx from '@mdx-js/rollup';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
-import * as pckg from './package.json';
+import pckg from './package.json' assert { type: 'json' };
 
 export default defineConfig({
   define: {
