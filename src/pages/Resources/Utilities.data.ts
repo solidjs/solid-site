@@ -377,17 +377,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
-    link: 'https://github.com/MrFoxPro/solid-chart.js',
-    title: 'solid-chart',
-    description: 'Chart.js powered by solid-js framework.',
-    author: 'Dmitriy Nikiforov',
-    author_url: 'https://github.com/MrFoxPro',
-    keywords: ['chart', 'chart.js'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.AddOn],
-  },
-  {
     link: 'https://github.com/skrylnikov/reatom-solid',
     title: 'reatom-solid',
     description: 'Solid bindings for Reatom store.',
