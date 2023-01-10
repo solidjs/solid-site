@@ -1,6 +1,5 @@
 {
     "hero": "Simple at mahusay na reactivity para sa paggawa ng mga user interface.",
-    "info": "<span class=\"font-semibold\">Ang Solid ay isang purely reactive na library.</span> Dinisenyo ito sa simula na may reactive core. Naimpluwensiyahan ito ng mga prinsipyo sa reactivity na dinevelop ng mga libraries bago ito.",
     "strengths": [
       {
         "icon": "performant",

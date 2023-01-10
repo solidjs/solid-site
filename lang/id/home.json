@@ -3,7 +3,6 @@
     "get_started": "Memulai",
     "intro_video": "Perkenalan Solid (100 detik)",
     "intro_video_advanced": "Perkenalan lebih lanjut (10 menit)",
-    "info": "Solid adalah library reaktif yang murni. Ia didesain dari bawah ke atas dengan inti reaktif. Ia dipengaruhi oleh prinsip-prinsip yang dikembangkan oleh library-library sebelumnya.",
     "strengths": [
       {
         "icon": "performant",

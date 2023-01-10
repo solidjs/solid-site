@@ -3,7 +3,6 @@
     "get_started": "Get Started",
     "intro_video": "Intro to Solid (100 seconds)",
     "intro_video_advanced": "Advanced intro (10 minutes)",
-    "info": "<span class=\"font-semibold\">Solid is a purely reactive library.</span> It was designed from the ground up with a reactive core. It's influenced by reactive principles developed by previous libraries.",
     "news":
       {
         "content": "Visit the new <b>Solid Store</b> for stickers, t-shirts and more!"
