@@ -3,7 +3,6 @@
     "get_started": "البدء",
     "intro_video": "مقدمة إلى Solid (100 ثانية)",
     "intro_video_advanced": "مقدمة متقدمة (10 دقائق)",
-    "info": "<span class = \"font-semibold\"> Solid هي مكتبة تفاعلية بحتة. </ span> تم تصميمها من الألف إلى الياء بنواة تفاعلية. إنه متأثر بالمبادئ التفاعلية التي طورتها المكتبات السابقة.",
     "strengths": [
       {
         "icon": "performant",

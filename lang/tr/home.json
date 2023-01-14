@@ -1,6 +1,5 @@
 {
     "hero": "Kullanıcı arayüzleri oluşturmak için bildirime dayalı, verimli ve esnek bir JavaScript kütüphanesi.",
-    "info": "<span class=\"font-semibold\">Solid, tamamen reaktif bir kütüphanedir.</span> Sıfırdan reaktif bir çekirdekle tasarlandı. Önceki kütüphaneler tarafından geliştirilen reaktif ilkelerden etkilenir.",
     "strengths": [
       {
         "icon": "performant",
