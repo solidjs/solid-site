@@ -1142,6 +1142,28 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1673203212000,
   },
+  {
+    link: 'https://judetejada.vercel.app/blog/building-quick-links',
+    title: 'Building Quick Links with Solid-js',
+    description: '',
+    author: 'judetejada',
+    author_url: 'https://judetejada.vercel.app/blog/building-quick-links',
+    keywords: ['solid', 'react', 'intro'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1673719211000,
+  },
+  {
+    link: 'https://frontendmasters.com/courses/reactivity-solidjs/',
+    title: 'Reactivity with SolidJS',
+    description: '',
+    author: 'Ryan Carniato / Frontend Masters',
+    author_url: 'https://frontendmasters.com/teachers/ryan-carniato/',
+    keywords: ['solid', 'reactivity', 'tutorial'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1673719408000,
+  },
 ];
 
 export default articles;
