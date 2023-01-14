@@ -1135,7 +1135,7 @@ const articles: Array<Resource> = [
     link: 'https://dev.to/omher/intro-to-solidjs-how-to-create-fast-reactive-web-apps-15cn',
     title: 'Intro to SolidJS: How to Create Fast, Reactive Web Apps',
     description: '',
-    author: 'Omher,
+    author: 'Omher',
     author_url: 'https://dev.to/omher',
     keywords: ['solid', 'react', 'intro'],
     type: ResourceType.Article,

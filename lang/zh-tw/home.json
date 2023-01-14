@@ -3,7 +3,6 @@
   "get_started": "馬上開始",
   "intro_video": "100秒 介紹",
   "intro_video_advanced": "10分鐘 詳細介紹",
-  "info": "<span class=\"font-semibold\">Solid 是一个純粹的反應式庫。</span>它從 0 開始設計出一套響應機制。Solid 深受到現有程式庫的響應式原則影響。",
   "strengths": [
     {
       "icon": "performant",

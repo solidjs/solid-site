@@ -3,7 +3,6 @@
     "get_started": "시작하기",
     "intro_video": "Solid 소개 (100초)",
     "intro_video_advanced": "자세한 소개 (10분)",
-    "info": "<span class=\"font-semibold\">Solid는 리액티브 라이브러리입니다.</span> 리액티브 코어부터 새로 설계되었습니다. 이전에 개발된 라이브러리들의 리액티브 원칙에서 영향을 받았습니다.",
     "strengths": [
       {
         "icon": "performant",

@@ -88,14 +88,14 @@ const Home: Component = () => {
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
         <section class="border-2 m-5 lg:m-0 border-gray-200 dark:border-solid-darkLighterBg rounded-lg defer">
-          <ul class="flex flex-col md:flex-row justify-center w-full">
+          <ul class="grid grid-cols-1 md:grid-cols-6 w-full">
             <For each={t('home.facts')}>
-              {(fact: { label: string; detail: string; link: string }) => {
+              {(fact: { label: string; detail: string; link?: string }) => {
                 const d = (
-                  <>
+                  <div class="flex md:inline-block">
                     <strong class="font-semibold mr-1">{fact.label}</strong>
                     <span class="flex items-center text-sm">{fact.detail}</span>
-                  </>
+                  </div>
                 );
                 return (
                   <li
@@ -110,14 +110,14 @@ const Home: Component = () => {
                         target="_blank"
                         rel="noopener"
                         href={fact.link}
-                        class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
+                        class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full"
                       >
                         {d}
                       </a>
                     ) : (
-                      <div class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5">
+                      <span class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full">
                         {d}
-                      </div>
+                      </span>
                     )}
                   </li>
                 );

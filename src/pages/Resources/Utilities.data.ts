@@ -377,17 +377,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn],
   },
   {
-    link: 'https://github.com/MrFoxPro/solid-chart.js',
-    title: 'solid-chart',
-    description: 'Chart.js powered by solid-js framework.',
-    author: 'Dmitriy Nikiforov',
-    author_url: 'https://github.com/MrFoxPro',
-    keywords: ['chart', 'chart.js'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.AddOn],
-  },
-  {
     link: 'https://github.com/skrylnikov/reatom-solid',
     title: 'reatom-solid',
     description: 'Solid bindings for Reatom store.',
@@ -1971,7 +1960,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Library,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
     official: false,
-    keywords: ['class', 'css', 'styled', ''],
+    keywords: ['class', 'css', 'styled'],
     published_at: 1672135531594,
   },
   {
@@ -1986,6 +1975,19 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['textarea', 'autosize', 'unstyled'],
     published_at: 1673290661528,
+  },
+  {
+    title: '@cookbook/solid-intl',
+    link: 'https://github.com/the-cookbook/solid-intl',
+    author: 'Marcos Gonçalves',
+    author_url: 'https://github.com/themgoncalves',
+    description:
+      'A universal internationalization (i18n) for Solid inspired by React Intl & FormatJS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Data, ResourceCategory.Plugins],
+    official: false,
+    keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
+    published_at: 1672790400000,
   },
 ];
 
