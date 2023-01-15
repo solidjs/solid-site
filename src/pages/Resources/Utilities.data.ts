@@ -1989,6 +1989,18 @@ const utilities: Array<Resource> = [
     keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
     published_at: 1672790400000,
   },
+  {
+    title: '@sect/solid-hiding-header',
+    link: 'https://github.com/sectsect/solid-hiding-header',
+    author: 'sect',
+    author_url: 'https://github.com/sectsect',
+    description: 'SolidJS header that disappears on scroll down and appears on scroll up.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['header', 'sticky-header', 'scroll'],
+    published_at: 1673761074258,
+  },
 ];
 
 export default utilities;
