@@ -1064,6 +1064,36 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1664303085000,
   },
+  {
+    link: 'https://raqueebuddinaziz.com/blog/state-management-in-solid-js/',
+    title: 'A guide on state management in solid js',
+    description: 'A guide on state management in solid js',
+    author: 'Raqueebuddin Aziz',
+    author_url: 'https://raqueebuddinaziz.com/',
+    keywords: ['stores', 'suspense', 'signals', 'createResource', 'state-management'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1666031400000,
+  },
+  {
+    link: 'https://raqueebuddinaziz.com/blog/comprehensive-guide-to-solid-js-stores/',
+    title: 'A Comprehensive Guide to SolidJS Stores',
+    description:
+      'A comprehensive guide to solid-js stores, in depth explanation to path syntax, mutable stores, produce, reconcile and more...',
+    author: 'Raqueebuddin Aziz',
+    author_url: 'https://raqueebuddinaziz.com/',
+    keywords: [
+      'state-management',
+      'stores',
+      'path syntax',
+      'mutable stores',
+      'produce',
+      'reconcile',
+    ],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1673894085913,
+  },
 ];
 
 export default articles;
