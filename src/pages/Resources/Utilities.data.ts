@@ -1989,6 +1989,19 @@ const utilities: Array<Resource> = [
     keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
     published_at: 1672790400000,
   },
+  {
+    link: 'https://github.com/gnomical/solid-fontawesome',
+    title: 'solid-fontawesome',
+    description:
+      'A FontAwesomeIcon svg component for the font awesome icon library.',
+    author: 'Jacob Kofron',
+    author_url: 'https://github.com/gnomical',
+    keywords: ['icons', 'fontawesome', 'svg'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    published_at: 1674876065000,
+  },
 ];
 
 export default utilities;
