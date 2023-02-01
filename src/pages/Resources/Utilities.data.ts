@@ -1989,6 +1989,17 @@ const utilities: Array<Resource> = [
     keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
     published_at: 1672790400000,
   },
+  {
+    title: "@solidjs-material/core",
+    link: "https://github.com/ceopaludetto/solid-material",
+    author: "Carlos Paludetto",
+    author_url: "https://github.com/ceopaludetto",
+    description: "Solid-js high quality components built with tailwindcss and kobalte following material you guidelines.",
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['material-design', 'kobalte', 'tailwindcss', 'class-variance-authority'],
+  }
 ];
 
 export default utilities;
