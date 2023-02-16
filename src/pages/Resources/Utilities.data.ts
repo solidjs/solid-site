@@ -1989,6 +1989,19 @@ const utilities: Array<Resource> = [
     keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
     published_at: 1672790400000,
   },
+  {
+    title: 'Flowbite SolidJS',
+    link: 'https://flowbite.com/docs/getting-started/solid-js/',
+    author: 'Flowbite',
+    author_url: 'https://flowbite.com/',
+    description:
+      'Build websites even faster with components on top of Tailwind CSS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Data, ResourceCategory.Plugins],
+    official: false,
+    keywords: ['ui', 'components', 'library', 'tailwind', 'plugin'],
+    published_at: 1676570155000,
+  },
 ];
 
 export default utilities;
