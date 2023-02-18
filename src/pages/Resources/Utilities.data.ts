@@ -2002,6 +2002,19 @@ const utilities: Array<Resource> = [
     keywords: ['ui', 'components', 'library', 'tailwind', 'plugin'],
     published_at: 1676570155000,
   },
+  {
+    title: 'solid-mason',
+    link: 'https://github.com/lxsmnsyc/solid-mason',
+    author: 'lxsmnsyc',
+    author_url: 'https://github.com/lxsmnsyc',
+    description:
+      'Simple masonry layout in SolidJS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['ui', 'masonry', 'mason', 'grid'],
+    published_at: 1676732932000,
+  },
 ];
 
 export default utilities;
