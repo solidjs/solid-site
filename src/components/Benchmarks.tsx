@@ -18,6 +18,7 @@ interface RowData {
 }
 
 const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = (props) => {
+  const [t] = useI18n();
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
     props.rows
@@ -80,7 +81,7 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
         ) : null}
         <tr>
           <td>&nbsp;</td>
-          <td class="p-3 text-xs">{props.scale}</td>
+          <td class="p-3 text-xs">{t('home.benchmarks.time')}</td>
         </tr>
       </tbody>
     </table>

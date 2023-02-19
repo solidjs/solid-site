@@ -68,9 +68,7 @@ const Home: Component = () => {
           class="flex items-center space-x-3 justify-center text-center text-solid-medium dark:bg-solid-light/40 dark:text-white m-5 md:mx-0 hover:text-solid-dark transition duration-500 bg-slate-200/50 max-width-[300px] rounded-lg p-5 text-lg"
         >
           <Icon class="w-10" stroke-width={1.5} path={shoppingCart} />
-          <div>
-            Visit the new <b>Solid Store</b> for stickers, t-shirts and more!
-          </div>
+          <div innerHTML={t('home.news.content')} />
         </a>
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
@@ -90,14 +88,14 @@ const Home: Component = () => {
       </div>
       <div class="lg:my-10 px-0 lg:px-12 container flex flex-col lg:space-y-10">
         <section class="border-2 m-5 lg:m-0 border-gray-200 dark:border-solid-darkLighterBg rounded-lg defer">
-          <ul class="flex flex-col md:flex-row justify-center w-full">
+          <ul class="grid grid-cols-1 md:grid-cols-6 w-full">
             <For each={t('home.facts')}>
-              {(fact: { label: string; detail: string; link: string }) => {
+              {(fact: { label: string; detail: string; link?: string }) => {
                 const d = (
-                  <>
+                  <div class="flex md:inline-block">
                     <strong class="font-semibold mr-1">{fact.label}</strong>
                     <span class="flex items-center text-sm">{fact.detail}</span>
-                  </>
+                  </div>
                 );
                 return (
                   <li
@@ -112,14 +110,14 @@ const Home: Component = () => {
                         target="_blank"
                         rel="noopener"
                         href={fact.link}
-                        class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5"
+                        class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full"
                       >
                         {d}
                       </a>
                     ) : (
-                      <div class="flex md:inline-block p-3 justify-center border-b md:border-none md:px-5 md:py-5">
+                      <span class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full">
                         {d}
-                      </div>
+                      </span>
                     )}
                   </li>
                 );

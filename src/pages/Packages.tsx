@@ -50,6 +50,15 @@ const FilterButton: Component<{
   </>
 );
 
+const FilterOfficial: Component<{
+  onChange: JSX.EventHandlerUnion<HTMLInputElement, Event>;
+  active: boolean;
+}> = (props) => (
+  <>
+    <input type="checkbox" checked={props.active} onChange={props.onChange} /> Official Filter
+  </>
+);
+
 const ResourceLink: Component<Resource> = (props) => {
   const [t] = useI18n();
   const now = new Date();
@@ -129,6 +138,10 @@ const Packages: Component = () => {
     threshold: 0.3,
   });
 
+  let [check, setCheck] = createSignal(false);
+  let toggleOfficial = ({ target }: Event) => setCheck((target as HTMLInputElement).checked);
+  let official = data.list.filter((item) => item.official);
+
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
   const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
@@ -137,9 +150,10 @@ const Packages: Component = () => {
   // Produces a base set of filtered results
   const resources = createMemo<Resource[]>(() => {
     if (keyword() == '') {
-      return data.list;
+      return check() ? official : data.list;
     }
-    return fs.search(keyword()).map((result) => result.item);
+    let search = fs.search(keyword()).map((result) => result.item);
+    return check() ? search.filter((item) => item.official) : search;
   });
 
   // Retrieve a map from categories to array of resources
@@ -202,6 +216,9 @@ const Packages: Component = () => {
             onChange={(evt) => setKeyword(evt.currentTarget.value)}
             type="text"
           />
+
+          <FilterOfficial active={check()} onChange={toggleOfficial} />
+
           <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
             {t('resources.categories')}
           </h3>
@@ -235,6 +252,7 @@ const Packages: Component = () => {
               onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
+            <FilterOfficial active={check()} onChange={toggleOfficial} />
             <div
               class="relative h-2"
               classList={{

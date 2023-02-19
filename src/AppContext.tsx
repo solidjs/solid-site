@@ -20,6 +20,7 @@ const AppContext = createContext<AppContextInterface>({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const langs: { [lang: string]: () => Promise<any> } = {
   en: async () => (await import('../lang/en/en')).default(),
+  az: async () => (await import('../lang/az/az')).default(),
   it: async () => (await import('../lang/it/it')).default(),
   de: async () => (await import('../lang/de/de')).default(),
   pt: async () => (await import('../lang/pt/pt')).default(),
@@ -28,6 +29,7 @@ const langs: { [lang: string]: () => Promise<any> } = {
   id: async () => (await import('../lang/id/id')).default(),
   he: async () => (await import('../lang/he/he')).default(),
   ru: async () => (await import('../lang/ru/ru')).default(),
+  ar: async () => (await import('../lang/ar/ar')).default(),
   fa: async () => (await import('../lang/fa/fa')).default(),
   tr: async () => (await import('../lang/tr/tr')).default(),
   tl: async () => (await import('../lang/tl/tl')).default(),
@@ -59,11 +61,20 @@ export const AppContextProvider: ParentComponent = (props) => {
   const [settings, set] = createCookieStorage();
   const browserLang = navigator.language.slice(0, 2);
   const location = useLocation();
+  const specialLangs = { zh: true, ko: true };
+
   if (location.query.locale) {
     set('locale', location.query.locale, cookieOptions);
   } else if (!settings.locale && browserLang in langs) {
     set('locale', browserLang);
+  } else if (
+    !settings.locale &&
+    browserLang in specialLangs &&
+    navigator.language.toLowerCase() in langs
+  ) {
+    set('locale', navigator.language.toLocaleLowerCase());
   }
+
   const i18n = createI18nContext({}, (settings.locale || 'en') as string);
   const [t, { add, locale }] = i18n;
   const params = (): DataParams => {

@@ -1,16 +1,13 @@
 import { RouteDataFunc } from 'solid-app-router';
 import type { Component } from 'solid-js';
-import { ListenNotesEpisodeProperties } from 'solid-social/dist/types/components/listennotes/listennotes-episode';
-import { TwitchProperties } from 'solid-social/dist/types/components/twitch/twitch';
-import { TweetProperties } from 'solid-social/dist/types/components/twitter/tweet';
-import { YouTubeProperties } from 'solid-social/dist/types/components/youtube/youtube';
+import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 
 export type MDXComponent = Component<{
   components: {
-    ListenNotesEpisode?: Component<ListenNotesEpisodeProperties>;
-    Tweet?: Component<TweetProperties>;
-    Twitch?: Component<TwitchProperties>;
-    YouTube?: Component<YouTubeProperties>;
+    Tweet?: Component<TweetProps>;
+    Twitch?: Component<TwitchProps>;
+    YouTube?: Component<YouTubeProps>;
+    Spotify?: Component<SpotifyProps>;
   };
 }>;
 
@@ -59,8 +56,7 @@ export const list: { [key: string]: BlogInfo } = {
   'state-of-solid-july-2022': {
     img: '/img/blog/state-of-solid-july-2022/header.png',
     title: 'The State of Solid: July 2022',
-    description:
-      'Second quarter updates about Solid including core.',
+    description: 'Second quarter updates about Solid including core.',
     author: 'SolidJS Core',
     author_url: 'https://www.solidjs.com',
     date: 1659299281000,
@@ -75,6 +71,15 @@ export const list: { [key: string]: BlogInfo } = {
     author_url: 'https://www.solidjs.com',
     date: 1663596000000,
     body: async () => await import('./Articles/solid-fellowships-announcement.mdx'),
+  },
+  'introducing-solidstart': {
+    img: '/img/blog/introducing-solidstart/header.png',
+    title: 'Introducing SolidStart: The SolidJS Framework',
+    description: 'The official Beta release announcement for the new meta-framework.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1668014954000,
+    body: async () => await import('./Articles/introducing-solidstart.mdx'),
   },
 };
 

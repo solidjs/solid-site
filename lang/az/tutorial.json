@@ -1,0 +1,23 @@
+{
+  "solve": "Həll et",
+  "reset": "Sifirla",
+  "playground": {
+    "result": "Nəticə",
+    "output": "Çıxış",
+    "clear": "Təmizlə",
+    "add_tab": "Yeni təb əlavə et",
+    "refresh": "Səhifəni yenilə",
+    "format": "Kodu format et",
+    "copy": "Kodu kopyala",
+    "mode": "Kompilyasiya rejimi",
+    "client_render": "Client-side rendering",
+    "server_render": "Server-side rendering",
+    "client_hydration_render": "Client-side rendering with hydration",
+    "dark_mode": "Rejimi dəyişdir",
+    "import_json": "JSON idxalı",
+    "export_json": "JSON ixracı",
+    "export_codesandbox": "CodeSandBox ixracı",
+    "share": "Link ilə paylaş",
+    "scale": "Hərifləri böyük və ya kiçik et"
+  }
+}

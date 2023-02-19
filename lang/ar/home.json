@@ -1,0 +1,112 @@
+{
+    "hero": "تفاعل بسيط وفعال لبناء واجهات المستخدم.",
+    "get_started": "البدء",
+    "intro_video": "مقدمة إلى Solid (100 ثانية)",
+    "intro_video_advanced": "مقدمة متقدمة (10 دقائق)",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "عالية الأداء",
+        "description": "تتفوق باستمرار على معايير سرعة واجهة المستخدم المعترف بها واستخدام الذاكرة."
+      },
+      {
+        "icon": "powerful",
+        "label": "قوية",
+        "description": "بدائل تفاعلية قابلة للإنشاء مقترنة بمرونة JSX."
+      },
+      {
+        "icon": "pragmatic",
+        "label": "ذرائعية (ذو مذهب عملي)",
+        "description": "واجهة برمجة تطبيقات معقولة ومصممة مما تجعل من التطوير أمرًا ممتعًا وبسيطًا."
+      },
+      {
+        "icon": "productive",
+        "label": "إنتاجية",
+        "description": "تجعل بيئة العمل وألفة بناء الأشياء البسيطة أو المعقدة أمرًا سهلاً."
+      }
+    ],
+    "facts": [
+      {
+        "label": "7 كيلوبايت",
+        "detail": "مصغرة + مضغوطة",
+        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      },
+      {
+        "label": "أكثر من 22 ألف",
+        "detail": "نجمة على الـ Github",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "أكثر من 5 سنوات",
+        "detail": "من التطوير"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "دعم"
+      },
+      {
+        "label": "الأعلى تقييماً",
+        "detail": "في الأداء"
+      },
+      {
+        "label": "Astro & Vite",
+        "detail": "دعم"
+      }
+    ],
+    "example": {
+      "headline": "إنها مألوفة وحديثة",
+      "copy": [
+        "تقف Solid على أكتاف العمالقة ، ولا سيما React و Knockout. إذا كنت قد طورت باستخدام React Hooks من قبل ، فيجب أن يبدو Solid طبيعيًا جدًا. في الواقع ، أقرب للطبيعية Solid كصياغة أبسط بكثير من دون قواعد الـ Hook. يتم تنفيذ كل مكون مرة واحدة ويتم تنفيذ الخطافات (Hooks) والارتباطات عدة مرات أثناء تحديث تبعياتها.",
+        "يتبع Solid نفس فلسفة React مع تدفق البيانات أحادي الاتجاه ، وفصل القراءة / الكتابة ، والواجهات الثابتة. ومع ذلك ، فإنه يحتوي على تطبيق مختلف على عكس React فإن Solid تمامًا تتجاهل استخدام الـ Virtual DOM."
+      ],
+      "link_label": "عرض المستندات",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "تفاعلية بالغة الدقة تعني أنه يمكنك أن تفعل المزيد بموارد أقل.",
+      "subheadline": "تم تصميم Solid باستخدام بدائل تفاعلية فعالة من كود المستخدم الخاص بك إلى عروض JSX الخاصة بك.",
+      "copy": "هذا يفتح السيطرة الكاملة على ما يتم تحديثه ومتى ، حتى على مستوى ربط DOM. مع عدم وجود DOM الظاهري أو الاختلاف الشامل ، فإن إطار العمل لا يقوم أبدًا بعمل أكثر مما تريده.",
+      "link_label": "شاهدها بمثال حي",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "مُركزهَ على الأداء",
+        "على كل من العميل والخادم"
+      ],
+      "copy": "تبرز قوة التفاعل الدقيق كنهج على جميع المعايير البارزة. حتى لو لم يكن الأداء هو تركيزك ، فهو عمليًا بلا مجهود وبدون تكلفة خوض تجربة مطور معقدة/مُورطة. فكر في مكاسب أداء Solid على أنها فوز مجاني. Solid تدور حول أن تكون سريعًا دون المحاولة.",
+      "link_label": "اقرأ المقال كاملاً",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "مُحملة بالكامل بجميع الميزات.",
+      "copy": "تدعم Solid جميع ميزات المكتبة العامة والمتوقعة وتتوسع في جوانب لزيادة تجربة المطور.",
+      "list": [
+        "Fragments (التجزئة)",
+        "Portals (البوابات)",
+        "Context (السياق)",
+        "Suspense (التعليق)",
+        "Error Boundaries (حدود الأخطاء)",
+        "Lazy Components (المكونات الكسولة)",
+        "Async & Concurrent Rendering (العرض غير المتزامن والمتزامن)",
+        "Implicit Delegation (التفويض الضمني)",
+        "SSR & Hydration ( الترطيب وتصيير من طرف الخادم)",
+        "Directives (التوجيهات)",
+        "Streaming (التدفق)"
+      ]
+    },
+    "benchmarks": {
+      "time": "الوقت",
+      "view": "عرض المعيار",
+      "show_more": "عرض المزيد من معايير العميل + الخادم",
+      "link_label": "يقارن JS Framework Benchmark أداء المستعرض عبر مجموعة واسعة من الاختبارات. الأقل يعني الأفضل.",
+      "js_benchmark": {
+        "title": "JS Framework Benchmark",
+        "description": "يقارن JS Framework Benchmark أداء المستعرض عبر مجموعة واسعة من الاختبارات. الاقل هو الافضل."
+      },
+      "isomorophic_benchmark": {
+        "title": "معايير واجهة المستخدم المتشابهة (نتائج بحث)",
+        "description": "يختبر هذا المعيار سرعات عرض الخادم الأولية. الأعلى  يعني الأفضل."
+      }
+    }
+  }

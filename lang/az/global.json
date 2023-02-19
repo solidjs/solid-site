@@ -1,0 +1,114 @@
+{
+  "name": "Azərbaycanca",
+  "title": "SolidJS · Reaktiv JavaScript Kitabxanası",
+  "locale": "az-AZ",
+  "nav": [
+    {
+      "title": "Təlimatlar",
+      "path": "/guides"
+    },
+    {
+      "title": "Dərslik",
+      "path": "/tutorial"
+    },
+    {
+      "title": "Dokumentasiya",
+      "path": "/docs/latest/api"
+    },
+    {
+      "title": "SolidStart",
+      "path": "https://start.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Ekosistem",
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "Paketlər",
+          "description": "SolidJS üçün proqram kitabxanaları",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "Resurslar",
+          "description": "SolidJS haqqında məqalələr, videolar və podkastlar",
+          "path": "/resources"
+        }
+      ]
+    },
+    {
+      "title": "Nümunələr",
+      "path": "/examples"
+    },
+    {
+      "title": "Playground",
+      "path": "https://playground.solidjs.com",
+      "external": true
+    },
+    {
+      "title": "Haqqında",
+      "path": "/contributors",
+      "links": [
+        {
+          "title": "Mağaza",
+          "description": "Brend köynək, stikerlər və s.",
+          "path": "/store",
+          "external": false
+        },
+        {
+          "title": "Bloq",
+          "description": "İcmamızdan xəbərlər və yeniliklər",
+          "path": "/blog"
+        },
+        {
+          "title": "Komanda və Töhfələr",
+          "description": "Solid-in komanda üzvləri və dəstəkçiləri",
+          "path": "/contributors"
+        },
+        {
+          "title": "Brend",
+          "description": "Media istifadəsi üçün marka elementləri",
+          "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "2022 ictimai hakatonu haqqında məlumat əldə edin",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Davranış Kodeksi",
+          "description": "Icma və töhfə qaydaları",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
+          "title": "OpenCollective",
+          "description": "Bizi ianə ilə dəstəkləyin və fəaliyyətimizi davam etdirməyimizə kömək edin",
+          "path": "https://opencollective.com/solid"
+        }
+      ]
+    }
+  ],
+  "404": {
+    "header": "Vaay. 404 :(",
+    "body": "Bu səifə tapılmadı"
+  },
+  "newsletter": {
+    "title": "Solid News üçün qeydiyyatdan keçin",
+    "email": "E-poçt ünvanı",
+    "success": "Siz uğurla qeydiyyatdan keçdiniz!",
+    "error": "Qeydiyyatı tamamlamaq mümkün olmadı",
+    "register": "Qeydiyyat",
+    "sending": "Göndərilir"
+  },
+  "footer": {
+    "declaration": "Solid ictimai töhfəçilər qrupu tərəfindən dəstəklənən açıq mənbəli layihədir. <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">MIT</a> altında paylanır. Bu kitabxana və icma <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">əsas komanda və xüsusi ianəçilər</a> tərəfindən mümkün olmuşdur.",
+    "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
+    "contributors": "/contributors",
+    "sponsored_by": "Sponsor",
+    "updated": "Son yeniləmə {{date}} Solid v{{version}}"
+  },
+  "dark_mode": "Tünd mövzu",
+  "light_mode": "Açıq mövzu"
+}

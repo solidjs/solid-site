@@ -1,0 +1,112 @@
+{
+    "hero": "İstifadəçi interfeyslərinin qurulması üçün sadə və effektiv reaktivlik.",
+    "get_started": "Buradan başla",
+    "intro_video": "Solid-ə giriş videosu (100 san)",
+    "intro_video_advanced": "Qabaqcıl giriş videosu (10 dəq)",
+    "strengths": [
+      {
+        "icon": "performant",
+        "label": "Sürətli",
+        "description": "Bütün Uİ-ya xas olan sürət və yaddaş yarışlarında birincidir."
+      },
+      {
+        "icon": "powerful",
+        "label": "Güclü",
+        "description": "JSX-in çevikliyi ilə birləşdirimiş reaktiv primitivlərdən ibarətdir"
+      },
+      {
+        "icon": "pragmatic",
+        "label": "Praqmatik",
+        "description": "Ağlabatan və uyğunlaşdırılmış API tətbiqin yazılmasını sadə və əyləncəli edir."
+      },
+      {
+        "icon": "productive",
+        "label": "Məhsuldar",
+        "description": "Erqonomika və tanışlıq sadə və ya mürəkkəb şeylərin qurulmasını nəfəs almaq qədər asan edir."
+      }
+    ],
+    "facts": [
+      {
+        "label": "7K",
+        "detail": "Kiçikləşdirilmiş + Sıxılmış",
+        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      },
+      {
+        "label": "24K",
+        "detail": "Github-da ulduz sayı",
+        "link": "https://star-history.t9t.io/#solidjs/solid"
+      },
+      {
+        "label": "5+",
+        "detail": "İl inkşafda"
+      },
+      {
+        "label": "TypeScript",
+        "detail": "Dəstək var"
+      },
+      {
+        "label": "Yüksək Reytinq",
+        "detail": "Sürətdə"
+      },
+      {
+        "label": "Astro & Vite",
+        "detail": "Dəstək var"
+      }
+    ],
+    "example": {
+      "headline": "Tanış və müasir",
+      "copy": [
+        "Solid nəhənglərin, xüsusən də React və Knockout-un çiyinlərində dayanır. Əgər əvvəllər React-dan istifadə etmisinizsə, Solid sizə çox təbii görünməlidir. Əslində, Solid-in modeli daha təbii və daha sadədir. Hər bir komponent yalnız bir dəfə icra olunur. Qarmaqlar və bağlamalar isə yalnız asılılıqları yeniləndikdə işə salınırlar.",
+        "Solid, birtərəfli məlumat axını, oxu/yazma ayırması və dəyişməz interfeyslərlə React ilə eyni fəlsəfəni izləyir. Lakin, Virtual DOM-dan istifadə etməkdən imtina edərək, tamamilə fərqli bir yolla gedir."
+      ],
+      "link_label": "Dokumentasiyanı oxu",
+      "link": "https://www.solidjs.com/docs/latest#component-apis"
+    },
+    "reactivity": {
+      "headline": "İncə dənəli reaktivlik o deməkdir ki, siz daha az xərclə daha çox iş görürsünüz",
+      "subheadline": "Solid, kodunuzdan JSX-sə gədər, səmərəli reaktiv primitivlərlə qurulmuşdur",
+      "copy": "Bu, hətta DOM bağlama səviyyəsində nəyin və nə vaxt yenilənəcəyinə tam nəzarəti edir. Virtual DOM və ya geniş fərqləmə üsullarından istifadə etmir. Solid heç vaxt dediynizdən artıq iş görmür.",
+      "link_label": "Nümunəyə bax",
+      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    },
+    "performance": {
+      "headline": [
+        "Əsas sürətdir",
+        "həm müştəri, həm də server tərəfdə"
+      ],
+      "copy": "Bir yanaşma olaraq incə dənəli reaktivliyin gücü bütün bençmarklarda özünü göstərir. Sürət diqqət mərkəzində olmasa da, praktik olaraq heç bir səy və ya çətin DX xərcləri tələb etmir. Solid sürət artımını pulsuz qələbə kimi qəbul edin. Çalışmadan sürətli olmaq deməkdir.",
+      "link_label": "Tam məqaləni buradan oxu",
+      "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
+    },
+    "features": {
+      "headline": "Funksionalla ağzına qədər yüklənib.",
+      "copy": "Solid bütün ümumi və gözlənilən kitabxana funksionalını dəstəkləyir və DX-i artırmaq üçün aspektləri daim genişləndirir.",
+      "list": [
+        "Fraqmentlər",
+        "Portallar",
+        "Kontekstlər",
+        "Gecikmələr",
+        "Xəta Sərhədləri",
+        "Tənbəl Komponentlər",
+        "Asinxron və Paralel irca",
+        "Gizli Delegasiya",
+        "Server Tərəfi İcra və Nəmləndirmə",
+        "Direktivlər",
+        "Axınlaşma"
+      ]
+    },
+    "benchmarks": {
+      "time": "Vaxt",
+      "view": "Bençmarklara bax",
+      "show_more": "Daha çox bençmark göstər",
+      "link_label": "JS Framework Benchmark brauzer performansını müxtəlif testlər üzrə müqayisə edir. Daha aşağı daha yaxşı deməkdir.",
+      "js_benchmark": {
+        "title": "JS Framework Benchmark",
+        "description": "JS Framework Benchmark brauzer performansını müxtəlif testlər üzrə müqayisə edir. Daha aşağı daha yaxşı deməkdir."
+      },
+      "isomorophic_benchmark": {
+        "title": "İzomorfik Uİ Testləri (Axtarış nəticələri)",
+        "description": "Bu bençmark xam server icra sürətlərini sınaqdan keçirir. Daha yüksək daha yaxşı deməkdir."
+      }
+    }
+  }
