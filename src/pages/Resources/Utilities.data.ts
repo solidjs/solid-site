@@ -1114,17 +1114,17 @@ const utilities: Array<Resource> = [
     published_at: 1644771355777,
   },
   {
-    link: 'https://github.com/titoBouzout/solid-windowed',
-    title: 'solid-windowed',
+    link: 'https://github.com/nchudleigh/solid-virtual-list',
+    title: 'solid-virtual-list',
     description:
       "Given a list of items, only render what's visible on the screen while allowing scrolling the whole list.",
-    author: 'titoBouzout',
-    author_url: 'https://github.com/titoBouzout',
-    keywords: ['scroll', 'visibility', 'virtual', 'windowed'],
+    author: 'nchudleigh',
+    author_url: 'https://github.com/nchudleigh',
+    keywords: ['scroll', 'visibility', 'virtual', 'windowed', 'list'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
-    published_at: 1644897397000,
+    published_at: 1676773128677,
   },
   {
     link: 'https://github.com/tanvesh01/motion-signals',
@@ -2008,6 +2008,32 @@ const utilities: Array<Resource> = [
       'chrome'
     ],
     published_at: 1675664790423,
+  },
+  {
+    title: 'Flowbite SolidJS',
+    link: 'https://flowbite.com/docs/getting-started/solid-js/',
+    author: 'Flowbite',
+    author_url: 'https://flowbite.com/',
+    description:
+      'Build websites even faster with components on top of Tailwind CSS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Data, ResourceCategory.Plugins],
+    official: false,
+    keywords: ['ui', 'components', 'library', 'tailwind', 'plugin'],
+    published_at: 1676570155000,
+  },
+  {
+    title: 'solid-mason',
+    link: 'https://github.com/lxsmnsyc/solid-mason',
+    author: 'lxsmnsyc',
+    author_url: 'https://github.com/lxsmnsyc',
+    description:
+      'Simple masonry layout in SolidJS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['ui', 'masonry', 'mason', 'grid'],
+    published_at: 1676732932000,
   },
 ];
 
