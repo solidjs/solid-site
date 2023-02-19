@@ -1990,6 +1990,26 @@ const utilities: Array<Resource> = [
     published_at: 1672790400000,
   },
   {
+    title: 'solid-color',
+    link: 'https://github.com/xbmlz/solid-color',
+    author_url: 'https://github.com/xbmlz',
+    author: 'Kevin Chen',
+    description:
+      'Color Pickers for Sketch, Photoshop, Chrome & more with SolidJS.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+    official: false,
+    keywords: [
+      'color',
+      'color-picker',
+      'color-picker-solid',
+      'github',
+      'twitter',
+      'chrome'
+    ],
+    published_at: 1675664790423,
+  },
+  {
     title: 'Flowbite SolidJS',
     link: 'https://flowbite.com/docs/getting-started/solid-js/',
     author: 'Flowbite',
