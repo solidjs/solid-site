@@ -1114,17 +1114,17 @@ const utilities: Array<Resource> = [
     published_at: 1644771355777,
   },
   {
-    link: 'https://github.com/titoBouzout/solid-windowed',
-    title: 'solid-windowed',
+    link: 'https://github.com/nchudleigh/solid-virtual-list',
+    title: 'solid-virtual-list',
     description:
       "Given a list of items, only render what's visible on the screen while allowing scrolling the whole list.",
-    author: 'titoBouzout',
-    author_url: 'https://github.com/titoBouzout',
-    keywords: ['scroll', 'visibility', 'virtual', 'windowed'],
+    author: 'nchudleigh',
+    author_url: 'https://github.com/nchudleigh',
+    keywords: ['scroll', 'visibility', 'virtual', 'windowed', 'list'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
-    published_at: 1644897397000,
+    published_at: 1676773128677,
   },
   {
     link: 'https://github.com/tanvesh01/motion-signals',
