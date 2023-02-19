@@ -82,6 +82,17 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1654635600000,
   },
+  {
+    title: 'Supper Club × Solid.js with Ryan Carniato',
+    link: 'https://syntax.fm/show/577/supper-club-solid-js-with-ryan-carniato',
+    description: `In this supper club episode of Syntax, Wes and Scott talk with Ryan Carniato about Solid.JS, SolidStart, how web components work with Solid, why he chose JSX, and what the future of Solid is.`,
+    author: 'SyntaxFM',
+    author_url: 'https://syntax.fm',
+    keywords: ['solid', 'syntax', 'syntaxfm', 'supper club', 'solidstart'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1676749309000,
+  },
 ];
 
 export default podcasts;
