@@ -2086,6 +2086,32 @@ const utilities: Array<Resource> = [
     published_at: 1676924456000,
   },
   {
+    title: 'solid-trpc',
+    link: 'https://github.com/OrJDev/solid-trpc',
+    author: 'OrJDev',
+    author_url: 'https://github.com/OrJDev',
+    description:
+      'A package that combines Solid and tRPC.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['trpc'],
+    published_at: 1676924456000,
+  },
+  {
+    title: 'solid-start-trpc',
+    link: 'https://github.com/OrJDev/solid-trpc',
+    author: 'OrJDev',
+    author_url: 'https://github.com/OrJDev',
+    description:
+      'A package that combines SolidStart and tRPC.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['trpc', 'start', 'solidstart'],
+    published_at: 1676924456000,
+  },
+  {
     title: 'create-jd-app',
     link: 'https://github.com/nextauthjs/solid-start-auth-example',
     author: 'nextauthjs',
