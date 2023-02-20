@@ -2072,6 +2072,32 @@ const utilities: Array<Resource> = [
     keywords: ['ui', 'masonry', 'mason', 'grid'],
     published_at: 1676732932000,
   },
+  {
+    title: 'create-jd-app',
+    link: 'https://github.com/OrJDev/create-jd-app',
+    author: 'OrJDev',
+    author_url: 'https://github.com/OrJDev',
+    description:
+      'Create modern Solid / SolidStart web application within seconds (tRPC, Prisma, Tailwind, Zod and Auth.js).',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['trpc', 'start', 'solid-start', 'auth.js', 'zod', 'tailwind', 'unocss'],
+    published_at: 1676924456000,
+  },
+  {
+    title: 'create-jd-app',
+    link: 'https://github.com/nextauthjs/solid-start-auth-example',
+    author: 'nextauthjs',
+    author_url: 'https://github.com/nextauthjs',
+    description:
+      'This is the official SolidStart Auth example for Auth.js.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['auth.js', 'permissions', 'auth'],
+    published_at: 1676924456000,
+  },
 ];
 
 export default utilities;
