@@ -2124,6 +2124,19 @@ const utilities: Array<Resource> = [
     keywords: ['auth.js', 'permissions', 'auth'],
     published_at: 1676924456000,
   },
+  {
+    title: 'lexical-solid',
+    link: 'https://github.com/mosheduminer/lexical-solid',
+    author: 'mosheduminer',
+    author_url: 'https://github.com/mosheduminer',
+    description:
+      'An extensible text editor framework for SolidJS based on Lexical.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['text', 'text editor', 'wysiwyg', 'rich text'],
+    published_at: 1677050359000,
+  },
 ];
 
 export default utilities;
