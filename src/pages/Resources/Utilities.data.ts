@@ -2134,8 +2134,21 @@ const utilities: Array<Resource> = [
     type: PackageType.Library,
     categories: [ResourceCategory.UI],
     official: false,
-    keywords: ['text', 'text editor', 'wysiwyg', 'rich text'],
+    keywords: ['text', 'text editor', 'wysiwyg', 'editor', 'rich text', 'lexical', 'tiptap'],
     published_at: 1677050359000,
+  },
+  {
+    title: '@wundergraph/solid-query',
+    link: 'https://github.com/wundergraph/wundergraph/tree/main/packages/solid-query',
+    author: 'Wundergraph',
+    author_url: 'https://wundergraph.com',
+    description:
+      'Brings all the good stuff from WunderGraph to the Solid.js ecosystem.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['wundergraph', 'data', 'tanstack', 'graph'],
+    published_at: 1677094221000,
   },
 ];
 
