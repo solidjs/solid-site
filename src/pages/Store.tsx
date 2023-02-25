@@ -55,7 +55,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
       <div class="flex justify-center rounded-b border-t divide-white dark:border-solid-gray">
         <Show when={props.details.variants.length > 1}>
           <select
-            class="py-4 pl-4 text-xs w-4/6 rounded-bl-lg bg-transparent"
+            class="py-4 pl-4 text-xs w-4/6 rounded-bl-lg bg-transparent dark:bg-solid-darkbg"
             onChange={(evt) => setCurrent(evt.currentTarget.value)}
           >
             <For each={props.details.variants}>
