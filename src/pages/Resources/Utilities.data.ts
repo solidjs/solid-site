@@ -2162,6 +2162,18 @@ const utilities: Array<Resource> = [
     keywords: ['dropzone', 'drag', 'drag and drop', 'solid', 'solidjs'],
     published_at: 1677371956000,
   },
+  {
+    title: 'solid-marquee',
+    link: 'https://github.com/Jcanotorr06/solid-marquee',
+    author: 'Jcanotorr06',
+    author_url: 'https://github.com/Jcanotorr06',
+    description: 'A simple and lightweight Marquee component for SolidJS.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['marquee', 'solid', 'solidjs'],
+    published_at: 1677504886000,
+  },
 ];
 
 export default utilities;
