@@ -36,7 +36,7 @@ const Sidebar: Component<{
   current: Accessor<string | null>;
   hash: string | undefined;
 }> = (props) => (
-  <ul class="lg:pl-10 overflow-auto pt-10 flex dark:text-white flex-col flex-1">
+  <ul class="lg:pl-10 overflow-auto py-10 flex dark:text-white flex-col flex-1">
     <For each={props.items}>
       {(firstLevel: Section) => (
         <SectionButton
