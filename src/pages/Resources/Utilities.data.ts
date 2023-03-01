@@ -2174,6 +2174,18 @@ const utilities: Array<Resource> = [
     keywords: ['marquee', 'solid', 'solidjs'],
     published_at: 1677504886000,
   },
+  {
+    title: 'solid-code-input',
+    link: 'https://github.com/srsholmes/solid-code-input',
+    author: 'srsholmes',
+    author_url: 'https://github.com/srsholmes',
+    description: 'A small component that creates a lightweight text area component which will automatically syntax highlight the code you type in it.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['code', 'prism', 'highlight', 'highlight.js'],
+    published_at: 1677656407000,
+  },
 ];
 
 export default utilities;
