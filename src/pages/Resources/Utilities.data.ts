@@ -2004,8 +2004,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/gnomical/solid-fontawesome',
     title: 'solid-fontawesome',
-    description:
-      'A FontAwesomeIcon svg component for the font awesome icon library.',
+    description: 'A FontAwesomeIcon svg component for the font awesome icon library.',
     author: 'Jacob Kofron',
     author_url: 'https://github.com/gnomical',
     keywords: ['icons', 'fontawesome', 'svg'],
@@ -2015,11 +2014,12 @@ const utilities: Array<Resource> = [
     published_at: 1674876065000,
   },
   {
-    title: "@solidjs-material/core",
-    link: "https://github.com/ceopaludetto/solid-material",
-    author: "Carlos Paludetto",
-    author_url: "https://github.com/ceopaludetto",
-    description: "Solid-js high quality components built with tailwindcss and kobalte following material you guidelines.",
+    title: '@solidjs-material/core',
+    link: 'https://github.com/ceopaludetto/solid-material',
+    author: 'Carlos Paludetto',
+    author_url: 'https://github.com/ceopaludetto',
+    description:
+      'Solid-js high quality components built with tailwindcss and kobalte following material you guidelines.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI],
     official: false,
@@ -2031,19 +2031,11 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/xbmlz/solid-color',
     author_url: 'https://github.com/xbmlz',
     author: 'Kevin Chen',
-    description:
-      'Color Pickers for Sketch, Photoshop, Chrome & more with SolidJS.',
+    description: 'Color Pickers for Sketch, Photoshop, Chrome & more with SolidJS.',
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     official: false,
-    keywords: [
-      'color',
-      'color-picker',
-      'color-picker-solid',
-      'github',
-      'twitter',
-      'chrome'
-    ],
+    keywords: ['color', 'color-picker', 'color-picker-solid', 'github', 'twitter', 'chrome'],
     published_at: 1675664790423,
   },
   {
@@ -2051,8 +2043,7 @@ const utilities: Array<Resource> = [
     link: 'https://flowbite.com/docs/getting-started/solid-js/',
     author: 'Flowbite',
     author_url: 'https://flowbite.com/',
-    description:
-      'Build websites even faster with components on top of Tailwind CSS.',
+    description: 'Build websites even faster with components on top of Tailwind CSS.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI, ResourceCategory.Data, ResourceCategory.Plugins],
     official: false,
@@ -2064,8 +2055,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/lxsmnsyc/solid-mason',
     author: 'lxsmnsyc',
     author_url: 'https://github.com/lxsmnsyc',
-    description:
-      'Simple masonry layout in SolidJS.',
+    description: 'Simple masonry layout in SolidJS.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI],
     official: false,
@@ -2090,8 +2080,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/OrJDev/solid-trpc',
     author: 'OrJDev',
     author_url: 'https://github.com/OrJDev',
-    description:
-      'A package that combines Solid and tRPC.',
+    description: 'A package that combines Solid and tRPC.',
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2103,8 +2092,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/OrJDev/solid-trpc',
     author: 'OrJDev',
     author_url: 'https://github.com/OrJDev',
-    description:
-      'A package that combines SolidStart and tRPC.',
+    description: 'A package that combines SolidStart and tRPC.',
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2116,8 +2104,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/nextauthjs/solid-start-auth-example',
     author: 'nextauthjs',
     author_url: 'https://github.com/nextauthjs',
-    description:
-      'This is the official SolidStart Auth example for Auth.js.',
+    description: 'This is the official SolidStart Auth example for Auth.js.',
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2129,8 +2116,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/mosheduminer/lexical-solid',
     author: 'mosheduminer',
     author_url: 'https://github.com/mosheduminer',
-    description:
-      'An extensible text editor framework for SolidJS based on Lexical.',
+    description: 'An extensible text editor framework for SolidJS based on Lexical.',
     type: PackageType.Library,
     categories: [ResourceCategory.UI],
     official: false,
@@ -2142,8 +2128,7 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/wundergraph/wundergraph/tree/main/packages/solid-query',
     author: 'Wundergraph',
     author_url: 'https://wundergraph.com',
-    description:
-      'Brings all the good stuff from WunderGraph to the Solid.js ecosystem.',
+    description: 'Brings all the good stuff from WunderGraph to the Solid.js ecosystem.',
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2179,7 +2164,8 @@ const utilities: Array<Resource> = [
     link: 'https://github.com/srsholmes/solid-code-input',
     author: 'srsholmes',
     author_url: 'https://github.com/srsholmes',
-    description: 'A small component that creates a lightweight text area component which will automatically syntax highlight the code you type in it.',
+    description:
+      'A small component that creates a lightweight text area component which will automatically syntax highlight the code you type in it.',
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     official: false,
