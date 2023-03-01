@@ -21,6 +21,14 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
     return null;
   });
   const quantity = props.cart.variantQuantity(current);
+  const remove = async () => {
+    setLoading(true);
+    const itemToRemove = props.cart.cart.lines.find((line) => line.variant.id == current());
+    if (itemToRemove) {
+      await props.cart.remove([itemToRemove.id.toString()]);
+    }
+    setLoading(false);
+  };
   const adjustQuantity = (quantity = 1) => {
     setLoading(true);
     props.cart
@@ -67,7 +75,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
           <button
             title="Remove item"
             disabled={loading() || quantity() == 0}
-            onClick={() => adjustQuantity(-1)}
+            onClick={() => (quantity() == 1 ? void remove() : adjustQuantity(-1))}
             class="transition text-solid-light hover:opacity-60 disabled:hidden disabled:text-solid-light font-semibold text-lg rounded-full w-25 h-25"
             classList={{
               'opacity-80': loading(),
