@@ -222,7 +222,7 @@ const contributors = [
 const ecosystem = [
   {
     name: 'Joe Pea',
-    company: 'NASA',
+    company: 'SpaceX, formerly NASA',
     link: 'https://github.com/trusktr',
     detail: 'Founder of Lume and a powerhouse in UI.',
   },
