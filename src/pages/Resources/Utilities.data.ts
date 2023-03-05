@@ -2100,7 +2100,7 @@ const utilities: Array<Resource> = [
     published_at: 1676924456000,
   },
   {
-    title: 'create-jd-app',
+    title: 'solid-start-auth-example',
     link: 'https://github.com/nextauthjs/solid-start-auth-example',
     author: 'nextauthjs',
     author_url: 'https://github.com/nextauthjs',
