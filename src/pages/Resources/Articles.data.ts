@@ -1194,6 +1194,28 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1673719408000,
   },
+  {
+    link: 'https://raqueebuddinaziz.com/blog/3-patterns-to-write-better-and-more-readable-solidjs-components/',
+    title: '3 Patterns to Write Declarative, More Readable SolidJS Components',
+    description: 'This posts explains how to write more readable declarative components',
+    author: 'Raqueebuddin Aziz',
+    author_url: 'https://raqueebuddinaziz.com/',
+    keywords: [
+      "solid",
+      "declarative",
+      "components",
+      "patterns",
+      "async",
+      "await",
+      "iterators",
+      "lists",
+      "list like",
+      "slots",
+    ],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1678921044688,
+  }
 ];
 
 export default articles;
