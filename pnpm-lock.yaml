@@ -22,6 +22,9 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.35.1
   '@typescript-eslint/parser': ^5.35.1
   autoprefixer: ^10.4.8
+  docs@1.0.50: link:@@solid.js/docs@1.0.50
+  docs@1.0.51: link:@@solid.js/docs@1.0.51
+  docs@latest: link:@@solid.js/docs@latest
   dotenv: ^16.0.1
   eslint: ^8.22.0
   fast-glob: ^3.2.11
@@ -76,6 +79,9 @@ dependencies:
   '@solid-primitives/utils': 4.0.1_solid-js@1.5.1
   '@solid.js/docs': 1.0.49_solid-js@1.5.1
   '@types/shopify-buy': /@brandboostinggmbh/shopify-buy-types/2.14.6
+  docs@1.0.50: link:@@solid.js/docs@1.0.50
+  docs@1.0.51: link:@@solid.js/docs@1.0.51
+  docs@latest: link:@@solid.js/docs@latest
   fuse.js: 6.6.2
   github-slugger: 1.5.0
   highlight.js: 11.7.0
