@@ -31,7 +31,7 @@
     "@solid-primitives/scroll": "^2.0.6",
     "@solid-primitives/storage": "^1.3.3",
     "@solid-primitives/utils": "^4.0.0",
-    "@solid.js/docs": "^1.0.49",
+    "@solid.js/docs": "^1.0.51",
     "@types/shopify-buy": "npm:@brandboostinggmbh/shopify-buy-types@^2.14.6",
     "docs@1.0.50": "link:@@solid.js/docs@1.0.50",
     "docs@1.0.51": "link:@@solid.js/docs@1.0.51",
