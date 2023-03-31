@@ -5,7 +5,7 @@
     "intro_video_advanced": "Advanced intro (10 minutes)",
     "news":
       {
-        "content": "Visit the new <b>Solid Store</b> for stickers, t-shirts and more!"
+        "content": "Visit the <b>Solid Store</b> for stickers, t-shirts and more!"
       },
     "strengths": [
       {
@@ -36,7 +36,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "22k+",
+        "label": "25k+",
         "detail": "Github stars",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
