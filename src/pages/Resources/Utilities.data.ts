@@ -2172,6 +2172,19 @@ const utilities: Array<Resource> = [
     keywords: ['code', 'prism', 'highlight', 'highlight.js'],
     published_at: 1677656407000,
   },
+  {
+    title: 'ark-ui',
+    link: 'https://github.com/chakra-ui/ark',
+    author: 'chakra-ui',
+    author_url: 'github.com/chakra-ui/',
+    description:
+      'Ark UI is a headless library for building reusable, scalable Design Systems that works in any framework.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['chakra', 'ark', 'components', 'zag', 'headless'],
+    published_at: 1680036247000,
+  }
 ];
 
 export default utilities;
