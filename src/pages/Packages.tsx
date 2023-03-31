@@ -55,7 +55,8 @@ const FilterOfficial: Component<{
   active: boolean;
 }> = (props) => (
   <>
-    <input type="checkbox" checked={props.active} onChange={props.onChange} /> Official Filter
+    <input type="checkbox" checked={props.active} onChange={props.onChange} id="filter" />{' '}
+    <label for="filter">Official Filter</label>
   </>
 );
 
