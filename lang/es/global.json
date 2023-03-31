@@ -38,10 +38,10 @@
       "path": "/contributors",
       "links": [
         {
-          "title": "SolidHack",
-          "description": "Conoce nuestro hackathon 2022.",
-          "path": "https://hack.solidjs.com",
-          "external": true
+          "title": "Tienda",
+          "description": "Camisetas de la marca, stickers etc.",
+          "path": "/store",
+          "external": false
         },
         {
           "title": "Blog",
@@ -57,6 +57,18 @@
           "title": "Media",
           "description": "Material de la marca",
           "path": "/media"
+        },
+        {
+          "title": "SolidHack",
+          "description": "Conoce nuestro hackathon 2022.",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Codigo de Conducta",
+          "description": "Nuestras reglas de comunidad y contribución.",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
         },
         {
           "title": "OpenCollective",

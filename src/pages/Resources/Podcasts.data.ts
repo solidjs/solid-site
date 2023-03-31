@@ -93,6 +93,17 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1676749309000,
   },
+  {
+    title: 'Exploring Open-Source and SolidJS with Ryan Carniato',
+    link: 'https://www.whiskeywebandwhatnot.fm/exploring-open-source-and-solidjs-with-ryan-carniato/',
+    description: `In this episode, Ryan talks to Chuck and Robbie about working on open-source projects, his experiences at eBay and Netlify, and his thoughts on TypeScript and inferred types versus explicit types.`,
+    author: 'Whiskey Web and Whatnot',
+    author_url: 'https://syntax.fm',
+    keywords: ['ebay', 'marko', 'whiskey', 'web', 'whiskey web whatnot', 'solid'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1680197791000,
+  },
 ];
 
 export default podcasts;

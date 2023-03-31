@@ -3,6 +3,9 @@
   "get_started": "Empieza Ahora",
   "intro_video": "Introducción a SolidJS (100 segundos)",
   "intro_video_advanced": "Introducción avanzada (10 minutos)",
+  "news": {
+    "content": "Visita la nueva <b>Tienda Solid</b> para stickers, camisetas y más!"
+  },
   "strengths": [
     {
       "icon": "performant",
