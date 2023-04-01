@@ -602,6 +602,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/uNmAnNeR/imaskjs/tree/master/packages/solid-imask',
+    title: 'solid-imask',
+    description: 'Official Solid.js implementation for imaskjs.',
+    author: 'Alexey Kryazhev',
+    author_url: 'https://github.com/uNmAnNeR',
+    keywords: ['input', 'mask', 'form', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/wobsoriano/solid-zustand/',
     title: 'solid-zustand',
     description: 'Zustand state management for Solid.',
