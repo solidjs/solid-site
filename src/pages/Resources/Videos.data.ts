@@ -2,6 +2,41 @@ import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const videos: Array<Resource> = [
   {
+    link: 'https://www.youtube.com/watch?v=uPXn9S31o7Q&list=PL4cUxeGkcC9gU_GvFygZFu0aBysPilkbB',
+    title: 'Solid JS Crash Course Tutorial',
+    description:
+      'The Net Ninja teaches us a tutorial series on SolidJS and how we can use it to make a fast & interactive web app.',
+    author: 'The Net Ninja',
+    author_url: 'https://www.youtube.com/@NetNinja',
+    keywords: [''],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1680505200000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=w14cgW9pVkg',
+    title: 'Is SolidJS the better ReactJS?',
+    description:
+      "Maximilian explains SolidJS is like ReactJS, but also points out Solid's features that lead to better performance and simpler code.",
+    author: 'Academind',
+    author_url: 'https://www.youtube.com/@academind',
+    keywords: [''],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1676534400000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=rxYQe1JLfuI',
+    title: 'Getting Started with SolidJS',
+    description: 'Maximilian shows us how to build web apps with SolidJS from the ground up!',
+    author: 'Academind',
+    author_url: 'https://www.youtube.com/@academind',
+    keywords: [''],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1677657600000,
+  },
+  {
     link: 'https://www.youtube.com/watch?v=wu6HvLoi9VQ',
     title: 'How To Convert React Application To SolidJS',
     description: 'Maksim Ivanov walks us through Solid.js and how to use it.',
