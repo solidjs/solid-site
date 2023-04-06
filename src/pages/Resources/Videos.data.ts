@@ -14,6 +14,19 @@ const videos: Array<Resource> = [
     published_at: 1680505200000,
   },
   {
+    link: 'https://www.youtube.com/watch?v=YZg_LebYhHw',
+    title: 'SolidJS State Management with Signals',
+    description:
+      "It's over 9000! Colby walks us through setting up a new SolidJS app from a template, using signals to manage state for a power level meter.",
+    author: 'Colby Fayock',
+    author_url: 'https://www.youtube.com/@colbyfayock',
+    keywords: [''],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1678950000000,
+  },
+
+  {
     link: 'https://www.youtube.com/watch?v=w14cgW9pVkg',
     title: 'Is SolidJS the better ReactJS?',
     description:
