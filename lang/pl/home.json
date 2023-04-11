@@ -1,5 +1,5 @@
 {
-  "hero": "Szybki i wydajny system reaktywności do tworzenia interfejsów użytkownika.",
+  "hero": "Prosty i wydajny system reaktywności do tworzenia interfejsów użytkownika.",
   "get_started": "Rozpocznij",
   "intro_video": "Wprowadzenie do Solid (100 sekund)",
   "intro_video_advanced": "Zaawansowane wprowadzenie (10 minut)",
@@ -36,7 +36,7 @@
       "link": "https://bundlephobia.com/package/solid-js@1.2.1"
     },
     {
-      "label": "22+ tys.",
+      "label": "27+ tys.",
       "detail": "Gwiazdek na Githubie",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
@@ -75,12 +75,12 @@
   },
   "performance": {
     "headline": ["Skupiony na wydajności", "zarówno w przeglądarce jak i na serwerze"],
-    "copy": "Cząsteczkowa reaktywność wiedzie prym we wszystkich najpouplarniejszych benchmarkach. Nawet jeśli wydajność nie jest dla Ciebie najważniejsza — korzystanie z SolidJS sprawia, że nie musisz nic poświęcać, żeby ją mieć. Wszystko obraca się wokół bycia szybkim bez dodatkowych starań.",
+    "copy": "Cząsteczkowa reaktywność wiedzie prym we wszystkich najpopularniejszych benchmarkach. Nawet jeśli wydajność nie jest dla Ciebie najważniejsza — korzystanie z SolidJS sprawia, że nie musisz nic poświęcać, żeby ją mieć. Wszystko obraca się wokół bycia szybkim bez dodatkowych starań.",
     "link_label": "Przeczytaj cały artykuł",
     "link": "https://ryansolid.medium.com/solidjs-the-tesla-of-javascript-ui-frameworks-6a1d379bc05e"
   },
   "features": {
-    "headline": "Wypakowany po brzegi funkcjami.",
+    "headline": "Wypakowany po brzegi funkcjonalnościami.",
     "copy": "Solid posiada wszystkie najpopularniejsze i oczekiwane funkcjonalności, a jednocześnie sprawia, że korzystanie z nich jest jeszcze przyjemniejsze.",
     "list": [
       "Fragmenty",
@@ -88,11 +88,12 @@
       "Kontekst",
       "Suspense",
       "Granice błędów",
-      "Lazy Components",
-      "Async & Concurrent Rendering",
+      "Leniwe komponenty",
+      "Asynchroniczność i współbierzne renderowanie",
       "Implicit delegation",
-      "SSR & Hydration",
-      "Dyrektywy"
+      "SSR i hydratacja",
+      "Dyrektywy",
+      "Strumieniowanie"
     ]
   },
   "benchmarks": {

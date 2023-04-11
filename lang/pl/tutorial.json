@@ -2,7 +2,7 @@
   "solve": "Pokaż rozwiązanie",
   "reset": "Zresetuj",
   "playground": {
-    "result": "Rezultat",
+    "result": "Wynik",
     "output": "Skompilowany kod",
     "clear": "Wyczyść",
     "add_tab": "Dodaj nową kartę",
@@ -16,7 +16,7 @@
     "dark_mode": "Przełącz tryb ciemny",
     "import_json": "Importuj JSON",
     "export_json": "Eksportuj JSON",
-    "export_codesandbox": "Eksportuj do Codesandbox",
+    "export_codesandbox": "Eksportuj do CodeSandBox",
     "share": "Udostępnij skrócony link",
     "scale": "Powiększ lub pomniejsz tekst"
   }
