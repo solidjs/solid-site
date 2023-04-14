@@ -2195,7 +2195,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['chakra', 'ark', 'components', 'zag', 'headless'],
     published_at: 1680036247000,
-  }
+  },
 ];
 
 export default utilities;
