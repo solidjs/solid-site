@@ -2196,6 +2196,42 @@ const utilities: Array<Resource> = [
     keywords: ['chakra', 'ark', 'components', 'zag', 'headless'],
     published_at: 1680036247000,
   },
+  {
+    title: 'solid-undo-redo',
+    link: 'https://github.com/elite174/solid-undo-redo',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://github.com/elite174',
+    description: 'A list-based (O(1)) implementation of undo-redo for signals.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.Primitives],
+    official: false,
+    keywords: ['undo', 'redo', 'undo-redo', 'history'],
+    published_at: 1681923600000
+  },
+  {
+    title: 'solid-simple-datepicker',
+    link: 'https://github.com/elite174/solid-simple-datepicker',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://github.com/elite174',
+    description: 'A nice, customizable and simple datepicker component for every day.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'datepicker'],
+    published_at: 1681750800000
+  },
+  {
+    title: 'solid-resizable-panels',
+    link: 'https://github.com/elite174/solid-resizable-panels',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://github.com/elite174',
+    description: 'The set of components for building resizable panels.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'resizable', 'panels'],
+    published_at: 1681750800000
+  },
 ];
 
 export default utilities;
