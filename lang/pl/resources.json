@@ -1,8 +1,8 @@
 {
-  "title": "Materiały",
-  "cta": "Jeśli chcesz, żeby twój projekt związany z SolidJS znalazł się tutaj, skontaktuj się z nami na <a href=\"https://discord.com/invite/solidjs\">Discordzie</a>.",
-  "search": "Szukaj",
-  "types": "Rodzaj",
+  "title": "Ekosystem",
+  "cta": "Aby twój projekt związany z SolidJS znalazł się tutaj, skontaktuj się z nami na <a href=\"https://discord.com/invite/solidjs\">Discordzie</a>.",
+  "search": "Szukaj zasobów",
+  "types": "Rodzaje",
   "types_list": {
     "article": "Artykuł",
     "video": "Wideo",
@@ -13,7 +13,7 @@
   "days_ago": "{{amount}} dni temu",
   "hours_ago": "{{amount}} godzin temu",
   "categories": "Kategorie",
-  "translations": "Translations",
+  "translations": "Tłumaczenia",
   "categories_list": {
     "primitive": "Cząsteczki",
     "router": "Routery",

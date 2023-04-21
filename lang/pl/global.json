@@ -22,7 +22,19 @@
     },
     {
       "title": "Ekosystem",
-      "path": "/ecosystem"
+      "path": "/ecosystem",
+      "links": [
+        {
+          "title": "Paczki",
+          "description": "Biblioteki dla SolidJS",
+          "path": "/ecosystem"
+        },
+        {
+          "title": "Zasoby",
+          "description": "Artykuły, materiały wideo i podcasty o SolidJS",
+          "path": "/resources"
+        }
+      ]
     },
     {
       "title": "Przykłady",
@@ -38,10 +50,10 @@
       "path": "/contributors",
       "links": [
         {
-          "title": "SolidHack",
-          "description": "Sprawdź nasz otwarty hackathon 2022",
-          "path": "https://hack.solidjs.com",
-          "external": true
+          "title": "Sklep",
+          "description": "Markowe koszulki, naklejki itp.",
+          "path": "/store",
+          "external": false
         },
         {
           "title": "Blog",
@@ -59,6 +71,18 @@
           "path": "/media"
         },
         {
+          "title": "SolidHack",
+          "description": "Sprawdź nasz otwarty hackathon 2022",
+          "path": "https://hack.solidjs.com",
+          "external": true
+        },
+        {
+          "title": "Kodeks Postępowania",
+          "description": "Nasza społeczność i zasady dla współtwórców",
+          "path": "https://github.com/solidjs/solid/blob/main/CODE_OF_CONDUCT.md",
+          "external": true
+        },
+        {
           "title": "OpenCollective",
           "description": "Wesprzyj nas i pomóż nam kontynuować nasze działania.",
           "path": "https://opencollective.com/solid"
@@ -68,7 +92,7 @@
   ],
   "404": {
     "header": "Uups. Cztery zero cztery.",
-    "body": "uważa, że ta strona nie istnieje."
+    "body": "uważa, że ta strona na pewno nie istnieje."
   },
   "newsletter": {
     "title": "Zapisz się na newsy o SolidJS",
@@ -79,7 +103,7 @@
     "sending": "Wysyłanie"
   },
   "footer": {
-    "declaration": "Solid to otwartoźródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencjją MIT</a>. Ta biblioteka i społeczność wokół możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">zespołowi, a także współtwórcom</a>.",
+    "declaration": "Solid to otwartoźródłowy projekt wspierany przez zespół publicznych twórców. Jest udostępniany pod <a target=\"_blank\" class=\"underline hover:text-gray-500\" href=\"{{license}}\" rel=\"noopener\">licencją MIT</a>. Ta biblioteka i społeczność możliwe są dzięki <a class=\"underline hover:text-gray-500\" href=\"{{contributors}}\">głównemu zespołowi, a także zaangażowanym współtwórcom</a>.",
     "license": "https://github.com/solidjs/solid/blob/master/LICENSE",
     "contributors": "/contributors",
     "sponsored_by": "Sponsorzy",
