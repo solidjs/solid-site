@@ -2232,6 +2232,18 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'resizable', 'panels'],
     published_at: 1681750800000
   },
+  {
+    title: 'solid-compose',
+    link: 'https://github.com/mathieuprog/solid-compose',
+    author: 'Mathieu Decaffmeyer',
+    author_url: 'https://github.com/mathieuprog',
+    description: 'A set of reactive state for commonly used features in web apps.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Primitives],
+    official: false,
+    keywords: ['i18n', 'locale', 'storage', 'theme', 'viewport'],
+    published_at: 1683211178000
+  },
 ];
 
 export default utilities;
