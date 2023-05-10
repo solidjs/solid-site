@@ -104,6 +104,17 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1680197791000,
   },
+  {
+    title: 'SolidStart with Ryan Carniato - JSJ 581',
+    link: 'https://topenddevs.com/podcasts/javascript-jabber/episodes/solidstart-with-ryan-carniato-jsj-581?utm_campaign=05-10-23+-+Check+out+this&utm_source=Message&utm_medium=Twitter',
+    description: `Ryan discusses SolidStart and the future of SolidJS.`,
+    author: 'JavaScript Jabber',
+    author_url: 'https://syntax.fm',
+    keywords: ['solidstart', 'jabber'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1683668658000,
+  },
 ];
 
 export default podcasts;
