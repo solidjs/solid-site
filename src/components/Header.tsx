@@ -122,16 +122,14 @@ const Header: ParentComponent<{ title?: string }> = () => {
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
                       {t('home.intro_video', {}, 'Intro to Solid (100 seconds)')}
                     </Link>
-                    <!--
-                    <Link
+                    {/* <Link
                       target="_blank"
                       href="https://www.youtube.com/watch?v=J70HXl1KhWE"
                       class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
                       {t('home.intro_video_advanced', {}, 'Advanced intro (10 minutes)')}
-                    </Link>
-                    !-->
+                    </Link> */}
                   </div>
                 </div>
               </section>

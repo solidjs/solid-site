@@ -2206,7 +2206,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Primitives],
     official: false,
     keywords: ['undo', 'redo', 'undo-redo', 'history'],
-    published_at: 1681923600000
+    published_at: 1681923600000,
   },
   {
     title: 'solid-simple-datepicker',
@@ -2218,7 +2218,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     official: false,
     keywords: ['component', 'datepicker'],
-    published_at: 1681750800000
+    published_at: 1681750800000,
   },
   {
     title: 'solid-resizable-panels',
@@ -2230,7 +2230,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
     official: false,
     keywords: ['component', 'resizable', 'panels'],
-    published_at: 1681750800000
+    published_at: 1681750800000,
   },
   {
     title: 'solid-compose',
@@ -2242,19 +2242,20 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Primitives],
     official: false,
     keywords: ['i18n', 'locale', 'storage', 'theme', 'viewport'],
-    published_at: 1683211178000
+    published_at: 1683211178000,
   },
   {
     title: 'solidjs-scroll-essentials',
     link: 'https://github.com/sacarvy/solidjs-scroll-essentials',
     author: 'Sacarvy',
     author_url: 'https://github.com/sacarvy',
-    description: 'solidjs-scroll-essentials provides you with required scroll based primitives to control scroll behavior such as scroll lock in solidjs.',
+    description:
+      'solidjs-scroll-essentials provides you with required scroll based primitives to control scroll behavior such as scroll lock in solidjs.',
     type: PackageType.Library,
     categories: [ResourceCategory.Primitives, ResourceCategory.UI],
     official: false,
     keywords: ['primitive', 'scroll'],
-    published_at: 1683714279538
+    published_at: 1683714279538,
   },
 ];
 

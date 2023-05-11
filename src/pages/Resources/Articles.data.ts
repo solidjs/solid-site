@@ -1265,7 +1265,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://sunny-prakash.medium.com/testing-solid-js-with-vitest-f9c030ff4197',
     title: 'Testing Solid.js with Vitest',
-    description: 'Are you about to start writing unit test cases for your Solid.js app but looking for something new?',
+    description:
+      'Are you about to start writing unit test cases for your Solid.js app but looking for something new?',
     author: 'Sunny Prakash',
     author_url: 'https://sunny-prakash.medium.com',
     keywords: ['solid', 'vitest', 'testing'],
