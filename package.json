@@ -83,7 +83,7 @@
     "typescript": "^4.9.5",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7",
-    "vite-plugin-solid": "^2.6.1"
+    "vite-plugin-solid": "2.6.1"
   },
   "resolutions": {
     "solid-js": "1.5.1"
