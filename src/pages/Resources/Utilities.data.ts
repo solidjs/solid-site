@@ -2244,6 +2244,18 @@ const utilities: Array<Resource> = [
     keywords: ['i18n', 'locale', 'storage', 'theme', 'viewport'],
     published_at: 1683211178000
   },
+  {
+    title: 'solidjs-scroll-essentials',
+    link: 'https://github.com/sacarvy/solidjs-scroll-essentials',
+    author: 'Sacarvy',
+    author_url: 'https://github.com/sacarvy',
+    description: 'solidjs-scroll-essentials provides you with required scroll based primitives to control scroll behavior such as scroll lock in solidjs.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Primitives, ResourceCategory.UI],
+    official: false,
+    keywords: ['primitive', 'scroll'],
+    published_at: 1683714279538
+  },
 ];
 
 export default utilities;
