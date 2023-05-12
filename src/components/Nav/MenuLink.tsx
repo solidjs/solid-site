@@ -12,13 +12,13 @@ export type LinkTypes = {
   direction?: 'ltr' | 'rtl';
 };
 export type MenuLinkProps = {
-  setSubnav: (children: LinkTypes[]) => void;
-  setSubnavPosition: (position: number) => void;
+  setSubnav: (children: LinkTypes[], el: HTMLElement) => void;
   closeSubnav: () => void;
   clearSubnavClose: () => void;
 } & LinkTypes;
 
 export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
+  let wrapperEl!: HTMLLIElement;
   let linkEl!: HTMLAnchorElement;
 
   // Only rerender event listener when children change
@@ -27,8 +27,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
       createEventListener(linkEl, 'mouseenter', () => {
         props.clearSubnavClose();
         batch(() => {
-          props.setSubnav(props.links!);
-          props.setSubnavPosition(linkEl.getBoundingClientRect().left);
+          props.setSubnav(props.links!, wrapperEl);
         });
       });
       createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
@@ -72,7 +71,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
   };
 
   return (
-    <li>
+    <li ref={wrapperEl}>
       <NavLink
         href={props.path}
         target={props.external ? '_blank' : undefined}

@@ -1,4 +1,15 @@
-import { ParentComponent, For, createMemo, createSignal, Show, on, createComputed } from 'solid-js';
+import {
+  ParentComponent,
+  For,
+  createMemo,
+  createSignal,
+  Show,
+  on,
+  createComputed,
+  onCleanup,
+  createEffect,
+} from 'solid-js';
+import { computePosition, autoUpdate, shift, size, flip, offset } from '@floating-ui/dom';
 import { Link, NavLink } from 'solid-app-router';
 import { useI18n } from '@solid-primitives/i18n';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
@@ -15,6 +26,7 @@ import PageLoadingBar from '../LoadingBar/PageLoadingBar';
 import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
+import { useTailwindSizeToPx } from '../../utils/tailwindSizeToPx';
 
 const langs = {
   en: 'English',
@@ -39,12 +51,21 @@ const langs = {
   uk: 'Українська',
 };
 
+// useful for dev
+const disableMenuClose = false;
+
+const roundByDPR = (value: number) => {
+  const dpr = window.devicePixelRatio || 1;
+  return Math.round(value * dpr) / dpr;
+};
+
 const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) => {
   const [showLangs, toggleLangs] = createSignal(false);
-  const [subnav, setSubnav] = createSignal<LinkTypes[]>([]);
-  const [subnavPosition, setSubnavPosition] = createSignal<number>(0);
+  const [subnav, setSubnav] = createSignal<{ links: LinkTypes[]; menuLinkEl: HTMLElement } | null>(
+    null,
+  );
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
-  const closeSubnav = debounce(() => setSubnav([]), 150);
+  const closeSubnav = debounce(() => !disableMenuClose && setSubnav(null), 150);
   const [t, { locale }] = useI18n();
   const context = useAppContext();
 
@@ -114,6 +135,35 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
     }));
   };
 
+  const { sizeToPx } = useTailwindSizeToPx();
+
+  createEffect(() => {
+    if (!subnav()) return;
+
+    const referenceEl = subnav()!.menuLinkEl;
+    const floatingEl = subnavEl;
+    const cleanup = autoUpdate(referenceEl, floatingEl, () => {
+      void computePosition(referenceEl, floatingEl, {
+        placement: 'bottom-start',
+        middleware: [
+          offset({ mainAxis: sizeToPx(1) }),
+          flip(),
+          shift(),
+          size({
+            apply({ availableWidth, availableHeight }) {
+              floatingEl.style.maxWidth = `${availableWidth}px`;
+              floatingEl.style.maxHeight = `${availableHeight}px`;
+            },
+          }),
+        ],
+      }).then(({ x, y }) => {
+        floatingEl.style.transform = `translate(${roundByDPR(x)}px,${roundByDPR(y)}px)`;
+      });
+    });
+
+    onCleanup(() => cleanup());
+  });
+
   return (
     <>
       <div use:intersectionObserver class="h-0" />
@@ -162,10 +212,11 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                   {(item) => (
                     <MenuLink
                       {...item}
-                      setSubnav={setSubnav}
+                      setSubnav={(links, menuLinkEl) =>
+                        setSubnav(links.length > 0 ? { links, menuLinkEl } : null)
+                      }
                       closeSubnav={closeSubnav}
                       clearSubnavClose={closeSubnav.clear}
-                      setSubnavPosition={setSubnavPosition}
                       links={item.links}
                     />
                   )}
@@ -217,16 +268,15 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
             </For>
           </div>
         </Dismiss>
-        <Show when={subnav().length !== 0}>
+        <Show when={subnav() && subnav()!.links.length !== 0}>
           <div
             ref={subnavEl}
             onmouseenter={closeSubnav.clear}
             onmouseleave={closeSubnav}
-            class="absolute left-50 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm transition duration-750"
-            style={{ left: `${screen.width > 768 ? subnavPosition() : 0}px` }}
+            class="absolute w-max top-0 left-0 bg-gray-200 dark:bg-solid-darkLighterBg shadow-2xl max-w-sm overflow-auto"
           >
             <ul class="divide-x divide-transparent flex flex-col">
-              <For each={subnav()}>
+              <For each={subnav()?.links}>
                 {(link) => (
                   <li
                     class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
@@ -238,7 +288,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                     }
                   >
                     <NavLink
-                      onClick={() => setSubnav([])}
+                      onClick={() => setSubnav(null)}
                       class="px-6 py-5 w-full block"
                       href={link.path}
                     >
