@@ -153,7 +153,8 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           size({
             apply({ availableWidth, availableHeight }) {
               floatingEl.style.maxWidth = `${availableWidth}px`;
-              floatingEl.style.maxHeight = `${availableHeight}px`;
+              // leave a bit of space so that on mobile the user can click out of the menu to close it
+              floatingEl.style.maxHeight = `${Math.max(availableHeight - 30, 0)}px`;
             },
           }),
         ],
