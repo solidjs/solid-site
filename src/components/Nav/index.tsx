@@ -26,7 +26,6 @@ import PageLoadingBar from '../LoadingBar/PageLoadingBar';
 import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
-import { useTailwindSizeToPx } from '../../utils/tailwindSizeToPx';
 
 const langs = {
   en: 'English',
@@ -70,6 +69,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   const context = useAppContext();
 
   let firstLoad = true;
+  let navEl!: HTMLElement;
   let langBtnTablet!: HTMLButtonElement;
   let langBtnDesktop!: HTMLButtonElement;
   let logoEl!: HTMLDivElement;
@@ -135,18 +135,19 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
     }));
   };
 
-  const { sizeToPx } = useTailwindSizeToPx();
-
   createEffect(() => {
     if (!subnav()) return;
 
     const referenceEl = subnav()!.menuLinkEl;
     const floatingEl = subnavEl;
+
+    const floatingElOffset = (navEl.offsetHeight - referenceEl.offsetHeight) / 2;
+
     const cleanup = autoUpdate(referenceEl, floatingEl, () => {
       void computePosition(referenceEl, floatingEl, {
         placement: 'bottom-start',
         middleware: [
-          offset({ mainAxis: sizeToPx(1) }),
+          offset({ mainAxis: floatingElOffset }),
           flip(),
           shift(),
           size({
@@ -157,7 +158,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           }),
         ],
       }).then(({ x, y }) => {
-        floatingEl.style.transform = `translate(${roundByDPR(x)}px,${roundByDPR(y)}px)`;
+        floatingEl.style.transform = `translate(${roundByDPR(x)}px, ${roundByDPR(y)}px)`;
       });
     });
 
@@ -173,7 +174,10 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
       >
         <div class="flex justify-center w-full overflow-hidden">
           <PageLoadingBar postion="top" active={showLogo() && routeReadyState().loadingBar} />
-          <nav class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20">
+          <nav
+            ref={navEl}
+            class="relative px-3 lg:px-12 container lg:flex justify-between items-center max-h-18 z-20"
+          >
             <div
               class={`absolute flex top-0 bottom-0 ${logoPosition()} nav-logo-bg transition-transform duration-500 ${
                 showLogo() ? 'scale-100' : 'scale-0'
