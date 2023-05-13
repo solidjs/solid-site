@@ -170,7 +170,7 @@ const Tutorial: Component = () => {
   useRouteReadyState();
 
   createEffect(() => {
-    // markDownRef.scrollTop = 0;
+    markDownRef.scrollTop = 0;
     replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
     const fileset = data.solved ? data.solvedJs : data.js;
     const files = fileset?.files;
