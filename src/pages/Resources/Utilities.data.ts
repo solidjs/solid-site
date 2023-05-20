@@ -2257,6 +2257,18 @@ const utilities: Array<Resource> = [
     keywords: ['primitive', 'scroll'],
     published_at: 1683714279538,
   },
+  {
+    title: '@rnwonder/solid-date-picker',
+    link: 'https://github.com/rnwonder/solid-date-picker',
+    author: 'Matthew Ruona',
+    author_url: 'https://github.com/rnwonder',
+    description: 'A simple and reusable Datepicker component for for web apps.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'datepicker', 'rangepicker', 'calendar'],
+    published_at: 1683352800000,
+  },
 ];
 
 export default utilities;
