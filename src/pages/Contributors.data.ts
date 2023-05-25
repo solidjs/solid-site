@@ -35,13 +35,6 @@ const core = [
     bio: 'Full-stack developer, web UX enthusiast, passionate problem solver.',
   },
   {
-    img: 'dan-jutan.jpeg',
-    github: 'jutanium',
-    name: 'Dan Jutan',
-    role: 'Documentation Engineer /  Docs Team Leader',
-    bio: 'Web developer passionate about using the web to make things make sense.',
-  },
-  {
     img: 'nikhil-saraf.jpeg',
     github: 'nksaraf',
     name: 'Nikhil Saraf',
