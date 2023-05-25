@@ -10,6 +10,8 @@ This is the source code for the solid website: [https://solidjs.com/](https://so
 
 The website is built with [Solid](https://github.com/solidjs/solid). In order to get going, you should be familiar with the core API of Solid and how it works on the surface.
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/solidjs/solid-site?title=SolidJS)
+
 ### Prerequisites
 
 - [pnpm](https://pnpm.io/installation)
