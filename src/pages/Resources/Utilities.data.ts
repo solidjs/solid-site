@@ -2258,6 +2258,17 @@ const utilities: Array<Resource> = [
     published_at: 1683714279538,
   },
   {
+    link: 'https://github.com/s0ftik3/solid-chartjs',
+    title: 'solid-chartjs',
+    description: 'SolidJs component for Chart.js',
+    author: 'Vyacheslav Azarenko',
+    author_url: 'https://github.com/s0ftik3',
+    keywords: ['charts', 'chartjs', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
     title: '@rnwonder/solid-date-picker',
     link: 'https://github.com/rnwonder/solid-date-picker',
     author: 'Matthew Ruona',
