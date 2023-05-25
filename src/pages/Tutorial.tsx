@@ -20,6 +20,7 @@ import type { TutorialRouteData } from './Tutorial.data';
 import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { reflow } from '../utils/reflow';
 import { useAppContext } from '../AppContext';
 import { LessonLookup } from '@solid.js/docs';
 import type { editor } from 'monaco-editor';
@@ -71,7 +72,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
     if (showDirectory()) {
       search.focus();
       document.documentElement.style.scrollBehavior = 'auto';
-      document.body.clientWidth; // reflow
+      reflow(); // reflow
 
       const activeItem = listContainer.querySelector('.js-active');
       if (activeItem) {
@@ -134,6 +135,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                           activeClass="js-active bg-blue-50 dark:bg-solid-darkbg"
                           href={`/tutorial/${entry.internalName}`}
                           class="hover:bg-blue-100 dark:hover:bg-solid-medium py-3 px-5 block"
+                          end
                         >
                           <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
