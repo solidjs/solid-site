@@ -2268,6 +2268,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    title: '@rnwonder/solid-date-picker',
+    link: 'https://github.com/rnwonder/solid-date-picker',
+    author: 'Matthew Ruona',
+    author_url: 'https://github.com/rnwonder',
+    description: 'A simple and reusable Datepicker component for for web apps.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'datepicker', 'rangepicker', 'calendar'],
+    published_at: 1683352800000,
+  },
 ];
 
 export default utilities;
