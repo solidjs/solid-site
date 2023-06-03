@@ -2280,6 +2280,18 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'datepicker', 'rangepicker', 'calendar'],
     published_at: 1683352800000,
   },
+  {
+    title: 'solid-maplibre',
+    link: 'https://github.com/shishkin/solid-maplibre',
+    author: 'Sergey Shishkin',
+    author_url: 'https://github.com/shishkin',
+    description: 'SolidJS wrapper around MapLibre GL JS',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['map', 'maplibre', 'maplibre-gl-js', 'gis'],
+    published_at: 1667602800000,
+  },
 ];
 
 export default utilities;
