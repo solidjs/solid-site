@@ -972,6 +972,66 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1668545043000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=nBSlEyEbV4k',
+    title: 'Modern Frontend: The World Beyond Components w/ Ryan Carniato',
+    description:
+      'Ryan Carniato walks us through Solid, SolidStart and the future of reactivity. Special thanks to the folks at Modern Frontend for the opportunity to record and post this event.',
+    keywords: ['components', 'beyond components', 'ryansolid'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/@ryansolid',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1669173251000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=RP_tc61vPhg',
+    title: 'Rethinking Isomorphic JavaScript with SolidStart',
+    description:
+      'Join SolidJS creator Ryan Carniato as he shows off how SolidStart, a recent entry to JavaScript Server Meta-Frameworks, has been re-examining the boundaries between server and browser.',
+    keywords: ['solidstart', 'isomorphic', 'framework', 'ryansolid'],
+    author: 'Certified Fresh Events',
+    author_url: 'https://www.youtube.com/@CFEdev',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1675307651000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=RP_tc61vPhg',
+    title: 'Rethinking Isomorphic JavaScript with SolidStart',
+    description:
+      'Join SolidJS creator Ryan Carniato as he shows off how SolidStart, a recent entry to JavaScript Server Meta-Frameworks, has been re-examining the boundaries between server and browser.',
+    keywords: ['solidstart', 'isomorphic', 'framework', 'ryansolid'],
+    author: 'Certified Fresh Events',
+    author_url: 'https://www.youtube.com/@CFEdev',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1675307651000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=S4wTxjqZEoE',
+    title: 'JS Poland 6th Edition - The World Beyond Components',
+    description:
+      'In this talk, Ryan, author of SolidJS, will look at what comes after the component model. Driven by the need for more granularity, and empowered by compilation, reactivity is becoming the universal language of user interfaces.',
+    keywords: ['components', 'world beyond', 'framework', 'ryansolid'],
+    author: 'JS Poland',
+    author_url: 'https://www.youtube.com/@jsPolandConf',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1675739651000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Jp7QBjY5K34',
+    title: 'Revolutionary Signals',
+    description:
+      'Signals seem to be popping up everywhere these days. But there is more to the story than the past few months. In this talk, we will look at what they are, their history, and how they are changing the way we approach building in the front end.',
+    keywords: ['signals', 'revolutionary', 'solid', 'history'],
+    author: 'JS Poland',
+    author_url: 'https://www.youtube.com/@jsPolandConf',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1685758451000,
+  },
 ];
 
 export default videos;
