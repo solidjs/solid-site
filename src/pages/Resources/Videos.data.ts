@@ -1032,6 +1032,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1685758451000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=vxTbDKaSnkk',
+    title: 'Solid for React Developers - Erik Rasmussen',
+    description:
+      'This talk will expose Erik\'s learnings as he has approached Solid from the perspective of a React developer.',
+    keywords: ['erik', 'rasmussen', 'react', 'solid'],
+    author: 'Shift Conference',
+    author_url: 'https://www.youtube.com/@ShiftConference',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686020577000,
+  },
 ];
 
 export default videos;
