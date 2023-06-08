@@ -1044,6 +1044,30 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1686020577000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=rEka64_stis',
+    title: 'KISS. It doesn\'t get easier than this',
+    description:
+      'Building a full stack app with Astro JS, Solid JS and PocketBase.',
+    keywords: ['pocketbase', 'solid', 'astro', 'building'],
+    author: 'Awesome',
+    author_url: 'https://www.youtube.com/@awesome-coding',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686247253000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=YluRK38br7A',
+    title: 'I was wrong about Solid',
+    description:
+      'A quick overview of the SolidJS ecosystem.',
+    keywords: ['ecosystem', 'solid', 'kobalte', 'tanstack'],
+    author: 'Awesome',
+    author_url: 'https://www.youtube.com/@awesome-coding',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686247253000,
+  },
 ];
 
 export default videos;
