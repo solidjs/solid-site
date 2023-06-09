@@ -2,6 +2,30 @@ import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const videos: Array<Resource> = [
   {
+    link: 'https://youtu.be/ueNUEJ4vxFQ',
+    title: 'Server Actions with SolidStart',
+    description:
+      'This video is 2nd of a series building features to a SolidStart app. This time we build a login form with Server Actions and use Zod to validate the data.',
+    author: 'Atila Fassina',
+    author_url: 'https://atila.io/youtube',
+    keywords: ['server actions', 'performance', 'typescript', 'validation'],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686306090955,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=Ll2zt2m5Z5A',
+    title: 'Absolute speed: SolidJS + Web-Workers',
+    description:
+      'This video is 1st of a series building features to a SolidStart app. Here we implement a markdown parser and use a Web-Worker to parse the whole text on every keystroke in a separate thread.',
+    author: 'Atila Fassina',
+    author_url: 'https://atila.io/youtube',
+    keywords: ['fine-grained reactivity', 'performance', 'vite', 'multi-threading', 'web-workers'],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686306090955,
+  },
+  {
     link: 'https://www.youtube.com/watch?v=uPXn9S31o7Q&list=PL4cUxeGkcC9gU_GvFygZFu0aBysPilkbB',
     title: 'Solid JS Crash Course Tutorial',
     description:
@@ -1036,7 +1060,7 @@ const videos: Array<Resource> = [
     link: 'https://www.youtube.com/watch?v=vxTbDKaSnkk',
     title: 'Solid for React Developers - Erik Rasmussen',
     description:
-      'This talk will expose Erik\'s learnings as he has approached Solid from the perspective of a React developer.',
+      "This talk will expose Erik's learnings as he has approached Solid from the perspective of a React developer.",
     keywords: ['erik', 'rasmussen', 'react', 'solid'],
     author: 'Shift Conference',
     author_url: 'https://www.youtube.com/@ShiftConference',
@@ -1046,9 +1070,8 @@ const videos: Array<Resource> = [
   },
   {
     link: 'https://www.youtube.com/watch?v=rEka64_stis',
-    title: 'KISS. It doesn\'t get easier than this',
-    description:
-      'Building a full stack app with Astro JS, Solid JS and PocketBase.',
+    title: "KISS. It doesn't get easier than this",
+    description: 'Building a full stack app with Astro JS, Solid JS and PocketBase.',
     keywords: ['pocketbase', 'solid', 'astro', 'building'],
     author: 'Awesome',
     author_url: 'https://www.youtube.com/@awesome-coding',
@@ -1059,8 +1082,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=YluRK38br7A',
     title: 'I was wrong about Solid',
-    description:
-      'A quick overview of the SolidJS ecosystem.',
+    description: 'A quick overview of the SolidJS ecosystem.',
     keywords: ['ecosystem', 'solid', 'kobalte', 'tanstack'],
     author: 'Awesome',
     author_url: 'https://www.youtube.com/@awesome-coding',
