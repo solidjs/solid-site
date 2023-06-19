@@ -22,6 +22,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.2.7",
     "@solid-primitives/clipboard": "^1.5.3",
     "@solid-primitives/date": "^2.0.10",
     "@solid-primitives/event-listener": "^2.2.9",

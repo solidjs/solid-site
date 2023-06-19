@@ -1274,6 +1274,30 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1683134365000,
   },
+  {
+    link: 'https://vladislav-lipatov.medium.com/from-reactjs-to-solidjs-3e1b28ccc27a',
+    title: 'From ReactJS to SolidJS',
+    description:
+      'An article discussing practical use of SolidJS from Vlad\'s direct experience.',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://vladislav-lipatov.medium.com/',
+    keywords: ['solid', 'practical', 'example'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1684112978000,
+  },
+  {
+    link: 'https://vladislav-lipatov.medium.com/start-use-solidjs-today-4f916d9d5fb0',
+    title: 'Start use SolidJS today',
+    description:
+      'Vlad walks us through practical use of Solid today.',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://vladislav-lipatov.medium.com/',
+    keywords: ['solid', 'practical', 'start using'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1643681457000,
+  },
 ];
 
 export default articles;

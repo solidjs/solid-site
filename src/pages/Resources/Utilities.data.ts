@@ -2258,6 +2258,17 @@ const utilities: Array<Resource> = [
     published_at: 1683714279538,
   },
   {
+    link: 'https://github.com/s0ftik3/solid-chartjs',
+    title: 'solid-chartjs',
+    description: 'SolidJs component for Chart.js',
+    author: 'Vyacheslav Azarenko',
+    author_url: 'https://github.com/s0ftik3',
+    keywords: ['charts', 'chartjs', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
     title: '@rnwonder/solid-date-picker',
     link: 'https://github.com/rnwonder/solid-date-picker',
     author: 'Matthew Ruona',
@@ -2268,6 +2279,18 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['component', 'datepicker', 'rangepicker', 'calendar', 'timepicker'],
     published_at: 1683352800000,
+  },
+  {
+    title: 'solid-maplibre',
+    link: 'https://github.com/shishkin/solid-maplibre',
+    author: 'Sergey Shishkin',
+    author_url: 'https://github.com/shishkin',
+    description: 'SolidJS wrapper around MapLibre GL JS',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['map', 'maplibre', 'maplibre-gl-js', 'gis'],
+    published_at: 1667602800000,
   },
 ];
 
