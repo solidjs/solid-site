@@ -14,6 +14,18 @@ const videos: Array<Resource> = [
     published_at: 1687544778131,
   },
   {
+    link: 'https://youtu.be/ueNUEJ4vxFQ',
+    title: 'Server Actions with SolidStart',
+    description:
+      'This video is 2nd of a series building features to a SolidStart app. This time we build a login form with Server Actions and use Zod to validate the data.',
+    author: 'Atila Fassina',
+    author_url: 'https://atila.io/youtube',
+    keywords: ['server actions', 'performance', 'typescript', 'validation'],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1686306090955,
+  },
+  {
     link: 'https://www.youtube.com/watch?v=Ll2zt2m5Z5A',
     title: 'Absolute speed: SolidJS + Web-Workers',
     description:
