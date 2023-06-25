@@ -2277,7 +2277,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Library,
     categories: [ResourceCategory.UI],
     official: false,
-    keywords: ['component', 'datepicker', 'rangepicker', 'calendar'],
+    keywords: ['component', 'datepicker', 'rangepicker', 'calendar', 'timepicker'],
     published_at: 1683352800000,
   },
   {
