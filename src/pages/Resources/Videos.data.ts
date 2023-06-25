@@ -2,6 +2,18 @@ import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const videos: Array<Resource> = [
   {
+    link: 'https://youtu.be/v5Usqqax4xE',
+    title: 'Server Actions powered Auth in Solid-Start with Xata and Zod',
+    description:
+      'This video is 3rd of a series building features to a SolidStart app. This time we session managing and persisting data at a database.',
+    author: 'Atila Fassina',
+    author_url: 'https://atila.io/youtube',
+    keywords: ['server actions', 'performance', 'typescript', 'session storage', 'auth'],
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1687544778131,
+  },
+  {
     link: 'https://youtu.be/ueNUEJ4vxFQ',
     title: 'Server Actions with SolidStart',
     description:
