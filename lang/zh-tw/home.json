@@ -54,9 +54,9 @@
     }
   ],
   "example": {
-    "headline": "它既讓你感到熟悉又現代",
+    "headline": "它讓你感到既熟悉又現代",
     "copy": [
-      "Solid 站在 React, Knockout 等巨人的肩膀上。如果你之前用 React Hooks 開發過，Solid 應該看起来很自然。事實上，Solid 模型更簡單，沒有 Hook 規則。每个組建執行一次，随着依賴項目的更新，鉤子和綁定會多次執行。",
+      "Solid 站在 React, Knockout 等巨人的肩膀上。如果你之前用 React Hooks 開發過，Solid 應該看起來很自然。事實上，Solid 模型更簡單，沒有 Hook 規則。每個組件執行一次，随着依賴項目的更新，鉤子和綁定會多次執行。",
       "Solid 遵從 React 相同的理念，具有單向數據流、讀寫隔離和不可變接口。但是放棄了使用虛擬 DOM，使用了完全不同的實現。"
     ],
     "link_label": "查看文檔",

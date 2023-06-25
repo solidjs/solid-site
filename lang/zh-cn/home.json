@@ -54,7 +54,7 @@
     }
   ],
   "example": {
-    "headline": "它既让你感到熟悉又现代",
+    "headline": "它让你感到既熟悉又现代",
     "copy": [
       "Solid 站在 React, Knockout 等巨人的肩膀上。如果你之前用 React Hooks 开发过，Solid 应该看起来很自然。事实上，Solid 模型更简单，没有 Hook 规则。每个组件执行一次，随着依赖项的更新，钩子和绑定会多次执行。",
       "Solid 遵循与 React 相同的理念，具有单向数据流、读/写隔离和不可变接口。但是放弃了使用虚拟 DOM，使用了完全不同的实现。"
