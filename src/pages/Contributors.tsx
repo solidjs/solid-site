@@ -1,5 +1,5 @@
 import { Component, For, Show } from 'solid-js';
-import { useRouteData } from 'solid-app-router';
+import { useRouteData } from '@solidjs/router';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';

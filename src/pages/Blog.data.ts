@@ -1,4 +1,4 @@
-import { RouteDataFunc } from 'solid-app-router';
+import { RouteDataFunc } from '@solidjs/router';
 import type { Component } from 'solid-js';
 import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 

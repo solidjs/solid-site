@@ -10,7 +10,7 @@ import {
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
 import { useI18n } from '@solid-primitives/i18n';
-import { useLocation, Link } from 'solid-app-router';
+import { useLocation, Link } from '@solidjs/router';
 import Nav from './Nav';
 import { useAppContext } from '../AppContext';
 import logo from '../assets/logo.svg';

@@ -1,5 +1,5 @@
 import { Suspense } from 'solid-js';
-import { useRoutes, Router } from 'solid-app-router';
+import { useRoutes, Router } from '@solidjs/router';
 import { routes } from './routes';
 import Header from './components/Header';
 import { AppContextProvider } from './AppContext';

@@ -11,7 +11,7 @@ import {
   ErrorBoundary,
 } from 'solid-js';
 import Repl from 'solid-repl/lib/repl';
-import { useRouteData, NavLink } from 'solid-app-router';
+import { useRouteData, NavLink } from '@solidjs/router';
 import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
 

@@ -1,7 +1,7 @@
 // Remember current search in page URL as ?search=...
 
 import { Accessor, createEffect } from 'solid-js';
-import { useNavigate } from 'solid-app-router';
+import { useNavigate } from '@solidjs/router';
 
 export const rememberSearch = (search: Accessor<string>) => {
   const navigate = useNavigate();

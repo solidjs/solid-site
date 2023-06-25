@@ -1,5 +1,5 @@
 import { Component, For, Show, createSignal, createMemo, onMount, JSX } from 'solid-js';
-import { useNavigate, useRouteData, useSearchParams } from 'solid-app-router';
+import { useNavigate, useRouteData, useSearchParams } from '@solidjs/router';
 import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
