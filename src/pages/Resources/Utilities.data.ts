@@ -2304,6 +2304,18 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'paystack', 'payment'],
     published_at: 1688908056276,
   },
+  {
+    title: 'solidjs-flutterwave',
+    link: 'https://github.com/rnwonder/solidjs-flutterwave',
+    author: 'Matthew Ruona',
+    author_url: 'https://github.com/rnwonder',
+    description: 'Flutterwave payment gateway for SolidJS.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Primitives, ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'flutterwave', 'payment'],
+    published_at: 1688926787929,
+  },
 ];
 
 export default utilities;
