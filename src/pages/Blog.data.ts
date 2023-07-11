@@ -81,6 +81,15 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1668014954000,
     body: async () => await import('./Articles/introducing-solidstart.mdx'),
   },
+  'chrome-supports-solidjs': {
+    img: '/img/blog/chrome-supports-solidjs/header.png',
+    title: 'Chrome Supports SolidJS in Building a Performant Web',
+    description: 'A major support announcement from the teams at Chrome Aurora and SolidJS.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1689190332000,
+    body: async () => await import('./Articles/chrome-supports-solidjs.mdx'),
+  },
 };
 
 export interface BlogData {
