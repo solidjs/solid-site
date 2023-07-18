@@ -9,7 +9,7 @@ import {
   createMemo,
   createEffect,
 } from 'solid-js';
-import { Link, useRouteData, useIsRouting } from 'solid-app-router';
+import { Link, useRouteData, useIsRouting } from '@solidjs/router';
 import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import iconBlocks1 from '../assets/icons/blocks1.svg';

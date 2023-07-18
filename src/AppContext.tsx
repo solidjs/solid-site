@@ -1,6 +1,6 @@
 import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
 import { Meta, Title } from 'solid-meta';
-import { useLocation } from 'solid-app-router';
+import { useLocation } from '@solidjs/router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
 import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';

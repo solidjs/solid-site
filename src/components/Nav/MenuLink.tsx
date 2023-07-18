@@ -1,5 +1,5 @@
 import { createEventListener } from '@solid-primitives/event-listener';
-import { NavLink } from 'solid-app-router';
+import { NavLink } from '@solidjs/router';
 import { batch, createSignal, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 

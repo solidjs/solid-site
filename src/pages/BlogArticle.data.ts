@@ -1,5 +1,5 @@
 import { createResource } from 'solid-js';
-import { RouteDataFunc } from 'solid-app-router';
+import { RouteDataFunc } from '@solidjs/router';
 import { BlogInfo, list, MDXComponent } from './Blog.data';
 
 export interface BlogArticleData {

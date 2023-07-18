@@ -1,5 +1,5 @@
 import Repl from 'solid-repl/lib/repl';
-import { NavLink, useRouteData, useParams } from 'solid-app-router';
+import { NavLink, useRouteData, useParams } from '@solidjs/router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 

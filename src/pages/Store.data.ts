@@ -1,5 +1,5 @@
 import { createEffect, on } from 'solid-js';
-import { RouteDataFunc } from 'solid-app-router';
+import { RouteDataFunc } from '@solidjs/router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createCollection, createCart } from '../utils/shopify';
 

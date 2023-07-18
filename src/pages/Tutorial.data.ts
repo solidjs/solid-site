@@ -1,5 +1,5 @@
 import { useI18n } from '@solid-primitives/i18n';
-import { RouteDataFunc } from 'solid-app-router';
+import { RouteDataFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
 import { getTutorial, getTutorialDirectory, LessonLookup } from '@solid.js/docs';
 
