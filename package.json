@@ -82,7 +82,7 @@
     "tailwindcss-rtl": "^0.9.0",
     "terser-config-atomic": "^0.1.1",
     "typescript": "^4.9.5",
-    "vite": "^4.2.1",
+    "vite": "^4.2.3",
     "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-solid": "2.6.1"
   },
