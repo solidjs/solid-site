@@ -4,7 +4,7 @@
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0",
-    "pnpm": ">=7.8.0"
+    "pnpm": ">=8.7.0"
   },
   "type": "module",
   "scripts": {
@@ -38,7 +38,9 @@
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.8.0",
-    "monaco-editor": "0.41.0",
+    "monaco-editor": "~0.40.0",
+    "monaco-editor-textmate": "^4.0.0",
+    "monaco-textmate": "^3.0.1",
     "onigasm": "^2.2.5",
     "rehype-highlight": "^6.0.0",
     "remark-gfm": "^3.0.1",
@@ -89,8 +91,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "monaco-editor@0.41.0": "patches/monaco-editor@0.41.0.patch"
+      "monaco-editor@0.40.0": "patches/monaco-editor@0.41.0.patch"
     }
   },
-  "packageManager": "pnpm@8.6.2"
+  "packageManager": "pnpm@8.7.0"
 }

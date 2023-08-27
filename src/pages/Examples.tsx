@@ -1,9 +1,9 @@
-import Repl from 'solid-repl/lib/repl';
+import Repl from 'solid-repl/dist/repl';
 import { NavLink, useRouteData, useParams } from '@solidjs/router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
-import { compiler, formatter } from '../components/setupRepl';
+import { compiler, formatter, linter } from '../components/setupRepl';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppState } from '../AppContext';
 import { entries } from '@solid-primitives/utils';
@@ -23,6 +23,11 @@ const Examples: Component = () => {
 
   useRouteReadyState();
 
+  let currentData: {
+    name: string;
+    source: string;
+  }[] = [];
+
   createEffect(async () => {
     const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
       r.json(),
@@ -35,7 +40,7 @@ const Examples: Component = () => {
       version?: string;
     };
     batch(() => {
-      const newTabs = exampleData.files.map(
+      currentData = exampleData.files.map(
         (file: { name: string; type?: string; content: string | string[] }) => {
           return {
             name: file.name + (file.type ? `.${file.type}` : '.jsx'),
@@ -43,8 +48,8 @@ const Examples: Component = () => {
           };
         },
       );
-      setTabs(newTabs);
-      setCurrent(newTabs[0].name);
+      setTabs(currentData);
+      setCurrent(currentData[0].name);
     });
   });
 
@@ -82,7 +87,7 @@ const Examples: Component = () => {
 
           <div
             dir="ltr"
-            class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl"
+            class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl flex"
           >
             <ErrorBoundary
               fallback={
@@ -94,9 +99,16 @@ const Examples: Component = () => {
               <Repl
                 compiler={compiler}
                 formatter={formatter}
+                linter={linter}
                 isHorizontal={true}
                 dark={context.isDark}
                 tabs={tabs()}
+                reset={() => {
+                  batch(() => {
+                    setTabs(currentData);
+                    setCurrent(currentData[0].name);
+                  })
+                }}
                 setTabs={setTabs}
                 current={current()}
                 setCurrent={setCurrent}
