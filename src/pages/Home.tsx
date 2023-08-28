@@ -145,8 +145,8 @@ const Home: Component = () => {
                   tabs={[
                     {
                       name: 'main.jsx',
-                      source: `import { render } from "solid-js/web";
-import { onCleanup, createSignal } from "solid-js";
+                      source: `import { onCleanup, createSignal } from "solid-js";
+import { render } from "solid-js/web";
 
 const CountingComponent = () => {
   const [count, setCount] = createSignal(0);
@@ -159,6 +159,13 @@ const CountingComponent = () => {
 };
 
 render(() => <CountingComponent />, document.getElementById("app"));`,
+                    },
+                    {
+                      name: 'import_map.json',
+                      source: `{
+  "solid-js": "https://jspm.dev/solid-js",
+  "solid-js/web": "https://jspm.dev/solid-js/web"
+}`,
                     },
                   ]}
                 />

@@ -1,11 +1,12 @@
 import Repl from 'solid-repl/dist/repl';
 import { NavLink, useRouteData, useParams } from '@solidjs/router';
-import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
+import { For, Component, createSignal, createEffect, batch, ErrorBoundary, Show } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
 import { compiler, formatter, linter } from '../components/setupRepl';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppState } from '../AppContext';
+import type { Tab } from 'solid-repl';
 import { entries } from '@solid-primitives/utils';
 
 const Examples: Component = () => {
@@ -13,13 +14,8 @@ const Examples: Component = () => {
   const context = useAppState();
   const { t } = context;
   const params = useParams<{ id: string }>();
-  const [tabs, setTabs] = createSignal([
-    {
-      name: 'main.jsx',
-      source: '',
-    },
-  ]);
-  const [current, setCurrent] = createSignal(`main.jsx`, { equals: false });
+  const [tabs, setTabs] = createSignal<Tab[]>([]);
+  const [current, setCurrent] = createSignal('');
 
   useRouteReadyState();
 
@@ -48,7 +44,16 @@ const Examples: Component = () => {
           };
         },
       );
-      setTabs(currentData);
+      setTabs([
+        ...currentData,
+        {
+          name: 'import_map.json',
+          source: `{
+  "solid-js": "https://jspm.dev/solid-js",
+  "solid-js/web": "https://jspm.dev/solid-js/web"
+}`,
+        },
+      ]);
       setCurrent(currentData[0].name);
     });
   });
@@ -96,24 +101,26 @@ const Examples: Component = () => {
                 </>
               }
             >
-              <Repl
-                compiler={compiler}
-                formatter={formatter}
-                linter={linter}
-                isHorizontal={true}
-                dark={context.isDark}
-                tabs={tabs()}
-                reset={() => {
-                  batch(() => {
-                    setTabs(currentData);
-                    setCurrent(currentData[0].name);
-                  })
-                }}
-                setTabs={setTabs}
-                current={current()}
-                setCurrent={setCurrent}
-                id="examples"
-              />
+              <Show when={current()}>
+                <Repl
+                  compiler={compiler}
+                  formatter={formatter}
+                  linter={linter}
+                  isHorizontal={true}
+                  dark={context.isDark}
+                  tabs={tabs()}
+                  reset={() => {
+                    batch(() => {
+                      setTabs(currentData);
+                      setCurrent(currentData[0].name);
+                    });
+                  }}
+                  setTabs={setTabs}
+                  current={current()}
+                  setCurrent={setCurrent}
+                  id="examples"
+                />
+              </Show>
             </ErrorBoundary>
           </div>
         </div>

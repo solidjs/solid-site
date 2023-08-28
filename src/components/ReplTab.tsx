@@ -8,21 +8,13 @@ let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   count++;
   const context = useAppState();
-  const initialTabs = props.tabs || [
-    {
-      name: 'main.jsx',
-      source: '',
-    },
-  ];
+  const initialTabs = props.tabs;
   const [tabs, setTabs] = createSignal(initialTabs);
-  const [current, setCurrent] = createSignal(initialTabs[0].name, {
-    equals: false,
-  });
+  const [current, setCurrent] = createSignal(initialTabs[0].name);
+
   return (
     <ErrorBoundary
-      fallback={
-        <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-      }
+      fallback="Repl failed to load. You may be using a browser that doesn't support Web Workers."
     >
       <Repl
         id={`repl-${count}`}
