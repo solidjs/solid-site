@@ -15,10 +15,11 @@ import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import SideContent from '../components/layout/SideContent';
 import { Icon } from 'solid-heroicons';
-import { createCountdown } from '@solid-primitives/date';
+import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { shieldCheck } from 'solid-heroicons/solid';
 import { externalLink } from 'solid-heroicons/outline';
 import { useAppState } from '../AppContext';
+import { entries, keys } from '@solid-primitives/utils';
 
 const FilterButton: Component<{
   onClick: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
@@ -62,20 +63,11 @@ const FilterOfficial: Component<{
 
 const ResourceLink: Component<Resource> = (props) => {
   const { t } = useAppState();
-  const now = new Date();
+
   const published = new Date(0);
   published.setTime(props.published_at || 0);
-  const { days, hours } = createCountdown(published, now);
-  const publish_detail = () => {
-    if (days! > 1) {
-      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago') as string;
-    }
-    return t(
-      'resources.hours_ago',
-      { amount: hours!.toString() },
-      '{{amount}} hours ago',
-    ) as string;
-  };
+
+  const [publishTimeAgo, { difference }] = createTimeAgo(published);
 
   return (
     <a
@@ -112,9 +104,9 @@ const ResourceLink: Component<Resource> = (props) => {
           </Show>
           <Show when={props.published_at}>
             <div class="rtl:text-right text-xs text-gray-400 block">
-              {t('resources.published', {}, 'Published')} {published.toDateString()}
-              <Show when={days! < 60}>
-                <span class="text-gray-300"> - {publish_detail()}</span>
+              {t('resources.published') ?? 'Published'} {published.toDateString()}
+              <Show when={difference() / DAY < 60}>
+                <span class="text-gray-300"> - {publishTimeAgo()}</span>
               </Show>
             </div>
           </Show>
@@ -224,16 +216,14 @@ const Packages: Component = () => {
             {t('resources.categories')}
           </h3>
           <div class="mt-3 space-y-2">
-            <For each={Object.entries(ResourceCategory).sort()}>
-              {([name, id]) => (
-                <FilterButton
-                  name={t(`resources.categories_list.${id.toLowerCase()}`, {}, name)}
-                  count={(byCategory()[id] || []).length}
-                  active={!!byCategory()[id]}
-                  onClick={[scrollToCategory, id]}
-                />
-              )}
-            </For>
+            {entries(ResourceCategory).map(([name, id]) => (
+              <FilterButton
+                name={t(`resources.categories_list.${id}`) ?? name}
+                count={(byCategory()[id] || []).length}
+                active={!!byCategory()[id]}
+                onClick={[scrollToCategory, id]}
+              />
+            ))}
           </div>
         </div>
       }
@@ -265,21 +255,19 @@ const Packages: Component = () => {
             when={resources().length}
             fallback={<div class="p-10 text-center">No resources found.</div>}
           >
-            <For each={Object.entries(byCategory()).sort()}>
-              {([category, resources]) => (
+            <For each={keys(byCategory())}>
+              {(category) => (
                 <>
                   <h3
                     class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
                     id={category}
                   >
-                    {t(
-                      `resources.categories_list.${category.toLowerCase()}`,
-                      {},
-                      ResourceCategoryName[category],
-                    )}
+                    {t(`resources.categories_list.${category}`) ?? ResourceCategoryName[category]}
                   </h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <For each={resources}>{(resource) => <ResourceLink {...resource} />}</For>
+                    <For each={byCategory()[category]}>
+                      {(resource) => <ResourceLink {...resource} />}
+                    </For>
                   </div>
                 </>
               )}

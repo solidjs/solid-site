@@ -1,6 +1,6 @@
 import {
+  JSX,
   ParentComponent,
-  Show,
   Suspense,
   createContext,
   createEffect,
@@ -106,7 +106,8 @@ interface AppState {
   setDark(value: boolean): void;
   get locale(): Locale;
   setLocale(value: Locale): void;
-  t: i18n.Translator<Dictionary>;
+  t: i18n.NullableTranslator<Dictionary>;
+  get dir(): JSX.HTMLDir;
   get guides(): ResourceMetadata[] | undefined;
 }
 
@@ -143,40 +144,37 @@ export const AppContextProvider: ParentComponent = (props) => {
     else document.documentElement.classList.remove('dark');
   });
 
+  const t = i18n.translator(dict);
+
+  const state: AppState = {
+    get isDark() {
+      return settings.dark;
+    },
+    setDark(value) {
+      set('dark', value);
+    },
+    get locale() {
+      return settings.locale;
+    },
+    setLocale(value) {
+      set('locale', value);
+    },
+    t,
+    get dir() {
+      return (t('global.dir') ?? 'ltr') as JSX.HTMLDir;
+    },
+    get guides() {
+      return guidesList();
+    },
+  };
+
   return (
     <Suspense>
-      <Show when={dict()}>
-        {(dict) => {
-          const t = i18n.translator(dict);
-
-          const state: AppState = {
-            get isDark() {
-              return settings.dark;
-            },
-            setDark(value) {
-              set('dark', value);
-            },
-            get locale() {
-              return settings.locale;
-            },
-            setLocale(value) {
-              set('locale', value);
-            },
-            t,
-            get guides() {
-              return guidesList();
-            },
-          };
-
-          return (
-            <AppContext.Provider value={state}>
-              <Title>{t('global.title')}</Title>
-              <Meta name="lang" content={locale()} />
-              <div dir={t('global.dir')}>{props.children}</div>
-            </AppContext.Provider>
-          );
-        }}
-      </Show>
+      <AppContext.Provider value={state}>
+        <Title>{t('global.title') ?? 'SolidJS · Reactive Javascript Library'}</Title>
+        <Meta name="lang" content={locale()} />
+        <div dir={state.dir}>{props.children}</div>
+      </AppContext.Provider>
     </Suspense>
   );
 };

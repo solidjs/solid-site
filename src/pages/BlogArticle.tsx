@@ -7,14 +7,11 @@ import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 
 export const BlogArticle: Component = () => {
-  const context = useAppState();
-  const { t } = context;
+  const ctx = useAppState();
 
   const data = useRouteData<BlogArticleData>();
   useRouteReadyState();
-  const chevron = createMemo(() =>
-    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-right' : 'chevron-left',
-  );
+  const chevron = createMemo(() => (ctx.dir == 'rtl' ? 'chevron-right' : 'chevron-left'));
 
   return (
     <div class="flex flex-col">
@@ -45,16 +42,12 @@ export const BlogArticle: Component = () => {
                     <data.article
                       components={{
                         Tweet: (props) => (
-                          <Tweet
-                            {...props}
-                            theme={context.isDark ? 'dark' : 'light'}
-                            align="center"
-                          />
+                          <Tweet {...props} theme={ctx.isDark ? 'dark' : 'light'} align="center" />
                         ),
                         YouTube,
                         Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
                         Spotify: (props) => (
-                          <Spotify {...props} theme={context.isDark ? 'dark' : undefined} />
+                          <Spotify {...props} theme={ctx.isDark ? 'dark' : undefined} />
                         ),
                       }}
                     />

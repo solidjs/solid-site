@@ -91,11 +91,12 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
 };
 
 const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
-  const { t } = useAppState();
+  const ctx = useAppState();
+  const { t } = ctx;
 
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
-  const direction = createMemo(() => ((t('global.dir') ?? 'ltr') == 'rtl' ? 'left' : 'right'));
+  const direction = createMemo(() => ((ctx.dir ?? 'ltr') == 'rtl' ? 'left' : 'right'));
 
   return (
     <>

@@ -4,7 +4,7 @@ interface Example {
   description: string;
 }
 
-const list: Record<string, Example[]> = {
+const list: Record<'Basic' | 'Complex', Example[]> = {
   Basic: [
     {
       id: 'counter',

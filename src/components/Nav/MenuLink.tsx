@@ -1,6 +1,6 @@
 import { createEventListener } from '@solid-primitives/event-listener';
 import { NavLink } from '@solidjs/router';
-import { batch, createSignal, onMount, ParentComponent, Show } from 'solid-js';
+import { batch, createSignal, JSX, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
 export type LinkTypes = {
@@ -9,7 +9,7 @@ export type LinkTypes = {
   path: string;
   external?: boolean;
   links?: LinkTypes[];
-  direction?: 'ltr' | 'rtl';
+  direction?: JSX.HTMLDir;
 };
 export type MenuLinkProps = {
   setSubnav: (children: LinkTypes[], el: HTMLElement) => void;

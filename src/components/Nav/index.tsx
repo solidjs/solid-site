@@ -66,8 +66,8 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const closeSubnav = debounce(() => !disableMenuClose && setSubnav(null), 150);
 
-  const context = useAppState();
-  const { t } = context;
+  const ctx = useAppState();
+  const { t } = ctx;
 
   let firstLoad = true;
   let navEl!: HTMLElement;
@@ -76,7 +76,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   let logoEl!: HTMLDivElement;
   let subnavEl!: HTMLDivElement;
 
-  const isRTL = () => t('global.dir', {}, 'ltr') === 'rtl';
+  const isRTL = () => ctx.dir === 'rtl';
   const logoPosition = () => (isRTL() ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5');
 
   const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
@@ -91,14 +91,14 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo<LinkTypes[]>(
     on(
-      () => [(t('global.nav') as LinkTypes[]) || [], context.guides] as const,
+      () => [(t('global.nav') as LinkTypes[]) || [], ctx.guides] as const,
       ([nav, guides]) => {
         return nav.map<LinkTypes>((item) => {
           const itm = { ...item };
           // Inject guides if available
           if (item.path == '/guides') {
             if (guides?.length) {
-              const direction = t('global.dir', {}, 'ltr');
+              const direction = ctx.dir;
               itm.links = guides.map(({ title, description, resource }) => ({
                 title,
                 description,
@@ -201,7 +201,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 />
               </Link>
               <span id="ukraine-support" hidden>
-                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+                {t('home.ukraine.support') ?? 'We stand with Ukraine.'}
               </span>
             </div>
             <ScrollShadow
@@ -262,11 +262,11 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               <button
                 class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
                 classList={{
-                  'bg-solid-medium text-white': lang == context.locale,
-                  'hover:bg-solid-light': lang == context.locale,
+                  'bg-solid-medium text-white': lang == ctx.locale,
+                  'hover:bg-solid-light': lang == ctx.locale,
                 }}
                 onClick={() => {
-                  context.setLocale(lang);
+                  ctx.setLocale(lang);
                   toggleLangs(false);
                 }}
               >
@@ -289,7 +289,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                     class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
                     style={
                       link.direction && {
-                        direction: link.direction,
+                        direction: link.direction === 'ltr' ? 'ltr' : 'rtl',
                         'text-align': link.direction === 'ltr' ? 'left' : 'right',
                       }
                     }

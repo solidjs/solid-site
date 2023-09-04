@@ -1,37 +1,29 @@
-import { Component, For, Show, createSignal, createMemo } from 'solid-js';
-import { createStore } from 'solid-js/store';
-import Footer from '../components/Footer';
-import { useRouteData, useSearchParams } from '@solidjs/router';
-import { Resource, ResourceType, ResourceTypeIcons, PackageType } from './Resources/Ecosystem';
-import { ResourcesDataProps } from './Resources.data';
-import Fuse from 'fuse.js';
-import { Icon } from 'solid-heroicons';
-import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
-import { createCountdown } from '@solid-primitives/date';
+import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
+import { entries } from '@solid-primitives/utils';
+import { useRouteData, useSearchParams } from '@solidjs/router';
+import Fuse from 'fuse.js';
 import Dismiss from 'solid-dismiss';
-import { useRouteReadyState } from '../utils/routeReadyState';
+import { Icon } from 'solid-heroicons';
+import { chevronLeft, chevronRight, filter, shieldCheck } from 'solid-heroicons/outline';
+import { Component, For, Show, createMemo, createSignal } from 'solid-js';
+import { createStore } from 'solid-js/store';
+import { useAppState } from '../AppContext';
+import Footer from '../components/Footer';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
-import { useAppState } from '../AppContext';
+import { useRouteReadyState } from '../utils/routeReadyState';
+import { ResourcesDataProps } from './Resources.data';
+import { PackageType, Resource, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
 
 const AResource: Component<Resource> = (props) => {
   const { t } = useAppState();
-  const now = new Date();
+
   const published = new Date(0);
   published.setTime(props.published_at || 0);
-  const { days, hours } = createCountdown(published, now);
-  const publish_detail = () => {
-    if (days! > 1) {
-      return t('resources.days_ago', { amount: days!.toString() }, '{{amount}} days ago') as string;
-    }
-    return t(
-      'resources.hours_ago',
-      { amount: hours!.toString() },
-      '{{amount}} hours ago',
-    ) as string;
-  };
+
+  const [publishTimeAgo, { difference }] = createTimeAgo(published);
 
   return (
     <li class="py-6 border-b text-left dark:border-solid-darkLighterBg hover:bg-gray-50 dark:hover:bg-gray-700 duration-100">
@@ -76,9 +68,9 @@ const AResource: Component<Resource> = (props) => {
             </div>
             <Show when={props.published_at}>
               <div class="rtl:text-right text-xs text-gray-400 block">
-                {t('resources.published', {}, 'Published')} {published.toDateString()}
-                <Show when={days! < 60}>
-                  <span class="text-gray-300"> - {publish_detail()}</span>
+                {t('resources.published') ?? 'Published'} {published.toDateString()}
+                <Show when={difference() / DAY < 60}>
+                  <span class="text-gray-300"> - {publishTimeAgo()}</span>
                 </Show>
               </div>
             </Show>
@@ -100,7 +92,7 @@ const AResource: Component<Resource> = (props) => {
 };
 
 const Resources: Component = () => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   const data = useRouteData<ResourcesDataProps>();
   const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
@@ -191,49 +183,47 @@ const Resources: Component = () => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              <For each={Object.entries(ResourceType)}>
-                {([name, type]) => (
-                  <button
-                    disabled={!filtered.counts[type]}
-                    onClick={() => {
-                      filtersClickScrollToTop();
-                      setFiltered('enabledTypes', (arr) => {
-                        const pos = arr.indexOf(type);
-                        if (pos === -1) {
-                          return [...arr, type];
-                        } else {
-                          const newArray = arr.slice();
-                          newArray.splice(pos, 1);
-                          return newArray;
-                        }
-                      });
-                    }}
-                    classList={{
-                      'opacity-30 cursor-default': !filtered.counts[type],
-                      'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
-                    }}
-                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
-                  >
-                    <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
-                        <Icon
-                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
-                          path={ResourceTypeIcons[type]}
-                        />
-                      </figure>
-                    </div>
-                    <div class="col-span-3 rtl:text-right lg:col-span-3">
-                      {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
-                    </div>
-                    <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
-                      <Show when={filtered.counts[type]} fallback={0}>
-                        {filtered.counts[type]}
-                      </Show>
-                    </div>
-                  </button>
-                )}
-              </For>
+              {entries(ResourceType).map(([name, type]) => (
+                <button
+                  disabled={!filtered.counts[type]}
+                  onClick={() => {
+                    filtersClickScrollToTop();
+                    setFiltered('enabledTypes', (arr) => {
+                      const pos = arr.indexOf(type);
+                      if (pos === -1) {
+                        return [...arr, type];
+                      } else {
+                        const newArray = arr.slice();
+                        newArray.splice(pos, 1);
+                        return newArray;
+                      }
+                    });
+                  }}
+                  classList={{
+                    'opacity-30 cursor-default': !filtered.counts[type],
+                    'hover:opacity-60': !!filtered.counts[type],
+                    'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
+                  }}
+                  class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md dark:border-solid-darkLighterBg"
+                >
+                  <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
+                    <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white flex-shrink-0">
+                      <Icon
+                        class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+                        path={ResourceTypeIcons[type]}
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-span-3 rtl:text-right lg:col-span-3">
+                    {t(`resources.types_list.${type}`) ?? name}
+                  </div>
+                  <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
+                    <Show when={filtered.counts[type]} fallback={0}>
+                      {filtered.counts[type]}
+                    </Show>
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -288,49 +278,47 @@ const Resources: Component = () => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              <For each={Object.entries(ResourceType)}>
-                {([name, type]) => (
-                  <button
-                    disabled={!filtered.counts[type]}
-                    onClick={() => {
-                      filtersClickScrollToTop();
-                      setFiltered('enabledTypes', (arr) => {
-                        const pos = arr.indexOf(type);
-                        if (pos === -1) {
-                          return [...arr, type];
-                        } else {
-                          const newArray = arr.slice();
-                          newArray.splice(pos, 1);
-                          return newArray;
-                        }
-                      });
-                    }}
-                    classList={{
-                      'opacity-30 cursor-default': !filtered.counts[type],
-                      'hover:opacity-60': !!filtered.counts[type],
-                      'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
-                    }}
-                    class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
-                  >
-                    <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
-                      <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
-                        <Icon
-                          class="text-solid-medium dark:text-solid-darkdefault w-5/6"
-                          path={ResourceTypeIcons[type]}
-                        />
-                      </figure>
-                    </div>
-                    <div class="col-span-3 rtl:text-right lg:col-span-3">
-                      {t(`resources.types_list.${name.toLowerCase()}`, {}, name)}
-                    </div>
-                    <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
-                      <Show when={filtered.counts[type]} fallback={0}>
-                        {filtered.counts[type]}
-                      </Show>
-                    </div>
-                  </button>
-                )}
-              </For>
+              {entries(ResourceType).map(([name, type]) => (
+                <button
+                  disabled={!filtered.counts[type]}
+                  onClick={() => {
+                    filtersClickScrollToTop();
+                    setFiltered('enabledTypes', (arr) => {
+                      const pos = arr.indexOf(type);
+                      if (pos === -1) {
+                        return [...arr, type];
+                      } else {
+                        const newArray = arr.slice();
+                        newArray.splice(pos, 1);
+                        return newArray;
+                      }
+                    });
+                  }}
+                  classList={{
+                    'opacity-30 cursor-default': !filtered.counts[type],
+                    'hover:opacity-60': !!filtered.counts[type],
+                    'bg-gray-100 dark:bg-gray-700': filtered.enabledTypes.indexOf(type) !== -1,
+                  }}
+                  class="grid grid-cols-5 lg:grid-cols-6 items-center w-full text-sm py-3 text-left border rounded-md"
+                >
+                  <div class="col-span-1 lg:col-span-2 flex justify-center px-2">
+                    <figure class="flex justify-center content-center w-10 h-10 p-1.5 border-4 border-solid rounded-full text-white">
+                      <Icon
+                        class="text-solid-medium dark:text-solid-darkdefault w-5/6"
+                        path={ResourceTypeIcons[type]}
+                      />
+                    </figure>
+                  </div>
+                  <div class="col-span-3 rtl:text-right lg:col-span-3">
+                    {t(`resources.types_list.${type}`) ?? name}
+                  </div>
+                  <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
+                    <Show when={filtered.counts[type]} fallback={0}>
+                      {filtered.counts[type]}
+                    </Show>
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         </Dismiss>

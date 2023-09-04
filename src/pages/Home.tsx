@@ -38,7 +38,8 @@ const strength_icons: { [key: string]: string } = {
 const Home: Component = () => {
   const isRouting = useIsRouting();
   const data = useRouteData<{ benchmarks: GraphData[] }>();
-  const { t } = useAppState();
+  const ctx = useAppState();
+  const { t } = ctx;
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver({ threshold: 0.4 });
   let playgroundRef!: HTMLElement;
@@ -56,7 +57,7 @@ const Home: Component = () => {
   useRouteReadyState();
 
   const chevron = createMemo(() => {
-    const direction = t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-left' : 'chevron-right';
+    const direction = ctx.dir == 'rtl' ? 'chevron-left' : 'chevron-right';
     return `chevron ${direction}`;
   });
 
@@ -174,7 +175,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </For>
             <Link
               class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
-              href={t('home.example.link')}
+              href={t('home.example.link') ?? ''}
             >
               {t('home.example.link_label')}
             </Link>
@@ -183,7 +184,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
         <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 md:px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">
           <div
             class="px-10 py-4 2xl:bg-opacity-0 bg-opacity-80 rounded-lg"
-            classList={{ 'xl:bg-opacity-0': t('global.dir', {}, 'ltr') === 'ltr' }}
+            classList={{ 'xl:bg-opacity-0': ctx.dir === 'ltr' }}
           >
             <img class="w-16" src={sandbox} alt="" />
             <h2 class="text-3xl mt-8 mb-5 text-solid font-semibold">
