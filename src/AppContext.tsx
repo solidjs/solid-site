@@ -5,6 +5,7 @@ import {
   createContext,
   createEffect,
   createResource,
+  startTransition,
   useContext,
 } from 'solid-js';
 import { Meta, Title } from 'solid-meta';
@@ -157,7 +158,9 @@ export const AppContextProvider: ParentComponent = (props) => {
       return settings.locale;
     },
     setLocale(value) {
-      set('locale', value);
+      void startTransition(() => {
+        set('locale', value);
+      });
     },
     t,
     get dir() {
