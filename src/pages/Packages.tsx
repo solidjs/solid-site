@@ -99,7 +99,7 @@ const ResourceLink: Component<Resource> = (props) => {
               target="_blank"
               class="text-xs text-gray-500 dark:text-gray-300 inline hover:text-solid-medium"
             >
-              {t('resources.by')} {props.author}
+              {t('resources.by', { author: props.author ?? '' })}
             </a>
           </Show>
           <Show when={props.published_at}>

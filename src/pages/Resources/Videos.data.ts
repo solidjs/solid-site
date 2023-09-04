@@ -1105,7 +1105,8 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=LzbwXj9cnVk',
     title: 'Evolution of Signals in JavaScript',
-    description: 'Prime walks through signals and how they are changing the framework space forever.',
+    description:
+      'Prime walks through signals and how they are changing the framework space forever.',
     keywords: ['signal', 'solid', 'reactivity'],
     author: 'ThePrimeagen',
     author_url: 'https://twitch.tv/ThePrimeagen',

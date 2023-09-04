@@ -145,7 +145,7 @@ export const AppContextProvider: ParentComponent = (props) => {
     else document.documentElement.classList.remove('dark');
   });
 
-  const t = i18n.translator(dict);
+  const t = i18n.translator(dict, i18n.resolveTemplate);
 
   const state: AppState = {
     get isDark() {

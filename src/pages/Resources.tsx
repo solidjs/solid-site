@@ -51,7 +51,7 @@ const AResource: Component<Resource> = (props) => {
             </Show>
             <Show when={props.author && !props.author_url}>
               <div class="text-xs mt-3 text-gray-500 dark:text-gray-300 block">
-                {t('resources.by')} {props.author}
+                {t('resources.by', { author: props.author ?? '' })}
               </div>
             </Show>
           </div>
@@ -63,7 +63,7 @@ const AResource: Component<Resource> = (props) => {
                 target="_blank"
                 class="text-xs text-gray-500 dark:text-gray-300 inline hover:text-solid-medium"
               >
-                {t('resources.by')} {props.author}
+                {t('resources.by', { author: props.author ?? '' })}
               </a>
             </div>
             <Show when={props.published_at}>
