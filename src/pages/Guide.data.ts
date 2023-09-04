@@ -1,15 +1,15 @@
 import { useLocation, RouteDataFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { getDoc } from '@solid.js/docs';
 import { DocData } from './Docs.data';
+import { useAppState } from '../AppContext';
 
 export const GuideData: RouteDataFunc<DocData> = (props) => {
   const location = useLocation();
-  const [, { locale }] = useI18n();
+  const ctx = useAppState();
 
   const paramList = () => ({
-    lang: location.query.locale ? location.query.locale : locale(),
+    lang: location.query.locale ? location.query.locale : ctx.locale,
     resource: props.params.id,
   });
   const [resource] = createResource(paramList, async ({ lang, resource }) => {

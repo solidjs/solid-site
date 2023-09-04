@@ -7,7 +7,6 @@ import { ResourcesDataProps } from './Resources.data';
 import Fuse from 'fuse.js';
 import { Icon } from 'solid-heroicons';
 import { chevronRight, chevronLeft, shieldCheck, filter } from 'solid-heroicons/outline';
-import { useI18n } from '@solid-primitives/i18n';
 import { createCountdown } from '@solid-primitives/date';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
@@ -15,9 +14,10 @@ import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
+import { useAppState } from '../AppContext';
 
 const AResource: Component<Resource> = (props) => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   const now = new Date();
   const published = new Date(0);
   published.setTime(props.published_at || 0);

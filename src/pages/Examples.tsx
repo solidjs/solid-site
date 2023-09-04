@@ -4,14 +4,13 @@ import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from
 import { ExamplesDataRoute } from './Examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 
 const Examples: Component = () => {
   const data = useRouteData<ExamplesDataRoute>();
-  const context = useAppContext();
-  const [t] = useI18n();
+  const context = useAppState();
+  const { t } = context;
   const params = useParams<{ id: string }>();
   const [tabs, setTabs] = createSignal([
     {

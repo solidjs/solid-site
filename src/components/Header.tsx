@@ -9,10 +9,9 @@ import {
   createMemo,
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
-import { useI18n } from '@solid-primitives/i18n';
 import { useLocation, Link } from '@solidjs/router';
 import Nav from './Nav';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 import logo from '../assets/logo.svg';
 import wordmark from '../assets/wordmark.svg';
 import { chevronRight, play } from 'solid-heroicons/outline';
@@ -21,7 +20,6 @@ import PageLoadingBar from './LoadingBar/PageLoadingBar';
 import { routeReadyState, page } from '../utils/routeReadyState';
 
 const Header: ParentComponent<{ title?: string }> = () => {
-  const [t] = useI18n();
   const location = useLocation();
   const isHome = location.pathname === '/';
   const noSmallHeader = !isHome && !location.pathname.includes('tutorial');
@@ -29,7 +27,8 @@ const Header: ParentComponent<{ title?: string }> = () => {
   const [showHeaderSmall, setShowHeaderSmall] = createSignal(noSmallHeader);
   const [showHeaderSplash, setShowHeaderSplash] = createSignal(isHome);
 
-  const context = useAppContext();
+  const context = useAppState();
+  const { t } = context;
 
   const guideName = createMemo(() => {
     if (context.guides) {

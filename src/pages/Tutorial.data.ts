@@ -1,7 +1,7 @@
-import { useI18n } from '@solid-primitives/i18n';
 import { RouteDataFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
 import { getTutorial, getTutorialDirectory, LessonLookup } from '@solid.js/docs';
+import { useAppState } from '../AppContext';
 
 type JsFiles = {
   files: { name: string; type?: string; content: string }[];
@@ -23,8 +23,8 @@ export interface TutorialRouteData {
 }
 
 export const TutorialData: RouteDataFunc<TutorialRouteData> = (props) => {
-  const [, { locale }] = useI18n();
-  const paramList = () => ({ lang: locale(), id: props.params.id || 'introduction_basics' });
+  const ctx = useAppState();
+  const paramList = () => ({ lang: ctx.locale, id: props.params.id || 'introduction_basics' });
   const [directory] = createResource(paramList, async ({ lang }) => {
     const requestedLang = await getTutorialDirectory(lang);
     if (requestedLang) return requestedLang;

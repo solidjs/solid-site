@@ -1,5 +1,5 @@
 import { Component, createSignal, Show } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
+import { useAppState } from '../AppContext';
 
 const NewsletterState = {
   IDLE: 0,
@@ -14,8 +14,8 @@ type NewsletterProps = {
 };
 
 export const Newsletter: Component<NewsletterProps> = (props) => {
-  let emailRef: HTMLInputElement;
-  const [t] = useI18n();
+  const { t } = useAppState();
+
   const [state, setState] = createSignal(NewsletterState.IDLE);
   const submit = async (evt: Event) => {
     evt.preventDefault();
@@ -34,6 +34,8 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
       setState(NewsletterState.ERROR);
     }
   };
+
+  let emailRef: HTMLInputElement;
   return (
     <form
       class={`bg-solid flex flex-col md:flex-row w-full items-center space-x-4 ${props.className}`}

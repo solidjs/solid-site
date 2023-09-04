@@ -1,20 +1,20 @@
 import { Component, Show, createMemo } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteData, NavLink } from '@solidjs/router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 
 export const BlogArticle: Component = () => {
-  const [t] = useI18n();
+  const context = useAppState();
+  const { t } = context;
+
   const data = useRouteData<BlogArticleData>();
   useRouteReadyState();
   const chevron = createMemo(() =>
     t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-right' : 'chevron-left',
   );
-  const context = useAppContext();
 
   return (
     <div class="flex flex-col">

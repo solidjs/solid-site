@@ -1,24 +1,21 @@
-import { ParentComponent, createContext, createEffect, createResource, useContext } from 'solid-js';
+import {
+  ParentComponent,
+  Show,
+  Suspense,
+  createContext,
+  createEffect,
+  createResource,
+  useContext,
+} from 'solid-js';
 import { Meta, Title } from 'solid-meta';
-import { useLocation } from '@solidjs/router';
-import { createCookieStorage } from '@solid-primitives/storage';
-import { createI18nContext, I18nContext } from '@solid-primitives/i18n';
+import * as router from '@solidjs/router';
+import * as storage from '@solid-primitives/storage';
+import * as i18n from '@solid-primitives/i18n';
 import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';
+import { createStore } from 'solid-js/store';
+import type en_dict from '../lang/en/en';
 
-interface AppContextInterface {
-  isDark: boolean;
-  loading: boolean;
-  guides: ResourceMetadata[] | undefined;
-}
-
-const AppContext = createContext<AppContextInterface>({
-  isDark: false,
-  loading: true,
-  guides: undefined,
-});
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const langs: { [lang: string]: () => Promise<any> } = {
+const raw_dict_map = {
   en: async () => (await import('../lang/en/en')).default(),
   az: async () => (await import('../lang/az/az')).default(),
   it: async () => (await import('../lang/it/it')).default(),
@@ -39,102 +36,147 @@ const langs: { [lang: string]: () => Promise<any> } = {
   es: async () => (await import('../lang/es/es')).default(),
   pl: async () => (await import('../lang/pl/pl')).default(),
   uk: async () => (await import('../lang/uk/uk')).default(),
-};
+} satisfies Record<string, () => Promise<unknown>>;
+
+export type RawDictionary = ReturnType<typeof en_dict>;
+export type Dictionary = i18n.Flatten<RawDictionary>;
+
+export type Locale = keyof typeof raw_dict_map;
+
+async function fetchDictionary(locale: Locale): Promise<Dictionary> {
+  const raw_dict = await raw_dict_map[locale]();
+  return i18n.flatten(raw_dict) as Dictionary;
+}
 
 // Some browsers does not map correctly to some locale code
 // due to offering multiple locale code for similar language (e.g. tl and fil)
 // This object maps it to correct `langs` key
-const langAliases: Record<string, string> = {
+const LANG_ALIASES: Partial<Record<string, Locale>> = {
   fil: 'tl',
 };
 
-type DataParams = {
-  locale: string;
-  page: string;
-};
+const toLocale = (string: string): Locale | undefined =>
+  string in raw_dict_map
+    ? (string as Locale)
+    : string in LANG_ALIASES
+    ? (LANG_ALIASES[string] as Locale)
+    : undefined;
+
+interface Settings {
+  locale: Locale;
+  dark: boolean;
+}
+
+function initialLocale(location: router.Location): Locale {
+  let locale: Locale | undefined;
+
+  locale = toLocale(location.query.locale);
+  if (locale) return locale;
+
+  locale = toLocale(navigator.language.slice(0, 2));
+  if (locale) return locale;
+
+  locale = toLocale(navigator.language.toLocaleLowerCase());
+  if (locale) return locale;
+
+  return 'en';
+}
+
+function initialSettings(location: router.Location): Settings {
+  return {
+    locale: initialLocale(location),
+    dark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+  };
+}
+
+function deserializeSettings(value: string, location: router.Location): Settings {
+  const parsed = JSON.parse(value) as unknown;
+  if (!parsed || typeof parsed !== 'object') return initialSettings(location);
+
+  return {
+    locale:
+      ('locale' in parsed && typeof parsed.locale === 'string' && toLocale(parsed.locale)) ||
+      initialLocale(location),
+    dark: 'dark' in parsed && typeof parsed.dark === 'boolean' ? parsed.dark : false,
+  };
+}
+
+interface AppState {
+  get isDark(): boolean;
+  setDark(value: boolean): void;
+  get locale(): Locale;
+  setLocale(value: Locale): void;
+  t: i18n.Translator<Dictionary>;
+  get guides(): ResourceMetadata[] | undefined;
+}
+
+const AppContext = createContext<AppState>({} as AppState);
+
+export const useAppState = () => useContext(AppContext);
 
 export const AppContextProvider: ParentComponent = (props) => {
+  const location = router.useLocation();
+
   const now = new Date();
-  const cookieOptions = {
+  const cookieOptions: storage.CookieOptions = {
     expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate()),
   };
-  const [settings, set] = createCookieStorage();
-  const browserLang = navigator.language.slice(0, 2);
-  const location = useLocation();
-  const specialLangs = { zh: true, ko: true };
 
-  if (location.query.locale) {
-    set('locale', location.query.locale, cookieOptions);
-  } else if (!settings.locale && browserLang in langs) {
-    set('locale', browserLang);
-  } else if (
-    !settings.locale &&
-    browserLang in specialLangs &&
-    navigator.language.toLowerCase() in langs
-  ) {
-    set('locale', navigator.language.toLocaleLowerCase());
-  }
-
-  const i18n = createI18nContext({}, (settings.locale || 'en') as string);
-  const [t, { add, locale }] = i18n;
-  const params = (): DataParams => {
-    const locale = i18n[1].locale();
-    let page = location.pathname.slice(1);
-    if (page == '') {
-      page = 'home';
-    }
-    if (locale in langAliases) {
-      return { locale: langAliases[locale], page };
-    }
-    return { locale, page };
-  };
-
-  const [lang] = createResource(params, ({ locale }) => langs[locale]());
-  const [guidesList] = createResource(params, ({ locale }) => getGuideDirectory(locale));
-  const isDark = () =>
-    settings.dark === 'true'
-      ? true
-      : settings.dark === 'false'
-      ? false
-      : window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  createEffect(() => set('locale', i18n[1].locale()), cookieOptions);
-  createEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (!lang.loading) add(i18n[1].locale(), lang() as Record<string, any>);
+  const [settings, set] = storage.makePersisted(createStore(initialSettings(location)), {
+    storageOptions: cookieOptions,
+    storage: storage.cookieStorage,
+    deserialize: (value) => deserializeSettings(value, location),
   });
+
+  const locale = () => settings.locale;
+
+  const [dict] = createResource(locale, fetchDictionary);
+
+  const [guidesList] = createResource(locale, getGuideDirectory);
+
   createEffect(() => {
-    document.documentElement.lang = locale();
+    document.documentElement.lang = settings.locale;
   });
+
   createEffect(() => {
-    if (isDark()) document.documentElement.classList.add('dark');
+    if (settings.dark) document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
   });
 
-  const store = {
-    set isDark(value) {
-      set('dark', value === true ? 'true' : 'false', cookieOptions);
-    },
-    get isDark() {
-      return isDark();
-    },
-    get loading() {
-      return lang.loading;
-    },
-    get guides() {
-      return guidesList();
-    },
-  };
-
   return (
-    <AppContext.Provider value={store}>
-      <I18nContext.Provider value={i18n}>
-        <Title>{t('global.title', {}, 'SolidJS · Reactive Javascript Library')}</Title>
-        <Meta name="lang" content={locale()} />
-        <div dir={t('global.dir', {}, 'ltr')}>{props.children}</div>
-      </I18nContext.Provider>
-    </AppContext.Provider>
+    <Suspense>
+      <Show when={dict()}>
+        {(dict) => {
+          const t = i18n.translator(dict);
+
+          const state: AppState = {
+            get isDark() {
+              return settings.dark;
+            },
+            setDark(value) {
+              set('dark', value);
+            },
+            get locale() {
+              return settings.locale;
+            },
+            setLocale(value) {
+              set('locale', value);
+            },
+            t,
+            get guides() {
+              return guidesList();
+            },
+          };
+
+          return (
+            <AppContext.Provider value={state}>
+              <Title>{t('global.title')}</Title>
+              <Meta name="lang" content={locale()} />
+              <div dir={t('global.dir')}>{props.children}</div>
+            </AppContext.Provider>
+          );
+        }}
+      </Show>
+    </Suspense>
   );
 };
-
-export const useAppContext = () => useContext(AppContext);

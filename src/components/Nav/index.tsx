@@ -11,7 +11,6 @@ import {
 } from 'solid-js';
 import { computePosition, autoUpdate, shift, size, flip, offset } from '@floating-ui/dom';
 import { Link, NavLink } from '@solidjs/router';
-import { useI18n } from '@solid-primitives/i18n';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
@@ -19,15 +18,16 @@ import logo from '../../assets/logo.svg';
 import ukraine from '../../assets/for-ukraine.png';
 import ScrollShadow from '../ScrollShadow/ScrollShadow';
 import Social from '../Social';
-import { useAppContext } from '../../AppContext';
+import { Locale, useAppState } from '../../AppContext';
 import { onEnterLogo, onExitLogo } from '../../utils';
 import { routeReadyState, page, setRouteReadyState } from '../../utils/routeReadyState';
 import PageLoadingBar from '../LoadingBar/PageLoadingBar';
 import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
+import { entries } from '@solid-primitives/utils';
 
-const langs = {
+const langs: Record<Locale, string> = {
   en: 'English',
   az: 'Azərbaycanca',
   'ko-kr': '한국어',
@@ -65,8 +65,9 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   );
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const closeSubnav = debounce(() => !disableMenuClose && setSubnav(null), 150);
-  const [t, { locale }] = useI18n();
-  const context = useAppContext();
+
+  const context = useAppState();
+  const { t } = context;
 
   let firstLoad = true;
   let navEl!: HTMLElement;
@@ -257,20 +258,21 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           }}
         >
           <div class="absolute w-full md:w-96 mt-2 md:ml-12 md:mr-5 border dark:border-solid-darkbg rounded-md transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
-            <For each={Object.entries(langs)}>
-              {([lang, label]) => (
-                <button
-                  class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
-                  classList={{
-                    'bg-solid-medium text-white': lang == locale(),
-                    'hover:bg-solid-light': lang == locale(),
-                  }}
-                  onClick={() => locale(lang) && toggleLangs(false)}
-                >
-                  {label}
-                </button>
-              )}
-            </For>
+            {entries(langs).map(([lang, label]) => (
+              <button
+                class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
+                classList={{
+                  'bg-solid-medium text-white': lang == context.locale,
+                  'hover:bg-solid-light': lang == context.locale,
+                }}
+                onClick={() => {
+                  context.setLocale(lang);
+                  toggleLangs(false);
+                }}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </Dismiss>
         <Show when={subnav() && subnav()!.links.length !== 0}>

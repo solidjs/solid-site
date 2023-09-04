@@ -1,9 +1,9 @@
 import { Component, For } from 'solid-js';
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { copyToClipboard } from '@solid-primitives/clipboard';
+import { useAppState } from '../AppContext';
 
 const assets = [
   {
@@ -80,7 +80,7 @@ const AssetPanel: Component<{
   assets: Record<string, string>;
   background: string;
 }> = ({ title, assets, example, background }) => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   const slug = title.replaceAll(' ', '_').toLowerCase();
   return (
     <div class="shadow-md">
@@ -107,9 +107,10 @@ const AssetPanel: Component<{
 };
 
 const Media: Component = () => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   copyToClipboard;
   useRouteReadyState();
+
   return (
     <div class="flex flex-col">
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">

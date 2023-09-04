@@ -10,7 +10,6 @@ import {
   createEffect,
 } from 'solid-js';
 import { Link, useRouteData, useIsRouting } from '@solidjs/router';
-import { useI18n } from '@solid-primitives/i18n';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
 import iconBlocks2 from '../assets/icons/blocks2.svg';
@@ -25,6 +24,7 @@ import { Icon } from 'solid-heroicons';
 import Footer from '../components/Footer';
 import Benchmarks, { GraphData } from '../components/Benchmarks';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { useAppState } from '../AppContext';
 
 const Repl = lazy(() => import('../components/ReplTab'));
 
@@ -38,7 +38,7 @@ const strength_icons: { [key: string]: string } = {
 const Home: Component = () => {
   const isRouting = useIsRouting();
   const data = useRouteData<{ benchmarks: GraphData[] }>();
-  const [t] = useI18n();
+  const { t } = useAppState();
   const [loadRepl, setLoadRepl] = createSignal(false);
   const [observeInteraction] = createViewportObserver({ threshold: 0.4 });
   let playgroundRef!: HTMLElement;

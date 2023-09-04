@@ -3,8 +3,8 @@ import { useRouteData } from '@solidjs/router';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
+import { useAppState } from '../AppContext';
 
 interface CoreMemberProps {
   img: string;
@@ -64,7 +64,7 @@ const Contributor: Component<ContributorProps> = (props) => {
 };
 
 const Contributors: Component = () => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   const data = useRouteData<ContributorsDataProps>();
 
   useRouteReadyState();

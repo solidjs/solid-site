@@ -17,11 +17,10 @@ import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-he
 
 import { compiler, formatter } from '../components/setupRepl';
 import type { TutorialRouteData } from './Tutorial.data';
-import { useI18n } from '@solid-primitives/i18n';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { reflow } from '../utils/reflow';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 import { LessonLookup } from '@solid.js/docs';
 import type { editor } from 'monaco-editor';
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -156,8 +155,8 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
 
 const Tutorial: Component = () => {
   const data = useRouteData<TutorialRouteData>();
-  const context = useAppContext();
-  const [t] = useI18n();
+  const context = useAppState();
+  const { t } = context;
   let replEditor: editor.IStandaloneCodeEditor;
   const [tabs, setTabs] = createSignal([
     {

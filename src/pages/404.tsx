@@ -1,11 +1,11 @@
 import { Component } from 'solid-js';
 import { Icon } from 'solid-heroicons';
 import { emojiSad } from 'solid-heroicons/outline';
-
-import { useI18n } from '@solid-primitives/i18n';
+import { useAppState } from '../AppContext';
 
 const FourOhFour: Component = () => {
-  const [t] = useI18n();
+  const { t } = useAppState();
+
   return (
     <div>
       <div class="flex flex-col justify-center content-center text-center rounded-2xl m-10 bg-gray-100 dark:bg-gray-800 py-10 text-solid-medium">
