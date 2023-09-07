@@ -2316,6 +2316,17 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'flutterwave', 'payment'],
     published_at: 1688926787929,
   },
+  {
+    title: 'solid-swr',
+    link: 'https://github.com/Tronikelis/solid-swr',
+    author: 'Tronikelis',
+    author_url: 'https://github.com/Tronikelis',
+    description: 'The beloved swr package ported over to solid',
+    type: PackageType.Package,
+    official: false,
+    categories: [ResourceCategory.Data, ResourceCategory.Primitives],
+    keywords: ['swr', 'fetch', 'request', 'cache'],
+  },
 ];
 
 export default utilities;
