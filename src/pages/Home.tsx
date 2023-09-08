@@ -175,7 +175,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             </For>
             <Link
               class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
-              href={t('home.example.link') ?? ''}
+              href={t('home.example.link')}
             >
               {t('home.example.link_label')}
             </Link>

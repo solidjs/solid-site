@@ -7,7 +7,7 @@ import examples from './examples.json';
 import contributors from './contributors.json';
 import docs from './docs.json';
 
-const langs = () => ({
+export const dict = {
   global,
   home,
   docs,
@@ -16,6 +16,4 @@ const langs = () => ({
   tutorial,
   examples,
   contributors,
-});
-
-export default langs;
+};

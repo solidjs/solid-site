@@ -56,7 +56,7 @@ const Examples: Component = () => {
             {entries(data.list).map(([name, examples]) => (
               <>
                 <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
-                  {t(`examples.${name.toLowerCase() as Lowercase<typeof name>}`) ?? name}
+                  {t(`examples.${name.toLowerCase() as Lowercase<typeof name>}`)}
                 </h3>
                 <div class="mb-10">
                   <For each={examples}>

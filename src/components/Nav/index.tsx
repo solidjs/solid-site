@@ -201,7 +201,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 />
               </Link>
               <span id="ukraine-support" hidden>
-                {t('home.ukraine.support') ?? 'We stand with Ukraine.'}
+                {t('home.ukraine.support')}
               </span>
             </div>
             <ScrollShadow

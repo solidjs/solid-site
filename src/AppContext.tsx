@@ -14,39 +14,76 @@ import * as storage from '@solid-primitives/storage';
 import * as i18n from '@solid-primitives/i18n';
 import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';
 import { createStore } from 'solid-js/store';
-import type en_dict from '../lang/en/en';
 
-const raw_dict_map = {
-  en: async () => (await import('../lang/en/en')).default(),
-  az: async () => (await import('../lang/az/az')).default(),
-  it: async () => (await import('../lang/it/it')).default(),
-  de: async () => (await import('../lang/de/de')).default(),
-  pt: async () => (await import('../lang/pt/pt')).default(),
-  ja: async () => (await import('../lang/ja/ja')).default(),
-  fr: async () => (await import('../lang/fr/fr')).default(),
-  id: async () => (await import('../lang/id/id')).default(),
-  he: async () => (await import('../lang/he/he')).default(),
-  ru: async () => (await import('../lang/ru/ru')).default(),
-  ar: async () => (await import('../lang/ar/ar')).default(),
-  fa: async () => (await import('../lang/fa/fa')).default(),
-  tr: async () => (await import('../lang/tr/tr')).default(),
-  tl: async () => (await import('../lang/tl/tl')).default(),
-  'ko-kr': async () => (await import('../lang/ko-kr/ko-kr')).default(),
-  'zh-cn': async () => (await import('../lang/zh-cn/zh-cn')).default(),
-  'zh-tw': async () => (await import('../lang/zh-tw/zh-tw')).default(),
-  es: async () => (await import('../lang/es/es')).default(),
-  pl: async () => (await import('../lang/pl/pl')).default(),
-  uk: async () => (await import('../lang/uk/uk')).default(),
-} satisfies Record<string, () => Promise<unknown>>;
+// en dictionary is loaded by default
+import { dict as en_dict } from '../lang/en/en';
 
-export type RawDictionary = ReturnType<typeof en_dict>;
+type RawDictionary = typeof en_dict;
+
+export type Locale =
+  | 'en'
+  | 'az'
+  | 'it'
+  | 'de'
+  | 'pt'
+  | 'ja'
+  | 'fr'
+  | 'id'
+  | 'he'
+  | 'ru'
+  | 'ar'
+  | 'fa'
+  | 'tr'
+  | 'tl'
+  | 'ko-kr'
+  | 'zh-cn'
+  | 'zh-tw'
+  | 'es'
+  | 'pl'
+  | 'uk';
+
+/*
+for validating of other dictionaries have same keys as en dictionary
+some might be missing, but the shape should be the same
+*/
+type DeepPartial<T> = T extends Record<string, unknown>
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : T;
+
+const raw_dict_map: Record<Locale, () => Promise<{ dict: DeepPartial<RawDictionary> }>> = {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any
+  en: () => null as any, // en is loaded by default
+  az: () => import('../lang/az/az'),
+  it: () => import('../lang/it/it'),
+  de: () => import('../lang/de/de'),
+  pt: () => import('../lang/pt/pt'),
+  ja: () => import('../lang/ja/ja'),
+  fr: () => import('../lang/fr/fr'),
+  id: () => import('../lang/id/id'),
+  he: () => import('../lang/he/he'),
+  ru: () => import('../lang/ru/ru'),
+  ar: () => import('../lang/ar/ar'),
+  fa: () => import('../lang/fa/fa'),
+  tr: () => import('../lang/tr/tr'),
+  tl: () => import('../lang/tl/tl'),
+  'ko-kr': () => import('../lang/ko-kr/ko-kr'),
+  'zh-cn': () => import('../lang/zh-cn/zh-cn'),
+  'zh-tw': () => import('../lang/zh-tw/zh-tw'),
+  es: () => import('../lang/es/es'),
+  pl: () => import('../lang/pl/pl'),
+  uk: () => import('../lang/uk/uk'),
+};
+
 export type Dictionary = i18n.Flatten<RawDictionary>;
 
-export type Locale = keyof typeof raw_dict_map;
+const en_flat_dict: Dictionary = i18n.flatten(en_dict);
 
 async function fetchDictionary(locale: Locale): Promise<Dictionary> {
-  const raw_dict = await raw_dict_map[locale]();
-  return i18n.flatten(raw_dict) as Dictionary;
+  if (locale === 'en') return en_flat_dict;
+
+  const { dict } = await raw_dict_map[locale]();
+  const flat_dict = i18n.flatten(dict) as RawDictionary;
+  return { ...en_flat_dict, ...flat_dict };
 }
 
 // Some browsers does not map correctly to some locale code
@@ -107,8 +144,8 @@ interface AppState {
   setDark(value: boolean): void;
   get locale(): Locale;
   setLocale(value: Locale): void;
-  t: i18n.NullableTranslator<Dictionary>;
-  get dir(): JSX.HTMLDir;
+  t: i18n.Translator<Dictionary>;
+  get dir(): 'ltr' | 'rtl';
   get guides(): ResourceMetadata[] | undefined;
 }
 
@@ -132,7 +169,7 @@ export const AppContextProvider: ParentComponent = (props) => {
 
   const locale = () => settings.locale;
 
-  const [dict] = createResource(locale, fetchDictionary);
+  const [dict] = createResource(locale, fetchDictionary, { initialValue: en_flat_dict });
 
   const [guidesList] = createResource(locale, getGuideDirectory);
 
@@ -164,7 +201,8 @@ export const AppContextProvider: ParentComponent = (props) => {
     },
     t,
     get dir() {
-      return (t('global.dir') ?? 'ltr') as JSX.HTMLDir;
+      const dir = t('global.dir');
+      return dir === 'ltr' || dir === 'rtl' ? dir : 'ltr';
     },
     get guides() {
       return guidesList();
@@ -174,7 +212,7 @@ export const AppContextProvider: ParentComponent = (props) => {
   return (
     <Suspense>
       <AppContext.Provider value={state}>
-        <Title>{t('global.title') ?? 'SolidJS · Reactive Javascript Library'}</Title>
+        <Title>{t('global.title')}</Title>
         <Meta name="lang" content={locale()} />
         <div dir={state.dir}>{props.children}</div>
       </AppContext.Provider>

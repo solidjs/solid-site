@@ -1,7 +1,6 @@
 import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
-import { entries } from '@solid-primitives/utils';
 import { useRouteData, useSearchParams } from '@solidjs/router';
 import Fuse from 'fuse.js';
 import Dismiss from 'solid-dismiss';
@@ -68,7 +67,7 @@ const AResource: Component<Resource> = (props) => {
             </div>
             <Show when={props.published_at}>
               <div class="rtl:text-right text-xs text-gray-400 block">
-                {t('resources.published') ?? 'Published'} {published.toDateString()}
+                {t('resources.published')} {published.toDateString()}
                 <Show when={difference() / DAY < 60}>
                   <span class="text-gray-300"> - {publishTimeAgo()}</span>
                 </Show>
@@ -183,7 +182,7 @@ const Resources: Component = () => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              {entries(ResourceType).map(([name, type]) => (
+              {Object.values(ResourceType).map((type) => (
                 <button
                   disabled={!filtered.counts[type]}
                   onClick={() => {
@@ -215,7 +214,7 @@ const Resources: Component = () => {
                     </figure>
                   </div>
                   <div class="col-span-3 rtl:text-right lg:col-span-3">
-                    {t(`resources.types_list.${type}`) ?? name}
+                    {t(`resources.types_list.${type}`)}
                   </div>
                   <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
                     <Show when={filtered.counts[type]} fallback={0}>
@@ -278,7 +277,7 @@ const Resources: Component = () => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              {entries(ResourceType).map(([name, type]) => (
+              {Object.values(ResourceType).map((type) => (
                 <button
                   disabled={!filtered.counts[type]}
                   onClick={() => {
@@ -310,7 +309,7 @@ const Resources: Component = () => {
                     </figure>
                   </div>
                   <div class="col-span-3 rtl:text-right lg:col-span-3">
-                    {t(`resources.types_list.${type}`) ?? name}
+                    {t(`resources.types_list.${type}`)}
                   </div>
                   <div class="col-span-1 text-center flex-end text-gray-400 text-xs">
                     <Show when={filtered.counts[type]} fallback={0}>

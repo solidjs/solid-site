@@ -14,14 +14,12 @@ const FourOhFour: Component = () => {
             class="m-auto w-40 text-solid-default dark:text-solid-darkdefault"
             path={emojiSad}
           />
-          <h2 class="mt-5 text-4xl font-semibold">
-            {t('global.404.header') ?? 'Oops. Four oh four.'}
-          </h2>
+          <h2 class="mt-5 text-4xl font-semibold">{t('global.404.header')}</h2>
           <h2 class="text-2xl text-solid-gray">
             <a class="text-solid-medium" href="https://github.com/solidjs/solid-router">
               @solidjs/router
             </a>{' '}
-            {t('global.404.body') ?? "believes this page definitely doesn't exist."}
+            {t('global.404.body')}
           </h2>
         </div>
       </div>

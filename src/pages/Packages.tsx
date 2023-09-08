@@ -4,13 +4,7 @@ import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
-import {
-  Resource,
-  ResourceCategory,
-  ResourceCategoryName,
-  ResourceType,
-  ResourceTypeIcons,
-} from './Resources/Ecosystem';
+import { Resource, ResourceCategory, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import SideContent from '../components/layout/SideContent';
@@ -19,7 +13,7 @@ import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { shieldCheck } from 'solid-heroicons/solid';
 import { externalLink } from 'solid-heroicons/outline';
 import { useAppState } from '../AppContext';
-import { entries, keys } from '@solid-primitives/utils';
+import { keys } from '@solid-primitives/utils';
 
 const FilterButton: Component<{
   onClick: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
@@ -104,7 +98,7 @@ const ResourceLink: Component<Resource> = (props) => {
           </Show>
           <Show when={props.published_at}>
             <div class="rtl:text-right text-xs text-gray-400 block">
-              {t('resources.published') ?? 'Published'} {published.toDateString()}
+              {t('resources.published')} {published.toDateString()}
               <Show when={difference() / DAY < 60}>
                 <span class="text-gray-300"> - {publishTimeAgo()}</span>
               </Show>
@@ -216,9 +210,9 @@ const Packages: Component = () => {
             {t('resources.categories')}
           </h3>
           <div class="mt-3 space-y-2">
-            {entries(ResourceCategory).map(([name, id]) => (
+            {Object.values(ResourceCategory).map((id) => (
               <FilterButton
-                name={t(`resources.categories_list.${id}`) ?? name}
+                name={t(`resources.categories_list.${id}`)}
                 count={(byCategory()[id] || []).length}
                 active={!!byCategory()[id]}
                 onClick={[scrollToCategory, id]}
@@ -262,7 +256,7 @@ const Packages: Component = () => {
                     class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
                     id={category}
                   >
-                    {t(`resources.categories_list.${category}`) ?? ResourceCategoryName[category]}
+                    {t(`resources.categories_list.${category}`)}
                   </h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <For each={byCategory()[category]}>

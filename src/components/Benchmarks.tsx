@@ -96,7 +96,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
 
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
-  const direction = createMemo(() => ((ctx.dir ?? 'ltr') == 'rtl' ? 'left' : 'right'));
+  const direction = createMemo(() => (ctx.dir == 'rtl' ? 'left' : 'right'));
 
   return (
     <>

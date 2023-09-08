@@ -23,32 +23,46 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
 
   // Only rerender event listener when children change
   if (props.links) {
-    onMount(() => {
-      createEventListener(linkEl, 'mouseenter', () => {
+    createEventListener(
+      () => linkEl,
+      'mouseenter',
+      () => {
         props.clearSubnavClose();
         batch(() => {
           props.setSubnav(props.links!, wrapperEl);
         });
-      });
-      createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
-    });
+      },
+    );
+    createEventListener(
+      () => linkEl,
+      'mouseleave',
+      () => props.closeSubnav(),
+    );
   }
-  onMount(() => {
-    createEventListener(linkEl, 'mousedown', () => {
+
+  const [linkTarget, setLinkTarget] = createSignal<HTMLAnchorElement>();
+
+  createEventListener(
+    () => linkEl,
+    'mousedown',
+    () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
+      setLinkTarget(linkEl);
       reflow();
-      const [targets, setTargets] = createSignal([linkEl]);
-      createEventListener(targets, 'mouseleave', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      createEventListener(targets, 'click', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      const removeEvents = () => setTargets([]);
-    });
+    },
+  );
+
+  createEventListener(linkTarget, 'mouseleave', () => {
+    setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
+    setLinkTarget(); // reset
+  });
+  createEventListener(linkTarget, 'click', () => {
+    setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
+    setLinkTarget(); // reset
+  });
+
+  onMount(() => {
     if (!window.location.pathname.startsWith(props.path)) return;
 
     linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' as ScrollBehavior });

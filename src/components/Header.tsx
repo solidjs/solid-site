@@ -66,12 +66,12 @@ const Header: ParentComponent<{ title?: string }> = () => {
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
             <a
               target="_blank"
-              href={t('home.ukraine.link') ?? 'https://www.un.org/en/globalceasefire'}
+              href={t('home.ukraine.link')}
               class="absolute w-full text-center text-[15px] p-3 bg-yellow-500 hover:bg-yellow-500/80 transition duration-200"
             >
               <span class="text-whit">
-                <b>{t('home.ukraine.support') ?? 'Support Global Ceasefire!'}</b>&nbsp;
-                {t('home.ukraine.petition') ?? 'End war in Ukraine and all global conflict →'}
+                <b>{t('home.ukraine.support')}</b>&nbsp;
+                {t('home.ukraine.petition')}
               </span>{' '}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
@@ -108,7 +108,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                       href="/guides/getting-started"
                       class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
                     >
-                      <span class="mt-0.5 ">{t('home.get_started') ?? 'Get Started'}</span>
+                      <span class="mt-0.5 ">{t('home.get_started')}</span>
                       <Icon stroke-width="3" class="w-5" path={chevronRight} />
                     </Link>
                   </div>
@@ -119,7 +119,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                       class="bg-solid-light flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
-                      {t('home.intro_video') ?? 'Intro to Solid (100 seconds)'}
+                      {t('home.intro_video')}
                     </Link>
                     {/* <Link
                       target="_blank"
@@ -127,7 +127,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                       class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
-                      {t('home.intro_video_advanced') ?? 'Advanced intro (10 minutes)'}
+                      {t('home.intro_video_advanced')}
                     </Link> */}
                   </div>
                 </div>
@@ -154,38 +154,38 @@ const Header: ParentComponent<{ title?: string }> = () => {
                       <Switch>
                         <Match when={location.pathname.includes('/blog')}>
                           <Title>
-                            {/* {t('global.blog.title') ?? 'Blog'} */}
+                            {/* {t('global.blog.title')} */}
                             Blog
                           </Title>
                         </Match>
                         <Match when={location.pathname.includes('/guide')}>
                           <Title>
-                            {/* {t('guides.title') ?? 'Guides'} */}
+                            {/* {t('guides.title')} */}
                             Guides
                             {guideName() && ':'}
                             <span class="pl-2">{guideName()}</span>
                           </Title>
                         </Match>
                         <Match when={location.pathname.includes('/docs')}>
-                          <Title>{t('docs.title') ?? 'Docs'}</Title>
+                          <Title>{t('docs.title')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/ecosystem')}>
-                          <Title>{t('resources.title') ?? 'Ecosystem'}</Title>
+                          <Title>{t('resources.title')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/store')}>
                           <Title>
-                            {/* {t('store.title') ?? 'Solid Store'} */}
+                            {/* {t('store.title')} */}
                             Solid Store
                           </Title>
                         </Match>
                         <Match when={location.pathname.includes('/examples')}>
-                          <Title>{t('examples.title') ?? 'Examples'}</Title>
+                          <Title>{t('examples.title')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/media')}>
-                          <Title>{t('media.title') ?? 'Media Assets'}</Title>
+                          <Title>{t('media.title')}</Title>
                         </Match>
                         <Match when={location.pathname.includes('/contributors')}>
-                          <Title>{t('contributors.title') ?? 'Team & Contributions'}</Title>
+                          <Title>{t('contributors.title')}</Title>
                         </Match>
                       </Switch>
                     </Transition>
