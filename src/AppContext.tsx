@@ -1,5 +1,8 @@
+import * as i18n from '@solid-primitives/i18n';
+import * as storage from '@solid-primitives/storage';
+import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';
+import * as router from '@solidjs/router';
 import {
-  JSX,
   ParentComponent,
   Suspense,
   createContext,
@@ -8,12 +11,8 @@ import {
   startTransition,
   useContext,
 } from 'solid-js';
-import { Meta, Title } from 'solid-meta';
-import * as router from '@solidjs/router';
-import * as storage from '@solid-primitives/storage';
-import * as i18n from '@solid-primitives/i18n';
-import { ResourceMetadata, getGuideDirectory } from '@solid.js/docs';
 import { createStore } from 'solid-js/store';
+import { Meta, Title } from 'solid-meta';
 
 // en dictionary is loaded by default
 import { dict as en_dict } from '../lang/en/en';
