@@ -2316,6 +2316,18 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'flutterwave', 'payment'],
     published_at: 1688926787929,
   },
+  {
+    title: 'solid-algo-wallets',
+    link: 'https://github.com/SilentRhetoric/solid-algo-wallets',
+    author: 'Brian Whippo',
+    author_url: 'https://github.com/SilentRhetoric',
+    description: 'Integrate multiple Algorand wallets with a SolidJS web application client',
+    type: PackageType.Library,
+    categories: [ResourceCategory.AddOn],
+    official: false,
+    keywords: ['algorand', 'wallet', 'web3'],
+    published_at: 1694382818000,
+  },
 ];
 
 export default utilities;
