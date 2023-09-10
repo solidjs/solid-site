@@ -30,8 +30,6 @@ const ScrollShadow: ParentComponent<
   const scrollHorizontally = (e: WheelEvent) => {
     if (!isScrollable) return;
 
-    e.preventDefault();
-
     const target = e.currentTarget as HTMLElement;
     target.scrollLeft += e.deltaX + e.deltaY;
   };
