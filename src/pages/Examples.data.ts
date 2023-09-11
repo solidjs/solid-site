@@ -1,78 +1,45 @@
-interface Example {
-  id: string;
-  name: string;
-  description: string;
+import { RouteDataFunc } from 'solid-app-router';
+import { createResource } from 'solid-js';
+import { useI18n } from '@solid-primitives/i18n';
+import { Example, getExamplesDirectory, getExample } from '@solid.js/docs';
+
+export interface ExamplesRouteData {
+  loading: boolean;
+  list?: [string, Example[]][];
+  current?: Example;
 }
 
-const list: Record<string, Example[]> = {
-  Basic: [
-    {
-      id: 'counter',
-      name: 'Counter',
-      description: 'A simple standard counter example',
+export const ExamplesData: RouteDataFunc<ExamplesRouteData> = (props) => {
+  const [, { locale }] = useI18n();
+  const paramList = () => ({ lang: locale(), id: props.params.id });
+  const [examplesDirectoryResource] = createResource(paramList, async ({ lang }) => {
+    const requestedLang = await getExamplesDirectory(lang);
+    if (requestedLang) return requestedLang;
+    return await getExamplesDirectory('en');
+  });
+  const [exampleResource] = createResource(paramList, async ({ lang, id }) => {
+    const requestedLang = await getExample(lang, id);
+    if (requestedLang) return requestedLang;
+    return await getExample('en', id);
+  });
+
+  return {
+    get loading() {
+      return examplesDirectoryResource.loading || exampleResource.loading;
     },
-    {
-      id: 'todos',
-      name: 'Simple Todos',
-      description: 'Todos with LocalStorage persistence',
+    get list() {
+      const examplesDirectory = examplesDirectoryResource();
+      if (!examplesDirectory) return undefined;
+      const result = examplesDirectory.reduce<Record<string, Example[]>>((acc, val) => {
+        const [category] = val.name.split('/');
+        if (!acc[category]) acc[category] = [];
+        acc[category].push(val);
+        return acc;
+      }, {});
+      return Object.entries(result);
     },
-    {
-      id: 'forms',
-      name: 'Form Validation',
-      description: 'HTML 5 validators with custom async validation',
+    get current() {
+      return exampleResource();
     },
-    {
-      id: 'cssanimations',
-      name: 'CSS Animations',
-      description: 'Using Solid Transition Group',
-    },
-    {
-      id: 'context',
-      name: 'Context',
-      description: 'A simple color picker using Context.',
-    },
-  ],
-  Complex: [
-    {
-      id: 'clock',
-      name: 'Clock',
-      description: 'Demonstrates Solid reactivity with a real-time clock example.',
-    },
-    {
-      id: 'ethasketch',
-      name: 'Etch A Sketch',
-      description: 'Uses Index and createMemo to create a grid graphic.',
-    },
-    {
-      id: 'scoreboard',
-      name: 'Scoreboard',
-      description: 'Make use of hooks to do simple transitions',
-    },
-    {
-      id: 'asyncresource',
-      name: 'Async Resource',
-      description: 'Ajax requests to SWAPI with Promise cancellation',
-    },
-    {
-      id: 'suspensetabs',
-      name: 'Suspense Transitions',
-      description: 'Defered loading spinners for smooth UX',
-    },
-    {
-      id: 'simpletodos',
-      name: 'Simple Todos Template Literals',
-      description: 'Simple Todos using Lit DOM Expressions',
-    },
-    {
-      id: 'simpletodoshyperscript',
-      name: 'Simple Todos Hyperscript',
-      description: 'Simple Todos using Hyper DOM Expressions',
-    },
-  ],
+  };
 };
-
-export const ExamplesData = () => ({
-  list,
-});
-
-export type ExamplesDataRoute = ReturnType<typeof ExamplesData>;

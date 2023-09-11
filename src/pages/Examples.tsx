@@ -1,15 +1,16 @@
 import Repl from 'solid-repl/lib/repl';
 import { NavLink, useRouteData, useParams } from '@solidjs/router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
-import { ExamplesDataRoute } from './Examples.data';
+import { ExamplesRouteData } from './Examples.data';
 
 import { compiler, formatter } from '../components/setupRepl';
 import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppContext } from '../AppContext';
+import { Example } from '@solid.js/docs';
 
 const Examples: Component = () => {
-  const data = useRouteData<ExamplesDataRoute>();
+  const data = useRouteData<ExamplesRouteData>();
   const context = useAppContext();
   const [t] = useI18n();
   const params = useParams<{ id: string }>();
@@ -23,26 +24,13 @@ const Examples: Component = () => {
 
   useRouteReadyState();
 
-  createEffect(async () => {
-    const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
-      r.json(),
-    )) as {
-      files: {
-        name: string;
-        type: string;
-        content: string | string[];
-      }[];
-      version?: string;
-    };
+  createEffect(() => {
+    if (data.loading) return;
     batch(() => {
-      const newTabs = exampleData.files.map(
-        (file: { name: string; type?: string; content: string | string[] }) => {
-          return {
-            name: file.name + (file.type ? `.${file.type}` : '.jsx'),
-            source: Array.isArray(file.content) ? file.content.join('\n') : file.content,
-          };
-        },
-      );
+      const newTabs = data.current?.files?.map((file) => ({
+        name: `${file.name}.${file.type}`,
+        source: file.content,
+      })) || [];
       setTabs(newTabs);
       setCurrent(newTabs[0].name);
     });
@@ -53,11 +41,11 @@ const Examples: Component = () => {
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
-            <For each={Object.entries(data.list)}>
-              {([name, examples]) => (
+            <For each={data.list}>
+              {([category, examples]: [string, Example[]]) => (
                 <>
                   <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
-                    {t(`examples.${name.toLowerCase()}`, {}, name)}
+                    {t(`examples.${category.toLowerCase()}`, {}, category)}
                   </h3>
                   <div class="mb-10">
                     <For each={examples}>
