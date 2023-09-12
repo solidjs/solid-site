@@ -200,8 +200,7 @@ export const AppContextProvider: ParentComponent = (props) => {
     },
     t,
     get dir() {
-      const dir = t('global.dir');
-      return dir === 'ltr' || dir === 'rtl' ? dir : 'ltr';
+      return t('global.dir') === 'ltr' ? 'ltr' : 'rtl';
     },
     get guides() {
       return guidesList();
