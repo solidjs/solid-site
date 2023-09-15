@@ -2317,6 +2317,18 @@ const utilities: Array<Resource> = [
     published_at: 1688926787929,
   },
   {
+    title: 'solid-wizard',
+    link: 'https://github.com/DigiChanges/solid-wizard',
+    author: 'DigiChanges',
+    author_url: 'https://github.com/DigiChanges',
+    description: 'A wizard component for solid-js.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    official: false,
+    keywords: ['component', 'wizard', 'steps', 'stepper'],
+    published_at: 1660003099,
+  },
+  {
     title: 'solid-algo-wallets',
     link: 'https://github.com/SilentRhetoric/solid-algo-wallets',
     author: 'Brian Whippo',
