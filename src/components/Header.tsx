@@ -144,51 +144,43 @@ const Header: ParentComponent<{ title?: string }> = () => {
               <div class="bg-gradient-to-r from-solid-light via-solid-medium to-solid-medium/80 dark:from-solid-light/70 dark:via-solid-medium/70 dark:to-solid-medium/40 text-white text-center md:text-left rtl:text-right">
                 <div class="px-3 lg:px-12 container">
                   <h1 class="py-8 text-3xl">
-                    <Transition
-                      enterClass="translate-x-5 opacity-0"
-                      enterToClass="translate-x-0 opacity-100"
-                      exitClass="translate-x-0 opacity-100"
-                      exitToClass="translate-x-5 opacity-0"
-                      mode="inout"
-                    >
-                      <Switch>
-                        <Match when={location.pathname.includes('/blog')}>
-                          <Title>
-                            {/* {t('global.blog.title')} */}
-                            Blog
-                          </Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/guide')}>
-                          <Title>
-                            {/* {t('guides.title')} */}
-                            Guides
-                            {guideName() && ':'}
-                            <span class="pl-2">{guideName()}</span>
-                          </Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/docs')}>
-                          <Title>{t('docs.title')}</Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/ecosystem')}>
-                          <Title>{t('resources.title')}</Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/store')}>
-                          <Title>
-                            {/* {t('store.title')} */}
-                            Solid Store
-                          </Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/examples')}>
-                          <Title>{t('examples.title')}</Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/media')}>
-                          <Title>{t('media.title')}</Title>
-                        </Match>
-                        <Match when={location.pathname.includes('/contributors')}>
-                          <Title>{t('contributors.title')}</Title>
-                        </Match>
-                      </Switch>
-                    </Transition>
+                    <Switch>
+                      <Match when={location.pathname.includes('/blog')}>
+                        <Title>
+                          {/* {t('global.blog.title')} */}
+                          Blog
+                        </Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/guide')}>
+                        <Title>
+                          {/* {t('guides.title')} */}
+                          Guides
+                          {guideName() && ':'}
+                          <span class="pl-2">{guideName()}</span>
+                        </Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/docs')}>
+                        <Title>{t('docs.title')}</Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/ecosystem')}>
+                        <Title>{t('resources.title')}</Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/store')}>
+                        <Title>
+                          {/* {t('store.title')} */}
+                          Solid Store
+                        </Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/examples')}>
+                        <Title>{t('examples.title')}</Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/media')}>
+                        <Title>{t('media.title')}</Title>
+                      </Match>
+                      <Match when={location.pathname.includes('/contributors')}>
+                        <Title>{t('contributors.title')}</Title>
+                      </Match>
+                    </Switch>
                   </h1>
                 </div>
               </div>
