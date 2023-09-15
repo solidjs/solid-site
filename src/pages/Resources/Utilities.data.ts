@@ -2328,6 +2328,29 @@ const utilities: Array<Resource> = [
     keywords: ['component', 'wizard', 'steps', 'stepper'],
     published_at: 1660003099,
   },
+  {
+    title: 'solid-algo-wallets',
+    link: 'https://github.com/SilentRhetoric/solid-algo-wallets',
+    author: 'Brian Whippo',
+    author_url: 'https://github.com/SilentRhetoric',
+    description: 'Integrate multiple Algorand wallets with a SolidJS web application client',
+    type: PackageType.Library,
+    categories: [ResourceCategory.AddOn],
+    official: false,
+    keywords: ['algorand', 'wallet', 'web3'],
+    published_at: 1694382818000,
+  },
+  {
+    title: 'solid-swr',
+    link: 'https://github.com/Tronikelis/solid-swr',
+    author: 'Tronikelis',
+    author_url: 'https://github.com/Tronikelis',
+    description: 'The beloved swr package ported over to solid',
+    type: PackageType.Package,
+    official: false,
+    categories: [ResourceCategory.Data, ResourceCategory.Primitives],
+    keywords: ['swr', 'fetch', 'request', 'cache'],
+  },
 ];
 
 export default utilities;

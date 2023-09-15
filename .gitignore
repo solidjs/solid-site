@@ -149,6 +149,11 @@ temp/
 !.yarn/versions
 .pnp.*
 
+# vite
+vite.config.ts.js
+vitest.config.ts.timestamp-*.mjs
+vite.config.ts.timestamp-*.mjs
+
 ### OSX ###
 # General
 

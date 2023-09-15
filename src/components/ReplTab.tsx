@@ -2,12 +2,12 @@ import { Component, createSignal, ErrorBoundary } from 'solid-js';
 import { Tab } from 'solid-repl';
 import Repl from 'solid-repl/lib/repl';
 import { compiler, formatter } from './setupRepl';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 
 let count = 0;
 const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   count++;
-  const context = useAppContext();
+  const context = useAppState();
   const initialTabs = props.tabs || [
     {
       name: 'main.jsx',

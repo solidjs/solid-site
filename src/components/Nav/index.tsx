@@ -11,7 +11,6 @@ import {
 } from 'solid-js';
 import { computePosition, autoUpdate, shift, size, flip, offset } from '@floating-ui/dom';
 import { Link, NavLink } from '@solidjs/router';
-import { useI18n } from '@solid-primitives/i18n';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
@@ -19,15 +18,16 @@ import logo from '../../assets/logo.svg';
 import ukraine from '../../assets/for-ukraine.png';
 import ScrollShadow from '../ScrollShadow/ScrollShadow';
 import Social from '../Social';
-import { useAppContext } from '../../AppContext';
+import { Locale, useAppState } from '../../AppContext';
 import { onEnterLogo, onExitLogo } from '../../utils';
 import { routeReadyState, page, setRouteReadyState } from '../../utils/routeReadyState';
 import PageLoadingBar from '../LoadingBar/PageLoadingBar';
 import { LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
+import { entries } from '@solid-primitives/utils';
 
-const langs = {
+const langs: Record<Locale, string> = {
   en: 'English',
   az: 'Azərbaycanca',
   'ko-kr': '한국어',
@@ -65,8 +65,9 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   );
   const [locked, setLocked] = createSignal<boolean>(props.showLogo || true);
   const closeSubnav = debounce(() => !disableMenuClose && setSubnav(null), 150);
-  const [t, { locale }] = useI18n();
-  const context = useAppContext();
+
+  const ctx = useAppState();
+  const { t } = ctx;
 
   let firstLoad = true;
   let navEl!: HTMLElement;
@@ -75,7 +76,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   let logoEl!: HTMLDivElement;
   let subnavEl!: HTMLDivElement;
 
-  const isRTL = () => t('global.dir', {}, 'ltr') === 'rtl';
+  const isRTL = () => ctx.dir === 'rtl';
   const logoPosition = () => (isRTL() ? 'right-3 lg:right-12 pl-5' : 'left-3 lg:left-12 pr-5');
 
   const { add: intersectionObserver } = makeIntersectionObserver([], ([entry]) => {
@@ -90,14 +91,14 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
   const showLogo = createMemo(() => props.showLogo || !locked());
   const navList = createMemo<LinkTypes[]>(
     on(
-      () => [(t('global.nav') as LinkTypes[]) || [], context.guides] as const,
+      () => [(t('global.nav') as LinkTypes[]) || [], ctx.guides] as const,
       ([nav, guides]) => {
         return nav.map<LinkTypes>((item) => {
           const itm = { ...item };
           // Inject guides if available
           if (item.path == '/guides') {
             if (guides?.length) {
-              const direction = t('global.dir', {}, 'ltr');
+              const direction = ctx.dir;
               itm.links = guides.map(({ title, description, resource }) => ({
                 title,
                 description,
@@ -200,7 +201,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 />
               </Link>
               <span id="ukraine-support" hidden>
-                {t('home.ukraine.support', {}, 'We stand with Ukraine.')}
+                {t('home.ukraine.support')}
               </span>
             </div>
             <ScrollShadow
@@ -257,20 +258,21 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           }}
         >
           <div class="absolute w-full md:w-96 mt-2 md:ml-12 md:mr-5 border dark:border-solid-darkbg rounded-md transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
-            <For each={Object.entries(langs)}>
-              {([lang, label]) => (
-                <button
-                  class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
-                  classList={{
-                    'bg-solid-medium text-white': lang == locale(),
-                    'hover:bg-solid-light': lang == locale(),
-                  }}
-                  onClick={() => locale(lang) && toggleLangs(false)}
-                >
-                  {label}
-                </button>
-              )}
-            </For>
+            {entries(langs).map(([lang, label]) => (
+              <button
+                class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
+                classList={{
+                  'bg-solid-medium text-white': lang == ctx.locale,
+                  'hover:bg-solid-light': lang == ctx.locale,
+                }}
+                onClick={() => {
+                  ctx.setLocale(lang);
+                  toggleLangs(false);
+                }}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </Dismiss>
         <Show when={subnav() && subnav()!.links.length !== 0}>
@@ -287,7 +289,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                     class="px-5 hover:bg-solid-default hover:text-white transition duration-300"
                     style={
                       link.direction && {
-                        direction: link.direction,
+                        direction: link.direction === 'ltr' ? 'ltr' : 'rtl',
                         'text-align': link.direction === 'ltr' ? 'left' : 'right',
                       }
                     }

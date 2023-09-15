@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { createSignal, createMemo, For, Show } from 'solid-js';
 import { createVisibilityObserver } from '@solid-primitives/intersection-observer';
+import { useAppState } from '../AppContext';
 
 export interface GraphData {
   id: string;
@@ -18,7 +18,6 @@ interface RowData {
 }
 
 const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = (props) => {
-  const [t] = useI18n();
   const maxValue = createMemo(() => Math.max(...props.rows.map((row) => row.score)));
   const options = createMemo(() =>
     props.rows
@@ -28,6 +27,9 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
         width: `${(row.score / maxValue()) * 100}%`,
       })),
   );
+
+  const { t } = useAppState();
+
   return (
     <table class="w-full table-fixed">
       <tbody>
@@ -89,10 +91,13 @@ const Chart: Component<{ rows: RowData[]; scale: string; direction: string }> = 
 };
 
 const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
-  const [t] = useI18n();
+  const ctx = useAppState();
+  const { t } = ctx;
+
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
-  const direction = createMemo(() => (t('global.dir', {}, 'ltr') == 'rtl' ? 'left' : 'right'));
+  const direction = createMemo(() => (ctx.dir == 'rtl' ? 'left' : 'right'));
+
   return (
     <>
       <Chart
@@ -107,7 +112,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
             class={`py-3 text-sm chevron button text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 chevron-${direction()}`}
             onClick={() => setExpanded(true)}
           >
-            {t('home.benchmarks.show_more', {}, 'Show more client + server benchmarks')}
+            {t('home.benchmarks.show_more')}
           </button>
         }
       >

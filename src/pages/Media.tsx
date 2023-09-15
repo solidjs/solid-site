@@ -1,9 +1,9 @@
 import { Component, For } from 'solid-js';
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { copyToClipboard } from '@solid-primitives/clipboard';
+import { useAppState } from '../AppContext';
 
 const assets = [
   {
@@ -80,12 +80,13 @@ const AssetPanel: Component<{
   assets: Record<string, string>;
   background: string;
 }> = ({ title, assets, example, background }) => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   const slug = title.replaceAll(' ', '_').toLowerCase();
+
   return (
     <div class="shadow-md">
       <div class="p-5 dark:border-solid-darkLighterBg border-b">
-        {t(`media.resources.${slug}`, {}, title)}
+        {t(`media.resources.${slug}` as never)}
       </div>
       <div class={`py-8 h-56 flex px-10 items-center justify-center ${background}`}>
         <img class="max-h-20" src={example} alt={title} />
@@ -107,9 +108,10 @@ const AssetPanel: Component<{
 };
 
 const Media: Component = () => {
-  const [t] = useI18n();
+  const { t } = useAppState();
   copyToClipboard;
   useRouteReadyState();
+
   return (
     <div class="flex flex-col">
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
@@ -117,35 +119,35 @@ const Media: Component = () => {
           <div class="col-span-2">
             <div class="mb-8">{t('media.copy')}</div>
             <div class="flex p-4 border-2 dark:border-solid-darkLighterBg justify-between border-b-0">
-              <div class="w-5/12 inline-block">{t('media.brand_font', {}, 'Brand Font')}</div>{' '}
+              <div class="w-5/12 inline-block">{t('media.brand_font')}</div>{' '}
               <div class="text-md">Gordita</div>
             </div>
             <div class="flex h-36 bg-solid-default p-4 justify-between items-end text-white between">
-              <div>{t('media.primary', {}, 'Primary Color')}</div>
+              <div>{t('media.primary')}</div>
               <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard>
                 #2c4f7c
               </div>
             </div>
             <div class="flex h-28 bg-solid-medium p-4 justify-between items-end text-white">
-              <div>{t('media.secondary', {}, 'Secondary Color')}</div>
+              <div>{t('media.secondary')}</div>
               <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard>
                 #335d92
               </div>
             </div>
             <div class="flex h-20 p-4 bg-solid-light justify-between items-end text-white">
-              <div>{t('media.light', {}, 'Light Color')}</div>
+              <div>{t('media.light')}</div>
               <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard>
                 #446b9e
               </div>
             </div>
             <div class="flex h-20 p-4 bg-solid-accent justify-between items-end text-white">
-              <div>{t('media.accent', {}, 'Accent Color')}</div>
+              <div>{t('media.accent')}</div>
               <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard>
                 #66e6ac
               </div>
             </div>
             <div class="flex h-20 p-4 bg-solid-secondaccent justify-between items-end text-white">
-              <div>{t('media.second_accent', {}, 'Second Accent Color')}</div>
+              <div>{t('media.second_accent')}</div>
               <div class="text-sm cursor-pointer hover:opacity-50" use:copyToClipboard>
                 #0CDC73
               </div>
