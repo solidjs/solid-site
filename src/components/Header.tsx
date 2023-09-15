@@ -106,9 +106,9 @@ const Header: ParentComponent<{ title?: string }> = () => {
                   <div>
                     <Link
                       href="/guides/getting-started"
-                      class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg  hover:bg-solid-gray transition"
+                      class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
-                      <span class="mt-0.5 ">{t('home.get_started')}</span>
+                      {t('home.get_started')}
                       <Icon stroke-width="3" class="w-5" path={chevronRight} />
                     </Link>
                   </div>
