@@ -1,5 +1,5 @@
 import { Component, createSignal, Show } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
+import { useAppState } from '../AppContext';
 
 const NewsletterState = {
   IDLE: 0,
@@ -14,8 +14,8 @@ type NewsletterProps = {
 };
 
 export const Newsletter: Component<NewsletterProps> = (props) => {
-  let emailRef: HTMLInputElement;
-  const [t] = useI18n();
+  const { t } = useAppState();
+
   const [state, setState] = createSignal(NewsletterState.IDLE);
   const submit = async (evt: Event) => {
     evt.preventDefault();
@@ -34,6 +34,8 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
       setState(NewsletterState.ERROR);
     }
   };
+
+  let emailRef: HTMLInputElement;
   return (
     <form
       class={`bg-solid flex flex-col md:flex-row w-full items-center space-x-4 ${props.className}`}
@@ -51,7 +53,7 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
             required={true}
             ref={(ref) => (emailRef = ref)}
             disabled={state() === NewsletterState.SENDING}
-            placeholder={t('global.newsletter.email', {}, 'Email address')}
+            placeholder={t('global.newsletter.email')}
           />
           <button
             disabled={state() === NewsletterState.SENDING}
@@ -59,22 +61,18 @@ export const Newsletter: Component<NewsletterProps> = (props) => {
             type="submit"
           >
             <Show
-              fallback={t('global.newsletter.sending', {}, 'Sending')}
+              fallback={t('global.newsletter.sending')}
               when={state() !== NewsletterState.SENDING}
             >
-              {t('global.newsletter.register', {}, 'Register')}
+              {t('global.newsletter.register')}
             </Show>
           </button>
         </div>
         <Show when={state() === NewsletterState.SENT}>
-          <div class="mt-3">
-            {t('global.newsletter.success', {}, 'You are successfully registered!')}
-          </div>
+          <div class="mt-3">{t('global.newsletter.success')}</div>
         </Show>
         <Show when={state() === NewsletterState.ERROR}>
-          <div class="mt-3 text-red-500">
-            {t('global.newsletter.error', {}, 'Registration could not be completed')}
-          </div>
+          <div class="mt-3 text-red-500">{t('global.newsletter.error')}</div>
         </Show>
       </div>
     </form>

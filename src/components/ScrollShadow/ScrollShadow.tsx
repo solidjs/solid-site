@@ -1,5 +1,5 @@
 import { ParentComponent, onCleanup, onMount } from 'solid-js';
-import { useAppContext } from '../../AppContext';
+import { useAppState } from '../../AppContext';
 
 type TShared = {
   direction: 'horizontal' | 'vertical';
@@ -128,7 +128,7 @@ const Shadow: ParentComponent<
   { ref: HTMLElement | ((el: HTMLElement) => void); locked: boolean } & TShared
 > = (props) => {
   const { child, direction, ref, shadowSize: size } = props;
-  const context = useAppContext();
+  const context = useAppState();
   const refCb = (el: HTMLElement) => {
     (ref as (el: HTMLElement) => void)(el);
     divEl = el;

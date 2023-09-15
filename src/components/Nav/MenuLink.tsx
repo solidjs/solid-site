@@ -1,6 +1,6 @@
 import { createEventListener } from '@solid-primitives/event-listener';
 import { NavLink } from '@solidjs/router';
-import { batch, createSignal, onMount, ParentComponent, Show } from 'solid-js';
+import { batch, createSignal, JSX, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
 export type LinkTypes = {
@@ -9,7 +9,7 @@ export type LinkTypes = {
   path: string;
   external?: boolean;
   links?: LinkTypes[];
-  direction?: 'ltr' | 'rtl';
+  direction?: JSX.HTMLDir;
 };
 export type MenuLinkProps = {
   setSubnav: (children: LinkTypes[], el: HTMLElement) => void;
@@ -23,32 +23,46 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
 
   // Only rerender event listener when children change
   if (props.links) {
-    onMount(() => {
-      createEventListener(linkEl, 'mouseenter', () => {
+    createEventListener(
+      () => linkEl,
+      'mouseenter',
+      () => {
         props.clearSubnavClose();
         batch(() => {
           props.setSubnav(props.links!, wrapperEl);
         });
-      });
-      createEventListener(linkEl, 'mouseleave', () => props.closeSubnav());
-    });
+      },
+    );
+    createEventListener(
+      () => linkEl,
+      'mouseleave',
+      () => props.closeSubnav(),
+    );
   }
-  onMount(() => {
-    createEventListener(linkEl, 'mousedown', () => {
+
+  const [linkTarget, setLinkTarget] = createSignal<HTMLAnchorElement>();
+
+  createEventListener(
+    () => linkEl,
+    'mousedown',
+    () => {
       setRouteReadyState((prev) => ({ ...prev, loadingBar: true }));
       page.scrollY = window.scrollY;
+      setLinkTarget(linkEl);
       reflow();
-      const [targets, setTargets] = createSignal([linkEl]);
-      createEventListener(targets, 'mouseleave', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      createEventListener(targets, 'click', () => {
-        setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
-        removeEvents();
-      });
-      const removeEvents = () => setTargets([]);
-    });
+    },
+  );
+
+  createEventListener(linkTarget, 'mouseleave', () => {
+    setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
+    setLinkTarget(); // reset
+  });
+  createEventListener(linkTarget, 'click', () => {
+    setRouteReadyState((prev) => ({ ...prev, loadingBar: false }));
+    setLinkTarget(); // reset
+  });
+
+  onMount(() => {
     if (!window.location.pathname.startsWith(props.path)) return;
 
     linkEl.scrollIntoView({ inline: 'center', behavior: 'instant' as ScrollBehavior });

@@ -1,20 +1,17 @@
 import { Component, Show, createMemo } from 'solid-js';
-import { useI18n } from '@solid-primitives/i18n';
 import { useRouteData, NavLink } from '@solidjs/router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
-import { useAppContext } from '../AppContext';
+import { useAppState } from '../AppContext';
 import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 
 export const BlogArticle: Component = () => {
-  const [t] = useI18n();
+  const ctx = useAppState();
+
   const data = useRouteData<BlogArticleData>();
   useRouteReadyState();
-  const chevron = createMemo(() =>
-    t('global.dir', {}, 'ltr') == 'rtl' ? 'chevron-right' : 'chevron-left',
-  );
-  const context = useAppContext();
+  const chevron = createMemo(() => (ctx.dir == 'rtl' ? 'chevron-right' : 'chevron-left'));
 
   return (
     <div class="flex flex-col">
@@ -45,16 +42,12 @@ export const BlogArticle: Component = () => {
                     <data.article
                       components={{
                         Tweet: (props) => (
-                          <Tweet
-                            {...props}
-                            theme={context.isDark ? 'dark' : 'light'}
-                            align="center"
-                          />
+                          <Tweet {...props} theme={ctx.isDark ? 'dark' : 'light'} align="center" />
                         ),
                         YouTube,
                         Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
                         Spotify: (props) => (
-                          <Spotify {...props} theme={context.isDark ? 'dark' : undefined} />
+                          <Spotify {...props} theme={ctx.isDark ? 'dark' : undefined} />
                         ),
                       }}
                     />
