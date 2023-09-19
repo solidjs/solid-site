@@ -10,12 +10,12 @@ import {
   batch,
   ErrorBoundary,
 } from 'solid-js';
-import Repl from 'solid-repl/lib/repl';
+import Repl from 'solid-repl/dist/repl';
 import { useRouteData, NavLink } from '@solidjs/router';
 import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
 
-import { compiler, formatter } from '../components/setupRepl';
+import { compiler, formatter, linter } from '../components/setupRepl';
 import type { TutorialRouteData } from './Tutorial.data';
 import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
@@ -218,14 +218,12 @@ const Tutorial: Component = () => {
               directory={data.tutorialDirectory}
             />
           </div>
-          <Show when={data.markdown} fallback={''}>
-            <div
-              ref={markDownRef}
-              class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
-            >
-              {data.markdown}
-            </div>
-          </Show>
+          <div
+            ref={markDownRef}
+            class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
+          >
+            {data.markdown}
+          </div>
 
           <div class="py-4 px-10 flex items-center justify-between border-t-2 dark:border-solid-darkLighterBg">
             <Show
@@ -281,9 +279,27 @@ const Tutorial: Component = () => {
               }}
               compiler={compiler}
               formatter={formatter}
+              linter={linter}
               isHorizontal={true}
               dark={context.isDark}
               tabs={tabs()}
+              reset={() => {
+                batch(() => {
+                  const fileset = data.solved ? data.solvedJs : data.js;
+                  const files = fileset?.files;
+                  if (!files) return;
+                  batch(() => {
+                    const newTabs = files.map((file) => {
+                      return {
+                        name: file.name + (file.type ? `.${file.type}` : '.jsx'),
+                        source: file.content,
+                      };
+                    });
+                    setTabs(newTabs);
+                    setCurrent(newTabs[0].name);
+                  });
+                });
+              }}
               setTabs={setTabs}
               current={current()}
               setCurrent={setCurrent}

@@ -25,7 +25,7 @@ export default defineConfig({
     // VitePWA(pwaOptions),
   ],
   optimizeDeps: {
-    include: [],
+    include: ['monaco-textmate', 'onigasm', 'monaco-editor-textmate'],
     exclude: ['@solid.js/docs'],
   },
   build: {

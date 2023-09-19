@@ -1,4 +1,4 @@
-@import url('solid-repl/lib/bundle.css');
+@import url('solid-repl/dist/bundle.css');
 @import url('./hljs.css');
 
 @font-face {

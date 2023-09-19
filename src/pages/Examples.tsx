@@ -1,11 +1,12 @@
-import Repl from 'solid-repl/lib/repl';
+import Repl from 'solid-repl/dist/repl';
 import { NavLink, useRouteData, useParams } from '@solidjs/router';
-import { For, Component, createSignal, createEffect, batch, ErrorBoundary } from 'solid-js';
+import { For, Component, createSignal, createEffect, batch, ErrorBoundary, Show } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
-import { compiler, formatter } from '../components/setupRepl';
+import { compiler, formatter, linter } from '../components/setupRepl';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppState } from '../AppContext';
+import type { Tab } from 'solid-repl';
 import { entries } from '@solid-primitives/utils';
 
 const Examples: Component = () => {
@@ -13,15 +14,15 @@ const Examples: Component = () => {
   const context = useAppState();
   const { t } = context;
   const params = useParams<{ id: string }>();
-  const [tabs, setTabs] = createSignal([
-    {
-      name: 'main.jsx',
-      source: '',
-    },
-  ]);
-  const [current, setCurrent] = createSignal(`main.jsx`, { equals: false });
+  const [tabs, setTabs] = createSignal<Tab[]>([]);
+  const [current, setCurrent] = createSignal('');
 
   useRouteReadyState();
+
+  let currentData: {
+    name: string;
+    source: string;
+  }[] = [];
 
   createEffect(async () => {
     const exampleData = (await fetch(`${location.origin}/examples/${params.id}.json`).then((r) =>
@@ -35,7 +36,7 @@ const Examples: Component = () => {
       version?: string;
     };
     batch(() => {
-      const newTabs = exampleData.files.map(
+      currentData = exampleData.files.map(
         (file: { name: string; type?: string; content: string | string[] }) => {
           return {
             name: file.name + (file.type ? `.${file.type}` : '.jsx'),
@@ -43,8 +44,17 @@ const Examples: Component = () => {
           };
         },
       );
-      setTabs(newTabs);
-      setCurrent(newTabs[0].name);
+      setTabs([
+        ...currentData,
+        {
+          name: 'import_map.json',
+          source: `{
+  "solid-js": "https://jspm.dev/solid-js",
+  "solid-js/web": "https://jspm.dev/solid-js/web"
+}`,
+        },
+      ]);
+      setCurrent(currentData[0].name);
     });
   });
 
@@ -82,7 +92,7 @@ const Examples: Component = () => {
 
           <div
             dir="ltr"
-            class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl"
+            class="h-[82vh] rounded-lg md:col-span-8 lg:col-span-9 overflow-hidden shadow-2xl flex"
           >
             <ErrorBoundary
               fallback={
@@ -91,17 +101,26 @@ const Examples: Component = () => {
                 </>
               }
             >
-              <Repl
-                compiler={compiler}
-                formatter={formatter}
-                isHorizontal={true}
-                dark={context.isDark}
-                tabs={tabs()}
-                setTabs={setTabs}
-                current={current()}
-                setCurrent={setCurrent}
-                id="examples"
-              />
+              <Show when={current()}>
+                <Repl
+                  compiler={compiler}
+                  formatter={formatter}
+                  linter={linter}
+                  isHorizontal={true}
+                  dark={context.isDark}
+                  tabs={tabs()}
+                  reset={() => {
+                    batch(() => {
+                      setTabs(currentData);
+                      setCurrent(currentData[0].name);
+                    });
+                  }}
+                  setTabs={setTabs}
+                  current={current()}
+                  setCurrent={setCurrent}
+                  id="examples"
+                />
+              </Show>
             </ErrorBoundary>
           </div>
         </div>

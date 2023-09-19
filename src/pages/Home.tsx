@@ -133,7 +133,7 @@ const Home: Component = () => {
           <div
             dir="ltr"
             style="height: 70vh; max-height: 600px; min-height: 475px; width: 100%;"
-            class="rounded-lg overflow-hidden flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0"
+            class="rounded-lg flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0 flex flex-col"
           >
             <Show when={loadRepl()}>
               <Suspense
@@ -145,8 +145,8 @@ const Home: Component = () => {
                   tabs={[
                     {
                       name: 'main.jsx',
-                      source: `import { render } from "solid-js/web";
-import { onCleanup, createSignal } from "solid-js";
+                      source: `import { onCleanup, createSignal } from "solid-js";
+import { render } from "solid-js/web";
 
 const CountingComponent = () => {
   const [count, setCount] = createSignal(0);
@@ -159,6 +159,13 @@ const CountingComponent = () => {
 };
 
 render(() => <CountingComponent />, document.getElementById("app"));`,
+                    },
+                    {
+                      name: 'import_map.json',
+                      source: `{
+  "solid-js": "https://jspm.dev/solid-js",
+  "solid-js/web": "https://jspm.dev/solid-js/web"
+}`,
                     },
                   ]}
                 />
