@@ -13,9 +13,7 @@ const OldRepl: Component<{ tabs: Tab[] }> = (props) => {
   const [current, setCurrent] = createSignal(initialTabs[0].name);
 
   return (
-    <ErrorBoundary
-      fallback="Repl failed to load. You may be using a browser that doesn't support Web Workers."
-    >
+    <ErrorBoundary fallback="Repl failed to load. You may be using a browser that doesn't support Web Workers.">
       <Repl
         id={`repl-${count}`}
         compiler={compiler}

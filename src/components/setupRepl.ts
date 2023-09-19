@@ -15,7 +15,7 @@ window.MonacoEnvironment = {
       case 'css':
         return new cssWorker();
       case 'json':
-          return new jsonWorker();  
+        return new jsonWorker();
       case 'typescript':
       case 'javascript':
         return new tsWorker();
@@ -26,7 +26,10 @@ window.MonacoEnvironment = {
   onigasm,
 };
 
-const solidTypes = import.meta.glob('/node_modules/solid-js/**/*.{d.ts,json}', { eager: true, as: 'raw' });
+const solidTypes = import.meta.glob('/node_modules/solid-js/**/*.{d.ts,json}', {
+  eager: true,
+  as: 'raw',
+});
 
 for (const path in solidTypes) {
   languages.typescript.typescriptDefaults.addExtraLib(solidTypes[path], `file://${path}`);
