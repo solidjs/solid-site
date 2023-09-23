@@ -2351,6 +2351,18 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data, ResourceCategory.Primitives],
     keywords: ['swr', 'fetch', 'request', 'cache'],
   },
+  {
+    link: 'https://css-hooks.com',
+    title: '@css-hooks/solid',
+    description:
+      'Hooks enhance native inline styles with CSS features like pseudo-classes and media queries.',
+    author: 'Nick Saunders',
+    author_url: 'https://github.com/nsaunders',
+    keywords: ['css', 'style', 'tailwind'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn],
+  },
 ];
 
 export default utilities;
