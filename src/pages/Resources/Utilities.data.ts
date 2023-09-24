@@ -1763,6 +1763,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
   },
   {
+    link: 'https://github.com/pureliani/solid-query',
+    title: '@gapu/solid-query',
+    description: 'Primitives for managing Rest Api integrations in Solid.js',
+    author: 'Gabriel Pureliani',
+    author_url: 'https://github.com/pureliani',
+    keywords: ['api', 'query', 'solid-query'],
+    official: false,
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data, ResourceCategory.Primitives],
+  },
+  {
     link: 'https://tanstack.com/virtual/v3/docs/adapters/solid-virtual',
     title: '@tanstack/solid-virtual',
     description: 'Headless UI for Virtualizing Large Element Lists',
