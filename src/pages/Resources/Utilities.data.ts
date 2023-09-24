@@ -1763,6 +1763,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data],
   },
   {
+    link: 'https://github.com/pureliani/solid-query',
+    title: '@gapu/solid-query',
+    description: 'Primitives for managing Rest Api integrations in Solid.js',
+    author: 'Gabriel Pureliani',
+    author_url: 'https://github.com/pureliani',
+    keywords: ['api', 'query', 'solid-query'],
+    official: false,
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data, ResourceCategory.Primitives],
+  },
+  {
     link: 'https://tanstack.com/virtual/v3/docs/adapters/solid-virtual',
     title: '@tanstack/solid-virtual',
     description: 'Headless UI for Virtualizing Large Element Lists',
@@ -2362,6 +2373,17 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn],
+  },
+  {
+    title: 'solid-monaco',
+    link: 'https://github.com/alxnddr/solid-monaco',
+    description: 'Monaco editor for Solid',
+    author: 'Aleksandr Lesnenko',
+    author_url: 'https://github.com/alxnddr',
+    keywords: ['monaco', 'editor', 'code editor', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
 ];
 
