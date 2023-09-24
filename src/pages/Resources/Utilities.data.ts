@@ -2351,6 +2351,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Data, ResourceCategory.Primitives],
     keywords: ['swr', 'fetch', 'request', 'cache'],
   },
+  {
+    title: 'solid-monaco',
+    link: 'https://github.com/alxnddr/solid-monaco',
+    description: 'Monaco editor for Solid',
+    author: 'Aleksandr Lesnenko',
+    author_url: 'https://github.com/alxnddr',
+    keywords: ['monaco', 'editor', 'code editor', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
