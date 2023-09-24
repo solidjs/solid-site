@@ -2363,6 +2363,18 @@ const utilities: Array<Resource> = [
     keywords: ['swr', 'fetch', 'request', 'cache'],
   },
   {
+    link: 'https://css-hooks.com',
+    title: '@css-hooks/solid',
+    description:
+      'Hooks enhance native inline styles with CSS features like pseudo-classes and media queries.',
+    author: 'Nick Saunders',
+    author_url: 'https://github.com/nsaunders',
+    keywords: ['css', 'style', 'tailwind'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn],
+  },
+  {
     title: 'solid-monaco',
     link: 'https://github.com/alxnddr/solid-monaco',
     description: 'Monaco editor for Solid',
