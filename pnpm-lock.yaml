@@ -44,8 +44,8 @@ dependencies:
     specifier: ^6.2.1
     version: 6.2.1(solid-js@1.7.11)
   '@solid.js/docs':
-    specifier: ^1.0.53
-    version: 1.0.53(solid-js@1.7.11)
+    specifier: ^1.0.54
+    version: 1.0.54(solid-js@1.7.11)
   '@solidjs/router':
     specifier: ^0.8.3
     version: 0.8.3(solid-js@1.7.11)
@@ -2031,8 +2031,8 @@ packages:
       solid-js: 1.7.11
     dev: false
 
-  /@solid.js/docs@1.0.53(solid-js@1.7.11):
-    resolution: {integrity: sha512-wbI+Fk/ODDPTdXRC9/dYHEettkslh335CMYse5imAW11s7MKmbVx9tZymC/7xEV3aUIM/iAzKMH0N0ZhwkNkdA==}
+  /@solid.js/docs@1.0.54(solid-js@1.7.11):
+    resolution: {integrity: sha512-VHuatoaZkRX/9ZSeWZ59t3KBXej9Bc2hgUKDVqG/zREmwDEhGtkE9BmxVK210lprCU31NiSA60Bzn77fMlG9WA==}
     dependencies:
       solid-jsx: 0.9.1(solid-js@1.7.11)
     transitivePeerDependencies:
