@@ -2385,6 +2385,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/jessyhq/solid-spotify-embed',
+    title: 'solid-spotify-embed',
+    description: 'A simple Solid component for embedding a Spotify song or album preview.',
+    author: 'Jessy',
+    author_url: 'https://github.com/jessyhq',
+    keywords: ["spotify", "embed", "music", "iframe"],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
