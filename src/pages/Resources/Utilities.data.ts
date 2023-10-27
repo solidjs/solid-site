@@ -2386,6 +2386,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/jessyhq/solid-spotify-embed',
+    title: 'solid-spotify-embed',
+    description: 'A simple Solid component for embedding a Spotify song or album preview.',
+    author: 'Jessy',
+    author_url: 'https://github.com/jessyhq',
+    keywords: ["spotify", "embed", "music", "iframe"],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
     title: 'echarts-solid',
     link: 'https://github.com/alxnddr/echarts-solid',
     description: 'ECharts components for Solid',
@@ -2394,7 +2405,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI]
   },
 ];
 
