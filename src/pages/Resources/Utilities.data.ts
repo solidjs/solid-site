@@ -2385,6 +2385,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    title: 'echarts-solid',
+    link: 'https://github.com/alxnddr/echarts-solid',
+    description: 'ECharts components for Solid',
+    author: 'Aleksandr Lesnenko',
+    author_url: 'https://github.com/alxnddr',
+    keywords: ['charts', 'echarts', 'data visualization', 'ui'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
