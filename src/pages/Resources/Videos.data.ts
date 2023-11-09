@@ -1114,6 +1114,42 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1687035595000,
   },
+  {
+    link: 'https://www.youtube.com/embed/HF5gzxP6ZwY',
+    title: 'SolidJS for React Developers',
+    description:
+      'Erik discusses SolidJS and how it can be helpful and interesting to React deveclopers.',
+    keywords: ['signal', 'reactivity', 'react'],
+    author: 'Erik Rasmussen (React Allicante)',
+    author_url: 'https://www.youtube.com/@ReactAlicante',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1699518870000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=yLjqh6dKdBc',
+    title: 'Dive into Solid + Tauri w/Atila Fassina',
+    description:
+      'SolidJS works on more than just the web thanks to projects like Tauri. Atila Fassina, from CrabNebula, joins Ryan to talk about the project and how Solid is natural fit as a frontend framework.',
+    keywords: ['tauri', 'reactivity'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/@ryansolid',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1698392174000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=j0s8w34Xh9o',
+    title: 'Dive into Solid + Tauri w/Atila Fassina',
+    description:
+      'The most requested thing Ryan is asked re: SolidJS\' is the native story. The folks of NativeScript join the stream to answer that question.',
+    keywords: ['nativescript', 'ns', 'reactivity'],
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/@ryansolid',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1698996974000,
+  }
 ];
 
 export default videos;
