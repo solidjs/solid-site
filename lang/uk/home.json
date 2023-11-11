@@ -1,8 +1,8 @@
 {
     "hero": "Проста та продуктивна реактивність для побудови користувацьких інтерфейсів.",
     "get_started": "Розпочати",
-    "intro_video": "Вступ у Solid за 10 хвилин",
-    "intro_video_advanced": "Розширений вступ (10 хвилин)",
+    "intro_video": "Вступ у Solid за 100 хвилин",
+    "intro_video_advanced": "Розширений вступ (5 хвилин)",
     "strengths": [
       {
         "icon": "performant",
