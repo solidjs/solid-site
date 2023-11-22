@@ -123,7 +123,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                     </Link>
                     <Link
                       target="_blank"
-                      href="https://www.youtube.com/watch?v=tnhavUKOsik"
+                      href="https://www.youtube.com/watch?v=cELFZQAMdhQ"
                       class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
