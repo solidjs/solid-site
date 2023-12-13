@@ -2391,7 +2391,7 @@ const utilities: Array<Resource> = [
     description: 'A simple Solid component for embedding a Spotify song or album preview.',
     author: 'Jessy',
     author_url: 'https://github.com/jessyhq',
-    keywords: ["spotify", "embed", "music", "iframe"],
+    keywords: ['spotify', 'embed', 'music', 'iframe'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -2406,6 +2406,18 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI]
+  },
+  {
+    link: 'https://corvu.dev',
+    title: 'corvu',
+    description:
+      'A collection of unstyled and accessible UI primitives that aim to be highly customizable while providing a delightful developer experience.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['unstyled', 'headless', 'accessible', 'customizable', 'primitives', 'components'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
   },
 ];
 
