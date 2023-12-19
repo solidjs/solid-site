@@ -907,6 +907,18 @@ const utilities: Array<Resource> = [
     published_at: 1635523744000,
   },
   {
+    link: "https://inlang.com/c/solid",
+    title: "ParaglideJS",
+    description: "An ultra-efficient i18n library that scales to zero. Comes with first class integration with SolidStart",
+    author: "Inlang",
+    author_url: "https://inlang.com",
+    keywords: ["i18n", "localisation", "localization", "translate", "translations", "language", "intl"],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI,  ResourceCategory.Data],
+    published_at: 1702989010000,
+  },
+  {
     link: 'https://github.com/SanichKotikov/solid-i18n',
     title: 'solid-i18n',
     description: 'Tiny translation library for solid-js inspired by Rosetta.',
