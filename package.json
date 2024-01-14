@@ -31,7 +31,7 @@
     "@solid-primitives/scroll": "^2.0.20",
     "@solid-primitives/storage": "^2.1.1",
     "@solid-primitives/utils": "^6.2.1",
-    "@solid.js/docs": "^1.0.54",
+    "@solid.js/docs": "^1.0.56",
     "@solidjs/router": "^0.8.3",
     "@types/shopify-buy": "npm:@brandboostinggmbh/shopify-buy-types@^2.14.6",
     "babel-preset-solid": "1.7.7",
