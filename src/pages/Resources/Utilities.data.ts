@@ -2396,6 +2396,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
+  {
+    title: 'solid-keep-alive',
+    link: 'https://github.com/JulianSoto/solid-keep-alive',
+    description: 'Keep alive components even after unmount, prevent rerendering on remount',
+    author: 'Julian Soto',
+    author_url: 'https://github.com/JulianSoto',
+    keywords: ['alive', 'keep alive', 'remount', 'mount'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.Primitives]
+  },
 ];
 
 export default utilities;
