@@ -1741,17 +1741,6 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities],
   },
   {
-    link: 'https://www.npmjs.com/package/solid-mdx/v/0.0.6',
-    title: 'solid-mdx',
-    description: 'Easily use Markdown files for content and documentation in your solid-js apps.',
-    author: 'Nikhil Saraf',
-    author_url: 'https://gitlab.com/nksaraf',
-    keywords: ['mdx', 'plugin'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://tanstack.com/query/v4/docs/adapters/solid-query',
     title: '@tanstack/solid-query',
     description: 'Provides a 1st-class API for using TanStack Query with SolidJS.',
@@ -2391,7 +2380,7 @@ const utilities: Array<Resource> = [
     description: 'A simple Solid component for embedding a Spotify song or album preview.',
     author: 'Jessy',
     author_url: 'https://github.com/jessyhq',
-    keywords: ["spotify", "embed", "music", "iframe"],
+    keywords: ['spotify', 'embed', 'music', 'iframe'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
@@ -2405,7 +2394,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI]
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
 ];
 
