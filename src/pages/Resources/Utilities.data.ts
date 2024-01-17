@@ -2419,6 +2419,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.Primitives]
   },
+  {
+    link: 'https://corvu.dev',
+    title: 'corvu',
+    description:
+      'A collection of unstyled and accessible UI primitives that aim to be highly customizable while providing a delightful developer experience.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['unstyled', 'headless', 'accessible', 'customizable', 'primitives', 'components'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
 ];
 
 export default utilities;
