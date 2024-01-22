@@ -1149,6 +1149,18 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1698996974000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=39NEsUlBsj0',
+    title: 'S3:E2 - Why Solidjs with Ryan Carniato',
+    description:
+      'In this episode, creator of solidjs Ryan Carniato walks us through what soldjs is? what team has been working on and what to expect in next major release.',
+    keywords: ['This is Tech Talks', 'reactivity', 'intro'],
+    author: 'This is Tech Talks',
+    author_url: 'https://www.youtube.com/@ThisisTechTalks',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1705959795000,
   }
 ];
 
