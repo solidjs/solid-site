@@ -558,7 +558,7 @@ Status: ✔  - Maintained
  'https://github.com/wobsoriano/solid-apexcharts'
  'solid-apexcharts'
 
-Status: 🤷 - Not sure, I can't find the solid specific code
+Status: ✔  - Update link to https://www.locatorjs.com/install/solidjs
  'https://www.locatorjs.com/'
  'LocateJS'
 
@@ -566,236 +566,234 @@ Status: ❌ - Last update 2 years ago
  'https://github.com/KarthikeyanRanasthala/solid-bottomsheet'
  'solid-bottomsheet'
 
-//------ TODO ------//
-
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last update 9 months ago
  'https://github.com/smastrom/solid-collapse'
  'solid-collapse'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Still maintained and useful
  'https://github.com/olgam4/bat'
  'bat'
 
-Status: ❌ | ✔  | 🤷
+Status: 🤷 - Last update 4 months ago, could be useful. Update npm page and add link to repo https://github.com/nksaraf/solid-mdx
  'https://www.npmjs.com/package/solid-mdx/v/0.0.6'
  'solid-mdx'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Very useful, still maintained
  'https://tanstack.com/query/v4/docs/adapters/solid-query'
  '@tanstack/solid-query'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 3 months ago, should work fine for the future
  'https://github.com/pureliani/solid-query'
  '@gapu/solid-query'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'https://tanstack.com/virtual/v3/docs/adapters/solid-virtual'
  '@tanstack/solid-virtual'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained, last update to the code 2 years ago but the core library is agnostic so this should be fine as a binding
  'https://tanstack.com/table/v8/docs/adapters/solid-table'
  '@tanstack/solid-table'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'https://ag-grid.com/react-data-grid/solidjs/'
  'ag-grid-solid'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last update 2 years ago, could be useful but core solid-router should be recommended
  'https://github.com/Supertigerr/solid-named-router'
  'Solid Named Router'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 2 years ago, but cool project and useful
  'https://github.com/miguelsalesvieira/solid-flow'
  'solid-flow'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Dead link, repo link: https://github.com/webblocksapp/solid-form-handler. Still maintained
  'https://solid-form-handler.com'
  'solid-form-handler'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last update 2 years ago, could be useful
  'https://github.com/chris-czopp/solid-test-recorder'
  'solid-test-recorder'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Core library still maintained, solid version last updated 8 months ago
  'https://papanasi.js.org/'
  'Papanasi: The Universal UI Library'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 8 months ago
  'solid-formlet'
  'Functional combinators for building reactive forms with SolidJS'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update was 10 months ago but could be useful. I suggest moving starter templates under a separate label
  'https://github.com/vanillacode314/solid-start-trpc-turborepo'
  'solid-start-trpc-turborepo'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'Modular Forms'
  'https://modularforms.dev/'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Update 1 year ago
  'vite-plugin-solid-markdown'
  'https://github.com/xbmlz/vite-plugin-solid-markdown'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 1 month ago and popular
  'vitesse-solid'
  'https://github.com/xbmlz/vitesse-solid'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained, popular, icons
  'lucide-solid'
  'https://lucide.dev/'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - We all love this one
  'https://kobalte.dev/'
  'kobalte'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  '@klass/solid'
  'https://github.com/flamrdevs/klass'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 1 year ago but should be okay and maintainer is active member of discord
  'solid-textarea-autosize'
  'https://github.com/bigmistqke/solid-textarea-autosize'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last consistent maintenance was 1 year ago. Might still be usable?
  '@cookbook/solid-intl'
  'https://github.com/the-cookbook/solid-intl'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  '@sect/solid-hiding-header'
  'https://github.com/sectsect/solid-hiding-header'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Icons
  'https://github.com/gnomical/solid-fontawesome'
  'solid-fontawesome'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Archived
  '@solidjs-material/core'
  'https://github.com/ceopaludetto/solid-material'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last updated 1 year ago but should be good to use in the future. No maintenance however.
  'solid-color'
  'https://github.com/xbmlz/solid-color'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained but not really solid specific
  'Flowbite SolidJS'
  'https://flowbite.com/docs/getting-started/solid-js/'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-mason'
  'https://github.com/lxsmnsyc/solid-mason'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained and useful package for solid-start
  'create-jd-app'
  'https://github.com/OrJDev/create-jd-app'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Archived and not recommended by maintainer
  'solid-trpc'
  'https://github.com/OrJDev/solid-trpc'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Duplicate
  'solid-start-trpc'
  'https://github.com/OrJDev/solid-trpc'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained and example repo, might fit better in a different category
  'solid-start-auth-example'
  'https://github.com/nextauthjs/solid-start-auth-example'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'lexical-solid'
  'https://github.com/mosheduminer/lexical-solid'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 10 months ago but may need future maintenance
  '@wundergraph/solid-query'
  'https://github.com/wundergraph/wundergraph/tree/main/packages/solid-query'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 10 months ago but should be okay to use for a bit
  'solid-dzone'
  'https://github.com/Jcanotorr06/solid-dzone'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 10 months ago but should be okay to use for a bit
  'solid-marquee'
  'https://github.com/Jcanotorr06/solid-marquee'
 
-Status: ❌ | ✔  | 🤷
+Status: 🤷 - Last update 10 months ago, seems unmaintained but cool project
  'solid-code-input'
  'https://github.com/srsholmes/solid-code-input'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'ark-ui'
  'https://github.com/chakra-ui/ark'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained and useful
  'solid-undo-redo'
  'https://github.com/elite174/solid-undo-redo'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-simple-datepicker'
  'https://github.com/elite174/solid-simple-datepicker'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last updated 9 months ago but useful and can be used
  'solid-resizable-panels'
  'https://github.com/elite174/solid-resizable-panels'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-compose'
  'https://github.com/mathieuprog/solid-compose'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Not maintained but useful. Last update 8 months ago
  'solidjs-scroll-essentials'
  'https://github.com/sacarvy/solidjs-scroll-essentials'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'https://github.com/s0ftik3/solid-chartjs'
  'solid-chartjs'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  '@rnwonder/solid-date-picker'
  'https://github.com/rnwonder/solid-date-picker'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-maplibre'
  'https://github.com/shishkin/solid-maplibre'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Might be useful but not maintained in last 5 months
  'solidjs-paystack'
  'https://github.com/rnwonder/solidjs-paystack'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Might be useful but not maintained in last 5 months
  'solidjs-flutterwave'
  'https://github.com/rnwonder/solidjs-flutterwave'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 4 months ago, useful
  'solid-wizard'
  'https://github.com/DigiChanges/solid-wizard'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-algo-wallets'
  'https://github.com/SilentRhetoric/solid-algo-wallets'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'solid-swr'
  'https://github.com/Tronikelis/solid-swr'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Maintained
  'https://css-hooks.com'
  '@css-hooks/solid'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 3 months ago, useful
  'solid-monaco'
  'https://github.com/alxnddr/solid-monaco'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last updated 3 months ago, doesn't seem overly useful
  'https://github.com/jessyhq/solid-spotify-embed'
  'solid-spotify-embed'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Last update 3 months ago on creation, might still be useful
  'echarts-solid'
  'https://github.com/alxnddr/echarts-solid'
 
-Status: ❌ | ✔  | 🤷
+Status: ❌ - Last update 2 years ago, might be a good resource to learn from?
  'solid-keep-alive'
  'https://github.com/JulianSoto/solid-keep-alive'
 
-Status: ❌ | ✔  | 🤷
+Status: ✔  - Bird
  'https://corvu.dev'
  'corvu'
