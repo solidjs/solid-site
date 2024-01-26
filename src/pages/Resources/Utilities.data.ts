@@ -1,5 +1,4 @@
 import { Resource, ResourceCategory, PackageType } from './Ecosystem';
-
 const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-styled-jsx',
@@ -57,6 +56,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Routers],
+    maintained: false,
   },
   {
     link: 'https://github.com/solidjs/solid-meta',
@@ -91,6 +91,7 @@ const utilities: Array<Resource> = [
     official: true,
     type: PackageType.Library,
     categories: [ResourceCategory.Testing],
+    maintained: false,
   },
   {
     link: 'https://github.com/solidjs/solid-testing-library',
@@ -192,6 +193,7 @@ const utilities: Array<Resource> = [
     official: true,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/ryansolid/dom-expressions',
@@ -215,6 +217,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://gitlab.com/enom/solid-parcel-starter',
@@ -226,6 +229,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/amoutonbrady/solid-snowpack-starter',
@@ -238,6 +242,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/builderio/jsx-lite',
@@ -261,6 +266,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Library,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/ryansolid/solid-ts-webpack',
@@ -295,6 +301,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters],
+    maintained: false,
   },
   {
     link: 'https://github.com/amoutonbrady/parcel2-solid-ts-starter',
@@ -307,6 +314,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/MrFoxPro/solid-rollup-boilerplate',
@@ -318,6 +326,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
   },
   {
     link: 'https://github.com/solidjs/solid-transition-group',
@@ -386,6 +395,7 @@ const utilities: Array<Resource> = [
     author_url: 'https://github.com/skrylnikov',
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.Data],
+    maintained: false,
   },
   {
     link: 'https://github.com/storeon/solidjs',
@@ -397,6 +407,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.Data],
+    maintained: false,
   },
   {
     link: 'https://github.com/effector/effector/tree/master/packages/effector-solid',
@@ -490,6 +501,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
@@ -512,6 +524,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
+    maintained: false,
   },
   {
     link: 'https://github.com/pablo-abc/solid-reach',
@@ -524,6 +537,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/pablo-abc/felte',
@@ -567,6 +581,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Data],
+    maintained: false,
   },
   {
     link: 'https://github.com/davedbase/solid-slider',
@@ -645,6 +660,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/lxsmnsyc/solid-uppy',
@@ -747,6 +763,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
     published_at: 1633118125000,
+    maintained: false,
   },
   {
     link: 'https://github.com/davedbase/solid-primitives',
@@ -771,6 +788,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1633118125000,
+    maintained: false,
   },
   {
     link: 'https://github.com/sophiabrandt/solid-heroes',
@@ -783,6 +801,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Educational, ResourceCategory.Data],
     published_at: 1634326849000,
+    maintained: false,
   },
   {
     link: 'https://github.com/lxsmnsyc/solid-giphy',
@@ -808,6 +827,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters],
     published_at: 1634917094000,
+    maintained: false,
   },
   {
     link: 'https://github.com/andi23rosca/tiptap-solid',
@@ -856,6 +876,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1634931664000,
+    maintained: false,
   },
   {
     link: 'https://github.com/atk/solid-register',
@@ -905,18 +926,29 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1635523744000,
+    maintained: false,
   },
   {
-    link: "https://inlang.com/c/solid",
-    title: "ParaglideJS",
-    description: "An ultra-efficient i18n library that scales to zero. Comes with first class integration with SolidStart",
-    author: "Inlang",
-    author_url: "https://inlang.com",
-    keywords: ["i18n", "localisation", "localization", "translate", "translations", "language", "intl"],
+    link: 'https://inlang.com/c/solid',
+    title: 'ParaglideJS',
+    description:
+      'An ultra-efficient i18n library that scales to zero. Comes with first class integration with SolidStart',
+    author: 'Inlang',
+    author_url: 'https://inlang.com',
+    keywords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'intl',
+    ],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.Plugins, ResourceCategory.UI,  ResourceCategory.Data],
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI, ResourceCategory.Data],
     published_at: 1702989010000,
+    maintained: false,
   },
   {
     link: 'https://github.com/SanichKotikov/solid-i18n',
@@ -949,6 +981,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1635697432000,
+    maintained: false,
   },
   {
     link: 'https://solid-libs.github.io/solid-bootstrap/#/',
@@ -986,6 +1019,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
     published_at: 1638915904000,
+    maintained: false,
   },
   {
     link: 'https://github.com/aminya/solid-simple-table',
@@ -999,6 +1033,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1639091168000,
+    maintained: false,
   },
   {
     link: 'https://gitlab.com/john.carroll.p/rx-controls',
@@ -1012,6 +1047,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1640895137000,
+    maintained: false,
   },
   {
     link: 'https://github.com/high1/solid-social#readme',
@@ -1061,6 +1097,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1641869878000,
+    maintained: false,
   },
   {
     link: 'https://github.com/LXSMNSYC/solid-marked',
@@ -1098,6 +1135,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1644609963000,
+    maintained: false,
   },
   {
     link: 'https://github.com/edemaine/meteor-solid',
@@ -1110,6 +1148,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.BuildUtilities],
     published_at: 1644771355777,
+    maintained: false,
   },
   {
     link: 'https://github.com/edemaine/solid-meteor-data',
@@ -1123,6 +1162,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
     published_at: 1644771355777,
+    maintained: false,
   },
   {
     link: 'https://github.com/wobsoriano/solid-firebase',
@@ -1161,6 +1201,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1646088393000,
+    maintained: false,
   },
   {
     link: 'https://hope-ui.com/',
@@ -1186,6 +1227,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1647496275000,
+    maintained: false,
   },
   {
     link: 'https://github.com/DigiChanges/solid-multiselect',
@@ -1243,6 +1285,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/dimensionhq/blitz',
@@ -1255,6 +1298,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/Aslemammad/solid-spring',
@@ -1268,6 +1312,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/fwouts/previewjs',
@@ -1292,6 +1337,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/lume/classy-solid',
@@ -1318,6 +1364,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/AdityaSetyadi/form-gear',
@@ -1331,6 +1378,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/gstatem/gstatem',
@@ -1343,6 +1391,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/L1lith/Melon-Solid',
@@ -1356,6 +1405,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/kajetansw/solar-forms',
@@ -1368,6 +1418,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1648998307145,
+    maintained: false,
   },
   {
     link: 'https://github.com/Bedrock-Layouts/Solid-Bedrock',
@@ -1380,6 +1431,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/everweij/solid-boundaries',
@@ -1392,6 +1444,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/yonathan06/solid-cached-resource',
@@ -1416,6 +1469,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/GIShub4/solid-map-gl',
@@ -1441,6 +1495,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/Exelord/solid-proxies',
@@ -1453,6 +1508,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.Data],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/Exelord/solid-services',
@@ -1478,6 +1534,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.BuildUtilities],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/pheggeseth/solid-ui',
@@ -1504,6 +1561,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://github.com/verdavaine/solidgraph',
@@ -1516,6 +1574,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
     published_at: 1651891327000,
+    maintained: false,
   },
   {
     link: 'https://motion.dev/solid/quick-start',
@@ -1562,6 +1621,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/SushiWaUmai/pyscript-solid',
@@ -1573,6 +1633,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins],
+    maintained: false,
   },
   {
     link: 'https://github.com/diragb/solid-custom-scrollbars',
@@ -1595,6 +1656,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/fastify/fastify-dx/tree/main/packages/fastify-dx-solid',
@@ -1606,6 +1668,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/tahti-studio/solid-knobs',
@@ -1617,6 +1680,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://swiperjs.com/solid',
@@ -1628,6 +1692,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/faassen/solid-dexie',
@@ -1639,6 +1704,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
+    maintained: false,
   },
   {
     link: 'https://github.com/davedbase/solid-confetti-explosion',
@@ -1662,6 +1728,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/diragb/solid-outside-click-handler',
@@ -1673,6 +1740,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/diragb/solid-copy-to-clipboard',
@@ -1684,6 +1752,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/wobsoriano/solid-apexcharts',
@@ -1718,6 +1787,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/smastrom/solid-collapse',
@@ -1729,6 +1799,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
+    maintained: false,
   },
   {
     link: 'https://github.com/olgam4/bat',
@@ -1818,6 +1889,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Routers],
+    maintained: false,
   },
   {
     link: 'https://github.com/miguelsalesvieira/solid-flow',
@@ -1862,6 +1934,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.AddOn],
+    maintained: false,
   },
   {
     link: 'https://papanasi.js.org/',
@@ -1922,6 +1995,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['markdown', 'vite', 'plugin', 'mdx', 'solid-markdown'],
     published_at: 1671096940743,
+    maintained: false,
   },
   {
     title: 'vitesse-solid',
@@ -2007,10 +2081,11 @@ const utilities: Array<Resource> = [
     description:
       'A universal internationalization (i18n) for Solid inspired by React Intl & FormatJS.',
     type: PackageType.Library,
-    categories: [ResourceCategory.UI, ResourceCategory.Data, ResourceCategory.Plugins],
+    categories: [ResourceCategory.UI, ResourceCategory.BuildUtilities, ResourceCategory.Plugins],
     official: false,
     keywords: ['i18n', 'internation', 'l10n', 'localization', 'translation', 'ssr'],
     published_at: 1672790400000,
+    maintained: false,
   },
   {
     title: '@sect/solid-hiding-header',
@@ -2048,6 +2123,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['material-design', 'kobalte', 'tailwindcss', 'class-variance-authority'],
     published_at: 1676732932000,
+    maintained: false,
   },
   {
     title: 'solid-color',
@@ -2109,6 +2185,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['trpc'],
     published_at: 1676924456000,
+    maintained: false,
   },
   {
     title: 'solid-start-trpc',
@@ -2121,6 +2198,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['trpc', 'start', 'solidstart'],
     published_at: 1676924456000,
+    maintained: false,
   },
   {
     title: 'solid-start-auth-example',
@@ -2268,6 +2346,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['primitive', 'scroll'],
     published_at: 1683714279538,
+    maintained: false,
   },
   {
     link: 'https://github.com/s0ftik3/solid-chartjs',
@@ -2315,6 +2394,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['component', 'paystack', 'payment'],
     published_at: 1688908056276,
+    maintained: false,
   },
   {
     title: 'solidjs-flutterwave',
@@ -2327,6 +2407,7 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['component', 'flutterwave', 'payment'],
     published_at: 1688926787929,
+    maintained: false,
   },
   {
     title: 'solid-wizard',
@@ -2417,7 +2498,8 @@ const utilities: Array<Resource> = [
     keywords: ['alive', 'keep alive', 'remount', 'mount'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.Primitives]
+    categories: [ResourceCategory.AddOn, ResourceCategory.Primitives],
+    maintained: false,
   },
   {
     link: 'https://corvu.dev',

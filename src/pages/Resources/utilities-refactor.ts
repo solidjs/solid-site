@@ -1,3 +1,6 @@
+import utilities from './Utilities.data';
+import { writeFile } from 'node:fs';
+
 const updated = [
   {
     status: '🤷',
@@ -7,21 +10,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-router',
     title: 'solid-router',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid/blob/main/packages/solid-element',
     title: 'solid-element',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Should be okay since it only relies on For and Show',
     link: 'https://github.com/milahu/solidjs-treeview-component',
     title: 'solidjs-treeview-component',
@@ -35,14 +38,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-meta',
     title: 'solid-meta',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-refresh',
     title: 'solid-refresh',
@@ -56,21 +59,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core/ecosystem team',
     link: 'https://github.com/solidjs/solid-testing-library',
     title: 'solid-testing-library',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/thetarnav/solid-devtools',
     title: 'Solid Developer Tools',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-playground',
     title: 'solid-playground',
@@ -78,13 +81,13 @@ const updated = [
 
   {
     status:
-      "✔ ', reason: 'Hasn',t been updated in 8 months but is still good to go. No necessary deps to use this package.",
+      "✔', reason: 'Hasn',t been updated in 8 months but is still good to go. No necessary deps to use this package.",
     link: 'https://github.com/amoutonbrady/solid-heroicons',
     title: 'solid-heroicons',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Works fine, last update 3 months ago.',
     link: 'https://github.com/x64Bits/solid-icons',
     title: 'solid-icons',
@@ -98,14 +101,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/ryansolid/dom-expressions/tree/main/packages/lit-dom-expressions',
     title: 'lit-dom-expressions',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/ryansolid/dom-expressions/tree/main/packages/babel-plugin-jsx-dom-expressions',
     title: 'babel-plugin-jsx-dom-expressions',
@@ -119,7 +122,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/ryansolid/dom-expressions',
     title: 'dom-expressions',
@@ -147,7 +150,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Renamed to mitosis',
     link: 'https://github.com/builderio/jsx-lite',
     title: 'jsx-lite',
@@ -161,13 +164,14 @@ const updated = [
   },
 
   {
-    status: "❌', reason: 'By Ryan but doesn',t seem to be maintained. Last update 3-4 years ago",
+    status: '❌',
+    reason: "By Ryan but doesn't seem to be maintained. Last update 3-4 years ago",
     link: 'https://github.com/ryansolid/solid-ts-webpack',
     title: 'solid-ts-webpack',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/templates',
     title: 'solidjs/templates',
@@ -195,36 +199,37 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-transition-group',
     title: 'solid-transition-group',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/solid-start',
     title: 'solid-start',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Supported and maintained by core',
     link: 'https://github.com/solidjs/vite-plugin-solid',
     title: 'vite-plugin-solid',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still maintained and used. Last update 2 months ago.',
     link: 'https://github.com/thisbeyond/solid-dnd',
     title: 'solid-dnd',
   },
 
   {
-    status:
-      "🤷', reason: 'Maintained by Ryan but no updates for 3 years and not sure if it',s even used to be honest.",
+    status: '🤷',
+    reason:
+      "Maintained by Ryan but no updates for 3 years and not sure if it's even used to be honest.",
     link: 'https://github.com/solidjs/react-solid-state',
     title: 'react-solid-state',
   },
@@ -244,21 +249,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still supported and maintained by @effector. Last update 4 months ago.',
     link: 'https://github.com/effector/effector/tree/master/packages/effector-solid',
     title: 'effector-solid',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last updated 2 years ago but supported and maintained by core',
     link: 'https://github.com/solidjs/solid-styled-components',
     title: 'solid-styled-components',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago, should be okay',
     link: 'https://github.com/Acidic9/emotion-solid',
     title: 'emotion-solid',
@@ -271,17 +276,17 @@ const updated = [
     title: 'solid-orbit',
   },
 
-  { status: '✔ ', reason: 'Good to go :)', link: 'https://github.com/lume/lume', title: 'LUME' },
+  { status: '✔', reason: 'Good to go :)', link: 'https://github.com/lume/lume', title: 'LUME' },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Icons should be fine',
     link: 'https://www.npmjs.com/package/phosphor-solid',
     title: 'phosphor-solid',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still maintained. Last update one month ago',
     link: 'https://github.com/tsparticles/solid',
     title: '@tsparticles/solid',
@@ -295,7 +300,8 @@ const updated = [
   },
 
   {
-    status: "❌', reason: 'Last update 3 years ago. Using deprecated dependecy 'solid-app-router'",
+    status: '❌',
+    reason: "Last update 3 years ago. Using deprecated dependecy 'solid-app-router'",
     link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
     title: 'vite-solid-tailwind-starter',
   },
@@ -315,14 +321,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Popular and maintained',
     link: 'https://github.com/pablo-abc/felte',
     title: 'Felte',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/joshwilsonvu/eslint-plugin-solid',
     title: 'eslint-plugin-solid',
@@ -336,7 +342,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good to go :)',
     link: 'https://github.com/davedbase/solid-slider',
     title: 'solid-slider',
@@ -351,14 +357,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still updated occasionally. Should be okay to keep',
     link: 'https://github.com/uNmAnNeR/imaskjs/tree/master/packages/solid-imask',
     title: 'solid-imask',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://github.com/wobsoriano/solid-zustand/',
     title: 'solid-zustand',
@@ -379,42 +385,43 @@ const updated = [
   },
 
   {
-    status:
-      "🤷', reason: 'Last update 2-3 years ago but seems simple as it',s just providing bindings. Ask lxsmnsyc",
+    status: '🤷',
+    reason:
+      "Last update 2-3 years ago but seems simple as it's just providing bindings. Ask lxsmnsyc",
     link: 'https://github.com/lxsmnsyc/solid-uppy',
     title: 'solid-uppy',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://github.com/LXSMNSYC/babel-plugin-solid-labels',
     title: 'babel-plugin-solid-labels',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://github.com/LXSMNSYC/solid-headless',
     title: 'solid-headless',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://github.com/LXSMNSYC/solid-tiptap',
     title: 'solid-tiptap',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://github.com/LXSMNSYC/solid-popper',
     title: 'solid-popper',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Good',
     link: 'https://aquaductape.github.io/solid-dismiss/',
     title: 'solid-dismiss',
@@ -442,7 +449,8 @@ const updated = [
   },
 
   {
-    status: "✔ ', reason: 'It',s Dave :) Update link though to solidjs-community/solid-primitives",
+    status: '✔',
+    reason: "It's Dave :) Update link though to solidjs-community/solid-primitives",
     link: 'https://github.com/davedbase/solid-primitives',
     title: 'solid-primitives',
   },
@@ -476,21 +484,22 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago, should be okay',
     link: 'https://github.com/andi23rosca/tiptap-solid',
     title: 'tiptap-solid',
   },
 
   {
-    status:
-      "❌', reason: 'Literally just a native library. Why is solid in the name if it',s just used for showcasing it and not using any Solid stuff...",
+    status: '❌',
+    reason:
+      "Literally just a native library. Why is solid in the name if it's just used for showcasing it and not using any Solid stuff...",
     link: 'https://github.com/swise0/solid-toast-notify',
     title: 'solid-toast-notify',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Looks good and popular',
     link: 'https://github.com/andi23rosca/solid-markdown',
     title: 'solid-markdown',
@@ -511,7 +520,8 @@ const updated = [
   },
 
   {
-    status: "✔ ', reason: 'It',s MICROSOFT! Also, it',s popular and maintained",
+    status: '✔',
+    reason: "It's MICROSOFT! Also, it's popular and maintained",
     link: 'https://github.com/microsoft/playwright',
     title: '@playwright/experimental-ct-solid',
   },
@@ -539,7 +549,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 5 months ago',
     link: 'https://github.com/SanichKotikov/solid-i18n',
     title: 'solid-i18n',
@@ -553,7 +563,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still maintained looks like',
     link: 'https://solid-libs.github.io/solid-bootstrap/#/',
     title: 'solid-bootstrap',
@@ -595,7 +605,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still maintained',
     link: 'https://github.com/high1/solid-jsx',
     title: 'solid-jsx',
@@ -609,7 +619,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Looks good, maintained',
     link: 'https://github.com/LXSMNSYC/solid-marked',
     title: 'solid-marked',
@@ -644,14 +654,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 6 months ago but should be okay',
     link: 'https://github.com/wobsoriano/solid-firebase',
     title: 'solid-firebase',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 1 year ago but might be usable?',
     link: 'https://github.com/nchudleigh/solid-virtual-list',
     title: 'solid-virtual-list',
@@ -664,7 +674,7 @@ const updated = [
     title: 'motion-signals',
   },
 
-  { status: "❌', reason: 'Unmaintained :'(", link: 'https://hope-ui.com/', title: 'hope-ui' },
+  { status: '❌', reason: "Unmaintained :'(", link: 'https://hope-ui.com/', title: 'hope-ui' },
 
   {
     status: '❌',
@@ -674,13 +684,13 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 2 years ago but should be usable',
     link: 'https://github.com/DigiChanges/solid-multiselect',
     title: 'solid-multiselect',
   },
 
-  { status: '✔ ', reason: 'Maintained', link: 'https://suid.io', title: 'SUID - Material UI' },
+  { status: '✔', reason: 'Maintained', link: 'https://suid.io', title: 'SUID - Material UI' },
 
   {
     status: '🤷',
@@ -711,7 +721,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/fwouts/previewjs',
     title: 'previewjs',
@@ -725,7 +735,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/lume/classy-solid',
     title: 'classy-solid',
@@ -781,7 +791,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago',
     link: 'https://github.com/yonathan06/solid-cached-resource',
     title: 'solid-cached-resource',
@@ -795,7 +805,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained, last update 1 month ago',
     link: 'https://github.com/GIShub4/solid-map-gl',
     title: 'solid-map-gl',
@@ -816,7 +826,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 8 months ago, should be okay for a little bit more',
     link: 'https://github.com/Exelord/solid-services',
     title: 'solid-services',
@@ -830,8 +840,9 @@ const updated = [
   },
 
   {
-    status:
-      "❌', reason: 'Not maintained, last update 2 years ago. Also it',s using the same name as the shadcn port so it can be confusing",
+    status: '❌',
+    reason:
+      "Not maintained, last update 2 years ago. Also it's using the same name as the shadcn port so it can be confusing",
     link: 'https://github.com/pheggeseth/solid-ui',
     title: 'solid-ui',
   },
@@ -851,7 +862,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason:
       'Maintained by core. Update url to https://github.com/solidjs-community/solid-motionone',
     link: 'https://motion.dev/solid/quick-start',
@@ -859,14 +870,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/Vexcited/solid-hcaptcha',
     title: 'solid-hcaptcha',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/gnomical/solid-theme-provider',
     title: 'solid-theme-provider',
@@ -887,7 +898,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/diragb/solid-custom-scrollbars',
     title: 'solid-custom-scrollbars',
@@ -929,7 +940,8 @@ const updated = [
   },
 
   {
-    status: "✔ ', reason: 'It',s Dave and it',s last update was 4 months ago",
+    status: '✔',
+    reason: "It's Dave and it's last update was 4 months ago",
     link: 'https://github.com/davedbase/solid-confetti-explosion',
     title: 'solid-confetti-explosion',
   },
@@ -956,14 +968,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/wobsoriano/solid-apexcharts',
     title: 'solid-apexcharts',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Update link to https://www.locatorjs.com/install/solidjs',
     link: 'https://www.locatorjs.com/',
     title: 'LocateJS',
@@ -984,7 +996,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Still maintained and useful',
     link: 'https://github.com/olgam4/bat',
     title: 'bat',
@@ -999,28 +1011,28 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Very useful, still maintained',
     link: 'https://tanstack.com/query/v4/docs/adapters/solid-query',
     title: '@tanstack/solid-query',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago, should work fine for the future',
     link: 'https://github.com/pureliani/solid-query',
     title: '@gapu/solid-query',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://tanstack.com/virtual/v3/docs/adapters/solid-virtual',
     title: '@tanstack/solid-virtual',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason:
       'Maintained, last update to the code 2 years ago but the core library is agnostic so this should be fine as a binding',
     link: 'https://tanstack.com/table/v8/docs/adapters/solid-table',
@@ -1028,7 +1040,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://ag-grid.com/react-data-grid/solidjs/',
     title: 'ag-grid-solid',
@@ -1042,14 +1054,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 2 years ago, but cool project and useful',
     link: 'https://github.com/miguelsalesvieira/solid-flow',
     title: 'solid-flow',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason:
       'Dead link, repo link: https://github.com/webblocksapp/solid-form-handler. Still maintained',
     link: 'https://solid-form-handler.com',
@@ -1064,21 +1076,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Core library still maintained, solid version last updated 8 months ago',
     link: 'https://papanasi.js.org/',
     title: 'Papanasi: The Universal UI Library',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 8 months ago',
-    link: 'solid-formlet',
-    title: 'Functional combinators for building reactive forms with SolidJS',
+    title: 'solid-formlet',
+    link: 'https://github.com/functorism/solid-formlet',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason:
       'Last update was 10 months ago but could be useful. I suggest moving starter templates under a separate label',
     link: 'https://github.com/vanillacode314/solid-start-trpc-turborepo',
@@ -1086,44 +1098,44 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
-    link: 'Modular Forms',
-    title: 'https://modularforms.dev/',
+    title: 'Modular Forms',
+    link: 'https://modularforms.dev/',
   },
 
   {
     status: '❌',
     reason: 'Update 1 year ago',
-    link: 'vite-plugin-solid-markdown',
-    title: 'https://github.com/xbmlz/vite-plugin-solid-markdown',
+    title: 'vite-plugin-solid-markdown',
+    link: 'https://github.com/xbmlz/vite-plugin-solid-markdown',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 1 month ago and popular',
-    link: 'vitesse-solid',
-    title: 'https://github.com/xbmlz/vitesse-solid',
+    title: 'vitesse-solid',
+    link: 'https://github.com/xbmlz/vitesse-solid',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained, popular, icons',
-    link: 'lucide-solid',
-    title: 'https://lucide.dev/',
+    title: 'lucide-solid',
+    link: 'https://lucide.dev/',
   },
 
-  { status: '✔ ', reason: 'We all love this one', link: 'https://kobalte.dev/', title: 'kobalte' },
+  { status: '✔', reason: 'We all love this one', link: 'https://kobalte.dev/', title: 'kobalte' },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
-    link: '@klass/solid',
-    title: 'https://github.com/flamrdevs/klass',
+    title: '@klass/solid',
+    link: 'https://github.com/flamrdevs/klass',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 1 year ago but should be okay and maintainer is active member of discord',
     link: 'https://github.com/bigmistqke/solid-textarea-autosize',
     title: 'solid-textarea-autosize',
@@ -1137,14 +1149,14 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: '@sect/solid-hiding-header',
     link: 'https://github.com/sectsect/solid-hiding-header',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Icons',
     link: 'https://github.com/gnomical/solid-fontawesome',
     title: 'solid-fontawesome',
@@ -1158,7 +1170,7 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason:
       'Last updated 1 year ago but should be good to use in the future. No maintenance however.',
     title: 'solid-color',
@@ -1166,21 +1178,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained but not really solid specific',
     title: 'Flowbite SolidJS',
     link: 'https://flowbite.com/docs/getting-started/solid-js/',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-mason',
     link: 'https://github.com/lxsmnsyc/solid-mason',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained and useful package for solid-start',
     title: 'create-jd-app',
     link: 'https://github.com/OrJDev/create-jd-app',
@@ -1201,35 +1213,35 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained and example repo, might fit better in a different category',
     title: 'solid-start-auth-example',
     link: 'https://github.com/nextauthjs/solid-start-auth-example',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'lexical-solid',
     link: 'https://github.com/mosheduminer/lexical-solid',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 10 months ago but may need future maintenance',
     title: '@wundergraph/solid-query',
     link: 'https://github.com/wundergraph/wundergraph/tree/main/packages/solid-query',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 10 months ago but should be okay to use for a bit',
     title: 'solid-dzone',
     link: 'https://github.com/Jcanotorr06/solid-dzone',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 10 months ago but should be okay to use for a bit',
     title: 'solid-marquee',
     link: 'https://github.com/Jcanotorr06/solid-marquee',
@@ -1243,35 +1255,35 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'ark-ui',
     link: 'https://github.com/chakra-ui/ark',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained and useful',
     title: 'solid-undo-redo',
     link: 'https://github.com/elite174/solid-undo-redo',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-simple-datepicker',
     link: 'https://github.com/elite174/solid-simple-datepicker',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last updated 9 months ago but useful and can be used',
     title: 'solid-resizable-panels',
     link: 'https://github.com/elite174/solid-resizable-panels',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-compose',
     link: 'https://github.com/mathieuprog/solid-compose',
@@ -1285,21 +1297,21 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     link: 'https://github.com/s0ftik3/solid-chartjs',
     title: 'solid-chartjs',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: '@rnwonder/solid-date-picker',
     link: 'https://github.com/rnwonder/solid-date-picker',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-maplibre',
     link: 'https://github.com/shishkin/solid-maplibre',
@@ -1320,43 +1332,44 @@ const updated = [
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 4 months ago, useful',
     title: 'solid-wizard',
     link: 'https://github.com/DigiChanges/solid-wizard',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-algo-wallets',
     link: 'https://github.com/SilentRhetoric/solid-algo-wallets',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Maintained',
     title: 'solid-swr',
     link: 'https://github.com/Tronikelis/solid-swr',
   },
 
-  { status: '✔ ', reason: 'Maintained', link: 'https://css-hooks.com', title: '@css-hooks/solid' },
+  { status: '✔', reason: 'Maintained', link: 'https://css-hooks.com', title: '@css-hooks/solid' },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago, useful',
     title: 'solid-monaco',
     link: 'https://github.com/alxnddr/solid-monaco',
   },
 
   {
-    status: "❌', reason: 'Last updated 3 months ago, doesn't seem overly useful",
+    status: '❌',
+    reason: "Last updated 3 months ago, doesn't seem overly useful",
     link: 'https://github.com/jessyhq/solid-spotify-embed',
     title: 'solid-spotify-embed',
   },
 
   {
-    status: '✔ ',
+    status: '✔',
     reason: 'Last update 3 months ago on creation, might still be useful',
     title: 'echarts-solid',
     link: 'https://github.com/alxnddr/echarts-solid',
@@ -1369,5 +1382,36 @@ const updated = [
     link: 'https://github.com/JulianSoto/solid-keep-alive',
   },
 
-  { status: '✔ ', reason: 'Bird', link: 'https://corvu.dev', title: 'corvu' },
+  { status: '✔', reason: 'Bird', link: 'https://corvu.dev', title: 'corvu' },
 ];
+
+const convertData = () => {
+  let data = `import { Resource, ResourceCategory, PackageType } from './Ecosystem'
+const utilities: Array<Resource> = [
+
+`;
+  const current = [...utilities];
+  console.log(current);
+
+  for (const util of current) {
+    const updatedUtil = updated.find((u) => u.title === util.title && u.link === u.link);
+
+    if (!updatedUtil) {
+      throw new Error(`Could not find [${util.title}] in updated list`);
+    }
+
+    if (updatedUtil.status === '❌') {
+      util.maintained = false;
+    }
+  }
+  data += JSON.stringify(current);
+
+  data += `]
+
+export default utilities
+`;
+
+  writeFile('src/pages/Resources/Utilities.data.ts', data, () => {});
+};
+
+convertData();
