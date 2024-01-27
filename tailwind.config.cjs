@@ -46,6 +46,8 @@ module.exports = {
           accent: '#0cdc73',
           secondaccent: '#0dfc85',
         },
+        amber: '#b45309',
+        'amber-light': '#f59e0b',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

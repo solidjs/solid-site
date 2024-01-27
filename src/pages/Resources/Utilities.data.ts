@@ -766,7 +766,7 @@ const utilities: Array<Resource> = [
     maintained: false,
   },
   {
-    link: 'https://github.com/davedbase/solid-primitives',
+    link: 'https://github.com/solidjs-community/solid-primitives',
     title: 'solid-primitives',
     description: "A library of high-quality primitives that extend Solid's reactivity.",
     author: 'David Di Biase',
@@ -777,32 +777,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Primitives],
     published_at: 1633118125000,
   },
-  {
-    link: 'https://guillotin.recodable.io/',
-    title: '@guillotin/solid',
-    description: 'Collection of Headless Components for demanding developers.',
-    author: 'Steven Yung',
-    author_url: 'https://github.com/xstevenyung',
-    keywords: ['headless', 'ui', 'components'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.UI],
-    published_at: 1633118125000,
-    maintained: false,
-  },
-  {
-    link: 'https://github.com/sophiabrandt/solid-heroes',
-    title: 'solid-heroes',
-    description: 'Simple SolidJS example using GraphQL-Yoga as the server and URQL as the client.',
-    author: 'Sophia Brandt',
-    author_url: 'https://github.com/sophiabrandt',
-    keywords: ['graphql', 'urql', 'yoga'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Educational, ResourceCategory.Data],
-    published_at: 1634326849000,
-    maintained: false,
-  },
+
   {
     link: 'https://github.com/lxsmnsyc/solid-giphy',
     title: 'solid-giphy',
@@ -1287,19 +1262,7 @@ const utilities: Array<Resource> = [
     published_at: 1651891327000,
     maintained: false,
   },
-  {
-    link: 'https://github.com/dimensionhq/blitz',
-    title: '@dimensionhq/blitz',
-    description: 'Fast, simple, and efficient state management for Solid.',
-    author: 'dimensionhq',
-    author_url: 'https://github.com/dimensionhq',
-    keywords: ['state', 'management', 'live-chat', 'solidhack'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Plugins, ResourceCategory.Data],
-    published_at: 1651891327000,
-    maintained: false,
-  },
+
   {
     link: 'https://github.com/Aslemammad/solid-spring',
     title: 'solid-spring',
@@ -1577,7 +1540,7 @@ const utilities: Array<Resource> = [
     maintained: false,
   },
   {
-    link: 'https://motion.dev/solid/quick-start',
+    link: 'https://github.com/solidjs-community/solid-motionone',
     title: '@motionone/solid',
     description: 'Offical Motion One library for hardware accelerated animations in Solid.',
     author: 'davedbase & thetarnav',
@@ -1766,7 +1729,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
   {
-    link: 'https://www.locatorjs.com/',
+    link: 'https://www.locatorjs.com/install/solidjs',
     title: 'LocateJS',
     description:
       'A React, Preact and Solid-supported dev tool that lets you click on any component in the browser to open its code in your IDE..',
@@ -1903,7 +1866,7 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
   },
   {
-    link: 'https://solid-form-handler.com',
+    link: 'https://github.com/webblocksapp/solid-form-handler',
     title: 'solid-form-handler',
     description:
       'SolidJS library for building form components and validating forms with them. It can be integrated with vanilla form components or any SolidJS UI library.',

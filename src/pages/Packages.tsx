@@ -11,7 +11,7 @@ import SideContent from '../components/layout/SideContent';
 import { Icon } from 'solid-heroicons';
 import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { shieldCheck } from 'solid-heroicons/solid';
-import { externalLink } from 'solid-heroicons/outline';
+import { exclamation, externalLink } from 'solid-heroicons/outline';
 import { useAppState } from '../AppContext';
 import { keys } from '@solid-primitives/utils';
 
@@ -45,14 +45,29 @@ const FilterButton: Component<{
   </>
 );
 
+const FilterMaintained: Component<{
+  onChange: JSX.EventHandlerUnion<HTMLInputElement, Event>;
+  active: boolean;
+}> = (props) => (
+  <div class="flex items-center gap-2">
+    <input
+      type="checkbox"
+      checked={props.active}
+      onChange={props.onChange}
+      id="maintained-filter"
+    />
+    <label for="maintained-filter">Maintained Filter</label>
+  </div>
+);
+
 const FilterOfficial: Component<{
   onChange: JSX.EventHandlerUnion<HTMLInputElement, Event>;
   active: boolean;
 }> = (props) => (
-  <>
+  <div class="flex items-center gap-2">
     <input type="checkbox" checked={props.active} onChange={props.onChange} id="filter" />{' '}
     <label for="filter">Official Filter</label>
-  </>
+  </div>
 );
 
 const ResourceLink: Component<Resource> = (props) => {
@@ -105,13 +120,20 @@ const ResourceLink: Component<Resource> = (props) => {
             </div>
           </Show>
         </div>
-
-        <Show when={props.official}>
-          <div class="flex rounded bg-solid-light dark:bg-solid-default text-white font-medium w-min p-1 pr-2 self-end">
-            <Icon class="w-4 mr-1" path={shieldCheck} />
-            <span class="text-xs">{t('resources.official')}</span>
-          </div>
-        </Show>
+        <div class="flex items-center gap-2">
+          <Show when={props.maintained !== undefined && !props.maintained}>
+            <div class="flex rounded bg-amber-light dark:bg-amber text-white font-medium w-min p-1 pr-2 self-end">
+              <Icon class="w-4 mr-1" path={exclamation} />
+              <span class="text-xs">Unmaintained</span>
+            </div>
+          </Show>
+          <Show when={props.official}>
+            <div class="flex rounded bg-solid-light dark:bg-solid-default text-white font-medium w-min p-1 pr-2 self-end">
+              <Icon class="w-4 mr-1" path={shieldCheck} />
+              <span class="text-xs">{t('resources.official')}</span>
+            </div>
+          </Show>
+        </div>
       </div>
     </a>
   );
@@ -125,9 +147,16 @@ const Packages: Component = () => {
     threshold: 0.3,
   });
 
-  const [check, setCheck] = createSignal(false);
-  const toggleOfficial = ({ target }: Event) => setCheck((target as HTMLInputElement).checked);
+  const [officialCheck, setOfficialCheck] = createSignal(false);
+  const [maintainedCheck, setMaintainedCheck] = createSignal(true);
+  const toggleOfficial = ({ target }: Event) =>
+    setOfficialCheck((target as HTMLInputElement).checked);
+  const toggleMaintained = ({ target }: Event) =>
+    setMaintainedCheck((target as HTMLInputElement).checked);
   const official = data.list.filter((item) => item.official);
+  const maintained = data.list.filter(
+    (item) => item.maintained === undefined || item.maintained === true,
+  );
 
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
@@ -136,11 +165,29 @@ const Packages: Component = () => {
 
   // Produces a base set of filtered results
   const resources = createMemo<Resource[]>(() => {
+    let filteredData = [];
     if (keyword() == '') {
-      return check() ? official : data.list;
+      if (officialCheck()) {
+        filteredData.push(...official);
+      }
+      if (maintainedCheck()) {
+        filteredData.push(...maintained);
+      }
+      return officialCheck() || maintainedCheck() ? filteredData : data.list;
     }
+
     const search = fs.search(keyword()).map((result) => result.item);
-    return check() ? search.filter((item) => item.official) : search;
+
+    let result = [];
+
+    for (const item of search) {
+      if (officialCheck() && !item.official) continue;
+      if (maintainedCheck() && item.maintained === false) continue;
+
+      result.push(item);
+    }
+
+    return result;
   });
 
   // Retrieve a map from categories to array of resources
@@ -204,7 +251,10 @@ const Packages: Component = () => {
             type="text"
           />
 
-          <FilterOfficial active={check()} onChange={toggleOfficial} />
+          <div class="flex flex-col gap-4">
+            <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
+            <FilterMaintained active={maintainedCheck()} onChange={toggleMaintained} />
+          </div>
 
           <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
             {t('resources.categories')}
@@ -237,7 +287,7 @@ const Packages: Component = () => {
               onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
-            <FilterOfficial active={check()} onChange={toggleOfficial} />
+            <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
             <div
               class="relative h-2"
               classList={{
