@@ -1065,7 +1065,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/LXSMNSYC/solid-marked',
     title: 'solid-marked',
-    description: 'MDX/Markdown compiler for SolidJS including Github-flavored markdown',
+    description: 'MDX/Markdown compiler for SolidJS including GitHub-flavored markdown',
     author: 'LXSMNSYC',
     author_url: 'https://github.com/LXSMNSYC',
     keywords: ['mdx', 'marked', 'markdown', 'mdast'],
