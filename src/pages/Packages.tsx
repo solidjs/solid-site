@@ -153,10 +153,6 @@ const Packages: Component = () => {
     setOfficialCheck((target as HTMLInputElement).checked);
   const toggleMaintained = ({ target }: Event) =>
     setMaintainedCheck((target as HTMLInputElement).checked);
-  const official = data.list.filter((item) => item.official);
-  const maintained = data.list.filter(
-    (item) => item.maintained === undefined || item.maintained === true,
-  );
 
   const [searchParams] = useSearchParams();
   const [keyword, setKeyword] = createSignal(parseKeyword(searchParams.search || ''));
@@ -167,12 +163,13 @@ const Packages: Component = () => {
   const resources = createMemo<Resource[]>(() => {
     let filteredData = [];
     if (keyword() == '') {
-      if (officialCheck()) {
-        filteredData.push(...official);
+      for (const item of data.list) {
+        if (officialCheck() && !item.official) continue;
+        if (maintainedCheck() && item.maintained === false) continue;
+
+        filteredData.push(item);
       }
-      if (maintainedCheck()) {
-        filteredData.push(...maintained);
-      }
+
       return officialCheck() || maintainedCheck() ? filteredData : data.list;
     }
 
