@@ -33,6 +33,7 @@ export interface Resource {
   type: ResourceType | PackageType;
   categories: readonly ResourceCategory[];
   official?: boolean; // If the resource is an official Solid resource
+  maintained?: boolean; // If the resource is maintained and can be used
   keywords?: readonly string[];
   published_at?: number;
 }
