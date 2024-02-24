@@ -2476,6 +2476,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
   },
+  {
+    link: 'https://github.com/elite174/solid-simple-popover',
+    title: 'solid-simple-popover',
+    description:
+      'A simple and customizable popover component for SolidJS based on floating-ui.',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://github.com/elite174',
+    keywords: ['popover', 'floating-ui', 'component'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
 ];
 
 export default utilities;
