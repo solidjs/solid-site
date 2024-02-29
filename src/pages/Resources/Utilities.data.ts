@@ -2488,6 +2488,18 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
   },
+  {
+    link: 'https://github.com/jehaad1/SolidBase',
+    title: 'create-solidbase-app',
+    description: 'Starter Templates CLI with Solid.js, Firebase, TailwindCSS, and Vite',
+    author: 'Jehaad AL-Johani',
+    author_url: 'https://github.com/jehaad1',
+    keywords: ['template', 'starter', 'firebase', 'tailwindcss', 'tailwind', 'vite'],
+    official: false,
+    type: PackageType.Library,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+    maintained: false,
+  },
 ];
 
 export default utilities;
