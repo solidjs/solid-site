@@ -2496,9 +2496,8 @@ const utilities: Array<Resource> = [
     author_url: 'https://github.com/jehaad1',
     keywords: ['template', 'starter', 'firebase', 'tailwindcss', 'tailwind', 'vite'],
     official: false,
-    type: PackageType.Library,
+    type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
-    maintained: false,
   },
 ];
 
