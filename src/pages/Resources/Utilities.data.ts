@@ -2465,7 +2465,7 @@ const utilities: Array<Resource> = [
     maintained: false,
   },
   {
-    link: 'https://corvu.dev',
+    link: 'https://corvu.dev/',
     title: 'corvu',
     description:
       'A collection of unstyled and accessible UI primitives that aim to be highly customizable while providing a delightful developer experience.',
@@ -2479,11 +2479,57 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/elite174/solid-simple-popover',
     title: 'solid-simple-popover',
-    description:
-      'A simple and customizable popover component for SolidJS based on floating-ui.',
+    description: 'A simple and customizable popover component for SolidJS based on floating-ui.',
     author: 'Vladislav Lipatov',
     author_url: 'https://github.com/elite174',
     keywords: ['popover', 'floating-ui', 'component'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://corvu.dev/docs/utilities/presence/',
+    title: 'solid-presence',
+    description:
+      'Utility that manages the presence of an element in the DOM while being aware of pending animations.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['show', 'presence', 'animation'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://corvu.dev/docs/utilities/focus-trap/',
+    title: 'solid-focus-trap',
+    description: 'Utility that traps focus inside a given DOM element.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['focus', 'trap', 'keyboard', 'accessibility'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://corvu.dev/docs/utilities/prevent-scroll/',
+    title: 'solid-prevent-scroll',
+    description:
+      'Utility that prevents scrolling outside of a given DOM element. Works by preventing events that else would lead to scrolling.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['scroll', 'prevent', 'disable', 'remove'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://corvu.dev/docs/utilities/transition-size/',
+    title: 'solid-transition-size',
+    description:
+      "Utility which makes it possible to transition the width and height of elements that don't have a fixed size applied.",
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['transition', 'size', 'width', 'height'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],

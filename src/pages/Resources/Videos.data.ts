@@ -1161,7 +1161,7 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1705959795000,
-  }
+  },
 ];
 
 export default videos;
