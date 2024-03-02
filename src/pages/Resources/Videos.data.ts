@@ -1162,6 +1162,42 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1705959795000,
   },
+  {
+    link: 'https://www.linkedin.com/learning/building-interactive-uis-with-solidjs-key-concepts-and-features',
+    title: 'LinkedIn Learning course, Building interactive UIs with SolidJS',
+    description:
+      'In this course, instructor Ebenezer Don helps you to get up and running with the key concepts and features of SolidJS, leveraging its simplicity, speed, and adaptability.',
+    keywords: ['solid', 'intro'],
+    author: 'Ebenezer Don',
+    author_url: 'https://twitter.com/ebenezerDN',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1709126698490,
+  },
+  {
+    link: 'https://www.youtube.com/watch?si=yLRWxR4vPmhOoFQx&v=t18Kzj9S8-M&feature=youtu.be',
+    title: 'Understanding Signals',
+    description:
+      'Signals became all the rage in 2023 - SolidJS made them popular, Angular is adopting them, Svelte introduces them ("runes") and Vue actually already had a Signal-like feature called "refs". But whats the advantage of Signals? And how do they work internally?',
+    keywords: ['solid', 'signals'],
+    author: 'Academind',
+    author_url: 'https://www.youtube.com/@academind',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1709126698495,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=2K5cLC_b64w',
+    title: 'SolidStart calls for you!',
+    description:
+      'With SolidStart approaching stability, every tool, project, and open-source project needs a new starter, template, or guide! Now it is the time to get your OSS contributions, learn something new, and empower this amazing and welcoming ecosystem!!!',
+    keywords: ['solid', 'solidstart'],
+    author: 'Atila Fassina',
+    author_url: 'https://www.youtube.com/@AtilaDotIO',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1709126698495,
+  },
 ];
 
 export default videos;
