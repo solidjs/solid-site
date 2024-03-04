@@ -1186,6 +1186,7 @@ const utilities: Array<Resource> = [
     author_url: 'https://github.com/fabien-ml',
     keywords: ['hope', 'chakra', 'design', 'ui', 'components'],
     official: false,
+    maintained: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
     published_at: 1647104517182,
