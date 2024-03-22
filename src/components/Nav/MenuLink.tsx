@@ -1,5 +1,5 @@
 import { createEventListener } from '@solid-primitives/event-listener';
-import { NavLink } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { batch, createSignal, JSX, onMount, ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
@@ -86,7 +86,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
 
   return (
     <li ref={wrapperEl}>
-      <NavLink
+      <A
         href={props.path}
         target={props.external ? '_blank' : undefined}
         class="inline-flex items-center transition text-[15px] dark:hover:bg-solid-darkLighterBg sm:text-base m-0 sm:m-1 px-3 sm:px-4 py-3 rounded pointer-fine:hover:text-white pointer-fine:hover:bg-solid-medium whitespace-nowrap"
@@ -111,7 +111,7 @@ export const MenuLink: ParentComponent<MenuLinkProps> = (props) => {
             />
           </svg>
         </Show>
-      </NavLink>
+      </A>
     </li>
   );
 };

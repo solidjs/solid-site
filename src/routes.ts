@@ -1,5 +1,5 @@
 import { lazy } from 'solid-js';
-import { RouteDefinition, Navigate, RouteDataFunc } from '@solidjs/router';
+import { RouteDefinition, Navigate } from '@solidjs/router';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
@@ -16,14 +16,14 @@ export const routes: RouteDefinition[] = [
   {
     path: '/',
     component: lazy(() => import('./pages/Home')),
-    data: () => ({
+    load: () => ({
       benchmarks: BenchmarkData(),
     }),
   },
   {
     path: '/guides/:id',
     component: lazy(() => import('./pages/Docs')),
-    data: GuideData as RouteDataFunc,
+    load: GuideData,
   },
   {
     path: '/hack',
@@ -35,22 +35,22 @@ export const routes: RouteDefinition[] = [
   {
     path: '/guide',
     component: () => Navigate({ href: '/guides/getting-started' }),
-    data: GuideData as RouteDataFunc,
+    load: GuideData,
   },
   {
     path: '/guides',
     component: () => Navigate({ href: '/guides/getting-started' }),
-    data: GuideData as RouteDataFunc,
+    load: GuideData,
   },
   {
     path: '/blog/:slug',
     component: lazy(() => import('./pages/BlogArticle')),
-    data: BlogArticleData as RouteDataFunc,
+    load: BlogArticleData,
   },
   {
     path: '/blog',
     component: lazy(() => import('./pages/Blog')),
-    data: BlogData as RouteDataFunc,
+    load: BlogData,
   },
   {
     path: '/docs',
@@ -65,12 +65,12 @@ export const routes: RouteDefinition[] = [
         component: lazy(() => import('./pages/Docs')),
       },
     ],
-    data: DocsData as RouteDataFunc,
+    load: DocsData,
   },
   {
     path: '/tutorial/:id',
     component: lazy(() => import('./pages/Tutorial')),
-    data: TutorialData as RouteDataFunc,
+    load: TutorialData,
   },
   {
     path: '/tutorial',
@@ -80,7 +80,7 @@ export const routes: RouteDefinition[] = [
   {
     path: '/examples/:id',
     component: lazy(() => import('./pages/Examples')),
-    data: ExamplesData,
+    load: ExamplesData,
   },
   {
     path: '/examples',
@@ -89,17 +89,17 @@ export const routes: RouteDefinition[] = [
   {
     path: '/contributors',
     component: lazy(() => import('./pages/Contributors')),
-    data: ContributorsData,
+    load: ContributorsData,
   },
   {
     path: '/ecosystem',
     component: lazy(() => import('./pages/Packages')),
-    data: PackagesData,
+    load: PackagesData,
   },
   {
     path: '/resources',
     component: lazy(() => import('./pages/Resources')),
-    data: ResourcesData,
+    load: ResourcesData,
   },
   {
     path: '/media',
@@ -108,7 +108,7 @@ export const routes: RouteDefinition[] = [
   {
     path: '/store',
     component: lazy(() => import('./pages/Store')),
-    data: StoreData,
+    load: StoreData,
   },
   {
     path: '/*all',

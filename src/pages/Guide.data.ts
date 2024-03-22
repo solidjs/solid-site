@@ -1,10 +1,10 @@
-import { useLocation, RouteDataFunc } from '@solidjs/router';
+import { useLocation, RouteLoadFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
 import { getDoc } from '@solid.js/docs';
 import { DocData } from './Docs.data';
 import { useAppState } from '../AppContext';
 
-export const GuideData: RouteDataFunc<DocData> = (props) => {
+export const GuideData: RouteLoadFunc<DocData> = (props) => {
   const location = useLocation();
   const ctx = useAppState();
 

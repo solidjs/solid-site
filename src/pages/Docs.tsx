@@ -9,7 +9,6 @@ import {
   Accessor,
   ParentComponent,
 } from 'solid-js';
-import { useRouteData } from '@solidjs/router';
 import { createScrollPosition } from '@solid-primitives/scroll';
 import { throttle } from '@solid-primitives/scheduled';
 import SideContent from '../components/layout/SideContent';
@@ -120,8 +119,8 @@ const Content: Component<{
   </Switch>
 );
 
-const Docs: Component<{ hash?: string }> = (props) => {
-  const data = useRouteData<DocData>();
+const Docs: Component<{ hash?: string, data: DocData }> = (props) => {
+  const data = props.data;
   const [current, setCurrent] = createSignal<string | null>(null);
   const [toggleSections, setToggleSections] = createSignal(false);
   const scrollPosition = createScrollPosition();

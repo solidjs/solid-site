@@ -1,4 +1,4 @@
-import { RouteDataFunc } from '@solidjs/router';
+import { RouteLoadFunc } from '@solidjs/router';
 import type { Component } from 'solid-js';
 import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 
@@ -96,7 +96,7 @@ export interface BlogData {
   articles: { [key: string]: BlogInfo };
 }
 
-export const BlogData: RouteDataFunc<BlogData> = () => {
+export const BlogData: RouteLoadFunc<BlogData> = () => {
   return {
     get articles() {
       return list;
