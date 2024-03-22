@@ -8,6 +8,11 @@ overrides:
   solid-js: 1.8.16
   '@rollup/pluginutils': 5.1.0
 
+patchedDependencies:
+  monaco-editor@0.47.0:
+    hash: 47lyngt4w53dxs4nfwrfuj2lyq
+    path: patches/monaco-editor@0.47.0.patch
+
 dependencies:
   '@floating-ui/dom':
     specifier: ^1.6.3
@@ -62,7 +67,7 @@ dependencies:
     version: 11.9.0
   monaco-editor:
     specifier: ~0.47.0
-    version: 0.47.0
+    version: 0.47.0(patch_hash=47lyngt4w53dxs4nfwrfuj2lyq)
   monaco-editor-textmate:
     specifier: ^4.0.0
     version: 4.0.0(monaco-editor@0.47.0)(monaco-textmate@3.0.1)
@@ -5348,13 +5353,14 @@ packages:
       monaco-editor: 0.x.x
       monaco-textmate: ^3.0.0
     dependencies:
-      monaco-editor: 0.47.0
+      monaco-editor: 0.47.0(patch_hash=47lyngt4w53dxs4nfwrfuj2lyq)
       monaco-textmate: 3.0.1(onigasm@2.2.5)
     dev: false
 
-  /monaco-editor@0.47.0:
+  /monaco-editor@0.47.0(patch_hash=47lyngt4w53dxs4nfwrfuj2lyq):
     resolution: {integrity: sha512-VabVvHvQ9QmMwXu4du008ZDuyLnHs9j7ThVFsiJoXSOQk18+LF89N4ADzPbFenm0W4V2bGHnFBztIRQTgBfxzw==}
     dev: false
+    patched: true
 
   /monaco-textmate@3.0.1(onigasm@2.2.5):
     resolution: {integrity: sha512-ZxxY3OsqUczYP1sGqo97tu+CJmMBwuSW+dL0WEBdDhOZ5G1zntw72hvBc68ZQAirosWvbDKgN1dL5k173QtFww==}
