@@ -1,5 +1,5 @@
-import { lazy } from 'solid-js';
-import { RouteDefinition, Navigate } from '@solidjs/router';
+import { Component, lazy } from 'solid-js';
+import { RouteDefinition, Navigate, RouteSectionProps } from '@solidjs/router';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
@@ -15,14 +15,14 @@ import { BlogArticleData } from './pages/BlogArticle.data';
 export const routes: RouteDefinition[] = [
   {
     path: '/',
-    component: lazy(() => import('./pages/Home')),
+    component: lazy(() => import('./pages/Home')) as Component<RouteSectionProps>,
     load: () => ({
       benchmarks: BenchmarkData(),
     }),
   },
   {
     path: '/guides/:id',
-    component: lazy(() => import('./pages/Docs')),
+    component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
     load: GuideData,
   },
   {
@@ -44,32 +44,32 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/blog/:slug',
-    component: lazy(() => import('./pages/BlogArticle')),
+    component: lazy(() => import('./pages/BlogArticle')) as Component<RouteSectionProps>,
     load: BlogArticleData,
   },
   {
     path: '/blog',
-    component: lazy(() => import('./pages/Blog')),
+    component: lazy(() => import('./pages/Blog')) as Component<RouteSectionProps>,
     load: BlogData,
   },
   {
     path: '/docs',
-    component: lazy(() => import('./pages/Docs')),
+    component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
     children: [
       {
         path: '/:version',
-        component: lazy(() => import('./pages/Docs')),
+        component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
       },
       {
         path: '/*all',
-        component: lazy(() => import('./pages/Docs')),
+        component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
       },
     ],
     load: DocsData,
   },
   {
     path: '/tutorial/:id',
-    component: lazy(() => import('./pages/Tutorial')),
+    component: lazy(() => import('./pages/Tutorial')) as Component<RouteSectionProps>,
     load: TutorialData,
   },
   {
@@ -79,7 +79,7 @@ export const routes: RouteDefinition[] = [
 
   {
     path: '/examples/:id',
-    component: lazy(() => import('./pages/Examples')),
+    component: lazy(() => import('./pages/Examples')) as Component<RouteSectionProps>,
     load: ExamplesData,
   },
   {
@@ -88,17 +88,17 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/contributors',
-    component: lazy(() => import('./pages/Contributors')),
+    component: lazy(() => import('./pages/Contributors')) as Component<RouteSectionProps>,
     load: ContributorsData,
   },
   {
     path: '/ecosystem',
-    component: lazy(() => import('./pages/Packages')),
+    component: lazy(() => import('./pages/Packages')) as Component<RouteSectionProps>,
     load: PackagesData,
   },
   {
     path: '/resources',
-    component: lazy(() => import('./pages/Resources')),
+    component: lazy(() => import('./pages/Resources')) as Component<RouteSectionProps>,
     load: ResourcesData,
   },
   {
@@ -107,7 +107,7 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/store',
-    component: lazy(() => import('./pages/Store')),
+    component: lazy(() => import('./pages/Store')) as Component<RouteSectionProps>,
     load: StoreData,
   },
   {
