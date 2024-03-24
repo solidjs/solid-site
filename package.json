@@ -38,7 +38,7 @@
     "fuse.js": "^7.0.0",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.9.0",
-    "monaco-editor": "~0.47.0",
+    "monaco-editor": "0.47.0",
     "monaco-editor-textmate": "^4.0.0",
     "monaco-textmate": "^3.0.1",
     "onigasm": "^2.2.5",
