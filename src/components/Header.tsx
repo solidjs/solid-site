@@ -9,7 +9,7 @@ import {
   createMemo,
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
-import { useLocation, Link } from '@solidjs/router';
+import { useLocation, A } from '@solidjs/router';
 import Nav from './Nav';
 import { useAppState } from '../AppContext';
 import logo from '../assets/logo.svg';
@@ -104,31 +104,31 @@ const Header: ParentComponent<{ title?: string }> = () => {
                 </h2>
                 <div class="space-y-2 md:flex md:space-y-0 md:space-x-2">
                   <div>
-                    <Link
+                    <A
                       href="/guides/getting-started"
                       class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       {t('home.get_started')}
                       <Icon stroke-width="3" class="w-5" path={chevronRight} />
-                    </Link>
+                    </A>
                   </div>
                   <div class="flex flex-col space-y-1">
-                    <Link
+                    <A
                       target="_blank"
                       href="https://www.youtube.com/watch?v=hw3Bx5vxKl0"
                       class="bg-solid-light flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
                       {t('home.intro_video')}
-                    </Link>
-                    <Link
+                    </A>
+                    <A
                       target="_blank"
                       href="https://www.youtube.com/watch?v=cELFZQAMdhQ"
                       class="bg-solid-light bg-opacity-50 flex items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       <Icon stroke-width="2" class="w-6 mr-2" path={play} />
                       {t('home.intro_video_advanced')}
-                    </Link>
+                    </A>
                   </div>
                 </div>
               </section>

@@ -1,18 +1,17 @@
 import { Suspense } from 'solid-js';
-import { useRoutes, Router } from '@solidjs/router';
+import { Router } from '@solidjs/router';
 import { routes } from './routes';
 import Header from './components/Header';
 import { AppContextProvider } from './AppContext';
 import { preventSmoothScrollOnTabbing } from './utils';
 
 export const App = () => {
-  const Routes = useRoutes(routes);
 
   preventSmoothScrollOnTabbing();
 
   return (
     <main class="min-h-screen">
-      <Router>
+      <Router root={(props)=>(
         <AppContextProvider>
           <Header />
           {/* two div wrappers to make page animation work and performant */}
@@ -20,12 +19,14 @@ export const App = () => {
             <div>
               {/* <TransitionRoutes> */}
               <Suspense>
-                <Routes />
+                {props.children}
               </Suspense>
               {/* </TransitionRoutes> */}
             </div>
           </div>
         </AppContextProvider>
+      )}>
+        {routes}
       </Router>
     </main>
   );

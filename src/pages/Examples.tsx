@@ -1,5 +1,5 @@
 import Repl from 'solid-repl/dist/repl';
-import { NavLink, useRouteData, useParams } from '@solidjs/router';
+import { A, useParams } from '@solidjs/router';
 import { For, Component, createSignal, createEffect, batch, ErrorBoundary, Show } from 'solid-js';
 import { ExamplesDataRoute } from './Examples.data';
 
@@ -9,8 +9,8 @@ import { useAppState } from '../AppContext';
 import type { Tab } from 'solid-repl';
 import { entries } from '@solid-primitives/utils';
 
-const Examples: Component = () => {
-  const data = useRouteData<ExamplesDataRoute>();
+const Examples: Component<{data: ExamplesDataRoute}> = (props) => {
+  const data = props.data;
   const context = useAppState();
   const { t } = context;
   const params = useParams<{ id: string }>();
@@ -71,7 +71,7 @@ const Examples: Component = () => {
                 <div class="mb-10">
                   <For each={examples}>
                     {(example) => (
-                      <NavLink
+                      <A
                         dir="ltr"
                         href={`/examples/${example.id}`}
                         class="block my-4 space-y-2 text-sm py-3 pl-2 border-b hover:opacity-60 dark:border-solid-darkLighterBg"
@@ -82,7 +82,7 @@ const Examples: Component = () => {
                         <span class="block text-gray-500 text-xs dark:text-white/40 text-md">
                           {example.description}
                         </span>
-                      </NavLink>
+                      </A>
                     )}
                   </For>
                 </div>

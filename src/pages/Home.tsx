@@ -9,7 +9,7 @@ import {
   createMemo,
   createEffect,
 } from 'solid-js';
-import { Link, useRouteData, useIsRouting } from '@solidjs/router';
+import { A, useIsRouting } from '@solidjs/router';
 import { createViewportObserver } from '@solid-primitives/intersection-observer';
 import iconBlocks1 from '../assets/icons/blocks1.svg';
 import iconBlocks2 from '../assets/icons/blocks2.svg';
@@ -35,9 +35,9 @@ const strength_icons: { [key: string]: string } = {
   productive,
 };
 
-const Home: Component = () => {
+const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
   const isRouting = useIsRouting();
-  const data = useRouteData<{ benchmarks: GraphData[] }>();
+  const data = props.data;
   const ctx = useAppState();
   const { t } = ctx;
   const [loadRepl, setLoadRepl] = createSignal(false);
@@ -180,12 +180,12 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
             <For each={t('home.example.copy')}>
               {(copy: string) => <p class="mt-9 leading-7">{copy}</p>}
             </For>
-            <Link
+            <A
               class={`button inline-block mt-8 text-solid-default dark:text-solid-darkdefault font-semibold hover:text-gray-500 dark:hover:text-gray-300 ${chevron()}`}
               href={t('home.example.link')}
             >
               {t('home.example.link_label')}
-            </Link>
+            </A>
           </div>
         </section>
         <section class="dark:bg-solid-darkLighterBg bg-solid-lightgray py-16 grid grid-cols-1 lg:grid-cols-2 md:px-5 lg:px-16 defer rounded-br-6xl lg:bg-blocks-three bg-no-repeat bg-contain bg-right rtl:bg-left">

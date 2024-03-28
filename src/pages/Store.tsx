@@ -1,6 +1,5 @@
 import { Component, createMemo, createSignal, For, Show } from 'solid-js';
 import Footer from '../components/Footer';
-import { useRouteData } from '@solidjs/router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { CartUtilities, ShopifyProduct } from '../utils/shopify';
 import { Icon } from 'solid-heroicons';
@@ -102,29 +101,29 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   );
 };
 
-const Cart: Component<CartUtilities> = (props) => {
+const Cart: Component<{data: {
+  products: ShopifyProduct[];
+  loading: boolean;
+  commerce: CartUtilities;
+}}> = (props) => {
   const [loading, setLoading] = createSignal(false);
-  const data = useRouteData<{
-    products: ShopifyProduct[];
-    loading: boolean;
-    commerce: CartUtilities;
-  }>();
+  const data = props.data;
   return (
     <div class="absolute w-[500px] max-h-[75vh] overflow-scroll top-[75px] right-0 md:right-[45px] bg-white dark:bg-solid-darkgray border-slate-300 divide-y shadow-xl divide-slate-300 border dark:divide-solid-gray/80 dark:border-solid-gray/80 rounded-lg">
       <Show
         fallback={<div class="p-10 text-center w-full">No items in cart.</div>}
-        when={props.cart.totalItems !== 0}
+        when={data.commerce.cart.totalItems !== 0}
       >
-        <For each={props.cart.lines}>
+        <For each={data.commerce.cart.lines}>
           {(item: ShopifyBuy.LineItem) => {
             const remove = async () => {
               setLoading(true);
-              await props.remove([item.id.toString()]);
+              await data.commerce.remove([item.id.toString()]);
               setLoading(false);
             };
             const adjustQuantity = (quantity = 1) => {
               setLoading(true);
-              props
+              data.commerce
                 .add([
                   {
                     variantId: item.variant.id,
@@ -142,10 +141,10 @@ const Cart: Component<CartUtilities> = (props) => {
                 />
                 <div class="flex flex-col col-span-5">
                   <b class="font-semibold">{item.title}</b>
-                  <span class="text-xs">{props.formatTotal(item.variant.priceV2.amount)}/ea</span>
+                  <span class="text-xs">{data.commerce.formatTotal(item.variant.priceV2.amount)}/ea</span>
                   <div class="text-xs">
                     <b class="text-semibold">Price:</b>{' '}
-                    {props.formatTotal(parseFloat(item.variant.priceV2.amount) * item.quantity)}
+                    {data.commerce.formatTotal(parseFloat(item.variant.priceV2.amount) * item.quantity)}
                   </div>
                 </div>
                 <div class="col-span-1">x {item.quantity}</div>
@@ -194,12 +193,12 @@ const Cart: Component<CartUtilities> = (props) => {
   );
 };
 
-const Store: Component = () => {
-  const data = useRouteData<{
-    products: ShopifyProduct[];
-    loading: boolean;
-    commerce: CartUtilities;
-  }>();
+const Store: Component<{data: {
+  products: ShopifyProduct[];
+  loading: boolean;
+  commerce: CartUtilities;
+}}> = (props) => {
+  const data = props.data;
   const [showCart, setShowCart] = createSignal(false);
   let cartButtonEl;
   useRouteReadyState();
@@ -220,7 +219,7 @@ const Store: Component = () => {
             </figure>
           </button>
           <Dismiss menuButton={cartButtonEl} open={showCart} setOpen={setShowCart}>
-            <Cart {...data.commerce} />
+            <Cart data={data} />
           </Dismiss>
         </div>
       </div>

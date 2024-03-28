@@ -1,7 +1,7 @@
 import { DAY, createTimeAgo } from '@solid-primitives/date';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
-import { useRouteData, useSearchParams } from '@solidjs/router';
+import { useSearchParams } from '@solidjs/router';
 import Fuse from 'fuse.js';
 import Dismiss from 'solid-dismiss';
 import { Icon } from 'solid-heroicons';
@@ -90,9 +90,9 @@ const AResource: Component<Resource> = (props) => {
   );
 };
 
-const Resources: Component = () => {
+const Resources: Component<{data: ResourcesDataProps}> = (props) => {
   const { t } = useAppState();
-  const data = useRouteData<ResourcesDataProps>();
+  const data = props.data;
   const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,

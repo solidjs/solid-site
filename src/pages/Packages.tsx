@@ -1,5 +1,5 @@
 import { Component, For, Show, createSignal, createMemo, onMount, JSX } from 'solid-js';
-import { useNavigate, useRouteData, useSearchParams } from '@solidjs/router';
+import { useNavigate, useSearchParams } from '@solidjs/router';
 import { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
@@ -139,9 +139,9 @@ const ResourceLink: Component<Resource> = (props) => {
   );
 };
 
-const Packages: Component = () => {
+const Packages: Component<{data: PackagesDataProps}> = (props) => {
   const { t } = useAppState();
-  const data = useRouteData<PackagesDataProps>();
+  const data = props.data;
   const fs = new Fuse(data.list, {
     keys: ['author', 'title', 'categories', 'keywords', 'link', 'description'],
     threshold: 0.3,

@@ -1,5 +1,4 @@
 import { Component, For, Show } from 'solid-js';
-import { useRouteData } from '@solidjs/router';
 import github from '../assets/github.svg';
 import { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
@@ -63,9 +62,9 @@ const Contributor: Component<ContributorProps> = (props) => {
   );
 };
 
-const Contributors: Component = () => {
+const Contributors: Component<{data:ContributorsDataProps}> = (props) => {
   const { t } = useAppState();
-  const data = useRouteData<ContributorsDataProps>();
+  const data = props.data;
 
   useRouteReadyState();
 
