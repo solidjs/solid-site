@@ -45,8 +45,9 @@ export type Locale =
 for validating of other dictionaries have same keys as en dictionary
 some might be missing, but the shape should be the same
 */
-type DeepPartial<T> =
-  T extends Record<string, unknown> ? { [K in keyof T]?: DeepPartial<T[K]> } : T;
+type DeepPartial<T> = T extends Record<string, unknown>
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
+  : T;
 
 const raw_dict_map: Record<Locale, () => Promise<{ dict: DeepPartial<RawDictionary> }>> = {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any
@@ -95,8 +96,8 @@ const toLocale = (string: string): Locale | undefined =>
   string in raw_dict_map
     ? (string as Locale)
     : string in LANG_ALIASES
-      ? (LANG_ALIASES[string] as Locale)
-      : undefined;
+    ? (LANG_ALIASES[string] as Locale)
+    : undefined;
 
 interface Settings {
   locale: Locale;
