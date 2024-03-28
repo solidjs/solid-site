@@ -15,7 +15,6 @@ import { makeIntersectionObserver } from '@solid-primitives/intersection-observe
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
 import logo from '../../assets/logo.svg';
-import ukraine from '../../assets/for-ukraine.png';
 import ScrollShadow from '../ScrollShadow/ScrollShadow';
 import Social from '../Social';
 import { Locale, useAppState } from '../../AppContext';
@@ -186,23 +185,6 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               }`}
               ref={logoEl}
             >
-              <Link
-                href="/"
-                onClick={onClickLogo}
-                noScroll
-                class={`py-3 flex w-9`}
-                aria-describedby="ukraine-support"
-              >
-                <img class="w-full h-auto z-10" src={logo} alt="SolidJS" />
-                <img
-                  class={`w-8 h-5 absolute ${isRTL() ? 'mr-5 -scale-x-100 mt-2' : 'ml-5 mt-3'}`}
-                  src={ukraine}
-                  alt=""
-                />
-              </Link>
-              <span id="ukraine-support" hidden>
-                {t('home.ukraine.support')}
-              </span>
             </div>
             <ScrollShadow
               class="group relative nav-items-container transition-all duration-500"

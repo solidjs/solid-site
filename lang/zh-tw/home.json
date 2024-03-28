@@ -109,10 +109,5 @@
       "title": "同構 UI 基準測試（搜尋結果為例）",
       "description": "此項基准測試測試原生伺服器成像速度。數值越高越好。"
     }
-  },
-  "ukraine": {
-    "link": "https://www.un.org/en/globalceasefire",
-    "support": "支持全球止戰",
-    "petition": "結束烏克蘭戰爭及全球衝突 →"
   }
 }

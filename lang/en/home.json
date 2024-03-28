@@ -112,10 +112,5 @@
         "title": "Isomorphic UI Benchmarks (Search Results)",
         "description": "This benchmark tests raw Server Rendering speeds. Higher is better."
       }
-    },
-    "ukraine": {
-      "link": "https://www.un.org/en/globalceasefire",
-      "support": "Support Global Ceasefire!",
-      "petition": "End war in Ukraine and all global conflict →"
     }
   }

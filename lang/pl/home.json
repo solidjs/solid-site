@@ -109,10 +109,5 @@
       "title": "Izomorficzny Benchmark UI (wyniki wyszukiwania)",
       "description": "Ten benchmark testuje wyłącznie prędkość renderowania po stronie serwera. Więcej = lepiej."
     }
-  },
-  "ukraine": {
-    "link": "https://www.un.org/en/globalceasefire",
-    "support": "Wspieraj globalne zawieszenie broni!",
-    "petition": "Zakończ wojnę na Ukrainie i wszystkie globalne konflikty →"
   }
 }
