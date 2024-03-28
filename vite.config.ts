@@ -4,6 +4,8 @@ import mdx from '@mdx-js/rollup';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import pckg from './package.json' assert { type: 'json' };
+import { VitePWA } from 'vite-plugin-pwa';
+import pwaoptions from './pwaoptions';
 
 export default defineConfig({
   define: {
@@ -17,12 +19,12 @@ export default defineConfig({
         jsxImportSource: 'solid-js',
         providerImportSource: 'solid-mdx',
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight],
+        rehypePlugins: [rehypeHighlight()],
       }),
       enforce: 'pre',
     } as Plugin,
     solid({ extensions: ['.md', '.mdx'] }),
-    // VitePWA(pwaOptions),
+    VitePWA(pwaoptions),
   ],
   optimizeDeps: {
     include: ['monaco-textmate', 'onigasm', 'monaco-editor-textmate'],
