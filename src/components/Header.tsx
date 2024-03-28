@@ -64,16 +64,6 @@ const Header: ParentComponent<{ title?: string }> = () => {
             class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium/85 to-solid-dark/80 dark:from-solid-light/40 dark:via-solid-medium/80 dark:to-solid-medium/90 text-white overflow-hidden z-[1]"
           >
             <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
-            <a
-              target="_blank"
-              href={t('home.ukraine.link')}
-              class="absolute w-full text-center text-[15px] p-3 bg-yellow-500 hover:bg-yellow-500/80 transition duration-200"
-            >
-              <span class="text-whit">
-                <b>{t('home.ukraine.support')}</b>&nbsp;
-                {t('home.ukraine.petition')}
-              </span>{' '}
-            </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
               <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s">
                 <img
