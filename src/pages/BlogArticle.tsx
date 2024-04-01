@@ -1,15 +1,15 @@
 import { Component, Show, createMemo } from 'solid-js';
-import { useRouteData, NavLink } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import Footer from '../components/Footer';
 import { useAppState } from '../AppContext';
 import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 
-export const BlogArticle: Component = () => {
+export const BlogArticle: Component<{data:BlogArticleData}> = (props) => {
+  const data = props.data;
   const ctx = useAppState();
 
-  const data = useRouteData<BlogArticleData>();
   useRouteReadyState();
   const chevron = createMemo(() => (ctx.dir == 'rtl' ? 'chevron-right' : 'chevron-left'));
 
@@ -55,9 +55,9 @@ export const BlogArticle: Component = () => {
                 </article>
                 <hr class="mt-10 w-3/6 mx-auto" />
                 <div class="flex flex-row justify-center mt-10">
-                  <NavLink href="/blog">
+                  <A href="/blog">
                     <figure class={`inline-block chevron ${chevron()}`} /> Back to the SolidJS Blog
-                  </NavLink>
+                  </A>
                 </div>
               </div>
             </Show>
