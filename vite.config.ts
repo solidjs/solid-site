@@ -19,7 +19,7 @@ export default defineConfig({
         jsxImportSource: 'solid-js',
         providerImportSource: 'solid-mdx',
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight()],
+        rehypePlugins: [rehypeHighlight],
       }),
       enforce: 'pre',
     } as Plugin,
