@@ -1,5 +1,5 @@
-import { lazy } from 'solid-js';
-import { RouteDefinition, Navigate, RouteDataFunc } from '@solidjs/router';
+import { Component, lazy } from 'solid-js';
+import { RouteDefinition, Navigate, RouteSectionProps } from '@solidjs/router';
 import { ContributorsData } from './pages/Contributors.data';
 import { BenchmarkData } from './pages/Benchmarks.data';
 import { DocsData } from './pages/Docs.data';
@@ -15,15 +15,15 @@ import { BlogArticleData } from './pages/BlogArticle.data';
 export const routes: RouteDefinition[] = [
   {
     path: '/',
-    component: lazy(() => import('./pages/Home')),
-    data: () => ({
+    component: lazy(() => import('./pages/Home')) as Component<RouteSectionProps>,
+    load: () => ({
       benchmarks: BenchmarkData(),
     }),
   },
   {
     path: '/guides/:id',
-    component: lazy(() => import('./pages/Docs')),
-    data: GuideData as RouteDataFunc,
+    component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
+    load: GuideData,
   },
   {
     path: '/hack',
@@ -35,42 +35,42 @@ export const routes: RouteDefinition[] = [
   {
     path: '/guide',
     component: () => Navigate({ href: '/guides/getting-started' }),
-    data: GuideData as RouteDataFunc,
+    load: GuideData,
   },
   {
     path: '/guides',
     component: () => Navigate({ href: '/guides/getting-started' }),
-    data: GuideData as RouteDataFunc,
+    load: GuideData,
   },
   {
     path: '/blog/:slug',
-    component: lazy(() => import('./pages/BlogArticle')),
-    data: BlogArticleData as RouteDataFunc,
+    component: lazy(() => import('./pages/BlogArticle')) as Component<RouteSectionProps>,
+    load: BlogArticleData,
   },
   {
     path: '/blog',
-    component: lazy(() => import('./pages/Blog')),
-    data: BlogData as RouteDataFunc,
+    component: lazy(() => import('./pages/Blog')) as Component<RouteSectionProps>,
+    load: BlogData,
   },
   {
     path: '/docs',
-    component: lazy(() => import('./pages/Docs')),
+    component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
     children: [
       {
         path: '/:version',
-        component: lazy(() => import('./pages/Docs')),
+        component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
       },
       {
         path: '/*all',
-        component: lazy(() => import('./pages/Docs')),
+        component: lazy(() => import('./pages/Docs')) as Component<RouteSectionProps>,
       },
     ],
-    data: DocsData as RouteDataFunc,
+    load: DocsData,
   },
   {
     path: '/tutorial/:id',
-    component: lazy(() => import('./pages/Tutorial')),
-    data: TutorialData as RouteDataFunc,
+    component: lazy(() => import('./pages/Tutorial')) as Component<RouteSectionProps>,
+    load: TutorialData,
   },
   {
     path: '/tutorial',
@@ -79,8 +79,8 @@ export const routes: RouteDefinition[] = [
 
   {
     path: '/examples/:id',
-    component: lazy(() => import('./pages/Examples')),
-    data: ExamplesData,
+    component: lazy(() => import('./pages/Examples')) as Component<RouteSectionProps>,
+    load: ExamplesData,
   },
   {
     path: '/examples',
@@ -88,18 +88,18 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/contributors',
-    component: lazy(() => import('./pages/Contributors')),
-    data: ContributorsData,
+    component: lazy(() => import('./pages/Contributors')) as Component<RouteSectionProps>,
+    load: ContributorsData,
   },
   {
     path: '/ecosystem',
-    component: lazy(() => import('./pages/Packages')),
-    data: PackagesData,
+    component: lazy(() => import('./pages/Packages')) as Component<RouteSectionProps>,
+    load: PackagesData,
   },
   {
     path: '/resources',
-    component: lazy(() => import('./pages/Resources')),
-    data: ResourcesData,
+    component: lazy(() => import('./pages/Resources')) as Component<RouteSectionProps>,
+    load: ResourcesData,
   },
   {
     path: '/media',
@@ -107,8 +107,8 @@ export const routes: RouteDefinition[] = [
   },
   {
     path: '/store',
-    component: lazy(() => import('./pages/Store')),
-    data: StoreData,
+    component: lazy(() => import('./pages/Store')) as Component<RouteSectionProps>,
+    load: StoreData,
   },
   {
     path: '/*all',
