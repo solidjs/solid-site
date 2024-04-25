@@ -1364,6 +1364,28 @@ const articles: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1709126698495,
   },
+  {
+    link: 'https://vladislav-lipatov.medium.com/solid-start-guide-for-newbies-e1d65212dd07',
+    title: 'Solid-start guide for newbies',
+    description: 'Learn all about SolidStart.',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://vladislav-lipatov.medium.com/',
+    keywords: ['solid', 'solidstart'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1712256242000,
+  },
+  {
+    link: 'https://vladislav-lipatov.medium.com/i18n-for-solid-start-apps-c6a2d93e6f38',
+    title: 'I18N for solid-start apps',
+    description: 'Discusses how you can support multiple languages in a solid-start application.',
+    author: 'Vladislav Lipatov',
+    author_url: 'https://vladislav-lipatov.medium.com/',
+    keywords: ['solid', 'solidstart'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1714070065000,
+  },
 ];
 
 export default articles;
