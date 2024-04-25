@@ -2546,6 +2546,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://github.com/kireerik/refo',
+    title: 'refo',
+    description: 'Effortless static site generation with flexibility',
+    author: 'Erik Engi',
+    author_url: 'https://github.com/kireerik',
+    keywords: ['template', 'static', 'static-site', 'generator'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+  },
 ];
 
 export default utilities;
