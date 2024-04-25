@@ -685,8 +685,8 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.BuildUtilities, ResourceCategory.Plugins],
   },
   {
-    link: 'https://github.com/LXSMNSYC/solid-headless',
-    title: 'solid-headless',
+    link: 'https://github.com/lxsmnsyc/terracotta',
+    title: 'terracotta',
     description: 'Headless UI for SolidJS.',
     author: 'Alexis H. Munsayac',
     author_url: 'https://github.com/LXSMNSYC',
