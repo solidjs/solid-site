@@ -30,6 +30,7 @@ const ScrollShadow: ParentComponent<
   const scrollHorizontally = (e: WheelEvent) => {
     if (!isScrollable) return;
 
+    e.preventDefault();
     const target = e.currentTarget as HTMLElement;
     target.scrollLeft += e.deltaX + e.deltaY;
   };
@@ -64,7 +65,7 @@ const ScrollShadow: ParentComponent<
       init = false;
     });
 
-    scrollableContainer.addEventListener('wheel', scrollHorizontally, { passive: true });
+    scrollableContainer.addEventListener('wheel', scrollHorizontally);
     sentinelShadowState.set(sentinelFirstEl, { el: shadowFirstEl, visible: false });
     sentinelShadowState.set(sentinelLastEl, { el: shadowLastEl, visible: false });
     observer.observe(sentinelFirstEl);
