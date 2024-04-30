@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { copyToClipboard } from '@solid-primitives/clipboard';
 import { useAppState } from '../AppContext';
+import { Title } from '@solidjs/meta';
 
 const assets = [
   {
@@ -114,6 +115,7 @@ const Media: Component = () => {
 
   return (
     <div class="flex flex-col">
+      <Title>Media Assets | SolidJS</Title>
       <div class="my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 md:grid md:grid-cols-6 gap-10">
           <div class="col-span-2">

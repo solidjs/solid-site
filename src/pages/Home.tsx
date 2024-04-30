@@ -74,7 +74,7 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
         <section class="grid sm:grid-cols-2 lg:grid-cols-4 space-y-4 lg:space-y-0 lg:space-x-4 rounded-lg">
           <For each={t('home.strengths')}>
             {(strength: { icon: string; label: string; description: string }) => (
-              <div class="px-10 py-4 mt-4 md:py-10 border-b border-0 dark:border-solid-darkLighterBg md:border-r lg:border-b-0 lg:ml-4 lg:mt-0 last:border-none">
+              <div class="px-10 py-4 mt-4 md:py-10 border-b border-0 dark:border-solid-darkLighterBg md:odd:border-r lg:border-r lg:border-b-0 lg:ml-4 lg:mt-0 lg:last:border-none">
                 <img
                   class="w-12 mb-5 dark:brightness-150"
                   src={strength_icons[strength.icon]}
@@ -100,7 +100,7 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
                 );
                 return (
                   <li
-                    class="transition border-gray-100 dark:border-solid-darkLighterBg border-r last:border-r-0"
+                    class="transition border-gray-100 dark:border-solid-darkLighterBg border-r-0 md:border-r last:border-r-0"
                     classList={{
                       'hover:bg-solid-dark': !!fact.link,
                       'hover:text-white': !!fact.link,
@@ -111,12 +111,12 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
                         target="_blank"
                         rel="noopener"
                         href={fact.link}
-                        class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full"
+                        class="flex p-3 justify-center border-b-2 border-gray-100 dark:border-solid-darkLighterBg md:border-none md:px-5 md:py-5 w-full"
                       >
                         {d}
                       </a>
                     ) : (
-                      <span class="flex p-3 justify-center border-b md:border-none md:px-5 md:py-5 w-full">
+                      <span class="flex p-3 justify-center border-b-2 border-gray-100 dark:border-solid-darkLighterBg md:border-none md:px-5 md:py-5 w-full">
                         {d}
                       </span>
                     )}
@@ -127,13 +127,13 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
           </ul>
         </section>
         <section
-          class="py-20 px-8 lg:px-15 flex flex-col lg:flex-row lg:space-x-32"
+          class="grid grid-cols-1 gap-x-16 xl:grid-cols-[minmax(640px,_12fr)_minmax(0,_11fr)] py-20 px-8 lg:px-15"
           ref={playgroundRef}
         >
           <div
             dir="ltr"
-            style="height: 70vh; max-height: 600px; min-height: 475px; width: 100%;"
-            class="rounded-lg flex-1 shadow-2xl order-2 lg:order-1 rtl:order-2 mt-10 lg:mt-0 flex flex-col"
+            style="height: 70vh; max-height: 600px; min-height: 475px;"
+            class="rounded-lg shadow-2xl order-2 xl:order-1 rtl:order-2 mt-10 lg:mt-0 flex flex-col outline-2 outline outline-gray-200 dark:outline-solid-darkLighterBg"
           >
             <Show when={loadRepl()}>
               <Suspense
@@ -172,7 +172,7 @@ render(() => <CountingComponent />, document.getElementById("app"));`,
               </Suspense>
             </Show>
           </div>
-          <div class="flex flex-col justify-center flex-1 order-1 lg:order-2 rtl:order-1">
+          <div class="flex flex-col justify-center order-1 xl:order-2 rtl:order-1">
             <img class="w-20" src={iconBlocks1} alt="" />
             <h3 class="text-3xl mt-6 font-semibold leading-10 text-solid">
               {t('home.example.headline')}

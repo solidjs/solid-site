@@ -12,7 +12,7 @@ import {
   useContext,
 } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { Meta, Title } from 'solid-meta';
+import { Meta, Title } from '@solidjs/meta';
 
 // en dictionary is loaded by default
 import { dict as en_dict } from '../lang/en/en';

@@ -14,6 +14,7 @@ import { shieldCheck } from 'solid-heroicons/solid';
 import { exclamation, externalLink } from 'solid-heroicons/outline';
 import { useAppState } from '../AppContext';
 import { keys } from '@solid-primitives/utils';
+import { Title } from '@solidjs/meta';
 
 const FilterButton: Component<{
   onClick: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>;
@@ -230,93 +231,96 @@ const Packages: Component<{data: PackagesDataProps}> = (props) => {
   });
 
   return (
-    <SideContent
-      toggleVisible={toggleFilters}
-      setToggleVisible={setToggleFilters}
-      aside={
-        <div class="lg:m-6">
-          <div
-            class="text-xs dark:bg-solid-darkLighterBg p-4 rounded border border-gray-400"
-            innerHTML={t('resources.cta')}
-          />
-          <input
-            class="my-5 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
-            placeholder={t('resources.search')}
-            value={keyword()}
-            onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
-            onChange={(evt) => setKeyword(evt.currentTarget.value)}
-            type="text"
-          />
-
-          <div class="flex flex-col gap-4">
-            <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
-            <FilterMaintained active={maintainedCheck()} onChange={toggleMaintained} />
-          </div>
-
-          <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
-            {t('resources.categories')}
-          </h3>
-          <div class="mt-3 space-y-2">
-            {Object.values(ResourceCategory).map((id) => (
-              <FilterButton
-                name={t(`resources.categories_list.${id}`)}
-                count={(byCategory()[id] || []).length}
-                active={!!byCategory()[id]}
-                onClick={[scrollToCategory, id]}
-              />
-            ))}
-          </div>
-        </div>
-      }
-      content={
-        <>
-          <div use:intersectionObserver class="absolute top-0" />
-          <div
-            class="block lg:hidden text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
-            innerHTML={t('resources.cta')}
-          />
-          <div class="block lg:hidden sticky top-16 bg-white dark:bg-solid-darkbg">
+    <>
+      <Title>Packages | SolidJS</Title>
+      <SideContent
+        toggleVisible={toggleFilters}
+        setToggleVisible={setToggleFilters}
+        aside={
+          <div class="lg:m-6">
+            <div
+              class="text-xs dark:bg-solid-darkLighterBg p-4 rounded border border-gray-400"
+              innerHTML={t('resources.cta')}
+            />
             <input
-              class="mt-14 sm:mt-5 mb-3 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white mr-3"
+              class="my-5 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
               placeholder={t('resources.search')}
               value={keyword()}
               onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
               onChange={(evt) => setKeyword(evt.currentTarget.value)}
               type="text"
             />
-            <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
-            <div
-              class="relative h-2"
-              classList={{
-                'shadow-md': stickyBarActive(),
-              }}
-            />
+
+            <div class="flex flex-col gap-4">
+              <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
+              <FilterMaintained active={maintainedCheck()} onChange={toggleMaintained} />
+            </div>
+
+            <h3 class="text-xl mt-8 text-solid-default dark:text-solid-darkdefault border-b dark:border-gray-500 font-semibold border-solid pb-2">
+              {t('resources.categories')}
+            </h3>
+            <div class="mt-3 space-y-2">
+              {Object.values(ResourceCategory).map((id) => (
+                <FilterButton
+                  name={t(`resources.categories_list.${id}`)}
+                  count={(byCategory()[id] || []).length}
+                  active={!!byCategory()[id]}
+                  onClick={[scrollToCategory, id]}
+                />
+              ))}
+            </div>
           </div>
-          <Show
-            when={resources().length}
-            fallback={<div class="p-10 text-center">No resources found.</div>}
-          >
-            <For each={keys(byCategory())}>
-              {(category) => (
-                <>
-                  <h3
-                    class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
-                    id={category}
-                  >
-                    {t(`resources.categories_list.${category}`)}
-                  </h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <For each={byCategory()[category]}>
-                      {(resource) => <ResourceLink {...resource} />}
-                    </For>
-                  </div>
-                </>
-              )}
-            </For>
-          </Show>
-        </>
-      }
-    />
+        }
+        content={
+          <>
+            <div use:intersectionObserver class="absolute top-0" />
+            <div
+              class="block lg:hidden text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
+              innerHTML={t('resources.cta')}
+            />
+            <div class="block lg:hidden sticky top-16 bg-white dark:bg-solid-darkbg">
+              <input
+                class="mt-14 sm:mt-5 mb-3 rounded border-solid w-full border border-gray-400 bg-white dark:bg-solid-darkgray p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white mr-3"
+                placeholder={t('resources.search')}
+                value={keyword()}
+                onInput={(evt) => debouncedKeyword(evt.currentTarget.value)}
+                onChange={(evt) => setKeyword(evt.currentTarget.value)}
+                type="text"
+              />
+              <FilterOfficial active={officialCheck()} onChange={toggleOfficial} />
+              <div
+                class="relative h-2"
+                classList={{
+                  'shadow-md': stickyBarActive(),
+                }}
+              />
+            </div>
+            <Show
+              when={resources().length}
+              fallback={<div class="p-10 text-center">No resources found.</div>}
+            >
+              <For each={keys(byCategory())}>
+                {(category) => (
+                  <>
+                    <h3
+                      class="text-2xl mt-8 first-of-type:mt-0 mb-5 text-solid-default dark:text-solid-darkdefault dark:border-solid-darkLighterBg border-b font-semibold border-solid pb-2"
+                      id={category}
+                    >
+                      {t(`resources.categories_list.${category}`)}
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <For each={byCategory()[category]}>
+                        {(resource) => <ResourceLink {...resource} />}
+                      </For>
+                    </div>
+                  </>
+                )}
+              </For>
+            </Show>
+          </>
+        }
+      />
+    </>
   );
 };
 

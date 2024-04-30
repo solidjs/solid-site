@@ -14,6 +14,7 @@ import Repl from 'solid-repl/dist/repl';
 import { A } from '@solidjs/router';
 import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
+import { Title } from '@solidjs/meta';
 
 import { compiler, formatter, linter } from '../components/setupRepl';
 import type { TutorialRouteData } from './Tutorial.data';
@@ -191,6 +192,8 @@ const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
   });
 
   return (
+    <>
+    <Title>Tutorials | SolidJS </Title>
     <Suspense fallback={<p>Loading...</p>}>
       <div
         dir="ltr"
@@ -309,6 +312,7 @@ const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
         </Show>
       </div>
     </Suspense>
+    </>
   );
 };
 

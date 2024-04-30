@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { useAppState } from '../AppContext';
 import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
+import { Title } from '@solidjs/meta';
 
 export const BlogArticle: Component<{data:BlogArticleData}> = (props) => {
   const data = props.data;
@@ -15,6 +16,7 @@ export const BlogArticle: Component<{data:BlogArticleData}> = (props) => {
 
   return (
     <div class="flex flex-col">
+      <Title>{data.details.title} | SolidJS</Title>
       <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 lg:flex justify-center">
           <div class="space-y-10 px-4 lg:px-0">

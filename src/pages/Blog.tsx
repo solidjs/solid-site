@@ -1,6 +1,7 @@
 import { Component, For } from 'solid-js';
 import Footer from '../components/Footer';
 import { A } from '@solidjs/router';
+import { Title } from '@solidjs/meta';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { BlogData } from './Blog.data';
 
@@ -16,6 +17,7 @@ const Blog: Component<{data:BlogData}> = (props) => {
 
   return (
     <div class="flex flex-col">
+      <Title>Blog | SolidJS</Title>
       <div class="my-2 lg:my-10 pt-5 pb-10 px-3 lg:px-12 container">
         <div class="mb-10 lg:flex justify-center">
           <div class="space-y-10">

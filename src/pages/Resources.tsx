@@ -8,6 +8,7 @@ import { Icon } from 'solid-heroicons';
 import { chevronLeft, chevronRight, filter, shieldCheck } from 'solid-heroicons/outline';
 import { Component, For, Show, createMemo, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
+import { Title } from '@solidjs/meta';
 import { useAppState } from '../AppContext';
 import Footer from '../components/Footer';
 import { parseKeyword } from '../utils/parseKeyword';
@@ -163,6 +164,7 @@ const Resources: Component<{data: ResourcesDataProps}> = (props) => {
 
   return (
     <div class="flex flex-col relative">
+      <Title>Resources | SolidJS</Title>
       <div class="md:grid md:grid-cols-12 container p-5 gap-6 relative">
         <div class="py-5 md:col-span-5 lg:col-span-3 md:overflow-auto md:p-5 md:sticky md:top-20 rounded md:h-[calc(100vh-80px)]">
           <div
