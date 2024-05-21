@@ -8,6 +8,7 @@ export type MDXComponent = Component<{
     Twitch?: Component<TwitchProps>;
     YouTube?: Component<YouTubeProps>;
     Spotify?: Component<SpotifyProps>;
+    Notice?: Component<any>
   };
 }>;
 
