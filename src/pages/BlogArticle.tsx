@@ -7,7 +7,7 @@ import { YouTube, Tweet, Twitch, Spotify } from 'solid-social';
 import type { BlogArticleData } from './BlogArticle.data';
 import { Title } from '@solidjs/meta';
 
-export const BlogArticle: Component<{data:BlogArticleData}> = (props) => {
+export const BlogArticle: Component<{ data: BlogArticleData }> = (props) => {
   const data = props.data;
   const ctx = useAppState();
 
@@ -45,6 +45,9 @@ export const BlogArticle: Component<{data:BlogArticleData}> = (props) => {
                       components={{
                         Tweet: (props) => (
                           <Tweet {...props} theme={ctx.isDark ? 'dark' : 'light'} align="center" />
+                        ),
+                        Notice: (props) => (
+                          <div class="rounded-md bg-amber-400 px-6 py-1">{props.children}</div>
                         ),
                         YouTube,
                         Twitch: (props) => <Twitch {...props} parent={location.hostname} />,
