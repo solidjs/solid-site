@@ -90,6 +90,15 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1689190332000,
     body: async () => await import('./Articles/chrome-supports-solidjs.mdx'),
   },
+  'solid-start-the-shape-frameworks-to-come': {
+    img: '/img/blog/solid-start-the-shape-frameworks-to-come/header.png',
+    title: 'SolidStart 1.0: The Shape of Frameworks to Come',
+    description: 'Official SolidStart Version 1.0 release announcement.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1716308491000,
+    body: async () => await import('./Articles/solid-start-the-shape-frameworks-to-come.mdx'),
+  },
 };
 
 export interface BlogData {
