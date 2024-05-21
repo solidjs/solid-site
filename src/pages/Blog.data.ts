@@ -92,7 +92,7 @@ export const list: { [key: string]: BlogInfo } = {
     body: async () => await import('./Articles/chrome-supports-solidjs.mdx'),
   },
   'solid-start-the-shape-frameworks-to-come': {
-    img: '/img/blog/solid-start-the-shape-frameworks-to-come/header.png',
+    img: '/img/blog/solid-start-the-shape-frameworks-to-come/header.jpeg',
     title: 'SolidStart 1.0: The Shape of Frameworks to Come',
     description: 'Official SolidStart Version 1.0 release announcement.',
     author: 'SolidJS Core',
