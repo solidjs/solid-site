@@ -49,11 +49,10 @@
     "solid-dismiss": "^1.7.122",
     "solid-heroicons": "<3.0.0",
     "solid-js": "1.8.16",
-    "solid-meta": "^0.28.1",
+    "@solidjs/meta": "^0.29.3",
     "solid-repl": "^0.25.0",
     "solid-social": "^0.9.6",
-    "solid-transition-group": "^0.2.3",
-    "solid-utils": "^0.8.1"
+    "solid-transition-group": "^0.2.3"
   },
   "devDependencies": {
     "@aminya/minijson": "^0.6.2",

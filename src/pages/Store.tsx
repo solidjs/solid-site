@@ -6,6 +6,7 @@ import { Icon } from 'solid-heroicons';
 import { shoppingCart, chevronRight } from 'solid-heroicons/solid';
 import { minusCircle, plusCircle, xCircle } from 'solid-heroicons/outline';
 import Dismiss from 'solid-dismiss';
+import { Title } from '@solidjs/meta';
 
 const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (props) => {
   const [current, setCurrent] = createSignal(props.details.variants[0].id);
@@ -204,6 +205,7 @@ const Store: Component<{data: {
   useRouteReadyState();
   return (
     <div class="flex flex-col relative">
+      <Title>Store | SolidJS</Title>
       <div class="sticky top-[55px] dark:bg-transparent z-10 container mx-auto flex justify-end px-5 md:px-12">
         <div class="mt-3">
           <button

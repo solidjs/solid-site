@@ -1,4 +1,5 @@
 import { Component } from 'solid-js';
+import { Title } from '@solidjs/meta';
 import { Icon } from 'solid-heroicons';
 import { emojiSad } from 'solid-heroicons/outline';
 import { useAppState } from '../AppContext';
@@ -8,6 +9,7 @@ const FourOhFour: Component = () => {
 
   return (
     <div>
+      <Title>404 | SolidJS</Title>
       <div class="flex flex-col justify-center content-center text-center rounded-2xl m-10 bg-gray-100 dark:bg-gray-800 py-10 text-solid-medium">
         <div class="my-10 py-10">
           <Icon

@@ -15,6 +15,7 @@ import SideContent from '../components/layout/SideContent';
 import { slug } from 'github-slugger';
 import type { DocData } from './Docs.data';
 import { Section } from '@solid.js/docs/dist/types';
+import { Title } from '@solidjs/meta';
 
 const SectionButton: ParentComponent<{
   href: string;
@@ -160,12 +161,15 @@ const Docs: Component<{ hash?: string, data: DocData }> = (props) => {
   createEffect(() => determineSection(scrollPosition.y || 0));
 
   return (
-    <SideContent
-      toggleVisible={toggleSections}
-      setToggleVisible={setToggleSections}
-      aside={<Sidebar items={sections()} current={current} hash={props.hash} />}
-      content={<Content data={data} />}
-    />
+    <>
+      <Title>Docs | SolidJS</Title>
+      <SideContent
+        toggleVisible={toggleSections}
+        setToggleVisible={setToggleSections}
+        aside={<Sidebar items={sections()} current={current} hash={props.hash} />}
+        content={<Content data={data} />}
+      />
+  </>
   );
 };
 
