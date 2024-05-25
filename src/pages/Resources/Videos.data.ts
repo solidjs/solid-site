@@ -1216,7 +1216,7 @@ const videos: Array<Resource> = [
     description:
       'Taylor Nodell reviews Solid and React with a comparative example.',
     keywords: ['solid', 'example', 'react', 'comparison', 'game'],
-    author: 'Atila Fassina',
+    author: 'SydJSMeetup',
     author_url: 'https://www.youtube.com/@SydJSMeetup',
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
