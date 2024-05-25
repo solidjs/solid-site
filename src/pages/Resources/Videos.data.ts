@@ -1198,6 +1198,42 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1709126698495,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Zgrm7reyc_A',
+    title: 'The First Post-React Framework Just Launched',
+    description:
+      'Solid\'s development cycle has been incredible to watch, and SolidStart is key to it\'s future. Really hyped that Javascript keeps getting more interesting.',
+    keywords: ['solid', 'solidstart', 'launch', 'post-react','react', 'framework'],
+    author: 'Theo Browne',
+    author_url: 'https://www.youtube.com/@t3dotgg',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1716663179000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=dk1VR1Sgpcg',
+    title: 'Taylor Nodell SolidJS, Reactivity, and an Impractical Comparison',
+    description:
+      'Taylor Nodell reviews Solid and React with a comparative example.',
+    keywords: ['solid', 'example', 'react', 'comparison', 'game'],
+    author: 'SydJSMeetup',
+    author_url: 'https://www.youtube.com/@SydJSMeetup',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1713725579000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=ZVjXtfdKQ3g',
+    title: 'The Shape of Frameworks to Come',
+    description:
+      'Ryan introduces the audience to SolidStart and the architecture that Solid has adopted for its new meta-framework.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'JSWorldConference',
+    author_url: 'https://www.youtube.com/@JSWORLDConference',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1715799179000,
+  },
 ];
 
 export default videos;
