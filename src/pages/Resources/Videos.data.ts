@@ -1222,6 +1222,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1713725579000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=ZVjXtfdKQ3g',
+    title: 'The Shape of Frameworks to Come',
+    description:
+      'Ryan introduces the audience to SolidStart and the architecture that Solid has adopted for its new meta-framework.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'JSWorldConference',
+    author_url: 'https://www.youtube.com/@JSWORLDConference',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1715799179000,
+  },
 ];
 
 export default videos;
