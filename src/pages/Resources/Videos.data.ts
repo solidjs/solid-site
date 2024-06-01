@@ -1234,6 +1234,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1715799179000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=hRM3ggjm7Zo',
+    title: 'epilot Tech Exchange: SolidJS with Ryan Carniato',
+    description:
+      'Ryan joins the epilot team to discuss SolidJS and web in general.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'epilot Tech Exchange',
+    author_url: 'https://www.youtube.com/@epilotTech',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1714538386000,
+  },
 ];
 
 export default videos;
