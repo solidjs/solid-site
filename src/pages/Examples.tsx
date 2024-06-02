@@ -61,7 +61,7 @@ const Examples: Component<{data: ExamplesDataRoute}> = (props) => {
 
   return (
     <div class="flex flex-col relative">
-      <Title>Exanples | SolidJS</Title>
+      <Title>Examples | SolidJS</Title>
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
