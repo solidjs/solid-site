@@ -1246,6 +1246,18 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1714538386000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=nxbxw2Kw6sA',
+    title: 'Does Solid solve all your React problems?',
+    description:
+      'In this video CJ compares SolidJS to React and SolidStart to Next.js.',
+    keywords: ['syntaxfm', 'solidstart', 'react', 'comparison', 'framework'],
+    author: 'SyntaxFM',
+    author_url: 'https://www.youtube.com/@syntaxfm',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717723424000,
+  }
 ];
 
 export default videos;
