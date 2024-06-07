@@ -10,7 +10,7 @@ import {
   createEffect,
 } from 'solid-js';
 import { computePosition, autoUpdate, shift, size, flip, offset } from '@floating-ui/dom';
-import { Link, NavLink } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
 import { debounce } from '@solid-primitives/scheduled';
 import Dismiss from 'solid-dismiss';
@@ -186,7 +186,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               }`}
               ref={logoEl}
             >
-              <Link
+              <A
                 href="/"
                 onClick={onClickLogo}
                 noScroll
@@ -199,7 +199,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                   src={ukraine}
                   alt=""
                 />
-              </Link>
+              </A>
               <span id="ukraine-support" hidden>
                 {t('home.ukraine.support')}
               </span>
@@ -294,7 +294,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                       }
                     }
                   >
-                    <NavLink
+                    <A
                       onClick={() => setSubnav(null)}
                       class="px-6 py-5 w-full block"
                       href={link.path}
@@ -303,7 +303,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                       <Show when={link.description}>
                         <span class="block text-sm text-gray-400">{link.description}</span>
                       </Show>
-                    </NavLink>
+                    </A>
                   </li>
                 )}
               </For>

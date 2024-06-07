@@ -53,7 +53,14 @@ const SideContent: Component<{
           </Dismiss>
         </div>
         <div class="w-full lg:w-9/12 p-5 md:p-10 bg-white dark:bg-solid-darkbg">
-          {props.content}
+          <a
+            href="https://docs.solidjs.com"
+            class="sticky top-16 p-3 w-full block text-transparent hover:text-white text-center rounded-md bg-amber-400 hover:bg-gray-400 transition duration-300"
+          >
+            <b>New Beta Docs!</b>&nbsp;Click here to access new beta documentation at{' '}
+            <u>docs.solidjs.com</u>.
+          </a>
+          <div class="mt-10">{props.content}</div>
         </div>
       </div>
     </div>

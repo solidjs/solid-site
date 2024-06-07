@@ -17,7 +17,7 @@ interface RowData {
   score: number;
 }
 
-type SortMode = 'off' | 'asc' |'desc';
+type SortMode = 'off' | 'asc' | 'desc';
 
 const Chart: Component<{
   rows: RowData[];
@@ -30,18 +30,19 @@ const Chart: Component<{
   const sortFn = (sortMode: SortMode) => {
     switch (sortMode) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      case 'off': return (_a: RowData, _b: RowData)=> 0;
-      case 'asc': return (a:RowData, b:RowData) => a.score - b.score;
-      case 'desc': return (a:RowData, b:RowData) => b.score - a.score;
+      case 'off':
+        return (_a: RowData, _b: RowData) => 0;
+      case 'asc':
+        return (a: RowData, b: RowData) => a.score - b.score;
+      case 'desc':
+        return (a: RowData, b: RowData) => b.score - a.score;
     }
   };
   const options = createMemo(() =>
-    props.rows
-      .sort(sortFn(props.sort))
-      .map((row) => ({
-        ...row,
-        width: `${(row.score / maxValue()) * 100}%`,
-      })),
+    props.rows.sort(sortFn(props.sort)).map((row) => ({
+      ...row,
+      width: `${(row.score / maxValue()) * 100}%`,
+    })),
   );
 
   const { t } = useAppState();
@@ -117,7 +118,7 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
   return (
     <>
       <Chart
-        sort={props.list[current()].id == 'js-framework-benchmark' ? 'asc' : 'desc' }
+        sort={props.list[current()].id == 'js-framework-benchmark' ? 'asc' : 'desc'}
         scale={props.list[current()].scale}
         rows={props.list[current()].data}
         direction={direction()}

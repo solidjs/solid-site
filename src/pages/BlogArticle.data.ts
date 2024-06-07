@@ -1,5 +1,5 @@
 import { createResource } from 'solid-js';
-import { RouteDataFunc } from '@solidjs/router';
+import { RouteLoadFunc } from '@solidjs/router';
 import { BlogInfo, list, MDXComponent } from './Blog.data';
 
 export interface BlogArticleData {
@@ -9,7 +9,7 @@ export interface BlogArticleData {
   article?: MDXComponent;
 }
 
-export const BlogArticleData: RouteDataFunc<BlogArticleData> = (props) => {
+export const BlogArticleData: RouteLoadFunc<BlogArticleData> = (props) => {
   const [article] = createResource(async () => (await list[props.params.slug].body()).default);
   return {
     get slug() {

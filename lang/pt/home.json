@@ -32,7 +32,7 @@
         "link": "https://bundlephobia.com/package/solid-js@1.2.1"
       },
       {
-        "label": "25k+",
+        "label": "32k+",
         "detail": "Estrelas no GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
@@ -56,7 +56,7 @@
     "example": {
       "headline": "É familiar e moderno",
       "copy": [
-        "Solid é pensado em cima de gigantes, principalmente React e Knocout. Se você já programou com os Hooks do React antes, Solid deve ser nada menos do que natural. Na verdade, até mais natural já que os modelos do Solid não usam as regras de hooks. Todo componente é executado apenas uma vez e seus hooks e ligações executam a cada atualização de dependência.",
+        "Solid é pensado em cima de gigantes, principalmente React e Knockout. Se você já programou com os Hooks do React antes, Solid deve ser nada menos do que natural. Na verdade, até mais natural já que os modelos do Solid não usam as regras de hooks. Todo componente é executado apenas uma vez e seus hooks e ligações executam a cada atualização de dependência.",
         "Solid segue a mesma filosofia do React com um fluxo unidirecional de dados, segregação de leitura e escrita e interfaces imutáveis. Apenas tem uma implementação completamente diferente que dispensa o uso de uma DOM virtual."
       ],
       "link_label": "Ver documentação",

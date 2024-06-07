@@ -115,6 +115,17 @@ const podcasts: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1683668658000,
   },
+  {
+    title: 'A Solid(JS) Developer Experience with Atila Fassina',
+    link: 'https://youtu.be/b8dLqJluR3U',
+    description: `Rob and Atila discuss how to improve DX, performance optimizations, and the nuances behind developer documentation and how to create a comprehensive toolkit for developers. Atila also talks about the upcoming stable release of Solid and its integration with Tauri V2 for mobile app development`,
+    author: 'This Dot Media',
+    author_url: 'https://www.youtube.com/c/ThisDotMedia',
+    keywords: ['solid', 'solidstart', 'developer experience'],
+    type: ResourceType.Podcast,
+    categories: [ResourceCategory.Educational],
+    published_at: 1709126698495,
+  },
 ];
 
 export default podcasts;

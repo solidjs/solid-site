@@ -38,6 +38,7 @@ module.exports = {
           darkdefault: '#b8d7ff', //'#87b1e6',
           darkgray: '#252525',
           gray: '#414042',
+          notice: '#fbbf24',
           mediumgray: '#9d9d9d',
           lightgray: '#f3f5f7',
           dark: '#07254A',
@@ -46,6 +47,10 @@ module.exports = {
           accent: '#0cdc73',
           secondaccent: '#0dfc85',
         },
+        amber: {
+          DEFAULT: '#b45309',
+        },
+        'amber-light': '#f59e0b',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

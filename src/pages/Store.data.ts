@@ -1,5 +1,5 @@
 import { createEffect, on } from 'solid-js';
-import { RouteDataFunc } from '@solidjs/router';
+import { RouteLoadFunc } from '@solidjs/router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createCollection, createCart } from '../utils/shopify';
 
@@ -8,7 +8,7 @@ const settings = {
   domain: 'solidjs.myshopify.com',
 };
 
-export const StoreData: RouteDataFunc = () => {
+export const StoreData: RouteLoadFunc = () => {
   const [collection] = createCollection(() => 'gid://shopify/Collection/285612933298', settings);
   const [cookie, setCookie] = createCookieStorage();
   const id: string | null =

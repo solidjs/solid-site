@@ -19,7 +19,7 @@ const js_framework = {
     },
     {
       label: 'Inferno 8.2.2',
-      score: 1.10,
+      score: 1.1,
     },
     {
       label: 'Vue 3.3.4',
@@ -31,7 +31,7 @@ const js_framework = {
     },
     {
       label: 'Preact 10.13.1',
-      score: 1.40,
+      score: 1.4,
     },
     {
       label: 'React 18.2.0',

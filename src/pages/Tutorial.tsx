@@ -11,7 +11,7 @@ import {
   ErrorBoundary,
 } from 'solid-js';
 import Repl from 'solid-repl/dist/repl';
-import { useRouteData, NavLink } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { Icon } from 'solid-heroicons';
 import { arrowLeft, arrowRight, chevronDown, chevronDoubleRight } from 'solid-heroicons/solid';
 
@@ -130,7 +130,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                   <For each={entries}>
                     {(entry, entryIndex) => (
                       <li>
-                        <NavLink
+                        <A
                           activeClass="js-active bg-blue-50 dark:bg-solid-darkbg"
                           href={`/tutorial/${entry.internalName}`}
                           class="hover:bg-blue-100 dark:hover:bg-solid-medium py-3 px-5 block"
@@ -139,7 +139,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
                           <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                             {alphabet[entryIndex()]}. {entry.lessonName}
                           </p>
-                        </NavLink>
+                        </A>
                       </li>
                     )}
                   </For>
@@ -153,8 +153,8 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   );
 };
 
-const Tutorial: Component = () => {
-  const data = useRouteData<TutorialRouteData>();
+const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
+  const data = props.data
   const context = useAppState();
   const { t } = context;
   let replEditor: editor.IStandaloneCodeEditor;
@@ -229,40 +229,40 @@ const Tutorial: Component = () => {
             <Show
               when={data.solved}
               fallback={
-                <NavLink
+                <A
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                   href={`/tutorial/${data.id}?solved`}
                   onClick={() => setOpen(true)}
                 >
                   {t('tutorial.solve')}
-                </NavLink>
+                </A>
               }
             >
-              <NavLink
+              <A
                 class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
                 href={`/tutorial/${data.id}`}
                 onClick={() => setOpen(true)}
               >
                 {t('tutorial.reset')}
-              </NavLink>
+              </A>
             </Show>
             <div class="flex items-center space-x-4">
               <span data-tooltip={data.previousLesson}>
-                <NavLink href={data.previousUrl ?? '#'}>
+                <A href={data.previousUrl ?? '#'}>
                   <span class="sr-only">Previous step</span>
                   <Icon
                     path={arrowLeft}
                     class="h-6"
                     classList={{ 'opacity-25': !data.previousUrl }}
                   />
-                </NavLink>
+                </A>
               </span>
 
               <span data-tooltip={data.nextLesson}>
-                <NavLink href={data.nextUrl ?? '#'}>
+                <A href={data.nextUrl ?? '#'}>
                   <span class="sr-only">Next step</span>
                   <Icon path={arrowRight} class="h-6" classList={{ 'opacity-25': !data.nextUrl }} />
-                </NavLink>
+                </A>
               </span>
             </div>
           </div>
