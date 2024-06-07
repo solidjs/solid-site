@@ -5,21 +5,13 @@
   "locale": "en-US",
   "nav": [
     {
-      "title": "Guides",
-      "path": "/guides"
+      "title": "Documentation",
+      "path": "https://docs.solidjs.com",
+      "external": true
     },
     {
       "title": "Tutorial",
       "path": "/tutorial"
-    },
-    {
-      "title": "API",
-      "path": "/docs/latest/api"
-    },
-    {
-      "title": "SolidStart",
-      "path": "https://start.solidjs.com",
-      "external": true
     },
     {
       "title": "Ecosystem",
@@ -40,6 +32,11 @@
     {
       "title": "Examples",
       "path": "/examples"
+    },
+    {
+      "title": "SolidStart",
+      "path": "https://start.solidjs.com",
+      "external": true
     },
     {
       "title": "Playground",

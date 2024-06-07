@@ -1198,6 +1198,78 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1709126698495,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=Zgrm7reyc_A',
+    title: 'The First Post-React Framework Just Launched',
+    description:
+      'Solid\'s development cycle has been incredible to watch, and SolidStart is key to it\'s future. Really hyped that Javascript keeps getting more interesting.',
+    keywords: ['solid', 'solidstart', 'launch', 'post-react','react', 'framework'],
+    author: 'Theo Browne',
+    author_url: 'https://www.youtube.com/@t3dotgg',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1716663179000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=dk1VR1Sgpcg',
+    title: 'Taylor Nodell SolidJS, Reactivity, and an Impractical Comparison',
+    description:
+      'Taylor Nodell reviews Solid and React with a comparative example.',
+    keywords: ['solid', 'example', 'react', 'comparison', 'game'],
+    author: 'SydJSMeetup',
+    author_url: 'https://www.youtube.com/@SydJSMeetup',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1713725579000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=ZVjXtfdKQ3g',
+    title: 'The Shape of Frameworks to Come',
+    description:
+      'Ryan introduces the audience to SolidStart and the architecture that Solid has adopted for its new meta-framework.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'JSWorldConference',
+    author_url: 'https://www.youtube.com/@JSWORLDConference',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1715799179000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=hRM3ggjm7Zo',
+    title: 'epilot Tech Exchange: SolidJS with Ryan Carniato',
+    description:
+      'Ryan joins the epilot team to discuss SolidJS and web in general.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'epilot Tech Exchange',
+    author_url: 'https://www.youtube.com/@epilotTech',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1714538386000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=nxbxw2Kw6sA',
+    title: 'Does Solid solve all your React problems?',
+    description:
+      'In this video CJ compares SolidJS to React and SolidStart to Next.js.',
+    keywords: ['syntaxfm', 'solidstart', 'react', 'comparison', 'framework'],
+    author: 'SyntaxFM',
+    author_url: 'https://www.youtube.com/@syntaxfm',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717723424000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=UdDoLty4Ho0',
+    title: 'Fine Solid Patterns @ BeJS',
+    description:
+      'This talk is a step further on the benefits of choosing fine-grained reactivity: benefits for developer experience, efficiency, and end-user performance.',
+    keywords: ['solid', 'atila', 'dxt', 'patterns'],
+    author: 'Atila Fassina (BeJS)',
+    author_url: 'https://www.youtube.com/@BeJScommunity',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717768168000,
+  }
 ];
 
 export default videos;
