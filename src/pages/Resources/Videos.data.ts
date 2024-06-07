@@ -1257,6 +1257,18 @@ const videos: Array<Resource> = [
     type: ResourceType.Video,
     categories: [ResourceCategory.Educational],
     published_at: 1717723424000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=UdDoLty4Ho0',
+    title: 'Fine Solid Patterns @ BeJS',
+    description:
+      'This talk is a step further on the benefits of choosing fine-grained reactivity: benefits for developer experience, efficiency, and end-user performance.',
+    keywords: ['solid', 'atila', 'dxt', 'patterns'],
+    author: 'Atila Fassina (BeJS)',
+    author_url: 'https://www.youtube.com/@BeJScommunity',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717768168000,
   }
 ];
 
