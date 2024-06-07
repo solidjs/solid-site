@@ -1234,6 +1234,42 @@ const videos: Array<Resource> = [
     categories: [ResourceCategory.Educational],
     published_at: 1715799179000,
   },
+  {
+    link: 'https://www.youtube.com/watch?v=hRM3ggjm7Zo',
+    title: 'epilot Tech Exchange: SolidJS with Ryan Carniato',
+    description:
+      'Ryan joins the epilot team to discuss SolidJS and web in general.',
+    keywords: ['solid', 'solidstart', 'framework'],
+    author: 'epilot Tech Exchange',
+    author_url: 'https://www.youtube.com/@epilotTech',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1714538386000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=nxbxw2Kw6sA',
+    title: 'Does Solid solve all your React problems?',
+    description:
+      'In this video CJ compares SolidJS to React and SolidStart to Next.js.',
+    keywords: ['syntaxfm', 'solidstart', 'react', 'comparison', 'framework'],
+    author: 'SyntaxFM',
+    author_url: 'https://www.youtube.com/@syntaxfm',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717723424000,
+  },
+  {
+    link: 'https://www.youtube.com/watch?v=UdDoLty4Ho0',
+    title: 'Fine Solid Patterns @ BeJS',
+    description:
+      'This talk is a step further on the benefits of choosing fine-grained reactivity: benefits for developer experience, efficiency, and end-user performance.',
+    keywords: ['solid', 'atila', 'dxt', 'patterns'],
+    author: 'Atila Fassina (BeJS)',
+    author_url: 'https://www.youtube.com/@BeJScommunity',
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1717768168000,
+  }
 ];
 
 export default videos;
