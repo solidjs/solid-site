@@ -50,9 +50,6 @@ importers:
       '@solid.js/docs':
         specifier: ^1.0.56
         version: 1.0.56(solid-js@1.8.16)
-      '@solidjs/meta':
-        specifier: ^0.29.3
-        version: 0.29.4(solid-js@1.8.16)
       '@solidjs/router':
         specifier: ^0.13.1
         version: 0.13.1(solid-js@1.8.16)
@@ -104,6 +101,9 @@ importers:
       solid-js:
         specifier: 1.8.16
         version: 1.8.16
+      solid-meta:
+        specifier: ^0.28.1
+        version: 0.28.1(solid-js@1.8.16)
       solid-repl:
         specifier: ^0.25.0
         version: 0.25.0(monaco-editor@0.47.0(patch_hash=47lyngt4w53dxs4nfwrfuj2lyq))(solid-js@1.8.16)
@@ -113,6 +113,9 @@ importers:
       solid-transition-group:
         specifier: ^0.2.3
         version: 0.2.3(solid-js@1.8.16)
+      solid-utils:
+        specifier: ^0.8.1
+        version: 0.8.1(solid-js@1.8.16)
     devDependencies:
       '@aminya/minijson':
         specifier: ^0.6.2
@@ -1267,11 +1270,6 @@ packages:
 
   '@solid.js/docs@1.0.56':
     resolution: {integrity: sha512-1ZTbxvA+CM4kETrfKv4ftormsx8WY+83Dfmrllr1M5U6QENIscJ7+fhGFzSsTaa/QIKsSb9yk1a4e0xXHhrnzw==}
-
-  '@solidjs/meta@0.29.4':
-    resolution: {integrity: sha512-zdIWBGpR9zGx1p1bzIPqF5Gs+Ks/BH8R6fWhmUa/dcK1L2rUC8BAcZJzNRYBQv74kScf1TSOs0EY//Vd/I0V8g==}
-    peerDependencies:
-      solid-js: 1.8.16
 
   '@solidjs/router@0.13.1':
     resolution: {integrity: sha512-Rz5Lf0ssWMuN+Wm2GFO0vwZoO/KSwYFSuCUzWrRAvje5M0ZYZrMk5FZxuzdJT+zg8KuqWJQlRALks5E0r+FjAA==}
@@ -3473,6 +3471,11 @@ packages:
       solid-js: 1.8.16
       vite: '*'
 
+  solid-meta@0.28.1:
+    resolution: {integrity: sha512-mYS1YccWZY6eda3wxY7GOVjx7fJcstCqCdyA6DI/2GjymjaYA5/FeObwvbP8sm48VwEgSBCw44bP7iVpQz/mcQ==}
+    peerDependencies:
+      solid-js: 1.8.16
+
   solid-refresh@0.6.3:
     resolution: {integrity: sha512-F3aPsX6hVw9ttm5LYlth8Q15x6MlI/J3Dn+o3EQyRTtTxidepSTwAYdozt01/YA+7ObcciagGEyXIopGZzQtbA==}
     peerDependencies:
@@ -3491,6 +3494,11 @@ packages:
   solid-transition-group@0.2.3:
     resolution: {integrity: sha512-iB72c9N5Kz9ykRqIXl0lQohOau4t0dhel9kjwFvx81UZJbVwaChMuBuyhiZmK24b8aKEK0w3uFM96ZxzcyZGdg==}
     engines: {node: '>=18.0.0', pnpm: '>=8.6.0'}
+    peerDependencies:
+      solid-js: 1.8.16
+
+  solid-utils@0.8.1:
+    resolution: {integrity: sha512-LLeO7Hr99OLFY+Zfx8U7Hw5VZOaFT8qWoLWGfnq3kDmo7KAGdIoq44ijy7mdYj88e+2cWPdkyhItsS3FGjeS6g==}
     peerDependencies:
       solid-js: 1.8.16
 
@@ -5156,10 +5164,6 @@ snapshots:
       solid-jsx: 0.9.1(solid-js@1.8.16)
     transitivePeerDependencies:
       - solid-js
-
-  '@solidjs/meta@0.29.4(solid-js@1.8.16)':
-    dependencies:
-      solid-js: 1.8.16
 
   '@solidjs/router@0.13.1(solid-js@1.8.16)':
     dependencies:
@@ -7835,6 +7839,10 @@ snapshots:
       solid-js: 1.8.16
       vite: 5.2.3(@types/node@20.6.1)(terser@5.19.4)
 
+  solid-meta@0.28.1(solid-js@1.8.16):
+    dependencies:
+      solid-js: 1.8.16
+
   solid-refresh@0.6.3(solid-js@1.8.16):
     dependencies:
       '@babel/generator': 7.24.1
@@ -7867,6 +7875,10 @@ snapshots:
     dependencies:
       '@solid-primitives/refs': 1.0.5(solid-js@1.8.16)
       '@solid-primitives/transition-group': 1.0.3(solid-js@1.8.16)
+      solid-js: 1.8.16
+
+  solid-utils@0.8.1(solid-js@1.8.16):
+    dependencies:
       solid-js: 1.8.16
 
   source-map-js@1.0.2: {}
