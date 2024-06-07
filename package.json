@@ -90,7 +90,7 @@
     "solid-js": "1.8.16",
     "@rollup/pluginutils": "5.1.0"
   },
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "pnpm@9.0.6",
   "pnpm": {
     "patchedDependencies": {
       "monaco-editor@0.47.0": "patches/monaco-editor@0.47.0.patch"
