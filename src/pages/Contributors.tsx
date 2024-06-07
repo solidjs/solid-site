@@ -31,8 +31,8 @@ const CoreMember: Component<CoreMemberProps> = (props) => {
         <small>{props.role}</small>
         <p class="block">{props.bio}</p>
         <a target="_blank" rel="noopener" href={`https://github.com/${props.github}`}>
-          <span class="sr-only">Github URL of {props.github}</span>
-          <img class="w-7" alt={`Github URL of ${props.github}`} src={github} />
+          <span class="sr-only">GitHub URL of {props.github}</span>
+          <img class="w-7" alt={`GitHub URL of ${props.github}`} src={github} />
         </a>
       </div>
     </li>
