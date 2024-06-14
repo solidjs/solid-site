@@ -93,8 +93,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       shopify-buy:
-        specifier: ^2.21.1
-        version: 2.21.1
+        specifier: ^2.22.0
+        version: 2.22.0
       solid-dismiss:
         specifier: ^1.7.122
         version: 1.7.122(solid-js@1.8.16)
@@ -3429,8 +3429,8 @@ packages:
   shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
 
-  shopify-buy@2.21.1:
-    resolution: {integrity: sha512-loiv6edkoleLwN8bA+07PDjq/EJ7KL/VHVRCJMUe4467MzFVcmAgAa4FvHrN6EICpq88h7A47UdqYa2R/W3hNw==}
+  shopify-buy@2.22.0:
+    resolution: {integrity: sha512-Y7FXmgX+By5VjF449oGj6+f8wBEKSupeAS/7bz9MXnvFmhT4C3ka/mzTjVDZTmq0arJdx3EyxUgpaWez3ztoKg==}
 
   side-channel@1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
@@ -7800,7 +7800,7 @@ snapshots:
 
   shell-quote@1.8.1: {}
 
-  shopify-buy@2.21.1: {}
+  shopify-buy@2.22.0: {}
 
   side-channel@1.0.4:
     dependencies:

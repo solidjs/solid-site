@@ -25,7 +25,6 @@ export const StoreData: RouteLoadFunc = () => {
       },
     ),
   );
-  createEffect(() => console.log(collection()));
   return {
     get commerce() {
       return commerce;
