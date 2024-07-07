@@ -1801,7 +1801,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/pureliani/solid-query',
     title: '@gapu/solid-query',
-    description: 'Primitives for managing Rest Api integrations in Solid.js',
+    description: 'Primitives for managing queries and cache in solid.js',
     author: 'Gabriel Pureliani',
     author_url: 'https://github.com/pureliani',
     keywords: ['api', 'query', 'solid-query'],
@@ -1947,6 +1947,18 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['form', 'field', 'validation', 'input', 'ui'],
     published_at: 1666197287705,
+  },
+  {
+    title: '@gapu/formix',
+    link: 'https://github.com/pureliani/formix',
+    author: 'Gabriel Pureliani',
+    author_url: 'https://github.com/pureliani',
+    description:
+      '@gapu/formix is a powerful form management library for SolidJS. It provides a simple and flexible API for handling complex form state, validation, and submission.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['form', 'field', 'validation', 'input', 'ui'],
   },
   {
     title: 'vite-plugin-solid-markdown',
