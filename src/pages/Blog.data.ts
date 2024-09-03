@@ -100,6 +100,15 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1716308491000,
     body: async () => await import('./Articles/solid-start-the-shape-frameworks-to-come.mdx'),
   },
+  'solidhack-2024-announcement': {
+    img: '/img/blog/solidhack-2024-announcement/header.jpeg',
+    title: 'SolidHack 2024 Announcement',
+    description: 'Official SolidStart Version 1.0 release announcement.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1725403091000,
+    body: async () => await import('./Articles/solidhack-2024-announcement.mdx'),
+  },
 };
 
 export interface BlogData {

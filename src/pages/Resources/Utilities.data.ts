@@ -2557,6 +2557,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://github.com/pdfslick/pdfslick',
+    title: '@pdfslick/solid',
+    description: 'View and Interact with PDF documents in React, SolidJS, Svelte and JavaScript apps',
+    author: 'PDFSlick',
+    author_url: 'https://github.com/pdfslick/',
+    keywords: ['pdf', 'viewer'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+  },
 ];
 
 export default utilities;

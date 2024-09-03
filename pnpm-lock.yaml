@@ -93,8 +93,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       shopify-buy:
-        specifier: ^2.21.1
-        version: 2.21.1
+        specifier: ^2.22.0
+        version: 2.22.0
       solid-dismiss:
         specifier: ^1.7.122
         version: 1.7.122(solid-js@1.8.16)
@@ -104,9 +104,6 @@ importers:
       solid-js:
         specifier: 1.8.16
         version: 1.8.16
-      solid-meta:
-        specifier: ^0.28.1
-        version: 0.28.1(solid-js@1.8.16)
       solid-repl:
         specifier: ^0.25.0
         version: 0.25.0(monaco-editor@0.47.0(patch_hash=47lyngt4w53dxs4nfwrfuj2lyq))(solid-js@1.8.16)
@@ -3432,8 +3429,8 @@ packages:
   shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
 
-  shopify-buy@2.21.1:
-    resolution: {integrity: sha512-loiv6edkoleLwN8bA+07PDjq/EJ7KL/VHVRCJMUe4467MzFVcmAgAa4FvHrN6EICpq88h7A47UdqYa2R/W3hNw==}
+  shopify-buy@2.22.0:
+    resolution: {integrity: sha512-Y7FXmgX+By5VjF449oGj6+f8wBEKSupeAS/7bz9MXnvFmhT4C3ka/mzTjVDZTmq0arJdx3EyxUgpaWez3ztoKg==}
 
   side-channel@1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
@@ -3478,11 +3475,6 @@ packages:
     peerDependencies:
       solid-js: 1.8.16
       vite: '*'
-
-  solid-meta@0.28.1:
-    resolution: {integrity: sha512-mYS1YccWZY6eda3wxY7GOVjx7fJcstCqCdyA6DI/2GjymjaYA5/FeObwvbP8sm48VwEgSBCw44bP7iVpQz/mcQ==}
-    peerDependencies:
-      solid-js: 1.8.16
 
   solid-refresh@0.6.3:
     resolution: {integrity: sha512-F3aPsX6hVw9ttm5LYlth8Q15x6MlI/J3Dn+o3EQyRTtTxidepSTwAYdozt01/YA+7ObcciagGEyXIopGZzQtbA==}
@@ -7808,7 +7800,7 @@ snapshots:
 
   shell-quote@1.8.1: {}
 
-  shopify-buy@2.21.1: {}
+  shopify-buy@2.22.0: {}
 
   side-channel@1.0.4:
     dependencies:
@@ -7850,10 +7842,6 @@ snapshots:
     dependencies:
       solid-js: 1.8.16
       vite: 5.2.3(@types/node@20.6.1)(terser@5.19.4)
-
-  solid-meta@0.28.1(solid-js@1.8.16):
-    dependencies:
-      solid-js: 1.8.16
 
   solid-refresh@0.6.3(solid-js@1.8.16):
     dependencies:
