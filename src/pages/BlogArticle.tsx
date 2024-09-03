@@ -30,7 +30,7 @@ export const BlogArticle: Component<{ data: BlogArticleData }> = (props) => {
                   <h1 class="text-4xl font-semibold mt-10 text-solid-medium dark:text-solid-darkdefault">
                     {data.details.title}
                   </h1>
-                  <div class="text-md">
+                  <div class="text-lg">
                     Posted by{' '}
                     <a target="_blank" rel="noopener" href={data.details.author_url}>
                       {data.details.author}
@@ -39,7 +39,7 @@ export const BlogArticle: Component<{ data: BlogArticleData }> = (props) => {
                   </div>
                 </div>
                 <hr class="mt-10 w-3/6 mx-auto" />
-                <article class="my-10 prose dark:prose-invert mx-auto">
+                <article class="my-10 prose text-lg dark:prose-invert mx-auto">
                   {data.article && (
                     <data.article
                       components={{
