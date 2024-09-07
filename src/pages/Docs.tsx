@@ -120,7 +120,7 @@ const Content: Component<{
   </Switch>
 );
 
-const Docs: Component<{ hash?: string, data: DocData }> = (props) => {
+const Docs: Component<{ hash?: string; data: DocData }> = (props) => {
   const data = props.data;
   const [current, setCurrent] = createSignal<string | null>(null);
   const [toggleSections, setToggleSections] = createSignal(false);
@@ -169,7 +169,7 @@ const Docs: Component<{ hash?: string, data: DocData }> = (props) => {
         aside={<Sidebar items={sections()} current={current} hash={props.hash} />}
         content={<Content data={data} />}
       />
-  </>
+    </>
   );
 };
 

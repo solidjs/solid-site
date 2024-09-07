@@ -224,7 +224,7 @@ export const createCollection = (
       language: options.language,
     });
   const [products, { refetch }] = createResource(collectionId, async (id) =>
-    client.collection.fetchWithProducts(id, { productsFirst: 100 }),
+    client.collection.fetchWithProducts(id),
   );
   return [products, refetch];
 };

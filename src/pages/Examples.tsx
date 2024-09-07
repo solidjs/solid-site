@@ -10,7 +10,7 @@ import type { Tab } from 'solid-repl';
 import { entries } from '@solid-primitives/utils';
 import { Title } from '@solidjs/meta';
 
-const Examples: Component<{data: ExamplesDataRoute}> = (props) => {
+const Examples: Component<{ data: ExamplesDataRoute }> = (props) => {
   const data = props.data;
   const context = useAppState();
   const { t } = context;
