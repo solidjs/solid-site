@@ -2324,6 +2324,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/thedanchez/uplot-solid',
+    title: 'uplot-solid',
+    description: 'Solid component wrapper around μPlot -- a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars',
+    author: 'Daniel Sanchez',
+    author_url: 'https://github.com/thedanchez',
+    keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
     title: '@rnwonder/solid-date-picker',
     link: 'https://github.com/rnwonder/solid-date-picker',
     author: 'Matthew Ruona',
