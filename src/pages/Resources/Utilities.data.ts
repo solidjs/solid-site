@@ -1727,7 +1727,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'apex', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     link: 'https://www.locatorjs.com/install/solidjs',
@@ -1801,7 +1801,7 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/pureliani/solid-query',
     title: '@gapu/solid-query',
-    description: 'Primitives for managing Rest Api integrations in Solid.js',
+    description: 'Primitives for managing queries and cache in solid.js',
     author: 'Gabriel Pureliani',
     author_url: 'https://github.com/pureliani',
     keywords: ['api', 'query', 'solid-query'],
@@ -1841,7 +1841,7 @@ const utilities: Array<Resource> = [
     keywords: ['grid', 'ag grid', 'ag-grid'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     link: 'https://github.com/Supertigerr/solid-named-router',
@@ -1947,6 +1947,18 @@ const utilities: Array<Resource> = [
     official: false,
     keywords: ['form', 'field', 'validation', 'input', 'ui'],
     published_at: 1666197287705,
+  },
+  {
+    title: '@gapu/formix',
+    link: 'https://github.com/pureliani/formix',
+    author: 'Gabriel Pureliani',
+    author_url: 'https://github.com/pureliani',
+    description:
+      '@gapu/formix is a powerful form management library for SolidJS. It provides a simple and flexible API for handling complex form state, validation, and submission.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['form', 'field', 'validation', 'input', 'ui'],
   },
   {
     title: 'vite-plugin-solid-markdown',
@@ -2321,7 +2333,18 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'chartjs', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/thedanchez/uplot-solid',
+    title: 'uplot-solid',
+    description: 'Solid component wrapper around μPlot -- a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars',
+    author: 'Daniel Sanchez',
+    author_url: 'https://github.com/thedanchez',
+    keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     title: '@rnwonder/solid-date-picker',
@@ -2451,7 +2474,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     title: 'solid-keep-alive',
@@ -2560,13 +2583,36 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/pdfslick/pdfslick',
     title: '@pdfslick/solid',
-    description: 'View and Interact with PDF documents in React, SolidJS, Svelte and JavaScript apps',
+    description:
+      'View and Interact with PDF documents in React, SolidJS, Svelte and JavaScript apps',
     author: 'PDFSlick',
     author_url: 'https://github.com/pdfslick/',
     keywords: ['pdf', 'viewer'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
+  },
+  {
+    link: 'https://github.com/thednp/solid-color-picker',
+    title: '@thednp/solid-color-picker',
+    description: 'Modern Color Picker for SolidJS',
+    author: 'thednp',
+    author_url: 'https://github.com/thednp',
+    keywords: ['color', 'color-picker'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/thednp/tinymce-solid',
+    title: 'tinymce-solid',
+    description: 'TinyMCE Component for SolidJS',
+    author: 'thednp',
+    author_url: 'https://github.com/thednp',
+    keywords: ['tinymce', 'editor', 'wysiwyg'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
   },
 ];
 

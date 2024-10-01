@@ -140,7 +140,7 @@ const ResourceLink: Component<Resource> = (props) => {
   );
 };
 
-const Packages: Component<{data: PackagesDataProps}> = (props) => {
+const Packages: Component<{ data: PackagesDataProps }> = (props) => {
   const { t } = useAppState();
   const data = props.data;
   const fs = new Fuse(data.list, {

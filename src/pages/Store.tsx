@@ -102,11 +102,13 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   );
 };
 
-const Cart: Component<{data: {
-  products: ShopifyProduct[];
-  loading: boolean;
-  commerce: CartUtilities;
-}}> = (props) => {
+const Cart: Component<{
+  data: {
+    products: ShopifyProduct[];
+    loading: boolean;
+    commerce: CartUtilities;
+  };
+}> = (props) => {
   const [loading, setLoading] = createSignal(false);
   const data = props.data;
   return (
@@ -142,10 +144,14 @@ const Cart: Component<{data: {
                 />
                 <div class="flex flex-col col-span-5">
                   <b class="font-semibold">{item.title}</b>
-                  <span class="text-xs">{data.commerce.formatTotal(item.variant.priceV2.amount)}/ea</span>
+                  <span class="text-xs">
+                    {data.commerce.formatTotal(item.variant.priceV2.amount)}/ea
+                  </span>
                   <div class="text-xs">
                     <b class="text-semibold">Price:</b>{' '}
-                    {data.commerce.formatTotal(parseFloat(item.variant.priceV2.amount) * item.quantity)}
+                    {data.commerce.formatTotal(
+                      parseFloat(item.variant.priceV2.amount) * item.quantity,
+                    )}
                   </div>
                 </div>
                 <div class="col-span-1">x {item.quantity}</div>
@@ -194,11 +200,13 @@ const Cart: Component<{data: {
   );
 };
 
-const Store: Component<{data: {
-  products: ShopifyProduct[];
-  loading: boolean;
-  commerce: CartUtilities;
-}}> = (props) => {
+const Store: Component<{
+  data: {
+    products: ShopifyProduct[];
+    loading: boolean;
+    commerce: CartUtilities;
+  };
+}> = (props) => {
   const data = props.data;
   const [showCart, setShowCart] = createSignal(false);
   let cartButtonEl;

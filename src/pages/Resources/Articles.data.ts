@@ -1378,7 +1378,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.brenelz.com/posts/optimistic-ui-with-solid-start/',
     title: 'Optimistic UI With SolidStart',
-    description: 'Optimistic ui essentially means showing the happy path state quickly without needing a network request to finish.',
+    description:
+      'Optimistic ui essentially means showing the happy path state quickly without needing a network request to finish.',
     author: 'Brenley Dueck',
     author_url: 'https://brenelz.com',
     keywords: ['solid', 'solidstart', 'optimistic'],
@@ -1413,11 +1414,22 @@ const articles: Array<Resource> = [
     title: 'Solid Myths Debunked',
     description: 'Today we will talk about some of the myths about Solid that people believe.',
     author: 'Brenley Dueck',
-    author_url: 'https://brenelz.com',
+    author_url: 'https://brenelz.com/',
     keywords: ['solid', 'solidstart', 'myths', 'signals'],
     type: ResourceType.Article,
     categories: [ResourceCategory.Educational],
     published_at: 1714194000000,
+  },
+  {
+    link: 'https://thenewstack.io/how-js-meta-framework-solidstart-became-router-agnostic/',
+    title: 'How JS Meta-Framework SolidStart Became Router Agnostic',
+    description: 'SolidStart is a new meta-framework from the SolidJS team that doesn\'t dictate which router developers use. Ryan Carniato explains why.',
+    author: 'Loraine Lawson',
+    author_url: 'https://thenewstack.io/',
+    keywords: ['solid', 'solidstart', 'router', 'vinxi', 'tanstack'],
+    type: ResourceType.Article,
+    categories: [ResourceCategory.Educational],
+    published_at: 1721102023000,
   },
 ];
 
