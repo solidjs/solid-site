@@ -1727,7 +1727,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'apex', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     link: 'https://www.locatorjs.com/install/solidjs',
@@ -1841,7 +1841,7 @@ const utilities: Array<Resource> = [
     keywords: ['grid', 'ag grid', 'ag-grid'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     link: 'https://github.com/Supertigerr/solid-named-router',
@@ -2321,7 +2321,18 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'chartjs', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/thedanchez/uplot-solid',
+    title: 'uplot-solid',
+    description: 'Solid component wrapper around μPlot -- a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars',
+    author: 'Daniel Sanchez',
+    author_url: 'https://github.com/thedanchez',
+    keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     title: '@rnwonder/solid-date-picker',
@@ -2451,7 +2462,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
   },
   {
     title: 'solid-keep-alive',

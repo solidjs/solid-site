@@ -13,6 +13,7 @@ export enum ResourceCategory {
   Primitives = 'primitive',
   Routers = 'router',
   Data = 'data',
+  DataVisualization = 'data_visualization',
   UI = 'ui',
   Plugins = 'plugin',
   Starters = 'starters',
