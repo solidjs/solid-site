@@ -2580,6 +2580,28 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
   },
+  {
+    link: 'https://github.com/thednp/solid-color-picker',
+    title: '@thednp/solid-color-picker',
+    description: 'Modern Color Picker for SolidJS',
+    author: 'thednp',
+    author_url: 'https://github.com/thednp',
+    keywords: ['color', 'color-picker'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
+    link: 'https://github.com/thednp/tinymce-solid',
+    title: 'tinymce-solid',
+    description: 'TinyMCE Component for SolidJS',
+    author: 'thednp',
+    author_url: 'https://github.com/thednp',
+    keywords: ['tinymce', 'editor', 'wysiwyg'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
