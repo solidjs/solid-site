@@ -91,7 +91,7 @@ const AResource: Component<Resource> = (props) => {
   );
 };
 
-const Resources: Component<{data: ResourcesDataProps}> = (props) => {
+const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
   const { t } = useAppState();
   const data = props.data;
   const fs = new Fuse(data.list, {

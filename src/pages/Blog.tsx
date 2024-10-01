@@ -5,8 +5,7 @@ import { Title } from '@solidjs/meta';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { BlogData } from './Blog.data';
 
-const Blog: Component<{data:BlogData}> = (props) => {
-
+const Blog: Component<{ data: BlogData }> = (props) => {
   const data = props.data;
 
   useRouteReadyState();

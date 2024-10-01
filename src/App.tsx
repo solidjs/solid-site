@@ -10,10 +10,10 @@ export const App = () => {
   preventSmoothScrollOnTabbing();
 
   return (
-    <main class="min-h-screen">
-      <Router
-        root={(props) => (
-          <MetaProvider>
+    <MetaProvider>
+      <main class="min-h-screen">
+        <Router
+          root={(props) => (
             <AppContextProvider>
               <Header />
               {/* two div wrappers to make page animation work and performant */}
@@ -25,11 +25,11 @@ export const App = () => {
                 </div>
               </div>
             </AppContextProvider>
-          </MetaProvider>
-        )}
-      >
-        {routes}
-      </Router>
-    </main>
+          )}
+        >
+          {routes}
+        </Router>
+      </main>
+    </MetaProvider>
   );
 };

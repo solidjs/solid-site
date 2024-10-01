@@ -63,7 +63,7 @@ const Contributor: Component<ContributorProps> = (props) => {
   );
 };
 
-const Contributors: Component<{data:ContributorsDataProps}> = (props) => {
+const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
   const { t } = useAppState();
   const data = props.data;
 

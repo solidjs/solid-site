@@ -35,7 +35,7 @@ const strength_icons: { [key: string]: string } = {
   productive,
 };
 
-const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
+const Home: Component<{ data: { benchmarks: GraphData[] } }> = (props) => {
   const isRouting = useIsRouting();
   const data = props.data;
   const ctx = useAppState();
