@@ -1378,7 +1378,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://www.brenelz.com/posts/optimistic-ui-with-solid-start/',
     title: 'Optimistic UI With SolidStart',
-    description: 'Optimistic ui essentially means showing the happy path state quickly without needing a network request to finish.',
+    description:
+      'Optimistic ui essentially means showing the happy path state quickly without needing a network request to finish.',
     author: 'Brenley Dueck',
     author_url: 'https://brenelz.com',
     keywords: ['solid', 'solidstart', 'optimistic'],

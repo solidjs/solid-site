@@ -118,8 +118,8 @@ importers:
         version: 0.8.1(solid-js@1.8.16)
     devDependencies:
       '@aminya/minijson':
-        specifier: ^0.6.2
-        version: 0.6.2
+        specifier: ^1.1.0
+        version: 1.1.0
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.13.0)
@@ -215,8 +215,8 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
 
-  '@aminya/minijson@0.6.2':
-    resolution: {integrity: sha512-6qcgamFpKp9fwpo06dfx4jUehb4UETKfgGGa/u/wybmmnZ2BNTluy9iW1lwPNCb2mVBCx9pRnKh2OqDZrfLvlw==}
+  '@aminya/minijson@1.1.0':
+    resolution: {integrity: sha512-52jhoNqy1jU6q4H8DaneT9VHaeM0lgByiSy6TGqb4Y89E95MSaWlyViENQaUsgFsmgMCkojQUqS2L5aioxf5QQ==}
     hasBin: true
 
   '@ampproject/remapping@2.2.1':
@@ -3964,6 +3964,7 @@ packages:
 
   workbox-google-analytics@7.0.0:
     resolution: {integrity: sha512-MEYM1JTn/qiC3DbpvP2BVhyIH+dV/5BjHk756u9VbwuAhu0QHyKscTnisQuz21lfRpOwiS9z4XdqeVAKol0bzg==}
+    deprecated: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
 
   workbox-navigation-preload@7.0.0:
     resolution: {integrity: sha512-juWCSrxo/fiMz3RsvDspeSLGmbgC0U9tKqcUPZBCf35s64wlaLXyn2KdHHXVQrb2cqF7I0Hc9siQalainmnXJA==}
@@ -4022,7 +4023,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@aminya/minijson@0.6.2':
+  '@aminya/minijson@1.1.0':
     dependencies:
       jsonminify: 0.4.2
 
