@@ -375,6 +375,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.Primitives],
   },
   {
+    link: 'https://github.com/thedanchez/swapy-solid',
+    title: 'swapy-solid',
+    description: 'Solid components enabling drag and swap layouts via Swapy.',
+    author: 'Daniel Sanchez',
+    author_url: 'https://github.com/thedanchez',
+    keywords: ['drag', 'drop', 'swap', 'swapy', 'solid'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/solidjs/react-solid-state',
     title: 'react-solid-state',
     description: 'React Hooks API to use Solid.js paradigm in your existing React apps.',
@@ -1727,7 +1738,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'apex', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     link: 'https://www.locatorjs.com/install/solidjs',
@@ -2333,7 +2344,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'chartjs', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     link: 'https://github.com/thedanchez/uplot-solid',
@@ -2344,7 +2355,7 @@ const utilities: Array<Resource> = [
     keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     title: '@rnwonder/solid-date-picker',
@@ -2474,7 +2485,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     title: 'solid-keep-alive',
