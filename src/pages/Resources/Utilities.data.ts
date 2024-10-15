@@ -375,6 +375,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.Primitives],
   },
   {
+    link: 'https://github.com/thedanchez/swapy-solid',
+    title: 'swapy-solid',
+    description: 'Solid components enabling drag and swap layouts via Swapy.',
+    author: 'Daniel Sanchez',
+    author_url: 'https://github.com/thedanchez',
+    keywords: ['drag', 'drop', 'swap', 'swapy', 'solid'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/solidjs/react-solid-state',
     title: 'react-solid-state',
     description: 'React Hooks API to use Solid.js paradigm in your existing React apps.',
