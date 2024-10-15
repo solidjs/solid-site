@@ -1727,7 +1727,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'apex', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     link: 'https://www.locatorjs.com/install/solidjs',
@@ -2333,7 +2333,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'chartjs', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     link: 'https://github.com/thedanchez/uplot-solid',
@@ -2344,7 +2344,7 @@ const utilities: Array<Resource> = [
     keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     title: '@rnwonder/solid-date-picker',
@@ -2474,7 +2474,7 @@ const utilities: Array<Resource> = [
     keywords: ['charts', 'echarts', 'data visualization', 'ui'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.AddOn, ResourceCategory.DataVisualization, ResourceCategory.UI],
+    categories: [ResourceCategory.DataVisualization],
   },
   {
     title: 'solid-keep-alive',
