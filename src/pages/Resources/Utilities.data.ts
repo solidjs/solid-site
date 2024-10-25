@@ -2625,6 +2625,28 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://corvu.dev/docs/utilities/dismissible/',
+    title: 'solid-dismissible',
+    description: 'Utility for creating dismissible, nestable layers. Offers different strategies to dismiss the layer, such as on outside click, escape key press, or outside focus.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['dismissible', 'dismiss', 'layer', 'close', 'escape'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://corvu.dev/docs/utilities/list/',
+    title: 'solid-list',
+    description: 'Utility to create accessible, keyboard navigable lists like search results, selects or autocompletes.',
+    author: 'Jasmin',
+    author_url: 'https://github.com/GiyoMoon',
+    keywords: ['keyboard', 'accessible', 'list'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
 ];
 
 export default utilities;
