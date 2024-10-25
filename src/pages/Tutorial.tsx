@@ -1,6 +1,6 @@
 import {
   For,
-  Component,
+  type Component,
   Show,
   createSignal,
   createEffect,
@@ -22,7 +22,7 @@ import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { reflow } from '../utils/reflow';
 import { useAppState } from '../AppContext';
-import { LessonLookup } from '@solid.js/docs';
+import type { LessonLookup } from '@solid.js/docs';
 import type { editor } from 'monaco-editor';
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -117,7 +117,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
               type="search"
               placeholder="Search..."
               autocomplete="off"
-              class="py-2 px-3 block w-full text-black"
+              class="py-2 px-3 block w-full"
             />
           </li>
           <For each={filteredDirectory()}>
@@ -175,7 +175,7 @@ const Tutorial: Component<{ data: TutorialRouteData }> = (props) => {
     if (markDownRef) {
       markDownRef.scrollTop = 0;
     }
-    replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
+    replEditor?.setScrollPosition({ scrollTop: 0 });
     const fileset = data.solved ? data.solvedJs : data.js;
     const files = fileset?.files;
     if (!files) return;

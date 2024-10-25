@@ -1,6 +1,6 @@
-import { RouteLoadFunc } from '@solidjs/router';
+import type { RouteLoadFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
-import { getTutorial, getTutorialDirectory, LessonLookup } from '@solid.js/docs';
+import { getTutorial, getTutorialDirectory, type LessonLookup } from '@solid.js/docs';
 import { useAppState } from '../AppContext';
 
 type JsFiles = {
@@ -32,7 +32,7 @@ export const TutorialData: RouteLoadFunc<TutorialRouteData> = (props) => {
   });
   const [data] = createResource(paramList, async ({ lang, id }) => {
     const requestedLang = await getTutorial(lang, id);
-    if (requestedLang && requestedLang.lesson) return requestedLang;
+    if (requestedLang?.lesson) return requestedLang;
     return await getTutorial('en', id);
   });
 

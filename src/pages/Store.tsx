@@ -1,4 +1,4 @@
-import { Component, createMemo, createSignal, For, Show } from 'solid-js';
+import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import Footer from '../components/Footer';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { CartUtilities, ShopifyProduct } from '../utils/shopify';
@@ -14,7 +14,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   const [loading, setLoading] = createSignal(false);
   const variant = createMemo(() => {
     for (const variant of props.details.variants) {
-      if (variant.id == current()) {
+      if (variant.id === current()) {
         return variant;
       }
     }
@@ -23,7 +23,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   const quantity = props.cart.variantQuantity(current);
   const remove = async () => {
     setLoading(true);
-    const itemToRemove = props.cart.cart.lines.find((line) => line.variant.id == current());
+    const itemToRemove = props.cart.cart.lines.find((line) => line.variant.id === current());
     if (itemToRemove) {
       await props.cart.remove([itemToRemove.id.toString()]);
     }
@@ -150,7 +150,7 @@ const Cart: Component<{
                   <div class="text-xs">
                     <b class="text-semibold">Price:</b>{' '}
                     {data.commerce.formatTotal(
-                      parseFloat(item.variant.priceV2.amount) * item.quantity,
+                      Number.parseFloat(item.variant.priceV2.amount) * item.quantity,
                     )}
                   </div>
                 </div>
@@ -209,7 +209,7 @@ const Store: Component<{
 }> = (props) => {
   const data = props.data;
   const [showCart, setShowCart] = createSignal(false);
-  let cartButtonEl;
+  let cartButtonEl!: HTMLButtonElement;
   useRouteReadyState();
   return (
     <div class="flex flex-col relative">

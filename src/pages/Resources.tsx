@@ -6,7 +6,7 @@ import Fuse from 'fuse.js';
 import Dismiss from 'solid-dismiss';
 import { Icon } from 'solid-heroicons';
 import { chevronLeft, chevronRight, filter, shieldCheck } from 'solid-heroicons/outline';
-import { Component, For, Show, createMemo, createSignal } from 'solid-js';
+import { type Component, For, Show, createMemo, createSignal } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { Title } from '@solidjs/meta';
 import { useAppState } from '../AppContext';
@@ -14,8 +14,8 @@ import Footer from '../components/Footer';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import { useRouteReadyState } from '../utils/routeReadyState';
-import { ResourcesDataProps } from './Resources.data';
-import { PackageType, Resource, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
+import type { ResourcesDataProps } from './Resources.data';
+import { type PackageType, type Resource, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
 
 const AResource: Component<Resource> = (props) => {
   const { t } = useAppState();
@@ -31,7 +31,7 @@ const AResource: Component<Resource> = (props) => {
         class="relative grid grid-cols-10 md:grid-cols-12 grid-flow-col gap-2 text-solid"
         target="_blank"
         href={props.link}
-        rel="nofollow"
+        rel="noreferrer nofollow"
       >
         <div class="col-span-2 md:col-span-3 lg:col-span-1 flex items-center justify-center">
           <figure class="flex justify-center content-center w-11 h-11 md:w-14 md:h-14 p-1.5 border-4 border-solid-medium dark:border-solid-darkdefault rounded-full text-white flex-shrink-0">
@@ -44,7 +44,7 @@ const AResource: Component<Resource> = (props) => {
         <div class="col-start-3 col-end-[-1] md:col-span-7 lg:col-span-10 items-center">
           <div dir="ltr">
             <div class="text-lg">{props.title}</div>
-            <Show when={props.description != ''}>
+            <Show when={props.description !== ''}>
               <div class="text-xs mt-2 text-black dark:text-white mb-3 block">
                 {props.description}
               </div>
@@ -58,7 +58,7 @@ const AResource: Component<Resource> = (props) => {
           <Show when={props.author && props.author_url}>
             <div class="rtl:text-right">
               <a
-                rel="noopener"
+                rel="noreferrer noopener"
                 href={props.author_url}
                 target="_blank"
                 class="text-xs text-gray-500 dark:text-gray-300 inline hover:text-solid-medium"
@@ -103,7 +103,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
   const debouncedKeyword = debounce((str: string) => setKeyword(str), 250);
   rememberSearch(keyword);
   const resources = createMemo(() => {
-    if (keyword() == '') {
+    if (keyword() === '') {
       return data.list;
     }
     return fs.search(keyword()).map((result) => result.item);
@@ -170,7 +170,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
           <div
             class="text-xs bg-gray-100 dark:bg-solid-darkLighterBg p-4 rounded"
             innerHTML={t('resources.cta')}
-          ></div>
+          />
           <div class="hidden md:block">
             <input
               class="my-5 rounded border-solid w-full border-gray-400 border bg-transparent p-3 placeholder-opacity-50 placeholder-gray-500 dark:placeholder-white"
@@ -193,11 +193,10 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
                       const pos = arr.indexOf(type);
                       if (pos === -1) {
                         return [...arr, type];
-                      } else {
-                        const newArray = arr.slice();
-                        newArray.splice(pos, 1);
-                        return newArray;
                       }
+                      const newArray = arr.slice();
+                      newArray.splice(pos, 1);
+                      return newArray;
                     });
                   }}
                   classList={{
@@ -235,8 +234,8 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
             classList={{
               'shadow-md': stickyBarActive(),
             }}
-          ></div>
-          <div class="absolute w-full h-full top-0 left-0 bg-white dark:bg-neutral-600 z-negative"></div>
+          />
+          <div class="absolute w-full h-full top-0 left-0 bg-white dark:bg-neutral-600 z-negative" />
           <div class="h-[45px] px-5 flex justify-between gap-1">
             <div use:intersectionObserver class="absolute top-[-62px] h-0" />
             <input
@@ -288,11 +287,10 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
                       const pos = arr.indexOf(type);
                       if (pos === -1) {
                         return [...arr, type];
-                      } else {
-                        const newArray = arr.slice();
-                        newArray.splice(pos, 1);
-                        return newArray;
                       }
+                      const newArray = arr.slice();
+                      newArray.splice(pos, 1);
+                      return newArray;
                     });
                   }}
                   classList={{

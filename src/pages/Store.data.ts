@@ -1,5 +1,5 @@
 import { createEffect, on } from 'solid-js';
-import { RouteLoadFunc } from '@solidjs/router';
+import type { RouteLoadFunc } from '@solidjs/router';
 import { createCookieStorage } from '@solid-primitives/storage';
 import { createCollection, createCart } from '../utils/shopify';
 
@@ -12,14 +12,14 @@ export const StoreData: RouteLoadFunc = () => {
   const [collection] = createCollection(() => 'gid://shopify/Collection/285612933298', settings);
   const [cookie, setCookie] = createCookieStorage();
   const id: string | null =
-    !cookie.cartId || cookie.cartId == '' ? null : (cookie.cartId as string);
+    !cookie.cartId || cookie.cartId === '' ? null : (cookie.cartId as string);
   const commerce = createCart(id, settings);
   createEffect(
     on(
       () => [commerce.loading(), commerce.cart.id, commerce.cart.id],
       () => {
-        if (commerce.loading() == true) return;
-        if (commerce.cart.id != cookie.cartId) {
+        if (commerce.loading() === true) return;
+        if (commerce.cart.id !== cookie.cartId) {
           setCookie('cartId', commerce.cart.id);
         }
       },

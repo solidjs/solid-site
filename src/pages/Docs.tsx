@@ -62,7 +62,7 @@ const Sidebar: Component<{
                       `#${slug(secondLevel.value)}` === props.hash,
                     'hover:text-gray-400 dark:hover:text-gray-400':
                       `#${slug(secondLevel.value)}` !== props.hash,
-                    'pb-2': index() == firstLevel.children!.length - 1,
+                    'pb-2': index() === firstLevel.children!.length - 1,
                   }}
                   href={`#${slug(secondLevel.value)}`}
                 >
@@ -108,7 +108,7 @@ const Content: Component<{
           <a
             class="underline"
             target="_blank"
-            href="https://github.com/solidjs/solid-docs/blob/main/README.md#support"
+            href="https://github.com/solidjs/solid-docs/blob/main/README.md#support" rel="noreferrer"
           >
             helping with on-going translation efforts
           </a>
@@ -154,7 +154,7 @@ const Docs: Component<{ hash?: string; data: DocData }> = (props) => {
     if (!data.loading) {
       if (globalThis.location.hash !== '') {
         const anchor = document.getElementById(globalThis.location.hash.replace('#', ''));
-        anchor && anchor.scrollIntoView(true);
+        anchor?.scrollIntoView(true);
       }
     }
   });
