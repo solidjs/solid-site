@@ -4,7 +4,7 @@ const js_framework = {
   id: 'js-framework-benchmark',
   name: 'JS Framework Benchmark',
   description:
-    'The JS Framework Benchmark compares browser performance across a wide range of tests. Chrome 117 dataset. Lower is better.',
+    'The JS Framework Benchmark compares browser performance across a wide range of tests. Chrome 130 dataset. Lower is better.',
   link: 'https://github.com/krausest/js-framework-benchmark',
   scale: 'Time',
   data: [
@@ -13,37 +13,37 @@ const js_framework = {
       score: 1,
     },
     {
-      label: 'Solid 1.7.8',
+      label: 'Solid 1.8.15',
       active: true,
-      score: 1.08,
+      score: 1.11,
     },
     {
       label: 'Inferno 8.2.2',
-      score: 1.1,
+      score: 1.15,
     },
     {
-      label: 'Vue 3.3.4',
-      score: 1.24,
+      label: 'Vue 3.5.3',
+      score: 1.31,
     },
     {
-      label: 'Svelte 4.0.0',
-      score: 1.33,
+      label: 'Svelte 5.0.5',
+      score: 1.13,
     },
     {
-      label: 'Preact 10.13.1',
-      score: 1.4,
+      label: 'Preact Hooks 10.19.3',
+      score: 1.60,
     },
     {
-      label: 'React 18.2.0',
-      score: 1.67,
+      label: 'React Hooks 18.2.0',
+      score: 1.61,
     },
     {
-      label: 'Angular 16.2.0',
-      score: 1.67,
+      label: 'Angular 18.0.1',
+      score: 1.45,
     },
     {
-      label: 'Ember 4.10.0',
-      score: 2.01,
+      label: 'Ember 5.3.0',
+      score: 2.09,
     },
   ],
 } as GraphData;
