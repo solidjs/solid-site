@@ -30,8 +30,8 @@ const js_framework = {
       score: 1.13,
     },
     {
-      label: 'Preact Hooks 10.19.3',
-      score: 1.60,
+      label: 'Preact Classes 10.19.3',
+      score: 1.43,
     },
     {
       label: 'React Hooks 18.2.0',
