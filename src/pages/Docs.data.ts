@@ -1,6 +1,6 @@
-import { useLocation, RouteLoadFunc } from '@solidjs/router';
+import { useLocation, type RouteLoadFunc } from '@solidjs/router';
 import { createResource } from 'solid-js';
-import { DocFile, getApi } from '@solid.js/docs';
+import { type DocFile, getApi } from '@solid.js/docs';
 import { useAppState } from '../AppContext';
 
 export interface DocData {

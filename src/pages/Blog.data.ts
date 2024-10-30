@@ -1,6 +1,6 @@
-import { RouteLoadFunc } from '@solidjs/router';
+import type { RouteLoadFunc } from '@solidjs/router';
 import type { Component } from 'solid-js';
-import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
+import type { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 
 export type MDXComponent = Component<{
   components: {
@@ -8,7 +8,7 @@ export type MDXComponent = Component<{
     Twitch?: Component<TwitchProps>;
     YouTube?: Component<YouTubeProps>;
     Spotify?: Component<SpotifyProps>;
-    Notice?: Component<any>
+    Notice?: Component<any>;
   };
 }>;
 
@@ -99,6 +99,15 @@ export const list: { [key: string]: BlogInfo } = {
     author_url: 'https://www.solidjs.com',
     date: 1716308491000,
     body: async () => await import('./Articles/solid-start-the-shape-frameworks-to-come.mdx'),
+  },
+  'solidhack-2024-announcement': {
+    img: '/img/blog/solidhack-2024-announcement/header.jpeg',
+    title: 'SolidHack 2024 Announcement',
+    description: 'Official SolidStart Version 1.0 release announcement.',
+    author: 'SolidJS Core',
+    author_url: 'https://www.solidjs.com',
+    date: 1725403091000,
+    body: async () => await import('./Articles/solidhack-2024-announcement.mdx'),
   },
 };
 

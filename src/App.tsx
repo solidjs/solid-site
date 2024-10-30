@@ -7,27 +7,26 @@ import { AppContextProvider } from './AppContext';
 import { preventSmoothScrollOnTabbing } from './utils';
 
 export const App = () => {
-
   preventSmoothScrollOnTabbing();
 
   return (
-    <MetaProvider>   
+    <MetaProvider>
       <main class="min-h-screen">
-        <Router root={(props)=>(
-          <AppContextProvider>
-            <Header />
-            {/* two div wrappers to make page animation work and performant */}
-            <div id="main-content">
-              <div>
-                {/* <TransitionRoutes> */}
-                <Suspense>
-                  {props.children}
-                </Suspense>
-                {/* </TransitionRoutes> */}
+        <Router
+          root={(props) => (
+            <AppContextProvider>
+              <Header />
+              {/* two div wrappers to make page animation work and performant */}
+              <div id="main-content">
+                <div>
+                  {/* <TransitionRoutes> */}
+                  <Suspense>{props.children}</Suspense>
+                  {/* </TransitionRoutes> */}
+                </div>
               </div>
-            </div>
-          </AppContextProvider>
-        )}>
+            </AppContextProvider>
+          )}
+        >
           {routes}
         </Router>
       </main>
