@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
 import { Title } from '@solidjs/meta';
 import { Icon } from 'solid-heroicons';
 import { emojiSad } from 'solid-heroicons/outline';

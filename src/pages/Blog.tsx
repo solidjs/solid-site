@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 import Footer from '../components/Footer';
 import { A } from '@solidjs/router';
 import { Title } from '@solidjs/meta';
@@ -26,7 +26,7 @@ const Blog: Component<{ data: BlogData }> = (props) => {
                   href={`/blog/${id}`}
                   class="block px-3 lg:px-0 text-md mx-auto mb-10 pb-10 text-center"
                 >
-                  <img class="lg:w-4/6 mx-auto rounded-md mb-10 shadow-md" src={article.img} />
+                  <img alt="article poster" class="lg:w-4/6 mx-auto rounded-md mb-10 shadow-md" src={article.img} />
                   <h1 class="text-xl lg:text-2xl mb-3 font-semibold text-solid-medium dark:text-solid-darkdefault">
                     {article.title}
                   </h1>

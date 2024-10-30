@@ -1,10 +1,10 @@
-import { Component, For, Show, createSignal, createMemo, onMount, JSX } from 'solid-js';
+import { type Component, For, Show, createSignal, createMemo, onMount, type JSX } from 'solid-js';
 import { useNavigate, useSearchParams } from '@solidjs/router';
-import { PackagesDataProps } from './Packages.data';
+import type { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
-import { Resource, ResourceCategory, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
+import { type Resource, ResourceCategory, type ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import SideContent from '../components/layout/SideContent';
@@ -83,7 +83,7 @@ const ResourceLink: Component<Resource> = (props) => {
     <a
       target="_blank"
       href={props.link}
-      rel="nofollow"
+      rel="noreferrer nofollow"
       class="border border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded px-3.5 py-3 min-h-[144px] flex flex-col"
     >
       <div class="flex items-center">
@@ -104,7 +104,7 @@ const ResourceLink: Component<Resource> = (props) => {
         <div>
           <Show when={props.author && props.author_url}>
             <a
-              rel="noopener"
+              rel="noreferrer noopener"
               href={props.author_url}
               target="_blank"
               class="text-xs text-gray-500 dark:text-gray-300 inline hover:text-solid-medium"
@@ -162,8 +162,8 @@ const Packages: Component<{ data: PackagesDataProps }> = (props) => {
 
   // Produces a base set of filtered results
   const resources = createMemo<Resource[]>(() => {
-    let filteredData = [];
-    if (keyword() == '') {
+    const filteredData = [];
+    if (keyword() === '') {
       for (const item of data.list) {
         if (officialCheck() && !item.official) continue;
         if (maintainedCheck() && item.maintained === false) continue;
@@ -176,7 +176,7 @@ const Packages: Component<{ data: PackagesDataProps }> = (props) => {
 
     const search = fs.search(keyword()).map((result) => result.item);
 
-    let result = [];
+    const result = [];
 
     for (const item of search) {
       if (officialCheck() && !item.official) continue;
