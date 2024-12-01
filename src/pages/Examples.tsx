@@ -1,6 +1,14 @@
 import Repl from 'solid-repl/dist/repl';
 import { A, useParams } from '@solidjs/router';
-import { For, type Component, createSignal, createEffect, batch, ErrorBoundary, Show } from 'solid-js';
+import {
+  For,
+  type Component,
+  createSignal,
+  createEffect,
+  batch,
+  ErrorBoundary,
+  Show,
+} from 'solid-js';
 import type { ExamplesDataRoute } from './Examples.data';
 
 import { compiler, formatter, linter } from '../components/setupRepl';

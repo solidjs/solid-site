@@ -15,7 +15,12 @@ import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { ResourcesDataProps } from './Resources.data';
-import { type PackageType, type Resource, ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
+import {
+  type PackageType,
+  type Resource,
+  ResourceType,
+  ResourceTypeIcons,
+} from './Resources/Ecosystem';
 
 const AResource: Component<Resource> = (props) => {
   const { t } = useAppState();
