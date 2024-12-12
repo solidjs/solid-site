@@ -151,6 +151,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.AddOn, ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/unplugin/unplugin-icons',
+    title: 'unplugin-icons',
+    description: 'Access thousands of icons (via Iconify) as components on-demand universally',
+    author: 'Anthony Fu',
+    author_url: 'https://github.com/antfu',
+    keywords: ['icons', 'svg', 'iconpack'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.AddOn, ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/amoutonbrady/esbuild-plugin-solid',
     title: 'esbuild-plugin-solid',
     description: 'Plugin to compile solid-js jsx components with esbuild.',
