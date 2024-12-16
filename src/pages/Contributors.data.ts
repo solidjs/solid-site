@@ -3,7 +3,7 @@ const core = [
     img: 'ryan-carniato.jpeg',
     github: 'ryansolid',
     name: 'Ryan Carniato',
-    role: 'Project Founder / Principal Engineer @ Netlify',
+    role: 'Project Founder / OSS Engineer @ Sentry',
     bio: 'Front-end JS performance enthusiast and long time super-fan of fine-grained reactive programming.',
   },
   {
@@ -40,6 +40,13 @@ const core = [
     name: 'Nikhil Saraf',
     role: 'Solid Start Contributor',
     bio: 'Founder and CTO at Qwerty as well as a self-proclaimed developer tools maniac.',
+  },
+  {
+    img: 'dev-agrawal.jpeg',
+    github: 'devagrawal09',
+    name: 'Dev Agrawal',
+    role: 'Solid Start Contributor',
+    bio: 'Builds and also teaches how-to-build awesome full-stack applications.',
   },
 ] as const;
 
