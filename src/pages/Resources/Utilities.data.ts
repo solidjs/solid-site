@@ -2360,7 +2360,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://github.com/thedanchez/uplot-solid',
     title: 'uplot-solid',
-    description: 'Solid component wrapper around μPlot -- a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars',
+    description:
+      'Solid component wrapper around μPlot -- a small, fast and performant 2D canvas based chart for time series, lines, areas, ohlc & bars',
     author: 'Daniel Sanchez',
     author_url: 'https://github.com/thedanchez',
     keywords: ['chart', 'plot', 'solid', 'ui', 'uplot'],
@@ -2639,7 +2640,8 @@ const utilities: Array<Resource> = [
   {
     link: 'https://corvu.dev/docs/utilities/dismissible/',
     title: 'solid-dismissible',
-    description: 'Utility for creating dismissible, nestable layers. Offers different strategies to dismiss the layer, such as on outside click, escape key press, or outside focus.',
+    description:
+      'Utility for creating dismissible, nestable layers. Offers different strategies to dismiss the layer, such as on outside click, escape key press, or outside focus.',
     author: 'Jasmin',
     author_url: 'https://github.com/GiyoMoon',
     keywords: ['dismissible', 'dismiss', 'layer', 'close', 'escape'],
@@ -2650,10 +2652,23 @@ const utilities: Array<Resource> = [
   {
     link: 'https://corvu.dev/docs/utilities/list/',
     title: 'solid-list',
-    description: 'Utility to create accessible, keyboard navigable lists like search results, selects or autocompletes.',
+    description:
+      'Utility to create accessible, keyboard navigable lists like search results, selects or autocompletes.',
     author: 'Jasmin',
     author_url: 'https://github.com/GiyoMoon',
     keywords: ['keyboard', 'accessible', 'list'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives],
+  },
+  {
+    link: 'https://responsive-image.dev/',
+    title: '@responsive-image/solid',
+    description:
+      'Image component to render responsive images, provided as locally processed images or loaded remotely from Image CDNs',
+    author: 'Simon Ihmig',
+    author_url: 'https://github.com/simonihmig',
+    keywords: ['image', 'responsive image'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
