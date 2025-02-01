@@ -1,4 +1,4 @@
-import { For, Component } from 'solid-js';
+import { For, type Component } from 'solid-js';
 
 const socials = [
   {
@@ -28,7 +28,7 @@ const socials = [
 
 const SocialIcon: Component<{ href: string; alt: string; icon: string }> = (props) => (
   <li class="mx-2">
-    <a href={props.href} rel="noopener" target="_blank">
+    <a href={props.href} rel="noreferrer noopener" target="_blank">
       <span class="sr-only">{props.alt}</span>
       <svg viewBox="0 0 24 24" class="h-8 transition hover:opacity-50 opacity-60">
         <path fill="currentColor" d={props.icon} />

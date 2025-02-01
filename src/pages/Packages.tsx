@@ -260,14 +260,14 @@ const Packages: Component<{ data: PackagesDataProps }> = (props) => {
               {t('resources.categories')}
             </h3>
             <div class="mt-3 space-y-2">
-              {Object.values(ResourceCategory).map((id) => (
+              <For each={Object.values(ResourceCategory)}>{(id) => 
                 <FilterButton
                   name={t(`resources.categories_list.${id}`)}
                   count={(byCategory()[id] || []).length}
                   active={!!byCategory()[id]}
                   onClick={[scrollToCategory, id]}
                 />
-              ))}
+                }</For>
             </div>
           </div>
         }

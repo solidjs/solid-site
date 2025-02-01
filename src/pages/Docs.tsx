@@ -1,20 +1,20 @@
 import {
-  Component,
+  type Component,
   For,
   Show,
   Switch,
   Match,
   createEffect,
   createSignal,
-  Accessor,
-  ParentComponent,
+  type Accessor,
+  type ParentComponent,
 } from 'solid-js';
 import { createScrollPosition } from '@solid-primitives/scroll';
 import { throttle } from '@solid-primitives/scheduled';
 import SideContent from '../components/layout/SideContent';
 import { slug } from 'github-slugger';
 import type { DocData } from './Docs.data';
-import { Section } from '@solid.js/docs/dist/types';
+import type { Section } from '@solid.js/docs/dist/types';
 import { Title } from '@solidjs/meta';
 
 const SectionButton: ParentComponent<{
@@ -42,8 +42,8 @@ const Sidebar: Component<{
         <SectionButton
           title={firstLevel.value}
           class={
-            `text-left w-full dark:text-white border-b border-gray-200 dark:border-gray-500 hover:text-gray-400 transition ` +
-            `flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mt-2 mb-6`
+            "text-left w-full dark:text-white border-b border-gray-200 dark:border-gray-500 hover:text-gray-400 transition" +
+            "flex flex-wrap content-center justify-between space-x-2 text-xl p-2 py-2 mt-2 mb-6"
           }
           classList={{
             'font-semibold text-solid-medium dark:text-solid-darkdefault':

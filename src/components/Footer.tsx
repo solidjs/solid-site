@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
 import Newsletter from './Newsletter';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.webp';
@@ -20,7 +20,7 @@ const Supporter: Component<{
   <a
     class="mx-4 hover:opacity-50 dark:brightness-150 transition grid"
     target="_blank"
-    rel="noopener"
+    rel="noreferrer noopener"
     href={props.href}
   >
     <img class="w-40 m-auto md:m-0" src={props.img} alt={props.alt} loading="lazy" />

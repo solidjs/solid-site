@@ -93,16 +93,16 @@ const AssetPanel: Component<{
         <img class="max-h-20" src={example} alt={title} />
       </div>
       <div class="border-b dark:border-solid-darkLighterBg border-t grid grid-cols-4 text-sm text-solid">
-        {Object.entries(assets).map(([name, path]) => (
+        <For each={Object.keys(assets)}>{(name) =>
           <a
             class="flex p-3 justify-center border-r dark:border-solid-darkLighterBg transition hover:opacity-50"
-            download={path.split('/').pop()}
-            href={path}
+            download={assets[name].split('/').pop()}
+            href={assets[name]}
           >
             <span class="sr-only">Download asset</span>
             <img class="w-4 mr-3" alt="Download Arrow" src={downloadArrow} /> {name}
           </a>
-        ))}
+          }</For>
       </div>
     </div>
   );

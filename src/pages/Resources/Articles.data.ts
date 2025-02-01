@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
+import { type Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const articles: Array<Resource> = [
   {
@@ -926,7 +926,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://dev.to/ryansolid/when-netlify-asks-you-to-full-time-oss-you-say-yes-5ccf',
-    title: `When Netlify asks you to full-time OSS, you say yes!`,
+    title: "When Netlify asks you to full-time OSS, you say yes!",
     description: '',
     author: 'Ryan Carniato',
     author_url: 'https://www.github.com/ryansolid',
@@ -948,7 +948,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://supabase.com/docs/guides/with-solidjs',
-    title: `SolidJS + Supabase Quick Start`,
+    title: "SolidJS + Supabase Quick Start",
     description:
       'This example provides the steps to build a simple user management app (from scratch!) using Supabase and Solid JS.',
     author: 'Supabase',
@@ -960,7 +960,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://blog.openreplay.com/alternatives-to-react-solid-js',
-    title: `Alternatives to React: Solid JS`,
+    title: "Alternatives to React: Solid JS",
     description:
       'Alternatives to React is a series of articles looking at different JavaScript front-end frameworks.',
     author: 'Amazing Enyichi Agu',
@@ -972,7 +972,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://blog.logrocket.com/build-task-tracker-solidjs-typescript',
-    title: `Build a task tracker with SolidJS and TypeScript`,
+    title: "Build a task tracker with SolidJS and TypeScript",
     description:
       'SolidJS is fast becoming the center of attention in the web development community.',
     author: 'Ebenezer Don',
@@ -984,7 +984,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://dev.to/mbarzeev/testing-a-solidjs-component-using-vitest-2h35',
-    title: `Testing a SolidJS Component Using Vitest`,
+    title: "Testing a SolidJS Component Using Vitest",
     description: 'A well detailed article on using Solid and Vitest.',
     author: 'Matti Bar-Zeev',
     author_url: 'https://dev.to/mbarzeev',
@@ -995,7 +995,7 @@ const articles: Array<Resource> = [
   },
   {
     link: 'https://blog.startifact.com/posts/solidjs-fits-my-brain/',
-    title: `SolidJS fits my brain`,
+    title: "SolidJS fits my brain",
     description:
       "In this article I'm going to talk about the SolidJS frontend framework, and why I think it's cool and fits my brain.",
     author: 'Martijn Faassen',

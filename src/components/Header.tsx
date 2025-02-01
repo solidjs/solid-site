@@ -1,5 +1,5 @@
 import {
-  ParentComponent,
+  type ParentComponent,
   Switch,
   Match,
   Show,
@@ -33,7 +33,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
   const guideName = createMemo(() => {
     if (context.guides) {
       const resource = location.pathname.slice('/guides/'.length);
-      return context.guides.find((metadata) => metadata.resource == resource)?.title;
+      return context.guides.find((metadata) => metadata.resource === resource)?.title;
     }
   });
 
@@ -63,11 +63,11 @@ const Header: ParentComponent<{ title?: string }> = () => {
             id="header"
             class="relative mx-2 rounded-br-3xl rounded-bl-3xl bg-gradient-to-r from-solid-light via-solid-medium/85 to-solid-dark/80 dark:from-solid-light/40 dark:via-solid-medium/80 dark:to-solid-medium/90 text-white overflow-hidden z-[1]"
           >
-            <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom"></PageLoadingBar>
+            <PageLoadingBar active={routeReadyState().loadingBar} postion="bottom" />
             <a
               target="_blank"
               href={t('home.ukraine.link')}
-              class="absolute w-full text-center text-[15px] p-3 bg-yellow-500 hover:bg-yellow-500/80 transition duration-200"
+              class="absolute w-full text-center text-[15px] p-3 bg-yellow-500 hover:bg-yellow-500/80 transition duration-200" rel="noreferrer"
             >
               <span class="text-whit">
                 <b>{t('home.ukraine.support')}</b>&nbsp;
@@ -75,7 +75,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
               </span>{' '}
             </a>
             <div class="md:bg-hero dark:from-bg-gray-700 bg-no-repeat bg-right rtl:bg-left px-10">
-              <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s">
+              <a target="_blank" href="https://www.youtube.com/watch?v=pFah4QqiUAg&t=9503s" rel="noreferrer">
                 <img
                   class="hidden md:block absolute md:top-20 lg:top-32 md:right-20 md:w-40 lg:w-72"
                   src="/img/award-badge.svg"
@@ -204,27 +204,27 @@ const onEnterBigHeader = (el: Element) => {
     const elements = [headerEl, bannerEl, ...mainChildren];
 
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-    elements.forEach((el) => {
+    for (const el of elements) {
       el.style.transform = `translateY(-${headerHeight})`;
-    });
+    }
 
     bannerEl.style.transform = `translateY(${headerHeight})`;
 
     requestAnimationFrame(() => {
-      elements.forEach((el) => {
+      for (const el of elements) {
         el.style.transform = '';
         el.style.transition = `transform ${pageTransitionDuration}ms`;
-      });
+      }
 
       headerEl.addEventListener(
         'transitionend',
         (e) => {
           if (e.target !== e.currentTarget) return;
 
-          elements.forEach((el) => {
+          for (const el of elements) {
             el.style.transition = '';
             el.style.transform = '';
-          });
+          }
         },
         { once: true },
       );
@@ -246,20 +246,20 @@ const onExitBigHeader = (el: Element, done: () => void) => {
     return done();
   }
 
-  elements.forEach((el) => {
+  for (const el of elements) {
     el.style.transform = `translateY(-${headerHeight}px)`;
     el.style.transition = `transform ${pageTransitionDuration}ms`;
-  });
+  }
   bannerEl.style.transform = `translateY(${headerHeight}px)`;
 
   const onTransitionEnd: EventListener = (e) => {
     if (e.target !== e.currentTarget) return;
     e.currentTarget?.removeEventListener('transitionend', onTransitionEnd);
 
-    elements.forEach((el) => {
+    for (const el of elements) {
       el.style.transition = '';
       el.style.transform = '';
-    });
+    }
 
     done();
   };
@@ -278,25 +278,25 @@ const onEnterSmallHeader = (el: Element) => {
     const headerHeight = `${bgContainerEl.clientHeight}px`;
     const elements = [bgContainerEl, headerEl, contentEl, mainContentChild];
 
-    bgContainerEl.style.transform = `translateY(-100%)`;
-    contentEl.style.transform = `translateY(100%)`;
+    bgContainerEl.style.transform = "translateY(-100%)";
+    contentEl.style.transform = "translateY(100%)";
     mainContentChild.style.transform = `translateY(-${headerHeight})`;
 
     requestAnimationFrame(() => {
-      elements.forEach((el) => {
+      for (const el of elements) {
         el.style.transform = 'translateY(0)';
         el.style.transition = `transform ${pageTransitionDuration}ms`;
-      });
+      }
 
       bgContainerEl.addEventListener(
         'transitionend',
         (e) => {
           if (e.target !== e.currentTarget) return;
 
-          elements.forEach((el) => {
+          for (const el of elements) {
             el.style.transition = '';
             el.style.transform = '';
-          });
+          }
         },
         { once: true },
       );
@@ -321,12 +321,12 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
     return;
   }
 
-  bgContainerEl.style.transform = `translateY(-100%)`;
-  contentEl.style.transform = `translateY(100%)`;
+  bgContainerEl.style.transform = "translateY(-100%)";
+  contentEl.style.transform = "translateY(100%)";
   mainContentChild.style.transform = `translateY(-${headerHeight}px)`;
-  elements.forEach((el) => {
+  for (const el of elements) {
     el.style.transition = `transform ${pageTransitionDuration}ms`;
-  });
+  }
 
   requestAnimationFrame(() => {
     bgContainerEl.addEventListener(
@@ -334,10 +334,10 @@ const onExitSmallHeader = (el: Element, done: () => void) => {
       (e) => {
         if (e.target !== e.currentTarget) return;
 
-        elements.forEach((el) => {
+        for (const el of elements) {
           el.style.transition = '';
           el.style.transform = '';
-        });
+        }
         done();
       },
       { once: true },

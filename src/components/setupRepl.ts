@@ -10,7 +10,7 @@ import { languages } from 'monaco-editor';
 import onigasm from 'onigasm/lib/onigasm.wasm?url';
 
 window.MonacoEnvironment = {
-  getWorker: function (_moduleId: unknown, label: string) {
+  getWorker: (_moduleId: unknown, label: string) => {
     switch (label) {
       case 'css':
         return new cssWorker();
