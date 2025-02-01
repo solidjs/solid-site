@@ -15,7 +15,7 @@ export const onEnterLogo = (logoEl: HTMLElement, isRTL: boolean) => {
   navList.style.transform = `translateX(${isRTL ? '' : '-'}${logoWidth})`;
 
   reflow();
-  navList.style.transform = `translateX(0)`;
+  navList.style.transform = "translateX(0)";
   createEventListener(
     logoEl,
     'transitioned',
@@ -35,21 +35,21 @@ export const onExitLogo = (logoEl: HTMLElement, isRTL: boolean) => {
 
   reflow();
   logoEl.style.transformOrigin = `${isRTL ? 'right' : 'left'} center`;
-  navList.style.transform = `translateX(0)`;
+  navList.style.transform = "translateX(0)";
 
-  elements.forEach((el) => {
+  for (const el of elements) {
     el.style.backfaceVisibility = 'hidden';
-  });
+  }
 
   createEventListener(
     logoEl,
     'transitionend',
     (e) => {
       if (e.target !== e.currentTarget) return;
-      elements.forEach((el) => {
+      for (const el of elements) {
         resetTransform(el);
         el.style.backfaceVisibility = '';
-      });
+      }
     },
     { once: true },
   );

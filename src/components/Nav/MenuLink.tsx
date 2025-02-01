@@ -1,6 +1,6 @@
 import { createEventListener } from '@solid-primitives/event-listener';
 import { A } from '@solidjs/router';
-import { batch, createSignal, JSX, onMount, ParentComponent, Show } from 'solid-js';
+import { batch, createSignal, type JSX, onMount, type ParentComponent, Show } from 'solid-js';
 import { setRouteReadyState, page, reflow } from '../../utils';
 
 export type LinkTypes = {

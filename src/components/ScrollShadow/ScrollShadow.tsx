@@ -1,4 +1,4 @@
-import { ParentComponent, onCleanup, onMount } from 'solid-js';
+import { type ParentComponent, onCleanup, onMount } from 'solid-js';
 import { useAppState } from '../../AppContext';
 
 type TShared = {
@@ -39,28 +39,28 @@ const ScrollShadow: ParentComponent<
     const resetInitShadowSize = () => {
       if (!initShadowSize) return;
       if (!init && !initResetSize) {
-        sentinelShadowState.forEach(({ el }) => {
-          el.style.transform = '';
-        });
+        for (const state of sentinelShadowState.values()) {
+          state.el.style.transform = '';
+        }
         initResetSize = true;
       }
     };
     const setInitShadowSize = () => {
       if (!initShadowSize) return;
-      sentinelShadowState.forEach(({ el }) => {
-        el.style.transform = 'scaleX(3)';
+      for (const state of sentinelShadowState.values()) {
+        state.el.style.transform = 'scaleX(3)';
         shadowLastEl.style.transformOrigin = props.rtl ? 'left' : 'right';
         shadowFirstEl.style.transformOrigin = props.rtl ? 'right' : 'left';
-      });
+      }
     };
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         const target = entry.target as HTMLElement;
         const { el: shadowEl } = sentinelShadowState.get(target)!;
         shadowEl.style.opacity = entry.isIntersecting ? '0' : '1';
         sentinelShadowState.set(target, { el: shadowEl, visible: entry.isIntersecting });
         resetInitShadowSize();
-      });
+      }
       isScrollable = ![...sentinelShadowState].every(([, { visible }]) => visible === true);
       init = false;
     });
@@ -71,7 +71,7 @@ const ScrollShadow: ParentComponent<
     observer.observe(sentinelFirstEl);
     observer.observe(sentinelLastEl);
     setInitShadowSize();
-    onCleanup(() => observer && observer.disconnect());
+    onCleanup(() => observer?.disconnect());
   });
   return (
     <div class={props.class} classList={props.classList}>
@@ -122,7 +122,7 @@ const Sentinel: ParentComponent<
     }: 0; height: 1px; width: 100%`;
   };
   const style = () => `pointer-events: none; ${setPosition()}; `;
-  return <div aria-hidden="true" style={style()} ref={props.ref}></div>;
+  return <div aria-hidden="true" style={style()} ref={props.ref} />;
 };
 
 const Shadow: ParentComponent<
@@ -158,7 +158,7 @@ const Shadow: ParentComponent<
   };
   const style = () =>
     `position: absolute; z-index: 1; pointer-events: none; transition: 300ms opacity, 300ms transform; ${setPosition()};`;
-  return <div ref={refCb} style={style()}></div>;
+  return <div ref={refCb} style={style()} />;
 };
 
 export default ScrollShadow;

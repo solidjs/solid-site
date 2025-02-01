@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
 
 const PageLoadingBar: Component<{
   postion: 'top' | 'bottom';
@@ -17,7 +17,7 @@ const PageLoadingBar: Component<{
       <div
         class="w-full h-full rounded-full"
         style={`background: #000955; transform: translateX(-100%); animation: ${animationValue()}; transform-origin: left; `}
-      ></div>
+      />
     </div>
   );
 };

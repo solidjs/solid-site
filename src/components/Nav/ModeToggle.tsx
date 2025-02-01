@@ -1,6 +1,6 @@
 import { Icon } from 'solid-heroicons';
 import { moon, sun } from 'solid-heroicons/outline';
-import { VoidComponent } from 'solid-js';
+import type { VoidComponent } from 'solid-js';
 import { useAppState } from '../../AppContext';
 
 export const ModeToggle: VoidComponent = () => {
