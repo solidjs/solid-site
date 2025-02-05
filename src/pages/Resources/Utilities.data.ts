@@ -2673,6 +2673,17 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
   },
+    {
+    link: 'https://solid-notifications.vercel.app/',
+    title: 'solid-notifications',
+    description: 'Reactive, customizable toast notifications for SolidJS',
+    author: 'Marko Zekanovic',
+    author_url: 'https://github.com/Nyloth9',
+    keywords: ['toast', 'notifications'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
