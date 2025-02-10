@@ -55,10 +55,9 @@ const SideContent: Component<{
         <div class="w-full lg:w-9/12 p-5 md:p-10 bg-white dark:bg-solid-darkbg">
           <a
             href="https://docs.solidjs.com"
-            class="sticky top-16 p-3 w-full block hover:text-white text-center rounded-md bg-amber-400 hover:bg-gray-400 transition duration-300"
+            class="sticky top-16 p-3 w-full block hover:text-white text-center rounded-md bg-gradient-to-r from-solid-light via-solid-medium/85 to-solid-dark/80 dark:from-solid-light/40 dark:via-solid-medium/80 dark:to-solid-medium/90 hover:bg-gray-400 transition duration-300"
           >
-            <b>New Beta Docs!</b>&nbsp;Click here to access new beta documentation at{' '}
-            <u>docs.solidjs.com</u>.
+            Click here to access documentation at <u>docs.solidjs.com</u>.
           </a>
           <div class="mt-10">{props.content}</div>
         </div>
