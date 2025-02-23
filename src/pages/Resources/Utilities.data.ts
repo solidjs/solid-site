@@ -762,6 +762,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/odama626/solid-validation',
+    title: 'solid-validation',
+    description: 'simple & lightweight solidjs validation library',
+    author: 'odama626',
+    author_url: 'https://github.com/odama626',
+    keywords: ['input', 'form', 'validation'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/isaacHagoel/solid-dnd-directive',
     title: 'solid-dnd-directive',
     description:
