@@ -2638,6 +2638,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.UI],
   },
   {
+    link: 'https://github.com/thednp/vite-solid-svg',
+    title: 'vite-solid-svg',
+    description: 'The fastest Vite plugin that transforms SVG files into SolidJS Components',
+    author: 'thednp',
+    author_url: 'https://github.com/thednp',
+    keywords: ['vite', 'svg'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
+  },
+  {
     link: 'https://corvu.dev/docs/utilities/dismissible/',
     title: 'solid-dismissible',
     description:
