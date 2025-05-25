@@ -2706,6 +2706,23 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI],
   },
+  {
+    link: 'https://github.com/jaoaustero/solid-feather-icon',
+    title: 'solid-feather-icon',
+    description: 'A solidjs component for feather icons',
+    author: 'Jao Austero',
+    author_url: 'https://github.com/jaoaustero',
+    keywords: [
+      'feather',
+      'feather-icons',
+      'icons',
+      'svg',
+    ],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.AddOn],
+    published_at: 1745821054,
+  },
 ];
 
 export default utilities;
