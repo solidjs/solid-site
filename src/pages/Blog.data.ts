@@ -1,6 +1,6 @@
-import { RouteLoadFunc } from '@solidjs/router';
+import type { RouteLoadFunc } from '@solidjs/router';
 import type { Component } from 'solid-js';
-import { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
+import type { SpotifyProps, TweetProps, TwitchProps, YouTubeProps } from 'solid-social';
 
 export type MDXComponent = Component<{
   components: {
@@ -8,7 +8,7 @@ export type MDXComponent = Component<{
     Twitch?: Component<TwitchProps>;
     YouTube?: Component<YouTubeProps>;
     Spotify?: Component<SpotifyProps>;
-    Notice?: Component<any>
+    Notice?: Component<any>;
   };
 }>;
 

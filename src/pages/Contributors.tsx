@@ -1,7 +1,7 @@
-import { Component, For, Show } from 'solid-js';
+import { type Component, For, Show } from 'solid-js';
 import { Title } from '@solidjs/meta';
 import github from '../assets/github.svg';
-import { ContributorsDataProps } from './Contributors.data';
+import type { ContributorsDataProps } from './Contributors.data';
 import Footer from '../components/Footer';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppState } from '../AppContext';
@@ -31,7 +31,7 @@ const CoreMember: Component<CoreMemberProps> = (props) => {
         <hr class="self-stretch" />
         <small>{props.role}</small>
         <p class="block">{props.bio}</p>
-        <a target="_blank" rel="noopener" href={`https://github.com/${props.github}`}>
+        <a target="_blank" rel="noreferrer noopener" href={`https://github.com/${props.github}`}>
           <span class="sr-only">GitHub URL of {props.github}</span>
           <img class="w-7" alt={`GitHub URL of ${props.github}`} src={github} />
         </a>
@@ -63,7 +63,7 @@ const Contributor: Component<ContributorProps> = (props) => {
   );
 };
 
-const Contributors: Component<{data:ContributorsDataProps}> = (props) => {
+const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
   const { t } = useAppState();
   const data = props.data;
 
@@ -100,7 +100,7 @@ const Contributors: Component<{data:ContributorsDataProps}> = (props) => {
               <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">
                 {t('contributors.contributors')}
               </h2>
-              <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors">
+              <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors" rel="noreferrer">
                 <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
               </a>
             </div>
@@ -130,7 +130,7 @@ const Contributors: Component<{data:ContributorsDataProps}> = (props) => {
                 <a
                   target="_blank"
                   class="text-solid-default dark:text-solid-darkdefault "
-                  href="https://opencollective.com/solid"
+                  href="https://opencollective.com/solid" rel="noreferrer"
                 >
                   Contribute today &raquo;
                 </a>

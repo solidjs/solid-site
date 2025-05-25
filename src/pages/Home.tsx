@@ -1,5 +1,5 @@
 import {
-  Component,
+  type Component,
   createSignal,
   lazy,
   onMount,
@@ -22,7 +22,7 @@ import productive from '../assets/icons/productive.svg';
 import { shoppingCart } from 'solid-heroicons/outline';
 import { Icon } from 'solid-heroicons';
 import Footer from '../components/Footer';
-import Benchmarks, { GraphData } from '../components/Benchmarks';
+import Benchmarks, { type GraphData } from '../components/Benchmarks';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { useAppState } from '../AppContext';
 
@@ -35,7 +35,7 @@ const strength_icons: { [key: string]: string } = {
   productive,
 };
 
-const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
+const Home: Component<{ data: { benchmarks: GraphData[] } }> = (props) => {
   const isRouting = useIsRouting();
   const data = props.data;
   const ctx = useAppState();
@@ -57,7 +57,7 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
   useRouteReadyState();
 
   const chevron = createMemo(() => {
-    const direction = ctx.dir == 'rtl' ? 'chevron-left' : 'chevron-right';
+    const direction = ctx.dir === 'rtl' ? 'chevron-left' : 'chevron-right';
     return `chevron ${direction}`;
   });
 
@@ -109,7 +109,7 @@ const Home: Component<{data: { benchmarks: GraphData[] }}> = (props) => {
                     {fact.link ? (
                       <a
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer noopener"
                         href={fact.link}
                         class="flex p-3 justify-center border-b-2 border-gray-100 dark:border-solid-darkLighterBg md:border-none md:px-5 md:py-5 w-full"
                       >

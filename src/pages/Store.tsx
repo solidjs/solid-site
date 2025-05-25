@@ -1,4 +1,4 @@
-import { Component, createMemo, createSignal, For, Show } from 'solid-js';
+import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import Footer from '../components/Footer';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import type { CartUtilities, ShopifyProduct } from '../utils/shopify';
@@ -14,7 +14,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   const [loading, setLoading] = createSignal(false);
   const variant = createMemo(() => {
     for (const variant of props.details.variants) {
-      if (variant.id == current()) {
+      if (variant.id === current()) {
         return variant;
       }
     }
@@ -23,7 +23,7 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   const quantity = props.cart.variantQuantity(current);
   const remove = async () => {
     setLoading(true);
-    const itemToRemove = props.cart.cart.lines.find((line) => line.variant.id == current());
+    const itemToRemove = props.cart.cart.lines.find((line) => line.variant.id === current());
     if (itemToRemove) {
       await props.cart.remove([itemToRemove.id.toString()]);
     }
@@ -102,11 +102,13 @@ const Product: Component<{ details: ShopifyProduct; cart: CartUtilities }> = (pr
   );
 };
 
-const Cart: Component<{data: {
-  products: ShopifyProduct[];
-  loading: boolean;
-  commerce: CartUtilities;
-}}> = (props) => {
+const Cart: Component<{
+  data: {
+    products: ShopifyProduct[];
+    loading: boolean;
+    commerce: CartUtilities;
+  };
+}> = (props) => {
   const [loading, setLoading] = createSignal(false);
   const data = props.data;
   return (
@@ -142,10 +144,14 @@ const Cart: Component<{data: {
                 />
                 <div class="flex flex-col col-span-5">
                   <b class="font-semibold">{item.title}</b>
-                  <span class="text-xs">{data.commerce.formatTotal(item.variant.priceV2.amount)}/ea</span>
+                  <span class="text-xs">
+                    {data.commerce.formatTotal(item.variant.priceV2.amount)}/ea
+                  </span>
                   <div class="text-xs">
                     <b class="text-semibold">Price:</b>{' '}
-                    {data.commerce.formatTotal(parseFloat(item.variant.priceV2.amount) * item.quantity)}
+                    {data.commerce.formatTotal(
+                      Number.parseFloat(item.variant.priceV2.amount) * item.quantity,
+                    )}
                   </div>
                 </div>
                 <div class="col-span-1">x {item.quantity}</div>
@@ -194,14 +200,16 @@ const Cart: Component<{data: {
   );
 };
 
-const Store: Component<{data: {
-  products: ShopifyProduct[];
-  loading: boolean;
-  commerce: CartUtilities;
-}}> = (props) => {
+const Store: Component<{
+  data: {
+    products: ShopifyProduct[];
+    loading: boolean;
+    commerce: CartUtilities;
+  };
+}> = (props) => {
   const data = props.data;
   const [showCart, setShowCart] = createSignal(false);
-  let cartButtonEl;
+  let cartButtonEl!: HTMLButtonElement;
   useRouteReadyState();
   return (
     <div class="flex flex-col relative">

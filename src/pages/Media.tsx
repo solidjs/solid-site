@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 import downloadArrow from '../assets/download-arrow.svg';
 import Footer from '../components/Footer';
 import { useRouteReadyState } from '../utils/routeReadyState';

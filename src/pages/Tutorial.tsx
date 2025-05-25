@@ -1,6 +1,6 @@
 import {
   For,
-  Component,
+  type Component,
   Show,
   createSignal,
   createEffect,
@@ -22,7 +22,7 @@ import Dismiss from 'solid-dismiss';
 import { useRouteReadyState } from '../utils/routeReadyState';
 import { reflow } from '../utils/reflow';
 import { useAppState } from '../AppContext';
-import { LessonLookup } from '@solid.js/docs';
+import type { LessonLookup } from '@solid.js/docs';
 import type { editor } from 'monaco-editor';
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
@@ -117,7 +117,7 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
               type="search"
               placeholder="Search..."
               autocomplete="off"
-              class="py-2 px-3 block w-full text-black"
+              class="py-2 px-3 block w-full"
             />
           </li>
           <For each={filteredDirectory()}>
@@ -154,8 +154,8 @@ const DirectoryMenu: Component<DirectoryMenuProps> = (props) => {
   );
 };
 
-const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
-  const data = props.data
+const Tutorial: Component<{ data: TutorialRouteData }> = (props) => {
+  const data = props.data;
   const context = useAppState();
   const { t } = context;
   let replEditor: editor.IStandaloneCodeEditor;
@@ -175,7 +175,7 @@ const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
     if (markDownRef) {
       markDownRef.scrollTop = 0;
     }
-    replEditor && replEditor.setScrollPosition({ scrollTop: 0 });
+    replEditor?.setScrollPosition({ scrollTop: 0 });
     const fileset = data.solved ? data.solvedJs : data.js;
     const files = fileset?.files;
     if (!files) return;
@@ -193,125 +193,131 @@ const Tutorial: Component<{data: TutorialRouteData}> = (props) => {
 
   return (
     <>
-    <Title>Tutorials | SolidJS </Title>
-    <Suspense fallback={<p>Loading...</p>}>
-      <div
-        dir="ltr"
-        class="md:grid transition-all duration-300 h-[calc(100vh-64px)]"
-        classList={{
-          'grid-cols-[minmax(40%,_600px)_auto]': open(),
-          'grid-cols-[minmax(100%,_600px)_auto]': !open(),
-        }}
-      >
-        <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 dark:border-solid-darkLighterBg border-grey mb-10 md:mb-0 ">
-          <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-solid-darkLighterBg dark:border-solid-darkLighterBg">
-            <button
-              type="button"
-              class="hidden md:block mr-5 mt-1 float-right"
-              onClick={() => setOpen(!open())}
-            >
-              <Icon
-                path={chevronDoubleRight}
-                class="h-6 opacity-50 transition-all duration-300"
-                classList={{ '-rotate-180': !open() }}
+      <Title>Tutorials | SolidJS </Title>
+      <Suspense fallback={<p>Loading...</p>}>
+        <div
+          dir="ltr"
+          class="md:grid transition-all duration-300 h-[calc(100vh-64px)]"
+          classList={{
+            'grid-cols-[minmax(40%,_600px)_auto]': open(),
+            'grid-cols-[minmax(100%,_600px)_auto]': !open(),
+          }}
+        >
+          <div class="flex flex-col bg-gray-50 dark:bg-solid-darkbg h-full overflow-hidden border-r-2 dark:border-solid-darkLighterBg border-grey mb-10 md:mb-0 ">
+            <div class="box-border pt-3 pb-2 rounded-t border-b-2 border-solid bg-white dark:bg-solid-darkLighterBg dark:border-solid-darkLighterBg">
+              <button
+                type="button"
+                class="hidden md:block mr-5 mt-1 float-right"
+                onClick={() => setOpen(!open())}
+              >
+                <Icon
+                  path={chevronDoubleRight}
+                  class="h-6 opacity-50 transition-all duration-300"
+                  classList={{ '-rotate-180': !open() }}
+                />
+              </button>
+              <DirectoryMenu
+                current={data.tutorialDirectoryEntry}
+                directory={data.tutorialDirectory}
               />
-            </button>
-            <DirectoryMenu
-              current={data.tutorialDirectoryEntry}
-              directory={data.tutorialDirectory}
-            />
-          </div>
-          <div
-            ref={markDownRef}
-            class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
-          >
-            {data.markdown}
-          </div>
+            </div>
+            <div
+              ref={markDownRef}
+              class="p-10 prose dark:prose-invert flex-1 max-w-full overflow-auto"
+            >
+              {data.markdown}
+            </div>
 
-          <div class="py-4 px-10 flex items-center justify-between border-t-2 dark:border-solid-darkLighterBg">
-            <Show
-              when={data.solved}
-              fallback={
+            <div class="py-4 px-10 flex items-center justify-between border-t-2 dark:border-solid-darkLighterBg">
+              <Show
+                when={data.solved}
+                fallback={
+                  <A
+                    class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
+                    href={`/tutorial/${data.id}?solved`}
+                    onClick={() => setOpen(true)}
+                  >
+                    {t('tutorial.solve')}
+                  </A>
+                }
+              >
                 <A
                   class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                  href={`/tutorial/${data.id}?solved`}
+                  href={`/tutorial/${data.id}`}
                   onClick={() => setOpen(true)}
                 >
-                  {t('tutorial.solve')}
+                  {t('tutorial.reset')}
                 </A>
-              }
-            >
-              <A
-                class="inline-flex py-2 px-3 bg-solid-default hover:bg-solid-medium text-white rounded"
-                href={`/tutorial/${data.id}`}
-                onClick={() => setOpen(true)}
-              >
-                {t('tutorial.reset')}
-              </A>
-            </Show>
-            <div class="flex items-center space-x-4">
-              <span data-tooltip={data.previousLesson}>
-                <A href={data.previousUrl ?? '#'}>
-                  <span class="sr-only">Previous step</span>
-                  <Icon
-                    path={arrowLeft}
-                    class="h-6"
-                    classList={{ 'opacity-25': !data.previousUrl }}
-                  />
-                </A>
-              </span>
+              </Show>
+              <div class="flex items-center space-x-4">
+                <span data-tooltip={data.previousLesson}>
+                  <A href={data.previousUrl ?? '#'}>
+                    <span class="sr-only">Previous step</span>
+                    <Icon
+                      path={arrowLeft}
+                      class="h-6"
+                      classList={{ 'opacity-25': !data.previousUrl }}
+                    />
+                  </A>
+                </span>
 
-              <span data-tooltip={data.nextLesson}>
-                <A href={data.nextUrl ?? '#'}>
-                  <span class="sr-only">Next step</span>
-                  <Icon path={arrowRight} class="h-6" classList={{ 'opacity-25': !data.nextUrl }} />
-                </A>
-              </span>
+                <span data-tooltip={data.nextLesson}>
+                  <A href={data.nextUrl ?? '#'}>
+                    <span class="sr-only">Next step</span>
+                    <Icon
+                      path={arrowRight}
+                      class="h-6"
+                      classList={{ 'opacity-25': !data.nextUrl }}
+                    />
+                  </A>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <Show when={open()}>
-          <ErrorBoundary
-            fallback={
-              <>Repl failed to load. You may be using a browser that doesn't support Web Workers.</>
-            }
-          >
-            <Repl
-              onEditorReady={(editor) => {
-                replEditor = editor;
-              }}
-              compiler={compiler}
-              formatter={formatter}
-              linter={linter}
-              isHorizontal={true}
-              dark={context.isDark}
-              tabs={tabs()}
-              reset={() => {
-                batch(() => {
-                  const fileset = data.solved ? data.solvedJs : data.js;
-                  const files = fileset?.files;
-                  if (!files) return;
+          <Show when={open()}>
+            <ErrorBoundary
+              fallback={
+                <>
+                  Repl failed to load. You may be using a browser that doesn't support Web Workers.
+                </>
+              }
+            >
+              <Repl
+                onEditorReady={(editor) => {
+                  replEditor = editor;
+                }}
+                compiler={compiler}
+                formatter={formatter}
+                linter={linter}
+                isHorizontal={true}
+                dark={context.isDark}
+                tabs={tabs()}
+                reset={() => {
                   batch(() => {
-                    const newTabs = files.map((file) => {
-                      return {
-                        name: file.name + (file.type ? `.${file.type}` : '.jsx'),
-                        source: file.content,
-                      };
+                    const fileset = data.solved ? data.solvedJs : data.js;
+                    const files = fileset?.files;
+                    if (!files) return;
+                    batch(() => {
+                      const newTabs = files.map((file) => {
+                        return {
+                          name: file.name + (file.type ? `.${file.type}` : '.jsx'),
+                          source: file.content,
+                        };
+                      });
+                      setTabs(newTabs);
+                      setCurrent(newTabs[0].name);
                     });
-                    setTabs(newTabs);
-                    setCurrent(newTabs[0].name);
                   });
-                });
-              }}
-              setTabs={setTabs}
-              current={current()}
-              setCurrent={setCurrent}
-              id="tutorial"
-            />
-          </ErrorBoundary>
-        </Show>
-      </div>
-    </Suspense>
+                }}
+                setTabs={setTabs}
+                current={current()}
+                setCurrent={setCurrent}
+                id="tutorial"
+              />
+            </ErrorBoundary>
+          </Show>
+        </div>
+      </Suspense>
     </>
   );
 };

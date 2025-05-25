@@ -1,6 +1,6 @@
 import { createResource } from 'solid-js';
-import { RouteLoadFunc } from '@solidjs/router';
-import { BlogInfo, list, MDXComponent } from './Blog.data';
+import type { RouteLoadFunc } from '@solidjs/router';
+import { type BlogInfo, list, type MDXComponent } from './Blog.data';
 
 export interface BlogArticleData {
   loading: boolean;
