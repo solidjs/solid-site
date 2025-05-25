@@ -42,6 +42,13 @@ const core = [
     bio: 'Founder and CTO at Qwerty as well as a self-proclaimed developer tools maniac.',
   },
   {
+    img: 'alexis-munsayac.jpeg',
+    github: 'lxsmnsyc',
+    name: 'Alexis Munsayac',
+    role: 'Solid Start Contributor',
+    bio: 'An all-around web developer and performance enthusiast.',
+  },
+  {
     img: 'dev-agrawal.jpeg',
     github: 'devagrawal09',
     name: 'Dev Agrawal',
@@ -249,12 +256,6 @@ const ecosystem = [
     company: '',
     link: '',
     detail: 'Web developer and engineer.',
-  },
-  {
-    name: 'Alexis Munsayac',
-    company: 'LyonInc',
-    link: 'https://lxsmnsyc.vercel.app/',
-    detail: 'Vice president of software engineer and research at LyonInc.',
   },
   {
     name: 'Caleb Taylor',
