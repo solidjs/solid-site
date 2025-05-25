@@ -30,7 +30,7 @@
         "\t\tgetSorted = createMemo((list = []) => {",
         "\t\t\tlist.forEach((p, i) => lastPos.set(p, i));",
         "\t\t\tconst newList = state.players.slice().sort((a, b) => {",
-        "\t\t\t\tif (b.score === a.score) return a.name.localeCompare(b.name); // stabalize the sort",
+        "\t\t\t\tif (b.score === a.score) return a.name.localeCompare(b.name); // stabilize the sort",
         "\t\t\t\treturn b.score - a.score;",
         "\t\t\t});",
         "\t\t\tlet updated = newList.length !== list.length;",
