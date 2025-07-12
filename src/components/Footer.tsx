@@ -61,7 +61,11 @@ const Footer: Component = () => {
               <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
               <Supporter alt="Jetbrains" href="https://www.jetbrains.com/" img={jetbrains} />
               <Supporter alt="Stytch" href="https://www.stytch.com/" img={stytch} />
-              <Supporter alt="Interview Pal" href="https://www.stytch.com/" img={interviewpal} />
+              <Supporter
+                alt="Interview Pal"
+                href="https://www.theinterviewpal.com/"
+                img={interviewpal}
+              />
             </div>
           </div>
           <div class="flex justify-between">
