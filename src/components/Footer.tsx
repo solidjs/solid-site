@@ -63,7 +63,7 @@ const Footer: Component = () => {
               <Supporter alt="Stytch" href="https://www.stytch.com/" img={stytch} />
               <Supporter
                 alt="Interview Pal"
-                href="https://www.theinterviewpal.com/"
+                href="https://interviewpal.com/"
                 img={interviewpal}
               />
             </div>
