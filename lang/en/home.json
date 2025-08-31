@@ -31,17 +31,17 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "3.9kb",
         "detail": "Minified + Gzipped",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "GitHub stars",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ years",
+        "label": "7+ years",
         "detail": "In development"
       },
       {
@@ -64,14 +64,14 @@
         "It may feel even more natural because Solid's update model is simpler and has no Hook rules. Components execute just once, when they are first rendered, and Hooks and bindings only execute when their dependencies update. This completely different implementation forgoes a Virtual DOM."
       ],
       "link_label": "View Docs",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "Fine-grained reactivity lets you do more with less.",
       "subheadline": "Solid is built with efficient reactive primitives you can use from your business logic to your JSX views.",
       "copy": "This unlocks complete control over what gets updated and when, even at the DOM binding level. With no Virtual DOM or extensive diffing, the framework never does more work than you want it to.",
       "link_label": "See it in action",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [
