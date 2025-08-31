@@ -24,17 +24,17 @@
     ],
     "facts": [
       {
-        "label": "6 קילובייט",
+        "label": "4 קילובייט",
         "detail": "אחרי מזעור ודחיסה",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "כוכבים ב-GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "מעל 5 שנים",
+        "label": "מעל 7 שנים",
         "detail": "בפיתוח"
       },
       {

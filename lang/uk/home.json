@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "6.4кб",
+        "label": "4кб",
         "detail": "Мініфіковано + Заархівовано",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "30k+",
+        "label": "34k+",
         "detail": "Зірок на GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ років",
+        "label": "7+ років",
         "detail": "У розробці"
       },
       {
@@ -64,14 +64,14 @@
         "Як і React, Solid слідує філософії з однонаправленим потоком даних, розділенням читання і запису та незмінними інтерфейсами. Проте, це зовсім іншій підхід, який не використовує віртуальну модель DOM."
       ],
       "link_label": "Відкрити документацію",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "Атомарна реактивність означає, що ви робите більше з меншими зусиллями.",
       "subheadline": "Solid побудовано з ефективними реактивними примітивами, які можна використовувати як для побудови бізнес-логіки, так і у ваших JSX представленнях.",
       "copy": "Це надає повний контроль над тим, що і коли оновлюється, навіть на рівні DOM зв'язок. Без віртуальної моделі DOM і масивного перерахунку відмінностей, фреймворк ніколи не робить більше, ніж ви від нього хочете.",
       "link_label": "Побачити в дії",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

@@ -31,7 +31,7 @@
     ],
     "facts": [
       {
-        "label": "3.9kb",
+        "label": "4kb",
         "detail": "Minified + Gzipped",
         "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },

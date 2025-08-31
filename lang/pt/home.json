@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "Minimizado + Gzip",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "Estrelas no GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ anos",
+        "label": "7+ anos",
         "detail": "Em desenvolvimento"
       },
       {
@@ -60,14 +60,14 @@
         "Solid segue a mesma filosofia do React com um fluxo unidirecional de dados, segregação de leitura e escrita e interfaces imutáveis. Apenas tem uma implementação completamente diferente que dispensa o uso de uma DOM virtual."
       ],
       "link_label": "Ver documentação",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "Reatividade refinada aonde você faz mais com menos.",
       "subheadline": "Toda parte do Solid é construída em cima de primitivos simples do JavaScript em suas interfaces JSX.",
       "copy": "Isso permite que você controle o que vai ser atualizado e quando, até mesmo no nível do DOM. Sem o uso de Virtual DOM ou sistemas avançados de diferença, a biblioteca nunca fará mais do que o necessário.",
       "link_label": "Veja Solid em ação",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

@@ -24,18 +24,18 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "Minified + Gzipped",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "GitHub Yıldızı",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ yıl",
-        "detail": "Geliştirmede 5+ yıl"
+        "label": "7+ yıl",
+        "detail": "Geliştirmede 7+ yıl"
       },
       {
         "label": "TypeScript",
@@ -57,14 +57,14 @@
         "Solid, tek yönlü veri akışı, okuma/yazma ayrımı ve değişmez arayüzler ile React ile aynı felsefeyi takip eder. Sadece bir Sanal DOM kullanmaktan vazgeçen tamamen farklı bir uygulamaya sahip."
       ],
       "link_label": "Dökümanı İncele",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "İncelikli özenli reaktivite, daha azıyla daha fazlasını yapmanız anlamına gelir",
       "subheadline": "Solid, kullanıcı alanı kodunuzdan JSX görünümlerinize kadar verimli reaktif temel öğelerle oluşturulmuştur.",
       "copy": "Bu, DOM bağlama düzeyinde bile nelerin ve ne zaman güncelleneceği üzerinde tam kontrolün kilidini açar. Sanal DOM veya kapsamlı farklılık olmadan, Solid asla istediğinizden daha fazla iş yapmaz",
       "link_label": "Örneğe göz atın",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [
