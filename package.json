@@ -35,8 +35,8 @@
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.1",
     "@types/shopify-buy": "npm:@brandboostinggmbh/shopify-buy-types@^2.14.6",
-    "babel-preset-solid": "1.8.16",
-    "fuse.js": "^7.0.0",
+    "babel-preset-solid": "1.9.9",
+    "fuse.js": "^7.1.0",
     "github-slugger": "^2.0.0",
     "highlight.js": "^11.9.0",
     "monaco-editor": "0.47.0",
@@ -49,7 +49,7 @@
     "shopify-buy": "^3.0.0",
     "solid-dismiss": "^1.7.122",
     "solid-heroicons": "<3.0.0",
-    "solid-js": "1.8.16",
+    "solid-js": "1.9.9",
     "solid-repl": "^0.25.0",
     "solid-social": "^0.9.6",
     "solid-transition-group": "^0.2.3",
@@ -81,16 +81,16 @@
     "tailwindcss-dir": "^4.0.0",
     "tailwindcss-rtl": "^0.9.0",
     "terser-config-atomic": "^1.0.0",
-    "typescript": "^5.4.3",
+    "typescript": "^5.9.2",
     "vite": "^5.2.14",
     "vite-plugin-pwa": "^0.19.6",
     "vite-plugin-solid": "2.10.2"
   },
   "resolutions": {
-    "solid-js": "1.8.16",
+    "solid-js": "1.9.9",
     "@rollup/pluginutils": "5.1.0"
   },
-  "packageManager": "pnpm@9.1.4",
+  "packageManager": "pnpm@10.17.1",
   "pnpm": {
     "patchedDependencies": {
       "monaco-editor@0.47.0": "patches/monaco-editor@0.47.0.patch"
