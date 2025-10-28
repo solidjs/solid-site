@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "Minifié + Gzippé",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "30k+",
+        "label": "34k+",
         "detail": "Stars sur GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5 ans",
+        "label": "7 ans",
         "detail": "de développement"
       },
       {
@@ -61,14 +61,14 @@
         "Solid suit la même philosophie que React avec un flux de données unidirectionnel, une ségrégation lecture/écriture et des interfaces immuables. Il a juste une implémentation complètement différente qui renonce à utiliser un DOM virtuel."
       ],
       "link_label": "Voir la documentation",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "La réactivité à grain fin signifie que vous faites plus",
       "subheadline": "Chaque partie de Solid est construite sur des primitives simples aux expressions JavaScript dans vos vues JSX.",
       "copy": "Cela débloque un contrôle complet sur ce qui est mis à jour et quand, même au niveau de la liaison DOM. Sans DOM virtuel ni de différences étendues, le framework ne fait jamais plus de travail que vous ne le souhaitez.",
       "link_label": "Visualisez",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

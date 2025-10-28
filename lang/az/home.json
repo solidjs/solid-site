@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "7K",
+        "label": "4K",
         "detail": "Kiçikləşdirilmiş + Sıxılmış",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "24K",
+        "label": "34K",
         "detail": "GitHub-da ulduz sayı",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+",
+        "label": "7+",
         "detail": "İl inkşafda"
       },
       {
@@ -60,14 +60,14 @@
         "Solid, birtərəfli məlumat axını, oxu/yazma ayırması və dəyişməz interfeyslərlə React ilə eyni fəlsəfəni izləyir. Lakin, Virtual DOM-dan istifadə etməkdən imtina edərək, tamamilə fərqli bir yolla gedir."
       ],
       "link_label": "Dokumentasiyanı oxu",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "İncə dənəli reaktivlik o deməkdir ki, siz daha az xərclə daha çox iş görürsünüz",
       "subheadline": "Solid, kodunuzdan JSX-sə gədər, səmərəli reaktiv primitivlərlə qurulmuşdur",
       "copy": "Bu, hətta DOM bağlama səviyyəsində nəyin və nə vaxt yenilənəcəyinə tam nəzarəti edir. Virtual DOM və ya geniş fərqləmə üsullarından istifadə etmir. Solid heç vaxt dediynizdən artıq iş görmür.",
       "link_label": "Nümunəyə bax",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

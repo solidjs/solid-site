@@ -24,17 +24,17 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "Minified + Gzipped",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "GitHub stars",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ taon",
+        "label": "7+ taon",
         "detail": "sa development"
       },
       {
@@ -57,14 +57,14 @@
         "Sinusundan ng Solid ang mga pilosopiya na may unidirectional data flow, paghihiwalay ng read/write, at mga immutable interface. Gayumpaman, hindi na kailangan ang Virtual DOM sapagkat iba ang implemetasyon ukol sa mga nabanggit na kaugalian."
       ],
       "link_label": "Tingnan ang Docs",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "Kaunti na lamang ang gagawin dahil pinumpino ang pagiging reaktibo nito.",
       "subheadline": "Ginawa ang Solid nang may mabisang mga reactive primitive mula sa iyong code papunta sa iyong mga JSX view.",
       "copy": "Tinatanggal nito ang limitasyon kung ano ang naa-update at kung kailan, kahit pa sa lebel ng DOM binding. Kahit walang Virtual DOM o extensive diffing, hindi na kinakailangan ng framework na gumawa pa ng karagdagang trabaho.",
       "link_label": "Tingnan sa aktual",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

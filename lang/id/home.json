@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "Minified + Gzipped",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "32k+",
+        "label": "34k+",
         "detail": "GitHub stars",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "5+ tahun",
+        "label": "7+ tahun",
         "detail": "Dalam Pembuatan"
       },
       {
@@ -61,14 +61,14 @@
         "Solid mengikuti filosofi yang sama dengan React dengan 'unidirectional data flow', pemisahan baca/tulis, dan antarmuka yang tidak dapat diubah. Hanya saja ia memiliki implementasi yang sama sekali berbeda yang tidak menggunakan Virtual DOM."
       ],
       "link_label": "Lihat Dokumentasi",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "Reaktifitas fine-grained berarti kamu bisa melakukan lebih banyak dengan sedikit usaha.",
       "subheadline": "Setiap bagian dari Solid terdiri dari primitif-primitif sederhana kepada ekspresi Javascript pada tampilan JSX kamu.",
       "copy": "Ini membuka kontrol penuh atas apa yang diperbarui dan kapan, bahkan pada tingkat pengikatan/binding DOM. Tanpa Virtual DOM atau perbedaan ekstensif (extensive diffing), framework tidak akan pernah bekerja lebih dari yang Anda inginkan.",
       "link_label": "Lihat dalam tindakan.",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [
