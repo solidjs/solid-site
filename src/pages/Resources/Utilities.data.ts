@@ -2723,6 +2723,19 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins, ResourceCategory.AddOn],
     published_at: 1745821054,
   },
+  {
+    title: 'Formisch',
+    link: 'https://formisch.dev/solid/guides/introduction/',
+    author: 'Fabian Hiller',
+    author_url: 'https://github.com/fabian-hiller',
+    description:
+      'Formisch is a schema-based, headless form library for SolidJS. It manages form state and validation. It is type-safe, fast by default and its bundle size is small due to its modular design.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['form', 'field', 'validation', 'input', 'ui', 'schema', 'valibot'],
+    published_at: 1761615900016,
+  },
 ];
 
 export default utilities;
