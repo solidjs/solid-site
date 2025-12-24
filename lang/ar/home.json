@@ -27,17 +27,17 @@
     ],
     "facts": [
       {
-        "label": "7 كيلوبايت",
+        "label": "4 كيلوبايت",
         "detail": "مصغرة + مضغوطة",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "أكثر من 22 ألف",
+        "label": "أكثر من 34 ألف",
         "detail": "نجمة على الـ GitHub",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
       {
-        "label": "أكثر من 5 سنوات",
+        "label": "أكثر من 7 سنوات",
         "detail": "من التطوير"
       },
       {
@@ -60,14 +60,14 @@
         "يتبع Solid نفس فلسفة React مع تدفق البيانات أحادي الاتجاه ، وفصل القراءة / الكتابة ، والواجهات الثابتة. ومع ذلك ، فإنه يحتوي على تطبيق مختلف على عكس React فإن Solid تمامًا تتجاهل استخدام الـ Virtual DOM."
       ],
       "link_label": "عرض المستندات",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "تفاعلية بالغة الدقة تعني أنه يمكنك أن تفعل المزيد بموارد أقل.",
       "subheadline": "تم تصميم Solid باستخدام بدائل تفاعلية فعالة من كود المستخدم الخاص بك إلى عروض JSX الخاصة بك.",
       "copy": "هذا يفتح السيطرة الكاملة على ما يتم تحديثه ومتى ، حتى على مستوى ربط DOM. مع عدم وجود DOM الظاهري أو الاختلاف الشامل ، فإن إطار العمل لا يقوم أبدًا بعمل أكثر مما تريده.",
       "link_label": "شاهدها بمثال حي",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [
