@@ -8,6 +8,7 @@ import netlify from '../assets/supporters/netlify.webp';
 import divriots from '../assets/supporters/divriots.webp';
 import jetbrains from '../assets/supporters/jetbrains.webp';
 import vercel from '../assets/supporters/vercel.webp';
+import proton from '../assets/supporters/proton.webp';
 import interviewpal from '../assets/supporters/interviewpal.webp';
 import stytch from '../assets/supporters/stytch.webp';
 import Social from './Social';
@@ -57,15 +58,10 @@ const Footer: Component = () => {
               <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
               <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
               <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
-              <Supporter alt="<div>riots>" href="https://divriots.com/" img={divriots} />
+              <Supporter alt="Proton" href="https://www.proton.me/" img={proton} />
               <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
               <Supporter alt="Jetbrains" href="https://www.jetbrains.com/" img={jetbrains} />
-              <Supporter alt="Stytch" href="https://www.stytch.com/" img={stytch} />
-              <Supporter
-                alt="Interview Pal"
-                href="https://interviewpal.com/"
-                img={interviewpal}
-              />
+              <Supporter alt="Interview Pal" href="https://interviewpal.com/" img={interviewpal} />
             </div>
           </div>
           <div class="flex justify-between">
