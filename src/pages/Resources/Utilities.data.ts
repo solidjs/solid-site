@@ -542,7 +542,7 @@ const utilities: Array<Resource> = [
     description: 'A highly customizable and versatile GraphQL client for Solid.',
     author: 'Ari Seyhun',
     author_url: 'https://github.com/Acidic9',
-    keywords: ['graphql', 'url', 'url', 'formidable'],
+    keywords: ['graphql', 'urql', 'url', 'url', 'formidable'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
@@ -2744,7 +2744,7 @@ const utilities: Array<Resource> = [
     description:
       '@urql/solid-start provides URQL integration for SolidStart, built with SolidStart\'s native primitives like query, action, and createAsync.',
     type: PackageType.Library,
-    categories: [ResourceCategory.Primitives, ResourceCategory.Data],
+    categories: [ResourceCategory.Data],
     official: false,
     keywords: ['data', 'start', 'query', 'action', 'gql', 'graphql', 'codegen'],
     published_at: 1769436408000,
@@ -2757,7 +2757,7 @@ const utilities: Array<Resource> = [
     description:
       'Orval is a RESTful generator that produces Solid and SolidStart bindings.',
     type: PackageType.Library,
-    categories: [ResourceCategory.Primitives, ResourceCategory.Data],
+    categories: [ResourceCategory.Data],
     official: false,
     keywords: ['orval', 'data', 'query', 'action', 'start', 'rest', 'codegen'],
     published_at: 1769436408000,
