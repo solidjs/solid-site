@@ -2736,6 +2736,32 @@ const utilities: Array<Resource> = [
     keywords: ['form', 'field', 'validation', 'input', 'ui', 'schema', 'valibot'],
     published_at: 1761615900016,
   },
+  {
+    title: 'solidstart-urql',
+    link: 'https://github.com/urql-graphql/urql/tree/main/packages/solid-start-urql',
+    author: 'David Di Biase',
+    author_url: 'https://github.com/davedbase',
+    description:
+      '@urql/solid-start provides URQL integration for SolidStart, built with SolidStart\'s native primitives like query, action, and createAsync.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['data', 'start', 'query', 'action', 'gql', 'graphql', 'codegen'],
+    published_at: 1769436408000,
+  },
+  {
+    title: 'Orval Solid & SolidStart REST Codegen',
+    link: 'https://orval.dev/guides/solid-start',
+    author: 'David Di Biase',
+    author_url: 'https://github.com/davedbase',
+    description:
+      'Orval is a RESTful generator that produces Solid and SolidStart bindings.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['orval', 'data', 'query', 'action', 'start', 'rest', 'codegen'],
+    published_at: 1769436408000,
+  },
 ];
 
 export default utilities;
