@@ -10,5 +10,5 @@ name = "solidjs"
 route = "www.solidjs.com/*"
 
 [site]
-bucket = "./dist"
+pages_build_output_dir = "./dist"
 entry-point = "workers-site"
