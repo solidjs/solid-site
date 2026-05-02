@@ -49,7 +49,7 @@
     "shopify-buy": "^3.0.0",
     "solid-dismiss": "^1.7.122",
     "solid-heroicons": "<3.0.0",
-    "solid-js": "1.9.9",
+    "solid-js": "1.9.10",
     "solid-repl": "^0.25.0",
     "solid-social": "^0.9.6",
     "solid-transition-group": "^0.2.3",
@@ -82,12 +82,12 @@
     "tailwindcss-rtl": "^0.9.0",
     "terser-config-atomic": "^1.0.0",
     "typescript": "^5.9.2",
-    "vite": "^5.2.14",
+    "vite": "^7.3.0",
     "vite-plugin-pwa": "^0.19.6",
-    "vite-plugin-solid": "2.10.2"
+    "vite-plugin-solid": "2.11.10"
   },
   "resolutions": {
-    "solid-js": "1.9.9",
+    "solid-js": "1.9.10",
     "@rollup/pluginutils": "5.1.0"
   },
   "packageManager": "pnpm@10.17.1",
