@@ -1,4 +1,4 @@
-name = "solidjs"
+name = 'solid-site'
 main = "./worker.js"
 account_id = ""
 workers_dev = true
@@ -13,5 +13,5 @@ name = "solidjs-dev"
 route = "dev.solidjs.com/*"
 
 [env.production]
-name = "solidjs"
+name = "solid-site"
 route = "www.solidjs.com/*"
