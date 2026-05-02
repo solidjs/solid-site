@@ -37,7 +37,14 @@ function handleOptions(request) {
 
 async function handleRequest(request, env) {
   try {
-    const response = await env.ASSETS.fetch(request);
+    let response = await env.ASSETS.fetch(request);
+
+    if (response.status === 404) {
+      const url = new URL(request.url);
+      url.pathname = '/index.html';
+      response = await env.ASSETS.fetch(new Request(url, request));
+    }
+
     const newResponse = new Response(response.body, response);
 
     newResponse.headers.set('X-XSS-Protection', '1; mode=block');
