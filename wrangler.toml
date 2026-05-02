@@ -1,5 +1,12 @@
+name = "solidjs"
+main = "./worker.js"
 account_id = ""
 workers_dev = true
+compatibility_date = "2024-09-23"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
 
 [env.development]
 name = "solidjs-dev"
@@ -8,7 +15,3 @@ route = "dev.solidjs.com/*"
 [env.production]
 name = "solidjs"
 route = "www.solidjs.com/*"
-
-[site]
-pages_build_output_dir = "./dist"
-entry-point = "workers-site"
