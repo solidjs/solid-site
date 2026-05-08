@@ -60,7 +60,7 @@
         "Solid segue a mesma filosofia do React com um fluxo unidirecional de dados, segregação de leitura e escrita e interfaces imutáveis. Apenas tem uma implementação completamente diferente que dispensa o uso de uma DOM virtual."
       ],
       "link_label": "Ver documentação",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "Reatividade refinada aonde você faz mais com menos.",

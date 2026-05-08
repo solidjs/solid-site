@@ -60,7 +60,7 @@
       "Solid 遵循与 React 相同的理念，具有单向数据流、读/写隔离和不可变接口。但是放弃了使用虚拟 DOM，使用了完全不同的实现。"
     ],
     "link_label": "查看文档",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/"
   },
   "reactivity": {
     "headline": "细粒度的响应性意味着你可以事半功倍。",

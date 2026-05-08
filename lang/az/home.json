@@ -60,7 +60,7 @@
         "Solid, birtərəfli məlumat axını, oxu/yazma ayırması və dəyişməz interfeyslərlə React ilə eyni fəlsəfəni izləyir. Lakin, Virtual DOM-dan istifadə etməkdən imtina edərək, tamamilə fərqli bir yolla gedir."
       ],
       "link_label": "Dokumentasiyanı oxu",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "İncə dənəli reaktivlik o deməkdir ki, siz daha az xərclə daha çox iş görürsünüz",

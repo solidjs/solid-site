@@ -57,7 +57,7 @@
         "Solid は、一方向性のデータフロー、リード/ライトの分離、不変のインターフェースなど、React と同じ哲学を持っています。しかし、仮想 DOM を使わない、全く異なる実装になっています。"
       ],
       "link_label": "ドキュメントを見る",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "きめ細かいリアクティビティにより、少ない労力でより多くのことを実現します。",

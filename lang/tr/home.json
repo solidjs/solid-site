@@ -57,7 +57,7 @@
         "Solid, tek yönlü veri akışı, okuma/yazma ayrımı ve değişmez arayüzler ile React ile aynı felsefeyi takip eder. Sadece bir Sanal DOM kullanmaktan vazgeçen tamamen farklı bir uygulamaya sahip."
       ],
       "link_label": "Dökümanı İncele",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "İncelikli özenli reaktivite, daha azıyla daha fazlasını yapmanız anlamına gelir",
