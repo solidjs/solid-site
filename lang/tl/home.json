@@ -57,7 +57,7 @@
         "Sinusundan ng Solid ang mga pilosopiya na may unidirectional data flow, paghihiwalay ng read/write, at mga immutable interface. Gayumpaman, hindi na kailangan ang Virtual DOM sapagkat iba ang implemetasyon ukol sa mga nabanggit na kaugalian."
       ],
       "link_label": "Tingnan ang Docs",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "Kaunti na lamang ang gagawin dahil pinumpino ang pagiging reaktibo nito.",

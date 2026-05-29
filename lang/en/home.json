@@ -64,7 +64,7 @@
         "It may feel even more natural because Solid's update model is simpler and has no Hook rules. Components execute just once, when they are first rendered, and Hooks and bindings only execute when their dependencies update. This completely different implementation forgoes a Virtual DOM."
       ],
       "link_label": "View Docs",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "Fine-grained reactivity lets you do more with less.",

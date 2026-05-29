@@ -61,7 +61,7 @@
         "Solid mengikuti filosofi yang sama dengan React dengan 'unidirectional data flow', pemisahan baca/tulis, dan antarmuka yang tidak dapat diubah. Hanya saja ia memiliki implementasi yang sama sekali berbeda yang tidak menggunakan Virtual DOM."
       ],
       "link_label": "Lihat Dokumentasi",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "Reaktifitas fine-grained berarti kamu bisa melakukan lebih banyak dengan sedikit usaha.",

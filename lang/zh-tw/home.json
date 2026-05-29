@@ -64,7 +64,7 @@
       "它甚至會讓你感到更加自然，因為 Solid 的更新模型更加簡單且沒有各種要遵循的 Hooks 規則。元件只會執行一次，當元件完成第一次成像後，相關的 Hooks 及繫結都只會在它們的依賴更新時才會重新執行。這是一種全然不同於虛擬 DOM （ Virtual DOM ）的實作。"
     ],
     "link_label": "檢閱文件",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/"
   },
   "reactivity": {
     "headline": "細微化反應式讓你事半功倍。",
