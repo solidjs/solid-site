@@ -1,18 +1,18 @@
 import { Component } from 'solid-js';
+import { useAppState } from '../AppContext';
 import Newsletter from './Newsletter';
 import wordmark from '../assets/wordmark-dark.svg';
 import builder from '../assets/supporters/builder.webp';
 import sauce from '../assets/supporters/saucelabs.webp';
 import cloudflare from '../assets/supporters/cloudflare.webp';
 import netlify from '../assets/supporters/netlify.webp';
-import divriots from '../assets/supporters/divriots.webp';
 import jetbrains from '../assets/supporters/jetbrains.webp';
 import vercel from '../assets/supporters/vercel.webp';
 import proton from '../assets/supporters/proton.webp';
 import interviewpal from '../assets/supporters/interviewpal.webp';
-import stytch from '../assets/supporters/stytch.webp';
+import coderabbit from '../assets/supporters/coderabbit.webp';
+import informaticon from '../assets/supporters/informaticon.webp';
 import Social from './Social';
-import { useAppState } from '../AppContext';
 
 const Supporter: Component<{
   img: string;
@@ -54,6 +54,12 @@ const Footer: Component = () => {
               {t('global.footer.sponsored_by')}
             </span>
             <div class="grid grid-cols-1 gap-8 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 md:auto-rows-auto w-full">
+              <Supporter alt="Coderabbit" href="https://www.coderabbit.com/" img={coderabbit} />
+              <Supporter
+                alt="Informaticon"
+                href="https://www.informaticon.com/"
+                img={informaticon}
+              />
               <Supporter alt="Cloudflare" href="https://www.cloudflare.com/" img={cloudflare} />
               <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
               <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
