@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, PackageType } from './Ecosystem';
+import { PackageType, Resource, ResourceCategory } from './Ecosystem';
 const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-styled-jsx',
@@ -526,17 +526,6 @@ const utilities: Array<Resource> = [
     maintained: false,
   },
   {
-    link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
-    title: 'vite-solid-tailwind-starter',
-    description: 'Starter using Vite + Solid + Tailwind CSS.',
-    author: 'Robert Soriano',
-    author_url: 'https://github.com/wobsoriano',
-    keywords: ['starter', 'templates', 'vite', 'tailwind'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://www.npmjs.com/package/solid-urql',
     title: 'solid-urql',
     description: 'A highly customizable and versatile GraphQL client for Solid.',
@@ -656,18 +645,6 @@ const utilities: Array<Resource> = [
     author: 'Robert Soriano',
     author_url: 'https://github.com/wobsoriano',
     keywords: ['container', 'state', 'zustand'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Data],
-  },
-  {
-    link: 'https://github.com/wobsoriano/solid-supabase',
-    title: 'solid-supabase',
-    description:
-      'A simple wrapper around Supabase.js (Firebase replacement) that gives you access to the client as a Solid hook.',
-    author: 'Robert Soriano',
-    author_url: 'https://github.com/wobsoriano',
-    keywords: ['database', 'firebase', 'wrapper'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
