@@ -2762,6 +2762,29 @@ const utilities: Array<Resource> = [
     keywords: ['orval', 'data', 'query', 'action', 'start', 'rest', 'codegen'],
     published_at: 1769436408000,
   },
+  {
+    title: '@stitchapi/solid',
+    link: 'https://github.com/rejifald/StitchAPI/tree/main/packages/solid',
+    author: 'Oleksandr Zhuravlov',
+    author_url: 'https://github.com/rejifald',
+    description:
+      'Typed, validated, streaming-first API bindings for Solid — createStitch/createStitchStream primitives that reconcile a Solid store and re-render as response deltas arrive, plus an optional TanStack-shaped queryOptions helper.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: [
+      'data',
+      'query',
+      'fetch',
+      'streaming',
+      'typed',
+      'validated',
+      'rest',
+      'http',
+      'store',
+    ],
+    published_at: 1783036800000,
+  },
 ];
 
 export default utilities;
