@@ -1,5 +1,5 @@
-import { batch, Component, createSignal, ErrorBoundary } from 'solid-js';
-import { Tab } from 'solid-repl';
+import { batch, type Component, createSignal, ErrorBoundary } from 'solid-js';
+import type { Tab } from 'solid-repl';
 import Repl from 'solid-repl/dist/repl';
 import { compiler, formatter, linter } from './setupRepl';
 import { useAppState } from '../AppContext';

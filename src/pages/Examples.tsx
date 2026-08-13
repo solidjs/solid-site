@@ -65,7 +65,8 @@ const Examples: Component<{ data: ExamplesDataRoute }> = (props) => {
       <div class="container my-10 w-[98vw] mx-auto">
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-4 lg:col-span-3 overflow-auto border dark:border-solid-darkLighterBg p-5 rounded md:h-[82vh]">
-            {entries(data.list).map(([name, examples]) => (
+            <For each={entries(data.list)}>
+              {([name, examples]) =>
               <>
                 <h3 class="text-xl text-solid-default dark:border-solid-darkLighterBg dark:text-solid-darkdefault border-b-2 font-semibold border-solid pb-2">
                   {t(`examples.${name.toLowerCase() as Lowercase<typeof name>}`)}
@@ -89,7 +90,8 @@ const Examples: Component<{ data: ExamplesDataRoute }> = (props) => {
                   </For>
                 </div>
               </>
-            ))}
+              }
+            </For>
           </div>
 
           <div

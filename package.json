@@ -49,7 +49,7 @@
     "shopify-buy": "^3.0.0",
     "solid-dismiss": "^1.7.122",
     "solid-heroicons": "<3.0.0",
-    "solid-js": "1.9.10",
+    "solid-js": "1.9.14",
     "solid-repl": "^0.25.0",
     "solid-social": "^0.9.6",
     "solid-transition-group": "^0.2.3",
@@ -87,7 +87,7 @@
     "vite-plugin-solid": "2.11.10"
   },
   "resolutions": {
-    "solid-js": "1.9.10",
+    "solid-js": "1.9.14",
     "@rollup/pluginutils": "5.1.0"
   },
   "packageManager": "pnpm@10.17.1",

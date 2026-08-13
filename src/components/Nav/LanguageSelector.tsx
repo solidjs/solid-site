@@ -1,4 +1,4 @@
-import { ParentComponent } from 'solid-js';
+import type { ParentComponent } from 'solid-js';
 
 export const LanguageSelector: ParentComponent<{ ref: HTMLButtonElement }> = (props) => (
   <button

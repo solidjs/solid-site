@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, PackageType } from './Ecosystem';
+import { type Resource, ResourceCategory, PackageType } from './Ecosystem';
 const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-styled-jsx',

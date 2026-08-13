@@ -184,7 +184,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              {Object.values(ResourceType).map((type) => (
+              <For each={Object.values(ResourceType)}>{(type) =>
                 <button
                   disabled={!filtered.counts[type]}
                   onClick={() => {
@@ -223,7 +223,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
                     </Show>
                   </div>
                 </button>
-              ))}
+                }</For>
             </div>
           </div>
         </div>
@@ -278,7 +278,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
               {t('resources.types')}
             </h3>
             <div class="flex flex-col space-y-2">
-              {Object.values(ResourceType).map((type) => (
+              <For each={Object.values(ResourceType)}>{(type) =>
                 <button
                   disabled={!filtered.counts[type]}
                   onClick={() => {
@@ -317,7 +317,7 @@ const Resources: Component<{ data: ResourcesDataProps }> = (props) => {
                     </Show>
                   </div>
                 </button>
-              ))}
+                }</For>
             </div>
           </div>
         </Dismiss>

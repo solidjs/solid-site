@@ -113,12 +113,12 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
 
   const [current, setCurrent] = createSignal(0);
   const [expanded, setExpanded] = createSignal(false);
-  const direction = createMemo(() => (ctx.dir == 'rtl' ? 'left' : 'right'));
+  const direction = createMemo(() => (ctx.dir === 'rtl' ? 'left' : 'right'));
 
   return (
     <>
       <Chart
-        sort={props.list[current()].id == 'js-framework-benchmark' ? 'asc' : 'desc'}
+        sort={props.list[current()].id === 'js-framework-benchmark' ? 'asc' : 'desc'}
         scale={props.list[current()].scale}
         rows={props.list[current()].data}
         direction={direction()}
@@ -135,20 +135,20 @@ const Benchmarks: Component<{ list: Array<GraphData> }> = (props) => {
         }
       >
         <div class="mt-4 flex flex-col space-y-2 m-auto lg:space-y-0 lg:m-0 lg:flex-row">
-          {props.list.map((item, index) => {
-            return (
+          <For each={props.list}>
+            {(item, index) =>
               <button
                 onClick={() => setCurrent(index)}
                 class="text-xs lg:mr-1 p-3 rounded md:hover:bg-gray-400 dark:md:hover:bg-gray-400 transition duration-150 hover:text-white"
                 classList={{
-                  'active text-white bg-solid-light': current() === index,
-                  'bg-gray-100 dark:bg-gray-500': current() !== index,
+                  'active text-white bg-solid-light': current() === index(),
+                  'bg-gray-100 dark:bg-gray-500': current() !== index(),
                 }}
               >
                 {item.name}
               </button>
-            );
-          })}
+            }
+          </For>
         </div>
         <div>
           <div class="pt-5 text-xs block">{props.list[current()].description}</div>

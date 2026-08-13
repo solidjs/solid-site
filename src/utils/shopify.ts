@@ -1,4 +1,4 @@
-import { createMemo, createResource, createSignal, Resource, Accessor, onMount } from 'solid-js';
+import { createMemo, createResource, createSignal, type Resource, type Accessor, onMount } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { access } from '@solid-primitives/utils';
 import Client from 'shopify-buy';
@@ -90,16 +90,14 @@ export const createCart = (
     get subtotal() {
       if (this.cart.subtotalPrice) {
         return parseFloat(this.cart.subtotalPrice);
-      } else {
-        return 0;
       }
+        return 0;
     },
     get total() {
       if (this.cart.totalPriceV2.amount) {
         return parseFloat(this.cart.totalPriceV2.amount);
-      } else {
-        return 0;
       }
+        return 0;
     },
   });
   const formatTotal = (amount: number | string) => {
@@ -136,7 +134,7 @@ export const createCart = (
     return createMemo(() => {
       if (data.cart.lineItems) {
         for (const line of data.cart.lineItems) {
-          if (line.variant.id == id()) {
+          if (line.variant.id === id()) {
             return line.quantity;
           }
         }
@@ -161,7 +159,7 @@ export const createCart = (
       (memo: Array<Client.CustomAttribute>, item: Client.CustomAttribute) => {
         memo.push({
           key: item.key,
-          value: item.key == key ? value : item.value,
+          value: item.key === key ? value : item.value,
         });
         return memo;
       },
@@ -283,7 +281,8 @@ export const createProduct = (
   const [details, { refetch }] = createResource(identifier, async (identifier) => {
     if (identifier.handle) {
       return client.product.fetchByHandle(identifier.handle);
-    } else if (identifier.id) {
+    }
+    if (identifier.id) {
       return client.product.fetch(identifier.id);
     }
     return null;

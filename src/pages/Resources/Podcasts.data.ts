@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
+import { type Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const podcasts: Array<Resource> = [
   {
@@ -74,7 +74,7 @@ const podcasts: Array<Resource> = [
   {
     title: 'S09E12 Modern Web Podcast- Introduction to SolidJS with Ryan Carniato',
     link: 'https://modernweb.podbean.com/e/s09e12-modern-web-podcast-introduction-to-solidjs-with-ryan-carniato/',
-    description: `In this episode of the Modern Web podcast, hosts Rob Ocel and Nacho Vazquez sit down with Ryan Carniato to talk about SolidJS.`,
+    description: "In this episode of the Modern Web podcast, hosts Rob Ocel and Nacho Vazquez sit down with Ryan Carniato to talk about SolidJS.",
     author: 'Modern Web Podcast',
     author_url: 'https://modernweb.podbean.com',
     keywords: ['solid', 'introduction'],
@@ -85,7 +85,7 @@ const podcasts: Array<Resource> = [
   {
     title: 'Supper Club × Solid.js with Ryan Carniato',
     link: 'https://syntax.fm/show/577/supper-club-solid-js-with-ryan-carniato',
-    description: `In this supper club episode of Syntax, Wes and Scott talk with Ryan Carniato about Solid.JS, SolidStart, how web components work with Solid, why he chose JSX, and what the future of Solid is.`,
+    description: "In this supper club episode of Syntax, Wes and Scott talk with Ryan Carniato about Solid.JS, SolidStart, how web components work with Solid, why he chose JSX, and what the future of Solid is.",
     author: 'SyntaxFM',
     author_url: 'https://syntax.fm',
     keywords: ['solid', 'syntax', 'syntaxfm', 'supper club', 'solidstart'],
@@ -96,7 +96,7 @@ const podcasts: Array<Resource> = [
   {
     title: 'Exploring Open-Source and SolidJS with Ryan Carniato',
     link: 'https://www.whiskeywebandwhatnot.fm/exploring-open-source-and-solidjs-with-ryan-carniato/',
-    description: `In this episode, Ryan talks to Chuck and Robbie about working on open-source projects, his experiences at eBay and Netlify, and his thoughts on TypeScript and inferred types versus explicit types.`,
+    description: "In this episode, Ryan talks to Chuck and Robbie about working on open-source projects, his experiences at eBay and Netlify, and his thoughts on TypeScript and inferred types versus explicit types.",
     author: 'Whiskey Web and Whatnot',
     author_url: 'https://syntax.fm',
     keywords: ['ebay', 'marko', 'whiskey', 'web', 'whiskey web whatnot', 'solid'],
@@ -107,7 +107,7 @@ const podcasts: Array<Resource> = [
   {
     title: 'SolidStart with Ryan Carniato - JSJ 581',
     link: 'https://topenddevs.com/podcasts/javascript-jabber/episodes/solidstart-with-ryan-carniato-jsj-581?utm_campaign=05-10-23+-+Check+out+this&utm_source=Message&utm_medium=Twitter',
-    description: `Ryan discusses SolidStart and the future of SolidJS.`,
+    description: "Ryan discusses SolidStart and the future of SolidJS.",
     author: 'JavaScript Jabber',
     author_url: 'https://syntax.fm',
     keywords: ['solidstart', 'jabber'],
@@ -118,7 +118,7 @@ const podcasts: Array<Resource> = [
   {
     title: 'A Solid(JS) Developer Experience with Atila Fassina',
     link: 'https://youtu.be/b8dLqJluR3U',
-    description: `Rob and Atila discuss how to improve DX, performance optimizations, and the nuances behind developer documentation and how to create a comprehensive toolkit for developers. Atila also talks about the upcoming stable release of Solid and its integration with Tauri V2 for mobile app development`,
+    description: "Rob and Atila discuss how to improve DX, performance optimizations, and the nuances behind developer documentation and how to create a comprehensive toolkit for developers. Atila also talks about the upcoming stable release of Solid and its integration with Tauri V2 for mobile app development",
     author: 'This Dot Media',
     author_url: 'https://www.youtube.com/c/ThisDotMedia',
     keywords: ['solid', 'solidstart', 'developer experience'],

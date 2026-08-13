@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, ResourceType } from './Ecosystem';
+import { type Resource, ResourceCategory, ResourceType } from './Ecosystem';
 
 const videos: Array<Resource> = [
   {
@@ -677,7 +677,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=0efOc8D39Ow',
     title: 'Gentle introduction to SolidJS by Kajetan Swiatek',
-    description: `This talk serves as a gentle introduction to SolidJS. During the event, you’ll hear about basic concepts behind the framework and what makes it stand out - all based on a real-world example of a small feature that’ll be live-coded in front of you.`,
+    description: "This talk serves as a gentle introduction to SolidJS. During the event, you’ll hear about basic concepts behind the framework and what makes it stand out - all based on a real-world example of a small feature that’ll be live-coded in front of you.",
     keywords: ['solid', 'introduction'],
     author: 'Kajetan Swiatek / Engineering Community',
     author_url: 'https://www.youtube.com/channel/UCARnxsw8cR-dsuOG_2YMEjg',
@@ -721,7 +721,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=k70vruSwQ4w',
     title: '2.20 - Regaining JavaScript Performance in your Website',
-    description: `We have Ryan Carniato on to talk about SolidJS and performance on your website. As well as comparing Qwik, React and SolidJS.`,
+    description: "We have Ryan Carniato on to talk about SolidJS and performance on your website. As well as comparing Qwik, React and SolidJS.",
     keywords: ['solid', 'ryanstreams', 'performance', 'javascript'],
     author: 'PurrfectDev',
     author_url: 'https://www.youtube.com/c/PurrfectDev',
@@ -732,7 +732,7 @@ const videos: Array<Resource> = [
   {
     link: 'https://www.youtube.com/watch?v=GWH8CdQfN38',
     title: 'Astro -- Going Fast Without JavaScript Bloat (demonstrated using Solid)',
-    description: `In this video, we dive into Astro and how it can help you build better websites without the big, bulky SPA, but still enable you to have interactive content.`,
+    description: "In this video, we dive into Astro and how it can help you build better websites without the big, bulky SPA, but still enable you to have interactive content.",
     keywords: ['solid', 'astro'],
     author: 'Spooky Software',
     author_url: 'https://www.youtube.com/channel/UCuRHr-1aqro-UWcz36hkdoQ',

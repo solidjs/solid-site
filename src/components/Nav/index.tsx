@@ -1,5 +1,5 @@
 import {
-  ParentComponent,
+  type ParentComponent,
   For,
   createMemo,
   createSignal,
@@ -18,14 +18,13 @@ import logo from '../../assets/logo.svg';
 import ukraine from '../../assets/for-ukraine.png';
 import ScrollShadow from '../ScrollShadow/ScrollShadow';
 import Social from '../Social';
-import { Locale, useAppState } from '../../AppContext';
+import { type Locale, useAppState } from '../../AppContext';
 import { onEnterLogo, onExitLogo } from '../../utils';
 import { routeReadyState, page, setRouteReadyState } from '../../utils/routeReadyState';
 import PageLoadingBar from '../LoadingBar/PageLoadingBar';
-import { LinkTypes, MenuLink } from './MenuLink';
+import { type LinkTypes, MenuLink } from './MenuLink';
 import { LanguageSelector } from './LanguageSelector';
 import { ModeToggle } from './ModeToggle';
-import { entries } from '@solid-primitives/utils';
 
 const langs: Record<Locale, string> = {
   en: 'English',
@@ -96,7 +95,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
         return nav.map<LinkTypes>((item) => {
           const itm = { ...item };
           // Inject guides if available
-          if (item.path == '/guides') {
+          if (item.path === '/guides') {
             if (guides?.length) {
               const direction = ctx.dir;
               itm.links = guides.map(({ title, description, resource }) => ({
@@ -190,7 +189,7 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
                 href="/"
                 onClick={onClickLogo}
                 noScroll
-                class={`py-3 flex w-9`}
+                class="py-3 flex w-9"
                 aria-describedby="ukraine-support"
               >
                 <img class="w-full h-auto z-10" src={logo} alt="SolidJS" />
@@ -258,12 +257,12 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
           }}
         >
           <div class="absolute w-full md:w-96 mt-2 md:ml-12 md:mr-5 border dark:border-solid-darkbg rounded-md transition-composite bg-white dark:bg-solid-darkLighterBg shadow-md">
-            {entries(langs).map(([lang, label]) => (
+            <For each={Object.entries(langs)}>
+              {([lang, label]) => 
               <button
                 class="first:rounded-t hover:bg-solid-light hover:text-white last:rounded-b border-r p-3 text-sm border-b text-center dark:border-solid-darkbg/70 w-3/6"
                 classList={{
-                  'bg-solid-medium text-white': lang == ctx.locale,
-                  'hover:bg-solid-light': lang == ctx.locale,
+                  'bg-solid-medium text-white': lang === ctx.locale,
                 }}
                 onClick={() => {
                   ctx.setLocale(lang);
@@ -272,7 +271,8 @@ const Nav: ParentComponent<{ showLogo?: boolean; filled?: boolean }> = (props) =
               >
                 {label}
               </button>
-            ))}
+              }
+            </For>
           </div>
         </Dismiss>
         <Show when={subnav() && subnav()!.links.length !== 0}>
