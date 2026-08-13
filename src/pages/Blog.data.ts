@@ -116,7 +116,7 @@ export const list: { [key: string]: BlogInfo } = {
       'Solid 2.0 reaches Release Candidate: async becomes a property of the reactive graph itself, SolidStart is retired in favor of start mode, and a new Rust/OXC compiler ships by default.',
     author: 'Ryan Carniato',
     author_url: 'https://www.github.com/ryansolid',
-    date: 1786492800000,
+    date: 1786579200000,
     body: async () => await import('./Articles/solid-2-0-rc-the-big-reveal.mdx'),
   },
 };
