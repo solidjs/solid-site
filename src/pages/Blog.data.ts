@@ -109,6 +109,16 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1725403091000,
     body: async () => await import('./Articles/solidhack-2024-announcement.mdx'),
   },
+  'solid-2-0-rc-the-big-reveal': {
+    img: '/img/blog/solid-2-0-rc-the-big-reveal/header.png',
+    title: 'Solid 2.0 RC: The Big <Reveal>',
+    description:
+      'Solid 2.0 reaches Release Candidate: async becomes a property of the reactive graph itself, SolidStart is retired in favor of start mode, and a new Rust/OXC compiler ships by default.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    date: 1786492800000,
+    body: async () => await import('./Articles/solid-2-0-rc-the-big-reveal.mdx'),
+  },
 };
 
 export interface BlogData {

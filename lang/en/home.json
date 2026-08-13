@@ -117,5 +117,10 @@
       "link": "https://www.un.org/en/globalceasefire",
       "support": "Support Global Ceasefire!",
       "petition": "End war in Ukraine and all global conflict →"
+    },
+    "release": {
+      "link": "/blog/solid-2-0-rc-the-big-reveal",
+      "support": "Solid 2.0 Release Candidate is here!",
+      "petition": "Read the announcement →"
     }
   }
