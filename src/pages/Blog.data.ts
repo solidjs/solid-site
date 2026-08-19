@@ -119,6 +119,16 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1786579200000,
     body: async () => await import('./Articles/solid-2-0-rc-the-big-reveal.mdx'),
   },
+  'async-solid-fetch-high-block-low': {
+    img: '/img/blog/async-solid-fetch-high-block-low/header.png',
+    title: 'Async Solid - Fetch High, Block Low',
+    description:
+      'Part one of a deep dive into how Solid 2.0 handles async: why fetching high and blocking low no longer costs you anything.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    date: 1787140800000,
+    body: async () => await import('./Articles/async-solid-fetch-high-block-low.mdx'),
+  },
 };
 
 export interface BlogData {

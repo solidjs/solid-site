@@ -54,7 +54,7 @@ const Footer: Component = () => {
               {t('global.footer.sponsored_by')}
             </span>
             <div class="grid grid-cols-1 gap-8 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 md:auto-rows-auto w-full">
-              <Supporter alt="Coderabbit" href="https://www.coderabbit.com/" img={coderabbit} />
+              <Supporter alt="CodeRabbit" href="https://www.coderabbit.com/" img={coderabbit} />
               <Supporter
                 alt="Informaticon"
                 href="https://www.informaticon.com/"
@@ -63,10 +63,10 @@ const Footer: Component = () => {
               <Supporter alt="Cloudflare" href="https://www.cloudflare.com/" img={cloudflare} />
               <Supporter alt="Netlify" href="https://www.netlify.com/" img={netlify} />
               <Supporter alt="Builder.io" href="https://www.builder.io/" img={builder} />
-              <Supporter alt="SAUCELABS" href="https://www.saucelabs.com/" img={sauce} />
+              <Supporter alt="Sauce Labs" href="https://www.saucelabs.com/" img={sauce} />
               <Supporter alt="Proton" href="https://www.proton.me/" img={proton} />
               <Supporter alt="Vercel" href="https://www.vercel.com/" img={vercel} />
-              <Supporter alt="Jetbrains" href="https://www.jetbrains.com/" img={jetbrains} />
+              <Supporter alt="JetBrains" href="https://www.jetbrains.com/" img={jetbrains} />
               <Supporter alt="Interview Pal" href="https://interviewpal.com/" img={interviewpal} />
             </div>
           </div>
