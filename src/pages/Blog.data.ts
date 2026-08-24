@@ -129,6 +129,16 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1787140800000,
     body: async () => await import('./Articles/async-solid-fetch-high-block-low.mdx'),
   },
+  'async-solid-write-sync-run-async': {
+    img: '/img/blog/async-solid-write-sync-run-async/header.png',
+    title: 'Async Solid - Write Sync, Run Async',
+    description:
+      'Part two of a deep dive into how Solid 2.0 handles async: how optimistic writes fall out of the client-side app you already wrote.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    date: 1787572800000,
+    body: async () => await import('./Articles/async-solid-write-sync-run-async.mdx'),
+  },
 };
 
 export interface BlogData {
