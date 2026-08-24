@@ -1,0 +1,258 @@
+*This is part two of a deep dive into how Solid 2.0 handles async. [Part one](https://www.solidjs.com/blog/async-solid-fetch-high-block-low) was about reads. Part two is about writes.*
+
+Last time, we looked at how colorless composition when reading async meant we didn't have to choose between manageable code and performant UI.
+
+I think writes reveal something even more profound. Even better, we get to use one of the all-time classic frontend demos to make our point: TodoMVC.
+
+It's the first thing you write as a framework author to prove that your approach is worthwhile. I still look at it to evaluate new frameworks. Not all examples are equivalent. Many are overengineered. But at its base is a simple client list-management example.
+
+Now, let's try to make it more real. Our Todos live in a database. Every mutation goes through the server. You want immediate affordance when interacting with the list. Maybe some optimistic updates.
+
+Our simple example doesn't stay so simple. If you've ever had to hand roll this yourself, you are left snapshotting the cache, writing the prediction, firing the mutation, on error restore, on success invalidate. And this isn't just something you do with vanilla JS, I remember doing the same with GraphQL clients. And none of this is even considering managing concurrent requests, race conditions, loading states, and optimistic tearing.
+
+So when designing Solid 2.0, we took a step back. What we realized was that your client-only application was the Optimistic UI all along. It just wasn't aware of the server yet.
+
+## Client-Side Todos
+
+Let's start with the code for our simple client-side Todo app. I've removed some of the advanced features (like filter, multi-toggle) so we can focus on the main functionality. The UI looks like:
+
+```tsx
+// App.tsx
+import { For } from 'solid-js';
+import { createTodos, type Todo } from './todos.js';
+
+const ENTER_KEY = 13;
+
+export default function App() {
+  const [todos, { addTodo, removeTodo, toggleTodo }] = createTodos();
+
+  const onInput = ({ target, keyCode }) => {
+    const title = target.value.trim();
+    if (keyCode === ENTER_KEY && title) {
+      addTodo(title);
+      target.value = '';
+    }
+  };
+
+  return (
+    <section class="todoapp">
+      <input
+        class="new-todo"
+        placeholder="What needs to be done?"
+        onKeyDown={onInput}
+      />
+      <ul class="todo-list">
+        <For each={todos}>
+          {(todo) => (
+            <Todo todo={todo} onToggle={toggleTodo} onRemove={removeTodo} />
+          )}
+        </For>
+      </ul>
+    </section>
+  );
+}
+
+function Todo(props: {
+  todo: Todo;
+  onToggle: (id: string, completed: boolean) => void;
+  onRemove: (id: string) => void;
+}) {
+  const onToggleChange = ({ target: { checked } }) => {
+    props.onToggle(props.todo.id, checked);
+  };
+
+  const onRemoveClick = () => {
+    props.onRemove(props.todo.id);
+  };
+
+  return (
+    <li class={['todo', { completed: props.todo.completed }]}>
+      <div class="view">
+        <input
+          class="toggle"
+          type="checkbox"
+          checked={props.todo.completed}
+          onChange={onToggleChange}
+        />
+        <label>{props.todo.title}</label>
+        <button class="destroy" onClick={onRemoveClick} />
+      </div>
+    </li>
+  );
+}
+```
+
+And for our data we've used a Solid Store:
+
+```ts
+// todos.ts
+import { createStore } from 'solid-js';
+
+export type Todo = { id: string; title: string; completed: boolean };
+
+export function createTodos() {
+  const [todos, setTodos] = createStore<Todo[]>([]);
+  const addTodo = (title: string) => {
+    const todo = { id: crypto.randomUUID(), title, completed: false };
+    setTodos((t) => { t.push(todo); });
+  };
+  const removeTodo = (id: string) => {
+    setTodos((t) => t.filter((todo) => todo.id !== id));
+  };
+  const toggleTodo = (id: string, completed: boolean) => {
+    setTodos((t) => {
+      const index = t.findIndex((t) => t.id === id);
+      t[index].completed = completed;
+    });
+  };
+  return [todos, { addTodo, removeTodo, toggleTodo }] as const;
+}
+```
+
+Solid stores have mutation-based setters that collect fine-grained updates so that when you `todo.completed = true` only parts of the UI that listen to the completed value on the particular todo re-evaluate. Not the list. Not the whole row.
+
+Everything here follows standard patterns. We extracted our logic into a custom primitive `createTodos`. It provides our readonly store and named mutations. This keeps our UI clean and gives us a centralized way to look at our data.
+
+## Making it Real
+
+So what if we want the Todos to live in a database? We could set up our API service or maybe create some server functions:
+
+```ts
+// api.ts
+"use server";
+import { db } from "./db";
+import type { Todo } from "./todos.js";
+
+export async function list(): Promise<Todo[]> {
+  return db.todos.all();
+}
+
+export async function add(todo: Todo) {
+  await db.todos.insert(todo);
+}
+
+export async function toggle(id: string, completed: boolean) {
+  await db.todos.update(id, { completed });
+}
+
+export async function remove(id: string) {
+  await db.todos.delete(id);
+}
+```
+
+<Notice>
+That string at the top means these functions run on the server. That's the next article. Also this is demonstrative. A real backend would have error handling logic and validation.
+</Notice>
+
+Let's update our application to read from the server and to have optimistic updates.
+
+```ts
+// todos.ts
+import { createOptimisticStore, action, refresh } from "solid-js";
+import * as api from "./api.js";
+
+export type Todo = { id: string; title: string; completed: boolean };
+
+export function createTodos() {
+  const [todos, setTodos] = createOptimisticStore<Todo[]>(() => api.list(), []);
+  const addTodo = action(function* (title: string) {
+    const todo = { id: crypto.randomUUID(), title, completed: false };
+    setTodos(list => { list.push(todo); });
+    yield api.add(todo);
+    refresh(todos);
+  });
+
+  const removeTodo = action(function* (id: string) {
+    setTodos((t) => t.filter((todo) => todo.id !== id));
+    yield api.remove(id);
+    refresh(todos);
+  });
+
+  const toggleTodo = action(function* (id: string, completed: boolean) {
+    setTodos((t) => {
+      const index = t.findIndex((t) => t.id === id);
+      t[index].completed = completed;
+    });
+    yield api.toggle(id, completed);
+    refresh(todos);
+  });
+  return [todos, { addTodo, removeTodo, toggleTodo }] as const;
+}
+```
+
+That's it.
+
+The UI of our application didn't need to change. `App.tsx` still imports and calls `createTodos`. The `<For>` doesn't know the list comes from a database now. The checkbox doesn't know its click crosses a network. In part one, we established that latency was a property a value could have without its consumers caring. It is no different here.
+
+Mutations didn't change either. If you look at all the `setTodos` calls they are identical to before. We added the API call and the data refresh. Legitimate new work we needed. We didn't need to add a prediction because our sync mutation already was one.
+
+The last change here is wrapping the mutations in an `action`. These might look a bit foreign as they are generator functions. To be fair, this is us dealing with a limitation of JavaScript. There is no way for us to keep context after an `await` today. There is an [Async Context proposal](https://github.com/tc39/proposal-async-context) but it may be years before it lands in your browser. But with generators we can `yield` promises for a very similar experience and still have access to it.
+
+This is important so that we can connect the start of async (and the optimistic prediction) with all the work that happens downstream, like the refresh, so they can ride as part of the same transaction.
+
+## Drafts Are Always Speculative
+
+This all extends the new batch timing mechanism in Solid 2.0. When we write a new value we don't commit it right away. When no async is involved the commit happens quickly. But when async is involved we wait until it resolves. Our system demands this of us. We need the ability to simultaneously have the past be alive on our display while building the future. Independent state updates shouldn't suddenly be frozen because of new work in flight.
+
+`createOptimisticStore` and optimistic state, in general, are a little different, but built on the same layering idea. The draft applies the mutation immediately. `yield` gives the graph the Promise to wait on. `action` holds the transaction open. `refresh` revalidates the source. The underlying store reconciles against the confirmed truth. Only the differences trigger per property fine-grained updates. If optimism matches reality there is no additional work done. No components re-ran. The optimistic layer resolves itself.
+
+![The optimistic overlay sits on top of the confirmed store and is discarded once the transaction settles](/img/blog/async-solid-write-sync-run-async/optimistic-overlay-diagram.png)
+
+That's why there is no rollback. Optimistic writes aren't a second copy of your state, but a layer that sits on top. An overlay that the reactive system discards when the transaction completes, pass or fail. If `api.add` throws, the overlay is dropped and the list is back to where it started.
+
+Because `actions` are part of the same hold-on-async system we discussed in part one, things remain consistent. UI never shows half a mutation, and rapid clicking doesn't interleave into a corrupted list.
+
+## I'm Oversimplifying (a little)
+
+Yes, I admit this example works so well because we decided that the synchronous experience was the desired outcome. Things like Trello Boards and multiplayer applications really play well with this. If the network latency suddenly becomes 5 seconds per request the client never notices. We can start doing future mutations on optimistically rendered UI that hasn't fully been acknowledged. A new optimistically sourced Todo with a checkbox can still make a request when you toggle it.
+
+The downside is when things do go wrong, while we have no problem showing a consistent UI, if we let the user get too far ahead of us the result can be more jarring. They registered that their work succeeded (as they see it) and then suddenly it is gone. We can collect the failed actions and have the ability to replay them, but that is a design consideration and not part of the automation.
+
+The reality, like with the previous article, is that we do often need to add more affordances. We might want to indicate that a record is saving and hasn't been confirmed yet. It doesn't need to change the immediacy of the experience but it is legitimate work. Like with reads it is work your designer would have flagged for you to do anyway.
+
+A simple way to do this could be to add additional optimistic state:
+
+```ts
+const [isSaving, setSaving] = createOptimistic(false);
+
+// in an action
+setSaving(true); // will revert at the end back to false
+```
+
+Or my personal favorite build it into the schema:
+
+```ts
+export type Todo = {
+  id: string;
+  title: string;
+  completed: boolean;
+  pending?: boolean;
+};
+
+const addTodo = action(function* (title: string) {
+  const todo = { id: crypto.randomUUID(), title, completed: false };
+
+  // set the new todo with pending
+  setTodos(list => { list.push({ ...todo, pending: true }); });
+  yield api.add(todo);
+  refresh(todos);
+});
+```
+
+That way the new record has an indicator on it and when the server comes back and all async settles it will be gone — success or failure. One surgical update for the piece of UI that happened to listen to it.
+
+How your application deals with that failure we will talk more about in the next article. For now, the important part is the guarantee that rejection can't strand your UI in a lie. The overlay is dropped and only the truth remains.
+
+## The Rewrite that Never Happens
+
+When we first introduced the world to Fine-Grained reactivity the argument I made was that your Components don't matter. You could re-arrange your code how you saw fit. I'd seen too many projects over the years have parts of the UI expand in capability, have their boundaries move and it be a huge refactor.
+
+Fine-Grained allowed you to write the whole application as one Component and pay no performance penalty. Similarly as it grew, no matter where you broke that Component apart, it wouldn't be impacted. Because all costs were tied to the data and not a re-render, you weren't checking if your memoization rules changed. It just worked. The updates were always isolated — why would this change anything?
+
+This article I think is even closer to home for every development team. The prototype worked. Everyone loved it. But now you have to make it for real and that's generally a rewrite. State moves into a cache library. Mutations gain lifecycles. Components gain loading and error branches. The app you validated gets thrown away.
+
+Here the prototype becomes the production app. The synchronous TodoMVC wasn't just a toy. It had the finished Component structure and mutations. Going from demo to production was additive. One store constructor, an extra wrapper per mutation, and a file of server functions. Pinpoint updates that one could easily see in a code review.
+
+But we aren't quite done yet. We sort of glossed over how `api.ts` was running on a different machine. We streamed, serialized, and did full round trips to the server without writing any network specific code. That's what we cover next time.
+
+That's writes. The network is stranger. Until then.
