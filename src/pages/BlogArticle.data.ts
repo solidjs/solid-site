@@ -10,7 +10,10 @@ export interface BlogArticleData {
 }
 
 export const BlogArticleData: RouteLoadFunc<BlogArticleData> = (props) => {
-  const [article] = createResource(async () => (await list[props.params.slug].body()).default);
+  const [article] = createResource(
+    () => props.params.slug,
+    async (slug) => (await list[slug].body()).default,
+  );
   return {
     get slug() {
       return props.params.slug;
