@@ -139,6 +139,16 @@ export const list: { [key: string]: BlogInfo } = {
     date: 1787572800000,
     body: async () => await import('./Articles/async-solid-write-sync-run-async.mdx'),
   },
+  'async-solid-one-graph-two-machines': {
+    img: '/img/blog/async-solid-one-graph-two-machines/header.png',
+    title: 'Async Solid - One Graph, Two Machines',
+    description:
+      'Part three of a deep dive into how Solid 2.0 handles async: server functions, streaming, live sources, and recovery, all riding the same reactive graph.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.github.com/ryansolid',
+    date: 1787745600000,
+    body: async () => await import('./Articles/async-solid-one-graph-two-machines.mdx'),
+  },
 };
 
 export interface BlogData {
