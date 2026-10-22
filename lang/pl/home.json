@@ -64,7 +64,7 @@
       "Solid podąża tą samą ścieżką co React. Jednokierunkowy przepływ danych, oddzielenie odczytu i modyfikacji, a także niemutowalne struktury. Pod spodem znajduje się jednak zupełnie inna implementacja rezygnująca z wirtualnego modelu DOM."
     ],
     "link_label": "Sprawdź dokumentację",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/"
   },
   "reactivity": {
     "headline": "Cząsteczkowa reaktywność sprawia, że mniej znaczy więcej.",
