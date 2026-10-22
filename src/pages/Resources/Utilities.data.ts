@@ -2797,6 +2797,23 @@ const utilities: Array<Resource> = [
     ],
     published_at: 1792671837462,
   },
+  {
+    link: 'https://github.com/piying-org/piying-view',
+    title: 'piying-view',
+    description: 'Frontend form solution;Valibot define to form component;Strongly typed',
+    author: 'wszgrcy',
+    author_url: 'https://github.com/wszgrcy',
+    keywords: [
+      'form',
+      'validator', 
+      'validation',
+      'input',
+      'valibot'
+    ],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins,ResourceCategory.UI],
+  }
 ];
 
 export default utilities;
