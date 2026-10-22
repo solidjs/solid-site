@@ -2762,6 +2762,28 @@ const utilities: Array<Resource> = [
     keywords: ['orval', 'data', 'query', 'action', 'start', 'rest', 'codegen'],
     published_at: 1769436408000,
   },
+  {
+    title: '@comvi/solid',
+    link: 'https://github.com/comvi-io/comvi-js/tree/main/packages/solid',
+    author: 'Eugene Balabai',
+    author_url: 'https://github.com/EugeneBalabai',
+    description:
+      'SolidJS i18n with type-checked keys, ICU plurals and a <T> component for markup inside translations.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+    official: false,
+    keywords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'intl',
+      'icu',
+    ],
+    published_at: 1792671837462,
+  },
 ];
 
 export default utilities;
