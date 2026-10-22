@@ -100,7 +100,11 @@ const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
               <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">
                 {t('contributors.contributors')}
               </h2>
-              <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors" rel="noreferrer">
+              <a
+                target="_blank"
+                href="https://github.com/solidjs/solid/graphs/contributors"
+                rel="noreferrer"
+              >
                 <img src="https://opencollective.com/solid/contributors.svg?width=890&button=false" />
               </a>
             </div>
@@ -130,7 +134,8 @@ const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
                 <a
                   target="_blank"
                   class="text-solid-default dark:text-solid-darkdefault "
-                  href="https://opencollective.com/solid" rel="noreferrer"
+                  href="https://opencollective.com/solid"
+                  rel="noreferrer"
                 >
                   Contribute today &raquo;
                 </a>

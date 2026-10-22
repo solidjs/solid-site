@@ -4,7 +4,12 @@ import type { PackagesDataProps } from './Packages.data';
 import Fuse from 'fuse.js';
 import { debounce } from '@solid-primitives/scheduled';
 import { makeIntersectionObserver } from '@solid-primitives/intersection-observer';
-import { type Resource, ResourceCategory, type ResourceType, ResourceTypeIcons } from './Resources/Ecosystem';
+import {
+  type Resource,
+  ResourceCategory,
+  type ResourceType,
+  ResourceTypeIcons,
+} from './Resources/Ecosystem';
 import { parseKeyword } from '../utils/parseKeyword';
 import { rememberSearch } from '../utils/rememberSearch';
 import SideContent from '../components/layout/SideContent';

@@ -2683,7 +2683,7 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.UI, ResourceCategory.Primitives],
   },
-    {
+  {
     link: 'https://solid-notifications.vercel.app/',
     title: 'solid-notifications',
     description: 'Reactive, customizable toast notifications for SolidJS',
@@ -2700,12 +2700,7 @@ const utilities: Array<Resource> = [
     description: 'A solidjs component for feather icons',
     author: 'Jao Austero',
     author_url: 'https://github.com/jaoaustero',
-    keywords: [
-      'feather',
-      'feather-icons',
-      'icons',
-      'svg',
-    ],
+    keywords: ['feather', 'feather-icons', 'icons', 'svg'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.AddOn],
@@ -2730,7 +2725,7 @@ const utilities: Array<Resource> = [
     author: 'David Di Biase',
     author_url: 'https://github.com/davedbase',
     description:
-      '@urql/solid-start provides URQL integration for SolidStart, built with SolidStart\'s native primitives like query, action, and createAsync.',
+      "@urql/solid-start provides URQL integration for SolidStart, built with SolidStart's native primitives like query, action, and createAsync.",
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2742,8 +2737,7 @@ const utilities: Array<Resource> = [
     link: 'https://orval.dev/guides/solid-start',
     author: 'David Di Biase',
     author_url: 'https://github.com/davedbase',
-    description:
-      'Orval is a RESTful generator that produces Solid and SolidStart bindings.',
+    description: 'Orval is a RESTful generator that produces Solid and SolidStart bindings.',
     type: PackageType.Library,
     categories: [ResourceCategory.Data],
     official: false,
@@ -2771,7 +2765,7 @@ const utilities: Array<Resource> = [
       'http',
       'store',
     ],
-    published_at: 1783036800000
+    published_at: 1783036800000,
   },
   {
     title: 'solid-route-progress',
@@ -2814,17 +2808,11 @@ const utilities: Array<Resource> = [
     description: 'Frontend form solution;Valibot define to form component;Strongly typed',
     author: 'wszgrcy',
     author_url: 'https://github.com/wszgrcy',
-    keywords: [
-      'form',
-      'validator', 
-      'validation',
-      'input',
-      'valibot'
-    ],
+    keywords: ['form', 'validator', 'validation', 'input', 'valibot'],
     official: false,
     type: PackageType.Package,
-    categories: [ResourceCategory.Plugins,ResourceCategory.UI],
-  }
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
 ];
 
 export default utilities;
