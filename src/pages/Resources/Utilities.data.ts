@@ -1574,6 +1574,17 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Plugins],
   },
   {
+    link: 'https://github.com/LuggaPugga/better-captcha',
+    title: 'better-captcha',
+    description: 'Framework-agnostic captcha library with support for multiple providers.',
+    author: 'LuggaPugga',
+    author_url: 'https://github.com/LuggaPugga',
+    keywords: ['captcha'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins],
+  },
+  {
     link: 'https://github.com/gnomical/solid-theme-provider',
     title: 'solid-theme-provider',
     description:
