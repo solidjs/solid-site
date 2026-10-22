@@ -1,4 +1,4 @@
-import { Resource, ResourceCategory, PackageType } from './Ecosystem';
+import { PackageType, Resource, ResourceCategory } from './Ecosystem';
 const utilities: Array<Resource> = [
   {
     link: 'https://github.com/solidjs/solid-styled-jsx',
@@ -526,23 +526,12 @@ const utilities: Array<Resource> = [
     maintained: false,
   },
   {
-    link: 'https://github.com/wobsoriano/vite-solid-tailwind-starter',
-    title: 'vite-solid-tailwind-starter',
-    description: 'Starter using Vite + Solid + Tailwind CSS.',
-    author: 'Robert Soriano',
-    author_url: 'https://github.com/wobsoriano',
-    keywords: ['starter', 'templates', 'vite', 'tailwind'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Starters, ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://www.npmjs.com/package/solid-urql',
     title: 'solid-urql',
     description: 'A highly customizable and versatile GraphQL client for Solid.',
     author: 'Ari Seyhun',
     author_url: 'https://github.com/Acidic9',
-    keywords: ['graphql', 'url', 'url', 'formidable'],
+    keywords: ['graphql', 'urql', 'url', 'url', 'formidable'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
@@ -656,18 +645,6 @@ const utilities: Array<Resource> = [
     author: 'Robert Soriano',
     author_url: 'https://github.com/wobsoriano',
     keywords: ['container', 'state', 'zustand'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.Data],
-  },
-  {
-    link: 'https://github.com/wobsoriano/solid-supabase',
-    title: 'solid-supabase',
-    description:
-      'A simple wrapper around Supabase.js (Firebase replacement) that gives you access to the client as a Solid hook.',
-    author: 'Robert Soriano',
-    author_url: 'https://github.com/wobsoriano',
-    keywords: ['database', 'firebase', 'wrapper'],
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Data],
@@ -2724,6 +2701,103 @@ const utilities: Array<Resource> = [
     published_at: 1745821054,
   },
   {
+    title: 'Formisch',
+    link: 'https://formisch.dev/solid/guides/introduction/',
+    author: 'Fabian Hiller',
+    author_url: 'https://github.com/fabian-hiller',
+    description:
+      'Formisch is a schema-based, headless form library for SolidJS. It manages form state and validation. It is type-safe, fast by default and its bundle size is small due to its modular design.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI, ResourceCategory.Primitives, ResourceCategory.Data],
+    official: false,
+    keywords: ['form', 'field', 'validation', 'input', 'ui', 'schema', 'valibot'],
+    published_at: 1761615900016,
+  },
+  {
+    title: 'solidstart-urql',
+    link: 'https://github.com/urql-graphql/urql/tree/main/packages/solid-start-urql',
+    author: 'David Di Biase',
+    author_url: 'https://github.com/davedbase',
+    description:
+      '@urql/solid-start provides URQL integration for SolidStart, built with SolidStart\'s native primitives like query, action, and createAsync.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['data', 'start', 'query', 'action', 'gql', 'graphql', 'codegen'],
+    published_at: 1769436408000,
+  },
+  {
+    title: 'Orval Solid & SolidStart REST Codegen',
+    link: 'https://orval.dev/guides/solid-start',
+    author: 'David Di Biase',
+    author_url: 'https://github.com/davedbase',
+    description:
+      'Orval is a RESTful generator that produces Solid and SolidStart bindings.',
+    type: PackageType.Library,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: ['orval', 'data', 'query', 'action', 'start', 'rest', 'codegen'],
+    published_at: 1769436408000,
+  },
+  {
+    title: '@stitchapi/solid',
+    link: 'https://github.com/rejifald/StitchAPI/tree/main/packages/solid',
+    author: 'Oleksandr Zhuravlov',
+    author_url: 'https://github.com/rejifald',
+    description:
+      'Typed, validated, streaming-first API bindings for Solid — createStitch/createStitchStream primitives that reconcile a Solid store and re-render as response deltas arrive, plus an optional TanStack-shaped queryOptions helper.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.Data],
+    official: false,
+    keywords: [
+      'data',
+      'query',
+      'fetch',
+      'streaming',
+      'typed',
+      'validated',
+      'rest',
+      'http',
+      'store',
+    ],
+    published_at: 1783036800000
+  },
+  {
+    title: 'solid-route-progress',
+    link: 'https://solid-route-progress.vercel.app',
+    author: 'kecan0406',
+    author_url: 'https://github.com/kecan0406',
+    description:
+      'Route progress bar for SolidJS and SolidStart: the thin loading bar along the top of the page. Follows @solidjs/router navigations, or the Navigation API without a router; the loading drift is one CSS transition, themed with custom properties or Tailwind.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    official: false,
+    keywords: ['progress', 'loading', 'navigation', 'router', 'start', 'ui', 'tailwind'],
+    published_at: 1789897349196,
+  },
+  {
+    title: '@comvi/solid',
+    link: 'https://github.com/comvi-io/comvi-js/tree/main/packages/solid',
+    author: 'Eugene Balabai',
+    author_url: 'https://github.com/EugeneBalabai',
+    description:
+      'SolidJS i18n with type-checked keys, ICU plurals and a <T> component for markup inside translations.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+    official: false,
+    keywords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'intl',
+      'icu',
+    ],
+    published_at: 1792671837462,
+  },
+  {
     link: 'https://github.com/piying-org/piying-view',
     title: 'piying-view',
     description: 'Frontend form solution;Valibot define to form component;Strongly typed',
@@ -2739,7 +2813,7 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins,ResourceCategory.UI],
-  },
+  }
 ];
 
 export default utilities;

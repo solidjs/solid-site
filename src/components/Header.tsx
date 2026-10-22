@@ -105,7 +105,7 @@ const Header: ParentComponent<{ title?: string }> = () => {
                 <div class="space-y-2 md:flex md:space-y-0 md:space-x-2">
                   <div>
                     <A
-                      href="/guides/getting-started"
+                      href="https://docs.solidjs.com/quick-start"
                       class="bg-solid-medium flex justify-center items-center px-5 py-3 text-md rounded-lg hover:bg-solid-gray transition"
                     >
                       {t('home.get_started')}
