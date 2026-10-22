@@ -2783,7 +2783,42 @@ const utilities: Array<Resource> = [
       'http',
       'store',
     ],
-    published_at: 1783036800000,
+    published_at: 1783036800000
+  },
+  {
+    title: 'solid-route-progress',
+    link: 'https://solid-route-progress.vercel.app',
+    author: 'kecan0406',
+    author_url: 'https://github.com/kecan0406',
+    description:
+      'Route progress bar for SolidJS and SolidStart: the thin loading bar along the top of the page. Follows @solidjs/router navigations, or the Navigation API without a router; the loading drift is one CSS transition, themed with custom properties or Tailwind.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    official: false,
+    keywords: ['progress', 'loading', 'navigation', 'router', 'start', 'ui', 'tailwind'],
+    published_at: 1789897349196,
+  },
+  {
+    title: '@comvi/solid',
+    link: 'https://github.com/comvi-io/comvi-js/tree/main/packages/solid',
+    author: 'Eugene Balabai',
+    author_url: 'https://github.com/EugeneBalabai',
+    description:
+      'SolidJS i18n with type-checked keys, ICU plurals and a <T> component for markup inside translations.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.Data],
+    official: false,
+    keywords: [
+      'i18n',
+      'localisation',
+      'localization',
+      'translate',
+      'translations',
+      'language',
+      'intl',
+      'icu',
+    ],
+    published_at: 1792671837462,
   },
 ];
 
