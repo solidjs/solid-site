@@ -1423,7 +1423,8 @@ const articles: Array<Resource> = [
   {
     link: 'https://thenewstack.io/how-js-meta-framework-solidstart-became-router-agnostic/',
     title: 'How JS Meta-Framework SolidStart Became Router Agnostic',
-    description: 'SolidStart is a new meta-framework from the SolidJS team that doesn\'t dictate which router developers use. Ryan Carniato explains why.',
+    description:
+      "SolidStart is a new meta-framework from the SolidJS team that doesn't dictate which router developers use. Ryan Carniato explains why.",
     author: 'Loraine Lawson',
     author_url: 'https://thenewstack.io/',
     keywords: ['solid', 'solidstart', 'router', 'vinxi', 'tanstack'],

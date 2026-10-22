@@ -58,7 +58,7 @@
         "Solid דובקת באותה פילוסופיה כמו React עם זרימת מידע רב-כיוונית, הפרדת כתיבות וקריאות וממשקים בלתי ניתנים לשינוי. היא ממומשת בצורה שונה לגמרי ולא משתמשת ב-DOM וירטואלי."
       ],
       "link_label": "לתיעוד",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "עם תגובתיות מכוונת תוכלו לעשות יותר עבודה בפחות קוד.",

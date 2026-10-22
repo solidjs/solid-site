@@ -61,7 +61,7 @@
       "Solid folgt der gleichen Philosophie wie React mit unidirektionalem Datenfluss, Trennung zwischen Lesen und Schreiben und unveränderlichen Schnittstellen. Es hat nur eine völlig andere Implementierung, die das virtuelle DOM auslässt."
     ],
     "link_label": "Dokumentation",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/"
   },
   "reactivity": {
     "headline": "Feingranulare Reaktivität hilft, mit weniger mehr zu erreichen.",
