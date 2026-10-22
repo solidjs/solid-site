@@ -2763,6 +2763,19 @@ const utilities: Array<Resource> = [
     published_at: 1769436408000,
   },
   {
+    title: 'solid-route-progress',
+    link: 'https://solid-route-progress.vercel.app',
+    author: 'kecan0406',
+    author_url: 'https://github.com/kecan0406',
+    description:
+      'Route progress bar for SolidJS and SolidStart: the thin loading bar along the top of the page. Follows @solidjs/router navigations, or the Navigation API without a router; the loading drift is one CSS transition, themed with custom properties or Tailwind.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    official: false,
+    keywords: ['progress', 'loading', 'navigation', 'router', 'start', 'ui', 'tailwind'],
+    published_at: 1789897349196,
+  },
+  {
     title: '@comvi/solid',
     link: 'https://github.com/comvi-io/comvi-js/tree/main/packages/solid',
     author: 'Eugene Balabai',
@@ -2783,7 +2796,6 @@ const utilities: Array<Resource> = [
       'icu',
     ],
     published_at: 1792671837462,
-  },
 ];
 
 export default utilities;
