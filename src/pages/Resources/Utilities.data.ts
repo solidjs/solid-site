@@ -2796,6 +2796,7 @@ const utilities: Array<Resource> = [
       'icu',
     ],
     published_at: 1792671837462,
+  },
 ];
 
 export default utilities;
