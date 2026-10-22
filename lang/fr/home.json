@@ -61,7 +61,7 @@
         "Solid suit la même philosophie que React avec un flux de données unidirectionnel, une ségrégation lecture/écriture et des interfaces immuables. Il a juste une implémentation complètement différente qui renonce à utiliser un DOM virtuel."
       ],
       "link_label": "Voir la documentation",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "La réactivité à grain fin signifie que vous faites plus",

@@ -60,7 +60,7 @@
         "يتبع Solid نفس فلسفة React مع تدفق البيانات أحادي الاتجاه ، وفصل القراءة / الكتابة ، والواجهات الثابتة. ومع ذلك ، فإنه يحتوي على تطبيق مختلف على عكس React فإن Solid تمامًا تتجاهل استخدام الـ Virtual DOM."
       ],
       "link_label": "عرض المستندات",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "تفاعلية بالغة الدقة تعني أنه يمكنك أن تفعل المزيد بموارد أقل.",

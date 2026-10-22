@@ -60,7 +60,7 @@
         "Solid는 단방향 데이터 흐름, 읽기/쓰기 분리, 불변 인터페이스와 같은 리액트의 철학을 동일하게 따릅니다. 하지만 가상 DOM을 사용하지 않고 완전히 다르게 구현합니다."
       ],
       "link_label": "문서 보기",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/"
     },
     "reactivity": {
       "headline": "세밀한 반응성을 통해 적은 노력으로 더 많은 것을 할 수 있습니다.",

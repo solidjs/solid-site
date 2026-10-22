@@ -100,8 +100,12 @@ const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
               <h2 class="text-2xl mb-5 font-semibold text-solid-default dark:text-solid-darkdefault">
                 {t('contributors.contributors')}
               </h2>
-              <a target="_blank" href="https://github.com/solidjs/solid/graphs/contributors" rel="noreferrer">
-                <img src="https://camo.githubusercontent.com/c2d6e18c0cf67d82e51738442d4082326b7cf63a1552e9d27f773eafe0d3d3be/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f736f6c69642f636f6e7472696275746f72732e7376673f77696474683d38393026627574746f6e3d66616c7365" />
+              <a
+                target="_blank"
+                href="https://github.com/solidjs/solid/graphs/contributors"
+                rel="noreferrer"
+              >
+                <img src="https://opencollective.com/solid/contributors.svg?width=890&button=false" />
               </a>
             </div>
             <h2 class="text-2xl font-semibold text-solid-default dark:text-solid-darkdefault">
@@ -130,7 +134,8 @@ const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
                 <a
                   target="_blank"
                   class="text-solid-default dark:text-solid-darkdefault "
-                  href="https://opencollective.com/solid" rel="noreferrer"
+                  href="https://opencollective.com/solid"
+                  rel="noreferrer"
                 >
                   Contribute today &raquo;
                 </a>
@@ -164,7 +169,9 @@ const Contributors: Component<{ data: ContributorsDataProps }> = (props) => {
                   <img class="w-22" src="https://opencollective.com/solid/backer/8/avatar.svg" />
                 </a>
                 <a href="https://opencollective.com/solid/backer/9/website" target="_blank">
-                  <img class="w-22" src="https://opencollective.com/solid/backer/9/avatar.svg" />
+                  <svg class="w-22" viewBox="0 0 100 100">
+                    <circle cx="45" cy="45" r="45" fill="#fff" />
+                  </svg>
                 </a>
                 <a href="https://opencollective.com/solid/backer/10/website" target="_blank">
                   <img class="w-22" src="https://opencollective.com/solid/backer/10/avatar.svg" />
