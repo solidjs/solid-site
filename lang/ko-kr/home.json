@@ -27,12 +27,12 @@
     ],
     "facts": [
       {
-        "label": "7kb",
+        "label": "4kb",
         "detail": "코드 경량화 + Gzip 압축",
-        "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+        "link": "https://bundlephobia.com/package/solid-js@1.9.9"
       },
       {
-        "label": "30k+",
+        "label": "34k+",
         "detail": "깃헙 스타",
         "link": "https://star-history.t9t.io/#solidjs/solid"
       },
@@ -60,14 +60,14 @@
         "Solid는 단방향 데이터 흐름, 읽기/쓰기 분리, 불변 인터페이스와 같은 리액트의 철학을 동일하게 따릅니다. 하지만 가상 DOM을 사용하지 않고 완전히 다르게 구현합니다."
       ],
       "link_label": "문서 보기",
-      "link": "https://www.solidjs.com/docs/latest#component-apis"
+      "link": "https://docs.solidjs.com/concepts/components/basics"
     },
     "reactivity": {
       "headline": "세밀한 반응성을 통해 적은 노력으로 더 많은 것을 할 수 있습니다.",
       "subheadline": "Solid는 사용자 영역 코드부터 JSX 뷰까지 효율적인 리액티브 프리미티브로 구축되었습니다.",
       "copy": "이로 인해 DOM 바인딩 수준에서도 업데이트 대상과 시점에 대한 완전한 제어가 가능해졌습니다. 어떤 가상 DOM 이나 diffing 프레임워크에서도 이러한 요구를 만족하지 못했습니다.",
       "link_label": "실제 사용 예",
-      "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+      "link": "https://playground.solidjs.com"
     },
     "performance": {
       "headline": [

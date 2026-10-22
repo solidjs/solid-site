@@ -24,17 +24,17 @@
   ],
   "facts": [
     {
-      "label": "7kb",
+      "label": "4kb",
       "detail": "فشرده شده",
-      "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      "link": "https://bundlephobia.com/package/solid-js@1.9.9"
     },
     {
-      "label": "30k+",
+      "label": "34k+",
       "detail": "ستاره های گیت هاب",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
     {
-      "label": "بیش از 5 سال",
+      "label": "بیش از 7 سال",
       "detail": "در حال توسعه"
     },
     {
@@ -57,14 +57,14 @@
       "Solid از فلسفه های طراحی شده در React مانند جریان داده یک طرفه، تفکیک خواندن/نوشتن و رابط های تغییر ناپذیر تبعیت می کند. تنها تفاوت آن در نحوه پیاده سازی این ویژگی هاست که باعث می شود نیازی به Virtual DOM نداشته باشد."
     ],
     "link_label": "مراجعه به مستندات",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/concepts/components/basics"
   },
   "reactivity": {
     "headline": "واکنش پذیری Fine-grained به این معنی است که شما با دستورات کمتر، کارهای بیشتری انجام خواهید داد.",
     "subheadline": "تمامی بخش های Solid از توابع داخلی گرفته تا JSX و کدهای نوشته شده توسط کاربر با استفاده از واکنش پذیری کارآمد ساخته شده است.",
     "copy": "این کار منجر می شود که کنترل کامل بخش هایی که آپدیت می شوند و همچنین زمان آن ها در کنترل کامل شما باشد. به دلیل عدم وجود Virtual DOM و مقایسه های فراوان، این فریمورک هیچ کار اضافه ای بجز چیزهایی که از آن خواسته شده است، انجام نمی دهد.",
     "link_label": "مشاهده کد خروجی",
-    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    "link": "https://playground.solidjs.com"
   },
   "performance": {
     "headline": ["تمرکز بر روی کارایی بالا", "هم در سمت کاربر و هم در سمت سرور"],

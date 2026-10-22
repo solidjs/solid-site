@@ -32,17 +32,17 @@
   ],
   "facts": [
     {
-      "label": "6.4кб",
+      "label": "4кб",
       "detail": "Сжатый + Упакованный",
-      "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      "link": "https://bundlephobia.com/package/solid-js@1.9.9"
     },
     {
-      "label": "32k+",
+      "label": "34k+",
       "detail": "Звезд на GitHub",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
     {
-      "label": "5+ лет",
+      "label": "7+ лет",
       "detail": "В разработке"
     },
     {
@@ -65,14 +65,14 @@
       "Solid следует той же философии, что и React, с однонаправленным потоком данных, разделением чтения и записи и неизменяемыми интерфейсами. Однако он имеет совершенно другую реализацию, которая не использует виртуальный DOM."
     ],
     "link_label": "Открыть документацию",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/concepts/components/basics"
   },
   "reactivity": {
     "headline": "Мелкозернистая реактивность означает, что Вы делаете больше с меньшими затратами.",
     "subheadline": "Solid построен с использованием эффективных реактивных примитивов от Вашего пользовательского кода до Ваших представлений JSX.",
     "copy": "Это открывает полный контроль над тем, что обновлять и когда, даже на уровне привязки к DOM. Без виртуального DOM или обширных различий фреймворк никогда не выполнит больше работы, чем Вы хотите.",
     "link_label": "Посмотреть в действии",
-    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    "link": "https://playground.solidjs.com"
   },
   "performance": {
     "headline": [

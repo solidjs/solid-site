@@ -30,17 +30,17 @@
   ],
   "facts": [
     {
-      "label": "7kb",
+      "label": "4kb",
       "detail": "Minificado + compresión Gzip",
-      "link": "https://bundlephobia.com/package/solid-js@1.2.1"
+      "link": "https://bundlephobia.com/package/solid-js@1.9.9"
     },
     {
-      "label": "30k+",
+      "label": "34k+",
       "detail": "Estrellas GitHub",
       "link": "https://star-history.t9t.io/#solidjs/solid"
     },
     {
-      "label": "5+ años",
+      "label": "7+ años",
       "detail": "En desarrollo"
     },
     {
@@ -63,14 +63,14 @@
       "Solid sigue la misma filosofía que React con un flujo de datos unidireccional, segregación de lectura/escritura e interfaces inmutables. Al mismo tiempo, tiene una implementación completamente diferente al prescindir del Virtual DOM."
     ],
     "link_label": "Ver Documentación",
-    "link": "https://www.solidjs.com/docs/latest#component-apis"
+    "link": "https://docs.solidjs.com/concepts/components/basics"
   },
   "reactivity": {
     "headline": "Reactividad finamente detallada, haces mas con menos.",
     "subheadline": "Solid está construido con primitivos reactivos eficientes desde tus utilidades hasta tus vistas JSX.",
     "copy": "Obtén control completo sobre lo que se actualiza y cuando, incluso al nivel del DOM. Olvida el Virtual DOM o la extensiva reconciliación, este framework nunca hace mas trabajo del que quieres que haga.",
     "link_label": "Míralo en acción",
-    "link": "https://playground.solidjs.com/?version=1.0.0#NobwRAdghgtgpmAXGGUCWEwBowBcCeADgsrgM4Ae2YZA9gK4BOAxiWGjIbY7gAQi9GcCABM4jXgF9eAM0a0YvAOR0ANmhEBaAFZkA9AHc4AIyUBuADoQOXHv17MhUXHADKaAObRVU2fMUqtOpauuZWVjL0EMy4aLQQvACChIQAFACU-Fa8DvFkfMBQMWgAbnBYvGRwuInFZQC6vAC8Dk4u7l5Qqqm4jPRw6ZYQ2YLVTAkAPCKlDqpQZGRNIEWxZRm8APy8FmArpXA7vIjbYDuSAHwAEmgTetMl51aS4RBCouKp603nvBPJhLw9OcKiJaMx6PAILgAHQeaoAUVUcEhuAAQvgAJIiVJKKApJTpdJWMCSepAA"
+    "link": "https://playground.solidjs.com"
   },
   "performance": {
     "headline": ["Enfocado en el desempeño", "en ambos, cliente y servidor"],
