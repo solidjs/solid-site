@@ -851,6 +851,18 @@ const utilities: Array<Resource> = [
     published_at: 1633895338000,
   },
   {
+    link: 'https://github.com/Simon-He95/markstream-vue',
+    title: 'markstream-solid',
+    description:
+      'SolidJS 1.9 / SolidStart renderer for AI chat and SSE/WebSocket Markdown streams, with incomplete Markdown, streaming code blocks, Mermaid, KaTeX, safe HTML, and long-response support.',
+    author: 'Simon He',
+    author_url: 'https://github.com/Simon-He95',
+    keywords: ['markdown', 'streaming', 'ai', 'chat', 'solidstart', 'mermaid', 'katex'],
+    official: false,
+    type: PackageType.Package,
+    categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
     link: 'https://github.com/aldy505/vite-plugin-pages-solid',
     title: 'vite-plugin-pages-solid',
     description: 'A fork of vite-plugin-pages for Vue adapted for Solid.',
