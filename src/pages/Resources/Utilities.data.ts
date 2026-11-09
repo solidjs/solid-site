@@ -2813,6 +2813,19 @@ const utilities: Array<Resource> = [
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
   },
+  {
+    title: 'solid-ai-chatbot',
+    link: 'https://asyntai.com/documentation/integrations/solid/',
+    author: 'Asyntai',
+    author_url: 'https://asyntai.com',
+    description:
+      'Add the Asyntai AI chat assistant to a Solid or SolidStart app with one component. It answers visitors from your own content.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    official: false,
+    keywords: ['chatbot', 'ai', 'chat', 'widget', 'customer support', 'solidstart'],
+    published_at: 1794239898189,
+  },
 ];
 
 export default utilities;
