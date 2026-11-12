@@ -1,5 +1,5 @@
 @import url('solid-repl/dist/bundle.css');
-@import url('./hljs.css');
+@import url('./shiki.css');
 
 @font-face {
   font-family: 'Gordita';
