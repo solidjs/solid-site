@@ -1,7 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import solid from 'vite-plugin-solid';
 import mdx from '@mdx-js/rollup';
-import rehypeHighlight from 'rehype-highlight';
+import rehypeShiki from '@shikijs/rehype';
 import remarkGfm from 'remark-gfm';
 import pckg from './package.json' assert { type: 'json' };
 
@@ -17,7 +17,15 @@ export default defineConfig({
         jsxImportSource: 'solid-js',
         providerImportSource: 'solid-mdx',
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight],
+        rehypePlugins: [
+          [
+            rehypeShiki,
+            {
+              themes: { light: 'github-light', dark: 'github-dark' },
+              defaultColor: 'light',
+            },
+          ],
+        ],
       }),
       enforce: 'pre',
     } as Plugin,

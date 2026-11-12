@@ -1,0 +1,13 @@
+/* Shiki dual themes, see https://shiki.style/guide/dual-themes */
+
+pre.shiki {
+  padding: 1em;
+  overflow-x: auto;
+  /* keep the site's transparent code block background instead of the theme's */
+  background-color: transparent !important;
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
