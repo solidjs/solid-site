@@ -49,7 +49,7 @@ They're imported from the [Solid Docs](https://github.com/solidjs/solid-docs) pa
 - [Cloudflare Wrangler](https://github.com/cloudflare/wrangler) - Cloudflare Wrangler to deploy to Workers
 - [Vite](http://vitejs.dev/) - For the bundler / dev server
 - [pnpm](https://pnpm.io) - The package manager
-- [Shiki](https://github.com/shikijs/shiki) - For the code highlight
+- [highlight.js](https://github.com/highlightjs/highlight.js) - For the code highlight (via [rehype-highlight](https://github.com/rehypejs/rehype-highlight))
 - [Vite PWA](https://vite-plugin-pwa.netlify.app/) - For PWA functionality
 
 ## Contributions
