@@ -39,6 +39,12 @@ function keepOpenOnHoverClick(el: HTMLElement) {
 
 function DesktopNav() {
   const location = useLocation();
+  // Kobalte's NavigationMenu.Portal mounts into the viewport through a conditional `mount` getter. In dev, Solid 2
+  // throws PRIMITIVE_IN_EFFECT_CALLBACK when Portal reads it (it creates a memo in an effect callback), which halts
+  // reactivity and leaves menus "open" but empty. Our own lazy getter over a plain variable wins over Kobalte's and
+  // creates nothing, and the content still mounts inside the viewport so focus stays within the menu.
+  let viewportEl: HTMLElement | undefined;
+  const portalProps = { get mount() { return viewportEl; } };
   return (
     <NavigationMenu class={styles.menu} aria-label="Primary" delayDuration={80} skipDelayDuration={200}>
       <For each={NAV} keyed={(e) => e.label}>
@@ -63,7 +69,7 @@ function DesktopNav() {
                     {group().label}
                     <Icon name="chevron-down" size={14} class={styles.caret} />
                   </NavigationMenu.Trigger>
-                  <NavigationMenu.Portal>
+                  <NavigationMenu.Portal {...portalProps}>
                     <NavigationMenu.Content class={styles.content}>
                       <For each={group().items} keyed={(i) => i.href}>
                         {(item) => (
@@ -98,7 +104,7 @@ function DesktopNav() {
           </NavigationMenu.Menu>
         )}
       </For>
-      <NavigationMenu.Viewport class={styles.viewport} />
+      <NavigationMenu.Viewport class={styles.viewport} ref={viewportEl} />
     </NavigationMenu>
   );
 }
