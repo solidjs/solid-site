@@ -1,0 +1,7 @@
+/* Brand tokens — swap hex values here once the final palette lands. */
+:root {
+  --solid-blue: #2c4f7c;
+  --solid-blue-light: #446b9e;
+  --solid-bg: #ffffff;
+  --solid-fg: #181a1f;
+}

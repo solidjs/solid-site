@@ -1,34 +1,26 @@
-import { defineConfig, type Plugin } from 'vite';
-import solid from 'vite-plugin-solid';
-import mdx from '@mdx-js/rollup';
-import rehypeHighlight from 'rehype-highlight';
-import remarkGfm from 'remark-gfm';
-import pckg from './package.json' assert { type: 'json' };
+import { createSolidBase, defineTheme } from "@kobalte/solidbase/config";
+import solid from "@solidjs/vite-plugin";
+import { defineConfig } from "vite";
+
+const siteTheme = defineTheme({
+  componentsPath: new URL("./src/theme/", import.meta.url).href,
+});
+
+const solidBase = createSolidBase(siteTheme);
 
 export default defineConfig({
-  define: {
-    __UPDATED_AT__: JSON.stringify(new Date().toLocaleString()),
-    __SOLID_VERSION__: JSON.stringify(pckg.dependencies['solid-js']),
-  },
   plugins: [
-    {
-      ...mdx({
-        jsx: true,
-        jsxImportSource: 'solid-js',
-        providerImportSource: 'solid-mdx',
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeHighlight],
-      }),
-      enforce: 'pre',
-    } as Plugin,
-    solid({ extensions: ['.md', '.mdx'] }),
-    // VitePWA(pwaOptions),
+    solidBase.plugin({
+      title: "SolidJS",
+      titleTemplate: ":title | SolidJS",
+      description:
+        "Simple and performant reactivity for building user interfaces.",
+      siteUrl: "https://www.solidjs.com",
+      sitemap: true,
+      robots: true,
+      llms: false,
+      lastUpdated: false,
+    }),
+    solid(solidBase.startConfig()),
   ],
-  optimizeDeps: {
-    include: ['monaco-textmate', 'onigasm', 'monaco-editor-textmate'],
-    exclude: ['@solid.js/docs'],
-  },
-  build: {
-    target: 'esnext',
-  },
 });

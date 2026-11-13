@@ -1,24 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2019",
+    "target": "ESNext",
     "module": "ESNext",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "jsx": "preserve",
-    "resolveJsonModule": true,
-    "newLine": "lf",
-    "sourceMap": true,
-    "jsxImportSource": "solid-js",
-    "types": ["vite/client", "solid-repl/dist/types"],
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "skipLibCheck": true,
+    "jsxImportSource": "@solidjs/web",
     "strict": true,
+    "skipLibCheck": true,
     "noEmit": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"]
+    "isolatedModules": true,
+    "types": ["vite/client"]
   },
-  "include": ["./src/**/*", "./vite.config.ts", "./scripts", "src/types.d.ts"],
-  "exclude": ["node_modules/"]
+  "include": ["src", "vite.config.ts"]
 }
