@@ -192,18 +192,23 @@ function MobileNav() {
  */
 export function Header() {
   const [hidden, setHidden] = createSignal(false);
+  const [scrolled, setScrolled] = createSignal(false);
   onSettled(() => {
     const footer = document.querySelector("footer");
     if (!footer) return;
     let footerVisible = false;
-    const update = () => setHidden(footerVisible && window.scrollY > 64);
+    const update = () => {
+      setHidden(footerVisible && window.scrollY > 64);
+      setScrolled(window.scrollY > 8);
+    };
+    update();
     const io = new IntersectionObserver(([entry]) => { footerVisible = entry.isIntersecting; update(); });
     io.observe(footer);
     window.addEventListener("scroll", update, { passive: true });
     return () => { io.disconnect(); window.removeEventListener("scroll", update); };
   });
   return (
-    <header class={styles.header} data-hidden={hidden() ? "" : undefined} inert={hidden()}>
+    <header class={styles.header} data-hidden={hidden() ? "" : undefined} data-scrolled={scrolled() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
         <a href="/" class={styles.brand} aria-label={`${SITE_NAME} home`}>
           <Logo height={26} />

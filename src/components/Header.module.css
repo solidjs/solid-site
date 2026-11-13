@@ -1,7 +1,9 @@
-.header { position: sticky; top: 0; z-index: var(--z-header); height: var(--header-height); background: color-mix(in srgb, var(--color-bg) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); transition: transform var(--duration-base) var(--ease-out); }
+/* The header strip is transparent and click-through; the .bar inside is the visible element. Past the top of the page the bar floats as an inset, rounded, blurred pill. */
+.header { position: sticky; top: 0; z-index: var(--z-header); display: flex; align-items: center; height: var(--header-height); pointer-events: none; transition: transform var(--duration-base) var(--ease-out); }
 .header[data-hidden] { transform: translateY(-100%); }
-@media (prefers-reduced-motion: reduce) { .header { transition: none; } }
-.bar { display: flex; align-items: center; gap: 1.5rem; height: 100%; max-width: calc(var(--content-width-wide) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.bar { pointer-events: auto; display: flex; align-items: center; gap: 1.5rem; box-sizing: border-box; width: 100%; height: 100%; max-width: calc(var(--content-width-wide) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); border: 1px solid transparent; border-radius: 0; background: transparent; transition: width var(--duration-base) var(--ease-out), max-width var(--duration-base) var(--ease-out), height var(--duration-base) var(--ease-out), padding var(--duration-base) var(--ease-out), border-radius var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out), border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
+.header[data-scrolled] .bar { width: calc(100% - 1.5rem); max-width: min(62rem, calc(100% - 1.5rem)); height: 3.25rem; padding-inline: 0.75rem 0.5rem; border-color: var(--color-border); border-radius: 1rem; background: color-mix(in srgb, var(--color-bg) 78%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); box-shadow: var(--shadow-lg); }
+@media (prefers-reduced-motion: reduce) { .header, .bar { transition: none; } }
 .brand { display: inline-flex; border-radius: var(--radius-sm); }
 .desktop { display: none; flex: 1; min-width: 0; }
 .actions { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
