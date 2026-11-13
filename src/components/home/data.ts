@@ -64,44 +64,6 @@ export const SNIPPETS: Snippet[] = [
   },
 ];
 
-export interface Principle {
-  index: string;
-  title: string;
-  description: string;
-  visual: "reactivity" | "compiled" | "async" | "familiar";
-}
-
-export const PRINCIPLES: Principle[] = [
-  {
-    index: "01",
-    title: "Fine-grained reactivity",
-    description:
-      "Components run once. Signals update exactly the DOM nodes that read them, with no re-rendering and no diffing of component trees.",
-    visual: "reactivity",
-  },
-  {
-    index: "02",
-    title: "No virtual DOM",
-    description:
-      "JSX compiles to real DOM operations ahead of time. What you write is what runs in the browser.",
-    visual: "compiled",
-  },
-  {
-    index: "03",
-    title: "Async-first in 2.0",
-    description:
-      "Async memos, Loading and Errored boundaries, and actions make data fetching and mutations part of the reactive graph.",
-    visual: "async",
-  },
-  {
-    index: "04",
-    title: "Familiar and lean",
-    description:
-      "If you know JSX and TypeScript you already know most of Solid. A small runtime and a Vite-based toolchain keep the rest out of your way.",
-    visual: "familiar",
-  },
-];
-
 export interface Project {
   name: string;
   description: string;

@@ -33,6 +33,10 @@ async function fetchStats(): Promise<Stats> {
   };
 }
 
+/** One request per page load: the hero stats and the "Why Solid" numbers share it (GitHub allows 60 unauthenticated calls/hour). */
+let cached: Promise<Stats> | undefined;
+const getStats = () => (cached ??= fetchStats());
+
 function StatList(props: { values: Stats }) {
   const items = () => [
     { label: "GitHub stars", value: props.values.stars, href: URLS.githubRepo },
@@ -59,12 +63,29 @@ export function LiveStats() {
   onSettled(() => {
     setEnabled(true);
   });
-  const live = createMemo(async () => (enabled() ? await fetchStats() : STATS_FALLBACK));
+  const live = createMemo(async () => (enabled() ? await getStats() : STATS_FALLBACK));
   return (
     <Errored fallback={<StatList values={STATS_FALLBACK} />}>
       <Loading fallback={<StatList values={STATS_FALLBACK} />}>
         <StatList values={live()} />
       </Loading>
+    </Errored>
+  );
+}
+
+/**
+ * A single live number (inline text). Prerenders the fallback, then upgrades after hydration with the shared
+ * request. Never throws, and keeps the fallback if the API fails.
+ */
+export function LiveStat(props: { stat: keyof Stats }) {
+  const [enabled, setEnabled] = createSignal(false);
+  onSettled(() => {
+    setEnabled(true);
+  });
+  const live = createMemo(async () => (enabled() ? (await getStats())[props.stat] : STATS_FALLBACK[props.stat]));
+  return (
+    <Errored fallback={format(STATS_FALLBACK[props.stat])}>
+      <Loading fallback={format(STATS_FALLBACK[props.stat])}>{format(live())}</Loading>
     </Errored>
   );
 }

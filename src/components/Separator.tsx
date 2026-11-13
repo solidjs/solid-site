@@ -8,5 +8,5 @@ export interface SeparatorProps {
 
 /** Thin divider line (Kobalte Separator, renders <hr> with proper semantics). */
 export function Separator(props: SeparatorProps) {
-  return <KSeparator orientation={props.orientation} class={[styles.separator, props.class]} />;
+  return <KSeparator orientation={props.orientation ?? "horizontal"} class={[styles.separator, props.class]} />;
 }

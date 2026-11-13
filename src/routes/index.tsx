@@ -6,7 +6,7 @@ import { Ecosystem } from "../components/home/Ecosystem";
 import { Hero } from "../components/home/Hero";
 import { Maintainers } from "../components/home/Maintainers";
 import { Newsletter } from "../components/home/Newsletter";
-import { Principles } from "../components/home/Principles";
+import { WhySolid } from "../components/home/WhySolid";
 import { Sponsors } from "../components/home/Sponsors";
 import { WhatsNew } from "../components/home/WhatsNew";
 
@@ -25,7 +25,7 @@ export default function Home() {
       <Meta property="og:site_name" content={SITE_NAME} />
       <Meta name="twitter:card" content="summary_large_image" />
       <Hero />
-      <Principles />
+      <WhySolid />
       <WhatsNew />
       <Ecosystem />
       <Community />
