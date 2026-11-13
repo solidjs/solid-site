@@ -1,0 +1,23 @@
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+.person { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; padding: 1.75rem 1.5rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+.personName { margin: 0.5rem 0 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); }
+.personRole { margin: 0; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-brand-text); }
+.personBio { margin: 0; font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--color-text-muted); }
+.personLinks { margin-top: auto; padding-top: 0.75rem; display: flex; gap: 0.5rem; }
+.iconLink { display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-full); color: var(--color-text-muted); }
+.iconLink:hover { color: var(--color-text); background: var(--color-surface-hover); }
+.iconLink:focus-visible, .wallLink:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+.item { display: flex; flex-direction: column; gap: 0.25rem; padding: 1rem 1.25rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.itemName { font-weight: var(--weight-semibold); }
+.itemMeta { font-size: var(--text-sm); color: var(--color-text-muted); }
+.itemDetail { margin: 0; font-size: var(--text-sm); line-height: var(--leading-normal); color: var(--color-text-muted); }
+
+.wall { min-height: 14rem; }
+.wallGrid { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.wallLink { display: inline-flex; border-radius: var(--radius-full); }
+.wallLink:hover { box-shadow: 0 0 0 2px var(--color-brand); }
+.wallNote { margin: 0 0 1rem; text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); }
+
+.cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
