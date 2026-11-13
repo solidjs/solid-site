@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+/* Preview surfaces stay light/dark in BOTH themes (derived from the brand token, no hardcoded colours). */
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 11rem;
+  padding: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.light { background: color-mix(in srgb, var(--color-brand) 3%, white); }
+.dark { background: color-mix(in srgb, var(--color-brand) 25%, black); }
+.image { max-height: 5rem; max-width: 100%; }
+.body { padding: 1rem 1.25rem 1.25rem; display: grid; gap: 0.35rem; }
+.title { margin: 0; font-size: var(--text-lg); font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); }
+.description { margin: 0; color: var(--color-text-muted); font-size: var(--text-sm); }
+.downloads { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.download:hover { background: var(--color-surface-hover); }
+.download:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.copy { margin-inline-start: auto; }

@@ -1,0 +1,14 @@
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
