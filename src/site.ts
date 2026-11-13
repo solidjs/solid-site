@@ -6,7 +6,11 @@ export const SITE_NAME = "SolidJS";
  * Canonical origin, used for canonical links, og:url and og:image. Social crawlers need absolute URLs on a host that
  * actually serves the files, so a preview deploy builds with `VITE_SITE_URL=https://<preview-host>` to point at itself.
  */
-export const SITE_URL: string = import.meta.env.VITE_SITE_URL || "https://www.solidjs.com";
+export const SITE_URL: string =
+  // In dev the browser's own origin, so tools reading the page's tags find the dev-served /og images.
+  import.meta.env.DEV && typeof window !== "undefined"
+    ? window.location.origin
+    : import.meta.env.VITE_SITE_URL || "https://www.solidjs.com";
 export const SITE_TAGLINE = "Simple and performant reactivity for building user interfaces.";
 export const SITE_DESCRIPTION =
   "Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Solid 2.0 is in release-candidate.";
