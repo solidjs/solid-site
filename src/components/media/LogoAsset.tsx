@@ -8,7 +8,7 @@ import styles from "./LogoAsset.module.css";
 
 /** One logo variant: preview tile on its intended surface, per-format downloads, copy-SVG-URL. */
 export function LogoAsset(props: { variant: LogoVariant }) {
-  const headingId = () => `logo-${props.variant.id}`;
+  const headingId = () => `logo-${props.variant.id.replace("/", "-")}`;
   return (
     <article class={styles.card} aria-labelledby={headingId()}>
       <div class={[styles.preview, props.variant.surface === "dark" ? styles.dark : styles.light]}>
@@ -29,7 +29,7 @@ export function LogoAsset(props: { variant: LogoVariant }) {
               <Link
                 class={styles.download}
                 href={logoPath(props.variant.id, format())}
-                download={`solid-${props.variant.id}.${format().toLowerCase()}`}
+                download={`${props.variant.id.split("/")[1]}.${format().toLowerCase()}`}
                 aria-label={`Download ${props.variant.title} as ${format()}`}
               >
                 <Icon name="download" size={14} />

@@ -51,7 +51,7 @@ const font = (weight: 400 | 600 | 700) =>
   readFileSync(require.resolve(`@fontsource/geist/files/geist-latin-${weight}-normal.woff`));
 
 const logo = () =>
-  `data:image/svg+xml;base64,${readFileSync(new URL("public/img/logo/without-wordmark/logo.svg", root)).toString("base64")}`;
+  `data:image/svg+xml;base64,${readFileSync(new URL("public/img/logos/icon/solid-icon-dark.svg", root)).toString("base64")}`;
 
 /** Renders every page and returns [file, png] pairs. */
 export async function renderAll(pages: OgPage[]): Promise<Array<[string, Uint8Array]>> {

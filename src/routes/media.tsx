@@ -10,7 +10,7 @@ import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { URLS } from "../site";
 
-const DESCRIPTION = "Download the Solid logo in SVG, PNG, EPS, JPG and PDF, and find brand colours and usage guidelines.";
+const DESCRIPTION = "Download the Solid logo as SVG, and find brand colours and usage guidelines.";
 
 const COLOURS = [
   { token: "--color-brand", name: "Brand" },
@@ -39,7 +39,7 @@ export default function Media() {
         description="Logos, colours and typography for writing about Solid or building with it."
       />
 
-      <Section id="logos" size="wide" title="Logos" description="Each variant is shown on the surface it is designed for. Download a format or copy the SVG URL.">
+      <Section id="logos" size="wide" title="Logos" description="Each variant is shown on the surface it is designed for. Download the SVG or copy its URL.">
         <ul class={styles.logos} role="list">
           <For each={LOGO_VARIANTS} keyed={(v) => v.id}>
             {(variant) => <li><LogoAsset variant={variant()} /></li>}
