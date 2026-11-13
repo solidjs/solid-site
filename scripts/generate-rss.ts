@@ -20,6 +20,8 @@ try {
     platform: "node",
     format: "esm",
     outfile,
+    // site.ts reads Vite's import.meta.env; outside Vite, pass the same override through.
+    define: { "import.meta.env.VITE_SITE_URL": JSON.stringify(process.env.VITE_SITE_URL ?? "") },
     logLevel: "silent",
   });
   const { buildRss } = (await import(pathToFileURL(outfile).href)) as { buildRss: () => string };
