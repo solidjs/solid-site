@@ -59,7 +59,7 @@ Every page has a 1200x630 social card rendered at build time with [`@solidjs/ogp
 
 - `src/og/pages.ts` lists the cards (static pages, plus one per published blog post) and maps a route to its image. `src/theme/Layout.tsx` uses it to emit `og:image` / `twitter:image` for every route. Unlisted routes and draft posts get `/og/default.png`.
 - `src/og/Card.tsx` is the card, written as JSX. satori supports a subset of CSS: flexbox only, inline styles only, and any element with several children needs `display: flex`.
-- Colours are read from the dark block of `src/theme/tokens.css` and the font is Geist (`@fontsource/geist`), so a brand change needs no edit in `src/og`. Rebuild to refresh the images.
+- Colours are read from the light (`:root`) block of `src/theme/tokens.css` and the font is Geist (`@fontsource/geist`), so a brand change needs no edit in `src/og`. Rebuild to refresh the images.
 - `pnpm dev` renders `/og/*.png` on first request (the `og-dev-images` plugin in `vite.config.ts`), and in dev `og:image` uses the page's own origin, so link-preview tools pointed at the dev server work. Built output is different: `og:image` is an absolute URL on the canonical origin (`https://www.solidjs.com`), which serves the old site until this one is deployed, so a preview deploy shows a broken image unless it is built with its own origin: `VITE_SITE_URL=https://<preview-host> pnpm build` (also used for canonical links and `og:url`).
 - `@vercel/og`'s Node bundle expects CommonJS globals, so `generate-og.ts` provides `require` and `__dirname` before loading it. If an upgrade changes that, this is the first place to look.
 

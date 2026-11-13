@@ -12,16 +12,16 @@ import { OG_SIZE, type OgPage } from "./pages";
 const root = new URL("../../", import.meta.url);
 const require = createRequire(import.meta.url);
 
-/** Reads `--name: value;` declarations from the dark-theme block of tokens.css. */
-function darkTokens(): Record<string, string> {
+/** Reads `--name: value;` declarations from the light-theme (`:root`) block of tokens.css. */
+function lightTokens(): Record<string, string> {
   const css = readFileSync(new URL("src/theme/tokens.css", root), "utf8");
-  // Anchor to the selector at the start of a line: the file's header comment also mentions it.
-  const match = /^\[data-theme="dark"\][^{]*\{([^}]*)\}/m.exec(css);
-  if (!match) throw new Error('tokens.css has no [data-theme="dark"] block');
+  // Anchor to the selector at the start of a line: the file's header comment also mentions "Swapping ... :root".
+  const match = /^:root\s*\{([^}]*)\}/m.exec(css);
+  if (!match) throw new Error("tokens.css has no :root block");
   const tokens: Record<string, string> = {};
   for (const [, name, value] of match[1].matchAll(/--([\w-]+):\s*([^;]+);/g)) tokens[name] = value.trim();
-  if (!/color-scheme:\s*dark/.test(match[1])) {
-    throw new Error("Parsed the wrong block of tokens.css: the dark block must declare color-scheme: dark");
+  if (!/color-scheme:\s*light/.test(match[1])) {
+    throw new Error("Parsed the wrong block of tokens.css: the :root block must declare color-scheme: light");
   }
   return tokens;
 }
@@ -34,8 +34,8 @@ const hexToRgba = (hex: string, alpha: number) => {
 };
 
 function colors(): OgColors {
-  const t = darkTokens();
-  const need = (k: string) => t[k] ?? (() => { throw new Error(`tokens.css (dark) is missing --${k}`); })();
+  const t = lightTokens();
+  const need = (k: string) => t[k] ?? (() => { throw new Error(`tokens.css (light) is missing --${k}`); })();
   return {
     bg: need("color-bg"),
     text: need("color-text"),
@@ -43,7 +43,7 @@ function colors(): OgColors {
     brand: need("color-brand"),
     brandText: need("color-brand-text"),
     border: need("color-border-strong"),
-    glow: hexToRgba(need("color-brand"), 0.42),
+    glow: hexToRgba(need("color-brand"), 0.16),
   };
 }
 
@@ -51,7 +51,7 @@ const font = (weight: 400 | 600 | 700) =>
   readFileSync(require.resolve(`@fontsource/geist/files/geist-latin-${weight}-normal.woff`));
 
 const logo = () =>
-  `data:image/svg+xml;base64,${readFileSync(new URL("public/img/logos/icon/solid-icon-dark.svg", root)).toString("base64")}`;
+  `data:image/svg+xml;base64,${readFileSync(new URL("public/img/logos/icon/solid-icon-light.svg", root)).toString("base64")}`;
 
 /** Renders every page and returns [file, png] pairs. */
 export async function renderAll(pages: OgPage[]): Promise<Array<[string, Uint8Array]>> {
