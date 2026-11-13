@@ -1,0 +1,28 @@
+.tabs {
+  margin-top: 0.5rem;
+}
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 2rem;
+  align-items: start;
+  padding-top: 1.5rem;
+}
+.heading {
+  margin: 0 0 0.75rem;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+}
+.text {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+@media (max-width: 52rem) {
+  .panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}

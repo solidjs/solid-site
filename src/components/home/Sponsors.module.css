@@ -1,0 +1,52 @@
+.tier {
+  margin-top: 2rem;
+}
+.tierTitle {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+.logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.gold .logos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.silver .logos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.logo {
+  display: grid;
+  place-items: center;
+  height: 5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  transition: border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.logo:hover {
+  border-color: var(--color-brand-soft);
+  box-shadow: var(--shadow-sm);
+}
+.logo:hover img {
+  opacity: 1;
+}
+.logo:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

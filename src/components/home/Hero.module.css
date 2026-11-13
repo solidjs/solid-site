@@ -1,0 +1,104 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 8vw, 6rem) 0 var(--space-section);
+  text-align: center;
+  isolation: isolate;
+}
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60rem 28rem at 50% -8rem, var(--color-brand-subtle), transparent 70%),
+    linear-gradient(var(--color-border) 1px, transparent 1px) 0 0 / 3rem 3rem,
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px) 0 0 / 3rem 3rem;
+  opacity: 0.9;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 0%, var(--color-text) 30%, transparent 100%);
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.announce {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.25rem 0.9rem 0.25rem 0.3rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: border-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+.announce:hover {
+  border-color: var(--color-brand-soft);
+  color: var(--color-text);
+}
+.announce:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 1.75rem 0 0;
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+.title span {
+  display: block;
+}
+.accent {
+  color: var(--color-brand-text);
+}
+.lead {
+  max-width: 42rem;
+  margin: 1.75rem 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  text-wrap: pretty;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.install {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  margin-top: 1.75rem;
+  padding: 0.35rem 0.4rem 0.35rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  box-shadow: var(--shadow-sm);
+}
+.prompt {
+  color: var(--color-text-faint);
+  flex: none;
+}
+.command {
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-code-text);
+}
+.note {
+  max-width: 34rem;
+  margin: 1rem 0 0;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}

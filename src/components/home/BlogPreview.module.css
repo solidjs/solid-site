@@ -1,0 +1,86 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  transition: border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+}
+.card:hover {
+  border-color: var(--color-brand-soft);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.card:has(.link:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+.media {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--color-brand-subtle), var(--color-bg-subtle));
+  border-bottom: 1px solid var(--color-border);
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.25rem;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+.title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-snug);
+}
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+/* Stretched link: the whole card is clickable while the title stays the one focus stop. */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.link:focus-visible {
+  outline: none;
+}
+.desc {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
