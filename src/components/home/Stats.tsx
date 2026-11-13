@@ -1,5 +1,6 @@
 import { Errored, For, Loading, createMemo, createSignal, onSettled } from "solid-js";
 import { URLS } from "../../site";
+import { Icon, type IconName } from "../Icon";
 import { STATS_FALLBACK, type Stats } from "./data";
 import styles from "./Stats.module.css";
 
@@ -38,16 +39,17 @@ let cached: Promise<Stats> | undefined;
 const getStats = () => (cached ??= fetchStats());
 
 function StatList(props: { values: Stats }) {
-  const items = () => [
-    { label: "GitHub stars", value: props.values.stars, href: URLS.githubRepo },
-    { label: "npm downloads / week", value: props.values.downloads, href: URLS.npm },
-    { label: "Contributors", value: props.values.contributors, href: "/team" },
+  const items = (): { icon: IconName; label: string; value: number | null; href: string }[] => [
+    { icon: "star", label: "GitHub stars", value: props.values.stars, href: URLS.githubRepo },
+    { icon: "download", label: "npm downloads / week", value: props.values.downloads, href: URLS.npm },
+    { icon: "users", label: "Contributors", value: props.values.contributors, href: "/team" },
   ];
   return (
     <dl class={styles.list}>
       <For each={items()} keyed={(i) => i.label}>
         {(item) => (
           <div class={styles.item}>
+            <Icon name={item().icon} size={20} class={styles.icon} />
             <dt class={styles.label}><a href={item().href}>{item().label}</a></dt>
             <dd class={styles.value}>{format(item().value)}</dd>
           </div>

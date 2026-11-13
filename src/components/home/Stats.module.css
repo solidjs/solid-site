@@ -1,32 +1,38 @@
+/* Stats bar under the hero panel, TanStack style: icon, number, mono caption. */
 .list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin: 3rem auto 0;
-  max-width: 40rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-border);
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem clamp(1.5rem, 5vw, 4rem);
+  margin: 0.75rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--color-bg-subtle);
 }
 .item {
   display: flex;
-  flex-direction: column-reverse;
-  gap: 0.25rem;
-  padding: 1rem 0.75rem;
-  background: var(--color-surface);
-  text-align: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+.icon {
+  color: var(--color-text-faint);
+  flex: none;
 }
 .value {
+  order: 1;
   margin: 0;
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-tight);
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
 }
 .label {
+  order: 2;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--color-text-muted);
 }
 .label a {
@@ -41,13 +47,15 @@
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
-@media (max-width: 30rem) {
+@media (max-width: 40rem) {
   .list {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
   }
   .item {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: baseline;
+    gap: 0.6rem;
+  }
+  .label {
+    margin-inline-start: auto;
   }
 }
