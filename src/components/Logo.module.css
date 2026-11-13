@@ -1,5 +1,7 @@
-.logo { display: inline-flex; line-height: 0; }
-.logo img { height: 100%; width: auto; }
+.logo { display: inline-flex; align-items: center; gap: calc(var(--logo-size) * 0.3); line-height: 1; }
+.icon { display: inline-flex; height: var(--logo-size); line-height: 0; }
+.icon img { height: 100%; width: auto; }
+.word { color: var(--color-logo-text); font-family: var(--font-sans); font-size: calc(var(--logo-size) * 1.05); font-weight: 700; letter-spacing: -0.03em; line-height: 1; padding-bottom: 0.08em; }
 .dark { display: none; }
 :global(:is([data-theme="dark"], [data-theme="sdark"])) .light { display: none; }
 :global(:is([data-theme="dark"], [data-theme="sdark"])) .dark { display: block; }

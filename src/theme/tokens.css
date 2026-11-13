@@ -27,6 +27,7 @@
   --color-brand-contrast: #ffffff;
   --color-brand-text: #2c4f7c; /* brand colour used for text/links on --color-bg */
   --color-brand-soft: #446b9e;
+  --color-logo-text: #0a4593; /* wordmark colour from the Solid 2.0 logo README (light) */
 
   /* Restrained secondary accent */
   --color-accent: #b4540a;
@@ -141,6 +142,7 @@
   --color-brand-contrast: #ffffff;
   --color-brand-text: #8fb5e8;
   --color-brand-soft: #6f9bd4;
+  --color-logo-text: #ffffff; /* wordmark colour from the Solid 2.0 logo README (dark) */
 
   --color-accent: #f0a45d;
   --color-accent-subtle: #2a1e10;
