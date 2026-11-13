@@ -1,9 +1,14 @@
-.header { position: sticky; top: 0; z-index: var(--z-header); height: var(--header-height); border-bottom: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-bg) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); }
+.header { position: sticky; top: 0; z-index: var(--z-header); height: var(--header-height); border-bottom: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-bg) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); transition: transform var(--duration-base) var(--ease-out); }
+.header[data-hidden] { transform: translateY(-100%); }
+@media (prefers-reduced-motion: reduce) { .header { transition: none; } }
 .bar { display: flex; align-items: center; gap: 1.5rem; height: 100%; max-width: calc(var(--content-width-wide) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
 .brand { display: inline-flex; border-radius: var(--radius-sm); }
 .desktop { display: none; flex: 1; min-width: 0; }
 .actions { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
 .mobile { display: inline-flex; }
+/* Only GitHub shows on phones; the full set is in the drawer. */
+.actions .social { display: none; }
+@media (min-width: 40rem) { .actions .social { display: inline-grid; } }
 @media (min-width: 56rem) { .desktop { display: block; } .mobile { display: none; } }
 
 .iconButton { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid transparent; border-radius: var(--radius-md); background: none; color: var(--color-text-muted); text-decoration: none; }
@@ -39,3 +44,5 @@
 .mobileTop { font-size: var(--text-lg); font-weight: var(--weight-semibold); }
 .mobileLink:hover, .mobileTop:hover { background: var(--color-surface-hover); color: var(--color-text); }
 .mobileLink[aria-current="page"] { color: var(--color-brand-text); }
+
+.mobileSocial { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0 1rem 1.5rem; }

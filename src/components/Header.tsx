@@ -2,7 +2,7 @@ import { Drawer } from "@kobalte/core/drawer";
 import { NavigationMenu } from "@kobalte/core/navigation-menu";
 import { useLocation } from "@solidjs/router";
 import { createEffect, createSignal, For, onFlush, onSettled, Show } from "solid-js";
-import { isExternalHref, isNavGroup, NAV, SITE_NAME, URLS, type NavLink } from "../site";
+import { isExternalHref, isNavGroup, NAV, SITE_NAME, SOCIAL_LINKS, type NavLink } from "../site";
 import { Icon } from "./Icon";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
@@ -171,16 +171,39 @@ function MobileNav() {
               )}
             </For>
           </nav>
+          <div class={styles.mobileSocial}>
+            <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
+              {(social) => (
+                <a class={styles.iconButton} href={social().href} target="_blank" rel="noopener noreferrer" aria-label={`Solid on ${social().label} (opens in a new tab)`}>
+                  <Icon name={social().icon} size={18} />
+                </a>
+              )}
+            </For>
+          </div>
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer>
   );
 }
 
-/** Sticky, blurred site header: logo, Kobalte NavigationMenu (desktop), GitHub, theme menu, Kobalte Drawer (mobile). */
+/**
+ * Sticky, blurred site header: logo, Kobalte NavigationMenu (desktop), social links, theme menu, Kobalte Drawer (mobile).
+ * It slides out of view while the footer is on screen (so the footer gets the whole viewport) and returns on scroll up.
+ */
 export function Header() {
+  const [hidden, setHidden] = createSignal(false);
+  onSettled(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    let footerVisible = false;
+    const update = () => setHidden(footerVisible && window.scrollY > 64);
+    const io = new IntersectionObserver(([entry]) => { footerVisible = entry.isIntersecting; update(); });
+    io.observe(footer);
+    window.addEventListener("scroll", update, { passive: true });
+    return () => { io.disconnect(); window.removeEventListener("scroll", update); };
+  });
   return (
-    <header class={styles.header}>
+    <header class={styles.header} data-hidden={hidden() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
         <a href="/" class={styles.brand} aria-label={`${SITE_NAME} home`}>
           <Logo height={26} />
@@ -189,9 +212,19 @@ export function Header() {
           <DesktopNav />
         </div>
         <div class={styles.actions}>
-          <a class={styles.iconButton} href={URLS.github} target="_blank" rel="noopener noreferrer" aria-label="Solid on GitHub (opens in a new tab)">
-            <Icon name="github" size={18} />
-          </a>
+          <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
+            {(social, i) => (
+              <a
+                class={`${styles.iconButton} ${i() > 0 ? styles.social : ""}`}
+                href={social().href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Solid on ${social().label} (opens in a new tab)`}
+              >
+                <Icon name={social().icon} size={18} />
+              </a>
+            )}
+          </For>
           <ThemeToggle />
           <div class={styles.mobile}>
             <MobileNav />
