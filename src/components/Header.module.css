@@ -1,4 +1,4 @@
-.header { position: sticky; top: 0; z-index: var(--z-header); height: var(--header-height); border-bottom: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-bg) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); transition: transform var(--duration-base) var(--ease-out); }
+.header { position: sticky; top: 0; z-index: var(--z-header); height: var(--header-height); background: color-mix(in srgb, var(--color-bg) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); transition: transform var(--duration-base) var(--ease-out); }
 .header[data-hidden] { transform: translateY(-100%); }
 @media (prefers-reduced-motion: reduce) { .header { transition: none; } }
 .bar { display: flex; align-items: center; gap: 1.5rem; height: 100%; max-width: calc(var(--content-width-wide) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
