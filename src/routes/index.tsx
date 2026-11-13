@@ -10,7 +10,7 @@ import { WhySolid } from "../components/home/WhySolid";
 import { Sponsors } from "../components/home/Sponsors";
 import { WhatsNew } from "../components/home/WhatsNew";
 
-const TITLE = "SolidJS: Fine-grained reactive UI. Solid 2.0 is coming";
+const TITLE = "Solid: Fine-grained reactive UI. Solid 2.0 is coming";
 const DESCRIPTION =
   "Solid is a fast, fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, split effects and draft-first stores, and is now a release candidate.";
 

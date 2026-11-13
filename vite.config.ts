@@ -17,8 +17,8 @@ export default defineConfig({
   ssr: { noExternal: [/^@solid-primitives\//, /^@kobalte\/core/] },
   plugins: [
     solidBase.plugin({
-      title: "SolidJS",
-      titleTemplate: ":title | SolidJS",
+      title: "Solid",
+      titleTemplate: ":title | Solid",
       description:
         "Simple and performant reactivity for building user interfaces.",
       siteUrl: "https://www.solidjs.com",

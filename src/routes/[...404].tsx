@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <>
       <HttpStatusCode code={404} />
-      <Title>Page not found | SolidJS</Title>
+      <Title>Page not found | Solid</Title>
       <Meta name="robots" content="noindex" />
       <PageHeader
         eyebrow="404"

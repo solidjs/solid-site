@@ -31,7 +31,7 @@ const GUIDELINES = [
 export default function Media() {
   return (
     <>
-      <Title>Media and brand assets | SolidJS</Title>
+      <Title>Media and brand assets | Solid</Title>
       <Meta name="description" content={DESCRIPTION} />
       <PageHeader
         eyebrow="Media"

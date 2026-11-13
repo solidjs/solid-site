@@ -101,7 +101,7 @@ render(() => <Counter />, document.getElementById("app")!);`;
 export default function About() {
   return (
     <>
-      <Title>About | SolidJS</Title>
+      <Title>About | Solid</Title>
       <Meta name="description" content={DESCRIPTION} />
       <PageHeader
         eyebrow="About Solid"

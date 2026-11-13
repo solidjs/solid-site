@@ -37,7 +37,7 @@ function SupporterList(props: { items: readonly Supporter[]; label: string }) {
 export default function TeamPage() {
   return (
     <>
-      <Title>Team & Contributors | SolidJS</Title>
+      <Title>Team & Contributors | Solid</Title>
       <Meta name="description" content={DESCRIPTION} />
       <PageHeader
         eyebrow="Team"

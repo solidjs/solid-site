@@ -9,7 +9,7 @@ const DESCRIPTION = "News, releases and community updates from the SolidJS team.
 export default function BlogIndex() {
   return (
     <>
-      <Title>Blog | SolidJS</Title>
+      <Title>Blog | Solid</Title>
       <Meta name="description" content={DESCRIPTION} />
       <Meta property="og:title" content="Blog | SolidJS" />
       <Meta property="og:description" content={DESCRIPTION} />
