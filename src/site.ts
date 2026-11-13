@@ -10,7 +10,6 @@ export const SITE_DESCRIPTION =
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 export const COPYRIGHT_HOLDER = "Solid Core Team";
 export const LICENSE_NOTE = "Released under the MIT License.";
-export const OG_IMAGE = "/og.jpg";
 
 /** Solid 2.0 status. Keep honest: update when 2.0 ships. */
 export const SOLID_2 = {

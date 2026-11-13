@@ -53,6 +53,16 @@ The "What's new in Solid 2.0" tabs embed `solid-repl` with runnable examples (`s
 
 The REPL's sandboxed preview inherits the page's Content-Security-Policy and loads modules from `esm.sh`, a devtools bridge from `cdn.jsdelivr.net` and a stylesheet from `ga.jspm.io`. Cloudflare comma-joins headers from every matching `_headers` rule, so a page-specific policy cannot loosen a site-wide one. The relaxed policy is therefore set for `/` only, and the strict policy is listed per path in `public/_headers`. **A new top-level route must be added to that strict list**, or it ships without a CSP.
 
+### Open Graph images
+
+Every page has a 1200x630 social card rendered at build time with [`@solidjs/ogp`](https://github.com/solidjs/solid-ogp) (satori + resvg). `@solidjs/ogp` normally renders on demand through server functions, which need an SSR server; this site is static on Cloudflare, so `scripts/generate-og.ts` (the end of `postbuild`) calls its `@solidjs/ogp/server` API and writes `dist/client/og/*.png`. Run `pnpm og` to regenerate only the images after a build.
+
+- `src/og/pages.ts` lists the cards (static pages, plus one per published blog post) and maps a route to its image. `src/theme/Layout.tsx` uses it to emit `og:image` / `twitter:image` for every route. Unlisted routes and draft posts get `/og/default.png`.
+- `src/og/Card.tsx` is the card, written as JSX. satori supports a subset of CSS: flexbox only, inline styles only, and any element with several children needs `display: flex`.
+- Colours are read from the dark block of `src/theme/tokens.css` and the font is Geist (`@fontsource/geist`), so a brand change needs no edit in `src/og`. Rebuild to refresh the images.
+- `vite dev` does not generate the images, so the `og:image` URLs 404 locally until you run a build.
+- `@vercel/og`'s Node bundle expects CommonJS globals, so `generate-og.ts` provides `require` and `__dirname` before loading it. If an upgrade changes that, this is the first place to look.
+
 ## Theming and brand colours
 
 All colours, radii, shadows, fonts and spacing are semantic tokens in `src/theme/tokens.css`, defined for light and for `[data-theme="dark"]`. Components never hardcode colours, so the final brand palette is a one-file change there. Fonts are `--font-sans` and `--font-mono`.

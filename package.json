@@ -11,11 +11,12 @@
     "dev": "vite dev",
     "prebuild": "node scripts/generate-rss.ts",
     "build": "vite build",
-    "postbuild": "node scripts/patch-sitemap.ts",
+    "postbuild": "node scripts/patch-sitemap.ts && node scripts/generate-og.ts",
     "preview": "vite preview",
     "type:check": "tsc --noEmit",
     "deploy": "pnpm build && wrangler deploy",
-    "deploy:preview": "pnpm build && wrangler versions upload"
+    "deploy:preview": "pnpm build && wrangler versions upload",
+    "og": "node scripts/generate-og.ts"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
@@ -29,8 +30,10 @@
     "solid-repl": "1.0.1"
   },
   "devDependencies": {
+    "@fontsource/geist": "^5.3.0",
     "@iconify-json/lucide": "^1.2.154",
     "@iconify-json/simple-icons": "^1.2.102",
+    "@solidjs/ogp": "0.1.0",
     "@solidjs/vite-plugin": "3.0.0-next.57",
     "esbuild": "^0.28.2",
     "typescript": "^5.9.3",

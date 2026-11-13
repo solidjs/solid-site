@@ -2,7 +2,7 @@ import { getHtmlProps } from "@kobalte/solidbase/server";
 import { HydrationScript } from "@solidjs/web";
 import type { ParentProps } from "solid-js";
 import { THEME_INIT_SCRIPT } from "./components/theme";
-import { OG_IMAGE, SITE_NAME, SITE_URL } from "./site";
+import { SITE_NAME } from "./site";
 
 export default function Document(props: ParentProps) {
   return (
@@ -22,7 +22,6 @@ export default function Document(props: ParentProps) {
         <link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png" />
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`${SITE_URL}${OG_IMAGE}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@solid_js" />
         <HydrationScript />

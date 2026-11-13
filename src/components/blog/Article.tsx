@@ -2,7 +2,7 @@ import { Meta } from "@solidjs/meta";
 import { useLocation } from "@solidjs/router";
 import { For, Show, type ParentProps } from "solid-js";
 import { formatDate, getAdjacent, getPost, postPath, type Post } from "../../blog/posts";
-import { absoluteUrl, OG_IMAGE } from "../../site";
+import { absoluteUrl } from "../../site";
 import { Badge } from "../Badge";
 import { Button } from "../Button";
 import { Container } from "../Container";
@@ -73,7 +73,6 @@ export function Article(props: ParentProps) {
             <Meta name="robots" content="noindex, nofollow" />
           </Show>
           <Meta property="og:type" content="article" />
-          <Meta property="og:image" content={absoluteUrl(p().image ?? OG_IMAGE)} />
           <Meta property="article:published_time" content={p().date} />
           <Meta name="twitter:card" content="summary_large_image" />
 

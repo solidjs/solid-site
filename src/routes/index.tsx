@@ -1,5 +1,5 @@
 import { Meta, Title } from "@solidjs/meta";
-import { OG_IMAGE, SITE_NAME, absoluteUrl } from "../site";
+import { SITE_NAME } from "../site";
 import { BlogPreview } from "../components/home/BlogPreview";
 import { Community } from "../components/home/Community";
 import { Ecosystem } from "../components/home/Ecosystem";
@@ -23,7 +23,6 @@ export default function Home() {
       <Meta property="og:description" content={DESCRIPTION} />
       <Meta property="og:type" content="website" />
       <Meta property="og:site_name" content={SITE_NAME} />
-      <Meta property="og:image" content={absoluteUrl(OG_IMAGE)} />
       <Meta name="twitter:card" content="summary_large_image" />
       <Hero />
       <Principles />
