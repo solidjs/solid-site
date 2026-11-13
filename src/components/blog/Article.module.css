@@ -1,0 +1,25 @@
+.article { padding-bottom: var(--space-section); }
+.header { padding-block: 3rem 2.5rem; display: flex; flex-direction: column; gap: 2.5rem; }
+.header > :first-child { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.back { display: inline-flex; align-items: center; gap: 0.375rem; font-size: var(--text-sm); color: var(--color-text-muted); }
+.back:hover { color: var(--color-text); }
+.flip { transform: rotate(180deg); }
+.title { font-size: var(--text-display-sm); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); font-weight: var(--weight-display); text-wrap: balance; }
+.lead { font-size: var(--text-xl); color: var(--color-text-muted); line-height: var(--leading-snug); }
+.hero { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-xl); border: 1px solid var(--color-border); background: var(--color-bg-subtle); box-shadow: var(--shadow-md); display: block; }
+.sep { margin-block: 3rem 1.5rem; }
+.footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.375rem; list-style: none; padding: 0; margin: 0; }
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; font-size: var(--text-sm); }
+.shareLabel { color: var(--color-text-muted); font-weight: var(--weight-medium); }
+.shareLink { display: inline-flex; align-items: center; gap: 0.375rem; color: var(--color-text); }
+.shareLink:hover { color: var(--color-brand-text); }
+.adjacent { display: grid; gap: 1rem; margin-top: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .adjacent { grid-template-columns: 1fr 1fr; } }
+.adjLink { display: flex; flex-direction: column; gap: 0.375rem; padding: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); text-decoration: none; color: inherit; transition: border-color var(--duration-fast), box-shadow var(--duration-fast); }
+.adjLink:hover { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
+.next { text-align: end; align-items: flex-end; grid-column: 2; }
+@media (max-width: 39.99rem) { .next { grid-column: 1; } }
+.adjLabel { display: inline-flex; align-items: center; gap: 0.375rem; font-size: var(--text-sm); color: var(--color-text-muted); }
+.adjTitle { font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); }
+.all { margin-top: 2.5rem; display: flex; justify-content: center; }

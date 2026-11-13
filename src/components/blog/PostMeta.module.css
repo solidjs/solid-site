@@ -1,0 +1,3 @@
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem; font-size: var(--text-sm); color: var(--color-text-muted); }
+.dot { color: var(--color-text-faint); }
+.author { font-weight: var(--weight-medium); color: var(--color-text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; position: relative; z-index: 1; }
