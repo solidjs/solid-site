@@ -45,8 +45,11 @@ function DesktopNav() {
   // creates nothing, and the content still mounts inside the viewport so focus stays within the menu.
   let viewportEl: HTMLElement | undefined;
   const portalProps = { get mount() { return viewportEl; } };
+  // Kobalte anchors the shared dropdown viewport to the whole menu bar, which centres it under the bar. Anchor it to
+  // the trigger that is open instead, so each dropdown lines up with its own trigger.
+  const activeTriggerRect = (root?: Element) => root?.querySelector<HTMLElement>('[aria-expanded="true"]')?.getBoundingClientRect();
   return (
-    <NavigationMenu class={styles.menu} aria-label="Primary" delayDuration={80} skipDelayDuration={200}>
+    <NavigationMenu class={styles.menu} aria-label="Primary" delayDuration={80} skipDelayDuration={200} placement="bottom-start" getAnchorRect={activeTriggerRect}>
       <For each={NAV} keyed={(e) => e.label}>
         {(entry) => (
           <NavigationMenu.Menu>
