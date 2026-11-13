@@ -15,6 +15,28 @@ const isCurrent = (href: string, pathname: string) =>
 const linkAttrs = (link: NavLink) =>
   isExternalHref(link.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
+/**
+ * Kobalte's NavigationMenu opens a menu when the pointer rests on its trigger, but a mouse press on an open trigger
+ * closes it again. A visitor who hovers and then clicks therefore sees the dropdown flash open and vanish. Swallow
+ * the first mouse press that follows a hover-open so the click keeps the menu open (a second click, Escape or moving
+ * away closes it). Keyboard, touch and click-opened menus keep Kobalte's own toggle behaviour.
+ */
+function keepOpenOnHoverClick(el: HTMLElement) {
+  let openedByHover = false;
+  el.addEventListener("pointerenter", (e) => {
+    openedByHover = e.pointerType !== "touch" && el.getAttribute("aria-expanded") !== "true";
+  });
+  el.addEventListener("pointerleave", () => { openedByHover = false; });
+  el.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "touch" || e.button !== 0) return;
+    // Opened by hover and still open: keep it. Anything else falls through to Kobalte.
+    if (openedByHover && el.getAttribute("aria-expanded") === "true") {
+      e.stopPropagation();
+      openedByHover = false;
+    }
+  });
+}
+
 function DesktopNav() {
   const location = useLocation();
   return (
@@ -37,7 +59,7 @@ function DesktopNav() {
             >
               {(group) => (
                 <>
-                  <NavigationMenu.Trigger class={styles.trigger}>
+                  <NavigationMenu.Trigger class={styles.trigger} ref={keepOpenOnHoverClick}>
                     {group().label}
                     <Icon name="chevron-down" size={14} class={styles.caret} />
                   </NavigationMenu.Trigger>
