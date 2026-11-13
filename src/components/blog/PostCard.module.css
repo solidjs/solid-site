@@ -23,3 +23,5 @@
   .featured .title { font-size: var(--text-3xl); letter-spacing: var(--tracking-tight); }
   .featured .description { font-size: var(--text-lg); }
 }
+/* Breathing room between the page header and the first (featured) article. */
+.featured { margin-top: clamp(2rem, 4vw, 3rem); }
