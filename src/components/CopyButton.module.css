@@ -1,0 +1,2 @@
+.button { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text-muted); }
+.button:hover { background: var(--color-surface-hover); color: var(--color-text); }

@@ -1,0 +1,19 @@
+# Cloudflare static assets headers. https://developers.cloudflare.com/workers/static-assets/headers/
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+  # 'unsafe-inline' scripts: the theme bootstrap and Solid hydration script are inline. Embeds load only on click.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=86400
+
+/og.jpg
+  Cache-Control: public, max-age=86400

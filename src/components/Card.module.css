@@ -1,0 +1,12 @@
+.card {
+  position: relative; display: flex; flex-direction: column; gap: 0.75rem;
+  padding: 1.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-sm);
+}
+.interactive { transition: transform var(--duration-base) var(--ease-out), border-color var(--duration-base), box-shadow var(--duration-base); }
+.interactive:hover, .interactive:focus-within { transform: translateY(-2px); border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
+.index { font-family: var(--font-mono); font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-brand-text); letter-spacing: 0.04em; }
+.icon { display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-md); background: var(--color-brand-subtle); color: var(--color-brand-text); }
+.title { font-size: var(--text-xl); line-height: var(--leading-snug); font-weight: var(--weight-semibold); }
+.description { color: var(--color-text-muted); }
+.footer { margin-top: auto; padding-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; }

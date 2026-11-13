@@ -1,0 +1,5 @@
+.logo { display: inline-flex; line-height: 0; }
+.logo img { height: 100%; width: auto; }
+.dark { display: none; }
+:global(:is([data-theme="dark"], [data-theme="sdark"])) .light { display: none; }
+:global(:is([data-theme="dark"], [data-theme="sdark"])) .dark { display: block; }

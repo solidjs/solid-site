@@ -1,0 +1,13 @@
+.root { border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); overflow: hidden; }
+.item + .item { border-top: 1px solid var(--color-border); }
+.header { margin: 0; font-size: inherit; }
+.trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border: 0; background: none; text-align: start; font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text); }
+.trigger:hover { background: var(--color-surface-hover); }
+.chevron { flex: none; color: var(--color-text-faint); transition: transform var(--duration-base) var(--ease-out); }
+.trigger[data-expanded] .chevron { transform: rotate(180deg); }
+.content { overflow: hidden; }
+.content[data-expanded] { animation: down var(--duration-base) var(--ease-out); }
+.content[data-closed] { animation: up var(--duration-base) var(--ease-out); }
+.inner { padding: 0 1.25rem 1.25rem; color: var(--color-text-muted); }
+@keyframes down { from { height: 0; } to { height: var(--kb-accordion-content-height); } }
+@keyframes up { from { height: var(--kb-accordion-content-height); } to { height: 0; } }

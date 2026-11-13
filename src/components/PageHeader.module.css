@@ -1,0 +1,8 @@
+.header { padding-block: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 3.5rem); border-bottom: 1px solid var(--color-border); background: linear-gradient(to bottom, var(--color-bg-subtle), var(--color-bg)); }
+.inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+.start { align-items: flex-start; text-align: start; }
+.eyebrow { font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-brand-text); }
+.title { font-size: var(--text-display-sm); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); font-weight: var(--weight-display); }
+.description { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 38rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 0.5rem; }
+.start .actions { justify-content: flex-start; }

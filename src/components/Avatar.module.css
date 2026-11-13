@@ -1,0 +1,3 @@
+.avatar { position: relative; display: inline-flex; flex: none; width: var(--avatar-size); height: var(--avatar-size); border-radius: var(--radius-full); overflow: hidden; background: var(--color-brand-subtle); border: 1px solid var(--color-border); }
+.img { width: 100%; height: 100%; object-fit: cover; }
+.fallback { display: grid; place-items: center; width: 100%; height: 100%; font-size: calc(var(--avatar-size) * 0.36); font-weight: var(--weight-semibold); color: var(--color-brand-text); }

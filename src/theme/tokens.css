@@ -1,7 +1,167 @@
-/* Brand tokens — swap hex values here once the final palette lands. */
+/*
+ * Semantic design tokens. This is the ONLY file that may contain colour literals.
+ * Swapping the final Solid brand = editing the "brand" block in :root and [data-theme="dark"].
+ */
 :root {
-  --solid-blue: #2c4f7c;
-  --solid-blue-light: #446b9e;
-  --solid-bg: #ffffff;
-  --solid-fg: #181a1f;
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-hover: #eef2f7;
+  --color-border: #dfe4ec;
+  --color-border-strong: #c3ccd9;
+  --color-overlay: rgb(10 16 28 / 0.5);
+
+  /* Text */
+  --color-text: #0f1722;
+  --color-text-muted: #4a5568;
+  --color-text-faint: #5f6b7c;
+
+  /* Brand (placeholders: Solid blue) */
+  --color-brand: #2c4f7c;
+  --color-brand-strong: #1f3a5e;
+  --color-brand-subtle: #e8eef7;
+  --color-brand-contrast: #ffffff;
+  --color-brand-text: #2c4f7c; /* brand colour used for text/links on --color-bg */
+  --color-brand-soft: #446b9e;
+
+  /* Restrained secondary accent */
+  --color-accent: #b4540a;
+  --color-accent-subtle: #fdf1e4;
+
+  /* Status */
+  --color-info: #2c4f7c;
+  --color-info-subtle: #e8eef7;
+  --color-success: #1d7a4a;
+  --color-success-subtle: #e6f5ec;
+  --color-warning: #9a5b00;
+  --color-warning-subtle: #fff3d9;
+  --color-danger: #b42318;
+  --color-danger-subtle: #fdecea;
+
+  /* Code */
+  --color-code-bg: #f3f5f9;
+  --color-code-text: #1c2735;
+  --color-code-border: #e1e6ee;
+
+  --color-focus-ring: #2c6fd1;
+  --color-selection: #cfe0f7;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgb(15 23 34 / 0.06), 0 1px 1px rgb(15 23 34 / 0.04);
+  --shadow-md: 0 4px 12px rgb(15 23 34 / 0.08), 0 2px 4px rgb(15 23 34 / 0.05);
+  --shadow-lg: 0 18px 40px rgb(15 23 34 / 0.14), 0 6px 12px rgb(15 23 34 / 0.06);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Fonts */
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Layout */
+  --content-width-narrow: 44rem;
+  --content-width-prose: 48rem;
+  --content-width: 72rem;
+  --content-width-wide: 84rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-height: 4rem;
+
+  /* Z-index scale */
+  --z-base: 1;
+  --z-sticky: 50;
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-toast: 500;
+  --z-skip-link: 1000;
+
+  /* Spacing helpers */
+  --space-section: clamp(3.5rem, 8vw, 6.5rem);
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  --text-4xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-display-sm: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
+  --text-display-md: clamp(2.75rem, 1.7rem + 4.2vw, 5.25rem);
+  --text-display-lg: clamp(3.25rem, 1.6rem + 6.6vw, 7rem);
+  --leading-tight: 1.08;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+  --tracking-tight: -0.03em;
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.02em;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-display: 650;
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* "sdark" = SolidBase's own bootstrap script writes data-theme="sdark|slight" for the system preference. */
+[data-theme="dark"],
+[data-theme="sdark"] {
+  color-scheme: dark;
+
+  --color-bg: #0b0f17;
+  --color-bg-subtle: #0f1520;
+  --color-surface: #121927;
+  --color-surface-raised: #182133;
+  --color-surface-hover: #1b2538;
+  --color-border: #223047;
+  --color-border-strong: #33445f;
+  --color-overlay: rgb(2 5 10 / 0.65);
+
+  --color-text: #eef2f8;
+  --color-text-muted: #aab6c8;
+  --color-text-faint: #8b98ad;
+
+  --color-brand: #446b9e;
+  --color-brand-strong: #5b84bb;
+  --color-brand-subtle: #16243a;
+  --color-brand-contrast: #ffffff;
+  --color-brand-text: #8fb5e8;
+  --color-brand-soft: #6f9bd4;
+
+  --color-accent: #f0a45d;
+  --color-accent-subtle: #2a1e10;
+
+  --color-info: #8fb5e8;
+  --color-info-subtle: #16243a;
+  --color-success: #5fd394;
+  --color-success-subtle: #0f2a1d;
+  --color-warning: #f2b84b;
+  --color-warning-subtle: #2c2210;
+  --color-danger: #ff8a80;
+  --color-danger-subtle: #301514;
+
+  --color-code-bg: #0e1522;
+  --color-code-text: #dbe4f2;
+  --color-code-border: #1f2c42;
+
+  --color-focus-ring: #7db0ff;
+  --color-selection: #2a4670;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 6px 16px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 20px 48px rgb(0 0 0 / 0.55);
 }

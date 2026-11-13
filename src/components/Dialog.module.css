@@ -1,0 +1,8 @@
+.overlay { position: fixed; inset: 0; z-index: var(--z-overlay); background: var(--color-overlay); }
+.positioner { position: fixed; inset: 0; z-index: var(--z-modal); display: grid; place-items: center; padding: 1rem; pointer-events: none; }
+.content { pointer-events: auto; width: 100%; max-width: 32rem; max-height: 90vh; overflow: auto; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-xl); background: var(--color-surface-raised); box-shadow: var(--shadow-lg); }
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.title { font-size: var(--text-xl); font-weight: var(--weight-semibold); }
+.description { margin-top: 0.5rem; color: var(--color-text-muted); }
+.close { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border: 0; border-radius: var(--radius-sm); background: none; color: var(--color-text-muted); }
+.close:hover { background: var(--color-surface-hover); color: var(--color-text); }

@@ -1,0 +1,9 @@
+.section { padding-block: var(--space-section); }
+.subtle { background: var(--color-bg-subtle); border-block: 1px solid var(--color-border); }
+.header { max-width: var(--content-width-prose); margin: 0 auto 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.start { margin-inline: 0; text-align: start; align-items: flex-start; }
+.eyebrow { font-size: var(--text-sm); font-weight: var(--weight-semibold); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-brand-text); }
+.title { font-size: var(--text-display-sm); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); font-weight: var(--weight-display); }
+.description { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 40rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 0.75rem; }
+.start .actions { justify-content: flex-start; }

@@ -1,0 +1,4 @@
+.group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.item { padding: 0.35rem 0.85rem; border-radius: var(--radius-full); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text-muted); font-size: var(--text-sm); font-weight: var(--weight-medium); transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast); }
+.item:hover { background: var(--color-surface-hover); color: var(--color-text); }
+.item[data-pressed] { background: var(--color-brand); border-color: var(--color-brand); color: var(--color-brand-contrast); }

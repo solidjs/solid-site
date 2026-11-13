@@ -1,0 +1,14 @@
+# Cloudflare static assets redirects. https://developers.cloudflare.com/workers/static-assets/redirects/
+/docs https://docs.solidjs.com 301
+/docs/* https://docs.solidjs.com/:splat 301
+/guides https://docs.solidjs.com 301
+/guides/* https://docs.solidjs.com/:splat 301
+/guide https://docs.solidjs.com 301
+/tutorial https://tutorial.solidjs.com 301
+/tutorial/* https://tutorial.solidjs.com/:splat 301
+/examples https://docs.solidjs.com 301
+/examples/* https://docs.solidjs.com 301
+/resources https://docs.solidjs.com/resources/ecosystem 301
+/ecosystem https://docs.solidjs.com/resources/ecosystem 301
+/hack https://hack.solidjs.com 301
+/contributors /team 301
