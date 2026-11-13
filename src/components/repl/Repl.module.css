@@ -1,0 +1,44 @@
+.repl {
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.repl > * {
+  flex: 1;
+  min-height: 0;
+}
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* solid-repl expects panda's preflight, which the SolidBase plugin strips out because it is global.
+   Re-apply what it relies on, scoped to the REPL and the zag-js elements it portals to <body>. */
+@layer panda-reset {
+  :is(.repl, [data-scope]) *,
+  :is(.repl, [data-scope]) ::before,
+  :is(.repl, [data-scope]) ::after {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentcolor;
+    box-sizing: border-box;
+  }
+  :is(.repl, [data-scope]) :is(button, input, select, textarea) {
+    font: inherit;
+    background: transparent;
+    color: inherit;
+  }
+  :is(.repl, [data-scope]) :is(ol, ul, menu) {
+    list-style: none;
+  }
+}

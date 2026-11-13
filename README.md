@@ -47,6 +47,12 @@ The site is fully static: no server code and no data fetching required for first
 
 Set `draft: true` on a post in `src/blog/posts.ts`. Drafts are left out of listings, RSS and the sitemap, and are rendered `noindex`. Remove the flag (and set the real date) to publish.
 
+### Live REPL on the homepage
+
+The "What's new in Solid 2.0" tabs embed `solid-repl` with runnable examples (`src/components/repl/examples.ts`; each is a full app whose entry file is `main.tsx`). Nothing loads until the section is near the viewport: the prerendered HTML shows the static code, then the compiler, editor and preview load on demand (the TypeScript worker alone is about 9 MB). Examples execute live, so keep them valid Solid 2.0 and test an edit in the browser. SolidBase's REPL Vite plugin is registered in `vite.config.ts`.
+
+The REPL's sandboxed preview inherits the page's Content-Security-Policy and loads modules from `esm.sh`, a devtools bridge from `cdn.jsdelivr.net` and a stylesheet from `ga.jspm.io`. Cloudflare comma-joins headers from every matching `_headers` rule, so a page-specific policy cannot loosen a site-wide one. The relaxed policy is therefore set for `/` only, and the strict policy is listed per path in `public/_headers`. **A new top-level route must be added to that strict list**, or it ships without a CSP.
+
 ## Theming and brand colours
 
 All colours, radii, shadows, fonts and spacing are semantic tokens in `src/theme/tokens.css`, defined for light and for `[data-theme="dark"]`. Components never hardcode colours, so the final brand palette is a one-file change there. Fonts are `--font-sans` and `--font-mono`.

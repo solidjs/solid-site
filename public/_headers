@@ -6,7 +6,47 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin
-  # 'unsafe-inline' scripts: the theme bootstrap and Solid hydration script are inline. Embeds load only on click.
+
+# Content-Security-Policy is set per path on purpose. Cloudflare comma-joins the headers of every matching
+# rule (a second policy can only tighten, never relax), so a site-wide policy cannot be loosened for one page.
+# The homepage hosts the live Solid REPL, whose sandboxed srcdoc preview inherits this policy and loads
+# modules from esm.sh, its devtools bridge from cdn.jsdelivr.net, a reset stylesheet from ga.jspm.io, blob: URLs and blob: workers. Every other page gets the strict
+# policy. NEW TOP-LEVEL ROUTES MUST BE ADDED TO THE STRICT LIST BELOW. Inline scripts: the theme bootstrap and
+# Solid hydration script are inline. Embeds load only on click.
+/
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://esm.sh https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://ga.jspm.io; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org https://esm.sh https://cdn.jsdelivr.net; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/about
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/about/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/blog
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/blog/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/code-of-conduct
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/code-of-conduct/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/media
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/media/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/team
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/team/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/404.html
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 /assets/*

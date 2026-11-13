@@ -25,7 +25,8 @@
     "@solidjs/meta": "1.0.0-next.2",
     "@solidjs/router": "2.0.0-next.37",
     "@solidjs/web": "2.0.0-rc.21",
-    "solid-js": "2.0.0-rc.21"
+    "solid-js": "2.0.0-rc.21",
+    "solid-repl": "1.0.1"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.154",

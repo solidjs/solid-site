@@ -1,5 +1,6 @@
 import { URLS } from "../../site";
 import type { IconName } from "../Icon";
+import { ACTIONS_EXAMPLE, ASYNC_EXAMPLE, EFFECTS_EXAMPLE, STORES_EXAMPLE, type ReplFile } from "../repl/examples";
 
 /**
  * Static fallbacks for the live stats row. They are baked into the prerendered HTML and replaced
@@ -21,10 +22,13 @@ export interface Snippet {
   label: string;
   title: string;
   description: string;
-  code: string;
+  /** Runnable app (entry: main.tsx). Shown statically first, then as a live REPL. */
+  files: ReplFile[];
+  /** Show the REPL's console/devtools panel. */
+  devtools?: boolean;
 }
 
-/** Valid Solid 2.0 RC snippets. Keep in sync with the solid2 reference. */
+/** Valid Solid 2.0 RC examples. They run live in the REPL, so keep them in sync with the solid2 reference. */
 export const SNIPPETS: Snippet[] = [
   {
     value: "async",
@@ -32,21 +36,7 @@ export const SNIPPETS: Snippet[] = [
     title: "Read a promise like a value",
     description:
       "A memo can return a promise. Reads suspend the nearest <Loading> boundary, and a changed input keeps the old UI on screen while the new answer arrives.",
-    code: `import { createMemo, createSignal, Loading } from "solid-js";
-
-function Profile() {
-  const [id, setId] = createSignal(1);
-  const user = createMemo(() => fetchUser(id()));
-
-  return (
-    <>
-      <button onClick={() => setId(id() + 1)}>Next user</button>
-      <Loading fallback={<p>Loading...</p>}>
-        <h2>{user().name}</h2>
-      </Loading>
-    </>
-  );
-}`,
+    files: ASYNC_EXAMPLE,
   },
   {
     value: "effects",
@@ -54,18 +44,7 @@ function Profile() {
     title: "Say what you track, then what you do",
     description:
       "Effects take two halves. The compute half reads signals and decides the dependencies; the apply half runs side effects and can return a cleanup.",
-    code: `import { createEffect, createSignal } from "solid-js";
-
-const [count, setCount] = createSignal(0);
-
-createEffect(
-  () => count(), // compute: tracked reads only
-  (value) => {
-    // apply: side effects, runs untracked
-    document.title = \`Clicked \${value} times\`;
-    return () => console.log("cleanup before next run");
-  }
-);`,
+    files: EFFECTS_EXAMPLE,
   },
   {
     value: "stores",
@@ -73,17 +52,7 @@ createEffect(
     title: "Mutate a draft, get fine-grained updates",
     description:
       "Store setters hand you a draft. Write to it the way you would plain objects and arrays; only the parts that changed notify their readers.",
-    code: `import { createStore } from "solid-js";
-
-const [state, setState] = createStore({
-  user: { name: "Ada" },
-  todos: ["Try Solid 2.0"],
-});
-
-setState((s) => {
-  s.user.name = "Grace";
-  s.todos.push("Ship it");
-});`,
+    files: STORES_EXAMPLE,
   },
   {
     value: "actions",
@@ -91,17 +60,7 @@ setState((s) => {
     title: "Optimistic updates without rollback code",
     description:
       "An action groups a write, a request and a refresh into one transaction. The optimistic write shows immediately and is discarded when the action settles, even if it fails.",
-    code: `import { action, createOptimisticStore, refresh } from "solid-js";
-
-const [todos, setTodos] = createOptimisticStore(() => api.list(), []);
-
-const addTodo = action(function* (todo: Todo) {
-  setTodos((list) => {
-    list.push(todo); // shows right away
-  });
-  yield api.add(todo); // the request
-  refresh(todos); // reconcile with the server
-});`,
+    files: ACTIONS_EXAMPLE,
   },
 ];
 

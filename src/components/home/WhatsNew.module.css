@@ -3,10 +3,16 @@
 }
 .panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 2rem;
-  align-items: start;
+  gap: 1.5rem;
   padding-top: 1.5rem;
+}
+.copy {
+  max-width: 44rem;
+}
+.hint {
+  margin: 0.75rem 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
 }
 .heading {
   margin: 0 0 0.75rem;
@@ -20,9 +26,4 @@
   color: var(--color-text-muted);
   line-height: var(--leading-normal);
 }
-@media (max-width: 52rem) {
-  .panel {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-  }
-}
+
