@@ -43,7 +43,7 @@ export function ThemeToggle(props: { class?: string }) {
         <Icon name="moon" size={18} class={styles.moon} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content class={styles.content}>
+        <DropdownMenu.Content class={styles.content} data-no-scroll>
           <DropdownMenu.RadioGroup value={pref()} onChange={(v: string) => setPref(v as ThemePreference)}>
             <For each={OPTIONS} keyed={(o) => o.value}>
               {(o) => (

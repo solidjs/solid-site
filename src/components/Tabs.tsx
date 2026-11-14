@@ -21,7 +21,7 @@ export interface TabsProps {
 export function Tabs(props: TabsProps) {
   return (
     <KTabs class={[styles.root, props.class]} defaultValue={props.defaultValue ?? props.items[0]?.value}>
-      <KTabs.List class={styles.list} aria-label={props.label}>
+      <KTabs.List class={styles.list} aria-label={props.label} data-no-scroll>
         <For each={props.items} keyed={(i) => i.value}>
           {(item) => <KTabs.Trigger class={styles.trigger} value={item().value}>{item().label}</KTabs.Trigger>}
         </For>

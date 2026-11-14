@@ -78,7 +78,7 @@ function DesktopNav() {
                     <Icon name="chevron-down" size={14} class={styles.caret} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Portal {...portalProps}>
-                    <NavigationMenu.Content class={styles.content}>
+                    <NavigationMenu.Content class={styles.content} data-no-scroll>
                       <For each={group().items} keyed={(i) => i.href}>
                         {(item) => (
                           <NavigationMenu.Item
@@ -140,7 +140,7 @@ function MobileNav() {
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay class={styles.overlay} />
-        <Drawer.Content class={styles.drawer}>
+        <Drawer.Content class={styles.drawer} data-no-scroll>
           <div class={styles.drawerHead}>
             <Drawer.Title class="visually-hidden">Menu</Drawer.Title>
             <Logo height={24} />

@@ -7,6 +7,7 @@ import { For, Show } from "solid-js";
 import { DEFAULT_LOCALE, LOCALES, stripLocale, useI18n, withLocale } from "../i18n";
 import { absoluteUrl } from "../site";
 import { OG_SIZE, ogImageAlt, ogImagePath } from "../og/pages";
+import { installScrollGuard } from "../components/scrollGuard";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import "./tokens.css";
@@ -15,6 +16,7 @@ import styles from "./Layout.module.css";
 
 /** Rendered by SolidBaseRoot around every route. */
 export default function Layout(props: ParentProps) {
+  installScrollGuard();
   const location = useLocation();
   const { locale, t } = useI18n();
   // Cards and alt text are keyed by the English route; every locale of a page shares its card.

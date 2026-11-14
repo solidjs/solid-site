@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
           <Icon name="languages" size={18} />
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content class={styles.content}>
+          <DropdownMenu.Content class={styles.content} data-no-scroll>
             <For each={LOCALES} keyed={(l) => l.code}>
               {(l) => (
                 <DropdownMenu.Item
