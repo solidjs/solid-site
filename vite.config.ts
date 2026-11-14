@@ -2,6 +2,7 @@ import { createSolidBase, defineTheme } from "@kobalte/solidbase/config";
 import { solidReplVitePlugin } from "@kobalte/solidbase/default-theme/repl.js";
 import solid from "@solidjs/vite-plugin";
 import { defineConfig, type Plugin } from "vite";
+import { DEFAULT_LOCALE, LOCALES, PREFIXED_LOCALES } from "./src/i18n/locales";
 
 /**
  * Serves /og/*.png from the dev server, rendered on first request with the same code as the build, so link-preview
@@ -45,6 +46,11 @@ const siteTheme = defineTheme({
 
 const solidBase = createSolidBase(siteTheme);
 
+/** The site's languages (src/i18n/locales.ts) in SolidBase's shape: it sets <html lang> and the sitemap from them. */
+const locales = Object.fromEntries(
+  LOCALES.map((l) => [l === DEFAULT_LOCALE ? "root" : l.code, { label: l.label, lang: l.lang, ...(l === DEFAULT_LOCALE ? {} : { link: `/${l.code}/` }) }]),
+);
+
 export default defineConfig({
   // Kobalte's transitive @solid-primitives/* deps are not hoisted to the project root; bundle them into the
   // SSR build so the prerender worker does not resolve stray copies from parent directories.
@@ -57,7 +63,11 @@ export default defineConfig({
       description:
         "Simple and performant reactivity for building user interfaces.",
       siteUrl: "https://www.solidjs.com",
+      lang: DEFAULT_LOCALE.lang,
+      locales,
       sitemap: true,
+      // Each extra language's home page seeds the crawl: its (localized) footer and blog links reach every other page.
+      prerender: { routes: PREFIXED_LOCALES.map((l) => `/${l.code}`) },
       robots: true,
       llms: false,
       lastUpdated: false,

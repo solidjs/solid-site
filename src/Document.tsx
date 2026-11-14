@@ -2,11 +2,13 @@ import { getHtmlProps } from "@kobalte/solidbase/server";
 import { HydrationScript } from "@solidjs/web";
 import type { ParentProps } from "solid-js";
 import { THEME_INIT_SCRIPT } from "./components/theme";
+import { LOCALES } from "./i18n/locales";
 import { SITE_NAME } from "./site";
 
 export default function Document(props: ParentProps) {
+  const lang = getHtmlProps().lang;
   return (
-    <html lang={getHtmlProps().lang}>
+    <html lang={lang} dir={LOCALES.find((l) => l.lang === lang)?.dir}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

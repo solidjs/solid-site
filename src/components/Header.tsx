@@ -2,15 +2,19 @@ import { Drawer } from "@kobalte/core/drawer";
 import { NavigationMenu } from "@kobalte/core/navigation-menu";
 import { useLocation } from "@solidjs/router";
 import { createEffect, createSignal, For, onFlush, onSettled, Show } from "solid-js";
+import { stripLocale, useI18n } from "../i18n";
 import { isExternalHref, isNavGroup, NAV, SITE_NAME, SOCIAL_LINKS, type NavLink } from "../site";
 import { Icon } from "./Icon";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
 
 /** Is `href` the current page (or a parent section of it)? External links are never current. */
-const isCurrent = (href: string, pathname: string) =>
-  !isExternalHref(href) && (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
+const isCurrent = (href: string, fullPathname: string) => {
+  const pathname = stripLocale(fullPathname);
+  return !isExternalHref(href) && (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
+};
 
 const linkAttrs = (link: NavLink) =>
   isExternalHref(link.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
@@ -39,6 +43,7 @@ function keepOpenOnHoverClick(el: HTMLElement) {
 
 function DesktopNav() {
   const location = useLocation();
+  const { t, localePath } = useI18n();
   // Kobalte's NavigationMenu.Portal mounts into the viewport through a conditional `mount` getter. In dev, Solid 2
   // throws PRIMITIVE_IN_EFFECT_CALLBACK when Portal reads it (it creates a memo in an effect callback), which halts
   // reactivity and leaves menus "open" but empty. Our own lazy getter over a plain variable wins over Kobalte's and
@@ -49,7 +54,7 @@ function DesktopNav() {
   // the trigger that is open instead, so each dropdown lines up with its own trigger.
   const activeTriggerRect = (root?: Element) => root?.querySelector<HTMLElement>('[aria-expanded="true"]')?.getBoundingClientRect();
   return (
-    <NavigationMenu class={styles.menu} aria-label="Primary" delayDuration={80} skipDelayDuration={200} placement="bottom-start" getAnchorRect={activeTriggerRect}>
+    <NavigationMenu class={styles.menu} aria-label={t("Primary")} delayDuration={80} skipDelayDuration={200} placement="bottom-start" getAnchorRect={activeTriggerRect}>
       <For each={NAV} keyed={(e) => e.label}>
         {(entry) => (
           <NavigationMenu.Menu>
@@ -59,17 +64,17 @@ function DesktopNav() {
                 <NavigationMenu.Trigger
                   as="a"
                   class={styles.trigger}
-                  href={(entry() as NavLink).href}
+                  href={localePath((entry() as NavLink).href)}
                   aria-current={isCurrent((entry() as NavLink).href, location.pathname) ? "page" : undefined}
                 >
-                  {entry().label}
+                  {t(entry().label)}
                 </NavigationMenu.Trigger>
               }
             >
               {(group) => (
                 <>
                   <NavigationMenu.Trigger class={styles.trigger} ref={keepOpenOnHoverClick}>
-                    {group().label}
+                    {t(group().label)}
                     <Icon name="chevron-down" size={14} class={styles.caret} />
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Portal {...portalProps}>
@@ -78,7 +83,7 @@ function DesktopNav() {
                         {(item) => (
                           <NavigationMenu.Item
                             class={styles.item}
-                            href={item().href}
+                            href={localePath(item().href)}
                             aria-current={isCurrent(item().href, location.pathname) ? "page" : undefined}
                             {...linkAttrs(item())}
                           >
@@ -87,13 +92,13 @@ function DesktopNav() {
                             </Show>
                             <span class={styles.itemText}>
                               <span class={styles.itemLabel}>
-                                {item().label}
+                                {t(item().label)}
                                 <Show when={isExternalHref(item().href)}>
                                   <Icon name="arrow-up-right" size={12} class={styles.itemExt} />
                                 </Show>
                               </span>
-                              <Show when={item().description}>
-                                <span class={styles.itemDesc}>{item().description}</span>
+                              <Show when={t(item().description!)}>
+                                <span class={styles.itemDesc}>{t(item().description!)}</span>
                               </Show>
                             </span>
                           </NavigationMenu.Item>
@@ -114,6 +119,7 @@ function DesktopNav() {
 
 function MobileNav() {
   const location = useLocation();
+  const { t, localePath } = useI18n();
   const [open, setOpen] = createSignal(false);
   // Close the drawer after client-side navigation.
   createEffect(
@@ -129,7 +135,7 @@ function MobileNav() {
   });
   return (
     <Drawer side="right" open={open()} onOpenChange={setOpen}>
-      <Drawer.Trigger class={styles.iconButton} aria-label="Open menu">
+      <Drawer.Trigger class={styles.iconButton} aria-label={t("Open menu")}>
         <Icon name="menu" size={20} />
       </Drawer.Trigger>
       <Drawer.Portal>
@@ -138,37 +144,37 @@ function MobileNav() {
           <div class={styles.drawerHead}>
             <Drawer.Title class="visually-hidden">Menu</Drawer.Title>
             <Logo height={24} />
-            <Drawer.CloseButton class={styles.iconButton} aria-label="Close menu">
+            <Drawer.CloseButton class={styles.iconButton} aria-label={t("Close menu")}>
               <Icon name="close" size={20} />
             </Drawer.CloseButton>
           </div>
-          <nav aria-label="Mobile" class={styles.mobileNav}>
+          <nav aria-label={t("Mobile")} class={styles.mobileNav}>
             <For each={NAV} keyed={(e) => e.label}>
               {(entry) => (
                 <Show
                   when={(() => { const e = entry(); return isNavGroup(e) ? e : undefined; })()}
                   fallback={
-                    <a class={styles.mobileTop} href={(entry() as NavLink).href} onClick={() => onFlush(() => setOpen(false))}>
-                      {entry().label}
+                    <a class={styles.mobileTop} href={localePath((entry() as NavLink).href)} onClick={() => onFlush(() => setOpen(false))}>
+                      {t(entry().label)}
                     </a>
                   }
                 >
                   {(group) => (
                     <section class={styles.mobileGroup}>
-                      <h2 class={styles.mobileHeading}>{group().label}</h2>
+                      <h2 class={styles.mobileHeading}>{t(group().label)}</h2>
                       <ul role="list" class={styles.mobileList}>
                         <For each={group().items} keyed={(i) => i.href}>
                           {(item) => (
                             <li>
                               <a
                                 class={styles.mobileLink}
-                                href={item().href}
+                                href={localePath(item().href)}
                                 aria-current={isCurrent(item().href, location.pathname) ? "page" : undefined}
                                 onClick={() => onFlush(() => setOpen(false))}
                                 {...linkAttrs(item())}
                               >
                                 <Show when={item().icon}><Icon name={item().icon!} size={18} /></Show>
-                                {item().label}
+                                {t(item().label)}
                               </a>
                             </li>
                           )}
@@ -183,7 +189,7 @@ function MobileNav() {
           <div class={styles.mobileSocial}>
             <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
               {(social) => (
-                <a class={styles.iconButton} href={social().href} target="_blank" rel="noopener noreferrer" aria-label={`Solid on ${social().label} (opens in a new tab)`}>
+                <a class={styles.iconButton} href={social().href} target="_blank" rel="noopener noreferrer" aria-label={t("Solid on {network} (opens in a new tab)", { network: social().label })}>
                   <Icon name={social().icon} size={18} />
                 </a>
               )}
@@ -200,6 +206,7 @@ function MobileNav() {
  * It slides out of view while the footer is on screen (so the footer gets the whole viewport) and returns on scroll up.
  */
 export function Header() {
+  const { t, localePath } = useI18n();
   const [hidden, setHidden] = createSignal(false);
   const [scrolled, setScrolled] = createSignal(false);
   onSettled(() => {
@@ -219,7 +226,7 @@ export function Header() {
   return (
     <header class={styles.header} data-hidden={hidden() ? "" : undefined} data-scrolled={scrolled() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
-        <a href="/" class={styles.brand} aria-label={`${SITE_NAME} home`}>
+        <a href={localePath("/")} class={styles.brand} aria-label={t("{name} home", { name: SITE_NAME })}>
           <Logo height={26} />
         </a>
         <div class={styles.desktop}>
@@ -233,12 +240,13 @@ export function Header() {
                 href={social().href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Solid on ${social().label} (opens in a new tab)`}
+                aria-label={t("Solid on {network} (opens in a new tab)", { network: social().label })}
               >
                 <Icon name={social().icon} size={18} />
               </a>
             )}
           </For>
+          <LanguageSwitcher />
           <ThemeToggle />
           <div class={styles.mobile}>
             <MobileNav />

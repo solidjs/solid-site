@@ -1,6 +1,7 @@
 import { Link as KLink } from "@kobalte/core/link";
 import type { JSX } from "@solidjs/web";
 import { omit } from "solid-js";
+import { useI18n } from "../i18n";
 import { isExternalHref } from "../site";
 import { Icon } from "./Icon";
 import styles from "./Link.module.css";
@@ -22,11 +23,14 @@ export interface LinkProps extends Omit<JSX.AnchorHTMLAttributes<HTMLAnchorEleme
  * and navigates client-side (there is no `A` component). External URLs open in a new tab.
  */
 export function Link(props: LinkProps) {
+  const { localePath } = useI18n();
   const isExternal = () => props.external ?? isExternalHref(props.href);
-  const rest = omit(props, "external", "current", "showExternalIcon", "inline", "class", "children", "target", "rel");
+  const href = () => (isExternal() ? props.href : localePath(props.href));
+  const rest = omit(props, "href", "external", "current", "showExternalIcon", "inline", "class", "children", "target", "rel");
   return (
     <KLink
       {...rest}
+      href={href()}
       class={[styles.link, { [styles.inline]: props.inline }, props.class]}
       current={props.current}
       target={isExternal() ? "_blank" : props.target}

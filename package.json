@@ -11,7 +11,7 @@
     "dev": "vite dev",
     "prebuild": "node scripts/generate-rss.ts",
     "build": "vite build",
-    "postbuild": "node scripts/patch-sitemap.ts && node scripts/generate-og.ts",
+    "postbuild": "node scripts/patch-sitemap.ts && node scripts/patch-headers.ts && node scripts/generate-og.ts",
     "preview": "vite preview",
     "type:check": "tsc --noEmit",
     "deploy": "pnpm build && wrangler deploy",

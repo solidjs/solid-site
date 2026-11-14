@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../i18n";
 import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, FOOTER_COLUMNS, isExternalHref, LICENSE_NOTE, SITE_NAME, SITE_TAGLINE, SOCIAL_LINKS, SOLID_2 } from "../site";
 import { Badge } from "./Badge";
 import { Container } from "./Container";
@@ -10,27 +11,28 @@ import styles from "./Footer.module.css";
 
 /** Multi-column site footer: brand + tagline, link columns, then a bottom bar with copyright, licence and socials. */
 export function Footer() {
+  const { t, localePath } = useI18n();
   return (
     <footer class={styles.footer}>
       <Container size="wide">
         <div class={styles.grid}>
           <div class={styles.brand}>
-            <a href="/" aria-label={`${SITE_NAME} home`} class={styles.logo}>
+            <a href={localePath("/")} aria-label={t("{name} home", { name: SITE_NAME })} class={styles.logo}>
               <Logo height={26} />
             </a>
-            <p class={styles.tagline}>{SITE_TAGLINE}</p>
-            <Badge tone="brand">Solid 2.0: {SOLID_2.status}</Badge>
+            <p class={styles.tagline}>{t(SITE_TAGLINE)}</p>
+            <Badge tone="brand">{t("Solid 2.0: {status}", { status: t(SOLID_2.status) })}</Badge>
           </div>
           <For each={FOOTER_COLUMNS} keyed={(c) => c.title}>
             {(col) => (
-              <nav class={styles.column} aria-label={col().title}>
-                <h2 class={styles.heading}>{col().title}</h2>
+              <nav class={styles.column} aria-label={t(col().title)}>
+                <h2 class={styles.heading}>{t(col().title)}</h2>
                 <ul role="list" class={styles.list}>
                   <For each={col().links} keyed={(l) => l.href}>
                     {(link) => (
                       <li>
                         <Link href={link().href} class={styles.link} showExternalIcon={isExternalHref(link().href)}>
-                          {link().label}
+                          {t(link().label)}
                         </Link>
                       </li>
                     )}
@@ -43,7 +45,7 @@ export function Footer() {
         <Separator />
         <div class={styles.bottom}>
           <p class={styles.legal}>
-            &copy; {COPYRIGHT_YEAR} {COPYRIGHT_HOLDER}. {LICENSE_NOTE}
+            {t("© {year} {holder}. {license}", { year: COPYRIGHT_YEAR, holder: COPYRIGHT_HOLDER, license: t(LICENSE_NOTE) })}
           </p>
           <ul role="list" class={styles.social}>
             <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
