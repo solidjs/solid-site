@@ -1,0 +1,42 @@
+/** TEST translation: covers the site chrome (header, footer, nav) only. Not reviewed by a French speaker. */
+export default {
+  // Nav groups and links
+  Learn: "Apprendre",
+  Docs: "Documentation",
+  Tutorial: "Tutoriel",
+  Blog: "Blog",
+  Community: "Communauté",
+  "Team & Contributors": "Équipe et contributeurs",
+  "Code of Conduct": "Code de conduite",
+  About: "À propos",
+  Media: "Médias",
+  "Media & Brand": "Médias et marque",
+  Project: "Projet",
+  Reddit: "Reddit",
+  "Sponsor on Open Collective": "Soutenir sur Open Collective",
+  "Website source": "Code source du site",
+  // Nav descriptions
+  "Guides and API reference for Solid.": "Guides et référence de l'API de Solid.",
+  "Learn Solid interactively, step by step.": "Apprenez Solid de façon interactive, pas à pas.",
+  "Chat with the community and core team.": "Discutez avec la communauté et l'équipe principale.",
+  "Source code, issues and discussions.": "Code source, tickets et discussions.",
+  "The people who build and support Solid.": "Les personnes qui construisent et soutiennent Solid.",
+  "How we keep the community welcoming.": "Comment nous gardons la communauté accueillante.",
+  "What Solid is and where it is going.": "Ce qu'est Solid et où il va.",
+  "Logos, brand assets and press resources.": "Logos, éléments de marque et ressources presse.",
+  // Chrome
+  "Skip to main content": "Aller au contenu principal",
+  "Change language": "Changer de langue",
+  "Open menu": "Ouvrir le menu",
+  "Close menu": "Fermer le menu",
+  Primary: "Principale",
+  Mobile: "Mobile",
+  "{name} home": "Accueil {name}",
+  "Solid on {network} (opens in a new tab)": "Solid sur {network} (s'ouvre dans un nouvel onglet)",
+  // Footer
+  "Simple and performant reactivity for building user interfaces.": "Une réactivité simple et performante pour créer des interfaces utilisateur.",
+  "Solid 2.0: {status}": "Solid 2.0 : {status}",
+  "Release candidate": "Version candidate",
+  "© {year} {holder}. {license}": "© {year} {holder}. {license}",
+  "Released under the MIT License.": "Publié sous licence MIT.",
+} satisfies Record<string, string>;
