@@ -1,5 +1,6 @@
 import type { JSX } from "@solidjs/web";
 import { Show, type ParentProps } from "solid-js";
+import { useI18n } from "../i18n";
 import { Container, type ContainerProps } from "./Container";
 import styles from "./Section.module.css";
 
@@ -22,6 +23,7 @@ export interface SectionProps extends ParentProps {
 
 /** Page section with an optional eyebrow / title / description / actions header, then children. */
 export function Section(props: SectionProps) {
+  const { tx } = useI18n();
   const headingId = () => (props.id ? `${props.id}-title` : undefined);
   return (
     <section
@@ -33,13 +35,13 @@ export function Section(props: SectionProps) {
         <Show when={props.title || props.eyebrow || props.description}>
           <header class={[styles.header, { [styles.start]: props.align === "start" }]}>
             <Show when={props.eyebrow}>
-              <p class={styles.eyebrow}>{props.eyebrow}</p>
+              <p class={styles.eyebrow}>{tx(props.eyebrow)}</p>
             </Show>
             <Show when={props.title}>
-              {(t) => <h2 id={headingId()} class={styles.title}>{t()}</h2>}
+              {(t) => <h2 id={headingId()} class={styles.title}>{tx(t())}</h2>}
             </Show>
             <Show when={props.description}>
-              {(d) => <p class={styles.description}>{d()}</p>}
+              {(d) => <p class={styles.description}>{tx(d())}</p>}
             </Show>
             {/* Show's accessor avoids evaluating the JSX prop twice (that desyncs hydration ids). */}
             <Show when={props.actions}>

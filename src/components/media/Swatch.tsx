@@ -1,4 +1,5 @@
 import { createSignal, onSettled } from "solid-js";
+import { useI18n } from "../../i18n";
 import { CopyButton } from "../CopyButton";
 import styles from "./Swatch.module.css";
 
@@ -13,6 +14,7 @@ export interface SwatchProps {
  * resolved value read after settle (and again on theme change). Empty on the server ("—").
  */
 export function Swatch(props: SwatchProps) {
+  const { t } = useI18n();
   const [value, setValue] = createSignal("");
 
   onSettled(() => {
@@ -27,13 +29,13 @@ export function Swatch(props: SwatchProps) {
 
   return (
     <li class={styles.swatch}>
-      <div class={styles.chip} style={{ background: `var(${props.token})` }} role="img" aria-label={`${props.name} colour swatch`} />
+      <div class={styles.chip} style={{ background: `var(${props.token})` }} role="img" aria-label={t("{name} colour swatch", { name: t(props.name) })} />
       <div class={styles.meta}>
-        <span class={styles.name}>{props.name}</span>
+        <span class={styles.name}>{t(props.name)}</span>
         <code class={styles.value}>{value() || "—"}</code>
         <span class={styles.token}>{props.token}</span>
       </div>
-      {value() ? <CopyButton text={value()} label={`Copy ${props.name} value ${value()}`} /> : null}
+      {value() ? <CopyButton text={value()} label={t("Copy {name} value {value}", { name: t(props.name), value: value() })} /> : null}
     </li>
   );
 }

@@ -1,5 +1,6 @@
 import { For, Show } from "solid-js";
-import { formatDate, postPath, posts } from "../../blog/posts";
+import { postPath, posts } from "../../blog/posts";
+import { useI18n } from "../../i18n";
 import { Badge } from "../Badge";
 import { Button } from "../Button";
 import { Link } from "../Link";
@@ -9,6 +10,7 @@ import styles from "./BlogPreview.module.css";
 const latest = posts.slice(0, 3);
 
 export function BlogPreview() {
+  const { t, fmtDate, localePath } = useI18n();
   return (
     <Section
       id="blog"
@@ -29,7 +31,7 @@ export function BlogPreview() {
               </div>
               <div class={styles.body}>
                 <div class={styles.meta}>
-                  <time datetime={p().date}>{formatDate(p().date)}</time>
+                  <time datetime={p().date}>{fmtDate(p().date)}</time>
                   <Show when={p().tags?.[0]}>
                     <Badge>{p().tags![0]}</Badge>
                   </Show>

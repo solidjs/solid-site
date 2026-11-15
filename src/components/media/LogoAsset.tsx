@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n";
 import { For } from "solid-js";
 import { absoluteUrl } from "../../site";
 import { CopyButton } from "../CopyButton";
@@ -8,6 +9,7 @@ import styles from "./LogoAsset.module.css";
 
 /** One logo variant: preview tile on its intended surface, per-format downloads, copy-SVG-URL. */
 export function LogoAsset(props: { variant: LogoVariant }) {
+  const { t } = useI18n();
   const headingId = () => `logo-${props.variant.id.replace("/", "-")}`;
   return (
     <article class={styles.card} aria-labelledby={headingId()}>
@@ -15,14 +17,14 @@ export function LogoAsset(props: { variant: LogoVariant }) {
         <img
           class={styles.image}
           src={logoPath(props.variant.id, "SVG")}
-          alt={`${props.variant.title} preview`}
+          alt={t("{title} preview", { title: t(props.variant.title) })}
           loading="lazy"
           decoding="async"
         />
       </div>
       <div class={styles.body}>
-        <h3 id={headingId()} class={styles.title}>{props.variant.title}</h3>
-        <p class={styles.description}>{props.variant.description}</p>
+        <h3 id={headingId()} class={styles.title}>{t(props.variant.title)}</h3>
+        <p class={styles.description}>{t(props.variant.description)}</p>
         <div class={styles.downloads}>
           <For each={props.variant.formats} keyed={(f) => f}>
             {(format) => (
@@ -30,7 +32,7 @@ export function LogoAsset(props: { variant: LogoVariant }) {
                 class={styles.download}
                 href={logoPath(props.variant.id, format())}
                 download={`${props.variant.id.split("/")[1]}.${format().toLowerCase()}`}
-                aria-label={`Download ${props.variant.title} as ${format()}`}
+                aria-label={t("Download {title} as {format}", { title: t(props.variant.title), format: format() })}
               >
                 <Icon name="download" size={14} />
                 {format()}
@@ -40,7 +42,7 @@ export function LogoAsset(props: { variant: LogoVariant }) {
           <CopyButton
             class={styles.copy}
             text={absoluteUrl(logoPath(props.variant.id, "SVG"))}
-            label={`Copy SVG URL for ${props.variant.title}`}
+            label={t("Copy SVG URL for {title}", { title: t(props.variant.title) })}
           />
         </div>
       </div>

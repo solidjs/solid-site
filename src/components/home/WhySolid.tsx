@@ -1,4 +1,5 @@
 import type { JSX } from "@solidjs/web";
+import { useI18n } from "../../i18n";
 import { For } from "solid-js";
 import { Section } from "../Section";
 import { Separator } from "../Separator";
@@ -9,12 +10,13 @@ type Accent = "brand" | "success" | "warning" | "info" | "accent";
 
 /** One alternating row: coloured eyebrow, heading and copy on the left, a small visual on the right. */
 function Highlight(props: { eyebrow: string; accent: Accent; title: string; children: JSX.Element; visual: JSX.Element }) {
+  const { tx } = useI18n();
   return (
     <article class={[styles.row, styles[props.accent]]}>
       <div class={styles.copy}>
-        <p class={styles.eyebrow}>{props.eyebrow}</p>
-        <h3 class={styles.title}>{props.title}</h3>
-        <p class={styles.text}>{props.children}</p>
+        <p class={styles.eyebrow}>{tx(props.eyebrow)}</p>
+        <h3 class={styles.title}>{tx(props.title)}</h3>
+        <p class={styles.text}>{tx(props.children)}</p>
       </div>
       <div class={styles.visual}>{props.visual}</div>
     </article>
@@ -37,6 +39,7 @@ const at = (n: { x: number; y: number }) => ({ left: `${n.x}%`, top: `${n.y}%` }
 
 /** Reactivity graph: one signal, one DOM node that reads it. Decorative: the row copy carries the meaning. */
 function GraphVisual() {
+  const { t } = useI18n();
   const line = (n: { x: number; y: number }, cls: string) => (
     <line class={cls} x1={CORE.x} y1={CORE.y} x2={n.x} y2={n.y} />
   );
@@ -53,7 +56,7 @@ function GraphVisual() {
       <span class={[styles.node, styles.dim]} style={at(NODES.heading)}>{NODES.heading.label}</span>
       <span class={[styles.node, styles.dim]} style={at(NODES.header)}>{NODES.header.label}</span>
       <span class={[styles.node, styles.dim]} style={at(NODES.footer)}>{NODES.footer.label}</span>
-      <span class={styles.legend} style={{ left: `${NODES.live.x + 2}%`, top: `${NODES.live.y + 14}%` }}>only this updates</span>
+      <span class={styles.legend} style={{ left: `${NODES.live.x + 2}%`, top: `${NODES.live.y + 14}%` }}>{t("only this updates")}</span>
     </div>
   );
 }
@@ -79,6 +82,7 @@ const ACTION_STEPS = [
 ] as const;
 
 export function WhySolid() {
+  const { t } = useI18n();
   return (
     <Section
       id="why-solid"
@@ -105,7 +109,7 @@ export function WhySolid() {
                 {(row) => (
                   <div class={styles.tableRow}>
                     <dt class={styles.mono}>{row().name}</dt>
-                    <dd class={[styles.mono, styles.result]}>{row().result}</dd>
+                    <dd class={[styles.mono, styles.result]}>{t(row().result)}</dd>
                   </div>
                 )}
               </For>
@@ -128,7 +132,7 @@ export function WhySolid() {
                 {(step) => (
                   <li class={styles.flowStep}>
                     <code class={styles.mono}>{step().code}</code>
-                    <span class={styles.note}>{step().note}</span>
+                    <span class={styles.note}>{t(step().note)}</span>
                   </li>
                 )}
               </For>
@@ -151,7 +155,7 @@ export function WhySolid() {
                 {(step) => (
                   <li class={styles.timelineStep}>
                     <code class={styles.mono}>{step().code}</code>
-                    <span class={styles.note}>{step().note}</span>
+                    <span class={styles.note}>{t(step().note)}</span>
                   </li>
                 )}
               </For>
@@ -170,11 +174,11 @@ export function WhySolid() {
           title="Production-grade"
           visual={
             <div class={styles.metric}>
-              <p class={styles.metricLabel}>npm downloads / week</p>
+              <p class={styles.metricLabel}>{t("npm downloads / week")}</p>
               <p class={styles.metricValue}><LiveStat stat="downloads" /></p>
               <p class={styles.metricRow}>
-                <span><LiveStat stat="stars" /> GitHub stars</span>
-                <span><LiveStat stat="contributors" /> contributors</span>
+                <span><LiveStat stat="stars" /> {t("GitHub stars")}</span>
+                <span><LiveStat stat="contributors" /> {t("contributors")}</span>
               </p>
             </div>
           }

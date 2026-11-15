@@ -23,7 +23,7 @@ export interface LinkProps extends Omit<JSX.AnchorHTMLAttributes<HTMLAnchorEleme
  * and navigates client-side (there is no `A` component). External URLs open in a new tab.
  */
 export function Link(props: LinkProps) {
-  const { localePath } = useI18n();
+  const { t, localePath } = useI18n();
   const isExternal = () => props.external ?? isExternalHref(props.href);
   const href = () => (isExternal() ? props.href : localePath(props.href));
   const rest = omit(props, "href", "external", "current", "showExternalIcon", "inline", "class", "children", "target", "rel");
@@ -40,7 +40,7 @@ export function Link(props: LinkProps) {
       {isExternal() && props.showExternalIcon ? (
         <>
           <Icon name="arrow-up-right" size={14} class={styles.ext} />
-          <span class="visually-hidden"> (opens in a new tab)</span>
+          <span class="visually-hidden"> {t("(opens in a new tab)")}</span>
         </>
       ) : null}
     </KLink>

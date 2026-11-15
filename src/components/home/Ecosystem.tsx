@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { Icon } from "../Icon";
 import { Link } from "../Link";
 import { Section } from "../Section";
@@ -6,6 +7,7 @@ import { ECOSYSTEM } from "./data";
 import styles from "./Ecosystem.module.css";
 
 export function Ecosystem() {
+  const { t } = useI18n();
   return (
     <Section
       id="ecosystem"
@@ -20,8 +22,8 @@ export function Ecosystem() {
               <Link href={p().href} class={styles.tile} showExternalIcon={false}>
                 <span class={styles.icon}><Icon name={p().icon} size={20} /></span>
                 <span class={styles.name}>{p().name}</span>
-                <span class={styles.desc}>{p().description}</span>
-                <span class="visually-hidden"> (opens in a new tab)</span>
+                <span class={styles.desc}>{t(p().description)}</span>
+                <span class="visually-hidden"> {t("(opens in a new tab)")}</span>
               </Link>
             </li>
           )}

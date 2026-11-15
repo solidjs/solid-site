@@ -1,5 +1,6 @@
 import { DropdownMenu } from "@kobalte/core/dropdown-menu";
 import { createEffect, createSignal, For, onSettled } from "solid-js";
+import { useI18n } from "../i18n";
 import { Icon, type IconName } from "./Icon";
 import { applyPreference, readStoredPreference, syncThemeColor, type ThemePreference } from "./theme";
 import styles from "./ThemeToggle.module.css";
@@ -15,6 +16,7 @@ const OPTIONS: { value: ThemePreference; label: string; icon: IconName }[] = [
  * CSS picks one from <html data-theme>, so server HTML and hydration never disagree and there is no flash.
  */
 export function ThemeToggle(props: { class?: string }) {
+  const { t } = useI18n();
   const [pref, setPref] = createSignal<ThemePreference>("system");
   let ready = false;
 
@@ -38,7 +40,7 @@ export function ThemeToggle(props: { class?: string }) {
 
   return (
     <DropdownMenu placement="bottom-end" gutter={8}>
-      <DropdownMenu.Trigger class={[styles.trigger, props.class]} aria-label="Change colour theme">
+      <DropdownMenu.Trigger class={[styles.trigger, props.class]} aria-label={t("Change colour theme")}>
         <Icon name="sun" size={18} class={styles.sun} />
         <Icon name="moon" size={18} class={styles.moon} />
       </DropdownMenu.Trigger>
@@ -49,7 +51,7 @@ export function ThemeToggle(props: { class?: string }) {
               {(o) => (
                 <DropdownMenu.RadioItem class={styles.item} value={o().value}>
                   <Icon name={o().icon} size={16} />
-                  <span>{o().label}</span>
+                  <span>{t(o().label)}</span>
                   <DropdownMenu.ItemIndicator class={styles.indicator}>
                     <Icon name="check" size={14} />
                   </DropdownMenu.ItemIndicator>

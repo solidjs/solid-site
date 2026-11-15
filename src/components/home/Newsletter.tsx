@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { SOCIAL_LINKS } from "../../site";
 import { Button } from "../Button";
 import { Container } from "../Container";
@@ -10,14 +11,13 @@ import styles from "./Newsletter.module.css";
  * TODO(content): replace with a real signup form once a newsletter endpoint exists.
  */
 export function Newsletter() {
+  const { t } = useI18n();
   return (
     <section class={styles.band} aria-labelledby="stay-title">
       <Container class={styles.inner}>
         <div>
-          <h2 id="stay-title" class={styles.title}>Stay in the loop</h2>
-          <p class={styles.text}>
-            Release news and community updates land on the blog first, then on our social channels.
-          </p>
+          <h2 id="stay-title" class={styles.title}>{t("Stay in the loop")}</h2>
+          <p class={styles.text}>{t("Release news and community updates land on the blog first, then on our social channels.")}</p>
         </div>
         <div class={styles.actions}>
           <Button href="/blog" variant="primary">Read the blog</Button>

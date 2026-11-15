@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n";
 import { Errored, For, Loading, createMemo, createSignal, onSettled } from "solid-js";
 import { Avatar } from "../Avatar";
 import { Link } from "../Link";
@@ -41,18 +42,22 @@ async function loadContributors(): Promise<Contributor[]> {
   return [...byLogin.values()].sort((a, b) => b.contributions - a.contributions);
 }
 
-const Fallback = (props: { message: string }) => (
-  <p class={styles.wallNote}>
-    {props.message}{" "}
-    <Link href={CONTRIBUTORS_URL} inline>See everyone on GitHub</Link>.
-  </p>
-);
+const Fallback = (props: { message: string }) => {
+  const { t } = useI18n();
+  return (
+    <p class={styles.wallNote}>
+      {t(props.message)}{" "}
+      <Link href={CONTRIBUTORS_URL} inline>{t("See everyone on GitHub")}</Link>.
+    </p>
+  );
+};
 
 /**
  * Contributor avatar wall. Prerendered HTML contains only the link-out; the live list is fetched
  * in the browser after hydration and never throws (rate limits show the link-out message).
  */
 export function ContributorWall() {
+  const { t } = useI18n();
   const [ready, setReady] = createSignal(false);
   onSettled(() => {
     setReady(true);
@@ -63,12 +68,12 @@ export function ContributorWall() {
   return (
     <div class={styles.wall} aria-live="polite">
       <Errored fallback={() => <Fallback message="The live contributor list is unavailable right now (GitHub may be rate limiting requests)." />}>
-        <Loading fallback={<p class={styles.wallNote}>Loading contributors...</p>}>
+        <Loading fallback={<p class={styles.wallNote}>{t("Loading contributors...")}</p>}>
           <ul class={styles.wallGrid} role="list">
             <For each={people()}>
               {(c) => (
                 <li>
-                  <Link href={c.url} aria-label={`${c.login} on GitHub`} title={c.login} class={styles.wallLink}>
+                  <Link href={c.url} aria-label={t("{name} on GitHub", { name: c.login })} title={c.login} class={styles.wallLink}>
                     <Avatar src={c.avatar} name={c.login} size={48} />
                   </Link>
                 </li>

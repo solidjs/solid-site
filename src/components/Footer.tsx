@@ -11,10 +11,10 @@ import styles from "./Footer.module.css";
 
 /** Multi-column site footer: brand + tagline, link columns, then a bottom bar with copyright, licence and socials. */
 export function Footer() {
-  const { t, localePath } = useI18n();
+  const { t, tSplit, localePath } = useI18n();
   // "Released under the {license}." is translated as one sentence (word order differs by language), then split around
   // the placeholder so the licence name can be a link.
-  const licenseSentence = () => t("Released under the {license}.", { license: "\u0001" }).split("\u0001");
+  const licenseSentence = () => tSplit("Released under the {license}.", "license");
   return (
     <footer class={styles.footer}>
       <Container size="wide">

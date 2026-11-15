@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n";
 import { SOLID_2 } from "../../site";
 import { Button } from "../Button";
 import { Repl } from "../repl/Repl";
@@ -7,28 +8,29 @@ import { SNIPPETS } from "./data";
 import { CodeBlock } from "./highlight";
 import styles from "./WhatsNew.module.css";
 
-const buildItems = () => SNIPPETS.map((s) => ({
+const buildItems = (t: (english: string, vars?: Record<string, string | number>) => string) => SNIPPETS.map((s) => ({
   value: s.value,
   label: s.label,
   content: () => (
     <div class={styles.panel}>
       <div class={styles.copy}>
-        <h3 class={styles.heading}>{s.title}</h3>
-        <p class={styles.text}>{s.description}</p>
-        <p class={styles.hint}>Edit the code and the preview updates live.</p>
+        <h3 class={styles.heading}>{t(s.title)}</h3>
+        <p class={styles.text}>{t(s.description)}</p>
+        <p class={styles.hint}>{t("Edit the code and the preview updates live.")}</p>
       </div>
       <Repl
-        label={`${s.label} live example`}
+        label={t("{label} live example", { label: t(s.label) })}
         files={s.files}
         devtools={s.devtools}
-        placeholder={<CodeBlock code={s.files[0].source} label={`${s.label} example`} />}
+        placeholder={<CodeBlock code={s.files[0].source} label={t("{label} example", { label: t(s.label) })} />}
       />
     </div>
   ),
 }));
 
 export function WhatsNew() {
-  const items = buildItems();
+  const { t } = useI18n();
+  const items = buildItems(t);
   return (
     <Section
       id="whats-new"

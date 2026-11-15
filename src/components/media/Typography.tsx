@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { Button } from "../Button";
 import styles from "./Typography.module.css";
 
@@ -54,6 +55,7 @@ const PRINCIPLES = [
 
 /** Typefaces, the type scale and a few principles for the Media page. */
 export function Typography() {
+  const { t } = useI18n();
   return (
     <div class={styles.wrap}>
       <ul class={styles.faces} role="list">
@@ -64,54 +66,54 @@ export function Typography() {
                 <span class={styles.aa} style={{ "font-family": f().family }} aria-hidden="true">Aa</span>
                 <div>
                   <h3 class={styles.faceName} style={{ "font-family": f().family }}>{f().name}</h3>
-                  <p class={styles.faceRole}>{f().role}</p>
+                  <p class={styles.faceRole}>{t(f().role)}</p>
                 </div>
               </div>
-              <p class={styles.faceText}>{f().description}</p>
+              <p class={styles.faceText}>{t(f().description)}</p>
               <p class={styles.glyphs} style={{ "font-family": f().family }} aria-hidden="true">{GLYPHS}</p>
               <ul class={styles.weights} role="list">
                 <For each={f().weights} keyed={(w) => w.value}>
                   {(w) => (
                     <li>
                       <span class={styles.weightSample} style={{ "font-family": f().family, "font-weight": w().value }}>{f().sample}</span>
-                      <span class={styles.weightName}>{w().name} {w().value}</span>
+                      <span class={styles.weightName}>{t(w().name)} {w().value}</span>
                     </li>
                   )}
                 </For>
               </ul>
               <div class={styles.faceActions}>
-                <Button href={f().href} icon="download" size="sm">Get {f().name}</Button>
+                <Button href={f().href} icon="download" size="sm">{t("Get {name}", { name: f().name })}</Button>
               </div>
             </li>
           )}
         </For>
       </ul>
       <p class={styles.license}>
-        Geist and Geist Mono are open source under the SIL Open Font License. This site serves both from its own domain.
+        {t("Geist and Geist Mono are open source under the SIL Open Font License. This site serves both from its own domain.")}
       </p>
 
-      <h3 class={styles.subhead}>Type scale</h3>
+      <h3 class={styles.subhead}>{t("Type scale")}</h3>
       <ul class={styles.scale} role="list">
         <For each={SCALE} keyed={(r) => r.label}>
           {(r) => (
             <li class={styles.row}>
               <div class={styles.rowMeta}>
-                <span class={styles.rowLabel}>{r().label}</span>
+                <span class={styles.rowLabel}>{t(r().label)}</span>
                 <code class={styles.rowToken}>{r().token}</code>
               </div>
-              <p class={styles.rowSample} style={{ "font-size": `var(${r().token})`, ...r().style }}>{r().sample}</p>
+              <p class={styles.rowSample} style={{ "font-size": `var(${r().token})`, ...r().style }}>{t(r().sample)}</p>
             </li>
           )}
         </For>
       </ul>
 
-      <h3 class={styles.subhead}>Principles</h3>
+      <h3 class={styles.subhead}>{t("Principles")}</h3>
       <ul class={styles.principles} role="list">
         <For each={PRINCIPLES} keyed={(p) => p.title}>
           {(p) => (
             <li class={styles.principle}>
-              <h4>{p().title}</h4>
-              <p>{p().description}</p>
+              <h4>{t(p().title)}</h4>
+              <p>{t(p().description)}</p>
             </li>
           )}
         </For>

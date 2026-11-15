@@ -1,6 +1,7 @@
 import { ToggleGroup as KToggleGroup } from "@kobalte/core/toggle-group";
 import type { JSX } from "@solidjs/web";
 import { For } from "solid-js";
+import { useI18n } from "../i18n";
 import styles from "./ToggleGroup.module.css";
 
 export interface ToggleOption {
@@ -22,19 +23,20 @@ export interface ToggleGroupProps {
 
 /** Pill toggle group for filters (Kobalte ToggleGroup, multiple selection). */
 export function ToggleGroup(props: ToggleGroupProps) {
+  const { tx } = useI18n();
   return (
     <KToggleGroup
       multiple
       class={[styles.group, props.class]}
-      aria-label={props.label}
+      aria-label={tx(props.label)}
       value={props.value}
       defaultValue={props.defaultValue}
       onChange={(v: string[]) => props.onChange?.(v)}
     >
       <For each={props.options} keyed={(o) => o.value}>
         {(o) => (
-          <KToggleGroup.Item class={styles.item} value={o().value} aria-label={o().ariaLabel}>
-            {o().label}
+          <KToggleGroup.Item class={styles.item} value={o().value} aria-label={tx(o().ariaLabel)}>
+            {tx(o().label)}
           </KToggleGroup.Item>
         )}
       </For>

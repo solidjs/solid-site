@@ -1,5 +1,6 @@
 import type { JSX } from "@solidjs/web";
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import styles from "./Timeline.module.css";
 
 export interface TimelineEvent {
@@ -13,14 +14,15 @@ export interface TimelineEvent {
 
 /** Vertical timeline rendered as an ordered list of <time>-stamped events. */
 export function Timeline(props: { events: TimelineEvent[] }) {
+  const { tx, fmtIso } = useI18n();
   return (
     <ol class={styles.list}>
       <For each={props.events} keyed={(e) => `${e.iso}|${String(e.title)}`}>
         {(event) => (
           <li class={styles.item}>
-            <time class={styles.date} datetime={event().iso}>{event().label}</time>
-            <h3 class={styles.title}>{event().title}</h3>
-            {event().description ? <p class={styles.description}>{event().description}</p> : null}
+            <time class={styles.date} datetime={event().iso}>{fmtIso(event().iso)}</time>
+            <h3 class={styles.title}>{tx(event().title)}</h3>
+            {event().description ? <p class={styles.description}>{tx(event().description)}</p> : null}
           </li>
         )}
       </For>

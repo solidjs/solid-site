@@ -1,4 +1,5 @@
 import { For, Show } from "solid-js";
+import { useI18n } from "../../i18n";
 import { URLS } from "../../site";
 import { Button } from "../Button";
 import { Link } from "../Link";
@@ -28,14 +29,15 @@ function markSize(ratio: number) {
 }
 
 function Tier(props: { title: string; tier: SponsorTier; sponsors: Sponsor[] }) {
+  const { t } = useI18n();
   return (
     <div class={[styles.tier, styles[props.tier]]}>
-      <h3 class={styles.tierTitle}>{props.title}</h3>
+      <h3 class={styles.tierTitle}>{t(props.title)}</h3>
       <ul class={styles.logos}>
         <For each={props.sponsors} keyed={(s) => s.name}>
           {(s) => (
             <li>
-              <Link href={s().href} class={styles.logo} showExternalIcon={false} aria-label={`${s().name} (opens in a new tab)`}>
+              <Link href={s().href} class={styles.logo} showExternalIcon={false} aria-label={`${s().name} ${t("(opens in a new tab)")}`}>
                 <span class={styles.mark} aria-hidden="true" style={{ "--logo": `url("${s().logo}")`, ...markSize(s().ratio) }} />
               </Link>
             </li>

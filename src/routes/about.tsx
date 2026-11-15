@@ -1,4 +1,5 @@
 import { Meta, Title } from "@solidjs/meta";
+import { useI18n } from "../i18n";
 import { For } from "solid-js";
 import { Badge } from "../components/Badge";
 import { Button } from "../components/Button";
@@ -245,13 +246,14 @@ function Counter() {
 render(() => <Counter />, document.getElementById("app")!);`;
 
 export default function About() {
+  const { t, tSplit } = useI18n();
   return (
     <>
-      <Title>About | Solid</Title>
-      <Meta name="description" content={DESCRIPTION} />
+      <Title>{t("About | Solid")}</Title>
+      <Meta name="description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="About Solid"
-        title={<>Simple, fine-grained, <span class={styles.mark}>asynchronous</span> reactivity for the web</>}
+        title={<>{tSplit("Simple, fine-grained, {word} reactivity for the web", "word")[0]}<span class={styles.mark}>{t("asynchronous")}</span>{tSplit("Simple, fine-grained, {word} reactivity for the web", "word")[1]}</>}
         description="Solid is an open-source JavaScript library for building user interfaces. It is built and maintained by a community of contributors under the MIT licence."
         actions={
           <>
@@ -318,7 +320,7 @@ export default function About() {
         id="solid-2"
         eyebrow="Solid 2.0"
         title="Solid 2.0 is live"
-        description={`Solid ${SOLID_2.version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.`}
+        description={t("Solid {version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.", { version: SOLID_2.version })}
         actions={
           <>
             <Badge tone="success">Live</Badge>

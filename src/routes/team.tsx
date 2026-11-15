@@ -1,4 +1,5 @@
 import { Meta, Title } from "@solidjs/meta";
+import { useI18n } from "../i18n";
 import { For, Show } from "solid-js";
 import { Button } from "../components/Button";
 import { Link } from "../components/Link";
@@ -15,8 +16,9 @@ const CONTRIBUTING = "https://github.com/solidjs/solid/blob/main/CONTRIBUTING.md
 const DOCS_CONTRIBUTING = "https://github.com/solidjs/solid-docs/blob/main/CONTRIBUTING.md";
 
 function SupporterList(props: { items: readonly Supporter[]; label: string }) {
+  const { t } = useI18n();
   return (
-    <ul class={styles.list} aria-label={props.label}>
+    <ul class={styles.list} aria-label={t(props.label)}>
       <For each={props.items}>
         {(s) => (
           <li class={styles.item}>
@@ -26,7 +28,7 @@ function SupporterList(props: { items: readonly Supporter[]; label: string }) {
             <Show when={s.company}>
               <span class={styles.itemMeta}>{s.company}</span>
             </Show>
-            <p class={styles.itemDetail}>{s.detail}</p>
+            <p class={styles.itemDetail}>{t(s.detail)}</p>
           </li>
         )}
       </For>
@@ -35,10 +37,11 @@ function SupporterList(props: { items: readonly Supporter[]; label: string }) {
 }
 
 export default function TeamPage() {
+  const { t, tSplit } = useI18n();
   return (
     <>
-      <Title>Team & Contributors | Solid</Title>
-      <Meta name="description" content={DESCRIPTION} />
+      <Title>{t("Team & Contributors | Solid")}</Title>
+      <Meta name="description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="Team"
         title="The people behind Solid"
@@ -46,7 +49,7 @@ export default function TeamPage() {
       />
 
       <Section id="maintainers" title="Maintainers" description="The people who steer Solid and its ecosystem." size="wide">
-        <ul class={styles.grid} aria-label="Maintainers">
+        <ul class={styles.grid} aria-label={t("Maintainers")}>
           <For each={maintainers}>{(p) => <PersonCard person={p} />}</For>
         </ul>
       </Section>
@@ -66,8 +69,9 @@ export default function TeamPage() {
         class={styles.textOnly}
         description={
           <>
-            We could use help translating Solid to new languages,{" "}
-            <Link href={URLS.discord} inline>join Discord</Link> to help the effort.
+            {tSplit("We could use help translating Solid to new languages, {link} to help the effort.", "link")[0]}
+            <Link href={URLS.discord} inline>{t("join Discord")}</Link>
+            {tSplit("We could use help translating Solid to new languages, {link} to help the effort.", "link")[1]}
           </>
         }
       />

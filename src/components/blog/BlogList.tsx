@@ -1,5 +1,6 @@
 import { createSignal, For, Show } from "solid-js";
 import { allTags, posts } from "../../blog/posts";
+import { useI18n } from "../../i18n";
 import { Icon } from "../Icon";
 import { ToggleGroup } from "../ToggleGroup";
 import { PostCard } from "./PostCard";
@@ -16,6 +17,7 @@ const isCurrent = (p: (typeof posts)[number]) => p.tags?.includes(CURRENT_TAG) ?
  * opens the archive so a match is never hidden.
  */
 export function BlogList() {
+  const { t } = useI18n();
   const [selected, setSelected] = createSignal<string[]>([]);
   const [archiveOpen, setArchiveOpen] = createSignal(false);
   const filtered = () => {
@@ -39,7 +41,7 @@ export function BlogList() {
           onChange={setSelected}
         />
         <p class={styles.status} role="status">
-          {selected().length ? `${filtered().length} ${filtered().length === 1 ? "post" : "posts"}` : ""}
+          {selected().length ? t(filtered().length === 1 ? "{n} post" : "{n} posts", { n: filtered().length }) : ""}
         </p>
       </div>
       <ul class={styles.grid}>
@@ -48,7 +50,7 @@ export function BlogList() {
       <Show when={archived().length > 0}>
         <details class={styles.archive} open={open()} onToggle={(e) => setArchiveOpen(e.currentTarget.open)}>
           <summary class={styles.archiveToggle}>
-            <span>Archived posts ({archived().length})</span>
+            <span>{t("Archived posts ({n})", { n: archived().length })}</span>
             <Icon name="chevron-down" size={16} class={styles.chevron} />
           </summary>
           <ul class={[styles.grid, styles.archiveGrid]}>
@@ -57,7 +59,7 @@ export function BlogList() {
         </details>
       </Show>
       <Show when={selected().length > 0 && filtered().length === 0}>
-        <p class={styles.empty}>No posts match those tags.</p>
+        <p class={styles.empty}>{t("No posts match those tags.")}</p>
       </Show>
     </div>
   );

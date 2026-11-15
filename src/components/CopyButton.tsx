@@ -1,5 +1,6 @@
 import { Button as KButton } from "@kobalte/core/button";
 import { createSignal, onSettled } from "solid-js";
+import { useI18n } from "../i18n";
 import { Icon } from "./Icon";
 import styles from "./CopyButton.module.css";
 
@@ -13,6 +14,7 @@ export interface CopyButtonProps {
 
 /** Icon button that copies `text`, swaps to a check for 2s and announces "Copied" via a polite live region. */
 export function CopyButton(props: CopyButtonProps) {
+  const { t, tx } = useI18n();
   const [copied, setCopied] = createSignal(false);
   let timer: ReturnType<typeof setTimeout> | undefined;
   onSettled(() => () => clearTimeout(timer));
@@ -29,9 +31,9 @@ export function CopyButton(props: CopyButtonProps) {
   };
 
   return (
-    <KButton class={[styles.button, props.class]} onClick={copy} aria-label={props.label ?? "Copy to clipboard"}>
+    <KButton class={[styles.button, props.class]} onClick={copy} aria-label={tx(props.label) ?? t("Copy to clipboard")}>
       <Icon name={copied() ? "check" : "copy"} size={16} />
-      <span class="visually-hidden" role="status">{copied() ? "Copied" : ""}</span>
+      <span class="visually-hidden" role="status">{copied() ? t("Copied") : ""}</span>
     </KButton>
   );
 }

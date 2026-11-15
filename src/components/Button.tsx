@@ -1,6 +1,7 @@
 import { Button as KButton } from "@kobalte/core/button";
 import type { JSX } from "@solidjs/web";
 import { omit, type ParentProps } from "solid-js";
+import { useI18n } from "../i18n";
 import { isExternalHref } from "../site";
 import { Icon, type IconName } from "./Icon";
 import { Link } from "./Link";
@@ -29,6 +30,7 @@ export type ButtonProps = ButtonBaseProps &
  * external links open in a new tab); without it, a Kobalte Button (`<button type="button">`).
  */
 export function Button(props: ButtonProps) {
+  const { tx } = useI18n();
   const cls = () => [
     styles.button,
     styles[props.variant ?? "secondary"],
@@ -42,7 +44,7 @@ export function Button(props: ButtonProps) {
   const inner = () => (
     <>
       {props.icon ? <Icon name={props.icon} size={18} /> : null}
-      <span>{props.children}</span>
+      <span>{tx(props.children)}</span>
       {props.iconAfter ? <Icon name={props.iconAfter} size={18} /> : null}
     </>
   );

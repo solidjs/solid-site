@@ -1,4 +1,5 @@
 import { For, Show } from "solid-js";
+import { useI18n } from "../../i18n";
 import { postPath, type Post } from "../../blog/posts";
 import { Badge } from "../Badge";
 import { PostMeta } from "./PostMeta";
@@ -12,6 +13,7 @@ export interface PostCardProps {
 
 /** Blog card: the whole card is clickable through the title link's stretched ::after. */
 export function PostCard(props: PostCardProps) {
+  const { t, localePath } = useI18n();
   return (
     <article class={[styles.card, { [styles.featured]: props.featured }]}>
       <Show when={props.post.image}>
@@ -32,12 +34,12 @@ export function PostCard(props: PostCardProps) {
           <Badge tone="brand">Latest</Badge>
         </Show>
         <h3 class={styles.title}>
-          <a href={postPath(props.post.slug)} class={styles.link}>{props.post.title}</a>
+          <a href={localePath(postPath(props.post.slug))} class={styles.link}>{props.post.title}</a>
         </h3>
         <p class={styles.description}>{props.post.description}</p>
         <PostMeta post={props.post} />
         <Show when={props.post.tags?.length}>
-          <ul class={styles.tags} aria-label="Tags">
+          <ul class={styles.tags} aria-label={t("Tags")}>
             <For each={props.post.tags}>{(t) => <li><Badge>{t}</Badge></li>}</For>
           </ul>
         </Show>

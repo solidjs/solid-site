@@ -1,4 +1,5 @@
 import { Errored, For, Loading, createMemo, createSignal, onSettled } from "solid-js";
+import { useI18n } from "../../i18n";
 import { URLS } from "../../site";
 import { Icon, type IconName } from "../Icon";
 import { STATS_FALLBACK, type Stats } from "./data";
@@ -6,8 +7,11 @@ import styles from "./Stats.module.css";
 
 const TIMEOUT_MS = 4000;
 
-const compact = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 });
-const format = (n: number | null) => (n === null ? "—" : compact.format(n));
+/** A stat in the current language ("36.3K" or "36,3 k"); "—" until it is known. */
+const useFormat = () => {
+  const { fmtCompact } = useI18n();
+  return (n: number | null) => (n === null ? "—" : fmtCompact(n));
+};
 
 async function getJson(url: string): Promise<{ json: unknown; headers: Headers }> {
   const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS), headers: { accept: "application/json" } });
@@ -57,6 +61,8 @@ let cached: Promise<Stats> | undefined;
 const getStats = () => (cached ??= fetchStats());
 
 function StatList(props: { values: Stats }) {
+  const { t, localePath } = useI18n();
+  const format = useFormat();
   const items = (): { icon: IconName; label: string; value: number | null; href: string }[] => [
     { icon: "star", label: "GitHub stars", value: props.values.stars, href: URLS.githubRepo },
     { icon: "download", label: "npm downloads / week", value: props.values.downloads, href: URLS.npm },
@@ -68,7 +74,7 @@ function StatList(props: { values: Stats }) {
         {(item) => (
           <div class={styles.item}>
             <Icon name={item().icon} size={20} class={styles.icon} />
-            <dt class={styles.label}><a href={item().href}>{item().label}</a></dt>
+            <dt class={styles.label}><a href={localePath(item().href)}>{t(item().label)}</a></dt>
             <dd class={styles.value}>{format(item().value)}</dd>
           </div>
         )}
@@ -98,6 +104,7 @@ export function LiveStats() {
  * request. Never throws, and keeps the fallback if the API fails.
  */
 export function LiveStat(props: { stat: keyof Stats }) {
+  const format = useFormat();
   const [enabled, setEnabled] = createSignal(false);
   onSettled(() => {
     setEnabled(true);

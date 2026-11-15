@@ -1,5 +1,6 @@
 import { dynamic, type JSX } from "@solidjs/web";
 import { Show, type ParentProps } from "solid-js";
+import { useI18n } from "../i18n";
 import { Icon, type IconName } from "./Icon";
 import styles from "./Card.module.css";
 
@@ -22,6 +23,7 @@ export interface CardProps extends ParentProps {
 
 /** Surface card with optional icon, index, title, description, body and footer. */
 export function Card(props: CardProps) {
+  const { tx } = useI18n();
   const Tag = dynamic(() => props.as ?? "div");
   const Heading = dynamic(() => `h${props.level ?? 3}` as "h3");
   return (
@@ -33,10 +35,10 @@ export function Card(props: CardProps) {
         <span class={styles.icon}><Icon name={props.icon!} size={22} /></span>
       </Show>
       <Show when={props.title}>
-        <Heading class={styles.title}>{props.title}</Heading>
+        <Heading class={styles.title}>{tx(props.title)}</Heading>
       </Show>
       <Show when={props.description}>
-        {(d) => <p class={styles.description}>{d()}</p>}
+        {(d) => <p class={styles.description}>{tx(d())}</p>}
       </Show>
       {props.children}
       <Show when={props.footer}>

@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { githubUrl, maintainers } from "../../team/people";
 import { Avatar } from "../Avatar";
 import { Button } from "../Button";
@@ -7,6 +8,7 @@ import { Section } from "../Section";
 import styles from "./Maintainers.module.css";
 
 export function Maintainers() {
+  const { t } = useI18n();
   return (
     <Section
       id="maintainers"
@@ -21,9 +23,9 @@ export function Maintainers() {
               <Avatar src={p().img} name={p().name} size={80} />
               <Link href={githubUrl(p().github)} class={styles.name} showExternalIcon={false}>
                 {p().name}
-                <span class="visually-hidden"> on GitHub (opens in a new tab)</span>
+                <span class="visually-hidden"> {t("on GitHub (opens in a new tab)")}</span>
               </Link>
-              <span class={styles.role}>{p().role}</span>
+              <span class={styles.role}>{t(p().role)}</span>
             </li>
           )}
         </For>

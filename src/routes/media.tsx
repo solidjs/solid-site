@@ -1,4 +1,5 @@
 import { Meta, Title } from "@solidjs/meta";
+import { useI18n } from "../i18n";
 import { For } from "solid-js";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
@@ -31,10 +32,11 @@ const GUIDELINES = [
 ] as const;
 
 export default function Media() {
+  const { t } = useI18n();
   return (
     <>
-      <Title>Media and brand assets | Solid</Title>
-      <Meta name="description" content={DESCRIPTION} />
+      <Title>{t("Media and brand assets | Solid")}</Title>
+      <Meta name="description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="Media"
         title="Brand assets"

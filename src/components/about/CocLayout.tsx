@@ -1,5 +1,6 @@
 import type { ParentProps } from "solid-js";
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { Container } from "../Container";
 import styles from "./CocLayout.module.css";
 
@@ -12,10 +13,11 @@ export interface TocItem {
 
 /** Article layout with a sticky "On this page" nav (wide screens) beside the prose column. */
 export function CocLayout(props: ParentProps<{ toc: TocItem[] }>) {
+  const { t } = useI18n();
   return (
     <Container class={styles.wrap}>
-      <nav class={styles.toc} aria-label="On this page">
-        <p class={styles.tocTitle}>On this page</p>
+      <nav class={styles.toc} aria-label={t("On this page")}>
+        <p class={styles.tocTitle}>{t("On this page")}</p>
         <ul class={styles.list} role="list">
           <For each={props.toc} keyed={(i) => i.id}>
             {(item) => (

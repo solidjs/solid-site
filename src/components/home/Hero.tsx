@@ -1,3 +1,4 @@
+import { useI18n } from "../../i18n";
 import { SITE_TAGLINE, SOLID_2, URLS } from "../../site";
 import { Badge } from "../Badge";
 import { Button } from "../Button";
@@ -12,6 +13,7 @@ import { LiveStats } from "./Stats";
 import styles from "./Hero.module.css";
 
 export function Hero() {
+  const { t } = useI18n();
   return (
     <section class={styles.hero} aria-labelledby="home-title">
       <div class={styles.panel}>
@@ -19,19 +21,18 @@ export function Hero() {
         <Container size="wide" class={styles.inner}>
           <Link href="/blog" class={styles.announce}>
             <Badge tone="brand">New</Badge>
-            <span>Solid 2.0 is live. Read the latest</span>
+            <span>{t("Solid 2.0 is live. Read the latest")}</span>
             <Icon name="arrow-right" size={14} />
           </Link>
           <div class={styles.copy}>
             <h1 id="home-title" class={styles.title}>
-              <span>Fine-grained reactivity.</span>
-              <span>No virtual DOM.</span>
-              <span class={styles.accent}>Async built in.</span>
+              <span>{t("Fine-grained reactivity.")}</span>
+              <span>{t("No virtual DOM.")}</span>
+              <span class={styles.accent}>{t("Async built in.")}</span>
             </h1>
             <div class={styles.side}>
               <p class={styles.lead}>
-                {SITE_TAGLINE} Solid 2.0 adds first-class async, split effects and draft-first stores to the
-                framework developers already love for its speed.
+                {t(SITE_TAGLINE)} {t("Solid 2.0 adds first-class async, split effects and draft-first stores to the framework developers already love for its speed.")}
               </p>
               <div class={styles.actions}>
                 <Button href={URLS.docs} variant="primary" size="lg">Read the docs</Button>
@@ -43,7 +44,7 @@ export function Hero() {
                 <CopyButton text={CREATE_COMMAND} label="Copy create command" />
               </div>
               <p class={styles.note}>
-                Solid {SOLID_2.version} is the current release.
+                {t("Solid {version} is the current release.", { version: SOLID_2.version })}
               </p>
             </div>
           </div>

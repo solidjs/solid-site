@@ -31,6 +31,12 @@ That is all. The language switcher appears in the header once there is more than
   for it (`scripts/patch-headers.ts`), so `/fr/` gets the REPL policy that `/` has.
 - Open Graph cards are shared by every language of a page.
 
+## French
+
+French (`messages/fr.ts`) covers the whole site except the long blog articles: every page, the navigation, the footer, and the Code of Conduct (`src/routes/fr/code-of-conduct.mdx`, a full translation that replaces the generated copy). Blog articles stay in English and show a note saying so; their listings, dates and labels are translated. The catalog was written by an AI translator and needs a native French speaker's review.
+
+In development, `window.__i18nMissing` lists every string a translated page asked for that the catalog does not have.
+
 ## Translating text in components
 
 ```tsx
@@ -39,9 +45,11 @@ const { t } = useI18n();
 <p>{t("Updated {date}", { date })}</p>
 ```
 
-Navigation and footer labels come from `src/site.ts` and are translated where they are rendered, so add those English
-labels to the catalog as they are. **Page copy is not wrapped in `t()` yet**: until a page's text is, its translated
-locale shows English. Wrap strings as a language is translated; untouched strings keep working.
+Components that take text as props (`Section`, `PageHeader`, `Card`, `Button`, `Badge`, `Tabs`, `ToggleGroup`) translate
+plain strings themselves, so `<Section title="Colours">` needs nothing more than a catalog entry. Anywhere else, wrap the
+text in `t()`. For a sentence with a link or styled word inside it, use `tSplit("... {link} ...", "link")`, which
+translates the sentence and hands back the text before and after the placeholder. Dates and numbers go through
+`fmtDate`, `fmtIso` and `fmtCompact` so they follow the language.
 
 ## A fully translated page or article
 

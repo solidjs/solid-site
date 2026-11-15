@@ -1,6 +1,7 @@
 import { clientOnly } from "@solidjs/web";
 import type { JSX } from "@solidjs/web";
 import { createSignal, Errored, onSettled, Show } from "solid-js";
+import { useI18n } from "../../i18n";
 import type { ReplFile } from "./examples";
 import styles from "./Repl.module.css";
 
@@ -21,6 +22,7 @@ export interface ReplProps {
  * REPL is within a screenful of the viewport; until then (and with JS off) the placeholder shows.
  */
 export function Repl(props: ReplProps) {
+  const { t, tx } = useI18n();
   let root!: HTMLDivElement;
   const [near, setNear] = createSignal(false);
 
@@ -43,14 +45,14 @@ export function Repl(props: ReplProps) {
   });
 
   return (
-    <div ref={root} class={["sb-repl", styles.repl]} role="region" aria-label={props.label}>
+    <div ref={root} class={["sb-repl", styles.repl]} role="region" aria-label={tx(props.label)}>
       <Show when={near()} fallback={props.placeholder}>
         <Errored
           fallback={(error) => {
             console.error(error());
             return (
               <div class={styles.status}>
-                The live editor could not load. The code above still shows the full example.
+                {t("The live editor could not load. The code above still shows the full example.")}
               </div>
             );
           }}

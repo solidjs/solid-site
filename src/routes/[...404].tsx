@@ -2,13 +2,15 @@ import { HttpStatusCode } from "@kobalte/solidbase/client";
 import { Meta, Title } from "@solidjs/meta";
 import { Button } from "../components/Button";
 import { PageHeader } from "../components/PageHeader";
+import { useI18n } from "../i18n";
 import { URLS } from "../site";
 
 export default function NotFound() {
+  const { t } = useI18n();
   return (
     <>
       <HttpStatusCode code={404} />
-      <Title>Page not found | Solid</Title>
+      <Title>{t("Page not found | Solid")}</Title>
       <Meta name="robots" content="noindex" />
       <PageHeader
         eyebrow="404"

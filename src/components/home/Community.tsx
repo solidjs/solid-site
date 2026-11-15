@@ -1,4 +1,5 @@
 import { For } from "solid-js";
+import { useI18n } from "../../i18n";
 import { Card } from "../Card";
 import { Icon } from "../Icon";
 import { Link } from "../Link";
@@ -7,6 +8,7 @@ import { COMMUNITY } from "./data";
 import styles from "./Community.module.css";
 
 export function Community() {
+  const { t } = useI18n();
   return (
     <Section
       id="community"
@@ -27,7 +29,7 @@ export function Community() {
               class={styles.card}
               footer={
                 <Link href={c().href} class={styles.cta}>
-                  {c().cta} <Icon name="arrow-right" size={14} />
+                  {t(c().cta)} <Icon name="arrow-right" size={14} />
                 </Link>
               }
             />
