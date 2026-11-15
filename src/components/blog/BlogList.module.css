@@ -6,3 +6,14 @@
 .grid > li { display: flex; }
 .grid > li > * { flex: 1; }
 .empty { text-align: center; color: var(--color-text-muted); padding: 3rem 0; }
+
+/* Archived posts: a native disclosure styled like a secondary button. */
+.archive { margin-top: 2.5rem; }
+.archiveToggle { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.75rem; padding-inline: 1.1rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); font-size: var(--text-sm); font-weight: var(--weight-medium); cursor: pointer; list-style: none; user-select: none; }
+.archiveToggle::-webkit-details-marker { display: none; }
+.archiveToggle:hover { background: var(--color-surface-hover); }
+.archiveToggle:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.chevron { transition: transform var(--duration-base) var(--ease-out); }
+.archive[open] .chevron { transform: rotate(180deg); }
+.archiveGrid { margin-top: 1.5rem; }
+@media (prefers-reduced-motion: reduce) { .chevron { transition: none; } }
