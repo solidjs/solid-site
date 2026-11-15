@@ -30,6 +30,8 @@
  * The dropdown panel is one shared "viewport" that holds whichever menu is open. It owns the chrome (border, background,
  * shadow) and is sized from the open menu's content by Kobalte (--kb-navigation-menu-viewport-width/height), so moving
  * between menus grows or shrinks one panel instead of swapping two. Open and close are transitions.
+ * No `scale` in those transitions: Kobalte measures the content with getBoundingClientRect, which a scaled parent
+ * shrinks, so a panel measured while scaling in stayed that much too small and clipped its items.
  *
  * Kobalte unmounts a menu's content straight away unless the viewport has an `animation`; with one, it waits for the
  * viewport's `animationend` (which also fires when a child's animation ends and bubbles up). `navHold` is that
@@ -42,6 +44,10 @@
   width: var(--kb-navigation-menu-viewport-width, auto);
   height: var(--kb-navigation-menu-viewport-height, auto);
   margin: 0.5rem 0 0;
+  /* The panel's padding lives here, not on the content: Kobalte sizes the panel from the content's content-box, so
+     padding on the content would be left out of the width and height and clip the items. */
+  padding: 0.5rem;
+  box-sizing: content-box;
   overflow: hidden;
   list-style: none;
   border: 1px solid var(--color-border);
@@ -55,13 +61,13 @@
     opacity 200ms var(--ease-out),
     transform 260ms var(--ease-out);
   animation: navHold 1ms;
-  @starting-style { opacity: 0; transform: translateY(-0.5rem) scale(0.96); }
+  @starting-style { opacity: 0; transform: translateY(-0.5rem); }
 }
 @keyframes navHold { from { --nav-hold: 0; } to { --nav-hold: 1; } }
-.menu:not([data-open]) .viewport { opacity: 0; transform: translateY(-0.375rem) scale(0.97); pointer-events: none; transition-duration: 0s, 0s, 160ms, 160ms; }
+.menu:not([data-open]) .viewport { opacity: 0; transform: translateY(-0.375rem); pointer-events: none; transition-duration: 0s, 0s, 160ms, 160ms; }
 /* The panel glides from one trigger to the next. */
 .menu[data-switching] :global([data-popper-positioner]) { transition: transform 320ms var(--ease-out); }
-.content { position: absolute; top: 0; left: 0; display: grid; gap: 0.125rem; width: max-content; min-width: 19rem; margin: 0; padding: 0.5rem; list-style: none; }
+.content { position: absolute; top: 0.5rem; left: 0.5rem; display: grid; gap: 0.125rem; width: max-content; min-width: 18rem; margin: 0; padding: 0; list-style: none; }
 /* Kobalte reports which way focus moved between menus; the incoming content slides in from that side. */
 .content[data-motion="from-start"] { animation: navSlideFromStart 300ms var(--ease-out); }
 .content[data-motion="from-end"] { animation: navSlideFromEnd 300ms var(--ease-out); }
