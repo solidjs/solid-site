@@ -239,7 +239,7 @@ export default function About() {
       <Meta name="description" content={DESCRIPTION} />
       <PageHeader
         eyebrow="About Solid"
-        title="Simple, fine-grained reactivity for the web"
+        title="Simple, fine-grained, asynchronous reactivity for the web"
         description="Solid is an open-source JavaScript library for building user interfaces. It is built and maintained by a community of contributors under the MIT licence."
         actions={
           <>
