@@ -1,7 +1,7 @@
 import { getHtmlProps } from "@kobalte/solidbase/server";
 import { HydrationScript } from "@solidjs/web";
 import type { ParentProps } from "solid-js";
-import { THEME_INIT_SCRIPT } from "./components/theme";
+import { FAVICON_DARK, FAVICON_LIGHT, FAVICON_SCRIPT, THEME_INIT_SCRIPT } from "./components/theme";
 import { LOCALES } from "./i18n/locales";
 import { SITE_NAME } from "./site";
 
@@ -18,8 +18,10 @@ export default function Document(props: ParentProps) {
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#03152c" media="(prefers-color-scheme: dark)" />
         <link rel="alternate" type="application/rss+xml" title="Solid Blog" href="/rss.xml" />
-        <link rel="icon" type="image/svg+xml" href="/img/logos/icon/solid-icon-flat-light.svg" media="(prefers-color-scheme: light)" />
-        <link rel="icon" type="image/svg+xml" href="/img/logos/icon/solid-icon-flat-dark.svg" media="(prefers-color-scheme: dark)" />
+        {/* No-JS fallback: follows the operating system. The script below then follows the site's own theme. */}
+        <link rel="icon" type="image/svg+xml" href={FAVICON_LIGHT} media="(prefers-color-scheme: light)" data-favicon />
+        <link rel="icon" type="image/svg+xml" href={FAVICON_DARK} media="(prefers-color-scheme: dark)" data-favicon />
+        <script innerHTML={FAVICON_SCRIPT} />
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />

@@ -10,6 +10,24 @@ export const THEME_STORAGE_KEY = "theme";
  */
 export const THEME_INIT_SCRIPT = `(function(){var d=document.documentElement,t,s;try{s=localStorage.getItem("${THEME_STORAGE_KEY}")}catch(e){}t=s;if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.dataset.theme=t;if(s===t)document.cookie="theme="+t+";max-age=31536000;path=/;samesite=lax"})();`;
 
+/**
+ * Favicons per scheme. The two static <link rel="icon" media="(prefers-color-scheme: ...)"> tags in Document.tsx follow
+ * the operating system, so they are wrong whenever the site's own theme differs (a visitor who picked dark on a light
+ * OS). The script below, placed right after those tags, and syncFavicon() after a theme change point a single icon at
+ * the one for the site's current theme.
+ */
+export const FAVICON_LIGHT = "/img/logos/icon/solid-icon-flat-light.svg";
+export const FAVICON_DARK = "/img/logos/icon/solid-icon-flat-dark.svg";
+export const FAVICON_SCRIPT = `(function(){var t=document.documentElement.dataset.theme||"",l=document.querySelectorAll('link[rel="icon"][data-favicon]');if(!l.length)return;var i=l[0];for(var n=1;n<l.length;n++)l[n].remove();i.removeAttribute("media");i.href=/dark/.test(t)?"${FAVICON_DARK}":"${FAVICON_LIGHT}"})();`;
+
+/** Point the favicon at the variant for the site's current theme (see FAVICON_SCRIPT). */
+export const syncFavicon = (): void => {
+  const link = document.querySelector<HTMLLinkElement>('link[rel="icon"][data-favicon]');
+  if (!link) return;
+  link.removeAttribute("media");
+  link.href = /dark/.test(document.documentElement.dataset.theme ?? "") ? FAVICON_DARK : FAVICON_LIGHT;
+};
+
 export const readStoredPreference = (): ThemePreference => {
   try {
     const v = localStorage.getItem(THEME_STORAGE_KEY);
@@ -22,8 +40,9 @@ export const readStoredPreference = (): ThemePreference => {
 export const resolveTheme = (pref: ThemePreference): ResolvedTheme =>
   pref === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : pref;
 
-/** Point <meta name="theme-color"> at the active --color-bg (the static per-scheme tags in Document.tsx are the no-JS fallback). */
+/** Point <meta name="theme-color"> and the favicon at the active theme (the static per-scheme tags in Document.tsx are the no-JS fallback). */
 export const syncThemeColor = (): void => {
+  syncFavicon();
   const bg = getComputedStyle(document.documentElement).getPropertyValue("--color-bg").trim();
   if (!bg) return;
   document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach((m) => {
