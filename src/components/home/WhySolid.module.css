@@ -53,78 +53,63 @@
   color: var(--color-text-muted);
 }
 
-/* --- Graph ------------------------------------------------------------------------------------ */
-/* Node and connector coordinates come from the NODES table in WhySolid.tsx (percentages of this box). */
-.graph {
-  position: relative;
+/* --- Update comparison: the same tree, re-rendered (virtual DOM) versus one node updating (Solid) ------- */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   width: 100%;
-  height: clamp(14rem, 30vw, 17rem);
 }
-.lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.lines line {
-  vector-effect: non-scaling-stroke;
-  stroke-width: 1.5;
-}
-.lineDim {
-  stroke: var(--color-border-strong);
-  stroke-dasharray: 3 5;
-}
-.lineLive {
-  stroke: var(--accent);
-  stroke-dasharray: 6 6;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .lineLive {
-    animation: flow 1.1s linear infinite;
-  }
-}
-@keyframes flow {
-  to { stroke-dashoffset: -12; }
-}
-.node {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  padding: 0.35rem 0.7rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem 0.75rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
-  font-family: var(--font-mono);
+}
+.solidPanel {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--color-border));
+  box-shadow: 0 0 1.5rem color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.panel figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-align: center;
   font-size: var(--text-xs);
-  white-space: nowrap;
+  line-height: 1.35;
   color: var(--color-text-muted);
 }
-.dim { opacity: 0.7; }
-.core {
-  padding: 0.55rem 1rem;
-  border-color: var(--accent);
-  background: var(--color-brand);
-  color: var(--color-brand-contrast);
+.panel figcaption strong {
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
-  box-shadow: 0 0 2rem color-mix(in srgb, var(--accent) 45%, transparent);
-  z-index: 1;
-}
-.live {
-  border-color: var(--accent);
   color: var(--color-text);
-  box-shadow: 0 0 1.25rem color-mix(in srgb, var(--accent) 30%, transparent);
 }
-/* Starts just right of the live connector (which runs up-right from the centre) so the two never overlap. */
-.legend {
-  position: absolute;
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--accent);
-  white-space: nowrap;
+.solidPanel figcaption strong { color: var(--accent); }
+.tree { display: block; width: 100%; height: auto; overflow: visible; }
+.edge { stroke: var(--color-border-strong); stroke-width: 1.2; }
+.treeNode {
+  fill: var(--color-bg-subtle);
+  stroke: var(--color-border-strong);
+  stroke-width: 1.2;
+}
+/* The leaf is the text node that shows the count, so it is drawn as the one node that always matters. */
+.leaf { stroke: var(--accent); }
+.flash { animation: flash 3.6s ease-in-out infinite; }
+@keyframes flash {
+  0%, 62%, 100% { fill: var(--color-bg-subtle); stroke: var(--color-border-strong); }
+  6%, 26% { fill: color-mix(in srgb, var(--accent) 55%, var(--color-surface)); stroke: var(--accent); }
+}
+/* No motion: show the end state of the animation, so the two panels still make the point. */
+@media (prefers-reduced-motion: reduce) {
+  .flash { animation: none; fill: color-mix(in srgb, var(--accent) 55%, var(--color-surface)); stroke: var(--accent); }
+}
+@media (max-width: 30rem) {
+  .compare { gap: 0.5rem; }
+  .panel { padding-inline: 0.4rem; }
 }
 
 /* --- Identifier / result table ------------------------------------------------------------------ */
@@ -221,10 +206,3 @@
   .text { max-width: none; }
 }
 
-/* Phones: shrink the node type a little so the widest node stays inside the box. */
-@media (max-width: 30rem) {
-  .node { padding: 0.3rem 0.5rem; font-size: 0.6875rem; }
-  .core { font-size: var(--text-xs); }
-  /* The label's position is an inline style (from NODES); !important is needed to re-anchor it on phones. */
-  .legend { left: auto !important; right: 0; }
-}

@@ -426,4 +426,7 @@ export default {
   "Visit the blog": "Visiter le blog",
   "Async as part of the graph": "L'asynchrone, partie intégrante du graphe",
   "On this page": "Sur cette page",
+  "Virtual DOM": "DOM virtuel",
+  "re-renders the component tree": "refait le rendu de l'arbre de composants",
+  "updates one DOM node": "met à jour un seul nœud du DOM",
 } satisfies Record<string, string>;

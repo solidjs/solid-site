@@ -24,39 +24,68 @@ function Highlight(props: { eyebrow: string; accent: Accent; title: string; chil
 }
 
 /**
- * Node centres as percentages of the graph box. One table drives both the SVG connectors (viewBox 0-100, so the
- * numbers are the coordinates) and the HTML nodes (left/top), so they cannot drift apart. The x values leave room
- * for the widest node on a 360px phone.
+ * One tree of components, drawn twice. When the count changes, a virtual DOM library re-renders the component that owns
+ * it and everything below (every node flashes, top-down); Solid updates the single text node that reads the signal.
+ * Positions are in a 180 x 150 viewBox; the flash animation lives in WhySolid.module.css.
  */
-const CORE = { x: 50, y: 50 };
-const NODES = {
-  live: { x: 70, y: 22, label: "<span>{count()}</span>" },
-  heading: { x: 22, y: 22, label: "<h1>Hello</h1>" },
-  header: { x: 24, y: 80, label: "<Header />" },
-  footer: { x: 76, y: 80, label: "<Footer />" },
-} as const;
-const at = (n: { x: number; y: number }) => ({ left: `${n.x}%`, top: `${n.y}%` });
+const TREE = [
+  { id: "app", x: 90, y: 14 },
+  { id: "header", x: 44, y: 52 },
+  { id: "main", x: 136, y: 52 },
+  { id: "counter", x: 104, y: 92 },
+  { id: "list", x: 160, y: 92 },
+  { id: "text", x: 104, y: 132 },
+] as const;
+const EDGES: [string, string][] = [["app", "header"], ["app", "main"], ["main", "counter"], ["main", "list"], ["counter", "text"]];
+const NODE_W = 32;
+const NODE_H = 16;
+const point = (id: string) => TREE.find((n) => n.id === id)!;
+/** Delay (seconds) before a node flashes in the virtual DOM tree: the update walks down from the root. */
+const VDOM_DELAY: Record<string, number> = { app: 0, header: 0.18, main: 0.18, counter: 0.36, list: 0.36, text: 0.54 };
 
-/** Reactivity graph: one signal, one DOM node that reads it. Decorative: the row copy carries the meaning. */
-function GraphVisual() {
-  const { t } = useI18n();
-  const line = (n: { x: number; y: number }, cls: string) => (
-    <line class={cls} x1={CORE.x} y1={CORE.y} x2={n.x} y2={n.y} />
-  );
+function TreeDiagram(props: { kind: "vdom" | "solid" }) {
+  const flashes = (id: string) => props.kind === "vdom" || id === "text";
   return (
-    <div class={styles.graph} aria-hidden="true">
-      <svg class={styles.lines} viewBox="0 0 100 100" preserveAspectRatio="none">
-        {line(NODES.heading, styles.lineDim)}
-        {line(NODES.header, styles.lineDim)}
-        {line(NODES.footer, styles.lineDim)}
-        {line(NODES.live, styles.lineLive)}
-      </svg>
-      <span class={[styles.node, styles.core]}>count()</span>
-      <span class={[styles.node, styles.live]} style={at(NODES.live)}>{NODES.live.label}</span>
-      <span class={[styles.node, styles.dim]} style={at(NODES.heading)}>{NODES.heading.label}</span>
-      <span class={[styles.node, styles.dim]} style={at(NODES.header)}>{NODES.header.label}</span>
-      <span class={[styles.node, styles.dim]} style={at(NODES.footer)}>{NODES.footer.label}</span>
-      <span class={styles.legend} style={{ left: `${NODES.live.x + 2}%`, top: `${NODES.live.y + 14}%` }}>{t("only this updates")}</span>
+    <svg class={styles.tree} viewBox="0 0 180 150" aria-hidden="true">
+      <For each={EDGES} keyed={(e) => e.join(">")}>
+        {(e) => <line class={styles.edge} x1={point(e()[0]).x} y1={point(e()[0]).y} x2={point(e()[1]).x} y2={point(e()[1]).y} />}
+      </For>
+      <For each={TREE} keyed={(n) => n.id}>
+        {(n) => (
+          <rect
+            class={[styles.treeNode, flashes(n().id) ? styles.flash : undefined, n().id === "text" ? styles.leaf : undefined]}
+            x={n().x - NODE_W / 2}
+            y={n().y - NODE_H / 2}
+            width={NODE_W}
+            height={NODE_H}
+            rx="4"
+            style={{ "animation-delay": `${props.kind === "vdom" ? VDOM_DELAY[n().id] : 0}s` }}
+          />
+        )}
+      </For>
+    </svg>
+  );
+}
+
+/** Before and after: the same update, drawn as a virtual DOM re-render and as Solid's single-node update. */
+function UpdateVisual() {
+  const { t } = useI18n();
+  return (
+    <div class={styles.compare} aria-hidden="true">
+      <figure class={styles.panel}>
+        <TreeDiagram kind="vdom" />
+        <figcaption>
+          <strong>{t("Virtual DOM")}</strong>
+          <span>{t("re-renders the component tree")}</span>
+        </figcaption>
+      </figure>
+      <figure class={[styles.panel, styles.solidPanel]}>
+        <TreeDiagram kind="solid" />
+        <figcaption>
+          <strong>Solid</strong>
+          <span>{t("updates one DOM node")}</span>
+        </figcaption>
+      </figure>
     </div>
   );
 }
@@ -92,7 +121,7 @@ export function WhySolid() {
       size="default"
     >
       <div class={styles.rows}>
-        <Highlight eyebrow="No virtual DOM" accent="brand" title="Fine-grained reactivity" visual={<GraphVisual />}>
+        <Highlight eyebrow="No virtual DOM" accent="brand" title="Fine-grained reactivity" visual={<UpdateVisual />}>
           Components run once. Signals update exactly the DOM nodes that read them, so there is no re-rendering and no
           diffing of component trees.
         </Highlight>
