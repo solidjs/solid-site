@@ -62,5 +62,5 @@ export const ecosystem: readonly Supporter[] = [
   { name: "Oren Elbaum", company: "", link: "https://github.com/orenelbaum", detail: "Developer and active ecosystem contributor." },
   { name: "high1", company: "", link: "https://github.com/high1", detail: "Active community contributor and starter maintainerter." },
   { name: "Damian Tarnawski", company: "", link: "https://github.com/thetarnav", detail: "Creator of Solid Devtools and a prolific contributor across the Solid ecosystem." },
-  { name: "jer3m01", company: "", link: "https://github.com/jer3m01", detail: "Active contributor across the Solid ecosystem." },
+  { name: "jer3m01", company: "", link: "https://github.com/jer3m01", detail: "Maintainer of Kobalte." },
 ];
