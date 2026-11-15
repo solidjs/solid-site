@@ -4,7 +4,9 @@
 .bar { pointer-events: auto; display: flex; align-items: center; gap: 1.5rem; box-sizing: border-box; width: 100%; height: 100%; max-width: calc(var(--content-width-wide) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); border: 1px solid transparent; border-radius: 0; background: transparent; transition: width var(--header-motion), max-width var(--header-motion), height var(--header-motion), padding var(--header-motion), border-radius var(--header-motion), background var(--header-motion), border-color var(--header-motion), box-shadow var(--header-motion); }
 .header[data-scrolled] .bar { width: calc(100% - 1.5rem); max-width: min(76rem, calc(100% - 1.5rem)); height: 3.25rem; padding-inline: 0.75rem 0.5rem; border-color: var(--color-border); border-radius: 1rem; background: color-mix(in srgb, var(--color-bg) 78%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); box-shadow: var(--shadow-lg); }
 @media (prefers-reduced-motion: reduce) { .header, .bar { transition: none; } }
-.brand { display: inline-flex; text-decoration: none; border-radius: var(--radius-sm); }
+.brand { display: inline-flex; align-items: flex-end; gap: 0.4rem; text-decoration: none; border-radius: var(--radius-sm); }
+/* The yellow "2.0" tag from the Solid 2.0 launch lockup, sitting on the wordmark's baseline. */
+.badge { margin-bottom: 0.3rem; padding: 0.12rem 0.38rem; border-radius: 0.25rem; background: var(--color-launch-yellow); color: var(--color-graphite); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: var(--weight-semibold); line-height: 1.15; font-variant-numeric: slashed-zero; font-feature-settings: "zero"; }
 .desktop { display: none; flex: 1; min-width: 0; }
 .actions { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
 .mobile { display: inline-flex; }

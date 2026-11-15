@@ -30,6 +30,7 @@
 
   /* Brand: the light-background logo colours */
   --color-graphite: #03152c;
+  --color-launch-yellow: #ffd400; /* the "2.0" tag in the launch lockup, same in both themes */
   --color-brand: #0a4593; /* Solid Blue: the front shapes and wordmark */
   --color-brand-strong: color-mix(in srgb, var(--color-brand) 78%, #000); /* hover / pressed */
   --color-brand-subtle: color-mix(in srgb, var(--color-brand) 8%, #fff);

@@ -228,6 +228,7 @@ export function Header() {
       <div class={styles.bar}>
         <a href={localePath("/")} class={styles.brand} aria-label={t("{name} home", { name: SITE_NAME })}>
           <Logo height={32} wordScale={0.85} />
+          <div class={styles.badge} aria-hidden="true">2.0</div>
         </a>
         <div class={styles.desktop}>
           <DesktopNav />
