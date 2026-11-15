@@ -6,6 +6,8 @@
   margin: 0;
   list-style: none;
 }
+/* Six or nine cards read better in rows of three than in rows of four plus a stray pair. */
+.cardsThree { grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); }
 .cta {
   display: flex;
   flex-wrap: wrap;

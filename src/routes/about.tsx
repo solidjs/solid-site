@@ -150,16 +150,28 @@ const PIONEERED = [
       "Signals were not new: Knockout, S.js and MobX used the idea long before. Solid made createSignal the foundation of a whole UI framework and helped bring it to the mainstream. Preact, Angular, Qwik, Vue and Svelte now build on signals or similar primitives, and a TC39 proposal is exploring standardising them.",
   },
   {
+    icon: "target",
+    title: "Fine-grained reactive rendering",
+    description:
+      "Solid compiles JSX into direct DOM operations, each wired to the exact signals it reads. A change updates a single text node or attribute, with no virtual tree to build and diff and no component to re-render.",
+  },
+  {
     icon: "code",
     title: "Components that run once",
     description:
-      "Solid inverts the usual model. A component function runs a single time to build the reactive graph, and updates flow through the bindings instead of re-rendering. It showed that a declarative JSX component model does not need a virtual DOM.",
+      "A component function runs a single time to build the reactive graph. It is a setup function, not a render function, which removes whole classes of problems such as stale closures and dependency arrays.",
   },
   {
     icon: "layers",
     title: "Advanced features without a virtual DOM",
     description:
       "Suspense, concurrent rendering and streaming server rendering were seen as the territory of virtual DOM frameworks. Solid delivered them on a fine-grained graph, and its stores update nested state through proxies without re-rendering.",
+  },
+  {
+    icon: "server",
+    title: "Server functions",
+    description:
+      "SolidStart made server functions a core idea: write code that runs on the server and call it from the client like any other function, with the network hop handled for you. Similar approaches have since appeared in React, Svelte and other frameworks.",
   },
   {
     icon: "sparkles",
@@ -231,7 +243,7 @@ export default function About() {
         title="Ideas Solid helped pioneer"
         description="Solid did not invent every idea it uses, but it has been one of the main places where fine-grained reactivity grew up and spread to the rest of the web."
       >
-        <ul class={styles.cards} role="list">
+        <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
             {(p, i) => (
               <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
