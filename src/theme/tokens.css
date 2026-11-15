@@ -37,7 +37,7 @@
   --color-brand-text: #0a4593; /* brand colour used for text/links on --color-bg */
   --color-brand-soft: #0265b2; /* Deep Blue */
   --color-brand-bright: #008edc; /* Bright Blue: the top shapes */
-  --color-logo-text: #0a4593;
+  --color-logo-text: #000000; /* the "solid" wordmark next to the icon */
 
   /* Hero panel: a deep-blue block with light text in both themes */
   --color-hero-from: #0265b2;

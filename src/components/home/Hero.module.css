@@ -1,6 +1,7 @@
 /* The panel plus the stats bar fill the first screen (minus the sticky header). */
 .hero {
-  padding: 0.75rem 0.75rem var(--space-section);
+  /* No top padding: the header already has its own space above the logo, and the panel should sit the same distance below it. */
+  padding: 0 0.75rem var(--space-section);
 }
 .panel {
   position: relative;
