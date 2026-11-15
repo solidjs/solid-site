@@ -63,4 +63,5 @@ export const ecosystem: readonly Supporter[] = [
   { name: "high1", company: "", link: "https://github.com/high1", detail: "Active community contributor and starter maintainerter." },
   { name: "Damian Tarnawski", company: "", link: "https://github.com/thetarnav", detail: "Creator of Solid Devtools and a prolific contributor across the Solid ecosystem." },
   { name: "jer3m01", company: "", link: "https://github.com/jer3m01", detail: "Maintainer of Kobalte." },
+  { name: "Fabian Hiller", company: "", link: "https://github.com/fabian-hiller", detail: "Creator of Valibot and Formisch, and co-creator of Standard Schema." },
 ];
