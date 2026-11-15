@@ -35,8 +35,21 @@ const PRINCIPLES = [
   },
 ] as const;
 
-// Dates come from the project's announcement posts (the State of Solid editions and the individual announcements).
+// Dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
+// commit in the solidjs/solid repository, and the creation date of the Discord server.
 const TIMELINE: TimelineEvent[] = [
+  {
+    label: "Apr 2018",
+    iso: "2018-04",
+    title: "The first commit",
+    description: "Ryan Carniato makes the first commit to the solidjs/solid repository, \"open source repo\", and Solid goes public.",
+  },
+  {
+    label: "15 Jun 2020",
+    iso: "2020-06-15",
+    title: "The official Discord opens",
+    description: "The SolidJS Discord server is created, giving the growing community a home for questions, help and discussion.",
+  },
   {
     label: "2021",
     iso: "2021",
@@ -129,6 +142,33 @@ const TIMELINE: TimelineEvent[] = [
   },
 ];
 
+const PIONEERED = [
+  {
+    icon: "zap",
+    title: "Signals as the UI primitive",
+    description:
+      "Signals were not new: Knockout, S.js and MobX used the idea long before. Solid made createSignal the foundation of a whole UI framework and helped bring it to the mainstream. Preact, Angular, Qwik, Vue and Svelte now build on signals or similar primitives, and a TC39 proposal is exploring standardising them.",
+  },
+  {
+    icon: "code",
+    title: "Components that run once",
+    description:
+      "Solid inverts the usual model. A component function runs a single time to build the reactive graph, and updates flow through the bindings instead of re-rendering. It showed that a declarative JSX component model does not need a virtual DOM.",
+  },
+  {
+    icon: "layers",
+    title: "Advanced features without a virtual DOM",
+    description:
+      "Suspense, concurrent rendering and streaming server rendering were seen as the territory of virtual DOM frameworks. Solid delivered them on a fine-grained graph, and its stores update nested state through proxies without re-rendering.",
+  },
+  {
+    icon: "sparkles",
+    title: "Async as part of the graph",
+    description:
+      "Solid 2.0 goes further. Async memos, split effects and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
+  },
+] as const;
+
 const SNIPPET = `import { createSignal, createMemo } from "solid-js";
 import { render } from "@solidjs/web";
 
@@ -183,6 +223,21 @@ export default function About() {
         <Container size="prose">
           <CodeSample label="Counter.tsx (Solid 2.0)" code={SNIPPET} />
         </Container>
+      </Section>
+
+      <Section
+        id="pioneers"
+        eyebrow="Influence"
+        title="Ideas Solid helped pioneer"
+        description="Solid did not invent every idea it uses, but it has been one of the main places where fine-grained reactivity grew up and spread to the rest of the web."
+      >
+        <ul class={styles.cards} role="list">
+          <For each={PIONEERED} keyed={(p) => p.title}>
+            {(p, i) => (
+              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            )}
+          </For>
+        </ul>
       </Section>
 
       <Section
