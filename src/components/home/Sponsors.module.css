@@ -30,21 +30,20 @@
   background: var(--color-surface);
   transition: border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
 }
-.logo img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.85;
-  transition: opacity var(--duration-base) var(--ease-out);
+/* Each logo is a one-colour shape used as a mask, so every sponsor is drawn in the same theme colour. */
+.mark {
+  display: block;
+  background-color: var(--color-text-faint);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+  transition: background-color var(--duration-base) var(--ease-out);
 }
 .logo:hover {
   border-color: var(--color-brand-soft);
   box-shadow: var(--shadow-sm);
 }
-.logo:hover img {
-  opacity: 1;
+.logo:hover .mark {
+  background-color: var(--color-text);
 }
 .logo:focus-visible {
   outline: 2px solid var(--color-focus-ring);

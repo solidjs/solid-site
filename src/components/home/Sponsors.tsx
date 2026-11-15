@@ -14,6 +14,19 @@ const TIERS: { tier: SponsorTier; title: string }[] = [
   { tier: "supporter", title: "Supporters" },
 ];
 
+/**
+ * Logos have very different shapes, so giving them all one height makes wide wordmarks huge and square marks tiny.
+ * Instead they share roughly one area: tall for squarish marks, short for long wordmarks, within a min and max.
+ */
+const AREA = 3640; // px squared
+const MAX_HEIGHT = 44;
+const MAX_WIDTH = 140;
+function markSize(ratio: number) {
+  let height = Math.min(MAX_HEIGHT, Math.sqrt(AREA / ratio));
+  if (height * ratio > MAX_WIDTH) height = MAX_WIDTH / ratio;
+  return { width: `${(height * ratio) / 16}rem`, height: `${height / 16}rem` };
+}
+
 function Tier(props: { title: string; tier: SponsorTier; sponsors: Sponsor[] }) {
   return (
     <div class={[styles.tier, styles[props.tier]]}>
@@ -23,7 +36,7 @@ function Tier(props: { title: string; tier: SponsorTier; sponsors: Sponsor[] }) 
           {(s) => (
             <li>
               <Link href={s().href} class={styles.logo} showExternalIcon={false} aria-label={`${s().name} (opens in a new tab)`}>
-                <img src={s().logo} alt="" loading="lazy" decoding="async" width="160" height="54" />
+                <span class={styles.mark} aria-hidden="true" style={{ "--logo": `url("${s().logo}")`, ...markSize(s().ratio) }} />
               </Link>
             </li>
           )}

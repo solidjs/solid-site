@@ -95,5 +95,7 @@ export interface Sponsor {
   name: string;
   href: string;
   logo: string;
+  /** Width divided by height of the logo image, used to give every logo the same visual weight. */
+  ratio: number;
   tier: SponsorTier;
 }
