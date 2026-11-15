@@ -4,6 +4,8 @@
   padding-block: var(--space-section);
 }
 .article { margin-inline: 0; min-width: 0; }
+/* The heading text sits inside an auto-heading link that has its own weight, so set it on both. */
+.article.article h1, .article.article h1 > a { font-weight: var(--weight-bold); }
 .article :is(h2, h3) { scroll-margin-top: calc(var(--header-height) + 1rem); }
 .toc { display: none; }
 .tocTitle {
