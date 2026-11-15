@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "solidjs-site",
+  "name": "solid2-site",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   // SolidBase prerenders every page into dist/client — deploy it as static assets.
