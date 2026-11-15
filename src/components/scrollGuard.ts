@@ -6,9 +6,9 @@
  * positioned yet sits at the top-left of the document, so opening a menu on a scrolled page threw the viewport back to
  * the top, and the selected tab on the home page scrolled the whole page down to it on load.
  *
- * - Inside an element marked `data-no-scroll`, `scrollIntoView` does nothing. Those lists are short, so there is
- *   nothing inside them that needs scrolling to.
- * - Inside `data-no-scroll` or the sticky header, `focus()` never scrolls: those elements are always on screen.
+ * - Inside an element marked `data-no-scroll` or the sticky header, `scrollIntoView` does nothing and `focus()` never
+ *   scrolls. The header is always on screen, and the marked lists are short, so there is nothing to scroll to. (A
+ *   menu trigger calls scrollIntoView on itself when an arrow key opens its menu, which scrolled the page.)
  */
 let installed = false;
 
@@ -17,7 +17,7 @@ export function installScrollGuard() {
   installed = true;
   const scrollIntoView = Element.prototype.scrollIntoView;
   Element.prototype.scrollIntoView = function (this: Element, arg?: boolean | ScrollIntoViewOptions) {
-    if (this.closest("[data-no-scroll]")) return;
+    if (this.closest("[data-no-scroll], header")) return;
     scrollIntoView.call(this, arg as ScrollIntoViewOptions);
   };
   const focus = HTMLElement.prototype.focus;

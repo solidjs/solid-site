@@ -24,8 +24,56 @@
 .trigger:hover, .trigger[data-expanded], .trigger[aria-current="page"] { color: var(--color-text); background: var(--color-surface-hover); }
 .caret { transition: transform var(--duration-fast) var(--ease-out); }
 .trigger[data-expanded] .caret { transform: rotate(180deg); }
-.viewport { position: absolute; top: 100%; left: 0; z-index: var(--z-popover); list-style: none; }
-.content { display: grid; gap: 0.125rem; min-width: 19rem; margin: 0.5rem 0 0; padding: 0.5rem; list-style: none; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface-raised); box-shadow: var(--shadow-lg); }
+/*
+ * The dropdown panel is one shared "viewport" that holds whichever menu is open. It owns the chrome (border, background,
+ * shadow) and is sized from the open menu's content by Kobalte (--kb-navigation-menu-viewport-width/height), so moving
+ * between menus grows or shrinks one panel instead of swapping two. Open and close are transitions.
+ *
+ * Kobalte unmounts a menu's content straight away unless the viewport has an `animation`; with one, it waits for the
+ * viewport's `animationend` (which also fires when a child's animation ends and bubbles up). `navHold` is that
+ * animation: it changes nothing visible, it only tells Kobalte to wait, so the outgoing content can slide away and the
+ * content can stay put while the panel fades out. Header.tsx fires `animationend` itself after a close.
+ */
+.viewport {
+  position: relative;
+  z-index: var(--z-popover);
+  width: var(--kb-navigation-menu-viewport-width, auto);
+  height: var(--kb-navigation-menu-viewport-height, auto);
+  margin: 0.5rem 0 0;
+  overflow: hidden;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-lg);
+  transform-origin: var(--kb-menu-content-transform-origin, top left);
+  transition:
+    width 320ms var(--ease-out),
+    height 320ms var(--ease-out),
+    opacity 200ms var(--ease-out),
+    transform 260ms var(--ease-out);
+  animation: navHold 1ms;
+  @starting-style { opacity: 0; transform: translateY(-0.5rem) scale(0.96); }
+}
+@keyframes navHold { from { --nav-hold: 0; } to { --nav-hold: 1; } }
+.menu:not([data-open]) .viewport { opacity: 0; transform: translateY(-0.375rem) scale(0.97); pointer-events: none; transition-duration: 0s, 0s, 160ms, 160ms; }
+/* The panel glides from one trigger to the next. */
+.menu[data-switching] :global([data-popper-positioner]) { transition: transform 320ms var(--ease-out); }
+.content { position: absolute; top: 0; left: 0; display: grid; gap: 0.125rem; width: max-content; min-width: 19rem; margin: 0; padding: 0.5rem; list-style: none; }
+/* Kobalte reports which way focus moved between menus; the incoming content slides in from that side. */
+.content[data-motion="from-start"] { animation: navSlideFromStart 300ms var(--ease-out); }
+.content[data-motion="from-end"] { animation: navSlideFromEnd 300ms var(--ease-out); }
+.content[data-motion="to-start"] { animation: navSlideToStart 200ms var(--ease-out) forwards; pointer-events: none; }
+.content[data-motion="to-end"] { animation: navSlideToEnd 200ms var(--ease-out) forwards; pointer-events: none; }
+@keyframes navSlideToStart { to { opacity: 0; transform: translateX(-1.5rem); } }
+@keyframes navSlideToEnd { to { opacity: 0; transform: translateX(1.5rem); } }
+@keyframes navSlideFromStart { from { opacity: 0; transform: translateX(-1.5rem); } to { opacity: 1; transform: none; } }
+@keyframes navSlideFromEnd { from { opacity: 0; transform: translateX(1.5rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .viewport { transition: none; animation: none; }
+  .menu[data-switching] :global([data-popper-positioner]) { transition: none; }
+  .content[data-motion] { animation: none; }
+}
 .item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.6rem 0.7rem; border-radius: var(--radius-md); color: var(--color-text); text-decoration: none; outline: none; }
 .item[data-highlighted], .item:hover { background: var(--color-surface-hover); }
 .item[data-highlighted]:focus-visible, .item:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: -2px; }

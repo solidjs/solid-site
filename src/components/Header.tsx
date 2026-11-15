@@ -52,9 +52,42 @@ function DesktopNav() {
   const portalProps = { get mount() { return viewportEl; } };
   // Kobalte anchors the shared dropdown viewport to the whole menu bar, which centres it under the bar. Anchor it to
   // the trigger that is open instead, so each dropdown lines up with its own trigger.
-  const activeTriggerRect = (root?: Element) => root?.querySelector<HTMLElement>('[aria-expanded="true"]')?.getBoundingClientRect();
+  // The last rect is remembered so the panel keeps its place while it fades out (no trigger is expanded by then).
+  let lastRect: DOMRect | undefined;
+  const activeTriggerRect = (root?: Element) => {
+    const rect = root?.querySelector<HTMLElement>('[aria-expanded="true"]')?.getBoundingClientRect();
+    return (lastRect = rect ?? lastRect);
+  };
+  // Animation state. Kobalte unmounts the dropdown panel the moment the menu closes, which leaves nothing to fade, so
+  // the panel is kept mounted for the length of the exit. `switching` is true while one dropdown replaces another, so
+  // the panel glides to the next trigger (it must not glide on the first open, or it would fly in from the corner).
+  const EXIT_MS = 200;
+  const [keepMounted, setKeepMounted] = createSignal(false);
+  const [switching, setSwitching] = createSignal(false);
+  // True while a dropdown is open. Kobalte's own data-expanded/data-closed lag behind it (and differ between pointer and
+  // keyboard), so the panel's visibility follows this instead.
+  const [menuOpen, setMenuOpen] = createSignal(false);
+  let isOpen = false;
+  let exitTimer: ReturnType<typeof setTimeout> | undefined;
+  const onValueChange = (value?: string | null) => {
+    const open = !!value && !String(value).startsWith("link-trigger-");
+    clearTimeout(exitTimer);
+    setMenuOpen(open);
+    if (open) {
+      setSwitching(isOpen);
+      setKeepMounted(true);
+    } else {
+      setSwitching(false);
+      exitTimer = setTimeout(() => {
+        // Content is held until the viewport reports an animation end (see Header.module.css); the fade is over now.
+        viewportEl?.dispatchEvent(new Event("animationend"));
+        setKeepMounted(false);
+      }, EXIT_MS);
+    }
+    isOpen = open;
+  };
   return (
-    <NavigationMenu class={styles.menu} aria-label={t("Primary")} delayDuration={80} skipDelayDuration={200} placement="bottom-start" getAnchorRect={activeTriggerRect}>
+    <NavigationMenu class={styles.menu} aria-label={t("Primary")} delayDuration={80} skipDelayDuration={200} placement="bottom-start" getAnchorRect={activeTriggerRect} forceMount={keepMounted()} onValueChange={onValueChange} data-switching={switching() ? "" : undefined} data-open={menuOpen() ? "" : undefined}>
       <For each={NAV} keyed={(e) => e.label}>
         {(entry) => (
           <NavigationMenu.Menu>
