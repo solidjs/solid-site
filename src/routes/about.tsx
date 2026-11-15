@@ -141,12 +141,17 @@ const TIMELINE: TimelineEvent[] = [
     title: "Ryan Carniato joins Sentry",
     description: "Ryan moved from Netlify to Sentry, which supports his continued full-time work on Solid and open source as the project heads toward 2.0.",
   },
-  // TODO(content): confirm the date (only the year is known here).
   {
-    label: "2026",
-    iso: "2026",
+    label: "13 Aug 2026",
+    iso: "2026-08-13",
+    title: "Solid 2.0 release candidate",
+    description: "Solid 2.0 reaches release candidate: async becomes part of the reactive graph itself, and a new Rust compiler built on Oxc ships by default.",
+  },
+  {
+    label: "13 Aug 2026",
+    iso: "2026-08-13",
     title: "SolidStart becomes legacy",
-    description: "SolidStart moves to legacy as it is rolled into Solid core, merging the framework and the library into one.",
+    description: "Server functions, the serving layer and file-system routing had all moved into core, so SolidStart was retired in favour of start mode, merging the framework and the library. SolidStart keeps receiving maintenance releases.",
   },
   {
     label: "2026",

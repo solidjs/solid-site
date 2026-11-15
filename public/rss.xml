@@ -7,6 +7,46 @@
     <language>en</language>
     <atom:link href="https://www.solidjs.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Async Solid - One Graph, Two Machines</title>
+      <link>https://www.solidjs.com/blog/async-solid-one-graph-two-machines</link>
+      <guid isPermaLink="true">https://www.solidjs.com/blog/async-solid-one-graph-two-machines</guid>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Ryan Carniato</dc:creator>
+      <description>Part three of a deep dive into how Solid 2.0 handles async: server functions, streaming, live sources, and recovery, all riding the same reactive graph.</description>
+      <category>Solid 2.0</category>
+      <category>Async</category>
+    </item>
+    <item>
+      <title>Async Solid - Write Sync, Run Async</title>
+      <link>https://www.solidjs.com/blog/async-solid-write-sync-run-async</link>
+      <guid isPermaLink="true">https://www.solidjs.com/blog/async-solid-write-sync-run-async</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Ryan Carniato</dc:creator>
+      <description>Part two of a deep dive into how Solid 2.0 handles async: how optimistic writes fall out of the client-side app you already wrote.</description>
+      <category>Solid 2.0</category>
+      <category>Async</category>
+    </item>
+    <item>
+      <title>Async Solid - Fetch High, Block Low</title>
+      <link>https://www.solidjs.com/blog/async-solid-fetch-high-block-low</link>
+      <guid isPermaLink="true">https://www.solidjs.com/blog/async-solid-fetch-high-block-low</guid>
+      <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Ryan Carniato</dc:creator>
+      <description>Part one of a deep dive into how Solid 2.0 handles async: why fetching high and blocking low no longer costs you anything.</description>
+      <category>Solid 2.0</category>
+      <category>Async</category>
+    </item>
+    <item>
+      <title>Solid 2.0 RC: The Big &lt;Reveal&gt;</title>
+      <link>https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal</link>
+      <guid isPermaLink="true">https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal</guid>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <dc:creator>Ryan Carniato</dc:creator>
+      <description>Solid 2.0 reaches Release Candidate: async becomes a property of the reactive graph itself, SolidStart is retired in favor of start mode, and a new Rust/OXC compiler ships by default.</description>
+      <category>Release</category>
+      <category>Solid 2.0</category>
+    </item>
+    <item>
       <title>SolidHack 2024 Announcement</title>
       <link>https://www.solidjs.com/blog/solidhack-2024-announcement</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/solidhack-2024-announcement</guid>

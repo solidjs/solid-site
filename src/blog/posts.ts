@@ -27,16 +27,52 @@ const CORE = "https://www.solidjs.com";
 
 const source: Post[] = [
   {
-    slug: "solid-2-0-release-candidate",
-    title: "Solid 2.0 Release Candidate",
+    slug: "async-solid-one-graph-two-machines",
+    title: "Async Solid - One Graph, Two Machines",
     description:
-      "Solid 2.0 is in release-candidate. Here is what changes: batched writes, split effects, async memos with Loading, Errored, a unified For, draft-first stores and actions.",
-    author: "Solid Core Team",
-    authorUrl: CORE,
-    date: "2026-11-12", // TODO(content): set the real publish date when the draft flag is removed.
+      "Part three of a deep dive into how Solid 2.0 handles async: server functions, streaming, live sources, and recovery, all riding the same reactive graph.",
+    author: "Ryan Carniato",
+    authorUrl: RYAN,
+    date: "2026-08-26",
+    image: img("async-solid-one-graph-two-machines"),
+    tags: ["Solid 2.0", "Async"],
+    readingMinutes: 9,
+  },
+  {
+    slug: "async-solid-write-sync-run-async",
+    title: "Async Solid - Write Sync, Run Async",
+    description:
+      "Part two of a deep dive into how Solid 2.0 handles async: how optimistic writes fall out of the client-side app you already wrote.",
+    author: "Ryan Carniato",
+    authorUrl: RYAN,
+    date: "2026-08-24",
+    image: img("async-solid-write-sync-run-async"),
+    tags: ["Solid 2.0", "Async"],
+    readingMinutes: 9,
+  },
+  {
+    slug: "async-solid-fetch-high-block-low",
+    title: "Async Solid - Fetch High, Block Low",
+    description:
+      "Part one of a deep dive into how Solid 2.0 handles async: why fetching high and blocking low no longer costs you anything.",
+    author: "Ryan Carniato",
+    authorUrl: RYAN,
+    date: "2026-08-19",
+    image: img("async-solid-fetch-high-block-low"),
+    tags: ["Solid 2.0", "Async"],
+    readingMinutes: 9,
+  },
+  {
+    slug: "solid-2-0-rc-the-big-reveal",
+    title: "Solid 2.0 RC: The Big <Reveal>",
+    description:
+      "Solid 2.0 reaches Release Candidate: async becomes a property of the reactive graph itself, SolidStart is retired in favor of start mode, and a new Rust/OXC compiler ships by default.",
+    author: "Ryan Carniato",
+    authorUrl: RYAN,
+    date: "2026-08-13",
+    image: img("solid-2-0-rc-the-big-reveal"),
     tags: ["Release", "Solid 2.0"],
-    draft: true,
-    readingMinutes: 4,
+    readingMinutes: 9,
   },
   {
     slug: "solidhack-2024-announcement",
