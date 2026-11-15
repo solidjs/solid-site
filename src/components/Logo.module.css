@@ -3,4 +3,4 @@
 .dark { display: none; }
 :global(:is([data-theme="dark"], [data-theme="sdark"])) .light { display: none; }
 :global(:is([data-theme="dark"], [data-theme="sdark"])) .dark { display: block; }
-.word { color: var(--color-logo-text); font-family: var(--font-sans); font-size: calc(var(--logo-size) * 1.05); font-weight: 700; letter-spacing: -0.03em; line-height: 1; padding-bottom: 0.08em; }
+.word { color: var(--color-text-muted); /* same as the nav links */ font-family: var(--font-sans); font-size: calc(var(--logo-size) * 1.05); font-weight: 700; letter-spacing: -0.03em; line-height: 1; padding-bottom: 0.08em; }
