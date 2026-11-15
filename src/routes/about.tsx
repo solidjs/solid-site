@@ -134,6 +134,13 @@ const TIMELINE: TimelineEvent[] = [
     title: "SolidHack 2024",
     description: "The 2024 hackathon was announced, sponsored by Netlify and Sentry.",
   },
+  // TODO(content): confirm the date (only the year is known here).
+  {
+    label: "2026",
+    iso: "2026",
+    title: "SolidStart becomes legacy",
+    description: "SolidStart moves to legacy as it is rolled into Solid core, merging the framework and the library into one.",
+  },
   {
     label: "2026",
     iso: "2026",
