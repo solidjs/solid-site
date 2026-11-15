@@ -11,7 +11,7 @@ export function Ecosystem() {
       id="ecosystem"
       eyebrow="Ecosystem"
       title="Everything around the core"
-      description="Official and community projects for routing, fullstack apps, primitives, docs and testing. Check each project's README for its Solid 2.0 status."
+      description="Official and community projects for routing, components, primitives, docs, testing and linting. Check each project's README for its Solid 2.0 status."
     >
       <ul class={styles.grid}>
         <For each={ECOSYSTEM} keyed={(p) => p.name}>

@@ -73,13 +73,14 @@ export interface Project {
 
 /** Projects confirmed in the legacy site's package listings (or installed by this site). */
 export const ECOSYSTEM: Project[] = [
-  { name: "SolidStart", description: "Fullstack framework with routing, SSR and server functions.", href: "https://github.com/solidjs/solid-start", icon: "layers" },
+  { name: "Kobalte", description: "Unstyled, accessible UI components and primitives for Solid.", href: "https://github.com/kobaltedev/kobalte", icon: "layers" },
   { name: "Solid Router", description: "Universal router for Solid apps.", href: "https://github.com/solidjs/solid-router", icon: "arrow-right" },
   { name: "Solid Primitives", description: "A community library of well-tested reactive building blocks.", href: "https://github.com/solidjs-community/solid-primitives", icon: "sparkles" },
   { name: "SolidBase", description: "Docs and content site framework built on Solid. This site uses it.", href: "https://github.com/kobaltedev/solidbase", icon: "book" },
   { name: "Solid Meta", description: "Manage document head tags, such as titles and meta.", href: "https://github.com/solidjs/solid-meta", icon: "code" },
   { name: "Testing Library", description: "Solid bindings for Testing Library.", href: "https://github.com/solidjs/solid-testing-library", icon: "check" },
   { name: "Solid Devtools", description: "Inspect the reactive graph of your app.", href: "https://github.com/thetarnav/solid-devtools", icon: "zap" },
+  { name: "ESLint Plugin Solid", description: "The Solid linter: catches reactivity mistakes such as destructured props.", href: "https://github.com/solidjs-community/eslint-plugin-solid", icon: "shield" },
 ];
 
 export const COMMUNITY: { title: string; description: string; href: string; icon: IconName; cta: string }[] = [
