@@ -38,8 +38,9 @@ export function Card(props: { page: OgPage; colors: OgColors; logo: string; host
       <div style={{ display: "flex", "align-items": "center", "justify-content": "space-between" }}>
         <div style={{ display: "flex", "align-items": "center" }}>
           <img src={props.logo} style={{ width: "56px", height: "52px" }} />
-          <div style={{ display: "flex", "margin-left": "18px", "font-size": "34px", "font-weight": 600, "letter-spacing": "0.14em" }}>
-            SOLID
+          {/* The wordmark as on the site: lowercase "solid" in Geist bold, tight, in the muted text colour. */}
+          <div style={{ display: "flex", "margin-left": "16px", "padding-bottom": "4px", "font-size": "54px", "font-weight": 700, "letter-spacing": "-0.03em", "line-height": 1, color: c.muted }}>
+            solid
           </div>
         </div>
         <div

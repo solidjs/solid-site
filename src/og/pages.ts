@@ -57,7 +57,7 @@ const STATIC_PAGES: OgPage[] = [
     file: "media",
     kicker: "Media",
     title: "Logos and brand assets",
-    description: "Download the Solid logo in SVG, PNG, EPS, JPG and PDF.",
+    description: "Download the Solid logo as SVG, and find brand colours and usage guidelines.",
   },
   {
     path: "/team",
