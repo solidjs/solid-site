@@ -16,7 +16,7 @@
 .success { --accent: var(--color-success); }
 .warning { --accent: var(--color-warning); }
 .info { --accent: var(--color-info); }
-.accent { --accent: var(--color-accent); }
+.accent { --accent: var(--color-accent-text); }
 
 .eyebrow {
   margin: 0 0 0.5rem;

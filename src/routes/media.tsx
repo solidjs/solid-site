@@ -14,9 +14,10 @@ const DESCRIPTION = "Download the Solid logo as SVG, and find brand colours and 
 
 const COLOURS = [
   { token: "--color-brand", name: "Brand" },
-  { token: "--color-brand-strong", name: "Brand strong" },
   { token: "--color-brand-soft", name: "Brand soft" },
+  { token: "--color-brand-bright", name: "Brand bright" },
   { token: "--color-accent", name: "Accent" },
+  { token: "--color-graphite", name: "Graphite" },
 ] as const;
 
 // TODO(content): replace with official guidance from the Solid brand owners.

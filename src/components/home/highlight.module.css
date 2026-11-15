@@ -19,7 +19,7 @@
   font-family: inherit;
 }
 .comment { color: var(--color-text-faint); font-style: italic; }
-.string { color: var(--color-accent); }
+.string { color: var(--color-accent-text); }
 .keyword { color: var(--color-brand-text); font-weight: var(--weight-medium); }
 .number { color: var(--color-warning); }
 .tag { color: var(--color-success); }
