@@ -15,7 +15,7 @@ export interface TimelineEvent {
 export function Timeline(props: { events: TimelineEvent[] }) {
   return (
     <ol class={styles.list}>
-      <For each={props.events} keyed={(e) => e.iso + e.label}>
+      <For each={props.events} keyed={(e) => `${e.iso}|${String(e.title)}`}>
         {(event) => (
           <li class={styles.item}>
             <time class={styles.date} datetime={event().iso}>{event().label}</time>

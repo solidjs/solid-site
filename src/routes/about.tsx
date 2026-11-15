@@ -35,7 +35,7 @@ const PRINCIPLES = [
   },
 ] as const;
 
-// Dates come from the announcement posts published on the previous solidjs.com blog.
+// Dates come from the project's announcement posts (the State of Solid editions and the individual announcements).
 const TIMELINE: TimelineEvent[] = [
   {
     label: "2021",
@@ -48,6 +48,48 @@ const TIMELINE: TimelineEvent[] = [
     iso: "2021-09-30",
     title: "The State of Solid begins",
     description: "The first edition of a regular outline of updates across the project, community and ecosystem.",
+  },
+  {
+    label: "30 Sep 2021",
+    iso: "2021-09-30",
+    title: "Netlify becomes a deployment partner",
+    description: "Netlify joined as an official Deployment Partner and sponsor, contributing $500 a month through OpenCollective.",
+  },
+  {
+    label: "31 Dec 2021",
+    iso: "2021-12-31",
+    title: "First SolidHack announced",
+    description: "The first public open-source hackathon was announced for January, with three months to build and $9,000+ in prizes.",
+  },
+  {
+    label: "7 Jan 2022",
+    iso: "2022-01-07",
+    title: "SolidHack 2022",
+    description: "Solid's first hackathon opened with community voting. Sponsors including Stytch, Builder.io, ClearSpend and 402, plus private donors, grew the prize pool to US$12,000.",
+  },
+  {
+    label: "1 Apr 2022",
+    iso: "2022-04-01",
+    title: "Vercel and <div>riots sponsor Solid",
+    description: "Both pledged $100 a month to the project's OpenCollective, and GitHub stars passed 16,000.",
+  },
+  {
+    label: "31 Jul 2022",
+    iso: "2022-07-31",
+    title: "JetBrains sponsorship and 20k stars",
+    description: "JetBrains pledged $500 a month. Funds go toward domains, events and meetups, and other community initiatives. Solid also passed 20,000 GitHub stars.",
+  },
+  {
+    label: "31 Jul 2022",
+    iso: "2022-07-31",
+    title: "Ryan Carniato joins Netlify",
+    description: "Solid's creator took a full-time open-source role as Principal Open-Source Engineer at Netlify.",
+  },
+  {
+    label: "31 Jul 2022",
+    iso: "2022-07-31",
+    title: "The Solid Store launches",
+    description: "Official merchandise went on sale, with profit going straight to the project's OpenCollective.",
   },
   {
     label: "19 Sep 2022",
@@ -77,7 +119,13 @@ const TIMELINE: TimelineEvent[] = [
     label: "3 Sep 2024",
     iso: "2024-09-03",
     title: "SolidHack 2024",
-    description: "The 2024 hackathon was announced.",
+    description: "The 2024 hackathon was announced, sponsored by Netlify and Sentry.",
+  },
+  {
+    label: "2026",
+    iso: "2026",
+    title: "Solid 2.0",
+    description: "Solid 2.0 ships with first-class async, split effects and draft-first stores.",
   },
 ];
 
@@ -150,7 +198,7 @@ export default function About() {
         }
       />
 
-      <Section id="history" tone="subtle" eyebrow="History" title="Milestones from the Solid blog" description="Dates are taken from announcement posts on the previous Solid blog.">
+      <Section id="history" tone="subtle" eyebrow="History" title="Milestones of the project" description="Releases, funding, sponsors and hackathons along the way. Dates come from the project's announcement posts.">
         <Timeline events={TIMELINE} />
       </Section>
 
