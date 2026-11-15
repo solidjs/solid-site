@@ -22,8 +22,8 @@ export function Logo(props: LogoProps) {
   const h = () => props.height ?? 28;
   return (
     <span class={[styles.logo, props.class]} role="img" aria-label={SITE_NAME} style={{ "--logo-size": `${h()}px` }}>
-      <img class={[styles.icon, styles.light]} src={ICON_LIGHT} width={h() * ICON_RATIO} height={h()} alt="" decoding="async" />
-      <img class={[styles.icon, styles.dark]} src={ICON_DARK} width={h() * ICON_RATIO} height={h()} alt="" decoding="async" />
+      <img class={[styles.icon, styles.light]} src={ICON_LIGHT} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
+      <img class={[styles.icon, styles.dark]} src={ICON_DARK} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
       {props.wordmark === false ? null : <span class={styles.word} aria-hidden="true">solid</span>}
     </span>
   );
