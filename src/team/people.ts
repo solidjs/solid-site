@@ -15,13 +15,6 @@ export interface Person {
   links?: { label: string; href: string }[];
 }
 
-export interface Translator {
-  name: string;
-  language: string;
-  flag: string;
-  link: string;
-}
-
 export interface Supporter {
   name: string;
   company?: string;
@@ -43,28 +36,6 @@ export const maintainers: readonly Person[] = [
   { name: "Sarah (ladybluebird)", github: "ladybluebird", img: "/img/bios/sarah-ladybluebird.png", role: "Maintainer" },
   { name: "Birk Skyum", github: "birkskyum", img: "/img/bios/birk-skyum.jpeg", role: "Maintainer" },
   { name: "Brendan (Brenelz)", github: "brenelz", img: "/img/bios/brendan-brenelz.png", role: "Maintainer" },
-];
-
-export const translators: readonly Translator[] = [
-  { name: "Gavin Gong", language: "zh-cn", flag: "🇨🇳", link: "https://github.com/Gavin-Gong" },
-  { name: "Colin Tso", language: "zh-tw", flag: "🇭🇰", link: "https://github.com/tsokawing" },
-  { name: "Jun Shindo (jay-es)", language: "jp", flag: "🇯🇵", link: "https://github.com/jay-es" },
-  { name: "David Di Biase", language: "it", flag: "🇮🇹", link: "https://github.com/davedbase" },
-  { name: "Candido Sales Gomez", language: "pt", flag: "🇧🇷", link: "https://github.com/candidosales" },
-  { name: "Steven Yung", language: "fr", flag: "🇫🇷", link: "https://github.com/xstevenyung" },
-  { name: "Mehdi Bertul (MidouWebDev)", language: "fr", flag: "🇫🇷", link: "https://github.com/MidouWebDev" },
-  { name: "Athif Humam", language: "in", flag: "🇮🇩", link: "https://github.com/athif23" },
-  { name: "Alex Lohr", language: "de", flag: "🇩🇪", link: "https://github.com/atk" },
-  { name: "Pheianox", language: "az ru", flag: "🇦🇿 🇷🇺", link: "https://github.com/pheianox" },
-  { name: "TheFedaikin", language: "ru", flag: "🇷🇺", link: "https://github.com/TheFedaikin" },
-  { name: "Yury Popov", language: "ru", flag: "🇷🇺", link: "https://github.com/nairabrab" },
-  { name: "Vladislav Mamon", language: "ru", flag: "🇷🇺", link: "https://github.com/norskeld" },
-  { name: "Lechuck Roh", language: "ko-kr", flag: "🇰🇷", link: "https://github.com/lechuckroh" },
-  { name: "Adrián Curiel", language: "es", flag: "🇪🇸", link: "https://github.com/havc-dev" },
-  { name: "Paweł Błaszczyk", language: "pl", flag: "🇵🇱", link: "https://github.com/pawelblaszczyk5" },
-  { name: "Ivan Teplov", language: "uk", flag: "🇺🇦", link: "https://github.com/ivteplo" },
-  { name: "Ionut Gabriel Marisescu", language: "it", flag: "🇮🇹", link: "https://github.com/GabrielMarisescu" },
-  { name: "Mohamed Kawsara", language: "ar", flag: "🇸🇦", link: "https://github.com/mkwsra" },
 ];
 
 /** Individuals thanked for design, writing and site work. */

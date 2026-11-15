@@ -31,3 +31,6 @@
 :is(.item, .person):has(.cardLink:hover) { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
 :is(.item, .person):has(.cardLink:focus-visible) { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
 .iconLink { position: relative; z-index: 1; }
+
+/* A section that is only a heading and a sentence has no content below it, so drop the heading's bottom margin. */
+.textOnly header { margin-bottom: 0; }

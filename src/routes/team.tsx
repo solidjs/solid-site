@@ -8,9 +8,9 @@ import { ContributorWall } from "../components/team/ContributorWall";
 import { PersonCard } from "../components/team/PersonCard";
 import styles from "../components/team/Team.module.css";
 import { URLS } from "../site";
-import { contributors, ecosystem, maintainers, translators, type Supporter } from "../team/people";
+import { contributors, ecosystem, maintainers, type Supporter } from "../team/people";
 
-const DESCRIPTION = "The maintainers, translators and community contributors who build and support SolidJS.";
+const DESCRIPTION = "The maintainers and community contributors who build and support SolidJS.";
 const CONTRIBUTING = "https://github.com/solidjs/solid/blob/main/CONTRIBUTING.md";
 const DOCS_CONTRIBUTING = "https://github.com/solidjs/solid-docs/blob/main/CONTRIBUTING.md";
 
@@ -59,18 +59,18 @@ export default function TeamPage() {
         <SupporterList items={ecosystem} label="Ecosystem supporters" />
       </Section>
 
-      <Section id="translators" title="Translators" tone="subtle" description="Volunteers who translated Solid's documentation.">
-        <ul class={styles.list} aria-label="Translators">
-          <For each={translators}>
-            {(t) => (
-              <li class={styles.item}>
-                <span class={styles.itemName}><Link href={t.link} class={styles.cardLink}>{t.name}</Link></span>
-                <span class={styles.itemMeta}><span aria-hidden="true">{t.flag}</span> {t.language}</span>
-              </li>
-            )}
-          </For>
-        </ul>
-      </Section>
+      <Section
+        id="translators"
+        title="Translations"
+        tone="subtle"
+        class={styles.textOnly}
+        description={
+          <>
+            We could use help translating Solid to new languages,{" "}
+            <Link href={URLS.discord} inline>join Discord</Link> to help the effort.
+          </>
+        }
+      />
 
       <Section id="contributors" title="All contributors" description="Everyone who has shipped code to Solid, Solid Start and Solid Router.">
         <ContributorWall />
