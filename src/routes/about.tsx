@@ -36,7 +36,8 @@ const PRINCIPLES = [
 ] as const;
 
 // Dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
-// commit in the solidjs/solid repository, and the creation date of the Discord server.
+// commit in the solidjs/solid repository, the creation date of the Discord server, and Ryan's own posts about joining
+// Netlify and Sentry.
 const TIMELINE: TimelineEvent[] = [
   {
     label: "Apr 2018",
@@ -87,16 +88,16 @@ const TIMELINE: TimelineEvent[] = [
     description: "Both pledged $100 a month to the project's OpenCollective, and GitHub stars passed 16,000.",
   },
   {
-    label: "31 Jul 2022",
-    iso: "2022-07-31",
-    title: "JetBrains sponsorship and 20k stars",
-    description: "JetBrains pledged $500 a month. Funds go toward domains, events and meetups, and other community initiatives. Solid also passed 20,000 GitHub stars.",
+    label: "23 May 2022",
+    iso: "2022-05-23",
+    title: "Ryan Carniato joins Netlify",
+    description: "Solid's creator joined Netlify's open-source team as a principal engineer, with Netlify supporting him to work on Solid full-time. Netlify had already been backing the project financially since 2021.",
   },
   {
     label: "31 Jul 2022",
     iso: "2022-07-31",
-    title: "Ryan Carniato joins Netlify",
-    description: "Solid's creator took a full-time open-source role as Principal Open-Source Engineer at Netlify.",
+    title: "JetBrains sponsorship and 20k stars",
+    description: "JetBrains pledged $500 a month. Funds go toward domains, events and meetups, and other community initiatives. Solid also passed 20,000 GitHub stars.",
   },
   {
     label: "31 Jul 2022",
@@ -133,6 +134,12 @@ const TIMELINE: TimelineEvent[] = [
     iso: "2024-09-03",
     title: "SolidHack 2024",
     description: "The 2024 hackathon was announced, sponsored by Netlify and Sentry.",
+  },
+  {
+    label: "3 Sep 2024",
+    iso: "2024-09-03",
+    title: "Ryan Carniato joins Sentry",
+    description: "Ryan moved from Netlify to Sentry, which supports his continued full-time work on Solid and open source as the project heads toward 2.0.",
   },
   // TODO(content): confirm the date (only the year is known here).
   {
