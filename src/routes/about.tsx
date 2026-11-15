@@ -188,6 +188,33 @@ const PIONEERED = [
   },
 ] as const;
 
+const PERFORMANCE = [
+  {
+    icon: "zap",
+    title: "At the top of the benchmarks",
+    description:
+      "Solid has consistently ranked at or near the top of the JS Framework Benchmark, the community's public comparison of UI libraries, staying close to hand-written vanilla JavaScript.",
+  },
+  {
+    icon: "star",
+    title: "Loved by developers",
+    description:
+      "Solid was the top-rated framework for developer satisfaction in the 2021 State of JS survey, ahead of far larger frameworks, with adoption growing quickly since.",
+  },
+  {
+    icon: "newspaper",
+    title: "Performance research, funded by Chrome",
+    description:
+      "The Chrome team's Aurora programme contributed $30,000 toward Solid's continued performance research, supporting work that improves Core Web Vitals in open-source projects.",
+  },
+  {
+    icon: "sparkles",
+    title: "The industry caught up",
+    description:
+      "Others followed. Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
+  },
+] as const;
+
 const SNIPPET = `import { createSignal, createMemo } from "solid-js";
 import { render } from "@solidjs/web";
 
@@ -252,6 +279,22 @@ export default function About() {
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
+            {(p, i) => (
+              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            )}
+          </For>
+        </ul>
+      </Section>
+
+      <Section
+        id="performance"
+        tone="subtle"
+        eyebrow="Performance"
+        title="Known for speed, and the industry took notice"
+        description="Solid became known for performance because there is so little between a state change and the DOM node it affects. Those results pushed other frameworks to rethink how they update the page."
+      >
+        <ul class={styles.cards} role="list">
+          <For each={PERFORMANCE} keyed={(p) => p.title}>
             {(p, i) => (
               <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
             )}
