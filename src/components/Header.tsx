@@ -227,7 +227,7 @@ export function Header() {
     <header class={styles.header} data-hidden={hidden() ? "" : undefined} data-scrolled={scrolled() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
         <a href={localePath("/")} class={styles.brand} aria-label={t("{name} home", { name: SITE_NAME })}>
-          <Logo height={32} />
+          <Logo height={32} wordScale={0.85} />
         </a>
         <div class={styles.desktop}>
           <DesktopNav />

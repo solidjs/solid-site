@@ -6,6 +6,8 @@ export interface LogoProps {
   wordmark?: boolean;
   /** Rendered icon height in px (default 28). */
   height?: number;
+  /** Scales the wordmark relative to its default size, leaving the icon as is (default 1). */
+  wordScale?: number;
   class?: string;
 }
 
@@ -21,7 +23,7 @@ const ICON_RATIO = 200.97 / 187.15;
 export function Logo(props: LogoProps) {
   const h = () => props.height ?? 28;
   return (
-    <span class={[styles.logo, props.class]} role="img" aria-label={SITE_NAME} style={{ "--logo-size": `${h()}px` }}>
+    <span class={[styles.logo, props.class]} role="img" aria-label={SITE_NAME} style={{ "--logo-size": `${h()}px`, "--logo-word-scale": props.wordScale ?? 1 }}>
       <img class={[styles.icon, styles.light]} src={ICON_LIGHT} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
       <img class={[styles.icon, styles.dark]} src={ICON_DARK} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
       {props.wordmark === false ? null : <span class={styles.word} aria-hidden="true">solid</span>}
