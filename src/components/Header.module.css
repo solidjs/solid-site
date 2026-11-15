@@ -64,6 +64,8 @@
   @starting-style { opacity: 0; transform: translateY(-0.5rem); }
 }
 @keyframes navHold { from { --nav-hold: 0; } to { --nav-hold: 1; } }
+/* Kobalte mounts the panel for plain links such as Blog too, with nothing inside; keep that invisible box out of the page. */
+.viewport:not(:has(> *)) { display: none; }
 .menu:not([data-open]) .viewport { opacity: 0; transform: translateY(-0.375rem); pointer-events: none; transition-duration: 0s, 0s, 160ms, 160ms; }
 /* The panel glides from one trigger to the next. */
 .menu[data-switching] :global([data-popper-positioner]) { transition: transform 320ms var(--ease-out); }

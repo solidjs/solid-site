@@ -79,7 +79,10 @@ function DesktopNav() {
   let isOpen = false;
   let exitTimer: ReturnType<typeof setTimeout> | undefined;
   const onValueChange = (value?: string | null) => {
-    const open = !!value && !String(value).startsWith("link-trigger-");
+    // Plain links (Blog) are menu triggers to Kobalte too, with no panel to show. Only a trigger that owns a dropdown
+    // (marked data-has-menu) counts as open, otherwise an empty panel appears under the link.
+    const trigger = value ? document.querySelector(`[data-kb-menu-value-trigger="${CSS.escape(String(value))}"]`) : null;
+    const open = !!trigger?.hasAttribute("data-has-menu");
     clearTimeout(exitTimer);
     setMenuOpen(open);
     if (open) {
@@ -115,7 +118,7 @@ function DesktopNav() {
             >
               {(group) => (
                 <>
-                  <NavigationMenu.Trigger class={styles.trigger} ref={keepOpenOnHoverClick}>
+                  <NavigationMenu.Trigger class={styles.trigger} ref={keepOpenOnHoverClick} data-has-menu>
                     {t(group().label)}
                     <Icon name="chevron-down" size={14} class={styles.caret} />
                   </NavigationMenu.Trigger>
