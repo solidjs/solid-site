@@ -260,7 +260,7 @@ export function Header() {
     <header class={styles.header} data-hidden={hidden() ? "" : undefined} data-scrolled={scrolled() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
         <a href={localePath("/")} class={styles.brand} aria-label={t("{name} home", { name: SITE_NAME })}>
-          <Logo height={32} wordScale={0.85} />
+          <Logo height={scrolled() ? 28.8 : 32} wordScale={0.85} />
           <div class={styles.badge} aria-hidden="true">2.0</div>
         </a>
         <div class={styles.desktop}>
