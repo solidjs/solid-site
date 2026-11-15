@@ -28,7 +28,6 @@ export const githubUrl = (user: string) => `https://github.com/${user}`;
 export const maintainers: readonly Person[] = [
   { name: "Ryan Carniato", github: "ryansolid", img: "/img/bios/ryan-carniato.jpeg", role: "Project Founder / OSS Engineer @ Sentry", bio: "Front-end JS performance enthusiast and long time super-fan of fine-grained reactive programming." },
   { name: "David Di Biase", github: "davedbase", img: "/img/bios/david-dibiase.jpeg", role: "Community Leader", bio: "David is a full-stack developer based in Toronto. He is passionate about building scalable applications." },
-  { name: "Alexandre Mouton Brady", github: "amoutonbrady", img: "/img/bios/alexandre-mouton-brady.jpeg", role: "Library Maintainer", bio: "A multi-talented web developer with a preference for the front. He takes great pleasure in making the web more alive." },
   { name: "Milo M.", github: "modderme123", img: "/img/bios/milo-m.svg", role: "Reactivity Designer", bio: "A web developer with an interest in reactive programming and making the web a better place." },
   { name: "Alexis Munsayac", github: "lxsmnsyc", img: "/img/bios/alexis-munsayac.jpeg", role: "Seroval Maintainer", bio: "An all-around web developer and performance enthusiast." },
   { name: "Dev Agrawal", github: "devagrawal09", img: "/img/bios/dev-agrawal.jpeg", role: "Library Maintainer", bio: "Builds and also teaches how-to-build awesome full-stack applications." },
