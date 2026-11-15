@@ -14,6 +14,11 @@ function ogDevImages(): Plugin {
     name: "og-dev-images",
     apply: "serve",
     configureServer(server) {
+      // The images are rendered once and kept, so an edit to the card, its colours, logos or the page list would
+      // otherwise keep showing the old image until the dev server restarts.
+      server.watcher.on("all", (_event, file) => {
+        if (/[\\/](src[\\/](og|blog)[\\/]|src[\\/]theme[\\/]tokens\.css|public[\\/]img[\\/]logos[\\/])/.test(file)) rendered = undefined;
+      });
       server.middlewares.use(async (req, res, next) => {
         const match = req.url?.split("?")[0].match(/^\/og\/(.+)\.png$/);
         if (!match) return next();
