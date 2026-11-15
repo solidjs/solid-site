@@ -19,6 +19,9 @@ const isCurrent = (href: string, fullPathname: string) => {
 const linkAttrs = (link: NavLink) =>
   isExternalHref(link.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
+/** The dropdown trigger most recently hovered or focused (see keepOpenOnHoverClick). */
+let activeTrigger: HTMLElement | undefined;
+
 /**
  * Kobalte's NavigationMenu opens a menu when the pointer rests on its trigger, but a mouse press on an open trigger
  * closes it again. A visitor who hovers and then clicks therefore sees the dropdown flash open and vanish. Swallow
@@ -27,6 +30,11 @@ const linkAttrs = (link: NavLink) =>
  */
 function keepOpenOnHoverClick(el: HTMLElement) {
   let openedByHover = false;
+  // The trigger the pointer or focus is on is where the dropdown must line up. Kobalte positions the panel before it
+  // marks the trigger expanded, so asking for the "expanded" trigger at that moment finds none.
+  const mark = () => { activeTrigger = el; };
+  el.addEventListener("pointerenter", mark);
+  el.addEventListener("focus", mark);
   el.addEventListener("pointerenter", (e) => {
     openedByHover = e.pointerType !== "touch" && el.getAttribute("aria-expanded") !== "true";
   });
@@ -55,7 +63,8 @@ function DesktopNav() {
   // The last rect is remembered so the panel keeps its place while it fades out (no trigger is expanded by then).
   let lastRect: DOMRect | undefined;
   const activeTriggerRect = (root?: Element) => {
-    const rect = root?.querySelector<HTMLElement>('[aria-expanded="true"]')?.getBoundingClientRect();
+    const trigger = activeTrigger?.isConnected ? activeTrigger : root?.querySelector<HTMLElement>('[aria-expanded="true"]');
+    const rect = trigger?.getBoundingClientRect();
     return (lastRect = rect ?? lastRect);
   };
   // Animation state. Kobalte unmounts the dropdown panel the moment the menu closes, which leaves nothing to fade, so
