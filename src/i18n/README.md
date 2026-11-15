@@ -16,7 +16,7 @@ sitemap or the security headers.
    export default {
      Docs: "Documentation",
      "Read the blog": "Lire le blog",
-     "Solid 2.0: {status}": "Solid 2.0 : {status}",
+     "Solid 2.0 is live": "Solid 2.0 est disponible",
    } satisfies Record<string, string>;
    ```
 

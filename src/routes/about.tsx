@@ -140,11 +140,11 @@ export default function About() {
       <Section
         id="solid-2"
         eyebrow="Solid 2.0"
-        title="Solid 2.0 is on its way"
-        description={`Solid 2.0 is currently a ${SOLID_2.status.toLowerCase()} (${SOLID_2.version}). APIs may still change before the stable release, so try it, but pin your versions.`}
+        title="Solid 2.0 is live"
+        description={`Solid ${SOLID_2.version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.`}
         actions={
           <>
-            <Badge tone="warning">{SOLID_2.status}</Badge>
+            <Badge tone="success">Live</Badge>
             <Button href={SOLID_2.migrationGuide}>Migration guide</Button>
           </>
         }

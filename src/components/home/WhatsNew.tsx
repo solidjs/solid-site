@@ -33,7 +33,7 @@ export function WhatsNew() {
     <Section
       id="whats-new"
       tone="subtle"
-      eyebrow="Solid 2.0 release candidate"
+      eyebrow="Solid 2.0"
       title="What's new in Solid 2.0"
       description="Async is part of the reactive graph, effects say what they track, and stores update through drafts. Try each change live, right here."
       actions={

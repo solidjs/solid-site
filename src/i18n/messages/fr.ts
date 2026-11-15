@@ -35,8 +35,7 @@ export default {
   "Solid on {network} (opens in a new tab)": "Solid sur {network} (s'ouvre dans un nouvel onglet)",
   // Footer
   "Simple and performant reactivity for building user interfaces.": "Une réactivité simple et performante pour créer des interfaces utilisateur.",
-  "Solid 2.0: {status}": "Solid 2.0 : {status}",
-  "Release candidate": "Version candidate",
+  "Solid 2.0 is live": "Solid 2.0 est disponible",
   "© {year} {holder}. {license}": "© {year} {holder}. {license}",
   "Released under the MIT License.": "Publié sous licence MIT.",
 } satisfies Record<string, string>;

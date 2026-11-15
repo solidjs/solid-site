@@ -1,5 +1,5 @@
 /**
- * Runnable Solid 2.0 RC examples for the homepage REPL. Each one is a complete app whose entry file
+ * Runnable Solid 2.0 examples for the homepage REPL. Each one is a complete app whose entry file
  * is `main.tsx` (the REPL convention). Keep them valid per the solid2 reference: they execute live.
  */
 export interface ReplFile {

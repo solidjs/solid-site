@@ -18,8 +18,8 @@ export function Hero() {
         <HeroArt class={`${artStyles.art} ${styles.art}`} />
         <Container size="wide" class={styles.inner}>
           <Link href="/blog" class={styles.announce}>
-            <Badge tone="brand">{SOLID_2.status}</Badge>
-            <span>Solid 2.0 is launching soon. Read the latest</span>
+            <Badge tone="brand">New</Badge>
+            <span>Solid 2.0 is live. Read the latest</span>
             <Icon name="arrow-right" size={14} />
           </Link>
           <div class={styles.copy}>
@@ -43,8 +43,7 @@ export function Hero() {
                 <CopyButton text={CREATE_COMMAND} label="Copy create command" />
               </div>
               <p class={styles.note}>
-                Currently {SOLID_2.version}. The 2.0 API is stable enough to try, but may still change before
-                release.
+                Solid {SOLID_2.version} is the current release.
               </p>
             </div>
           </div>

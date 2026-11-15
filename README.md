@@ -1,11 +1,11 @@
 # solidjs.com
 
-Source for [www.solidjs.com](https://www.solidjs.com), the marketing site for Solid 2.0 (currently a release candidate).
+Source for [www.solidjs.com](https://www.solidjs.com), the marketing site for Solid 2.0.
 Docs live at [docs.solidjs.com](https://docs.solidjs.com) and the tutorial at [tutorial.solidjs.com](https://tutorial.solidjs.com); this repo does not host either.
 
 ## Stack
 
-- Solid 2.0 RC (`solid-js`, `@solidjs/web`) with `@solidjs/router` 2.0 and `@solidjs/meta`
+- Solid 2.0 (`solid-js`, `@solidjs/web`) with `@solidjs/router` 2.0 and `@solidjs/meta`
 - [SolidBase](https://github.com/kobaltedev/solidbase) 3 with a custom theme in `src/theme` (`Layout.tsx` wraps every route)
 - [Kobalte](https://kobalte.dev) (`@kobalte/core` 2.0 alpha) for interactive primitives: navigation menu, drawer, tabs, toggle group, accordion, tooltip, dialog, image
 - Plain CSS Modules and CSS custom properties. No Tailwind.

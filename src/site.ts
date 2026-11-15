@@ -13,18 +13,17 @@ export const SITE_URL: string =
     : import.meta.env.VITE_SITE_URL || "https://www.solidjs.com";
 export const SITE_TAGLINE = "Simple and performant reactivity for building user interfaces.";
 export const SITE_DESCRIPTION =
-  "Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Solid 2.0 is in release-candidate.";
+  "Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Solid 2.0 is live.";
 /** Evaluated once at build time (prerender); the year is intentionally static per deploy. */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 export const COPYRIGHT_HOLDER = "Solid Core Team";
 export const LICENSE_NOTE = "Released under the MIT License.";
 
-/** Solid 2.0 status. Keep honest: update when 2.0 ships. */
+/** Solid 2.0, now live. */
 export const SOLID_2 = {
-  status: "Release candidate",
-  /** Version string of the current RC. TODO(content): bump / replace with stable on launch. */
-  version: "2.0.0-rc.21",
-  installCommand: "npm install solid-js@next @solidjs/web@next",
+  /** Current release. TODO(content): confirm the exact version string at go-live. */
+  version: "2.0.0",
+  installCommand: "npm install solid-js @solidjs/web",
   // TODO(content): confirm the migration guide URL once published.
   migrationGuide: "https://docs.solidjs.com",
 } as const;

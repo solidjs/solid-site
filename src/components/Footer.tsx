@@ -1,6 +1,6 @@
 import { For } from "solid-js";
 import { useI18n } from "../i18n";
-import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, FOOTER_COLUMNS, isExternalHref, LICENSE_NOTE, SITE_NAME, SITE_TAGLINE, SOCIAL_LINKS, SOLID_2 } from "../site";
+import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, FOOTER_COLUMNS, isExternalHref, LICENSE_NOTE, SITE_NAME, SITE_TAGLINE, SOCIAL_LINKS } from "../site";
 import { Badge } from "./Badge";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
@@ -21,7 +21,7 @@ export function Footer() {
               <Logo height={26} />
             </a>
             <p class={styles.tagline}>{t(SITE_TAGLINE)}</p>
-            <Badge tone="brand">{t("Solid 2.0: {status}", { status: t(SOLID_2.status) })}</Badge>
+            <Badge tone="brand">{t("Solid 2.0 is live")}</Badge>
           </div>
           <For each={FOOTER_COLUMNS} keyed={(c) => c.title}>
             {(col) => (

@@ -34,7 +34,7 @@ const STATIC_PAGES: OgPage[] = [
   {
     path: "/",
     file: "home",
-    kicker: "Solid 2.0 release candidate", // TODO(content): update when 2.0 ships
+    kicker: "Solid 2.0 is live",
     title: "Fine-grained reactivity. No virtual DOM. Async built in.",
     description: SITE_TAGLINE,
   },

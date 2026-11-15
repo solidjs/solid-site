@@ -28,7 +28,7 @@ export interface Snippet {
   devtools?: boolean;
 }
 
-/** Valid Solid 2.0 RC examples. They run live in the REPL, so keep them in sync with the solid2 reference. */
+/** Valid Solid 2.0 examples. They run live in the REPL, so keep them in sync with the solid2 reference. */
 export const SNIPPETS: Snippet[] = [
   {
     value: "async",
