@@ -17,7 +17,8 @@ export const SITE_DESCRIPTION =
 /** Evaluated once at build time (prerender); the year is intentionally static per deploy. */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 export const COPYRIGHT_HOLDER = "Solid Maintainers";
-export const LICENSE_NOTE = "Released under the MIT License.";
+/** The licence text in the core repository, which the footer links to. */
+export const LICENSE_URL = "https://github.com/solidjs/solid/blob/main/LICENSE";
 
 /** Solid 2.0, now live. */
 export const SOLID_2 = {

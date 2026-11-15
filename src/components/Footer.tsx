@@ -1,6 +1,6 @@
 import { For } from "solid-js";
 import { useI18n } from "../i18n";
-import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, FOOTER_COLUMNS, isExternalHref, LICENSE_NOTE, SITE_NAME, SITE_TAGLINE, SOCIAL_LINKS } from "../site";
+import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, FOOTER_COLUMNS, isExternalHref, LICENSE_URL, SITE_NAME, SITE_TAGLINE, SOCIAL_LINKS } from "../site";
 import { Badge } from "./Badge";
 import { Container } from "./Container";
 import { Icon } from "./Icon";
@@ -12,6 +12,9 @@ import styles from "./Footer.module.css";
 /** Multi-column site footer: brand + tagline, link columns, then a bottom bar with copyright, licence and socials. */
 export function Footer() {
   const { t, localePath } = useI18n();
+  // "Released under the {license}." is translated as one sentence (word order differs by language), then split around
+  // the placeholder so the licence name can be a link.
+  const licenseSentence = () => t("Released under the {license}.", { license: "\u0001" }).split("\u0001");
   return (
     <footer class={styles.footer}>
       <Container size="wide">
@@ -45,7 +48,9 @@ export function Footer() {
         <Separator />
         <div class={styles.bottom}>
           <p class={styles.legal}>
-            {t("© {year} {holder}. {license}", { year: COPYRIGHT_YEAR, holder: COPYRIGHT_HOLDER, license: t(LICENSE_NOTE) })}
+            {t("© {year} {holder}.", { year: COPYRIGHT_YEAR, holder: COPYRIGHT_HOLDER })} {licenseSentence()[0]}
+            <Link href={LICENSE_URL} inline>{t("MIT License")}</Link>
+            {licenseSentence()[1]}
           </p>
           <ul role="list" class={styles.social}>
             <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
