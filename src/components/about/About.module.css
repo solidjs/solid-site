@@ -14,3 +14,14 @@
   gap: 0.75rem;
   justify-content: center;
 }
+
+/* Brand-yellow highlight (the same yellow and Graphite pairing as the 2.0 tag). Yellow text alone would be almost
+   invisible on the light page, so the yellow is the marker and the word stays dark. */
+.mark {
+  padding-inline: 0.18em;
+  border-radius: 0.2em;
+  background: var(--color-launch-yellow);
+  color: var(--color-graphite);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
