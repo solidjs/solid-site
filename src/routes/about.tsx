@@ -330,7 +330,7 @@ export default function About() {
         id="community"
         eyebrow="Governance and community"
         title="Built in the open"
-        description="Solid is developed in public on GitHub by the Solid Core Team and contributors, and funded in part through OpenCollective. Everyone taking part is expected to follow the code of conduct."
+        description="Solid is developed in public on GitHub by the Solid maintainers and contributors, and funded in part through OpenCollective. Everyone taking part is expected to follow the code of conduct."
         actions={
           <>
             <Button href="/team" icon="users">Team and contributors</Button>

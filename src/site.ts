@@ -16,7 +16,7 @@ export const SITE_DESCRIPTION =
   "Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Solid 2.0 is live.";
 /** Evaluated once at build time (prerender); the year is intentionally static per deploy. */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
-export const COPYRIGHT_HOLDER = "Solid Core Team";
+export const COPYRIGHT_HOLDER = "Solid Maintainers";
 export const LICENSE_NOTE = "Released under the MIT License.";
 
 /** Solid 2.0, now live. */
