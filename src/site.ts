@@ -1,7 +1,7 @@
 /** Single source of truth for site-wide constants, navigation and links. */
 import type { IconName } from "./components/Icon";
 
-export const SITE_NAME = "SolidJS";
+export const SITE_NAME = "Solid";
 /**
  * Canonical origin, used for canonical links, og:url and og:image. Social crawlers need absolute URLs on a host that
  * actually serves the files, so a preview deploy builds with `VITE_SITE_URL=https://<preview-host>` to point at itself.

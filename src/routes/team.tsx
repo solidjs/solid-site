@@ -10,7 +10,7 @@ import styles from "../components/team/Team.module.css";
 import { URLS } from "../site";
 import { contributors, ecosystem, maintainers, type Supporter } from "../team/people";
 
-const DESCRIPTION = "The maintainers and community contributors who build and support SolidJS.";
+const DESCRIPTION = "The maintainers and community contributors who build and support Solid.";
 const CONTRIBUTING = "https://github.com/solidjs/solid/blob/main/CONTRIBUTING.md";
 const DOCS_CONTRIBUTING = "https://github.com/solidjs/solid-docs/blob/main/CONTRIBUTING.md";
 

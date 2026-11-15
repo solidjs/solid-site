@@ -21,7 +21,7 @@ export function buildRss(list: Post[] = posts): string {
   <channel>
     <title>${esc(SITE_NAME)} Blog</title>
     <link>${absoluteUrl("/blog")}</link>
-    <description>News and updates from the SolidJS team.</description>
+    <description>News and updates from the Solid team.</description>
     <language>en</language>
     <atom:link href="${absoluteUrl("/rss.xml")}" rel="self" type="application/rss+xml" />
 ${list.map(item).join("\n")}

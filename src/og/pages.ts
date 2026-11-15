@@ -26,7 +26,7 @@ export interface OgPage {
 export const DEFAULT_OG: OgPage = {
   path: "",
   file: "default",
-  kicker: "SolidJS",
+  kicker: "Solid 2.0",
   title: SITE_TAGLINE,
 };
 
@@ -50,7 +50,7 @@ const STATIC_PAGES: OgPage[] = [
     file: "blog",
     kicker: "Blog",
     title: "News from the Solid team",
-    description: "News, releases and community updates from the SolidJS team.",
+    description: "News, releases and community updates from the Solid team.",
   },
   {
     path: "/media",
@@ -64,7 +64,7 @@ const STATIC_PAGES: OgPage[] = [
     file: "team",
     kicker: "Community",
     title: "Team & Contributors",
-    description: "The maintainers and community contributors who build and support SolidJS.",
+    description: "The maintainers and community contributors who build and support Solid.",
   },
   {
     path: "/code-of-conduct",
@@ -101,5 +101,5 @@ export const ogImagePath = (pathname: string): string => `/og/${(BY_PATH.get(nor
 /** Alt text for the image of a route. */
 export const ogImageAlt = (pathname: string): string => {
   const page = BY_PATH.get(normalize(pathname)) ?? DEFAULT_OG;
-  return `${page.title} | SolidJS`;
+  return `${page.title} | Solid`;
 };

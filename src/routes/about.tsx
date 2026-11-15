@@ -49,7 +49,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "15 Jun 2020",
     iso: "2020-06-15",
     title: "The official Discord opens",
-    description: "The SolidJS Discord server is created, giving the growing community a home for questions, help and discussion.",
+    description: "The Solid Discord server is created, giving the growing community a home for questions, help and discussion.",
   },
   {
     label: "2021",

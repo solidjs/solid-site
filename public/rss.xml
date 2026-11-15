@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>SolidJS Blog</title>
+    <title>Solid Blog</title>
     <link>https://www.solidjs.com/blog</link>
-    <description>News and updates from the SolidJS team.</description>
+    <description>News and updates from the Solid team.</description>
     <language>en</language>
     <atom:link href="https://www.solidjs.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -51,7 +51,7 @@
       <link>https://www.solidjs.com/blog/solidhack-2024-announcement</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/solidhack-2024-announcement</guid>
       <pubDate>Tue, 03 Sep 2024 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
+      <dc:creator>Solid Maintainers</dc:creator>
       <description>Announcing SolidHack 2024, sponsored by Netlify and Sentry.</description>
       <category>Events</category>
       <category>Sponsorship</category>
@@ -61,38 +61,38 @@
       <link>https://www.solidjs.com/blog/solid-start-the-shape-frameworks-to-come</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/solid-start-the-shape-frameworks-to-come</guid>
       <pubDate>Tue, 21 May 2024 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
+      <dc:creator>Solid Maintainers</dc:creator>
       <description>Official SolidStart Version 1.0 release announcement.</description>
       <category>SolidStart</category>
       <category>Release</category>
     </item>
     <item>
-      <title>Chrome Supports SolidJS in Building a Performant Web</title>
+      <title>Chrome Supports Solid in Building a Performant Web</title>
       <link>https://www.solidjs.com/blog/chrome-supports-solidjs</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/chrome-supports-solidjs</guid>
       <pubDate>Wed, 12 Jul 2023 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
-      <description>A major support announcement from the teams at Chrome Aurora and SolidJS.</description>
+      <dc:creator>Solid Maintainers</dc:creator>
+      <description>A major support announcement from the teams at Chrome Aurora and Solid.</description>
       <category>Sponsorship</category>
       <category>Performance</category>
     </item>
     <item>
-      <title>Introducing SolidStart: The SolidJS Framework</title>
+      <title>Introducing SolidStart: The Solid Framework</title>
       <link>https://www.solidjs.com/blog/introducing-solidstart</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/introducing-solidstart</guid>
       <pubDate>Wed, 09 Nov 2022 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
+      <dc:creator>Solid Maintainers</dc:creator>
       <description>The official Beta release announcement for the new meta-framework.</description>
       <category>SolidStart</category>
       <category>Release</category>
     </item>
     <item>
-      <title>Announcing SolidJS Fellowships</title>
+      <title>Announcing Solid Fellowships</title>
       <link>https://www.solidjs.com/blog/solid-fellowships-announcement</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/solid-fellowships-announcement</guid>
       <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
-      <description>An exciting new program sponsored by SolidJS and supported by OpenCollective sponsors.</description>
+      <dc:creator>Solid Maintainers</dc:creator>
+      <description>An exciting new program sponsored by Solid and supported by OpenCollective sponsors.</description>
       <category>Community</category>
       <category>Sponsorship</category>
     </item>
@@ -101,7 +101,7 @@
       <link>https://www.solidjs.com/blog/state-of-solid-july-2022</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/state-of-solid-july-2022</guid>
       <pubDate>Sun, 31 Jul 2022 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
+      <dc:creator>Solid Maintainers</dc:creator>
       <description>Second quarter updates about Solid including core.</description>
       <category>State of Solid</category>
       <category>Community</category>
@@ -111,7 +111,7 @@
       <link>https://www.solidjs.com/blog/state-of-solid-march-2022</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/state-of-solid-march-2022</guid>
       <pubDate>Fri, 01 Apr 2022 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
+      <dc:creator>Solid Maintainers</dc:creator>
       <description>First quarter updates about Solid including core, SolidHack and community growth updates.</description>
       <category>State of Solid</category>
       <category>Community</category>
@@ -121,8 +121,8 @@
       <link>https://www.solidjs.com/blog/state-of-solid-december-2021</link>
       <guid isPermaLink="true">https://www.solidjs.com/blog/state-of-solid-december-2021</guid>
       <pubDate>Fri, 31 Dec 2021 00:00:00 GMT</pubDate>
-      <dc:creator>SolidJS Core</dc:creator>
-      <description>Second edition of a quarterly update on SolidJS including announcements about SolidHack.</description>
+      <dc:creator>Solid Maintainers</dc:creator>
+      <description>Second edition of a quarterly update on Solid including announcements about SolidHack.</description>
       <category>State of Solid</category>
       <category>Events</category>
     </item>

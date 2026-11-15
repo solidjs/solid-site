@@ -39,7 +39,7 @@ export function Card(props: { page: OgPage; colors: OgColors; logo: string; host
         <div style={{ display: "flex", "align-items": "center" }}>
           <img src={props.logo} style={{ width: "56px", height: "52px" }} />
           <div style={{ display: "flex", "margin-left": "18px", "font-size": "34px", "font-weight": 600, "letter-spacing": "0.14em" }}>
-            SOLIDJS
+            SOLID
           </div>
         </div>
         <div

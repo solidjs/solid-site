@@ -85,7 +85,7 @@ export const ECOSYSTEM: Project[] = [
 
 export const COMMUNITY: { title: string; description: string; href: string; icon: IconName; cta: string }[] = [
   { title: "Discord", description: "Ask questions and talk with the community and core team.", href: URLS.discord, icon: "discord", cta: "Join the server" },
-  { title: "GitHub", description: "Read the source, file issues and join the discussions.", href: URLS.github, icon: "github", cta: "Visit solidjs" },
+  { title: "GitHub", description: "Read the source, file issues and join the discussions.", href: URLS.github, icon: "github", cta: "Visit Solid" },
   { title: "Team and contributors", description: "Meet the people who build and maintain Solid.", href: "/team", icon: "users", cta: "Meet the team" },
   { title: "Code of Conduct", description: "How we keep the community welcoming for everyone.", href: "/code-of-conduct", icon: "shield", cta: "Read it" },
 ];
