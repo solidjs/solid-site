@@ -8,9 +8,9 @@ import { ContributorWall } from "../components/team/ContributorWall";
 import { PersonCard } from "../components/team/PersonCard";
 import styles from "../components/team/Team.module.css";
 import { URLS } from "../site";
-import { contributors, core, ecosystem, translators, type Supporter } from "../team/people";
+import { contributors, ecosystem, maintainers, translators, type Supporter } from "../team/people";
 
-const DESCRIPTION = "The core team, translators and community contributors who build and support SolidJS.";
+const DESCRIPTION = "The maintainers, translators and community contributors who build and support SolidJS.";
 const CONTRIBUTING = "https://github.com/solidjs/solid/blob/main/CONTRIBUTING.md";
 const DOCS_CONTRIBUTING = "https://github.com/solidjs/solid-docs/blob/main/CONTRIBUTING.md";
 
@@ -42,12 +42,12 @@ export default function TeamPage() {
       <PageHeader
         eyebrow="Team"
         title="The people behind Solid"
-        description="Solid is built by a small core team and hundreds of contributors around the world."
+        description="Solid is built by its maintainers and hundreds of contributors around the world."
       />
 
-      <Section id="core" title="Core team" description="Maintainers who steer Solid and its ecosystem." size="wide">
-        <ul class={styles.grid} aria-label="Core team">
-          <For each={core}>{(p) => <PersonCard person={p} />}</For>
+      <Section id="maintainers" title="Maintainers" description="The people who steer Solid and its ecosystem." size="wide">
+        <ul class={styles.grid} aria-label="Maintainers">
+          <For each={maintainers}>{(p) => <PersonCard person={p} />}</For>
         </ul>
       </Section>
 
