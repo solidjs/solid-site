@@ -29,9 +29,6 @@
   --color-brand-soft: #446b9e;
   /* Logo colours from the Solid 2.0 logo README (light). "Front" is the front shapes and the wordmark. */
   --color-logo-text: #0a4593;
-  --logo-top: #008edc;
-  --logo-sheen-from: #008edc;
-  --logo-sheen-to: #0265b2;
 
   /* Restrained secondary accent */
   --color-accent: #b4540a;
@@ -148,9 +145,6 @@
   --color-brand-soft: #6f9bd4;
   /* Logo colours from the Solid 2.0 logo README (dark). */
   --color-logo-text: #ffffff;
-  --logo-top: #0aa0ef;
-  --logo-sheen-from: #65c5ff;
-  --logo-sheen-to: #0aa0ef;
 
   --color-accent: #f0a45d;
   --color-accent-subtle: #2a1e10;
