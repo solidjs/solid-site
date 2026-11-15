@@ -5,6 +5,7 @@ import { Card } from "../components/Card";
 import { LOGO_VARIANTS } from "../components/media/assets";
 import { LogoAsset } from "../components/media/LogoAsset";
 import { Swatch } from "../components/media/Swatch";
+import { Typography } from "../components/media/Typography";
 import styles from "../components/media/Media.module.css";
 import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
@@ -61,11 +62,12 @@ export default function Media() {
         </ul>
       </Section>
 
-      <Section id="typography" title="Typography" description="Geist is the brand typeface, with Geist Mono for code.">
-        <div class={styles.type}>
-          <p class={styles.sans}>Geist: Simple and performant reactivity.</p>
-          <p class={styles.mono}>Geist Mono: createSignal(0)</p>
-        </div>
+      <Section
+        id="typography"
+        title="Typography"
+        description="Geist is the brand typeface, with Geist Mono for code. Here is how the two are used across the site."
+      >
+        <Typography />
       </Section>
 
       <Section id="guidelines" tone="subtle" title="Usage guidelines" description="General brand rules. Official guidance is still to come.">

@@ -2,6 +2,3 @@
 .logos { grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr)); }
 .swatches { grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr)); }
 .guidelines { grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); }
-.type { display: grid; gap: 1rem; text-align: center; }
-.sans { margin: 0; font-family: var(--font-sans); font-size: var(--text-display-sm); font-weight: var(--weight-display); letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
-.mono { margin: 0; font-family: var(--font-mono); font-size: var(--text-xl); color: var(--color-text-muted); }
