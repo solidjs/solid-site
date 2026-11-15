@@ -73,6 +73,15 @@ Theme switching is ours, not SolidBase's: a small inline script in `src/Document
 
 `wrangler.jsonc` serves `dist/client` as Cloudflare static assets. Log in with `pnpm wrangler login`, then `pnpm deploy`. If you build on Cloudflare's CI, set `NODE_VERSION` to 22.18 or newer.
 
+### Home page numbers (Worker and KV)
+
+The GitHub stars, npm downloads and contributor count on the home page come from `/api/stats`, served by the small Worker in `worker/index.ts`. A cron trigger (daily, 06:00 UTC, set in `wrangler.jsonc`) fetches the numbers from GitHub and npm and stores them in the `STATS` KV namespace; visitors only read KV, never GitHub or npm. Wrangler creates the namespace on the first `pnpm deploy`, so there is nothing to set up. Everything except `/api/*` is still served straight from static assets.
+
+- If a refresh fails, the previous number stays. If nothing has been stored yet (the first request after the first deploy), the request fills it. A snapshot over 36 hours old is refreshed by the next visitor.
+- Optional: `pnpm wrangler secret put GITHUB_TOKEN` (a token with no scopes) raises GitHub's rate limit for the refresh. It is not needed for one request a day.
+- To refresh by hand, trigger the cron from the Cloudflare dashboard (Workers, `solidjs-site`, Settings, Triggers). Locally, `pnpm wrangler dev --local --test-scheduled` after `pnpm build`, then `curl "localhost:8787/cdn-cgi/handler/scheduled"`.
+- In `pnpm dev` there is no Worker, so the page falls back to asking GitHub and npm directly.
+
 ## License
 
 MIT. See the [Code of Conduct](./CODE_OF_CONDUCT.md).

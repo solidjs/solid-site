@@ -15,14 +15,28 @@ async function getJson(url: string): Promise<{ json: unknown; headers: Headers }
   return { json: await res.json(), headers: res.headers };
 }
 
+/**
+ * The numbers the Worker refreshes into KV once a day (worker/index.ts). Same origin, so it is instant and does not count
+ * against GitHub's rate limit. Returns null when there is no Worker (local dev) or it has nothing yet.
+ */
+async function fetchStored(): Promise<Stats | null> {
+  try {
+    const { json } = await getJson("/api/stats");
+    const data = json as Record<keyof Stats, unknown>;
+    const stats: Stats = { stars: num(data.stars), downloads: num(data.downloads), contributors: num(data.contributors) };
+    return stats.stars === null && stats.downloads === null && stats.contributors === null ? null : stats;
+  } catch {
+    return null;
+  }
+}
+
 /** Never throws: any failed or slow request keeps the static fallback for that number. */
-async function fetchStats(): Promise<Stats> {
+async function fetchDirect(): Promise<Stats> {
   const [repo, npm, contributors] = await Promise.allSettled([
     getJson("https://api.github.com/repos/solidjs/solid"),
     getJson("https://api.npmjs.org/downloads/point/last-week/solid-js"),
     getJson("https://api.github.com/repos/solidjs/solid/contributors?per_page=1&anon=false"),
   ]);
-  const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
   const lastPage = (h: Headers) => {
     const m = h.get("link")?.match(/[?&]page=(\d+)>;\s*rel="last"/);
     return m ? Number(m[1]) : null;
@@ -33,6 +47,10 @@ async function fetchStats(): Promise<Stats> {
     contributors: contributors.status === "fulfilled" ? lastPage(contributors.value.headers) ?? STATS_FALLBACK.contributors : STATS_FALLBACK.contributors,
   };
 }
+
+const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
+
+const fetchStats = async (): Promise<Stats> => (await fetchStored()) ?? fetchDirect();
 
 /** One request per page load: the hero stats and the "Why Solid" numbers share it (GitHub allows 60 unauthenticated calls/hour). */
 let cached: Promise<Stats> | undefined;
