@@ -20,13 +20,10 @@ const ICON_RATIO = 200.97 / 187.15;
  */
 export function Logo(props: LogoProps) {
   const h = () => props.height ?? 28;
-  // The icon is a detailed mark: below ~40px a standard-density (1x) screen has too few pixels for its curved edges,
-  // which then read as jagged next to the text. Draw it larger than the text is tall.
-  const icon = () => Math.round(h() * 1.25);
   return (
     <span class={[styles.logo, props.class]} role="img" aria-label={SITE_NAME} style={{ "--logo-size": `${h()}px` }}>
-      <img class={[styles.icon, styles.light]} src={ICON_LIGHT} width={Math.round(icon() * ICON_RATIO)} height={icon()} alt="" decoding="async" />
-      <img class={[styles.icon, styles.dark]} src={ICON_DARK} width={Math.round(icon() * ICON_RATIO)} height={icon()} alt="" decoding="async" />
+      <img class={[styles.icon, styles.light]} src={ICON_LIGHT} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
+      <img class={[styles.icon, styles.dark]} src={ICON_DARK} width={Math.round(h() * ICON_RATIO)} height={Math.round(h())} alt="" decoding="async" />
       {props.wordmark === false ? null : <span class={styles.word} aria-hidden="true">solid</span>}
     </span>
   );
