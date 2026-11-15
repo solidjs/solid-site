@@ -16,7 +16,12 @@
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
 }
+.person:has(.name:hover) { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
+.person:has(.name:focus-visible) { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
 .name {
   margin-top: 0.5rem;
   color: var(--color-text);
@@ -27,9 +32,14 @@
   color: var(--color-brand-text);
   text-decoration: underline;
 }
+/* The name's link stretches over the whole card, so the card is the click target. */
+.name::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
 .name:focus-visible {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
+  outline: none;
 }
 .role {
   color: var(--color-text-muted);

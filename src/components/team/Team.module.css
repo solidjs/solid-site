@@ -21,3 +21,13 @@
 .wallNote { margin: 0 0 1rem; text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); }
 
 .cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+
+/* Whole-card links: the name's link stretches over its card (::after), so the card is one big click target while the
+   markup keeps a single, properly labelled link. */
+.item, .person { position: relative; transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
+.cardLink::after { content: ""; position: absolute; inset: 0; }
+.cardLink:focus-visible { outline: none; }
+:is(.item, .person):has(.cardLink) { cursor: pointer; }
+:is(.item, .person):has(.cardLink:hover) { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
+:is(.item, .person):has(.cardLink:focus-visible) { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.iconLink { position: relative; z-index: 1; }

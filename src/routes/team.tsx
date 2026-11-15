@@ -21,7 +21,7 @@ function SupporterList(props: { items: readonly Supporter[]; label: string }) {
         {(s) => (
           <li class={styles.item}>
             <span class={styles.itemName}>
-              {s.link ? <Link href={s.link}>{s.name}</Link> : s.name}
+              {s.link ? <Link href={s.link} class={styles.cardLink}>{s.name}</Link> : s.name}
             </span>
             <Show when={s.company}>
               <span class={styles.itemMeta}>{s.company}</span>
@@ -64,7 +64,7 @@ export default function TeamPage() {
           <For each={translators}>
             {(t) => (
               <li class={styles.item}>
-                <span class={styles.itemName}><Link href={t.link}>{t.name}</Link></span>
+                <span class={styles.itemName}><Link href={t.link} class={styles.cardLink}>{t.name}</Link></span>
                 <span class={styles.itemMeta}><span aria-hidden="true">{t.flag}</span> {t.language}</span>
               </li>
             )}

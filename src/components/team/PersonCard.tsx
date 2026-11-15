@@ -10,7 +10,9 @@ export function PersonCard(props: { person: Person }) {
   return (
     <li class={styles.person}>
       <Avatar src={props.person.img} name={props.person.name} size={96} />
-      <h3 class={styles.personName}>{props.person.name}</h3>
+      <h3 class={styles.personName}>
+        <Link href={githubUrl(props.person.github)} class={styles.cardLink}>{props.person.name}</Link>
+      </h3>
       <p class={styles.personRole}>{props.person.role}</p>
       <Show when={props.person.bio}>
         <p class={styles.personBio}>{props.person.bio}</p>
