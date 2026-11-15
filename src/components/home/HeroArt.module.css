@@ -1,8 +1,8 @@
 .art polygon {
-  stroke: color-mix(in srgb, var(--color-brand-contrast) 22%, transparent);
+  stroke: color-mix(in srgb, var(--color-hero-text) 22%, transparent);
   stroke-width: 1;
   stroke-linejoin: round;
 }
-.art polygon[data-face="top"] { fill: color-mix(in srgb, var(--color-brand-contrast) 20%, transparent); }
-.art polygon[data-face="left"] { fill: color-mix(in srgb, var(--color-brand-contrast) 7%, transparent); }
-.art polygon[data-face="right"] { fill: color-mix(in srgb, var(--color-brand-contrast) 13%, transparent); }
+.art polygon[data-face="top"] { fill: color-mix(in srgb, var(--color-hero-text) 20%, transparent); }
+.art polygon[data-face="left"] { fill: color-mix(in srgb, var(--color-hero-text) 7%, transparent); }
+.art polygon[data-face="right"] { fill: color-mix(in srgb, var(--color-hero-text) 13%, transparent); }

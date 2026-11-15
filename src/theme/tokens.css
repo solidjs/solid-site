@@ -1,6 +1,14 @@
 /*
  * Semantic design tokens. This is the ONLY file that may contain colour literals.
- * Swapping the final Solid brand = editing the "brand" block in :root and [data-theme="dark"].
+ * The brand colours are the ones in the Solid 2.0 logo files (public/img/logos): the light-background logos give the
+ * light theme, the dark-background logos give the dark theme. Everything else in the brand family is mixed from them.
+ *
+ *   Light: Solid Blue #0A4593, Bright Blue #008EDC, Deep Blue #0265B2.
+ *   Dark:  Sky Blue #0AA0EF, Light Blue #65C5FF, White #FFFFFF.
+ *   Both:  Graphite #03152C (from the 2.0 launch lockup).
+ *
+ * src/og/render.tsx reads the :root block below, so the colours it uses (bg, text, text-muted, brand, brand-text,
+ * border-strong) must stay plain hex values.
  */
 :root {
   color-scheme: light;
@@ -16,27 +24,34 @@
   --color-overlay: rgb(10 16 28 / 0.5);
 
   /* Text */
-  --color-text: #0f1722;
+  --color-text: #03152c;
   --color-text-muted: #4a5568;
   --color-text-faint: #5f6b7c;
 
-  /* Brand (placeholders: Solid blue) */
-  --color-brand: #2c4f7c;
-  --color-brand-strong: #1f3a5e;
-  --color-brand-subtle: #e8eef7;
-  --color-brand-contrast: #ffffff;
-  --color-brand-text: #2c4f7c; /* brand colour used for text/links on --color-bg */
-  --color-brand-soft: #446b9e;
-  /* Logo colours from the Solid 2.0 logo README (light). "Front" is the front shapes and the wordmark. */
+  /* Brand: the light-background logo colours */
+  --color-graphite: #03152c;
+  --color-brand: #0a4593; /* Solid Blue: the front shapes and wordmark */
+  --color-brand-strong: color-mix(in srgb, var(--color-brand) 78%, #000); /* hover / pressed */
+  --color-brand-subtle: color-mix(in srgb, var(--color-brand) 8%, #fff);
+  --color-brand-contrast: #ffffff; /* text on --color-brand */
+  --color-brand-text: #0a4593; /* brand colour used for text/links on --color-bg */
+  --color-brand-soft: #0265b2; /* Deep Blue */
+  --color-brand-bright: #008edc; /* Bright Blue: the top shapes */
   --color-logo-text: #0a4593;
+
+  /* Hero panel: a deep-blue block with light text in both themes */
+  --color-hero-from: #0265b2;
+  --color-hero-via: #0a4593;
+  --color-hero-to: color-mix(in srgb, var(--color-brand) 55%, var(--color-graphite));
+  --color-hero-text: #ffffff;
 
   /* Restrained secondary accent */
   --color-accent: #b4540a;
   --color-accent-subtle: #fdf1e4;
 
   /* Status */
-  --color-info: #2c4f7c;
-  --color-info-subtle: #e8eef7;
+  --color-info: #0265b2;
+  --color-info-subtle: color-mix(in srgb, var(--color-brand-soft) 9%, #fff);
   --color-success: #1d7a4a;
   --color-success-subtle: #e6f5ec;
   --color-warning: #9a5b00;
@@ -49,8 +64,8 @@
   --color-code-text: #1c2735;
   --color-code-border: #e1e6ee;
 
-  --color-focus-ring: #2c6fd1;
-  --color-selection: #cfe0f7;
+  --color-focus-ring: #008edc;
+  --color-selection: color-mix(in srgb, var(--color-brand-bright) 24%, #fff);
 
   /* Elevation */
   --shadow-sm: 0 1px 2px rgb(15 23 34 / 0.06), 0 1px 1px rgb(15 23 34 / 0.04);
@@ -124,33 +139,35 @@
 [data-theme="sdark"] {
   color-scheme: dark;
 
-  --color-bg: #0b0f17;
-  --color-bg-subtle: #0f1520;
-  --color-surface: #121927;
-  --color-surface-raised: #182133;
-  --color-surface-hover: #1b2538;
-  --color-border: #223047;
-  --color-border-strong: #33445f;
-  --color-overlay: rgb(2 5 10 / 0.65);
+  /* Surfaces: Graphite, lifted with white for each step */
+  --color-bg: #03152c;
+  --color-bg-subtle: color-mix(in srgb, var(--color-graphite) 94%, #fff);
+  --color-surface: color-mix(in srgb, var(--color-graphite) 92%, #fff);
+  --color-surface-raised: color-mix(in srgb, var(--color-graphite) 88%, #fff);
+  --color-surface-hover: color-mix(in srgb, var(--color-graphite) 85%, #fff);
+  --color-border: color-mix(in srgb, var(--color-graphite) 82%, #fff);
+  --color-border-strong: color-mix(in srgb, var(--color-graphite) 70%, #fff);
+  --color-overlay: rgb(1 8 18 / 0.7);
 
-  --color-text: #eef2f8;
+  --color-text: #ffffff;
   --color-text-muted: #aab6c8;
   --color-text-faint: #8b98ad;
 
-  --color-brand: #446b9e;
-  --color-brand-strong: #5b84bb;
-  --color-brand-subtle: #16243a;
-  --color-brand-contrast: #ffffff;
-  --color-brand-text: #8fb5e8;
-  --color-brand-soft: #6f9bd4;
-  /* Logo colours from the Solid 2.0 logo README (dark). */
+  /* Brand: the dark-background logo colours */
+  --color-brand: #0aa0ef; /* Sky Blue: the top shapes */
+  --color-brand-strong: #65c5ff; /* hover: lighter on dark */
+  --color-brand-subtle: color-mix(in srgb, var(--color-brand) 14%, var(--color-graphite));
+  --color-brand-contrast: #03152c; /* text on --color-brand (white would be too faint) */
+  --color-brand-text: #65c5ff; /* Light Blue */
+  --color-brand-soft: #65c5ff;
+  --color-brand-bright: #0aa0ef;
   --color-logo-text: #ffffff;
 
   --color-accent: #f0a45d;
   --color-accent-subtle: #2a1e10;
 
-  --color-info: #8fb5e8;
-  --color-info-subtle: #16243a;
+  --color-info: #65c5ff;
+  --color-info-subtle: color-mix(in srgb, var(--color-brand) 14%, var(--color-graphite));
   --color-success: #5fd394;
   --color-success-subtle: #0f2a1d;
   --color-warning: #f2b84b;
@@ -158,12 +175,12 @@
   --color-danger: #ff8a80;
   --color-danger-subtle: #301514;
 
-  --color-code-bg: #0e1522;
+  --color-code-bg: color-mix(in srgb, var(--color-graphite) 90%, #000);
   --color-code-text: #dbe4f2;
-  --color-code-border: #1f2c42;
+  --color-code-border: color-mix(in srgb, var(--color-graphite) 84%, #fff);
 
-  --color-focus-ring: #7db0ff;
-  --color-selection: #2a4670;
+  --color-focus-ring: #65c5ff;
+  --color-selection: color-mix(in srgb, var(--color-brand) 35%, var(--color-graphite));
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
   --shadow-md: 0 6px 16px rgb(0 0 0 / 0.45);

@@ -11,9 +11,9 @@
   padding: clamp(1.25rem, 3vw, 2.5rem) 0;
   border-radius: 1.5rem;
   background:
-    radial-gradient(48rem 30rem at 85% 0%, color-mix(in srgb, var(--color-brand-contrast) 14%, transparent), transparent 70%),
-    linear-gradient(160deg, var(--color-brand-soft), var(--color-brand) 45%, var(--color-brand-strong));
-  color: var(--color-brand-contrast);
+    radial-gradient(48rem 30rem at 85% 0%, color-mix(in srgb, var(--color-hero-text) 14%, transparent), transparent 70%),
+    linear-gradient(160deg, var(--color-hero-from), var(--color-hero-via) 45%, var(--color-hero-to));
+  color: var(--color-hero-text);
 }
 .art {
   position: absolute;
@@ -41,19 +41,19 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.25rem 0.9rem 0.25rem 0.3rem;
-  border: 1px solid color-mix(in srgb, var(--color-brand-contrast) 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-hero-text) 30%, transparent);
   border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--color-brand-contrast) 10%, transparent);
-  color: var(--color-brand-contrast);
+  background: color-mix(in srgb, var(--color-hero-text) 10%, transparent);
+  color: var(--color-hero-text);
   font-size: var(--text-sm);
   text-decoration: none;
   transition: background var(--duration-base) var(--ease-out);
 }
 .announce:hover {
-  background: color-mix(in srgb, var(--color-brand-contrast) 20%, transparent);
+  background: color-mix(in srgb, var(--color-hero-text) 20%, transparent);
 }
 .announce:focus-visible {
-  outline: 2px solid var(--color-brand-contrast);
+  outline: 2px solid var(--color-hero-text);
   outline-offset: 2px;
 }
 .copy {
@@ -76,7 +76,7 @@
   display: block;
 }
 .accent {
-  color: color-mix(in srgb, var(--color-brand-contrast) 65%, transparent);
+  color: color-mix(in srgb, var(--color-hero-text) 65%, transparent);
 }
 .side {
   display: flex;
@@ -86,7 +86,7 @@
 .lead {
   max-width: 32rem;
   margin: 0;
-  color: color-mix(in srgb, var(--color-brand-contrast) 88%, transparent);
+  color: color-mix(in srgb, var(--color-hero-text) 88%, transparent);
   font-size: var(--text-lg);
   line-height: var(--leading-normal);
   text-wrap: pretty;
@@ -123,7 +123,7 @@
 .note {
   max-width: 32rem;
   margin: 1rem 0 0;
-  color: color-mix(in srgb, var(--color-brand-contrast) 70%, transparent);
+  color: color-mix(in srgb, var(--color-hero-text) 70%, transparent);
   font-size: var(--text-sm);
 }
 @media (max-width: 52rem) {
