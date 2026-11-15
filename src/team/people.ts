@@ -30,12 +30,12 @@ export const maintainers: readonly Person[] = [
   { name: "David Di Biase", github: "davedbase", img: "/img/bios/david-dibiase.jpeg", role: "Community Leader", bio: "David is a full-stack developer based in Toronto. He is passionate about building scalable applications." },
   { name: "Milo M.", github: "modderme123", img: "/img/bios/milo-m.svg", role: "Reactivity Designer", bio: "A web developer with an interest in reactive programming and making the web a better place." },
   { name: "Alexis Munsayac", github: "lxsmnsyc", img: "/img/bios/alexis-munsayac.jpeg", role: "Seroval Maintainer", bio: "An all-around web developer and performance enthusiast." },
+  { name: "Atila Fassina", github: "atilafassina", img: "/img/bios/atila-fassina.png", role: "Maintainer" },
   { name: "Dev Agrawal", github: "devagrawal09", img: "/img/bios/dev-agrawal.jpeg", role: "Library Maintainer", bio: "Builds and also teaches how-to-build awesome full-stack applications." },
   // TODO(content): roles and bios for the newest maintainers.
   { name: "Sarah (ladybluebird)", github: "ladybluebird", img: "/img/bios/sarah-ladybluebird.png", role: "Maintainer" },
   { name: "Birk Skyum", github: "birkskyum", img: "/img/bios/birk-skyum.jpeg", role: "Maintainer" },
   { name: "Brendan (Brenelz)", github: "brenelz", img: "/img/bios/brendan-brenelz.png", role: "Maintainer" },
-  { name: "Atila Fassina", github: "atilafassina", img: "/img/bios/atila-fassina.png", role: "Maintainer" },
 ];
 
 /** Individuals thanked for design, writing and site work. */
