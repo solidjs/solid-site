@@ -18,7 +18,7 @@ export function BlogList() {
   const rest = () => (selected().length ? filtered() : posts.slice(1));
 
   return (
-    <>
+    <div class={styles.page}>
       <Show when={featured()}>{(p) => <PostCard post={p()} featured />}</Show>
       <div class={styles.filters}>
         <ToggleGroup
@@ -37,6 +37,6 @@ export function BlogList() {
       <Show when={selected().length > 0 && filtered().length === 0}>
         <p class={styles.empty}>No posts match those tags.</p>
       </Show>
-    </>
+    </div>
   );
 }
