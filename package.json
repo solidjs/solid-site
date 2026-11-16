@@ -11,12 +11,12 @@
     "dev": "vite dev",
     "prebuild": "node scripts/generate-rss.ts",
     "build": "vite build",
-    "postbuild": "node scripts/patch-sitemap.ts && node scripts/patch-headers.ts && node scripts/generate-og.ts",
+    "postbuild": "node scripts/patch-sitemap.ts && node scripts/patch-headers.ts && node scripts/generate-og.ts && node scripts/generate-llms.ts",
     "preview": "vite preview",
     "type:check": "tsc --noEmit && tsc --noEmit -p worker",
     "deploy": "pnpm build && wrangler deploy",
     "deploy:preview": "pnpm build && wrangler versions upload",
-    "og": "node scripts/generate-og.ts"
+    "og": "node scripts/generate-og.ts && node scripts/generate-llms.ts"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

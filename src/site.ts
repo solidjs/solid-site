@@ -32,6 +32,7 @@ export const SOLID_2 = {
 export const URLS = {
   docs: "https://docs.solidjs.com",
   tutorial: "https://tutorial.solidjs.com",
+  playground: "https://playground.solidjs.com",
   github: "https://github.com/solidjs",
   githubRepo: "https://github.com/solidjs/solid",
   githubSiteRepo: "https://github.com/solidjs/solid-site",
@@ -91,6 +92,9 @@ export const NAV: NavEntry[] = [
     items: [
       { label: "Docs", href: URLS.docs, icon: "book", description: "Guides and API reference for Solid." },
       { label: "Tutorial", href: URLS.tutorial, icon: "graduation-cap", description: "Learn Solid interactively, step by step." },
+      { label: "Playground", href: URLS.playground, icon: "code", description: "Try Solid in the browser, no setup needed." },
+      { label: "Resources", href: "/resources", icon: "play", description: "Articles, videos and podcasts about Solid." },
+      { label: "Ecosystem", href: "/ecosystem", icon: "layers", description: "Libraries, tools and starters for Solid." },
     ],
   },
   { label: "Blog", href: "/blog" },
@@ -125,6 +129,9 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: "Docs", href: URLS.docs },
       { label: "Tutorial", href: URLS.tutorial },
+      { label: "Playground", href: URLS.playground },
+      { label: "Resources", href: "/resources" },
+      { label: "Ecosystem", href: "/ecosystem" },
       { label: "Blog", href: "/blog" },
     ],
   },

@@ -1,0 +1,20 @@
+.trigger { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.1rem; font: inherit; font-weight: var(--weight-medium); color: var(--color-brand-contrast); background: var(--color-brand); border: 1px solid var(--color-brand); border-radius: var(--radius-lg); cursor: pointer; }
+.trigger:hover { background: var(--color-brand-strong); }
+.trigger:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+
+.form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.25rem; }
+.row { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; font-size: var(--text-sm); font-weight: var(--weight-medium); }
+.field small { font-weight: var(--weight-regular, 400); color: var(--color-text-faint); }
+.field :is(input, select, textarea) { width: 100%; padding: 0.6rem 0.8rem; font: inherit; font-weight: 400; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); }
+.field :is(input, select, textarea):focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 1px; }
+.select { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; width: 100%; padding: 0.6rem 0.8rem; font: inherit; font-weight: 400; text-align: start; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); cursor: pointer; }
+.select:focus-visible, .select[data-expanded] { outline: 2px solid var(--color-focus-ring); outline-offset: 1px; }
+.selectValue { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu { z-index: var(--z-popover); max-height: 16rem; overflow: auto; padding: 0.35rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface-raised); box-shadow: var(--shadow-lg); }
+.option { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.65rem; border-radius: var(--radius-sm); font-size: var(--text-sm); cursor: pointer; outline: none; }
+.option[data-highlighted] { background: var(--color-surface-hover); }
+.box { display: inline-grid; place-items: center; width: 1rem; height: 1rem; border: 1px solid var(--color-border-strong); border-radius: 0.25rem; background: var(--color-surface); color: var(--color-brand-contrast); }
+.option[data-checked] .box { background: var(--color-brand); border-color: var(--color-brand); }
+
+@media (min-width: 32rem) { .row { grid-template-columns: 1fr 1fr; } }

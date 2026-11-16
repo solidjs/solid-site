@@ -5,15 +5,15 @@ import { Container } from "../../components/Container";
 import { PageHeader } from "../../components/PageHeader";
 import { BlogList } from "../../components/blog/BlogList";
 
-const DESCRIPTION = "News, releases and community updates from the Solid team.";
+const DESCRIPTION = "News, release announcements and deep dives on Solid 2.0, SolidStart and the Solid community, from the Solid team.";
 
 export default function BlogIndex() {
   const { t } = useI18n();
   return (
     <>
-      <Title>{t("Blog | Solid")}</Title>
+      <Title>{t("Solid Blog: news, releases and deep dives | Solid")}</Title>
       <Meta name="description" content={t(DESCRIPTION)} />
-      <Meta property="og:title" content={t("Blog | Solid")} />
+      <Meta property="og:title" content={t("Solid Blog: news, releases and deep dives | Solid")} />
       <Meta property="og:description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="Blog"

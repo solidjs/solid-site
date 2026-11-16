@@ -13,7 +13,7 @@ import { Section } from "../components/Section";
 import { SOLID_2, URLS } from "../site";
 
 const DESCRIPTION =
-  "What Solid is, where it came from, how fine-grained reactivity works, and how the project is run.";
+  "What Solid is, where it came from, how fine-grained reactivity works without a virtual DOM, and how the open-source project is run.";
 
 const PRINCIPLES = [
   {
@@ -249,7 +249,7 @@ export default function About() {
   const { t, tSplit } = useI18n();
   return (
     <>
-      <Title>{t("About | Solid")}</Title>
+      <Title>{t("About Solid: a fine-grained reactive UI library | Solid")}</Title>
       <Meta name="description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="About Solid"

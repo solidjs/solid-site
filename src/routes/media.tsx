@@ -12,7 +12,7 @@ import { PageHeader } from "../components/PageHeader";
 import { Section } from "../components/Section";
 import { URLS } from "../site";
 
-const DESCRIPTION = "Download the Solid logo as SVG, and find brand colours and usage guidelines.";
+const DESCRIPTION = "Download the Solid logo as SVG and find the brand colours, usage guidelines and press resources for Solid.";
 
 const COLOURS = [
   { token: "--color-brand", name: "Brand" },

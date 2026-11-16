@@ -23,8 +23,6 @@ export default function Document(props: ParentProps) {
         <link rel="icon" type="image/svg+xml" href={FAVICON_DARK} media="(prefers-color-scheme: dark)" data-favicon />
         <script innerHTML={FAVICON_SCRIPT} />
         <meta property="og:site_name" content={SITE_NAME} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@solid_js" />
         <HydrationScript />
       </head>

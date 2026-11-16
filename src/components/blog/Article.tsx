@@ -78,8 +78,14 @@ export function Article(props: ParentProps) {
             <Meta name="robots" content="noindex, nofollow" />
           </Show>
           <Meta property="og:type" content="article" />
-          <Meta property="article:published_time" content={p().date} />
-          <Meta name="twitter:card" content="summary_large_image" />
+          {/* Full ISO 8601 timestamps, as the Open Graph article spec asks. */}
+          <Meta property="article:published_time" content={`${p().date}T00:00:00Z`} />
+          <Meta property="article:modified_time" content={`${p().modified ?? p().date}T00:00:00Z`} />
+          <Meta property="article:author" content={p().authorUrl ?? p().author} />
+          <Meta name="author" content={p().author} />
+          <For each={p().tags ?? []} keyed={(tag) => tag}>
+            {(tag) => <Meta property="article:tag" content={tag()} />}
+          </For>
 
           <header class={styles.header}>
             <Container size="prose">

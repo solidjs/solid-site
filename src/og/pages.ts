@@ -60,6 +60,20 @@ const STATIC_PAGES: OgPage[] = [
     description: "Download the Solid logo as SVG, and find brand colours and usage guidelines.",
   },
   {
+    path: "/ecosystem",
+    file: "ecosystem",
+    kicker: "Ecosystem",
+    title: "Libraries and tools for Solid",
+    description: "Primitives, routers, UI kits, build plugins and starters from the Solid team and the community.",
+  },
+  {
+    path: "/resources",
+    file: "resources",
+    kicker: "Resources",
+    title: "Learn Solid from the community",
+    description: "Articles, videos and podcasts about Solid.",
+  },
+  {
     path: "/store",
     file: "store",
     kicker: "Store",

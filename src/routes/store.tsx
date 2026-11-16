@@ -16,9 +16,9 @@ export default function StorePage() {
   const { t } = useI18n();
   return (
     <>
-      <Title>{t("Store | Solid")}</Title>
+      <Title>{t("Solid Store: stickers, shirts and swag | Solid")}</Title>
       <Meta name="description" content={t(DESCRIPTION)} />
-      <Meta property="og:title" content={t("Store | Solid")} />
+      <Meta property="og:title" content={t("Solid Store: stickers, shirts and swag | Solid")} />
       <Meta property="og:description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="Store"

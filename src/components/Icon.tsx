@@ -24,6 +24,9 @@ import Check from "~icons/lucide/check";
 import Star from "~icons/lucide/star";
 import Download from "~icons/lucide/download";
 import Book from "~icons/lucide/book-open";
+import Mic from "~icons/lucide/mic";
+import Package from "~icons/lucide/package";
+import Video from "~icons/lucide/video";
 import GraduationCap from "~icons/lucide/graduation-cap";
 import Heart from "~icons/lucide/heart";
 import Users from "~icons/lucide/users";
@@ -66,6 +69,7 @@ const icons = {
   users: Users, shield: Shield, sparkles: Sparkles, zap: Zap, layers: Layers, code: Code,
   calendar: Calendar, newspaper: Newspaper, scale: Scale, info: Info, play: Play,
   warning: Warning, lightbulb: Lightbulb, mail: Mail, languages: Languages, server: Server, target: Target,
+  mic: Mic, package: Package, video: Video,
   "shopping-bag": ShoppingBag, "shopping-cart": ShoppingCart, plus: Plus, minus: Minus, trash: Trash,
 } satisfies Record<string, SvgIcon>;
 
