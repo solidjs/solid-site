@@ -207,7 +207,7 @@ export default {
   "Performance research, funded by Chrome": "Recherche sur la performance, financée par Chrome",
   "The Chrome team's Aurora programme contributed $30,000 toward Solid's continued performance research, supporting work that improves Core Web Vitals in open-source projects.": "Le programme Aurora de l'équipe Chrome a apporté 30 000 $ à la poursuite des recherches de Solid sur la performance, soutenant un travail qui améliore les Core Web Vitals dans les projets open source.",
   "The industry caught up": "L'industrie a rattrapé son retard",
-  "Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.": "Preact a introduit les signaux, Vue développe le mode Vapor, une stratégie de compilation sans DOM virtuel, Svelte 5 est passé aux runes fondées sur les signaux, et Angular a ajouté les signaux et la détection de changements sans zone.",
+  "Others followed. Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.": "Les autres ont suivi. Preact a introduit les signaux, Vue développe le mode Vapor, une stratégie de compilation sans DOM virtuel, Svelte 5 est passé aux runes fondées sur les signaux, et Angular a ajouté les signaux et la détection de changements sans zone.",
   "Solid {version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.": "Solid {version} est sorti. Il apporte l'asynchrone de premier ordre, les effets scindés et les stores à brouillon. Vous venez de la 1.x ? Le guide de migration détaille ce qui a changé.",
   "Live": "En ligne",
   "History": "Historique",
@@ -478,4 +478,5 @@ export default {
   "Solid 2.0 beta": "Bêta de Solid 2.0",
   "The first Solid 2.0 beta, \"The <Suspense> is Over\", opens the new async model to everyone.": "La première bêta de Solid 2.0, « The <Suspense> is Over », ouvre le nouveau modèle asynchrone à tous.",
   "the new answer lands whole": "la nouvelle réponse arrive en entier",
+  "Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.": "Preact a introduit les signaux, Vue développe le mode Vapor, une stratégie de compilation sans DOM virtuel, Svelte 5 est passé aux runes fondées sur les signaux, et Angular a ajouté les signaux et la détection de changements sans zone.",
 } satisfies Record<string, string>;
