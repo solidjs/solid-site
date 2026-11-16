@@ -218,7 +218,7 @@ const PERFORMANCE = [
     icon: "star",
     title: "Loved by developers",
     description:
-      "Solid was the top-rated framework for developer satisfaction in the 2021 State of JS survey, ahead of far larger frameworks, with adoption growing quickly since.",
+      "Solid has had the highest developer satisfaction of any front-end framework in the State of JS survey five years running, from 2021 to 2025.",
   },
   {
     icon: "newspaper",

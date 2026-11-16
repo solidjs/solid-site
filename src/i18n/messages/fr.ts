@@ -203,7 +203,7 @@ export default {
   "At the top of the benchmarks": "En tête des benchmarks",
   "Solid has consistently ranked at or near the top of the JS Framework Benchmark, the community's public comparison of UI libraries, staying close to hand-written vanilla JavaScript.": "Solid se classe régulièrement en tête, ou tout près, du JS Framework Benchmark, la comparaison publique des bibliothèques d'interface par la communauté, en restant proche du JavaScript natif écrit à la main.",
   "Loved by developers": "Apprécié des développeurs",
-  "Solid was the top-rated framework for developer satisfaction in the 2021 State of JS survey, ahead of far larger frameworks, with adoption growing quickly since.": "Solid était le framework le mieux noté pour la satisfaction des développeurs dans l'enquête State of JS 2021, devant des frameworks bien plus grands, et son adoption progresse rapidement depuis.",
+  "Solid has had the highest developer satisfaction of any front-end framework in the State of JS survey five years running, from 2021 to 2025.": "Solid affiche la plus haute satisfaction des développeurs parmi les frameworks front-end dans l'enquête State of JS depuis cinq années consécutives, de 2021 à 2025.",
   "Performance research, funded by Chrome": "Recherche sur la performance, financée par Chrome",
   "The Chrome team's Aurora programme contributed $30,000 toward Solid's continued performance research, supporting work that improves Core Web Vitals in open-source projects.": "Le programme Aurora de l'équipe Chrome a apporté 30 000 $ à la poursuite des recherches de Solid sur la performance, soutenant un travail qui améliore les Core Web Vitals dans les projets open source.",
   "The industry caught up": "L'industrie a rattrapé son retard",
