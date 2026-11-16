@@ -118,7 +118,7 @@ export default {
   "{name} on GitHub": "{name} sur GitHub",
   "The live editor could not load. The code above still shows the full example.": "L'éditeur interactif n'a pas pu se charger. Le code ci-dessus montre tout de même l'exemple complet.",
   "Solid: Fine-grained reactive UI": "Solid : interface réactive à grain fin",
-  "Solid is a fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.": "Solid est une bibliothèque d'interface réactive à grain fin, sans DOM virtuel. Solid 2.0 ajoute l'asynchrone de premier ordre, les actions optimistes et les stores à brouillon.",
+  "Solid is a fast, fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.": "Solid est une bibliothèque d'interface réactive, rapide et à grain fin, sans DOM virtuel. Solid 2.0 ajoute l'asynchrone de premier ordre, les actions optimistes et les stores à brouillon.",
   "New": "Nouveau",
   "Solid 2.0 is live. Read the latest": "Solid 2.0 est disponible. Lire les dernières nouvelles",
   "Fine-grained reactivity.": "Réactivité à grain fin.",

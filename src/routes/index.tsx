@@ -14,7 +14,7 @@ import { WhatsNew } from "../components/home/WhatsNew";
 
 const TITLE = "Solid: Fine-grained reactive UI";
 const DESCRIPTION =
-  "Solid is a fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.";
+  "Solid is a fast, fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.";
 
 export default function Home() {
   const { t } = useI18n();

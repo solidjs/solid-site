@@ -13,7 +13,7 @@ export const SITE_URL: string =
     : import.meta.env.VITE_SITE_URL || "https://www.solidjs.com";
 export const SITE_TAGLINE = "Simple and performant reactivity for building user interfaces.";
 export const SITE_DESCRIPTION =
-  "Solid is a fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.";
+  "Solid is a fast, fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.";
 /** Evaluated once at build time (prerender); the year is intentionally static per deploy. */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 export const COPYRIGHT_HOLDER = "Solid Maintainers";
