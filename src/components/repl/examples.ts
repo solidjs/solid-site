@@ -1,6 +1,7 @@
 /**
  * Runnable Solid 2.0 examples for the homepage REPL. Each one is a complete app whose entry file
  * is `main.tsx` (the REPL convention). Keep them valid per the solid2 reference: they execute live.
+ * They follow the v2 tutorials (solidjs/solid-docs, src/tutorials) so the homepage and the tutorial teach the same shapes.
  */
 export interface ReplFile {
   name: string;
@@ -12,64 +13,40 @@ const MOUNT = `render(() => <App />, document.getElementById("app")!);`;
 export const ASYNC_EXAMPLE: ReplFile[] = [
   {
     name: "main.tsx",
-    source: `import { createMemo, createSignal, isPending, Loading } from "solid-js";
+    source: `import { createMemo, createSignal, For, isPending, latest, Loading } from "solid-js";
 import { render } from "@solidjs/web";
 
-const ROLES = ["Maintainer", "Contributor", "Author"];
+const TABS = ["Profile", "Posts", "Settings"];
 
 // A stand-in for a network request.
-const fetchUser = (id: number) =>
-  new Promise<{ name: string; role: string }>((resolve) =>
-    setTimeout(() => resolve({ name: \`User #\${id}\`, role: ROLES[id % 3] }), 800),
-  );
+const fetchPage = (tab: string) =>
+  new Promise<string>((resolve) => setTimeout(() => resolve(\`This is the \${tab} page.\`), 800));
 
 function App() {
-  const [id, setId] = createSignal(1);
-  // A memo can return a promise. Reads suspend the nearest <Loading>.
-  const user = createMemo(() => fetchUser(id()));
+  const [tab, setTab] = createSignal("Profile");
+  // A memo can return a promise. Everything that reads it just sees a string.
+  const page = createMemo(() => fetchPage(tab()));
 
   return (
     <>
-      <button onClick={() => setId(id() + 1)}>Next user</button>
-      {/* First load shows the fallback; later loads keep the old UI on screen. */}
+      <nav>
+        <For each={TABS}>
+          {(name) => (
+            // latest() is the tab you just clicked, before its page has arrived.
+            <button
+              style={{ "font-weight": latest(tab) === name ? "bold" : "normal" }}
+              onClick={() => setTab(name)}
+            >
+              {name}
+            </button>
+          )}
+        </For>
+      </nav>
+      {/* The fallback is for the first load only. After that the current page
+          stays on screen until the next one is ready, and isPending() says so. */}
       <Loading fallback={<p>Loading…</p>}>
-        <h2 style={{ opacity: isPending(() => user()) ? 0.4 : 1 }}>{user().name}</h2>
-        <p>{user().role}</p>
+        <p style={{ opacity: isPending(page) ? 0.5 : 1 }}>{page()}</p>
       </Loading>
-    </>
-  );
-}
-
-${MOUNT}
-`,
-  },
-];
-
-export const EFFECTS_EXAMPLE: ReplFile[] = [
-  {
-    name: "main.tsx",
-    source: `import { createEffect, createSignal } from "solid-js";
-import { render } from "@solidjs/web";
-
-function App() {
-  const [count, setCount] = createSignal(0);
-  let out!: HTMLPreElement;
-  const log = (line: string) => out.append(line + "\\n");
-
-  createEffect(
-    // compute: tracked reads only. This half decides the dependencies.
-    () => count(),
-    // apply: side effects. Runs untracked, and can return a cleanup.
-    (value) => {
-      log(\`apply: count is \${value}\`);
-      return () => log(\`cleanup: leaving \${value}\`);
-    },
-  );
-
-  return (
-    <>
-      <button onClick={() => setCount(count() + 1)}>Clicked {count()} times</button>
-      <pre ref={out} />
     </>
   );
 }
@@ -82,31 +59,106 @@ ${MOUNT}
 export const STORES_EXAMPLE: ReplFile[] = [
   {
     name: "main.tsx",
-    source: `import { createStore, For } from "solid-js";
+    source: `import { createMemo, createStore, For } from "solid-js";
 import { render } from "@solidjs/web";
 
+type Item = { id: number; name: string; price: number; qty: number };
+
 function App() {
-  const [state, setState] = createStore({
-    user: { name: "Ada" },
-    todos: ["Try Solid 2.0"],
+  const [cart, setCart] = createStore<{ items: Item[] }>({
+    items: [
+      { id: 1, name: "Stickers", price: 3, qty: 2 },
+      { id: 2, name: "T-shirt", price: 25, qty: 1 },
+    ],
   });
+  const total = createMemo(() => cart.items.reduce((sum, item) => sum + item.price * item.qty, 0));
+  let nextId = 3;
+
+  // Setters hand you a draft: change it like a plain object. Only what you
+  // touched updates, so a quantity change re-renders one number, not the row.
+  const change = (id: number, by: number) =>
+    setCart((draft) => {
+      const index = draft.items.findIndex((item) => item.id === id);
+      draft.items[index].qty += by;
+      if (draft.items[index].qty === 0) draft.items.splice(index, 1);
+    });
+
+  const addMug = () =>
+    setCart((draft) => {
+      draft.items.push({ id: nextId, name: \`Mug #\${nextId++}\`, price: 12, qty: 1 });
+    });
 
   return (
     <>
-      <h2>{state.user.name}'s list</h2>
-      <button
-        onClick={() =>
-          // Setters hand you a draft: write to it like plain objects and arrays.
-          setState((s) => {
-            s.user.name = s.user.name === "Ada" ? "Grace" : "Ada";
-            s.todos.push(\`Task \${s.todos.length + 1}\`);
-          })
-        }
-      >
-        Update draft
-      </button>
       <ul>
-        <For each={state.todos}>{(todo) => <li>{todo}</li>}</For>
+        <For each={cart.items} fallback={<li>Your cart is empty.</li>}>
+          {(item) => (
+            <li>
+              {item.name}: {item.qty} × \${item.price}{" "}
+              <button onClick={() => change(item.id, 1)}>+</button>
+              <button onClick={() => change(item.id, -1)}>−</button>
+            </li>
+          )}
+        </For>
+      </ul>
+      <button onClick={addMug}>Add a mug</button>
+      <p>Total: \${total()}</p>
+    </>
+  );
+}
+
+${MOUNT}
+`,
+  },
+];
+
+export const PROJECTIONS_EXAMPLE: ReplFile[] = [
+  {
+    name: "main.tsx",
+    source: `import { createProjection, createSignal, For } from "solid-js";
+import { render } from "@solidjs/web";
+
+const ROWS = Array.from({ length: 1000 }, (_, id) => ({ id, label: \`Row \${id}\` }));
+
+function App() {
+  const [selected, setSelected] = createSignal(0);
+  const [checked, setChecked] = createSignal(ROWS.length);
+
+  // A projection is a store derived from other state. A click changes two
+  // keys, so only the two rows that read them update, not all 1,000.
+  let previous: number | undefined;
+  const selection = createProjection<Record<number, true>>((draft) => {
+    const id = selected();
+    if (previous !== undefined) delete draft[previous];
+    draft[id] = true;
+    previous = id;
+  }, {});
+
+  let checks = 0;
+  const isSelected = (id: number) => {
+    checks++;
+    return !!selection[id];
+  };
+  const select = (id: number) => {
+    checks = 0;
+    setSelected(id);
+    setTimeout(() => setChecked(checks));
+  };
+
+  return (
+    <>
+      <p>Rows that re-ran on the last click: {checked()}</p>
+      <ul style={{ height: "240px", overflow: "auto", padding: 0 }}>
+        <For each={ROWS}>
+          {(row) => (
+            <li
+              style={{ "list-style": "none", cursor: "pointer", "font-weight": isSelected(row.id) ? "bold" : "normal" }}
+              onClick={() => select(row.id)}
+            >
+              {row.label}
+            </li>
+          )}
+        </For>
       </ul>
     </>
   );
@@ -120,41 +172,88 @@ ${MOUNT}
 export const ACTIONS_EXAMPLE: ReplFile[] = [
   {
     name: "main.tsx",
-    source: `import { action, createOptimisticStore, For, Loading, refresh } from "solid-js";
+    source: `import { action, createOptimisticStore, createSignal, For, Loading, refresh } from "solid-js";
 import { render } from "@solidjs/web";
+
+type Todo = { id: number; text: string; done: boolean; pending?: boolean };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// A pretend server that takes a moment to answer.
-let saved = ["Try Solid 2.0"];
+// A pretend server. Saves take a second, and you can make the next one fail.
+let saved: Todo[] = [
+  { id: 1, text: "Read the docs", done: true },
+  { id: 2, text: "Try optimistic actions", done: false },
+];
+let nextId = 3;
 const api = {
-  list: async () => {
-    await sleep(300);
-    return [...saved];
+  failNext: false,
+  async list() {
+    await sleep(200);
+    return structuredClone(saved);
   },
-  add: async (todo: string) => {
-    await sleep(1200);
-    saved = [...saved, todo];
+  async save(update: (todos: Todo[]) => Todo[]) {
+    await sleep(1000);
+    if (api.failNext) {
+      api.failNext = false;
+      throw new Error("The server rejected that change.");
+    }
+    saved = update(saved);
   },
 };
 
 function App() {
-  const [todos, setTodos] = createOptimisticStore<string[]>(() => api.list(), []);
+  const [todos, setTodos] = createOptimisticStore<Todo[]>(() => api.list(), []);
+  const [error, setError] = createSignal("");
 
-  const addTodo = action(function* (todo: string) {
-    setTodos((list) => {
-      list.push(todo); // shows right away, reverts when the action settles
+  // Write the change you expect, then do the real work. The guess shows at once
+  // and is discarded when the action settles, so a failure needs no rollback code.
+  const toggle = action(function* (id: number) {
+    setTodos((draft) => {
+      const todo = draft.find((todo) => todo.id === id)!;
+      todo.done = !todo.done;
+      todo.pending = true;
     });
-    yield api.add(todo); // the request
-    refresh(todos); // reconcile with the server
+    yield api.save((list) => list.map((t) => (t.id === id ? { ...t, done: !t.done } : t)));
+    refresh(todos);
   });
 
+  const add = action(function* (text: string) {
+    const todo = { id: nextId++, text, done: false };
+    setTodos((draft) => {
+      draft.push({ ...todo, pending: true });
+    });
+    yield api.save((list) => [...list, todo]);
+    refresh(todos);
+  });
+
+  const run = (result: Promise<void>) => {
+    setError("");
+    result.catch((err: Error) => setError(err.message));
+  };
+
   return (
-    <Loading fallback={<p>Loading…</p>}>
-      <button onClick={() => addTodo(\`Task \${saved.length + 1}\`)}>Add todo (1.2s request)</button>
-      <ul>
-        <For each={todos}>{(todo) => <li>{todo}</li>}</For>
-      </ul>
+    <Loading fallback={<p>Loading todos…</p>}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const input = event.currentTarget.elements.namedItem("text") as HTMLInputElement;
+          if (input.value.trim()) run(add(input.value.trim()));
+          input.value = "";
+        }}
+      >
+        <input name="text" placeholder="New todo" /> <button>Add</button>
+      </form>
+      <For each={todos}>
+        {(todo) => (
+          <label style={{ display: "block", opacity: todo.pending ? 0.5 : 1 }}>
+            <input type="checkbox" checked={todo.done} onChange={() => run(toggle(todo.id))} /> {todo.text}
+          </label>
+        )}
+      </For>
+      <label>
+        <input type="checkbox" onChange={(event) => (api.failNext = event.currentTarget.checked)} /> Fail the next save
+      </label>
+      <p role="alert">{error()}</p>
     </Loading>
   );
 }
