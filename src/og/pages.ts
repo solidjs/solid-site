@@ -64,7 +64,7 @@ const STATIC_PAGES: OgPage[] = [
     file: "store",
     kicker: "Store",
     title: "The Solid Store",
-    description: "Stickers and swag. Every profit goes to Solid's Open Collective.",
+    description: "Stickers and swag. All profits go to Solid's Open Collective.",
   },
   {
     path: "/team",

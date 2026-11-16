@@ -37,7 +37,7 @@ export function WhatsNew() {
       tone="subtle"
       eyebrow="Solid 2.0"
       title="What's new in Solid 2.0"
-      description="Async is part of the reactive graph, stores update through drafts, and actions make optimistic UI the default. Try each one live, right here."
+      description="Async is part of the reactive graph, stores update through drafts, and actions make optimistic UI the default. Each example below is editable."
       actions={
         <Button href={SOLID_2.migrationGuide} iconAfter="arrow-right">Migration guide</Button>
       }

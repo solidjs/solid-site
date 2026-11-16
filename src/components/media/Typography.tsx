@@ -9,7 +9,7 @@ const FACES = [
   {
     name: "Geist",
     role: "Headings, body text and interface",
-    description: "A precise, modern sans-serif. It carries the brand: tight and bold at display sizes, calm and readable in body text.",
+    description: "The sans-serif used across the site: bold and tightly spaced in headlines, regular weight in body text.",
     family: "var(--font-sans)",
     weights: [
       { name: "Regular", value: 400 },
@@ -48,9 +48,9 @@ const SCALE = [
 ] as const;
 
 const PRINCIPLES = [
-  { title: "Tight headings", description: "Large type is bold with slightly negative letter-spacing, so headlines feel compact and confident." },
+  { title: "Tight headings", description: "Large type is bold with slightly negative letter-spacing, so headlines stay compact." },
   { title: "Comfortable reading", description: "Body text is regular weight with a line height of about 1.6 and lines kept to a readable length." },
-  { title: "Mono where it means something", description: "Use Geist Mono for code, commands, figures and small technical labels, not for decoration." },
+  { title: "Mono for code and numbers", description: "Use Geist Mono for code, commands, figures and small technical labels, not for decoration." },
 ] as const;
 
 /** Typefaces, the type scale and a few principles for the Media page. */

@@ -14,7 +14,7 @@ export function Maintainers() {
       id="maintainers"
       eyebrow="Team"
       title="Maintainers"
-      description="The people who steward Solid, its tooling and its community."
+      description="The people who maintain Solid, its tooling and its community."
     >
       <ul class={styles.grid}>
         <For each={maintainers} keyed={(p) => p.github}>

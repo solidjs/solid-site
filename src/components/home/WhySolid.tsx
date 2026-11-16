@@ -125,7 +125,7 @@ export function WhySolid() {
       id="why-solid"
       eyebrow="Why Solid"
       title="Why Solid 2.0?"
-      description="A reactive core you can reason about, now with async, transitions and mutations built into the graph."
+      description="Signals, with async, transitions and mutations in the same graph."
       size="default"
     >
       <div class={styles.rows}>
@@ -245,7 +245,7 @@ export function WhySolid() {
             </div>
           }
         >
-          MIT-licensed and maintained by a global community. These numbers are live from npm and GitHub.
+          MIT licensed and used in production. These numbers come live from npm and GitHub.
         </Highlight>
       </div>
     </Section>

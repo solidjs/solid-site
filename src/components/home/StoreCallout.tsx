@@ -13,7 +13,7 @@ export function StoreCallout() {
         <span class={styles.icon}><Icon name="shopping-bag" size={26} /></span>
         <div class={styles.body}>
           <h2 id="store-callout-title" class={styles.title}>{t("Rep Solid with stickers and swag")}</h2>
-          <p class={styles.text}>{t("Shirts, stickers, mugs and more from the Solid Store. Every profit goes back to our Open Collective to support the community.")}</p>
+          <p class={styles.text}>{t("Shirts, stickers, mugs and more from the Solid Store. All profits go to Solid's Open Collective.")}</p>
         </div>
         <Button href="/store" variant="primary" size="lg" iconAfter="arrow-right">Visit the Solid Store</Button>
       </Container>

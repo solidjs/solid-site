@@ -50,7 +50,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "15 Jun 2020",
     iso: "2020-06-15",
     title: "The official Discord opens",
-    description: "The Solid Discord server is created, giving the growing community a home for questions, help and discussion.",
+    description: "The Solid Discord server opens.",
   },
   {
     label: "28 Jun 2021",
@@ -62,7 +62,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "30 Sep 2021",
     iso: "2021-09-30",
     title: "The State of Solid begins",
-    description: "The first edition of a regular outline of updates across the project, community and ecosystem.",
+    description: "The first of a regular series of updates on the project, the community and the ecosystem.",
   },
   {
     label: "30 Sep 2021",
@@ -140,7 +140,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "3 Sep 2024",
     iso: "2024-09-03",
     title: "Ryan Carniato joins Sentry",
-    description: "Ryan moved from Netlify to Sentry, which supports his continued full-time work on Solid and open source as the project heads toward 2.0.",
+    description: "Ryan moved from Netlify to Sentry, which supports his full-time work on Solid and open source.",
   },
   {
     label: "3 Mar 2026",
@@ -185,7 +185,7 @@ const PIONEERED = [
     icon: "code",
     title: "Components that run once",
     description:
-      "A component function runs a single time to build the reactive graph. It is a setup function, not a render function, which removes whole classes of problems such as stale closures and dependency arrays.",
+      "A component function runs a single time to build the reactive graph. It is a setup function, not a render function, so there are no stale closures and no dependency arrays.",
   },
   {
     icon: "layers",
@@ -230,7 +230,7 @@ const PERFORMANCE = [
     icon: "sparkles",
     title: "The industry caught up",
     description:
-      "Others followed. Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
+      "Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
   },
 ] as const;
 
@@ -269,7 +269,7 @@ export default function About() {
         }
       />
 
-      <Section id="philosophy" eyebrow="Philosophy" title="Three ideas that shape Solid">
+      <Section id="philosophy" eyebrow="Philosophy" title="Three ideas behind Solid">
         <ul class={styles.cards} role="list">
           <For each={PRINCIPLES} keyed={(p) => p.title}>
             {(p, i) => (
@@ -295,7 +295,7 @@ export default function About() {
         id="pioneers"
         eyebrow="Influence"
         title="Ideas Solid helped pioneer"
-        description="Solid did not invent every idea it uses, but it has been one of the main places where fine-grained reactivity grew up and spread to the rest of the web."
+        description="Solid did not invent most of the ideas it uses, but several of them reached the rest of the web through Solid."
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
@@ -310,7 +310,7 @@ export default function About() {
         id="performance"
         tone="subtle"
         eyebrow="Performance"
-        title="Known for speed, and the industry took notice"
+        title="Known for speed"
         description="Solid became known for performance because there is so little between a state change and the DOM node it affects. Those results pushed other frameworks to rethink how they update the page."
       >
         <ul class={styles.cards} role="list">
