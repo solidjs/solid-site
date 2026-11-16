@@ -1,16 +1,18 @@
 import { URLS } from "../../site";
 import type { IconName } from "../Icon";
-import { ACTIONS_EXAMPLE, ASYNC_EXAMPLE, EFFECTS_EXAMPLE, STORES_EXAMPLE, type ReplFile } from "../repl/examples";
+import { ACTIONS_EXAMPLE, ASYNC_EXAMPLE, PROJECTIONS_EXAMPLE, STORES_EXAMPLE, type ReplFile } from "../repl/examples";
 
 /**
  * Static fallbacks for the live stats row. They are baked into the prerendered HTML and replaced
  * client-side when the public APIs answer. `null` renders an em dash, never an invented number.
- * TODO(content): fill with real, dated values at build time.
+ * Taken from the GitHub API on 2026-11-16 (stars on solidjs/solid; contributors as the API counts them, anon=false).
+ * npm downloads stay null: the npm downloads API was not reachable when these were taken, and a stale guess is worse
+ * than a dash.
  */
 export const STATS_FALLBACK = {
-  stars: null as number | null,
+  stars: 36_273 as number | null,
   downloads: null as number | null,
-  contributors: null as number | null,
+  contributors: 198 as number | null,
 };
 export type Stats = typeof STATS_FALLBACK;
 
@@ -32,34 +34,34 @@ export interface Snippet {
 export const SNIPPETS: Snippet[] = [
   {
     value: "async",
-    label: "Async memos",
-    title: "Read a promise like a value",
+    label: "Async",
+    title: "Async is just a value",
     description:
-      "A memo can return a promise. Reads suspend the nearest <Loading> boundary, and a changed input keeps the old UI on screen while the new answer arrives.",
+      "Async memos read like plain values, even when one depends on another. Pick a state and the old city list stays on screen while the new one loads, the city resets on its own, and no effect keeps them in sync.",
     files: ASYNC_EXAMPLE,
-  },
-  {
-    value: "effects",
-    label: "Split effects",
-    title: "Say what you track, then what you do",
-    description:
-      "Effects take two halves. The compute half reads signals and decides the dependencies; the apply half runs side effects and can return a cleanup.",
-    files: EFFECTS_EXAMPLE,
   },
   {
     value: "stores",
     label: "Draft stores",
-    title: "Mutate a draft, get fine-grained updates",
+    title: "Change a draft, update only what changed",
     description:
-      "Store setters hand you a draft. Write to it the way you would plain objects and arrays; only the parts that changed notify their readers.",
+      "Store setters hand you a draft. Write to it the way you would a plain object or array, and only the values you touched update: a new quantity re-renders one number, not the row.",
     files: STORES_EXAMPLE,
   },
   {
-    value: "actions",
-    label: "Actions",
-    title: "Optimistic updates without rollback code",
+    value: "projections",
+    label: "Projections",
+    title: "Derived stores that update by the key",
     description:
-      "An action groups a write, a request and a refresh into one transaction. The optimistic write shows immediately and is discarded when the action settles, even if it fails.",
+      "A projection is a store derived from other state. Selecting a row changes two keys, so two of the thousand rows update. Click a row and watch the count.",
+    files: PROJECTIONS_EXAMPLE,
+  },
+  {
+    value: "actions",
+    label: "Optimistic actions",
+    title: "Optimistic UI without rollback code",
+    description:
+      "Inside an action, write the change you expect, then do the real work. The guess shows at once and is discarded when the action settles, so a failed save needs no undo code. Tick \"Fail the next save\" to see it.",
     files: ACTIONS_EXAMPLE,
   },
 ];

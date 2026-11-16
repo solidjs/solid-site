@@ -67,7 +67,7 @@ export default function Media() {
       <Section
         id="typography"
         title="Typography"
-        description="Geist is the brand typeface, with Geist Mono for code. Here is how the two are used across the site."
+        description="Geist is the brand typeface, with Geist Mono for code."
       >
         <Typography />
       </Section>

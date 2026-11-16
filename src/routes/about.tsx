@@ -36,33 +36,39 @@ const PRINCIPLES = [
   },
 ] as const;
 
-// Dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
-// commit in the solidjs/solid repository, the creation date of the Discord server, and Ryan's own posts about joining
+// Release dates come from the GitHub releases of solidjs/solid. Other dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
+// commit in the solidjs/solid repository, Ryan's account of the private Bitbucket start, the creation date of the Discord server, and Ryan's own posts about joining
 // Netlify and Sentry.
 const TIMELINE: TimelineEvent[] = [
   {
+    label: "21 Aug 2016",
+    iso: "2016-08-21",
+    title: "The first commit",
+    description: "Ryan Carniato makes the first commit, \"initial commit\", in a private Bitbucket repository.",
+  },
+  {
     label: "Apr 2018",
     iso: "2018-04",
-    title: "The first commit",
-    description: "Ryan Carniato makes the first commit to the solidjs/solid repository, \"open source repo\", and Solid goes public.",
+    title: "Solid goes open source",
+    description: "Ryan Carniato open-sources Solid with the first commit to the solidjs/solid repository, \"open source repo\".",
   },
   {
     label: "15 Jun 2020",
     iso: "2020-06-15",
     title: "The official Discord opens",
-    description: "The Solid Discord server is created, giving the growing community a home for questions, help and discussion.",
+    description: "The Solid Discord server opens.",
   },
   {
-    label: "2021",
-    iso: "2021",
+    label: "28 Jun 2021",
+    iso: "2021-06-28",
     title: "Solid 1.0",
-    description: "The 1.0 release, referred to in the September 2021 State of Solid post as having landed in the months before it.",
+    description: "Solid 1.0, \"Solid grows up\", is released with a stable API.",
   },
   {
     label: "30 Sep 2021",
     iso: "2021-09-30",
     title: "The State of Solid begins",
-    description: "The first edition of a regular outline of updates across the project, community and ecosystem.",
+    description: "The first of a regular series of updates on the project, the community and the ecosystem.",
   },
   {
     label: "30 Sep 2021",
@@ -140,7 +146,13 @@ const TIMELINE: TimelineEvent[] = [
     label: "3 Sep 2024",
     iso: "2024-09-03",
     title: "Ryan Carniato joins Sentry",
-    description: "Ryan moved from Netlify to Sentry, which supports his continued full-time work on Solid and open source as the project heads toward 2.0.",
+    description: "Ryan moved from Netlify to Sentry, which supports his full-time work on Solid and open source.",
+  },
+  {
+    label: "3 Mar 2026",
+    iso: "2026-03-03",
+    title: "Solid 2.0 beta",
+    description: "The first Solid 2.0 beta, \"The <Suspense> is Over\", opens the new async model to everyone.",
   },
   {
     label: "13 Aug 2026",
@@ -155,8 +167,8 @@ const TIMELINE: TimelineEvent[] = [
     description: "Server functions, the serving layer and file-system routing had all moved into core, so SolidStart was retired in favour of start mode, merging the framework and the library. SolidStart keeps receiving maintenance releases.",
   },
   {
-    label: "2026",
-    iso: "2026",
+    label: "16 Nov 2026",
+    iso: "2026-11-16",
     title: "Solid 2.0",
     description: "Solid 2.0 ships with first-class async, optimistic actions and draft-first stores.",
   },
@@ -179,7 +191,7 @@ const PIONEERED = [
     icon: "code",
     title: "Components that run once",
     description:
-      "A component function runs a single time to build the reactive graph. It is a setup function, not a render function, which removes whole classes of problems such as stale closures and dependency arrays.",
+      "A component function runs a single time to build the reactive graph. It is a setup function, not a render function, so there are no stale closures and no dependency arrays.",
   },
   {
     icon: "layers",
@@ -197,7 +209,7 @@ const PIONEERED = [
     icon: "sparkles",
     title: "Async as part of the graph",
     description:
-      "Solid 2.0 goes further. Async memos, split effects and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
+      "Solid 2.0 goes further. Async memos and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
   },
 ] as const;
 
@@ -212,7 +224,7 @@ const PERFORMANCE = [
     icon: "star",
     title: "Loved by developers",
     description:
-      "Solid was the top-rated framework for developer satisfaction in the 2021 State of JS survey, ahead of far larger frameworks, with adoption growing quickly since.",
+      "Solid has had the highest developer satisfaction of any front-end framework in the State of JS survey five years running, from 2021 to 2025.",
   },
   {
     icon: "newspaper",
@@ -224,7 +236,7 @@ const PERFORMANCE = [
     icon: "sparkles",
     title: "The industry caught up",
     description:
-      "Others followed. Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
+      "Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
   },
 ] as const;
 
@@ -263,7 +275,7 @@ export default function About() {
         }
       />
 
-      <Section id="philosophy" eyebrow="Philosophy" title="Three ideas that shape Solid">
+      <Section id="philosophy" eyebrow="Philosophy" title="Three ideas behind Solid">
         <ul class={styles.cards} role="list">
           <For each={PRINCIPLES} keyed={(p) => p.title}>
             {(p) => (
@@ -289,7 +301,7 @@ export default function About() {
         id="pioneers"
         eyebrow="Influence"
         title="Ideas Solid helped pioneer"
-        description="Solid did not invent every idea it uses, but it has been one of the main places where fine-grained reactivity grew up and spread to the rest of the web."
+        description="Solid did not invent most of the ideas it uses, but several of them reached the rest of the web through Solid."
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
@@ -304,7 +316,7 @@ export default function About() {
         id="performance"
         tone="subtle"
         eyebrow="Performance"
-        title="Known for speed, and the industry took notice"
+        title="Known for speed"
         description="Solid became known for performance because there is so little between a state change and the DOM node it affects. Those results pushed other frameworks to rethink how they update the page."
       >
         <ul class={styles.cards} role="list">

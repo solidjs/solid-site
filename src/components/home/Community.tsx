@@ -14,8 +14,8 @@ export function Community() {
       id="community"
       tone="subtle"
       eyebrow="Community"
-      title="Built in the open, by people like you"
-      description="Solid is MIT-licensed and shaped by contributors around the world. Come say hello."
+      title="Built in the open"
+      description="Solid is MIT licensed and developed on GitHub. Questions and help happen on Discord."
     >
       <ul class={styles.grid}>
         <For each={COMMUNITY} keyed={(c) => c.title}>

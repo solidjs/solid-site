@@ -13,7 +13,7 @@ export function Support() {
         <div class={styles.body}>
           <h2 id="support-title" class={styles.title}>{t("Support Solid financially")}</h2>
           <p class={styles.text}>
-            {t("Solid is free and open source, built by volunteers and funded by people like you. Contributions through Open Collective pay for maintainers, infrastructure and events, and every expense is public.")}
+            {t("Solid is free and open source. Money given through Open Collective pays for maintainers, infrastructure and events, and every expense is public.")}
           </p>
         </div>
         <div class={styles.actions}>

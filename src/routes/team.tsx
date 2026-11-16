@@ -69,9 +69,9 @@ export default function TeamPage() {
         class={styles.textOnly}
         description={
           <>
-            {tSplit("We could use help translating Solid to new languages, {link} to help the effort.", "link")[0]}
+            {tSplit("We need help translating Solid into more languages. If you can help, {link}.", "link")[0]}
             <Link href={URLS.discord} inline>{t("join Discord")}</Link>
-            {tSplit("We could use help translating Solid to new languages, {link} to help the effort.", "link")[1]}
+            {tSplit("We need help translating Solid into more languages. If you can help, {link}.", "link")[1]}
           </>
         }
       />

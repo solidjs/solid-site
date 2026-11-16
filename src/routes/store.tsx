@@ -10,7 +10,7 @@ import { URLS } from "../site";
 // Products are fetched from Shopify in the browser, so the prerendered page is just the shell and a skeleton.
 const Shelf = clientOnly(() => import("../components/store/Shelf"));
 
-const DESCRIPTION = "Stickers and swag from the Solid Store. Every profit goes to Solid's Open Collective to support the community.";
+const DESCRIPTION = "Stickers and swag from the Solid Store. All profits go to Solid's Open Collective.";
 
 export default function StorePage() {
   const { t } = useI18n();
@@ -23,7 +23,7 @@ export default function StorePage() {
       <PageHeader
         eyebrow="Store"
         title="The Solid Store"
-        description="All profits from the store go back to Solid's Open Collective to support our community."
+        description="All profits from the store go to Solid's Open Collective."
         actions={<Button href={URLS.opencollective} icon="opencollective">Support Solid directly</Button>}
       />
       <Section size="wide">

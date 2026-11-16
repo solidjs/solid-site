@@ -12,7 +12,7 @@ export function Ecosystem() {
     <Section
       id="ecosystem"
       eyebrow="Ecosystem"
-      title="Everything around the core"
+      title="Libraries and tools"
       description="Official and community projects for routing, components, primitives, docs, testing and linting. Check each project's README for its Solid 2.0 status."
     >
       <ul class={styles.grid}>
