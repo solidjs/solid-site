@@ -85,7 +85,7 @@ const STATIC_PAGES: OgPage[] = [
     file: "team",
     kicker: "Community",
     title: "Team & Contributors",
-    description: "The maintainers and community contributors who build and support Solid.",
+    description: "The maintainers and community contributors behind Solid.",
   },
   {
     path: "/code-of-conduct",

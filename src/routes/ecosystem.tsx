@@ -8,7 +8,7 @@ import utilities from "../ecosystem/utilities";
 import { CATEGORY_LABELS, ResourceCategory } from "../ecosystem/types";
 
 const TITLE = "Solid Ecosystem: libraries, tools and packages | Solid";
-const DESCRIPTION = "Browse community and official libraries, primitives, routers, UI kits, build plugins and starters for Solid, searchable by category.";
+const DESCRIPTION = "A searchable directory of libraries and tools for Solid, from the Solid team and the community.";
 
 // Only categories that have a package: "Educational" belongs to the articles and videos on the Resources page.
 const CATEGORIES = Object.values(ResourceCategory)

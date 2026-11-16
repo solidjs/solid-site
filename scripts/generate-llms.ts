@@ -58,7 +58,7 @@ ${link("Solid 2.0 release candidate announcement", `${origin}/blog/solid-2-0-rc-
 ## Site
 
 ${link("Home", `${origin}/`, "what Solid is, why 2.0, live GitHub and npm numbers")}
-${link("About", `${origin}/about`, "what Solid is and where it is going")}
+${link("About", `${origin}/about`, "what Solid is, its history, and how the project is run")}
 ${link("Resources", `${origin}/resources`, "community articles, videos and podcasts about Solid")}
 ${link("Ecosystem", `${origin}/ecosystem`, "libraries, primitives, routers, UI kits, build plugins and starters, searchable by category")}
 ${link("Team and contributors", `${origin}/team`, "the maintainers and contributors")}

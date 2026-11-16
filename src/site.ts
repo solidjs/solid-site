@@ -11,9 +11,9 @@ export const SITE_URL: string =
   import.meta.env.DEV && typeof window !== "undefined"
     ? window.location.origin
     : import.meta.env.VITE_SITE_URL || "https://www.solidjs.com";
-export const SITE_TAGLINE = "Simple and performant reactivity for building user interfaces.";
+export const SITE_TAGLINE = "Fine-grained reactivity for building user interfaces, with no virtual DOM.";
 export const SITE_DESCRIPTION =
-  "Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Solid 2.0 is live.";
+  "Solid is a fine-grained reactive UI library with no virtual DOM. Solid 2.0 adds first-class async, optimistic actions and draft-first stores.";
 /** Evaluated once at build time (prerender); the year is intentionally static per deploy. */
 export const COPYRIGHT_YEAR = new Date().getFullYear();
 export const COPYRIGHT_HOLDER = "Solid Maintainers";
@@ -97,7 +97,7 @@ export const NAV: NavEntry[] = [
     items: [
       { label: "Discord", href: URLS.discord, icon: "discord", description: "Chat with the community and core team." },
       { label: "GitHub", href: URLS.github, icon: "github", description: "Source code, issues and discussions." },
-      { label: "Team & Contributors", href: "/team", icon: "users", description: "The people who build and support Solid." },
+      { label: "Team & Contributors", href: "/team", icon: "users", description: "The people behind Solid." },
       { label: "Code of Conduct", href: "/code-of-conduct", icon: "shield", description: "How we keep the community welcoming." },
       { label: "Store", href: "/store", icon: "shopping-bag", description: "Stickers and swag. Profits support Solid." },
       { label: "Open Collective", href: URLS.opencollective, icon: "opencollective", description: "Fund the maintainers, infrastructure and events." },
@@ -106,7 +106,7 @@ export const NAV: NavEntry[] = [
   {
     label: "About",
     items: [
-      { label: "About", href: "/about", icon: "info", description: "What Solid is and where it is going." },
+      { label: "About", href: "/about", icon: "info", description: "What Solid is, its history, and how the project is run." },
       { label: "Media", href: "/media", icon: "newspaper", description: "Logos, brand assets and press resources." },
     ],
   },
