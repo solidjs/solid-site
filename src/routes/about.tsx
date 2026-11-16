@@ -13,7 +13,7 @@ import { Section } from "../components/Section";
 import { SOLID_2, URLS } from "../site";
 
 const DESCRIPTION =
-  "What Solid is, where it came from, how fine-grained reactivity works, and how the project is run.";
+  "What Solid is, where it came from, how fine-grained reactivity works without a virtual DOM, and how the open-source project is run.";
 
 const PRINCIPLES = [
   {
@@ -170,7 +170,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "16 Nov 2026",
     iso: "2026-11-16",
     title: "Solid 2.0",
-    description: "Solid 2.0 ships with first-class async, split effects and draft-first stores.",
+    description: "Solid 2.0 ships with first-class async, optimistic actions and draft-first stores.",
   },
 ];
 
@@ -261,7 +261,7 @@ export default function About() {
   const { t, tSplit } = useI18n();
   return (
     <>
-      <Title>{t("About | Solid")}</Title>
+      <Title>{t("About Solid: a fine-grained reactive UI library | Solid")}</Title>
       <Meta name="description" content={t(DESCRIPTION)} />
       <PageHeader
         eyebrow="About Solid"
@@ -278,8 +278,8 @@ export default function About() {
       <Section id="philosophy" eyebrow="Philosophy" title="Three ideas behind Solid">
         <ul class={styles.cards} role="list">
           <For each={PRINCIPLES} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -305,8 +305,8 @@ export default function About() {
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -321,8 +321,8 @@ export default function About() {
       >
         <ul class={styles.cards} role="list">
           <For each={PERFORMANCE} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -332,7 +332,7 @@ export default function About() {
         id="solid-2"
         eyebrow="Solid 2.0"
         title="Solid 2.0 is live"
-        description={t("Solid {version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.", { version: SOLID_2.version })}
+        description={t("Solid {version} is out. It adds first-class async, optimistic actions and draft-first stores. Coming from 1.x? The migration guide covers what changed.", { version: SOLID_2.version })}
         actions={
           <>
             <Badge tone="success">Live</Badge>

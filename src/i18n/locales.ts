@@ -12,13 +12,15 @@ export interface LocaleDef {
   lang: string;
   /** Name in its own language, shown in the language switcher. */
   label: string;
+  /** Open Graph locale, language_TERRITORY (og:locale wants fr_FR, not fr). */
+  ogLocale: string;
   /** Text direction. Defaults to "ltr". */
   dir?: "ltr" | "rtl";
 }
 
 export const LOCALES: readonly LocaleDef[] = [
-  { code: "en", lang: "en-US", label: "English" },
-  { code: "fr", lang: "fr", label: "Français" },
+  { code: "en", lang: "en-US", ogLocale: "en_US", label: "English" },
+  { code: "fr", lang: "fr", ogLocale: "fr_FR", label: "Français" },
 ];
 
 export const DEFAULT_LOCALE: LocaleDef = LOCALES[0];

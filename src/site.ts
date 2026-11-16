@@ -25,13 +25,14 @@ export const SOLID_2 = {
   /** Current release. TODO(content): confirm the exact version string at go-live. */
   version: "2.0.0",
   installCommand: "npm install solid-js @solidjs/web",
-  // TODO(content): confirm the migration guide URL once published.
-  migrationGuide: "https://docs.solidjs.com",
+  migrationGuide: "https://v2.solidjs.com/migration/from-solid-1/",
 } as const;
 
 export const URLS = {
-  docs: "https://docs.solidjs.com",
-  tutorial: "https://tutorial.solidjs.com",
+  /** The Solid 2.0 docs and tutorial. docs.solidjs.com still documents 1.x, and tutorial.solidjs.com no longer resolves. */
+  docs: "https://v2.solidjs.com",
+  tutorial: "https://v2.solidjs.com/tutorial/",
+  playground: "https://playground.solidjs.com",
   github: "https://github.com/solidjs",
   githubRepo: "https://github.com/solidjs/solid",
   githubSiteRepo: "https://github.com/solidjs/solid-site",
@@ -85,6 +86,9 @@ export const NAV: NavEntry[] = [
     items: [
       { label: "Docs", href: URLS.docs, icon: "book", description: "Guides and API reference for Solid." },
       { label: "Tutorial", href: URLS.tutorial, icon: "graduation-cap", description: "Learn Solid interactively, step by step." },
+      { label: "Playground", href: URLS.playground, icon: "code", description: "Try Solid in the browser, no setup needed." },
+      { label: "Resources", href: "/resources", icon: "play", description: "Articles, videos and podcasts about Solid." },
+      { label: "Ecosystem", href: "/ecosystem", icon: "layers", description: "Libraries, tools and starters for Solid." },
     ],
   },
   { label: "Blog", href: "/blog" },
@@ -119,6 +123,9 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
     links: [
       { label: "Docs", href: URLS.docs },
       { label: "Tutorial", href: URLS.tutorial },
+      { label: "Playground", href: URLS.playground },
+      { label: "Resources", href: "/resources" },
+      { label: "Ecosystem", href: "/ecosystem" },
       { label: "Blog", href: "/blog" },
     ],
   },

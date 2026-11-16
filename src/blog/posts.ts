@@ -12,6 +12,8 @@ export interface Post {
   authorUrl?: string;
   /** ISO date (YYYY-MM-DD). */
   date: string;
+  /** ISO date (YYYY-MM-DD) of the last substantive edit; emitted as dateModified / article:modified_time. */
+  modified?: string;
   /** Site-relative hero image. */
   image?: string;
   tags?: string[];
