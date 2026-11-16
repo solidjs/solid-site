@@ -10,7 +10,7 @@ import videos from "../ecosystem/videos";
 import { ResourceType, TYPE_LABELS } from "../ecosystem/types";
 
 const TITLE = "Solid Resources: articles, videos and podcasts | Solid";
-const DESCRIPTION = "Learn Solid from community articles, videos and podcasts, including talks and deep dives from the Solid team.";
+const DESCRIPTION = "Community articles, videos and podcasts about Solid, plus talks from the Solid team.";
 
 const ITEMS = [...videos, ...articles, ...podcasts];
 const TYPES = Object.values(ResourceType).map((value) => ({ value, label: TYPE_LABELS[value] }));

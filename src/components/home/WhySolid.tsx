@@ -154,7 +154,7 @@ export function WhySolid() {
           }
         >
           A memo that returns a promise is still just a value: no loading flags, no cache keys and no undefined in your
-          types. Fetch where you like, block where the design wants, and the components in between never know.
+          types. You can fetch in any component and show a loading state where you choose. The components in between don't need to know about it.
         </Highlight>
 
         <Separator />
@@ -176,7 +176,7 @@ export function WhySolid() {
             </ol>
           }
         >
-          The old content holds until the new answer is ready to land whole, and isPending and latest are questions you ask exactly where the design needs them.
+          The old content stays on screen until the new data is ready. Use isPending and latest where you need to show a pending state or the newest value.
         </Highlight>
 
         <Separator />
@@ -184,7 +184,7 @@ export function WhySolid() {
         <Highlight
           eyebrow="Safe mutations"
           accent="info"
-          title="Optimistic UI you already wrote"
+          title="Optimistic UI from the write you already make"
           visual={
             <ol class={styles.timeline}>
               <For each={ACTION_STEPS} keyed={(s) => s.code}>
@@ -208,7 +208,7 @@ export function WhySolid() {
         <Highlight
           eyebrow="Full stack"
           accent="brand"
-          title="Server functions, refined"
+          title="Server functions that stream live values"
           visual={
             <ol class={styles.flow}>
               <For each={SERVER_STEPS} keyed={(s) => s.code}>
@@ -222,7 +222,7 @@ export function WhySolid() {
             </ol>
           }
         >
-          Solid pioneered server functions in 2021, and 2.0 ships the refined form. Mark a function "use server" and call it
+          Mark a function "use server" and call it
           like any other. Return an async generator and it is real-time: live() keeps the value current in the reactive
           graph, and broadcast() gives every viewer the same answer when it changes.
         </Highlight>
@@ -232,7 +232,7 @@ export function WhySolid() {
         <Highlight
           eyebrow="Open source"
           accent="accent"
-          title="Production-grade"
+          title="MIT licensed and used in production"
           visual={
             <div class={styles.metric}>
               <p class={styles.metricLabel}>{t("npm downloads / week")}</p>

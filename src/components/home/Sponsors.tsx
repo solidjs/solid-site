@@ -53,7 +53,7 @@ export function Sponsors() {
       id="sponsors"
       eyebrow="Sponsors"
       title="Thank you to our supporters"
-      description="Sponsors fund the maintainers, infrastructure and events that keep Solid independent."
+      description="Sponsors pay for maintainers, infrastructure and events."
     >
       <For each={TIERS} keyed={(t) => t.tier}>
         {(t) => {

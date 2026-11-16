@@ -16,7 +16,7 @@ export function Newsletter() {
     <section class={styles.band} aria-labelledby="stay-title">
       <Container class={styles.inner}>
         <div>
-          <h2 id="stay-title" class={styles.title}>{t("Stay in the loop")}</h2>
+          <h2 id="stay-title" class={styles.title}>{t("Follow Solid news")}</h2>
           <p class={styles.text}>{t("Release news and community updates land on the blog first, then on our social channels.")}</p>
         </div>
         <div class={styles.actions}>

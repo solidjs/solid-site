@@ -13,7 +13,7 @@ import { Section } from "../components/Section";
 import { SOLID_2, URLS } from "../site";
 
 const DESCRIPTION =
-  "What Solid is, where it came from, how fine-grained reactivity works without a virtual DOM, and how the open-source project is run.";
+  "Solid is an open-source UI library built on fine-grained reactivity. Read its history and how the project is run.";
 
 const PRINCIPLES = [
   {
@@ -32,7 +32,7 @@ const PRINCIPLES = [
     icon: "layers",
     title: "Small and fast",
     description:
-      "A small runtime and consistently strong results on public benchmarks, because there is little between a state change and the DOM node it affects.",
+      "Solid has a small runtime and does little work between a state change and the DOM node it affects.",
   },
 ] as const;
 
@@ -185,7 +185,7 @@ const PIONEERED = [
     icon: "zap",
     title: "Signals as the UI primitive",
     description:
-      "Signals were not new: Knockout, S.js and MobX used the idea long before. Solid made createSignal the foundation of a whole UI framework and helped bring it to the mainstream. Preact, Angular, Qwik, Vue and Svelte now build on signals or similar primitives, and a TC39 proposal is exploring standardising them.",
+      "Signals were not new: Knockout, S.js and MobX used the idea long before. Solid built a whole UI framework on createSignal. Preact, Angular, Qwik, Vue and Svelte now build on signals or similar primitives, and a TC39 proposal is exploring standardising them.",
   },
   {
     icon: "target",
@@ -215,7 +215,7 @@ const PIONEERED = [
     icon: "sparkles",
     title: "Async as part of the graph",
     description:
-      "Solid 2.0 goes further. Async memos and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
+      "Async memos and draft-first stores with optimistic actions put loading and mutation in the reactive graph, so fetching, pending states and optimistic UI use the same primitives as the rest of your code.",
   },
 ] as const;
 
@@ -228,7 +228,7 @@ const PERFORMANCE = [
   },
   {
     icon: "star",
-    title: "Loved by developers",
+    title: "Top satisfaction in State of JS",
     description:
       "Solid has had the highest developer satisfaction of any front-end framework in the State of JS survey five years running, from 2021 to 2025.",
   },
@@ -236,11 +236,11 @@ const PERFORMANCE = [
     icon: "newspaper",
     title: "Performance research, funded by Chrome",
     description:
-      "The Chrome team's Aurora programme contributed $30,000 toward Solid's continued performance research, supporting work that improves Core Web Vitals in open-source projects.",
+      "The Chrome team's Aurora programme contributed $30,000 toward Solid's continued performance research.",
   },
   {
     icon: "sparkles",
-    title: "The industry caught up",
+    title: "Other frameworks adopted signals",
     description:
       "Preact introduced signals, Vue is building Vapor Mode, a compilation strategy without a virtual DOM, Svelte 5 moved to signal-based runes, and Angular added signals and zoneless change detection.",
   },
@@ -307,7 +307,7 @@ export default function About() {
         id="pioneers"
         eyebrow="Influence"
         title="Ideas Solid helped pioneer"
-        description="Solid did not invent most of the ideas it uses, but several of them reached the rest of the web through Solid."
+        description="Solid did not invent most of these ideas, but other frameworks picked up several of them from Solid."
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
@@ -323,7 +323,7 @@ export default function About() {
         tone="subtle"
         eyebrow="Performance"
         title="Known for speed"
-        description="Solid became known for performance because there is so little between a state change and the DOM node it affects. Those results pushed other frameworks to rethink how they update the page."
+        description="Solid updates the DOM node a state change affects directly, with no virtual DOM diffing in between."
       >
         <ul class={styles.cards} role="list">
           <For each={PERFORMANCE} keyed={(p) => p.title}>
