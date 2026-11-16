@@ -204,5 +204,13 @@
 @media (max-width: 52rem) {
   .row { grid-template-columns: minmax(0, 1fr); }
   .text { max-width: none; }
+  /* Phones: a little more breathing room than the page gutter alone, and the rail lists sit centred under their text. */
+  .rows { padding-inline: 0.75rem; }
+  .flow,
+  .timeline {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
 }
 

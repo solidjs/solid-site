@@ -34,3 +34,15 @@
   max-width: 38rem;
   color: var(--color-text-muted);
 }
+
+/* Phones: icon, heading, text, then a full-width button, all left-aligned in one column. */
+@media (max-width: 40rem) {
+  .inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+  .body { flex: none; }
+  .inner > a { width: 100%; justify-content: center; }
+}

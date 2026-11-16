@@ -26,3 +26,25 @@
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+
+/* Phones: text on top, the primary button full width, then the three channels as an even row. */
+@media (max-width: 40rem) {
+  .inner { align-items: stretch; flex-direction: column; gap: 1.5rem; }
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .actions > * {
+    justify-content: center;
+    padding-inline: 0.5rem;
+    white-space: nowrap;
+  }
+  .actions > *:first-child { grid-column: 1 / -1; }
+  /* Keep the full-width Read the blog button at the size of its neighbours' row. */
+  .actions > * svg { flex: none; }
+}
+/* Very narrow phones: drop the external-link arrows so icon and label fit in a third of the row. */
+@media (max-width: 24rem) {
+  .actions > *:not(:first-child) svg:last-child { display: none; }
+}

@@ -188,7 +188,6 @@ function MobileNav() {
         <Drawer.Content class={styles.drawer} data-no-scroll>
           <div class={styles.drawerHead}>
             <Drawer.Title class="visually-hidden">Menu</Drawer.Title>
-            <Logo height={24} />
             <Drawer.CloseButton class={styles.iconButton} aria-label={t("Close menu")}>
               <Icon name="close" size={20} />
             </Drawer.CloseButton>

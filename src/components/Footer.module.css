@@ -12,6 +12,21 @@
 .social { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
 .socialLink { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-md); color: var(--color-text-muted); }
 .socialLink:hover { background: var(--color-surface-hover); color: var(--color-text); }
+/* Phones: Learn and Community sit side by side, and Project (the longest list) spans the row in two columns instead of
+   leaving a lone column with a gap beside it. */
+@media (max-width: 35.99rem) {
+  .footer { padding-block: 2.5rem 1.5rem; }
+  .grid { gap: 2rem 1.5rem; padding-bottom: 2rem; }
+  .column:last-of-type { grid-column: 1 / -1; }
+  .column:last-of-type .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.5rem; }
+  .bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .social { margin-left: -0.5rem; }
+}
+/* Tablets: the brand block spans the top, then all three link columns share one row. */
+@media (min-width: 36rem) and (max-width: 47.99rem) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
+  .brand { max-width: 30rem; }
+}
 @media (min-width: 48rem) {
   .grid { grid-template-columns: minmax(16rem, 1.6fr) repeat(3, minmax(0, 1fr)); }
   .brand { grid-column: auto; }
