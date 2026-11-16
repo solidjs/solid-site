@@ -91,16 +91,17 @@ function UpdateVisual() {
 }
 
 const ASYNC_ROWS = [
-  { name: "user()", result: "suspends until ready" },
-  { name: "isPending(user)", result: "boolean" },
-  { name: "<Loading>", result: "first load shows fallback" },
-  { name: "<Errored>", result: "a rejection shows fallback" },
+  { name: "user()", result: "the value, never undefined" },
+  { name: "isPending(user)", result: "true while a refresh is in flight" },
+  { name: "<Loading>", result: "fallback on first load only" },
+  { name: "<Errored>", result: "catches a rejection" },
 ] as const;
 
-const EFFECT_STEPS = [
-  { code: "() => count()", note: "compute: tracked reads" },
-  { code: "(value) => { … }", note: "apply: untracked side effects" },
-  { code: "return () => cleanup()", note: "runs before the next apply" },
+const TRANSITION_STEPS = [
+  { code: "setTab(\"posts\")", note: "the input changes" },
+  { code: "isPending(() => posts())", note: "ask where the design needs it" },
+  { code: "latest(tab)", note: "the newest value, mid-flight" },
+  { code: "settled", note: "the new answer lands whole" },
 ] as const;
 
 const ACTION_STEPS = [
@@ -110,6 +111,13 @@ const ACTION_STEPS = [
   { code: "settled", note: "the guess gives way to server data" },
 ] as const;
 
+const SERVER_STEPS = [
+  { code: "\"use server\"", note: "typed RPC, no codegen" },
+  { code: "await getUser(id)", note: "in-process during SSR" },
+  { code: "live(messages)", note: "an async generator stays current" },
+  { code: "broadcast(room)", note: "every viewer gets the same answer" },
+] as const;
+
 export function WhySolid() {
   const { t } = useI18n();
   return (
@@ -117,13 +125,13 @@ export function WhySolid() {
       id="why-solid"
       eyebrow="Why Solid"
       title="Why Solid 2.0?"
-      description="A reactive core you can reason about, now with async, effects and mutations built into the graph."
+      description="A reactive core you can reason about, now with async, transitions and mutations built into the graph."
       size="default"
     >
       <div class={styles.rows}>
         <Highlight eyebrow="No virtual DOM" accent="brand" title="Fine-grained reactivity" visual={<UpdateVisual />}>
-          Components run once. Signals update exactly the DOM nodes that read them, so there is no re-rendering and no
-          diffing of component trees.
+          Components run once. There are no re-renders, no memoization and no dependency arrays: signals update exactly
+          the DOM nodes that read them, down to a single text node.
         </Highlight>
 
         <Separator />
@@ -145,19 +153,19 @@ export function WhySolid() {
             </dl>
           }
         >
-          In 2.0 a memo can return a promise. Reads suspend the nearest Loading boundary, errors reach Errored, and
-          isPending() tells you when fresh data is on its way.
+          A memo that returns a promise is still just a value: no loading flags, no cache keys and no undefined in your
+          types. Fetch where you like, block where the design wants, and the components in between never know.
         </Highlight>
 
         <Separator />
 
         <Highlight
-          eyebrow="Explicit effects"
+          eyebrow="Transitions built in"
           accent="warning"
-          title="Say what you track, then what you do"
+          title="The UI never shows half an update"
           visual={
             <ol class={styles.flow}>
-              <For each={EFFECT_STEPS} keyed={(s) => s.code}>
+              <For each={TRANSITION_STEPS} keyed={(s) => s.code}>
                 {(step) => (
                   <li class={styles.flowStep}>
                     <code class={styles.mono}>{step().code}</code>
@@ -168,8 +176,8 @@ export function WhySolid() {
             </ol>
           }
         >
-          Effects take two halves. The compute half reads signals and defines the dependencies; the apply half runs side
-          effects untracked and can return a cleanup.
+          There is no transition API to learn. The old content holds until the new answer is ready to land whole, and
+          isPending and latest are questions you ask exactly where the design needs them.
         </Highlight>
 
         <Separator />
@@ -177,7 +185,7 @@ export function WhySolid() {
         <Highlight
           eyebrow="Safe mutations"
           accent="info"
-          title="Optimistic updates, built in"
+          title="Optimistic UI you already wrote"
           visual={
             <ol class={styles.timeline}>
               <For each={ACTION_STEPS} keyed={(s) => s.code}>
@@ -191,8 +199,33 @@ export function WhySolid() {
             </ol>
           }
         >
-          Actions group a write, a request and a refresh into one transaction. The optimistic value shows right away and is
-          replaced by server data when it settles.
+          Wrap a mutation in an action and the draft write you would make in a client-only app becomes the optimistic
+          prediction. No snapshots and no rollback code: when the server settles, the guess discards itself, success or
+          failure.
+        </Highlight>
+
+        <Separator />
+
+        <Highlight
+          eyebrow="Full stack"
+          accent="brand"
+          title="Server functions, refined"
+          visual={
+            <ol class={styles.flow}>
+              <For each={SERVER_STEPS} keyed={(s) => s.code}>
+                {(step) => (
+                  <li class={styles.flowStep}>
+                    <code class={styles.mono}>{step().code}</code>
+                    <span class={styles.note}>{t(step().note)}</span>
+                  </li>
+                )}
+              </For>
+            </ol>
+          }
+        >
+          Solid pioneered server functions in 2021, and 2.0 ships the refined form. Mark a function "use server" and call it
+          like any other. Return an async generator and it is real-time: live() keeps the value current in the reactive
+          graph, and broadcast() gives every viewer the same answer when it changes.
         </Highlight>
 
         <Separator />

@@ -43,12 +43,6 @@ export const URLS = {
   npm: "https://www.npmjs.com/package/solid-js",
 } as const;
 
-/** Placeholder live-number fallbacks, baked into the static HTML. TODO(content): replace with real values at build time. */
-export const STATS_FALLBACK = {
-  githubStars: null as number | null,
-  npmWeeklyDownloads: null as number | null,
-} as const;
-
 export interface SocialLink {
   label: string;
   href: string;

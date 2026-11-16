@@ -5,12 +5,14 @@ import { ACTIONS_EXAMPLE, ASYNC_EXAMPLE, EFFECTS_EXAMPLE, STORES_EXAMPLE, type R
 /**
  * Static fallbacks for the live stats row. They are baked into the prerendered HTML and replaced
  * client-side when the public APIs answer. `null` renders an em dash, never an invented number.
- * TODO(content): fill with real, dated values at build time.
+ * Taken from the GitHub API on 2026-11-16 (stars on solidjs/solid; contributors as the API counts them, anon=false).
+ * npm downloads stay null: the npm downloads API was not reachable when these were taken, and a stale guess is worse
+ * than a dash.
  */
 export const STATS_FALLBACK = {
-  stars: null as number | null,
+  stars: 36_273 as number | null,
   downloads: null as number | null,
-  contributors: null as number | null,
+  contributors: 198 as number | null,
 };
 export type Stats = typeof STATS_FALLBACK;
 

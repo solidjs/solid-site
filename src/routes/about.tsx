@@ -36,7 +36,7 @@ const PRINCIPLES = [
   },
 ] as const;
 
-// Dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
+// Release dates come from the GitHub releases of solidjs/solid. Other dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
 // commit in the solidjs/solid repository, the creation date of the Discord server, and Ryan's own posts about joining
 // Netlify and Sentry.
 const TIMELINE: TimelineEvent[] = [
@@ -53,10 +53,10 @@ const TIMELINE: TimelineEvent[] = [
     description: "The Solid Discord server is created, giving the growing community a home for questions, help and discussion.",
   },
   {
-    label: "2021",
-    iso: "2021",
+    label: "28 Jun 2021",
+    iso: "2021-06-28",
     title: "Solid 1.0",
-    description: "The 1.0 release, referred to in the September 2021 State of Solid post as having landed in the months before it.",
+    description: "Solid 1.0, \"Solid grows up\", is released with a stable API.",
   },
   {
     label: "30 Sep 2021",
@@ -143,6 +143,12 @@ const TIMELINE: TimelineEvent[] = [
     description: "Ryan moved from Netlify to Sentry, which supports his continued full-time work on Solid and open source as the project heads toward 2.0.",
   },
   {
+    label: "3 Mar 2026",
+    iso: "2026-03-03",
+    title: "Solid 2.0 beta",
+    description: "The first Solid 2.0 beta, \"The <Suspense> is Over\", opens the new async model to everyone.",
+  },
+  {
     label: "13 Aug 2026",
     iso: "2026-08-13",
     title: "Solid 2.0 release candidate",
@@ -155,8 +161,8 @@ const TIMELINE: TimelineEvent[] = [
     description: "Server functions, the serving layer and file-system routing had all moved into core, so SolidStart was retired in favour of start mode, merging the framework and the library. SolidStart keeps receiving maintenance releases.",
   },
   {
-    label: "2026",
-    iso: "2026",
+    label: "16 Nov 2026",
+    iso: "2026-11-16",
     title: "Solid 2.0",
     description: "Solid 2.0 ships with first-class async, split effects and draft-first stores.",
   },
@@ -197,7 +203,7 @@ const PIONEERED = [
     icon: "sparkles",
     title: "Async as part of the graph",
     description:
-      "Solid 2.0 goes further. Async memos, split effects and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
+      "Solid 2.0 goes further. Async memos, transitions without a transition API, and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
   },
 ] as const;
 
