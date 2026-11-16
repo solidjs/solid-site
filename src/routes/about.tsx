@@ -37,14 +37,20 @@ const PRINCIPLES = [
 ] as const;
 
 // Release dates come from the GitHub releases of solidjs/solid. Other dates come from the project's announcement posts (the State of Solid editions and the individual announcements), the first
-// commit in the solidjs/solid repository, the creation date of the Discord server, and Ryan's own posts about joining
+// commit in the solidjs/solid repository, Ryan's account of the private Bitbucket start, the creation date of the Discord server, and Ryan's own posts about joining
 // Netlify and Sentry.
 const TIMELINE: TimelineEvent[] = [
   {
+    label: "21 Aug 2016",
+    iso: "2016-08-21",
+    title: "The first commit",
+    description: "Ryan Carniato makes the first commit, \"initial commit\", in a private Bitbucket repository.",
+  },
+  {
     label: "Apr 2018",
     iso: "2018-04",
-    title: "The first commit",
-    description: "Ryan Carniato makes the first commit to the solidjs/solid repository, \"open source repo\", and Solid goes public.",
+    title: "Solid goes open source",
+    description: "Ryan Carniato open-sources Solid with the first commit to the solidjs/solid repository, \"open source repo\".",
   },
   {
     label: "15 Jun 2020",
