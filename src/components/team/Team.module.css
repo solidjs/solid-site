@@ -34,3 +34,20 @@
 
 /* A section that is only a heading and a sentence has no content below it, so drop the heading's bottom margin. */
 .textOnly header { margin-bottom: 0; }
+
+/* Phones: two cards per row instead of one tall column, with a smaller avatar and tighter text so they fit. */
+@media (max-width: 36rem) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .person { padding: 1.1rem 0.6rem 0.75rem; gap: 0.35rem; }
+  .personAvatar { --avatar-size: 4.5rem !important; }
+  .personName { margin-top: 0.35rem; font-size: var(--text-base); overflow-wrap: anywhere; }
+  .personRole { font-size: var(--text-xs); }
+  .personBio { font-size: var(--text-xs); }
+  .personLinks { padding-top: 0.35rem; }
+
+  /* Supporter lists (special thanks, ecosystem): two per row too, with tighter cards. */
+  .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .item { padding: 0.8rem 0.85rem; gap: 0.2rem; }
+  .itemName { overflow-wrap: anywhere; }
+  .itemMeta, .itemDetail { font-size: var(--text-xs); overflow-wrap: anywhere; }
+}

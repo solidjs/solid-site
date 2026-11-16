@@ -205,3 +205,72 @@
     display: none;
   }
 }
+
+/*
+ * Small phones: the desktop type scale leaves the panel crowded (a three-line headline, a five-line paragraph, 48px
+ * buttons and a full-height art strip all compete). Everything steps down a size, the panel is as tall as its content
+ * instead of filling the screen, and the art recedes behind the copy.
+ */
+@media (max-width: 30rem) {
+  .hero {
+    padding-inline: 0.5rem;
+  }
+  .panel {
+    /* Tall enough to fill the first screen (capped on tall phones), so the elements have room between them. */
+    min-height: clamp(34rem, calc(100svh - var(--header-height) - 1.5rem), 46rem);
+    padding-block: 1.25rem 1.75rem;
+    border-radius: 1.25rem;
+  }
+  .panel::before {
+    opacity: 0.5;
+  }
+  .panel::after {
+    opacity: 0.28;
+  }
+  .inner {
+    gap: 2rem;
+  }
+  .announce {
+    gap: 0.45rem;
+    padding: 0.2rem 0.7rem 0.2rem 0.25rem;
+    font-size: var(--text-xs);
+  }
+  .announce > span:not(:first-child) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .copy {
+    gap: 1.75rem;
+  }
+  .title {
+    font-size: clamp(1.75rem, 8.6vw, 2.25rem);
+    line-height: 1.08;
+  }
+  .lead {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .actions {
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+  }
+  /* :is(a, button) outranks the Button component's own .lg size class. */
+  .actions > :is(a, button) {
+    height: 2.5rem;
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+  }
+  .install {
+    margin-top: 0.75rem;
+    padding-block: 0.25rem;
+  }
+  .command {
+    font-size: var(--text-xs);
+  }
+  .note {
+    margin-top: 1.25rem;
+    font-size: var(--text-xs);
+  }
+}

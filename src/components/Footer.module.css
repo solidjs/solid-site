@@ -21,8 +21,9 @@
   .grid { gap: 2rem 1.5rem; padding-bottom: 2rem; }
   .column:last-of-type { grid-column: 1 / -1; }
   .column:last-of-type .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.5rem; }
-  .bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-  .social { margin-left: -0.5rem; }
+  .bottom { flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
+  .legalBlock { align-items: center; }
+  .social { justify-content: center; }
 }
 /* Tablets: the brand block spans the top, then all three link columns share one row. */
 @media (min-width: 36rem) and (max-width: 47.99rem) {

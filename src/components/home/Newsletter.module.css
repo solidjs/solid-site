@@ -30,6 +30,8 @@
 /* Phones: text on top, the primary button full width, then the three channels as an even row. */
 @media (max-width: 40rem) {
   .inner { align-items: stretch; flex-direction: column; gap: 1.5rem; }
+  .title, .text { text-align: center; }
+  .text { margin-inline: auto; }
   .actions {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));

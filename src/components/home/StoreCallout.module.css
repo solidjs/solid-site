@@ -35,14 +35,17 @@
   color: var(--color-text-muted);
 }
 
-/* Phones: icon, heading, text, then a full-width button, all left-aligned in one column. */
+/* Phones: icon, heading, text, then a full-width button, all centred in one column. */
 @media (max-width: 40rem) {
   .inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
     align-items: start;
+    justify-items: center;
+    text-align: center;
   }
   .body { flex: none; }
+  .text { margin-inline: auto; }
   .inner > a { width: 100%; justify-content: center; }
 }

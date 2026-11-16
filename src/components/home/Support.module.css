@@ -41,4 +41,7 @@
 }
 @media (max-width: 34rem) {
   .card { grid-template-columns: 1fr; }
+  /* Both buttons span the card. */
+  .actions { flex-direction: column; }
+  .actions > :is(a, button) { width: 100%; justify-content: center; }
 }

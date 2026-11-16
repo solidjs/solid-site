@@ -11,7 +11,7 @@ export function PersonCard(props: { person: Person }) {
   const { t } = useI18n();
   return (
     <li class={styles.person}>
-      <Avatar src={props.person.img} name={props.person.name} size={96} />
+      <Avatar src={props.person.img} name={props.person.name} size={96} class={styles.personAvatar} />
       <h3 class={styles.personName}>
         <Link href={githubUrl(props.person.github)} class={styles.cardLink}>{props.person.name}</Link>
       </h3>
