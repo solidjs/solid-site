@@ -4,8 +4,9 @@
 /guides https://docs.solidjs.com 301
 /guides/* https://docs.solidjs.com/:splat 301
 /guide https://docs.solidjs.com 301
-/tutorial https://tutorial.solidjs.com 301
-/tutorial/* https://tutorial.solidjs.com/:splat 301
+# tutorial.solidjs.com no longer resolves; the 2.0 tutorial does not share its lesson paths, so every old link lands on its start.
+/tutorial https://v2.solidjs.com/tutorial/ 301
+/tutorial/* https://v2.solidjs.com/tutorial/ 301
 /examples https://docs.solidjs.com 301
 /examples/* https://docs.solidjs.com 301
 /resources https://docs.solidjs.com/resources/ecosystem 301
