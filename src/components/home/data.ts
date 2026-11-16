@@ -37,7 +37,7 @@ export const SNIPPETS: Snippet[] = [
     label: "Async",
     title: "Async is just a value",
     description:
-      "A memo can return a promise, and everything that reads it sees a plain value. The fallback shows on first load only; after that the current page stays on screen while the next one loads, and isPending and latest tell you what is in flight.",
+      "Async memos read like plain values, even when one depends on another. Pick a state and the old city list stays on screen while the new one loads, the city resets on its own, and no effect keeps them in sync.",
     files: ASYNC_EXAMPLE,
   },
   {

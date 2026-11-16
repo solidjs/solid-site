@@ -13,41 +13,42 @@ const MOUNT = `render(() => <App />, document.getElementById("app")!);`;
 export const ASYNC_EXAMPLE: ReplFile[] = [
   {
     name: "main.tsx",
-    source: `import { createMemo, createSignal, For, isPending, latest, Loading } from "solid-js";
+    source: `import { createMemo, createSignal, For, isPending, Loading } from "solid-js";
 import { render } from "@solidjs/web";
 
-const TABS = ["Profile", "Posts", "Settings"];
+const CITIES: Record<string, string[]> = {
+  California: ["Los Angeles", "San Francisco", "San Diego"],
+  Florida: ["Miami", "Orlando", "Tampa"],
+  "New York": ["New York City", "Buffalo", "Rochester"],
+  Texas: ["Houston", "Dallas", "Austin"],
+};
 
-// A stand-in for a network request.
-const fetchPage = (tab: string) =>
-  new Promise<string>((resolve) => setTimeout(() => resolve(\`This is the \${tab} page.\`), 800));
+// Stand-ins for network requests.
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const getStates = async () => (await sleep(500), Object.keys(CITIES));
+const getCities = async (state: string) => (await sleep(500), CITIES[state] ?? []);
 
 function App() {
-  const [tab, setTab] = createSignal("Profile");
-  // A memo can return a promise. Everything that reads it just sees a string.
-  const page = createMemo(() => fetchPage(tab()));
+  // Async memos read like plain values, even when one depends on another.
+  const states = createMemo(getStates);
+  const [state, setState] = createSignal(() => states()[0]);
+  const cities = createMemo(() => getCities(state()));
+  // A writable signal derived from the list: picking a new state resets the
+  // city on its own, with no effect to keep them in sync.
+  const [city, setCity] = createSignal(() => cities()[0]);
 
   return (
-    <>
-      <nav>
-        <For each={TABS}>
-          {(name) => (
-            // latest() is the tab you just clicked, before its page has arrived.
-            <button
-              style={{ "font-weight": latest(tab) === name ? "bold" : "normal" }}
-              onClick={() => setTab(name)}
-            >
-              {name}
-            </button>
-          )}
-        </For>
-      </nav>
-      {/* The fallback is for the first load only. After that the current page
-          stays on screen until the next one is ready, and isPending() says so. */}
-      <Loading fallback={<p>Loading…</p>}>
-        <p style={{ opacity: isPending(page) ? 0.5 : 1 }}>{page()}</p>
-      </Loading>
-    </>
+    <Loading fallback={<p>Loading…</p>}>
+      <select onChange={(e) => setState(e.currentTarget.value)}>
+        <For each={states()}>{(name) => <option>{name}</option>}</For>
+      </select>{" "}
+      <select disabled={isPending(cities)} onChange={(e) => setCity(e.currentTarget.value)}>
+        <For each={cities()}>{(name) => <option>{name}</option>}</For>
+      </select>
+      <p>
+        Selection: {city()}, {state()}
+      </p>
+    </Loading>
   );
 }
 
