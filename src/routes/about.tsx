@@ -203,7 +203,7 @@ const PIONEERED = [
     icon: "sparkles",
     title: "Async as part of the graph",
     description:
-      "Solid 2.0 goes further. Async memos, transitions without a transition API, and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
+      "Solid 2.0 goes further. Async memos and draft-first stores with optimistic actions make loading and mutation part of the reactive graph, so data fetching, pending states and optimistic UI use the same primitives as everything else.",
   },
 ] as const;
 

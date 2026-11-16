@@ -97,7 +97,7 @@ const ASYNC_ROWS = [
   { name: "<Errored>", result: "catches a rejection" },
 ] as const;
 
-const TRANSITION_STEPS = [
+const PENDING_STEPS = [
   { code: "setTab(\"posts\")", note: "the input changes" },
   { code: "isPending(() => posts())", note: "ask where the design needs it" },
   { code: "latest(tab)", note: "the newest value, mid-flight" },
@@ -125,7 +125,7 @@ export function WhySolid() {
       id="why-solid"
       eyebrow="Why Solid"
       title="Why Solid 2.0?"
-      description="Signals, with async, transitions and mutations in the same graph."
+      description="Signals, with async and mutations in the same graph."
       size="default"
     >
       <div class={styles.rows}>
@@ -160,12 +160,12 @@ export function WhySolid() {
         <Separator />
 
         <Highlight
-          eyebrow="Transitions built in"
+          eyebrow="Consistent updates"
           accent="warning"
           title="The UI never shows half an update"
           visual={
             <ol class={styles.flow}>
-              <For each={TRANSITION_STEPS} keyed={(s) => s.code}>
+              <For each={PENDING_STEPS} keyed={(s) => s.code}>
                 {(step) => (
                   <li class={styles.flowStep}>
                     <code class={styles.mono}>{step().code}</code>
@@ -176,8 +176,7 @@ export function WhySolid() {
             </ol>
           }
         >
-          There is no transition API to learn. The old content holds until the new answer is ready to land whole, and
-          isPending and latest are questions you ask exactly where the design needs them.
+          The old content holds until the new answer is ready to land whole, and isPending and latest are questions you ask exactly where the design needs them.
         </Highlight>
 
         <Separator />
