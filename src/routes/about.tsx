@@ -158,7 +158,7 @@ const TIMELINE: TimelineEvent[] = [
     label: "2026",
     iso: "2026",
     title: "Solid 2.0",
-    description: "Solid 2.0 ships with first-class async, split effects and draft-first stores.",
+    description: "Solid 2.0 ships with first-class async, optimistic actions and draft-first stores.",
   },
 ];
 
@@ -266,8 +266,8 @@ export default function About() {
       <Section id="philosophy" eyebrow="Philosophy" title="Three ideas that shape Solid">
         <ul class={styles.cards} role="list">
           <For each={PRINCIPLES} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -293,8 +293,8 @@ export default function About() {
       >
         <ul class={[styles.cards, styles.cardsThree]} role="list">
           <For each={PIONEERED} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -309,8 +309,8 @@ export default function About() {
       >
         <ul class={styles.cards} role="list">
           <For each={PERFORMANCE} keyed={(p) => p.title}>
-            {(p, i) => (
-              <Card as="li" level={3} index={`0${i() + 1}`} icon={p().icon} title={p().title} description={p().description} />
+            {(p) => (
+              <Card as="li" level={3} icon={p().icon} title={p().title} description={p().description} />
             )}
           </For>
         </ul>
@@ -320,7 +320,7 @@ export default function About() {
         id="solid-2"
         eyebrow="Solid 2.0"
         title="Solid 2.0 is live"
-        description={t("Solid {version} is out. It adds first-class async, split effects and draft-first stores. Coming from 1.x? The migration guide covers what changed.", { version: SOLID_2.version })}
+        description={t("Solid {version} is out. It adds first-class async, optimistic actions and draft-first stores. Coming from 1.x? The migration guide covers what changed.", { version: SOLID_2.version })}
         actions={
           <>
             <Badge tone="success">Live</Badge>

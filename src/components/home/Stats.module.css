@@ -52,10 +52,24 @@
     flex-direction: column;
     align-items: stretch;
   }
+  /* The icon beside the number with the caption underneath, all left-aligned. A caption sharing the row wrapped
+     ragged on phones ("npm downloads / week", and single long words such as "téléchargements" in French). */
   .item {
-    gap: 0.6rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.75rem;
+    row-gap: 0.15rem;
+    align-items: center;
+  }
+  .icon {
+    grid-row: span 2;
+  }
+  .value {
+    grid-column: 2;
   }
   .label {
-    margin-inline-start: auto;
+    grid-column: 2;
+    grid-row: 2;
+    overflow-wrap: anywhere;
   }
 }
