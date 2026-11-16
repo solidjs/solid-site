@@ -11,7 +11,7 @@ import styles from "./Footer.module.css";
 
 /** Multi-column site footer: brand + tagline, link columns, then a bottom bar with copyright, licence and socials. */
 export function Footer() {
-  const { t, tSplit, localePath } = useI18n();
+  const { t, tSplit, localePath, locale } = useI18n();
   // "Released under the {license}." is translated as one sentence (word order differs by language), then split around
   // the placeholder so the licence name can be a link.
   const licenseSentence = () => tSplit("Released under the {license}.", "license");
@@ -47,11 +47,19 @@ export function Footer() {
         </div>
         <Separator />
         <div class={styles.bottom}>
-          <p class={styles.legal}>
-            {t("© {year} {holder}.", { year: COPYRIGHT_YEAR, holder: COPYRIGHT_HOLDER })} {licenseSentence()[0]}
-            <Link href={LICENSE_URL} inline>{t("MIT License")}</Link>
-            {licenseSentence()[1]}
-          </p>
+          <div class={styles.legalBlock}>
+            <p class={styles.legal}>
+              {t("© {year} {holder}.", { year: COPYRIGHT_YEAR, holder: COPYRIGHT_HOLDER })} {licenseSentence()[0]}
+              <Link href={LICENSE_URL} inline>{t("MIT License")}</Link>
+              {licenseSentence()[1]}
+            </p>
+            <p class={styles.build}>
+              {t("Last published {date} · SolidBase {version}", {
+                date: new Intl.DateTimeFormat(locale().lang, { dateStyle: "medium", timeZone: "UTC" }).format(new Date(`${__BUILD_DATE__}T00:00:00Z`)),
+                version: __SOLIDBASE_VERSION__,
+              })}
+            </p>
+          </div>
           <ul role="list" class={styles.social}>
             <For each={SOCIAL_LINKS} keyed={(s) => s.href}>
               {(s) => (

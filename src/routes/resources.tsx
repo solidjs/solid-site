@@ -26,12 +26,14 @@ export default function ResourcesPage() {
       <PageHeader
         eyebrow="Resources"
         title="Learn Solid from the community"
-        description="Articles, videos and podcasts about Solid, newest first."
+        description="Articles, videos and podcasts about Solid, newest first, with a tab for Solid 2.0."
         actions={<SubmitDialog kind="resource" />}
       />
       <Section size="wide">
         <Directory
           items={ITEMS}
+          groupBy="year"
+          solid2Tab
           filters={{ by: "type", options: TYPES }}
           filterLabel="Filter by type"
           searchLabel="Search resources"

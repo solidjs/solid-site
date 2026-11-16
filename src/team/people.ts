@@ -37,6 +37,8 @@ export const maintainers: readonly Person[] = [
   { name: "Birk Skyum", github: "birkskyum", img: "/img/bios/birk-skyum.jpeg", role: "Maintainer", bio: "Birk works on developer experience across the Solid ecosystem." },
   { name: "Brenley (Brenelz)", github: "brenelz", img: "/img/bios/brenley-brenelz.png", role: "Maintainer", bio: "A developer who keeps close to frontend JavaScript trends and contributes to SolidStart and the Solid documentation." },
   { name: "Katja Lutz", github: "katywings", img: "/img/bios/katja-lutz.jpeg", role: "Maintainer" },
+  { name: "Gabriel Valfridsson", github: "GabbeV", img: "/img/bios/gabriel-valfridsson.png", role: "Maintainer" },
+  { name: "Brendan Allan", github: "Brendonovich", img: "/img/bios/brendan-allan.jpeg", role: "Maintainer" },
 ];
 
 /** Individuals thanked for design, writing and site work. */

@@ -8,6 +8,8 @@
 .link { font-size: var(--text-sm); color: var(--color-text-muted); }
 .link:hover { color: var(--color-text); text-decoration: underline; }
 .bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; }
+.legalBlock { display: flex; flex-direction: column; gap: 0.25rem; }
+.build { margin: 0; font-size: var(--text-xs); color: var(--color-text-faint); font-variant-numeric: tabular-nums; }
 .legal { font-size: var(--text-sm); color: var(--color-text-muted); }
 .social { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
 .socialLink { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-md); color: var(--color-text-muted); }

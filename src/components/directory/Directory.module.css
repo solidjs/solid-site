@@ -40,3 +40,11 @@
   .list .card { grid-template-columns: auto 1fr auto; align-items: center; }
   .list .flags { grid-column: auto; }
 }
+
+.tabs { display: flex; }
+.tabList { position: relative; display: flex; gap: 0.25rem; width: 100%; border-bottom: 1px solid var(--color-border); }
+.tab { padding: 0.6rem 1rem; border: 0; background: none; font: inherit; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text-muted); border-radius: var(--radius-sm) var(--radius-sm) 0 0; cursor: pointer; }
+.tab:hover, .tab[data-selected] { color: var(--color-text); }
+.tab:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: -2px; }
+.tabCount { margin-inline-start: 0.35rem; font-size: var(--text-xs); color: var(--color-text-faint); }
+.tabIndicator { position: absolute; bottom: -1px; height: 2px; background: var(--color-brand); transition: left var(--duration-base) var(--ease-out), width var(--duration-base) var(--ease-out); }

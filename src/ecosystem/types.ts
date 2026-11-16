@@ -39,6 +39,8 @@ export interface Resource {
   official?: boolean;
   /** `false` marks a package that is no longer maintained. */
   maintained?: boolean;
+  /** About Solid 2.0 (betas, the release candidate and the final release). Shown under the "Solid 2.0" tab. */
+  solid2?: boolean;
   keywords?: readonly string[];
   /** Milliseconds since the epoch. */
   published_at?: number;

@@ -1,5 +1,6 @@
 import { useLocation } from "@solidjs/router";
 import { createMemo, createSignal, For, Show, untrack } from "solid-js";
+import { Tabs as KTabs } from "@kobalte/core/tabs";
 import { useI18n } from "../../i18n";
 import { type PackageType, type Resource, type ResourceType, matches } from "../../ecosystem/types";
 import { Badge } from "../Badge";
@@ -19,8 +20,10 @@ export interface DirectoryProps {
   items: readonly Resource[];
   /** Filter chips: the values to offer, in order, with the English label of each. */
   filters: { by: "type" | "category"; options: { value: string; label: string }[] };
-  /** Group the results under a heading per category (Ecosystem), or one flat list newest first (Resources). */
-  grouped?: boolean;
+  /** Group the results under a heading per category (Ecosystem) or per year, newest first (Resources). Default: one list. */
+  groupBy?: "category" | "year";
+  /** An "All" tab and a "Solid 2.0" tab above the filters (Resources). */
+  solid2Tab?: boolean;
   /** Show "Official" and "Hide unmaintained" switches (Ecosystem). */
   packageSwitches?: boolean;
   /** Accessible name of the filter group. */
@@ -85,6 +88,7 @@ export function Directory(props: DirectoryProps) {
 
   // The search lives in the address bar (?search=) so a filtered view can be shared. Read once, then only written.
   const [query, setQuery] = createSignal(untrack(() => new URLSearchParams(location.search).get("search") ?? ""));
+  const [tab, setTab] = createSignal("all");
   const [selected, setSelected] = createSignal<string[]>([]);
   const [officialOnly, setOfficialOnly] = createSignal(false);
   const [hideUnmaintained, setHideUnmaintained] = createSignal(true);
@@ -100,10 +104,14 @@ export function Directory(props: DirectoryProps) {
   const keyOf = (r: Resource) => (props.filters.by === "type" ? [r.type as string] : [...r.categories]);
 
   // Everything except the chip selection, so each chip's count says how many results it would show.
+  const inTab = createMemo(() => props.items.filter((r) => matches(r, query()) && (!props.solid2Tab || tab() === "all" || r.solid2)));
+  const tabCounts = createMemo(() => ({
+    all: props.items.filter((r) => matches(r, query())).length,
+    solid2: props.items.filter((r) => matches(r, query()) && r.solid2).length,
+  }));
   const base = createMemo(() =>
-    props.items.filter(
+    inTab().filter(
       (r) =>
-        matches(r, query()) &&
         (!props.packageSwitches || ((!officialOnly() || r.official) && (!hideUnmaintained() || r.maintained !== false))),
     ),
   );
@@ -117,7 +125,19 @@ export function Directory(props: DirectoryProps) {
     return base().filter((r) => !chosen.length || keyOf(r).some((k) => chosen.includes(k)));
   });
   const flat = createMemo(() => [...visible()].sort((a, b) => (b.published_at ?? 0) - (a.published_at ?? 0)));
+  const yearOf = (r: Resource) => (r.published_at ? String(new Date(r.published_at).getUTCFullYear()) : "undated");
+  const years = createMemo(() => {
+    const out: { value: string; label: string; items: Resource[] }[] = [];
+    for (const r of flat()) {
+      const y = yearOf(r);
+      const last = out[out.length - 1];
+      if (last?.value === y) last.items.push(r);
+      else out.push({ value: y, label: y === "undated" ? "Earlier" : y, items: [r] });
+    }
+    return out;
+  });
   const groups = createMemo(() => {
+    if (props.groupBy === "year") return years();
     const out: { value: string; label: string; items: Resource[] }[] = [];
     for (const o of props.filters.options) {
       if (selected().length && !selected().includes(o.value)) continue;
@@ -129,6 +149,15 @@ export function Directory(props: DirectoryProps) {
 
   return (
     <div class={styles.directory}>
+      <Show when={props.solid2Tab}>
+        <KTabs value={tab()} onChange={setTab} class={styles.tabs}>
+          <KTabs.List class={styles.tabList} aria-label={t("Show")}>
+            <KTabs.Trigger class={styles.tab} value="all">{t("All")} <span class={styles.tabCount}>{tabCounts().all}</span></KTabs.Trigger>
+            <KTabs.Trigger class={styles.tab} value="solid2">Solid 2.0 <span class={styles.tabCount}>{tabCounts().solid2}</span></KTabs.Trigger>
+            <KTabs.Indicator class={styles.tabIndicator} />
+          </KTabs.List>
+        </KTabs>
+      </Show>
       <div class={styles.controls}>
         <label class={styles.search}>
           <Icon name="search" size={18} />
@@ -172,7 +201,7 @@ export function Directory(props: DirectoryProps) {
 
       <Show when={visible().length} fallback={<p class={styles.empty}>{t("No resources found.")}</p>}>
         <Show
-          when={props.grouped}
+          when={props.groupBy}
           fallback={
             <ul class={styles.list}>
               <For each={flat()} keyed={(r) => r.link}>{(r) => <ResourceCard item={r()} />}</For>
@@ -181,9 +210,9 @@ export function Directory(props: DirectoryProps) {
         >
           <For each={groups()} keyed={(g) => g.value}>
             {(g) => (
-              <section class={styles.group} aria-labelledby={`cat-${g().value}`}>
-                <h2 id={`cat-${g().value}`} class={styles.groupTitle}>{t(g().label)}</h2>
-                <ul class={styles.grid}>
+              <section class={styles.group} aria-labelledby={`group-${g().value}`}>
+                <h2 id={`group-${g().value}`} class={styles.groupTitle}>{t(g().label)}</h2>
+                <ul class={props.groupBy === "year" ? styles.list : styles.grid}>
                   <For each={g().items} keyed={(r) => r.link}>{(r) => <ResourceCard item={r()} />}</For>
                 </ul>
               </section>

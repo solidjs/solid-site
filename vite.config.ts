@@ -1,6 +1,7 @@
 import { createSolidBase, defineTheme } from "@kobalte/solidbase/config";
 import { solidReplVitePlugin } from "@kobalte/solidbase/default-theme/repl.js";
 import solid from "@solidjs/vite-plugin";
+import { readFileSync } from "node:fs";
 import { defineConfig, type Plugin } from "vite";
 import { DEFAULT_LOCALE, LOCALES, PREFIXED_LOCALES } from "./src/i18n/locales";
 
@@ -56,7 +57,15 @@ const locales = Object.fromEntries(
   LOCALES.map((l) => [l === DEFAULT_LOCALE ? "root" : l.code, { label: l.label, lang: l.lang, ...(l === DEFAULT_LOCALE ? {} : { link: `/${l.code}/` }) }]),
 );
 
+/** The installed SolidBase version, shown in the footer next to the build date. */
+const solidBaseVersion: string = JSON.parse(readFileSync(new URL("./node_modules/@kobalte/solidbase/package.json", import.meta.url), "utf8")).version;
+
 export default defineConfig({
+  // Fixed once per build, so the server-rendered footer and the client bundle always agree.
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
+    __SOLIDBASE_VERSION__: JSON.stringify(solidBaseVersion),
+  },
   // Kobalte's transitive @solid-primitives/* deps are not hoisted to the project root; bundle them into the
   // SSR build so the prerender worker does not resolve stray copies from parent directories.
   ssr: { noExternal: [/^@solid-primitives\//, /^@kobalte\/core/] },

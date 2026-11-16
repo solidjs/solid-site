@@ -32,7 +32,7 @@ export default function EcosystemPage() {
       <Section size="wide">
         <Directory
           items={utilities}
-          grouped
+          groupBy="category"
           packageSwitches
           filters={{ by: "category", options: CATEGORIES }}
           filterLabel="Filter by category"
