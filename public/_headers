@@ -40,6 +40,13 @@
 /media/*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
+# The store talks to Shopify's Storefront API from the browser.
+/store
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org https://solidjs.myshopify.com; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
+/store/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org https://solidjs.myshopify.com; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
 /team
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.npmjs.org; frame-src https://www.youtube-nocookie.com https://open.spotify.com https://player.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 

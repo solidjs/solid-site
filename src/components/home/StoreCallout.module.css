@@ -1,0 +1,33 @@
+.band {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  background: var(--color-bg);
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-subtle);
+  color: var(--color-brand-text);
+}
+.body {
+  flex: 1 1 20rem;
+}
+.title {
+  margin: 0 0 0.4rem;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+.text {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--color-text-muted);
+}

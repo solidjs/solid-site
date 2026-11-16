@@ -1,11 +1,10 @@
 import { For, Show } from "solid-js";
 import { useI18n } from "../../i18n";
-import { URLS } from "../../site";
-import { Button } from "../Button";
 import { Link } from "../Link";
 import { Section } from "../Section";
 import type { Sponsor, SponsorTier } from "./data";
 import { SPONSORS } from "./sponsor-data";
+import { Support } from "./Support";
 import styles from "./Sponsors.module.css";
 
 const TIERS: { tier: SponsorTier; title: string }[] = [
@@ -55,9 +54,6 @@ export function Sponsors() {
       eyebrow="Sponsors"
       title="Thank you to our supporters"
       description="Sponsors fund the maintainers, infrastructure and events that keep Solid independent."
-      actions={
-        <Button href={URLS.opencollective} variant="primary" icon="heart">Become a sponsor</Button>
-      }
     >
       <For each={TIERS} keyed={(t) => t.tier}>
         {(t) => {
@@ -69,6 +65,7 @@ export function Sponsors() {
           );
         }}
       </For>
+      <Support />
     </Section>
   );
 }

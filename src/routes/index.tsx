@@ -9,6 +9,7 @@ import { Maintainers } from "../components/home/Maintainers";
 import { Newsletter } from "../components/home/Newsletter";
 import { WhySolid } from "../components/home/WhySolid";
 import { Sponsors } from "../components/home/Sponsors";
+import { StoreCallout } from "../components/home/StoreCallout";
 import { WhatsNew } from "../components/home/WhatsNew";
 
 const TITLE = "Solid: Fine-grained reactive UI. Solid 2.0 is live";
@@ -35,6 +36,7 @@ export default function Home() {
       <BlogPreview />
       <Maintainers />
       <Newsletter />
+      <StoreCallout />
     </>
   );
 }

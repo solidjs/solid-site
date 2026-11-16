@@ -1,0 +1,105 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.note { margin: 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+.cartButton {
+  display: inline-flex; align-items: center; gap: 0.5rem; height: 2.5rem; padding-inline: 1rem;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
+  background: var(--color-surface); color: var(--color-text); font-size: var(--text-sm); font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.cartButton:hover { background: var(--color-surface-hover); }
+.count {
+  display: inline-grid; place-items: center; min-width: 1.4rem; height: 1.4rem; padding-inline: 0.35rem;
+  border-radius: 999px; background: var(--color-brand); color: var(--color-brand-contrast);
+  font-size: var(--text-xs); font-weight: var(--weight-semibold);
+  /* Digits sit high in the font's line box, so trim the box to the digits' height and they centre in the circle. */
+  line-height: 1; font-variant-numeric: tabular-nums;
+  text-box: trim-both cap alphabetic;
+}
+/* Without text-box (Firefox), nudge the digits down by the same amount: padding shifts the centred content by half. */
+@supports not (text-box: trim-both cap alphabetic) {
+  .count { padding-top: 0.2em; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+  margin: 0; padding: 0; list-style: none;
+}
+.card {
+  display: flex; flex-direction: column; overflow: hidden;
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-sm);
+  transition: border-color var(--duration-base), box-shadow var(--duration-base);
+}
+.card:hover, .card:focus-within { border-color: var(--color-border-strong); box-shadow: var(--shadow-md); }
+.photo {
+  position: relative; display: grid; place-items: center; aspect-ratio: 1; overflow: hidden;
+  background: var(--color-bg-subtle); color: var(--color-text-faint);
+}
+.photo img { width: 100%; height: 100%; object-fit: contain; }
+.badge { position: absolute; top: 0.75rem; left: 0.75rem; }
+.info { display: flex; flex: 1; flex-direction: column; gap: 0.6rem; padding: 1.1rem 1.25rem 1.25rem; }
+.heading { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
+.name { font-size: var(--text-lg); font-weight: var(--weight-semibold); line-height: var(--leading-snug); }
+.price { font-weight: var(--weight-semibold); color: var(--color-brand-text); white-space: nowrap; }
+.description {
+  margin: 0; font-size: var(--text-sm); color: var(--color-text-muted);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.expanded { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.more {
+  align-self: flex-start; margin: -0.25rem 0 0; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-brand-text);
+}
+.more:hover { text-decoration: underline; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
+.select {
+  flex: 1 1 6rem; min-width: 0; height: 2.5rem; padding-inline: 0.65rem;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
+  background: var(--color-surface); color: var(--color-text); font: inherit; font-size: var(--text-sm);
+}
+.hasItems, .hasItems:hover, .hasItems:focus-within { border-color: var(--color-success); }
+.inCartBadge {
+  position: absolute; top: 0.75rem; right: 0.75rem; display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.3rem 0.65rem 0.3rem 0.5rem; border-radius: 999px; box-shadow: var(--shadow-sm);
+  background: var(--color-success); color: var(--color-brand-contrast);
+  font-size: var(--text-xs); font-weight: var(--weight-semibold); line-height: 1;
+}
+
+.skeleton { display: flex; flex-direction: column; gap: 0.9rem; padding: 0 0 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; }
+.skeletonImage, .skeletonLine { display: block; background: var(--color-bg-subtle); animation: pulse 1.4s ease-in-out infinite; }
+.skeletonImage { aspect-ratio: 1; }
+.skeletonLine { height: 1rem; margin-inline: 1.25rem; border-radius: var(--radius-sm); }
+@keyframes pulse { 50% { opacity: 0.5; } }
+@media (prefers-reduced-motion: reduce) { .skeletonImage, .skeletonLine { animation: none; } }
+
+.status { display: grid; justify-items: center; gap: 1rem; padding: 3rem 1rem; text-align: center; color: var(--color-text-muted); }
+.problem { margin: 1rem 0 0; padding: 0.75rem 1rem; border-radius: var(--radius-md); background: var(--color-danger-subtle); color: var(--color-danger); font-size: var(--text-sm); }
+
+.cart { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+.empty { margin: 0; padding: 2rem 0; text-align: center; color: var(--color-text-muted); }
+.lines { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.line { display: grid; grid-template-columns: 3.5rem 1fr auto; align-items: center; gap: 0.9rem; padding: 0.85rem 0; border-bottom: 1px solid var(--color-border); }
+.thumb { width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: var(--radius-sm); background: var(--color-bg-subtle); }
+.lineInfo { display: flex; flex-direction: column; min-width: 0; }
+.lineTitle { font-weight: var(--weight-medium); }
+.lineMeta { font-size: var(--text-sm); color: var(--color-text-muted); }
+.stepper { display: inline-flex; align-items: center; gap: 0.35rem; }
+.step {
+  display: inline-grid; place-items: center; width: 2rem; height: 2rem;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  background: var(--color-surface); color: var(--color-text); cursor: pointer;
+}
+.step:hover { background: var(--color-surface-hover); }
+.step[disabled] { opacity: 0.5; cursor: default; }
+.qty { min-width: 1.5rem; text-align: center; font-variant-numeric: tabular-nums; }
+.subtotal { display: flex; justify-content: space-between; font-size: var(--text-lg); }
+.fine { margin: -0.5rem 0 0; font-size: var(--text-sm); color: var(--color-text-muted); }

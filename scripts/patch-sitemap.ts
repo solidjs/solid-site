@@ -7,7 +7,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { PREFIXED_LOCALES } from "../src/i18n/locales.ts";
 
 const origin = "https://www.solidjs.com";
-const extra = ["/", "/about", "/blog", "/media", "/team"];
+const extra = ["/", "/about", "/blog", "/media", "/store", "/team"];
 const file = new URL("../dist/client/sitemap.xml", import.meta.url);
 
 const xml = await readFile(file, "utf8");

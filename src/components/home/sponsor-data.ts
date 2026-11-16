@@ -7,6 +7,7 @@ import jetbrains from "./logos/jetbrains.webp";
 import netlify from "./logos/netlify.webp";
 import proton from "./logos/proton.webp";
 import saucelabs from "./logos/saucelabs.webp";
+import sentry from "./logos/sentry.svg";
 import vercel from "./logos/vercel.webp";
 import type { Sponsor } from "./data";
 
@@ -20,6 +21,7 @@ import type { Sponsor } from "./data";
  * sponsor list and assign gold/silver/bronze tiers before launch.
  */
 export const SPONSORS: Sponsor[] = [
+  { name: "Sentry", href: "https://sentry.io/", logo: sentry, ratio: 4.526, tier: "supporter" },
   { name: "CodeRabbit", href: "https://www.coderabbit.com/", logo: coderabbit, ratio: 7.0, tier: "supporter" },
   { name: "Informaticon", href: "https://www.informaticon.com/", logo: informaticon, ratio: 7.889, tier: "supporter" },
   { name: "Cloudflare", href: "https://www.cloudflare.com/", logo: cloudflare, ratio: 2.917, tier: "supporter" },

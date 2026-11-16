@@ -101,6 +101,8 @@ export const NAV: NavEntry[] = [
       { label: "GitHub", href: URLS.github, icon: "github", description: "Source code, issues and discussions." },
       { label: "Team & Contributors", href: "/team", icon: "users", description: "The people who build and support Solid." },
       { label: "Code of Conduct", href: "/code-of-conduct", icon: "shield", description: "How we keep the community welcoming." },
+      { label: "Store", href: "/store", icon: "shopping-bag", description: "Stickers and swag. Profits support Solid." },
+      { label: "Open Collective", href: URLS.opencollective, icon: "opencollective", description: "Fund the maintainers, infrastructure and events." },
     ],
   },
   {
@@ -142,6 +144,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "About", href: "/about" },
       { label: "Media & Brand", href: "/media" },
       { label: "npm", href: URLS.npm },
+      { label: "Store", href: "/store" },
       { label: "Sponsor on Open Collective", href: URLS.opencollective },
       { label: "Website source", href: URLS.githubSiteRepo },
     ],

@@ -43,6 +43,11 @@ import Mail from "~icons/lucide/mail";
 import Languages from "~icons/lucide/languages";
 import Server from "~icons/lucide/server";
 import Target from "~icons/lucide/target";
+import ShoppingBag from "~icons/lucide/shopping-bag";
+import ShoppingCart from "~icons/lucide/shopping-cart";
+import Plus from "~icons/lucide/plus";
+import Minus from "~icons/lucide/minus";
+import Trash from "~icons/lucide/trash-2";
 
 type SvgIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => JSX.Element;
 
@@ -61,6 +66,7 @@ const icons = {
   users: Users, shield: Shield, sparkles: Sparkles, zap: Zap, layers: Layers, code: Code,
   calendar: Calendar, newspaper: Newspaper, scale: Scale, info: Info, play: Play,
   warning: Warning, lightbulb: Lightbulb, mail: Mail, languages: Languages, server: Server, target: Target,
+  "shopping-bag": ShoppingBag, "shopping-cart": ShoppingCart, plus: Plus, minus: Minus, trash: Trash,
 } satisfies Record<string, SvgIcon>;
 
 export type IconName = keyof typeof icons;

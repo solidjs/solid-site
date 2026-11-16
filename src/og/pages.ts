@@ -60,6 +60,13 @@ const STATIC_PAGES: OgPage[] = [
     description: "Download the Solid logo as SVG, and find brand colours and usage guidelines.",
   },
   {
+    path: "/store",
+    file: "store",
+    kicker: "Store",
+    title: "The Solid Store",
+    description: "Stickers and swag. Every profit goes to Solid's Open Collective.",
+  },
+  {
     path: "/team",
     file: "team",
     kicker: "Community",
