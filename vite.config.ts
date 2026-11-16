@@ -75,7 +75,7 @@ export default defineConfig({
       title: "Solid",
       titleTemplate: ":title | Solid",
       description:
-        "Fine-grained reactivity for building user interfaces, with no virtual DOM.",
+        "Simple and performant reactivity for building user interfaces.",
       siteUrl: "https://www.solidjs.com",
       lang: DEFAULT_LOCALE.lang,
       locales,

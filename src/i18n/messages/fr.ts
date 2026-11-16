@@ -99,7 +99,7 @@ export default {
   "Mobile": "Mobile",
   "{name} home": "Accueil {name}",
   "Solid on {network} (opens in a new tab)": "Solid sur {network} (s'ouvre dans un nouvel onglet)",
-  "Fine-grained reactivity for building user interfaces, with no virtual DOM.": "Une réactivité à grain fin pour créer des interfaces utilisateur, sans DOM virtuel.",
+  "Simple and performant reactivity for building user interfaces.": "Une réactivité simple et performante pour créer des interfaces utilisateur.",
   "Solid 2.0 is live": "Solid 2.0 est disponible",
   "© {year} {holder}.": "© {year} {holder}.",
   "Released under the {license}.": "Publié sous {license}.",
