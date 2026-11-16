@@ -1,7 +1,9 @@
 /* The panel plus the stats bar fill the first screen (minus the sticky header). */
 .hero {
   /* No top padding: the header already has its own space above the logo, and the panel should sit the same distance below it. */
-  padding: 0 0.75rem var(--space-section);
+  /* Half a section below: the next section ("Why Solid") shares this background, so its own top padding plus a full
+     section here read as one oversized gap. Other section breaks change background, which carries the separation. */
+  padding: 0 0.75rem calc(var(--space-section) / 2);
 }
 .panel {
   position: relative;

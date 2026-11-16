@@ -35,7 +35,7 @@ export const maintainers: readonly Person[] = [
   // TODO(content): roles for the newest maintainers.
   { name: "ladybluenotes", github: "ladybluenotes", img: "/img/bios/ladybluenotes.jpeg", role: "Maintainer", bio: "Maintains the Solid documentation and is its most active contributor." },
   { name: "Birk Skyum", github: "birkskyum", img: "/img/bios/birk-skyum.jpeg", role: "Maintainer", bio: "Birk works on developer experience across the Solid ecosystem." },
-  { name: "Brendan (Brenelz)", github: "brenelz", img: "/img/bios/brendan-brenelz.png", role: "Maintainer", bio: "A developer who keeps close to frontend JavaScript trends and contributes to SolidStart and the Solid documentation." },
+  { name: "Brenley (Brenelz)", github: "brenelz", img: "/img/bios/brenley-brenelz.png", role: "Maintainer", bio: "A developer who keeps close to frontend JavaScript trends and contributes to SolidStart and the Solid documentation." },
   { name: "Katja Lutz", github: "katywings", img: "/img/bios/katja-lutz.jpeg", role: "Maintainer" },
 ];
 

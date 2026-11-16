@@ -29,7 +29,7 @@ export function Hero() {
             </h1>
             <div class={styles.side}>
               <p class={styles.lead}>
-                {t(SITE_TAGLINE)} {t("Solid 2.0 adds first-class async, split effects and draft-first stores to the framework developers already love for its speed.")}
+                {t(SITE_TAGLINE)} {t("Solid 2.0 adds first-class async, optimistic actions and draft-first stores to the framework developers already love for its speed.")}
               </p>
               <div class={styles.actions}>
                 <Button href={URLS.docs} variant="primary" size="lg">Read the docs</Button>
