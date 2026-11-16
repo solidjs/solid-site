@@ -7,8 +7,6 @@ import { CopyButton } from "../CopyButton";
 import { Icon } from "../Icon";
 import { Link } from "../Link";
 import { CREATE_COMMAND } from "./data";
-import { HeroArt } from "./HeroArt";
-import artStyles from "./HeroArt.module.css";
 import { LiveStats } from "./Stats";
 import styles from "./Hero.module.css";
 
@@ -17,7 +15,6 @@ export function Hero() {
   return (
     <section class={styles.hero} aria-labelledby="home-title">
       <div class={styles.panel}>
-        <HeroArt class={`${artStyles.art} ${styles.art}`} />
         <Container size="wide" class={styles.inner}>
           <Link href="/blog" class={styles.announce}>
             <Badge tone="brand">New</Badge>

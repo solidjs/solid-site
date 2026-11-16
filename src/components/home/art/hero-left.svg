@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 771" fill="none">
+<defs>
+<radialGradient id="glow"><stop offset="0" stop-color="#9fdcff" stop-opacity=".9"/><stop offset=".45" stop-color="#4aa8ff" stop-opacity=".35"/><stop offset="1" stop-color="#1a7bff" stop-opacity="0"/></radialGradient>
+<filter id="blur8" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+<filter id="blur1" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".8"/></filter>
+<filter id="blur2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+<filter id="blur4" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="bigTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0561ec"/><stop offset="1" stop-color="#0a70f6"/></linearGradient>
+<linearGradient id="bigLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a8cf0" stop-opacity=".55"/><stop offset="1" stop-color="#0a64e8" stop-opacity=".12"/></linearGradient>
+<linearGradient id="bigRight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0150c8" stop-opacity=".7"/><stop offset="1" stop-color="#0148b8" stop-opacity=".25"/></linearGradient>
+</defs>
+<g>
+<polyline points="100,78 136,98 172,119" fill="none" stroke="#1fa6f8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<polyline points="0,527 28,543 70,561" fill="none" stroke="#3d93ff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+<polyline points="70,504 118,533" fill="none" stroke="#3d93ff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<polyline points="70,504 22,532" fill="none" stroke="#3d93ff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+<polyline points="118,609 70,639" fill="none" stroke="#3d93ff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+<polyline points="28,683 70,660" fill="none" stroke="#3d93ff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+<polyline points="70,710 115,687" fill="none" stroke="#3d93ff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+<polyline points="125,771 190,740 210,727" fill="none" stroke="#3d93ff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+</g>
+<g>
+<polyline points="28,36 100,-6 172,36" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="28,36 100,78 172,36" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="28,119 100,78" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="28,119 100,161 172,119" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="28,36 28,119" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="172,36 172,119" fill="none" stroke="#b6cdf4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<polyline points="100,-6 100,78" fill="none" stroke="#b6cdf4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+<polyline points="100,78 100,161" fill="none" stroke="#b6cdf4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<ellipse cx="64" cy="14" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="136" cy="14" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="64" cy="57" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="136" cy="57" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="65" cy="99" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="64" cy="140" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="136" cy="140" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="28" cy="77" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="172" cy="77" rx="2.6" ry="2.6" fill="#e0efff"/>
+<ellipse cx="136" cy="98" rx="3" ry="3" fill="#18a0f8"/>
+<ellipse cx="100" cy="36" rx="3" ry="3" fill="#dff4ff"/>
+<ellipse cx="100" cy="119" rx="3" ry="3" fill="#dff4ff"/>
+<circle cx="28" cy="36" r="12.5" fill="url(#glow)" opacity=".55"/><ellipse cx="28" cy="36" rx="4.8" ry="4.8" fill="#e4f1ff"/>
+<circle cx="172" cy="36" r="12.5" fill="url(#glow)" opacity=".55"/><ellipse cx="172" cy="36" rx="4.8" ry="4.8" fill="#e4f1ff"/>
+<circle cx="28" cy="119" r="12.5" fill="url(#glow)" opacity=".55"/><ellipse cx="28" cy="119" rx="4.8" ry="4.8" fill="#e4f1ff"/>
+<circle cx="172" cy="119" r="12.5" fill="url(#glow)" opacity=".55"/><ellipse cx="172" cy="119" rx="4.8" ry="4.8" fill="#e4f1ff"/>
+<circle cx="100" cy="161" r="12.5" fill="url(#glow)" opacity=".55"/><ellipse cx="100" cy="161" rx="4.8" ry="4.8" fill="#e4f1ff"/>
+<circle cx="100" cy="78" r="15.1" fill="url(#glow)" opacity=".55"/><ellipse cx="100" cy="78" rx="5.8" ry="5.8" fill="#e6f3ff"/>
+</g>
+<g>
+<polyline points="0,306 27,291 62,272 100,252" fill="none" stroke="#a9c9f4" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+<polyline points="100,252 120,262 141,277" fill="none" stroke="#a9c9f4" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+<polyline points="66,270 100,252 120,239 141,226 178,203" fill="none" stroke="#a9c9f4" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<polyline points="141,226 141,265" fill="none" stroke="#a9c9f4" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<polyline points="0,258 24,246" fill="none" stroke="#6aaaf5" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<circle cx="100" cy="252" r="4.8" fill="#0050c0" stroke="#8fb6ec" stroke-width="1.4"/>
+<circle cx="141" cy="226" r="3.4" fill="#0050c0" stroke="#8fb6ec" stroke-width="1.4"/>
+<ellipse cx="27" cy="291" rx="3.2" ry="3.2" fill="#1a74ee"/>
+<ellipse cx="62" cy="272" rx="2.6" ry="2.6" fill="#2a86f5"/>
+<polyline points="0,350 27,336" fill="none" stroke="#a9c9f4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<circle cx="27" cy="336" r="16.6" fill="url(#glow)" opacity=".55"/><ellipse cx="27" cy="336" rx="6.4" ry="6.4" fill="#d8eeff"/>
+<polyline points="0,486 28,503 0,520" fill="none" stroke="#a9c9f4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<polyline points="28,503 28,588" fill="none" stroke="#a9c9f4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<polyline points="28,588 0,606" fill="none" stroke="#a9c9f4" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<circle cx="28" cy="503" r="18.2" fill="url(#glow)" opacity=".55"/><ellipse cx="28" cy="503" rx="7" ry="7" fill="#dff1ff"/>
+<ellipse cx="28" cy="543" rx="3" ry="3" fill="#dff4ff"/>
+<circle cx="28" cy="588" r="16.6" fill="url(#glow)" opacity=".55"/><ellipse cx="28" cy="588" rx="6.4" ry="6.4" fill="#d8eeff"/>
+<polyline points="118,533 118,609" fill="none" stroke="#4a9bff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<polyline points="70,561 70,661" fill="none" stroke="#4a9bff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<polyline points="70,661 116,687 150,707 192,732" fill="none" stroke="#4a9bff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+<ellipse cx="70" cy="504" rx="3" ry="3" fill="#2a86f5"/>
+<ellipse cx="118" cy="533" rx="4.2" ry="4.2" fill="#2a86f5"/>
+<ellipse cx="70" cy="561" rx="4.6" ry="4.6" fill="#2a86f5"/>
+<ellipse cx="118" cy="609" rx="4.2" ry="4.2" fill="#2a86f5"/>
+<ellipse cx="70" cy="661" rx="4.2" ry="4.2" fill="#2a86f5"/>
+<ellipse cx="118" cy="570" rx="1.6" ry="1.6" fill="#6fb4ff"/>
+<ellipse cx="70" cy="598" rx="1.6" ry="1.6" fill="#6fb4ff"/>
+<ellipse cx="70" cy="611" rx="1.6" ry="1.6" fill="#6fb4ff"/>
+<ellipse cx="70" cy="638" rx="1.6" ry="1.6" fill="#6fb4ff"/>
+<ellipse cx="116" cy="687" rx="5.6" ry="4.6" fill="#2a9bf8"/>
+<ellipse cx="150" cy="707" rx="2.2" ry="2.2" fill="#6fb4ff"/>
+<circle cx="194" cy="732" r="15.6" fill="url(#glow)" opacity=".55"/><ellipse cx="194" cy="732" rx="6" ry="6" fill="#bfe3ff"/>
+<ellipse cx="28" cy="683" rx="4" ry="4" fill="#1a74ee"/>
+<ellipse cx="70" cy="710" rx="3.6" ry="3.6" fill="#1a74ee"/>
+<ellipse cx="153" cy="758" rx="2" ry="2" fill="#6fb4ff"/>
+<ellipse cx="235" cy="742" rx="1.8" ry="1.8" fill="#6fb4ff"/>
+</g>
+<g><polygon points="5,212.5 24,225 24,250 5,237.5" fill="#0f70f4"/><polygon points="24,225 43,212.5 43,237.5 24,250" fill="#0553d6"/><polygon points="24,200 43,212.5 24,225 5,212.5" fill="#0b63e3"/><polyline points="5,212.5 24,200 43,212.5" fill="none" stroke="#2f86ff" stroke-width="1" stroke-linejoin="round" opacity=".7"/></g>
+<g><polygon points="178.5,193.2 190,200 190,213.5 178.5,206.8" fill="#43b4fe"/><polygon points="190,200 201.5,193.2 201.5,206.8 190,213.5" fill="#2ea6fd"/><polygon points="190,186.5 201.5,193.2 190,200 178.5,193.2" fill="#8dd2ff"/><polyline points="178.5,193.2 190,186.5 201.5,193.2" fill="none" stroke="#cdeeff" stroke-width="1" stroke-linejoin="round" opacity=".7"/></g>
+<g><polygon points="130,270.2 141,277 141,290.5 130,283.8" fill="#38aefe"/><polygon points="141,277 152,270.2 152,283.8 141,290.5" fill="#2a9cf8"/><polygon points="141,263.5 152,270.2 141,277 130,270.2" fill="#6fcaff"/><polyline points="130,270.2 141,263.5 152,270.2" fill="none" stroke="#cdeeff" stroke-width="1" stroke-linejoin="round" opacity=".7"/></g>
+<g><polygon points="150,633.8 175,649 175,679.5 150,664.2" fill="#0f7afb"/><polygon points="175,649 200,633.8 200,664.2 175,679.5" fill="#0868f0"/><polygon points="175,618.5 200,633.8 175,649 150,633.8" fill="#2a9bff"/><polyline points="150,633.8 175,618.5 200,633.8" fill="none" stroke="#7cc8ff" stroke-width="1" stroke-linejoin="round" opacity=".7"/></g>
+<ellipse cx="24" cy="246" rx="3" ry="3" fill="#1fa0f6"/>
+<g>
+<path d="M-62.1,701.7Q-33,684 -3.9,701.7L74.8,749.5Q97,763 74.8,776.5L-3.9,824.3Q-33,842 -62.1,824.3L-140.8,776.5Q-163,763 -140.8,749.5Z" fill="#b1e3ff"/>
+<linearGradient id="bt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#88d1fe"/><stop offset="1" stop-color="#78c8fc"/></linearGradient>
+<path d="M-62.1,695.7Q-33,678 -3.9,695.7L74.8,743.5Q97,757 74.8,770.5L-3.9,818.3Q-33,836 -62.1,818.3L-140.8,770.5Q-163,757 -140.8,743.5Z" fill="url(#bt)"/>
+<path d="M-62.1,696.6Q-33,679 -3.9,696.6L73.8,743.5Q96,757 73.8,770.5L-3.9,817.4Q-33,835 -62.1,817.4L-139.8,770.5Q-162,757 -139.8,743.5Z" fill="none" stroke="#eaf7ff" stroke-width="2" opacity=".8" filter="url(#blur1)"/>
+</g>
+</svg>

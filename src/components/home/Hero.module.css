@@ -16,16 +16,36 @@
     linear-gradient(160deg, var(--color-hero-from), var(--color-hero-via) 45%, var(--color-hero-to));
   color: var(--color-hero-text);
 }
-.art {
+/*
+ * Background art lifted from the Async Solid blog cover (wireframe cubes, glossy stacked tiles, node lines): two
+ * transparent strips hugging the panel's edges. They scale with the panel's height and stay behind the copy.
+ */
+.panel::before,
+.panel::after {
+  content: "";
   position: absolute;
   z-index: -1;
-  top: -3%;
-  right: 1%;
-  width: min(34rem, 44%);
-  height: auto;
+  top: 0;
+  height: 100%;
+  background: no-repeat center / 100% 100%;
+  pointer-events: none;
+}
+.panel::before {
+  left: 0;
+  aspect-ratio: 250 / 771;
+  background-image: url("./art/hero-left.svg");
   opacity: 0.85;
-  -webkit-mask-image: linear-gradient(#000 30%, transparent 62%);
-  mask-image: linear-gradient(#000 30%, transparent 62%);
+  /* The headline starts about halfway down, so the art is gone before it. */
+  -webkit-mask-image: linear-gradient(#000 20%, transparent 50%);
+  mask-image: linear-gradient(#000 20%, transparent 50%);
+}
+.panel::after {
+  right: 0;
+  aspect-ratio: 510 / 771;
+  background-image: url("./art/hero-right.svg");
+  /* The lead paragraph and buttons sit over the lower half, so the art fades there to keep the text readable. */
+  -webkit-mask-image: linear-gradient(#000 38%, rgb(0 0 0 / 0.1) 68%);
+  mask-image: linear-gradient(#000 38%, rgb(0 0 0 / 0.1) 68%);
 }
 .inner {
   display: flex;
@@ -45,6 +65,8 @@
   border: 1px solid color-mix(in srgb, var(--color-hero-text) 30%, transparent);
   border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--color-hero-text) 10%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   color: var(--color-hero-text);
   font-size: var(--text-sm);
   text-decoration: none;
@@ -127,15 +149,21 @@
   color: color-mix(in srgb, var(--color-hero-text) 70%, transparent);
   font-size: var(--text-sm);
 }
+/* Narrower than a full desktop the copy column sits higher, over the top tiles, so the art steps back. */
+@media (max-width: 75rem) {
+  .panel::after {
+    opacity: 0.45;
+  }
+}
 @media (max-width: 52rem) {
   .copy {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
   }
-  .art {
-    top: 3rem;
-    right: -20%;
-    width: 110%;
-    opacity: 0.35;
+  .panel::before {
+    display: none;
+  }
+  .panel::after {
+    opacity: 0.4;
   }
 }
