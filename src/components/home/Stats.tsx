@@ -34,12 +34,17 @@ async function fetchStored(): Promise<Stats | null> {
   }
 }
 
-/** Never throws: any failed or slow request keeps the static fallback for that number. */
-async function fetchDirect(): Promise<Stats> {
+/**
+ * Asks GitHub and npm from the visitor's own browser, only for the numbers in `want` (a visitor's own IP has its own
+ * rate limit). Never throws: any failed or slow request keeps the static fallback for that number.
+ */
+async function fetchDirect(want: Record<keyof Stats, boolean> = { stars: true, downloads: true, contributors: true }): Promise<Stats> {
+  const skip = Promise.reject(new Error("not needed"));
+  skip.catch(() => {});
   const [repo, npm, contributors] = await Promise.allSettled([
-    getJson("https://api.github.com/repos/solidjs/solid"),
-    getJson("https://api.npmjs.org/downloads/point/last-week/solid-js"),
-    getJson("https://api.github.com/repos/solidjs/solid/contributors?per_page=1&anon=false"),
+    want.stars ? getJson("https://api.github.com/repos/solidjs/solid") : skip,
+    want.downloads ? getJson("https://api.npmjs.org/downloads/point/last-week/solid-js") : skip,
+    want.contributors ? getJson("https://api.github.com/repos/solidjs/solid/contributors?per_page=1&anon=false") : skip,
   ]);
   const lastPage = (h: Headers) => {
     const m = h.get("link")?.match(/[?&]page=(\d+)>;\s*rel="last"/);
@@ -54,7 +59,25 @@ async function fetchDirect(): Promise<Stats> {
 
 const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
 
-const fetchStats = async (): Promise<Stats> => (await fetchStored()) ?? fetchDirect();
+/**
+ * The Worker's numbers first. It may have only some of them (GitHub can refuse its requests while npm answers), so
+ * anything it lacks is asked for directly rather than shown as a dash.
+ */
+const fetchStats = async (): Promise<Stats> => {
+  const stored = await fetchStored();
+  const missing = {
+    stars: stored?.stars == null,
+    downloads: stored?.downloads == null,
+    contributors: stored?.contributors == null,
+  };
+  if (stored && !missing.stars && !missing.downloads && !missing.contributors) return stored;
+  const direct = await fetchDirect(missing);
+  return {
+    stars: stored?.stars ?? direct.stars,
+    downloads: stored?.downloads ?? direct.downloads,
+    contributors: stored?.contributors ?? direct.contributors,
+  };
+};
 
 /** One request per page load: the hero stats and the "Why Solid" numbers share it (GitHub allows 60 unauthenticated calls/hour). */
 let cached: Promise<Stats> | undefined;

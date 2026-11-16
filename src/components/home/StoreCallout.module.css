@@ -1,6 +1,7 @@
 .band {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
-  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-brand-subtle), var(--color-bg-subtle));
 }
 .inner {
   display: flex;
@@ -14,7 +15,9 @@
   width: 3.25rem;
   height: 3.25rem;
   border-radius: var(--radius-md);
-  background: var(--color-brand-subtle);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
   color: var(--color-brand-text);
 }
 .body {

@@ -27,6 +27,8 @@ const KEY = "stats:v1";
 const TIMEOUT_MS = 8000;
 /** A snapshot older than this is refreshed in the background by the next visitor (the cron normally keeps it fresh). */
 const STALE_MS = 36 * 60 * 60 * 1000;
+/** A snapshot with a number still missing (GitHub failed) is retried this soon, instead of waiting for the cron. */
+const RETRY_MISSING_MS = 10 * 60 * 1000;
 
 const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : null);
 
@@ -34,7 +36,11 @@ async function getJson(url: string, env: Env): Promise<{ json: unknown; headers:
   const headers: Record<string, string> = { accept: "application/json", "user-agent": "solidjs-site-stats" };
   if (env.GITHUB_TOKEN && url.startsWith("https://api.github.com/")) headers.authorization = `Bearer ${env.GITHUB_TOKEN}`;
   const res = await fetch(url, { headers, signal: AbortSignal.timeout(TIMEOUT_MS) });
-  if (!res.ok) throw new Error(`${url} responded ${res.status}`);
+  if (!res.ok) {
+    // Visible in `wrangler tail`. GitHub answers 403 or 429 when an unauthenticated caller is rate limited.
+    console.warn(`stats: ${url} responded ${res.status}${res.headers.get("x-ratelimit-remaining") === "0" ? " (rate limited; set GITHUB_TOKEN)" : ""}`);
+    throw new Error(`${url} responded ${res.status}`);
+  }
   return { json: await res.json(), headers: res.headers };
 }
 
@@ -81,7 +87,11 @@ async function handleStats(request: Request, env: Env, ctx: ExecutionContext): P
   let snapshot = await read(env);
   // First request after a deploy, before the cron has run: fill the store now instead of showing nothing.
   if (!snapshot) snapshot = await refresh(env).catch(() => null);
-  else if (Date.now() - Date.parse(snapshot.updatedAt) > STALE_MS) ctx.waitUntil(refresh(env).catch(() => null));
+  else {
+    const age = Date.now() - Date.parse(snapshot.updatedAt);
+    const missing = snapshot.stars === null || snapshot.downloads === null || snapshot.contributors === null;
+    if (age > STALE_MS || (missing && age > RETRY_MISSING_MS)) ctx.waitUntil(refresh(env).catch(() => null));
+  }
 
   if (!snapshot) {
     return Response.json({ stars: null, downloads: null, contributors: null }, { status: 503, headers: { "cache-control": "no-store" } });
