@@ -155,6 +155,12 @@ const TIMELINE: TimelineEvent[] = [
     description: "The first Solid 2.0 beta, \"The <Suspense> is Over\", opens the new async model to everyone.",
   },
   {
+    label: "4 Aug 2026",
+    iso: "2026-08-04",
+    title: "SolidStart 2.0",
+    description: "SolidStart 2.0 replaces Vinxi with Vite 8 and its Environment API.",
+  },
+  {
     label: "13 Aug 2026",
     iso: "2026-08-13",
     title: "Solid 2.0 release candidate",
@@ -163,8 +169,8 @@ const TIMELINE: TimelineEvent[] = [
   {
     label: "13 Aug 2026",
     iso: "2026-08-13",
-    title: "SolidStart becomes legacy",
-    description: "Server functions, the serving layer and file-system routing had all moved into core, so SolidStart was retired in favour of start mode, merging the framework and the library. SolidStart keeps receiving maintenance releases.",
+    title: "SolidStart becomes Start-mode",
+    description: "Server functions, the serving layer and file-system routing had all moved into core, so SolidStart became Start-mode, merging the framework and the library. SolidStart keeps receiving maintenance releases.",
   },
   {
     label: "16 Nov 2026",
