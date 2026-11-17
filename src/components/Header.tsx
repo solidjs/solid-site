@@ -5,7 +5,7 @@ import { createEffect, createSignal, For, onFlush, onSettled, Show } from "solid
 import { stripLocale, useI18n } from "../i18n";
 import { isExternalHref, isNavGroup, NAV, SITE_NAME, SOCIAL_LINKS, type NavLink } from "../site";
 import { Icon } from "./Icon";
-import { LanguageSwitcher } from "./LanguageSwitcher";
+// import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
@@ -291,7 +291,7 @@ export function Header() {
               </a>
             )}
           </For>
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> — hidden for now */}
           <ThemeToggle />
           <div class={styles.mobile}>
             <MobileNav />
