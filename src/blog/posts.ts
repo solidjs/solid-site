@@ -36,6 +36,7 @@ const source: Post[] = [
     author: "Ryan Carniato",
     authorUrl: RYAN,
     date: "2026-11-16",
+    image: img("solid-2-0-the-long-hold"),
     tags: ["Release", "Solid 2.0"],
     readingMinutes: 8,
   },
