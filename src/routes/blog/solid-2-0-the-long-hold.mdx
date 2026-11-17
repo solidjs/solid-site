@@ -77,6 +77,8 @@ These handle everything from strict errors to helpful heuristics. Thanks to asyn
 
 This area is still evolving as we learn more about how agents build applications with Solid. The hard part, defining the primitives and semantics, is done. We've integrated with new dev tooling, and Chrome's Performance Tracks. And this capability goes beyond development as this observability powers things like our updated Sentry plugin so you can get the same information on your production builds.
 
+We've also been looking at alternative syntax. Solid 2.0 adds experimental support for [ReactiveScript](https://reactivescript.dev) and [TSRX](https://tsrx.dev), both aiming to use compilation to further improve agent authoring.
+
 ## One Framework for All
 
 I've always been a big believer that React's super power is its composability. That it allowed the ecosystem to build on its humble pieces. However, we've learned a lot since 2013. At that point composable state, async patterns, and server rendering lacked the primitives to build upon and the ecosystem came up with their own solutions. This was fine for a while but tied React's hands and fractured their ecosystem. Something only a framework as popular as React could survive.
@@ -134,5 +136,9 @@ npm create solid@latest
 ```
 
 Solid 2.0 is here. Let's build.
+
+---
+
+> The Long Hold refers to [a diagnostic warning](https://docs.solidjs.com/reference/solid-js/diagnostics/long-hold) in Solid 2.0. It fires when a hold has been shown(`isPending`) but sufficient time has passed since the last input. Holds were at the heart of our async work for 2.0, and we acknowledge it took a while for this all to land.
 
 </Article>
