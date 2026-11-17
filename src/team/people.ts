@@ -44,6 +44,7 @@ export const maintainers: readonly Person[] = [
 /** Individuals thanked for design, writing and site work. */
 export const contributors: readonly Supporter[] = [
   { name: "Eric Rochon", company: "Brood Studio", link: "https://brood.studio", detail: "Contributed to Solid's brand." },
+  { name: "Eran Dod", company: "erandod.com", link: "https://erandod.com", detail: "Supported branding efforts for Solid 2.0." },
   { name: "Sarah Kim", company: "Pilot Interactive", link: "https://www.pilotinteractive.io", detail: "Sarah provides expertise in usability and design." },
   { name: "Les Pruszynski", company: "", link: "https://github.com/seneca", detail: "Les provides support for copywriting on the website and our tutorials." },
   { name: "Joaquín (userquin)", company: "", link: "https://github.com/userquin", detail: "Helped add PWA support to the website." },

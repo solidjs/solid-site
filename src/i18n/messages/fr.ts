@@ -429,6 +429,7 @@ export default {
   "Special thanks": "Remerciements particuliers",
   "Design, writing, moderation and infrastructure help along the way.": "De l'aide en design, en rédaction, en modération et en infrastructure tout au long du chemin.",
   "Contributed to Solid's brand.": "A contribué à l'image de marque de Solid.",
+  "Supported branding efforts for Solid 2.0.": "A soutenu les travaux de marque de Solid 2.0.",
   "Sarah provides expertise in usability and design.": "Sarah apporte son expertise en ergonomie et en design.",
   "Les provides support for copywriting on the website and our tutorials.": "Les nous aide pour la rédaction du site et de nos tutoriels.",
   "Helped add PWA support to the website.": "A aidé à ajouter la prise en charge PWA au site.",
