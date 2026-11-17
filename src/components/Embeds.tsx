@@ -30,17 +30,24 @@ interface LiteEmbedProps {
   href: string;
   ratio?: string;
   allow?: string;
+  /** Thumbnail shown behind the play button. Must be self-hosted: a third-party image would load before the click. */
+  poster?: string;
 }
 
 function LiteEmbed(props: LiteEmbedProps) {
   const [active, setActive] = createSignal(false);
   return (
-    <div class={styles.embed} style={{ "aspect-ratio": props.ratio ?? "16 / 9" }}>
+    <div class={styles.embed} data-poster={props.poster ? "" : undefined} style={{ "aspect-ratio": props.ratio ?? "16 / 9" }}>
       <Show
         when={active()}
         fallback={
-          <button type="button" class={styles.play} onClick={() => setActive(true)}>
-            <Icon name="play" size={32} />
+          <button
+            type="button"
+            class={styles.play}
+            style={props.poster ? { "background-image": `url("${props.poster}")` } : undefined}
+            onClick={() => setActive(true)}
+          >
+            <span class={styles.playIcon}><Icon name="play" size={32} /></span>
             <span>Play: {props.title}</span>
             <small>Loads content from a third party when you click.</small>
           </button>
@@ -62,9 +69,10 @@ function LiteEmbed(props: LiteEmbedProps) {
 }
 
 /** Privacy-friendly YouTube embed (youtube-nocookie, loaded on click). */
-export function YouTube(props: { youTubeId: string; title?: string }) {
+export function YouTube(props: { youTubeId: string; title?: string; poster?: string }) {
   return (
     <LiteEmbed
+      poster={props.poster}
       title={props.title ?? "YouTube video"}
       src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(props.youTubeId)}?autoplay=1&rel=0`}
       href={`https://www.youtube.com/watch?v=${encodeURIComponent(props.youTubeId)}`}

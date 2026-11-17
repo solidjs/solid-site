@@ -1,0 +1,137 @@
+---
+title: "Solid 2.0 - The Long Hold"
+description: "Solid 2.0 reaches stable after five years: async in the reactive graph, server functions, diagnostics built for agents, and a smaller API."
+author: "Ryan Carniato"
+authorUrl: "https://www.github.com/ryansolid"
+date: 2026-11-16
+tags: ["Release", "Solid 2.0"]
+---
+
+import { Article } from "../../components/blog/Article";
+
+<Article>
+
+5 years is a long time to work on anything. It took 5 years from my first commit of Solid to 1.0, and it's been another 5 since then.
+
+A lot changes in 5 years. Solid 1.0 made a bet that fine-grained reactivity, signals, was the right foundation for building user interfaces. Back then it was an unusual position. Today signals are everywhere. In Angular, in Svelte's runes, in Vue Vapor, and in a proposal before TC39 to put them in the language itself. It even pushed the conversation into React's compiler.
+
+More recently that conversation has shifted to AI, arguably an even larger change in how we build. But Solid has always been about building the right things; the performant things. So for us the mission hasn't really changed all that much. The things that we identified as standout about our approach still stand out now. But instead of living in the shadow of more popular solutions Solid 2.0 carves out a path that others can follow. Deliberately this time.
+
+Today that solution reaches stable.
+
+## Async Graph
+
+If fine-grained reactivity's greatest strength is knowing the shape of our application, that knowledge shouldn't end with the process, or the machine the code is running on. Real applications are distributed. Real applications are born from data that lives on a server. The coordination of these pieces should be intentional and by design.
+
+This starts with bringing async into the graph. A computation can return a Promise or an async iterator, and everything downstream just understands:
+
+```ts
+function Profile(props) {
+  const user = createMemo(() => fetchUser(props.id));
+
+  return (
+    <Loading fallback={<Skeleton />}>
+      <h1 class={{ stale: isPending(user) }}>{user().name}</h1>
+    </Loading>
+  );
+}
+```
+
+This allows authoring by affordance while automating the handling of race conditions. The introduction of async doesn't cause an app refactor. Speculative state is automatically rolled back without manually written processes ensuring the server remains the authority on truth.
+
+SolidStart introduce the world to server functions in early 2022, and now they have found their way home to Solid's core, better than ever. Not only do they support highly capable RPC calls over Request/Response but persistent connections over Server Sent Events. And consuming it remains as simple as the code below.
+
+```ts
+import { live } from "@solidjs/web/server-functions";
+
+const stockPrice = live(async function* (symbol: string) {
+  "use server";
+  for await (const tick of subscribe(symbol)) yield tick.price;
+});
+
+// in your component
+const price = createMemo(() => stockPrice())
+```
+
+This is only the beginning of what can be done with Server Functions and we will be announcing some new features (like reactive Server Components) in coming weeks that leverage this capability.
+
+## Built to Be Written by Agents
+
+"But, we aren't writing the code anymore!" We hear you. A system built on constraints by construction ends up with less code to maintain and less edge cases. What used to be considered a DX shortcoming of reactive frameworks are now their greatest strength. And Solid 2.0 goes all in.
+
+Every framework now says it "works great with AI", and usually that means models have seen a lot of it. That's a statement about training data, not about the framework. The question that matters is what happens when the agent gets it wrong.
+
+In most frameworks a reactive mistake is silent. The app runs, it's just wrong, and the framework can't tell you, because it can't see it either. Solid can. A fine-grained graph knows exactly what was read, where, and what will update. So Solid 2.0's development builds report mistakes as they happen, with a stable code, the location in your source, and the fix:
+
+
+```txt
+[STRICT_READ_UNTRACKED] Reactive value read directly in an effect callback will not update. Move it into a tracking scope (JSX, a memo, or an effect's compute function).
+in <App> › <Item> › effect
+at http://localhost:5173/src/Item.tsx:12:19
+[STRICT_READ_UNTRACKED] what it means and how to fix it: https://docs.solidjs.com/reference/solid-js/diagnostics/strict-read-untracked
+[STRICT_READ_UNTRACKED] agent repair guide: node_modules/solid-js/skills/reactivity-diagnostics/SKILL.md#strict_read_untracked
+```
+
+These handle everything from strict errors to helpful heuristics. Thanks to async in the graph we can detect waterfalls, poorly constructed effect loops, poorly scaling graph shapes like wide graph fanouts and fan-ins. Today along with linting rules we can provide the best in class direction for agents at compile and at runtime.
+
+This area is still evolving as we learn more about how agents build applications with Solid. The hard part, defining the primitives and semantics, is done. We've integrated with new dev tooling, and Chrome's Performance Tracks. And this capability goes beyond development as this observability powers things like our updated Sentry plugin so you can get the same information on your production builds.
+
+## One Framework for All
+
+I've always been a big believer that React's super power is its composability. That it allowed the ecosystem to build on its humble pieces. However, we've learned a lot since 2013. At that point composable state, async patterns, and server rendering lacked the primitives to build upon and the ecosystem came up with their own solutions. This was fine for a while but tied React's hands and fractured their ecosystem. Something only a framework as popular as React could survive.
+
+Newer frameworks have taken more on themselves and tend to only have one metaframework, or one router. We respect React's original positioning but have updated it for 2026. It isn't about restricting the solution but giving developers the primitives to build upon in the way React originally did. Server functions are example of this. Supporting any router, and cache solution for Single-Flight Mutation is another.
+
+We retired our metaframework SolidStart, since every primitive needed to build a Solid Metaframework is now provided by the core or by framework agnostic Vite plugins. We believe that building an opinionated layer like a metaframework shouldn't have you needing to re-implement everything again. We've taken care of the hard parts so you can focus on what you care about. And these days a lot of that work is going to be taken on by your agent. This means less to maintain but no loss in capability.
+
+And this makes it easier for the ecosystem. Solid 2.0 only requires one Clerk or Sentry plugin since we provide the primitives for Request/Response (built on web standards) and the hooks for observability that work across any library. We've already seen success with TanStack Query and Router being as capable as anything we've built first party, bringing in Tanner's impeccable attention to detail for the APIs people love to use.
+
+## Less is More
+
+Somehow even though Solid 2.0 brings more capability to Solid, we've collapsed the surface area at almost every point. There are less primitives needed to be learnt, less ceremony around handling async. `createResource`, `batch`, `startTransition`, `on`, `produce`, `createComputed`, `createMutable` are all gone, because we no longer need them.
+
+The equivalent code written for Solid 2.0 is shorter and clearer on intent. It informs our ability observe the runtime, provide better compiler errors, and removes the need for as many escape hatches (like `createEffect`) that can get us in trouble. This is something we believe important in an age of AI. Safe by construction rather than by exhaustion. Reduce complexity by deriving(reducing) state rather than putting it in a reducer.
+
+```ts
+// async cascading dropdown
+function App() {
+  const states = createMemo(() => getStates("US"));
+  const [selectedState, setState] = createSignal(() => states()[0]);
+  const cities = createMemo(() => getCities(selectedState()));
+  const [selectedCity, setCity] = createSignal(() => cities()[0]);
+
+  return (
+    <Loading fallback={<p>Loading...</p>}>
+      <select onChange={(e) => setState(e.target.value)}>
+        <For each={states()}>{(state) => <option>{state}</option>}</For>
+      </select>{' '}
+      <select disabled={isPending(cities)} onChange={(e) => setCity(e.target.value)}>
+        <For each={cities()}>{(city) => <option>{city}</option>}</For>
+      </select>
+      <p>
+        Selection: {selectedCity()}, {selectedState()}
+      </p>
+    </Loading>
+  );
+}
+```
+
+When the framework carries the guarantees, all loading state, race conditions, and cancellation logic disappears and what you are left with is the UI.
+
+## The Road Here
+
+The first discussions of what a Solid 2.0 would look like started at the moment 1.0 was released. We saught feedback from the community on [new reactivity ideas](https://github.com/solidjs/solid-workgroup/discussions/2). The real effort started in late 2024. We announced the [road to 2.0](https://github.com/solidjs/solid/discussions/2425) in February 2025. Over a year of experiments followed, rewriting the reactive core from scratch until the async model held up to everything we threw at it. The [beta](https://github.com/solidjs/solid/discussions/2596) landed in March, and the [Release Candidate](https://github.com/solidjs/solid/discussions/2995) in August, with the API frozen.
+
+Then 23 release candidates in 14 weeks. In that time alone, 971 pull requests were merged and 753 issues closed. We set one bar for stable. A full week with no regression in ordinary app code, and no crash or hang anywhere. It took a while to get there. By the end, the bug reports coming in were from people(agents) deliberately hunting edge cases in the deepest corners of the scheduler, and finding them.
+
+So many people have touched the project over the past 5 years, from working on the initial reactivity prototypes, to testing the latest RC builds on their production apps. I've tried to thank as many of you as I can and attached hundreds of handles in the RC announcement. There are so many. There are also the many great organizations that have sponsored our development over the years: Sentry, Netlify, Google Chrome, JetBrains, Anomaly, Cursor, Code Rabbit, Anthropic, Tembo and so many more.
+
+But mostly I want to thank everyone who has believed in the project. We've accomplished great things and there is much more to come. That isn't possible without all of you. Personally, the past 2 and half years have been some of the most difficult of my life, but knowing what we are building that impacts so many people leaves me with a sense of fulfillment. Solid has always been bigger than its core team, and 2.0 is the clearest proof of that yet.
+
+```sh
+npm create solid@latest
+```
+
+Solid 2.0 is here. Let's build.
+
+</Article>

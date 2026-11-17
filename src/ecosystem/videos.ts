@@ -2,6 +2,17 @@ import { type Resource, ResourceCategory, ResourceType } from './types';
 
 const videos: Array<Resource> = [
   {
+    link: 'https://www.youtube.com/watch?v=DAmvChHdqbk',
+    title: 'SolidJS: The Metaframework is Dead. Long Live the Metaframework (ViteConf 2026)',
+    description: 'Ryan Carniato explains how server functions, single-flight mutations, file-system routing and deploy handlers moved out of the metaframework into Solid 2.0 core and framework-agnostic Vite plugins, and demos Start Mode, which takes an SPA to streaming SSR with one config change.',
+    author: 'Ryan Carniato',
+    author_url: 'https://www.youtube.com/@RyanCarniato',
+    solid2: true,
+    type: ResourceType.Video,
+    categories: [ResourceCategory.Educational],
+    published_at: 1794787200000,
+  },
+  {
     link: 'https://www.youtube.com/watch?v=J3PGI4yqta4',
     title: 'ReactiveScript: Early Findings',
     description: 'Ryan Carniato shares preliminary results from his experiments with ReactiveScript, the idea of building signals-style reactivity directly into the language.',

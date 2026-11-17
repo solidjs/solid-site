@@ -12,6 +12,10 @@
   align-items: center;
   padding-block: clamp(2rem, 5vw, 3.5rem);
 }
+/* Copy centred above the visual, for rows whose visual is a wide video player. */
+.stacked { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; gap: clamp(1.5rem, 4vw, 2.25rem); }
+.stacked .text { margin-inline: auto; max-width: 38rem; }
+.stacked .visual { width: 100%; max-width: 42rem; }
 .brand { --accent: var(--color-brand-text); }
 .success { --accent: var(--color-success); }
 .warning { --accent: var(--color-warning); }

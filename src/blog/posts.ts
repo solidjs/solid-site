@@ -29,6 +29,17 @@ const CORE = "https://www.solidjs.com";
 
 const source: Post[] = [
   {
+    slug: "solid-2-0-the-long-hold",
+    title: "Solid 2.0 - The Long Hold",
+    description:
+      "Solid 2.0 reaches stable after five years: async in the reactive graph, server functions, diagnostics built for agents, and a smaller API.",
+    author: "Ryan Carniato",
+    authorUrl: RYAN,
+    date: "2026-11-16",
+    tags: ["Release", "Solid 2.0"],
+    readingMinutes: 8,
+  },
+  {
     slug: "async-solid-one-graph-two-machines",
     title: "Async Solid - One Graph, Two Machines",
     description:

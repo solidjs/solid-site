@@ -2,17 +2,18 @@ import type { JSX } from "@solidjs/web";
 import { useI18n } from "../../i18n";
 import { For } from "solid-js";
 import { Section } from "../Section";
+import { YouTube } from "../Embeds";
 import { Separator } from "../Separator";
 import { LiveStat } from "./Stats";
 import styles from "./WhySolid.module.css";
 
 type Accent = "brand" | "success" | "warning" | "info" | "accent";
 
-/** One alternating row: coloured eyebrow, heading and copy on the left, a small visual on the right. */
-function Highlight(props: { eyebrow: string; accent: Accent; title: string; children: JSX.Element; visual: JSX.Element }) {
+/** One alternating row: coloured eyebrow, heading and copy on the left, a small visual on the right. `stacked` centres the copy above a wider visual instead. */
+function Highlight(props: { eyebrow: string; accent: Accent; title: string; children: JSX.Element; visual: JSX.Element; stacked?: boolean }) {
   const { tx } = useI18n();
   return (
-    <article class={[styles.row, styles[props.accent]]}>
+    <article class={[styles.row, styles[props.accent], props.stacked && styles.stacked]}>
       <div class={styles.copy}>
         <p class={styles.eyebrow}>{tx(props.eyebrow)}</p>
         <h3 class={styles.title}>{tx(props.title)}</h3>
@@ -245,6 +246,18 @@ export function WhySolid() {
           }
         >
           MIT licensed and used in production. These numbers come live from npm and GitHub.
+        </Highlight>
+
+        <Separator />
+
+        <Highlight
+          eyebrow="Watch"
+          accent="info"
+          stacked
+          title="Solid 2.0 in nine minutes"
+          visual={<YouTube youTubeId="sr4q-Jj7uiM" poster="/img/videos/solid-2-better-stack.jpg" title="Solid 2 is a MASSIVE Update (Goodbye SolidStart)" />}
+        >
+          Better Stack walks through what changed: async in the reactive graph, the new Loading and Errored boundaries, optimistic updates and Start mode.
         </Highlight>
       </div>
     </Section>
