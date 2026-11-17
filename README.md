@@ -1,7 +1,16 @@
-# solidjs.com
+<p align="center">
+  <img width="100%" src="https://assets.solidjs.com/banner?project=solidjs.com&version=2.0" alt="solidjs.com, the Solid 2.0 website">
+</p>
 
-Source for [www.solidjs.com](https://www.solidjs.com), the marketing site for Solid 2.0.
+# Solid Site
+
+Source for [www.solidjs.com](https://www.solidjs.com), the marketing site for [Solid 2.0](https://www.solidjs.com/blog/solid-2-0-the-long-hold): the home page, blog, team, media kit and resources.
 Docs live at [docs.solidjs.com](https://docs.solidjs.com) and the tutorial at [tutorial.solidjs.com](https://tutorial.solidjs.com); this repo does not host either.
+
+- **Fast and static.** Every page is prerendered at build time and served from Cloudflare's edge. No server work for first paint.
+- **Built with Solid 2.0.** The site is its own showcase, including live, runnable REPL examples on the home page.
+- **Accessible and themeable.** Kobalte primitives, light and dark themes, and one token file for all brand colours.
+- **Open to contributions.** Fix a typo, add a blog post or add yourself to the team page. See [Where things live](#where-things-live).
 
 ## Stack
 
@@ -28,7 +37,7 @@ pnpm dev
 | `pnpm dev` | Vite dev server |
 | `pnpm build` | Prerenders every page to `dist/client`. `prebuild` generates `public/rss.xml` from `src/blog/posts.ts`; `postbuild` adds the hand-written `.tsx` pages to the generated `sitemap.xml` |
 | `pnpm preview` | Serve the production build locally |
-| `pnpm type:check` | `tsc --noEmit` |
+| `pnpm type:check` | `tsc --noEmit` for the site and the worker |
 | `pnpm deploy` | Build, then `wrangler deploy` to production |
 | `pnpm deploy:preview` | Build, then `wrangler versions upload` (preview version, not promoted) |
 
@@ -79,7 +88,7 @@ The GitHub stars, npm downloads and contributor count on the home page come from
 
 - If a refresh fails, the previous number stays. If nothing has been stored yet (the first request after the first deploy), the request fills it. A snapshot over 36 hours old is refreshed by the next visitor.
 - Optional: `pnpm wrangler secret put GITHUB_TOKEN` (a token with no scopes) raises GitHub's rate limit for the refresh. It is not needed for one request a day.
-- To refresh by hand, trigger the cron from the Cloudflare dashboard (Workers, `solidjs-site`, Settings, Triggers). Locally, `pnpm wrangler dev --local --test-scheduled` after `pnpm build`, then `curl "localhost:8787/cdn-cgi/handler/scheduled"`.
+- To refresh by hand, trigger the cron from the Cloudflare dashboard (Workers, `solid2-site`, Settings, Triggers). Locally, `pnpm wrangler dev --local --test-scheduled` after `pnpm build`, then `curl "localhost:8787/cdn-cgi/handler/scheduled"`.
 - In `pnpm dev` there is no Worker, so the page falls back to asking GitHub and npm directly.
 
 ## License
