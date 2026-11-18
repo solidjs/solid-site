@@ -1228,7 +1228,7 @@ const utilities: Array<Resource> = [
     published_at: 1642085029000,
   },
   {
-    link: 'https://suid.io',
+    link: 'https://suid.dev',
     title: 'SUID - Material UI',
     description: 'A port of MUI built with SolidJS.',
     author: 'Juanra GM',
