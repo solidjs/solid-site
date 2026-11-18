@@ -16,7 +16,7 @@ export const STATS_FALLBACK = {
 };
 export type Stats = typeof STATS_FALLBACK;
 
-/** Create command for a Solid 2 project (documented at v2.solidjs.com quick start). */
+/** Create command for a Solid 2 project (documented at docs.solidjs.com quick start). */
 export const CREATE_COMMAND = "npm create solid@latest";
 
 export interface Snippet {

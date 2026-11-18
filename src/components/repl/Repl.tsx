@@ -6,7 +6,7 @@ import type { ReplFile } from "./examples";
 import styles from "./Repl.module.css";
 
 // solid-repl needs Web Workers, dockview and CodeMirror, so it never renders on the server.
-const ReplClient = clientOnly(() => import("./ReplClient"));
+const ReplClient = clientOnly(() => import("./ReplClient"), { lazy: true });
 
 export interface ReplProps {
   files: ReplFile[];

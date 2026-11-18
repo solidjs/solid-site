@@ -5,7 +5,7 @@
 # Solid Site
 
 Source for [www.solidjs.com](https://www.solidjs.com), the marketing site for [Solid 2.0](https://www.solidjs.com/blog/solid-2-0-the-long-hold): the home page, blog, team, media kit and resources.
-Docs live at [docs.solidjs.com](https://docs.solidjs.com) and the tutorial at [tutorial.solidjs.com](https://tutorial.solidjs.com); this repo does not host either.
+Docs and the tutorial live at [docs.solidjs.com](https://docs.solidjs.com) and [docs.solidjs.com/tutorial](https://docs.solidjs.com/tutorial); this repo does not host either.
 
 - **Fast and static.** Every page is prerendered at build time and served from Cloudflare's edge. No server work for first paint.
 - **Built with Solid 2.0.** The site is its own showcase, including live, runnable REPL examples on the home page.

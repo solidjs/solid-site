@@ -25,13 +25,13 @@ export const SOLID_2 = {
   /** Current release. TODO(content): confirm the exact version string at go-live. */
   version: "2.0.0",
   installCommand: "npm install solid-js @solidjs/web",
-  migrationGuide: "https://v2.solidjs.com/migration/from-solid-1/",
+  migrationGuide: "https://docs.solidjs.com/migration/from-solid-1/",
 } as const;
 
 export const URLS = {
-  /** The Solid 2.0 docs and tutorial. docs.solidjs.com still documents 1.x, and tutorial.solidjs.com no longer resolves. */
-  docs: "https://v2.solidjs.com",
-  tutorial: "https://v2.solidjs.com/tutorial/",
+  /** The Solid 2.0 docs and tutorial, both on docs.solidjs.com. tutorial.solidjs.com no longer resolves. */
+  docs: "https://docs.solidjs.com",
+  tutorial: "https://docs.solidjs.com/tutorial/",
   playground: "https://playground.solidjs.com",
   github: "https://github.com/solidjs",
   githubRepo: "https://github.com/solidjs/solid",
