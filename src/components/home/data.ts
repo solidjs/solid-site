@@ -81,7 +81,7 @@ export const ECOSYSTEM: Project[] = [
   { name: "SolidBase", description: "Docs and content site framework built on Solid. This site uses it.", href: "https://github.com/kobaltedev/solidbase", icon: "book" },
   { name: "Solid Meta", description: "Manage document head tags, such as titles and meta.", href: "https://github.com/solidjs/solid-meta", icon: "code" },
   { name: "Testing Library", description: "Solid bindings for Testing Library.", href: "https://github.com/solidjs/solid-testing-library", icon: "check" },
-  { name: "@solidjs/start-devtools", description: "Optional development toolbar for Solid 2.0, offered by Create Solid.", href: "https://github.com/solidjs/solid-start-devtools", icon: "zap" },
+  { name: "Solid Devtools", description: "Development toolbar for Solid 2.0.", href: "https://github.com/solidjs/solid-start-devtools", icon: "zap" },
   { name: "ESLint Plugin Solid", description: "The Solid linter: catches reactivity mistakes such as destructured props.", href: "https://github.com/solidjs-community/eslint-plugin-solid", icon: "shield" },
 ];
 

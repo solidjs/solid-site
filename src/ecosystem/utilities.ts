@@ -106,25 +106,13 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Testing],
   },
   {
-    link: 'https://github.com/thetarnav/solid-devtools',
-    title: 'Solid Developer Tools (Solid 1.x)',
-    description:
-      'Community developer tools and browser extension for Solid 1.x, including a reactivity debugger and graph visualization.',
-    author: 'Damian Tarnawski',
-    author_url: 'https://github.com/thetarnav/solid-devtools',
-    keywords: ['debug', 'devtools'],
-    official: false,
-    type: PackageType.Package,
-    categories: [ResourceCategory.BuildUtilities],
-  },
-  {
     link: 'https://github.com/solidjs/solid-start-devtools',
-    title: '@solidjs/start-devtools',
+    title: 'Solid Devtools',
     description:
-      'Development toolbar for Solid 2.0 Start mode with runtime error, server-function, reactivity graph and ownership inspection. Available as an opt-in in Create Solid.',
+      'Development toolbar for Solid 2.0 Start mode with runtime error inspection, server-function tracing, a reactivity graph and an ownership tree.',
     author: 'Solid Team',
     author_url: 'https://github.com/solidjs',
-    keywords: ['debug', 'devtools', 'toolbar', 'solidstart', 'create-solid'],
+    keywords: ['@solidjs/start-devtools', 'debug', 'devtools', 'toolbar', 'solidstart', 'create-solid'],
     official: true,
     solid2: true,
     type: PackageType.Package,

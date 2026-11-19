@@ -192,7 +192,7 @@ export default {
   "Docs and content site framework built on Solid. This site uses it.": "Framework de sites de documentation et de contenu construit sur Solid. Ce site l'utilise.",
   "Manage document head tags, such as titles and meta.": "Gérez les balises de l'en-tête du document, comme les titres et les métadonnées.",
   "Solid bindings for Testing Library.": "Intégration de Solid pour Testing Library.",
-  "Optional development toolbar for Solid 2.0, offered by Create Solid.": "Barre d'outils de développement facultative pour Solid 2.0, proposée par Create Solid.",
+  "Development toolbar for Solid 2.0.": "Barre d'outils de développement pour Solid 2.0.",
   "The Solid linter: catches reactivity mistakes such as destructured props.": "Le linter de Solid : détecte les erreurs de réactivité, comme les props déstructurées.",
   "Solid is MIT licensed and developed on GitHub. Questions and help happen on Discord.": "Solid est sous licence MIT et développé sur GitHub. Les questions et l'entraide se passent sur Discord.",
   "Discord": "Discord",
