@@ -46,7 +46,7 @@ export function SubmitDialog(props: { kind: "package" | "resource" }) {
       authorUrl ? `  author_url: ${q(authorUrl)},` : "",
       `  type: ${isPackage() ? "PackageType" : "ResourceType"}.${type[0].toUpperCase()}${type.slice(1)},`,
       `  categories: [${categories.map((c) => `ResourceCategory.${Object.entries(ResourceCategory).find(([, v]) => v === c)?.[0]}`).join(", ")}],`,
-      isPackage() ? "" : `  published_at: ${Date.now()},`,
+      isPackage() ? `  added_at: ${Date.now()},` : `  published_at: ${Date.now()},`,
       "},",
     ]
       .filter(Boolean)
