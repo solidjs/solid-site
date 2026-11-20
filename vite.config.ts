@@ -3,7 +3,7 @@ import { solidReplVitePlugin } from "@kobalte/solidbase/default-theme/repl.js";
 import solid from "@solidjs/vite-plugin";
 import { readFileSync } from "node:fs";
 import { defineConfig, type Plugin } from "vite";
-import { DEFAULT_LOCALE, LOCALES, PREFIXED_LOCALES } from "./src/i18n/locales";
+import { DEFAULT_LOCALE, LOCALES, PREFIXED_LOCALES } from "./src/i18n/locales.ts";
 
 /**
  * Serves /og/*.png from the dev server, rendered on first request with the same code as the build, so link-preview
@@ -25,7 +25,7 @@ function ogDevImages(): Plugin {
         if (!match) return next();
         try {
           rendered ??= (async () => {
-            (await import("./scripts/og-globals")).installOgGlobals();
+            (await import("./scripts/og-globals.ts")).installOgGlobals();
             const { ogPages } = (await server.ssrLoadModule("/src/og/pages.ts")) as typeof import("./src/og/pages");
             const { renderAll } = (await server.ssrLoadModule("/src/og/render.tsx")) as typeof import("./src/og/render");
             return new Map(await renderAll(ogPages()));
