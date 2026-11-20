@@ -11,7 +11,8 @@
   isolation: isolate;
   display: flex;
   min-height: max(32rem, calc(100svh - var(--header-height) - 9.5rem));
-  padding: clamp(1.25rem, 3vw, 2.5rem) 0;
+  --panel-pad: clamp(1.25rem, 3vw, 2.5rem);
+  padding: var(--panel-pad) 0;
   border-radius: 1.5rem;
   background:
     radial-gradient(48rem 30rem at 85% 0%, color-mix(in srgb, var(--color-hero-text) 14%, transparent), transparent 70%),
@@ -57,6 +58,31 @@
   gap: 3rem;
   text-align: left;
 }
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+/* The same oversized wordmark as the footer, bleeding off the panel's top edge instead of the bottom. */
+.wordmark {
+  /* Pulls the box up over the panel's top padding so the letters are cut by the panel edge. */
+  margin-top: calc(-1 * var(--panel-pad));
+  height: clamp(5.5rem, 14vw, 11.5rem);
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  font-size: clamp(7rem, 18vw, 15rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-bg); /* the page background, so the letters read as cut-outs in the panel */
+}
+.wordmark span {
+  display: block;
+  transform: translateY(-15%);
+}
 .announce {
   align-self: flex-start;
   max-width: 100%;
@@ -101,7 +127,7 @@
   display: block;
 }
 .accent {
-  color: color-mix(in srgb, var(--color-hero-text) 65%, transparent);
+  color: var(--color-hero-text);
 }
 .side {
   display: flex;
@@ -156,7 +182,26 @@
     opacity: 0.45;
   }
 }
+/* Wide screens: the pill sits at the panel's own right edge, not the (centred, capped) content column's. */
+@media (min-width: 52.01rem) {
+  .announce {
+    position: absolute;
+    top: var(--panel-pad);
+    right: var(--panel-pad);
+  }
+}
+/* Tablets and phones: the wordmark stays at the top and the pill drops to sit right above the headline. */
 @media (max-width: 52rem) {
+  .inner {
+    justify-content: flex-start;
+  }
+  .top {
+    display: contents;
+  }
+  .announce {
+    margin-top: auto;
+    margin-bottom: -1.25rem; /* tightens the .inner gap so the pill reads as part of the headline block */
+  }
   .copy {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
