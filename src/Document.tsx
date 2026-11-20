@@ -1,5 +1,6 @@
 import { getHtmlProps } from "@kobalte/solidbase/server";
 import { HydrationScript } from "@solidjs/web";
+import geistFont from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
 import type { ParentProps } from "solid-js";
 import { FAVICON_DARK, FAVICON_LIGHT, FAVICON_SCRIPT, THEME_INIT_SCRIPT } from "./components/theme";
 import { LOCALES } from "./i18n/locales";
@@ -11,6 +12,8 @@ export default function Document(props: ParentProps) {
     <html lang={lang} dir={LOCALES.find((l) => l.lang === lang)?.dir}>
       <head>
         <meta charset="utf-8" />
+        {/* The body font is otherwise discovered only after the CSS has parsed, which delays first paint of the hero text. */}
+        <link rel="preload" href={geistFont} as="font" type="font/woff2" crossorigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Sets <html data-theme> before first paint (no flash). Inline by necessity: the CSP in public/_headers allows 'unsafe-inline' scripts. */}
         <script innerHTML={THEME_INIT_SCRIPT} />
