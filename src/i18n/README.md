@@ -37,6 +37,10 @@ French (`messages/fr.ts`) covers the whole site except the long blog articles: e
 
 In development, `window.__i18nMissing` lists every string a translated page asked for that the catalog does not have.
 
+## Italian, German, Spanish and Portuguese
+
+Italian (`messages/it.ts`), German (`messages/de.ts`), Spanish (`messages/es.ts`) and Portuguese (`messages/pt.ts`) cover the same ground as French: every page, the navigation, the footer and the Code of Conduct (`src/routes/it/` and `src/routes/de/`). Blog articles stay in English. Both catalogs were written by an AI translator and need a native speaker's review (`TODO(content): review` in each file). Italian uses the informal imperative, German uses "du". Spanish is neutral international Spanish; Portuguese is Brazilian (`pt-BR`).
+
 ## Translating text in components
 
 ```tsx
