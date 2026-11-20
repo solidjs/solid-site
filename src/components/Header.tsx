@@ -251,6 +251,10 @@ function MobileNav() {
  */
 export function Header() {
   const { t, localePath } = useI18n();
+  const location = useLocation();
+  // The home hero carries its own oversized "solid" wordmark, so up there the header shows just the icon. The wordmark
+  // and the 2.0 tag come back once the header collapses into its floating pill.
+  const isHome = () => stripLocale(location.pathname.replace(/\/+$/, "") || "/") === "/";
   const [hidden, setHidden] = createSignal(false);
   const [scrolled, setScrolled] = createSignal(false);
   onSettled(() => {
@@ -271,7 +275,7 @@ export function Header() {
     <header class={styles.header} data-hidden={hidden() ? "" : undefined} data-scrolled={scrolled() ? "" : undefined} inert={hidden()}>
       <div class={styles.bar}>
         <a href={localePath("/")} class={styles.brand} aria-label={t("{name} home", { name: SITE_NAME })}>
-          <Logo height={scrolled() ? 28.8 : 32} wordScale={0.85} />
+          <Logo height={scrolled() ? 28.8 : 38.4} wordScale={0.85} wordmark={scrolled() || !isHome()} />
           <div class={styles.badge} aria-hidden="true">2.0</div>
         </a>
         <div class={styles.desktop}>

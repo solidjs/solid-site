@@ -16,11 +16,16 @@ export function Hero() {
     <section class={styles.hero} aria-labelledby="home-title">
       <div class={styles.panel}>
         <Container size="wide" class={styles.inner}>
-          <Link href="/blog" class={styles.announce}>
-            <Badge tone="brand">New</Badge>
-            <span>{t("Solid 2.0 is live. Read the latest")}</span>
-            <Icon name="arrow-right" size={14} />
-          </Link>
+          <div class={styles.top}>
+            <div class={styles.wordmark} aria-hidden="true">
+              <span>solid</span>
+            </div>
+            <Link href="/blog" class={styles.announce}>
+              <Badge tone="brand">New</Badge>
+              <span>{t("Solid 2.0 is live. Read the latest")}</span>
+              <Icon name="arrow-right" size={14} />
+            </Link>
+          </div>
           <div class={styles.copy}>
             <h1 id="home-title" class={styles.title}>
               <span>{t("Fine-grained reactivity.")}</span>

@@ -44,6 +44,11 @@ export interface Resource {
   keywords?: readonly string[];
   /** Milliseconds since the epoch. */
   published_at?: number;
+  /**
+   * Milliseconds since the epoch when the entry was added to this site. Shown nowhere but drives the "New" badge, which
+   * an entry carries for NEW_WINDOW_MONTHS after it (falling back to `published_at` when this is not set).
+   */
+  added_at?: number;
 }
 
 /** English label for each category; the page runs them through t(). */
@@ -77,4 +82,16 @@ export function matches(resource: Resource, query: string): boolean {
     .join(" ")
     .toLowerCase();
   return words.every((w) => haystack.includes(w));
+}
+
+/** How long an entry counts as "New" after it was added. */
+export const NEW_WINDOW_MONTHS = 3;
+
+/** Whether an entry was added within the last NEW_WINDOW_MONTHS calendar months of `now` (ms since the epoch). */
+export function isNew(r: Resource, now: number): boolean {
+  const added = r.added_at ?? r.published_at;
+  if (added === undefined || added > now) return false;
+  const since = new Date(now);
+  since.setUTCMonth(since.getUTCMonth() - NEW_WINDOW_MONTHS);
+  return added >= since.getTime();
 }
