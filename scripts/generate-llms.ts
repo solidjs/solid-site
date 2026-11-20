@@ -47,12 +47,12 @@ const text = `# Solid
 
 > Solid is a declarative JavaScript library for building fast, fine-grained reactive user interfaces. Components run once and signals update exactly the DOM nodes that read them, with no virtual DOM. Solid 2.0 adds first-class async, split effects and draft-first stores. Released under the MIT License.
 
-This file indexes the Solid website. The documentation lives at v2.solidjs.com and the interactive tutorial at v2.solidjs.com/tutorial.
+This file indexes the Solid website. The documentation lives at docs.solidjs.com and the interactive tutorial at docs.solidjs.com/tutorial.
 
 ## Docs
 
-${link("Solid documentation", "https://v2.solidjs.com", "guides, concepts and API reference for Solid, Solid Router and SolidStart")}
-${link("Interactive tutorial", "https://v2.solidjs.com/tutorial/", "learn Solid in the browser, lesson by lesson")}
+${link("Solid documentation", "https://docs.solidjs.com", "guides, concepts and API reference for Solid, Solid Router and SolidStart")}
+${link("Interactive tutorial", "https://docs.solidjs.com/tutorial/", "learn Solid in the browser, lesson by lesson")}
 ${link("Solid 2.0 release candidate announcement", `${origin}/blog/solid-2-0-rc-the-big-reveal`, "what changed in 2.0: async in the reactive graph, split effects and the new compiler")}
 
 ## Site

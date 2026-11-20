@@ -52,7 +52,7 @@ Everything Solid 2.0 removes is something you had to learn. Everything it adds i
 - **`on` and `createComputed` — gone.** Split effects — `createEffect(compute, apply)` — separate tracking from side effects.
 - **`produce` and `createMutable` — gone.** Store setters hand you a draft you mutate. That's just how stores work now.
 
-The [1.x migration guide](https://v2.solidjs.com/migration/from-solid-1) maps every removal to its replacement.
+The [1.x migration guide](https://docs.solidjs.com/migration/from-solid-1) maps every removal to its replacement.
 
 The new APIs are a different story. You don't need optimistic stores, projections, actions, or reveal ordering to build your first app. You might not need them for your tenth. But when you do, they're there, and they work with everything else. Learn less, do more. And the runtime is only half of it.
 
@@ -99,7 +99,7 @@ export async function addTodo(title: string) {
 }
 ```
 
-- **When it's time to ship,** one build emits `dist/client` plus a server module that default-exports a web-standard Fetchable handler — the convention Cloudflare Workers, Netlify Functions, Nitro, Bun, and `deno serve` already speak. The platform Vite plugins from [Cloudflare](https://developers.cloudflare.com/workers/vite-plugin/), [Netlify](https://www.npmjs.com/package/@netlify/vite-plugin), and [Nitro](https://nitro.build/) adopt Solid's server environment directly, so there is no Solid adapter layer for you to configure or for us to maintain. Deployment is web standards plus your platform's own tooling. [Full deployment guide.](https://v2.solidjs.com/building-apps/deployment)
+- **When it's time to ship,** one build emits `dist/client` plus a server module that default-exports a web-standard Fetchable handler — the convention Cloudflare Workers, Netlify Functions, Nitro, Bun, and `deno serve` already speak. The platform Vite plugins from [Cloudflare](https://developers.cloudflare.com/workers/vite-plugin/), [Netlify](https://www.npmjs.com/package/@netlify/vite-plugin), and [Nitro](https://nitro.build/) adopt Solid's server environment directly, so there is no Solid adapter layer for you to configure or for us to maintain. Deployment is web standards plus your platform's own tooling. [Full deployment guide.](https://docs.solidjs.com/building-apps/deployment)
 
 ## SolidStart Finished Its Job
 
@@ -107,17 +107,17 @@ A metaframework exists to fill the gaps in its framework. SolidStart's job was t
 
 So instead of shipping a hollow 3.0, we're retiring it. **Start mode replaces SolidStart.**
 
-If you run SolidStart in production today, nothing breaks. SolidStart will continue to receive maintenance releases, and the [migration guide](https://v2.solidjs.com/migration/from-solid-start) is available now. For most apps the move is mechanical, and the migration assistant below flags the rest. This isn't an ending — it's the framework finishing the job the metaframework started.
+If you run SolidStart in production today, nothing breaks. SolidStart will continue to receive maintenance releases, and the [migration guide](https://docs.solidjs.com/migration/from-solid-start) is available now. For most apps the move is mechanical, and the migration assistant below flags the rest. This isn't an ending — it's the framework finishing the job the metaframework started.
 
 ## The Ten-Second Tour
 
 If you followed the beta announcement, you know the foundations. For everyone else, each item links to the docs:
 
-- **[`<Loading>`, `<Errored>`, `<Reveal>`.](https://v2.solidjs.com/concepts/boundaries)** Suspense, ErrorBoundary, and SuspenseList, reconsidered for the new async model — stale content stays visible on revalidation, boundaries heal, reveal order is coordinated.
-- **[Actions and optimistic state in core.](https://v2.solidjs.com/concepts/async-reactivity)** `action`, `createOptimistic`, and `createOptimisticStore` make in-flight mutations render immediately and reconcile when the server answers.
-- **[Draft-first stores.](https://v2.solidjs.com/concepts/stores)** Setters hand back a value to mutate directly; projections and derived stores (`createStore(fn)`, `createProjection`) replace the write-back patterns of 1.x.
-- **[Unified lists.](https://v2.solidjs.com/concepts/components-and-jsx)** One `<For>` with keying modes replaces `<For>`/`<Index>`; `<Repeat>` renders by count with no diffing.
-- **[A DOM model closer to HTML.](https://v2.solidjs.com/concepts/components-and-jsx)** Standard attribute semantics, boolean presence/absence, `class` objects and arrays, `ref` directive factories.
+- **[`<Loading>`, `<Errored>`, `<Reveal>`.](https://docs.solidjs.com/concepts/boundaries)** Suspense, ErrorBoundary, and SuspenseList, reconsidered for the new async model — stale content stays visible on revalidation, boundaries heal, reveal order is coordinated.
+- **[Actions and optimistic state in core.](https://docs.solidjs.com/concepts/async-reactivity)** `action`, `createOptimistic`, and `createOptimisticStore` make in-flight mutations render immediately and reconcile when the server answers.
+- **[Draft-first stores.](https://docs.solidjs.com/concepts/stores)** Setters hand back a value to mutate directly; projections and derived stores (`createStore(fn)`, `createProjection`) replace the write-back patterns of 1.x.
+- **[Unified lists.](https://docs.solidjs.com/concepts/components-and-jsx)** One `<For>` with keying modes replaces `<For>`/`<Index>`; `<Repeat>` renders by count with no diffing.
+- **[A DOM model closer to HTML.](https://docs.solidjs.com/concepts/components-and-jsx)** Standard attribute semantics, boolean presence/absence, `class` objects and arrays, `ref` directive factories.
 - **A cleaner package graph.** The reactive core is `@solidjs/signals`; the web runtime is `@solidjs/web`; stores live in `solid-js` itself.
 
 The design rationale for all of it lives in the [2.0 RFCs](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/README.md).
@@ -132,7 +132,7 @@ And for those who notice `serverFunctions: { components: true }` in the config t
 
 ## Try It, Migrate to It
 
-Preview documentation for Solid 2.0 is live at [v2.solidjs.com](https://v2.solidjs.com).
+Preview documentation for Solid 2.0 is live at [docs.solidjs.com](https://docs.solidjs.com).
 
 For new projects, choose the Solid 2.0 templates from:
 
@@ -140,7 +140,7 @@ For new projects, choose the Solid 2.0 templates from:
 npm create solid@latest
 ```
 
-For migrating existing projects, follow the guides [here](https://v2.solidjs.com/migration/from-solid-1).
+For migrating existing projects, follow the guides [here](https://docs.solidjs.com/migration/from-solid-1).
 
 We are also developing a [migration assistant](https://github.com/solidjs-community/solid-migration-assistant) that scans your project and prints specific guidance for every 1.x migration site it detects — legacy imports, one-argument `createEffect`, `onMount`, `Suspense`/`Index`/`classList`, the old store helpers:
 
@@ -148,7 +148,7 @@ We are also developing a [migration assistant](https://github.com/solidjs-commun
 npx solid-migration-assistant
 ```
 
-The ecosystem didn't wait. [Solid Router 2.0](https://v2.solidjs.com/routing/solid-router) ships alongside the RC with fully typed routes, params, and navigation. [Solid Meta 1.0](https://v2.solidjs.com/migration/from-solid-meta) is now a thin layer over 2.0's built-in head registry. Prefer TanStack? The [fullstack-tanstack template](https://v2.solidjs.com/routing/tanstack) pairs TanStack Router and TanStack Query with start mode out of the box, and [TanStack Start](https://tanstack.com/start) already ships a Solid 2.0 beta (`@tanstack/solid-start@beta`). And the libraries you actually build apps with — [Solid Primitives](https://primitives2.solidjs.community/), [Kobalte](https://kobalte.dev/), [Solid Testing Library](https://github.com/solidjs/solid-testing-library), [Storybook](https://github.com/solidjs-community/storybook), and [AG Grid](https://github.com/dsnchz/solid-ag-grid) — have been working hard to support 2.0 through the betas and are ready to use with the RC today. Utilities, components, metaframeworks, testing, routing, head management: the stack is ready before the release is.
+The ecosystem didn't wait. [Solid Router 2.0](https://docs.solidjs.com/routing/solid-router) ships alongside the RC with fully typed routes, params, and navigation. [Solid Meta 1.0](https://docs.solidjs.com/migration/from-solid-meta) is now a thin layer over 2.0's built-in head registry. Prefer TanStack? The [fullstack-tanstack template](https://docs.solidjs.com/routing/tanstack) pairs TanStack Router and TanStack Query with start mode out of the box, and [TanStack Start](https://tanstack.com/start) already ships a Solid 2.0 beta (`@tanstack/solid-start@beta`). And the libraries you actually build apps with — [Solid Primitives](https://primitives2.solidjs.community/), [Kobalte](https://kobalte.dev/), [Solid Testing Library](https://github.com/solidjs/solid-testing-library), [Storybook](https://github.com/solidjs-community/storybook), and [AG Grid](https://github.com/dsnchz/solid-ag-grid) — have been working hard to support 2.0 through the betas and are ready to use with the RC today. Utilities, components, metaframeworks, testing, routing, head management: the stack is ready before the release is.
 
 ## Thank You
 

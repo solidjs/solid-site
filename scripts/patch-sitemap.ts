@@ -14,7 +14,10 @@ const xml = await readFile(file, "utf8");
 const has = (xmlText: string, path: string) => xmlText.includes(`<loc>${origin}${path === "/" ? "" : path}</loc>`) || xmlText.includes(`<loc>${origin}${path}</loc>`);
 
 const listed = [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1].slice(origin.length) || "/");
-const defaults = [...new Set([...listed, ...extra])];
+// SolidBase may already list a prefixed copy (such as /fr/code-of-conduct); keep only default-language paths here so
+// the prefixing below does not produce /fr/fr/....
+const isPrefixed = (p: string) => PREFIXED_LOCALES.some((l) => p === `/${l.code}` || p.startsWith(`/${l.code}/`));
+const defaults = [...new Set([...listed, ...extra])].filter((p) => !isPrefixed(p));
 // Blog posts are English only, so a /fr/blog/<slug> page is a duplicate of the English one (it is canonicalised and
 // noindexed in src/theme/Layout.tsx) and does not belong in the sitemap. The blog index is translated and stays.
 const isPostPath = (p: string) => /^\/blog\/[^/]+$/.test(p.replace(/^\/(?:fr)(?=\/|$)/, "") || "/");
