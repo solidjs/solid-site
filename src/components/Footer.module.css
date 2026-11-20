@@ -1,36 +1,39 @@
-.footer { margin-top: auto; padding-block: 3.5rem 2rem; border-top: 1px solid var(--color-border); background: var(--color-bg-subtle); }
-.grid { display: grid; gap: 2.5rem; padding-bottom: 3rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.brand { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; max-width: 24rem; }
-.logo { display: inline-flex; text-decoration: none; border-radius: var(--radius-sm); }
-.tagline { color: var(--color-text-muted); font-size: var(--text-sm); }
-.heading { font-size: var(--text-sm); font-weight: var(--weight-semibold); margin-bottom: 0.9rem; letter-spacing: 0; }
-.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
-.link { font-size: var(--text-sm); color: var(--color-text-muted); }
-.link:hover { color: var(--color-text); text-decoration: underline; }
-.bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; }
-.legalBlock { display: flex; flex-direction: column; gap: 0.25rem; }
-.build { margin: 0; font-size: var(--text-xs); color: var(--color-text-faint); font-variant-numeric: tabular-nums; }
-.legal { font-size: var(--text-sm); color: var(--color-text-muted); }
-.social { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
-.socialLink { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-md); color: var(--color-text-muted); }
-.socialLink:hover { background: var(--color-surface-hover); color: var(--color-text); }
-/* Phones: Learn and Community sit side by side, and Project (the longest list) spans the row in two columns instead of
-   leaving a lone column with a gap beside it. */
-@media (max-width: 35.99rem) {
-  .footer { padding-block: 2.5rem 1.5rem; }
-  .grid { gap: 2rem 1.5rem; padding-bottom: 2rem; }
-  .column:last-of-type { grid-column: 1 / -1; }
-  .column:last-of-type .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.5rem; }
-  .bottom { flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
-  .legalBlock { align-items: center; }
-  .social { justify-content: center; }
+/* A rounded brand-blue panel inset from the page edges, with an oversized "solid" wordmark cropped along its bottom. */
+.footer { margin-top: auto; padding-block: 3rem 1.5rem; }
+.panel {
+  --footer-fg: #ffffff;
+  --footer-muted: rgb(255 255 255 / 0.72);
+  --footer-faint: rgb(255 255 255 / 0.6);
+  position: relative; overflow: hidden; border-radius: var(--radius-xl); color: var(--footer-fg);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem) 0;
+  /* Fixed Solid Blues, not --color-brand: that token turns Sky Blue in dark mode and washed the panel out. Same family as the hero. */
+  background: linear-gradient(160deg, #0a4593, #0a3a7e 55%, #072a5c);
 }
-/* Tablets: the brand block spans the top, then all three link columns share one row. */
-@media (min-width: 36rem) and (max-width: 47.99rem) {
-  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.5rem; }
-  .brand { max-width: 30rem; }
+.top { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(2.5rem, 7vw, 5rem); }
+.stat { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; color: inherit; text-decoration: none; border-radius: var(--radius-sm); }
+.statValue { font-family: var(--font-mono); font-weight: var(--weight-semibold); font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.statLabel { font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.04em; }
+.actions { display: flex; align-items: center; gap: 0.25rem; }
+.social { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
+.socialLink { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: var(--radius-md); color: var(--footer-muted); }
+.socialLink:hover { background: rgb(255 255 255 / 0.12); color: var(--footer-fg); }
+.grid { display: grid; gap: 2rem 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.heading { font-size: var(--text-base); font-weight: var(--weight-semibold); margin-bottom: 1rem; letter-spacing: 0; color: var(--footer-fg); }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+.link { font-size: var(--text-sm); color: var(--footer-muted); }
+.link:hover { color: var(--footer-fg); text-decoration: underline; }
+.bottom { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; }
+.legalBlock { display: flex; flex-direction: column; gap: 0.25rem; }
+.legal { font-size: var(--text-sm); color: var(--footer-muted); }
+.legalLink { color: var(--footer-fg); }
+.build { margin: 0; font-size: var(--text-xs); color: var(--footer-faint); font-variant-numeric: tabular-nums; }
+.lang button { color: var(--footer-fg); }
+.lang button:hover, .lang button[data-expanded] { background: rgb(255 255 255 / 0.12); color: var(--footer-fg); }
+.wordmark {
+  margin-top: clamp(1rem, 3vw, 2rem); height: clamp(5rem, 17vw, 15rem); overflow: hidden; user-select: none;
+  font-weight: var(--weight-bold, 700); font-size: clamp(8rem, 28vw, 25rem); line-height: 0.85; letter-spacing: -0.05em;
+  color: #ffffff; white-space: nowrap;
 }
 @media (min-width: 48rem) {
-  .grid { grid-template-columns: minmax(16rem, 1.6fr) repeat(3, minmax(0, 1fr)); }
-  .brand { grid-column: auto; }
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

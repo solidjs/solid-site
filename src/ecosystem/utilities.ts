@@ -2827,6 +2827,19 @@ const utilities: Array<Resource> = [
     keywords: ['chatbot', 'ai', 'chat', 'widget', 'customer support', 'solidstart'],
     published_at: 1794987471726,
   },
+  {
+    link: 'https://solid-bits.dev/',
+    title: 'Solid Bits',
+    description:
+      'Open source library of 200+ animated SolidJS components and backgrounds that you copy into your project and make your own.',
+    author: 'David Haz',
+    author_url: 'https://x.com/davidhaz',
+    keywords: ['animated', 'components', 'backgrounds', 'copy-paste'],
+    official: false,
+    type: PackageType.Library,
+    categories: [ResourceCategory.UI],
+    added_at: 1795132800000,
+  },
 ];
 
 export default utilities;

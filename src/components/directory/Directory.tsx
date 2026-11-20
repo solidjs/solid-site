@@ -2,7 +2,7 @@ import { useLocation } from "@solidjs/router";
 import { createMemo, createSignal, For, Show, untrack } from "solid-js";
 import { Tabs as KTabs } from "@kobalte/core/tabs";
 import { useI18n } from "../../i18n";
-import { type PackageType, type Resource, type ResourceType, matches } from "../../ecosystem/types";
+import { type PackageType, type Resource, type ResourceType, isNew, matches } from "../../ecosystem/types";
 import { Badge } from "../Badge";
 import { Icon, type IconName } from "../Icon";
 import { ToggleGroup } from "../ToggleGroup";
@@ -30,6 +30,9 @@ export interface DirectoryProps {
   filterLabel: string;
   searchLabel: string;
 }
+
+/** Fixed per build (like the footer date), so the prerendered HTML and the client always agree on what is new. */
+const BUILD_TIME = new Date(`${__BUILD_DATE__}T23:59:59Z`).getTime();
 
 function formatDate(ms: number, lang: string): string {
   return new Date(ms).toLocaleDateString(lang, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
@@ -70,6 +73,9 @@ function ResourceCard(props: { item: Resource }) {
         </p>
       </div>
       <div class={styles.flags}>
+        <Show when={isNew(props.item, BUILD_TIME)}>
+          <Badge tone="accent">New</Badge>
+        </Show>
         <Show when={props.item.maintained === false}>
           <Badge tone="warning">Unmaintained</Badge>
         </Show>
@@ -92,6 +98,7 @@ export function Directory(props: DirectoryProps) {
   const [selected, setSelected] = createSignal<string[]>([]);
   const [officialOnly, setOfficialOnly] = createSignal(false);
   const [hideUnmaintained, setHideUnmaintained] = createSignal(true);
+  const [newOnly, setNewOnly] = createSignal(false);
 
   const onSearch = (value: string) => {
     setQuery(value);
@@ -112,7 +119,7 @@ export function Directory(props: DirectoryProps) {
   const base = createMemo(() =>
     inTab().filter(
       (r) =>
-        (!props.packageSwitches || ((!officialOnly() || r.official) && (!hideUnmaintained() || r.maintained !== false))),
+        (!props.packageSwitches || ((!officialOnly() || r.official) && (!newOnly() || isNew(r, BUILD_TIME)) && (!hideUnmaintained() || r.maintained !== false))),
     ),
   );
   const counts = createMemo(() => {
@@ -176,6 +183,10 @@ export function Directory(props: DirectoryProps) {
             <label>
               <input type="checkbox" checked={officialOnly()} onChange={(e) => setOfficialOnly(e.currentTarget.checked)} />
               {t("Official only")}
+            </label>
+            <label>
+              <input type="checkbox" checked={newOnly()} onChange={(e) => setNewOnly(e.currentTarget.checked)} />
+              {t("New only")}
             </label>
             <label>
               <input type="checkbox" checked={hideUnmaintained()} onChange={(e) => setHideUnmaintained(e.currentTarget.checked)} />

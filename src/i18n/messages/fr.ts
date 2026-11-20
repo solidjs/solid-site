@@ -49,6 +49,7 @@ export default {
   "Search resources": "Rechercher des ressources",
   "Filter by type": "Filtrer par type",
   "Official only": "Officiels seulement",
+  "New only": "Nouveautés seulement",
   "Hide unmaintained": "Masquer les projets non maintenus",
   "{count} results": "{count} résultats",
   "No resources found.": "Aucune ressource trouvée.",
