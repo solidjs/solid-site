@@ -106,14 +106,15 @@ const utilities: Array<Resource> = [
     categories: [ResourceCategory.Testing],
   },
   {
-    link: 'https://github.com/thetarnav/solid-devtools',
-    title: 'Solid Developer Tools',
+    link: 'https://github.com/solidjs/solid-start-devtools',
+    title: 'Solid Devtools',
     description:
-      'Library of developer tools, reactivity debugger & Devtools Chrome extension for visualizing SolidJS reactivity graph.',
-    author: 'Damian Tarnawski',
-    author_url: 'https://github.com/thetarnav/solid-devtools',
-    keywords: ['debug', 'devtools'],
-    official: false,
+      'Development toolbar for Solid 2.0 Start mode with runtime error inspection, server-function tracing, a reactivity graph and an ownership tree.',
+    author: 'Solid Team',
+    author_url: 'https://github.com/solidjs',
+    keywords: ['@solidjs/start-devtools', 'debug', 'devtools', 'toolbar', 'solidstart', 'create-solid'],
+    official: true,
+    solid2: true,
     type: PackageType.Package,
     categories: [ResourceCategory.BuildUtilities],
   },
@@ -1228,7 +1229,7 @@ const utilities: Array<Resource> = [
     published_at: 1642085029000,
   },
   {
-    link: 'https://suid.io',
+    link: 'https://suid.dev',
     title: 'SUID - Material UI',
     description: 'A port of MUI built with SolidJS.',
     author: 'Juanra GM',
@@ -2812,6 +2813,19 @@ const utilities: Array<Resource> = [
     official: false,
     type: PackageType.Package,
     categories: [ResourceCategory.Plugins, ResourceCategory.UI],
+  },
+  {
+    title: 'solid-ai-chatbot',
+    link: 'https://asyntai.com/documentation/integrations/solid/',
+    author: 'Asyntai',
+    author_url: 'https://asyntai.com',
+    description:
+      'Add the Asyntai AI chat assistant to a Solid or SolidStart app with one component. It answers visitors from your own content.',
+    type: PackageType.Package,
+    categories: [ResourceCategory.UI, ResourceCategory.AddOn],
+    official: false,
+    keywords: ['chatbot', 'ai', 'chat', 'widget', 'customer support', 'solidstart'],
+    published_at: 1794987471726,
   },
 ];
 
