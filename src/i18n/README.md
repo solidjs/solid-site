@@ -27,7 +27,7 @@ That is all. The language switcher appears in the header once there is more than
 - Every page is also served under the prefix (`/about` and `/fr/about`) from the same component.
 - `Link` and `Button` add the prefix to internal links, so visitors stay in their language.
 - `<html lang>` and `dir`, `og:locale`, a canonical URL and `hreflang` alternates (with `x-default`) are set per page.
-- The build prerenders `/fr/...`, adds it to `sitemap.xml`, and repeats the `_headers` Content-Security-Policy rules
+- The build prerenders `/fr/...`, adds it to `sitemap.xml`, and repeats the `_headers` Content-Security-Policy rules (with a `:locale` placeholder, because Cloudflare allows only 100 rules)
   for it (`scripts/patch-headers.ts`), so `/fr/` gets the REPL policy that `/` has.
 - Open Graph cards are shared by every language of a page.
 
