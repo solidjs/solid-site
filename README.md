@@ -52,6 +52,10 @@ The site is fully static: no server code and no data fetching required for first
 - `src/site.ts`: site-wide constants, navigation, footer columns, social links and URLs. Unknown values are marked `TODO(content)` and must be filled in before launch; do not invent numbers or dates.
 - `public`: static files, including `img/` (logos, bios, blog images), `_headers` and `_redirects` (Cloudflare). `robots.txt` and `sitemap.xml` are generated at build time.
 
+### Languages
+
+The site is available in 12 languages. See [`TRANSLATING.md`](TRANSLATING.md) for where translations live and how to improve one or add another.
+
 ### Blog drafts
 
 Set `draft: true` on a post in `src/blog/posts.ts`. Drafts are left out of listings, RSS and the sitemap, and are rendered `noindex`. Remove the flag (and set the real date) to publish.
