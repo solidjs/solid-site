@@ -25,6 +25,12 @@ export const LOCALES: readonly LocaleDef[] = [
   { code: "de", lang: "de", ogLocale: "de_DE", label: "Deutsch" },
   { code: "es", lang: "es", ogLocale: "es_ES", label: "Español" },
   { code: "pt", lang: "pt-BR", ogLocale: "pt_BR", label: "Português" },
+  { code: "zh", lang: "zh-CN", ogLocale: "zh_CN", label: "简体中文" },
+  { code: "ja", lang: "ja", ogLocale: "ja_JP", label: "日本語" },
+  { code: "ko", lang: "ko", ogLocale: "ko_KR", label: "한국어" },
+  { code: "bn", lang: "bn", ogLocale: "bn_BD", label: "বাংলা" },
+  { code: "ru", lang: "ru", ogLocale: "ru_RU", label: "Русский" },
+  { code: "id", lang: "id", ogLocale: "id_ID", label: "Bahasa Indonesia" },
 ];
 
 export const DEFAULT_LOCALE: LocaleDef = LOCALES[0];

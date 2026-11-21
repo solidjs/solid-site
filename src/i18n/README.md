@@ -41,6 +41,10 @@ In development, `window.__i18nMissing` lists every string a translated page aske
 
 Italian (`messages/it.ts`), German (`messages/de.ts`), Spanish (`messages/es.ts`) and Portuguese (`messages/pt.ts`) cover the same ground as French: every page, the navigation, the footer and the Code of Conduct (`src/routes/it/` and `src/routes/de/`). Blog articles stay in English. Both catalogs were written by an AI translator and need a native speaker's review (`TODO(content): review` in each file). Italian uses the informal imperative, German uses "du". Spanish is neutral international Spanish; Portuguese is Brazilian (`pt-BR`).
 
+## Chinese, Japanese, Korean, Bangla, Russian and Indonesian
+
+`messages/{zh,ja,ko,bn,ru,id}.ts` and `src/routes/{zh,ja,ko,bn,ru,id}/code-of-conduct.mdx` follow the same pattern: whole site except blog articles, AI-translated, `TODO(content): review` in each catalog. Chinese is Simplified (`zh-CN`). Geist has no CJK or Bengali glyphs, so those pages use the system fallback font. The catalogs have no plural forms, so count strings such as "{n} posts" read as a label (Russian: "Записей: {n}").
+
 ## Translating text in components
 
 ```tsx
