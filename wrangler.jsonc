@@ -15,5 +15,7 @@
   // deploy, so there is no id to fill in. See worker/index.ts.
   "kv_namespaces": [{ "binding": "STATS" }],
   // Refresh them once a day, at 06:00 UTC.
-  "triggers": { "crons": ["0 6 * * *"] }
+  "triggers": { "crons": ["0 6 * * *"] },
+  // Required by `wrangler preview` (the preview deploy command). Cron triggers are not carried over to previews.
+  "previews": {}
 }
